@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
-from aws_sdk_mediapackagev2._auth._providers import (
+from capo_mediapackagev2._auth._providers import (
     CachedProvider,
     Ec2InstanceMetadataProvider,
     EcsContainerCredentialsProvider,

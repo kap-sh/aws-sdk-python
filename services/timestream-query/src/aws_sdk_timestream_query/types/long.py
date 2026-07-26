@@ -1,5 +1,0 @@
-"""Generated from Smithy shape ``com.amazonaws.timestreamquery#Long``."""
-
-from typing import TypeAlias
-
-Long: TypeAlias = int

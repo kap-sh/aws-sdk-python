@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.emrserverless#GetDashboardForJobRunResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_emr_serverless.types.url
+
+
+class GetDashboardForJobRunResponse(TypedDict, closed=True):
+    url: NotRequired["capo_emr_serverless.types.url.Url"]
+    """<p>The URL to view job run's dashboard.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetDashboardForJobRunResponse) -> dict:
+    out: dict = {}
+    if "url" in value:
+        out["url"] = value["url"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetDashboardForJobRunResponse:
+    out: GetDashboardForJobRunResponse = {}  # type: ignore[typeddict-item]
+    if "url" in data:
+        out["url"] = data["url"]
+    return out

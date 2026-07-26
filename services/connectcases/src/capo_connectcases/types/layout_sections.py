@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcases#LayoutSections``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_connectcases.types.sections_list
+
+
+class LayoutSections(TypedDict, closed=True):
+    sections: NotRequired["capo_connectcases.types.sections_list.SectionsList"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: LayoutSections) -> dict:
+    out: dict = {}
+    if "sections" in value:
+        import capo_connectcases.types.sections_list
+
+        out["sections"] = capo_connectcases.types.sections_list.serialize_json(
+            value["sections"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> LayoutSections:
+    out: LayoutSections = {}  # type: ignore[typeddict-item]
+    if "sections" in data:
+        import capo_connectcases.types.sections_list
+
+        out["sections"] = capo_connectcases.types.sections_list.deserialize_json(
+            data["sections"]
+        )
+    return out

@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#SubnetIdList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_iot.types.subnet_id
+
+SubnetIdList: TypeAlias = list["capo_iot.types.subnet_id.SubnetId"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SubnetIdList) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> SubnetIdList:
+    return list(data)

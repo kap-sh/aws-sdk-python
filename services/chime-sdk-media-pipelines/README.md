@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-chime-sdk-media-pipelines
+pip install capo-chime-sdk-media-pipelines
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_chime_sdk_media_pipelines import AsyncChimeSDKMediaPipelinesClient
+from capo_chime_sdk_media_pipelines import AsyncChimeSDKMediaPipelinesClient
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_chime_sdk_media_pipelines import AsyncChimeSDKMediaPipelinesClient
-from aws_sdk_chime_sdk_media_pipelines.error import BadRequestException
+from capo_chime_sdk_media_pipelines import AsyncChimeSDKMediaPipelinesClient
+from capo_chime_sdk_media_pipelines.error import BadRequestException
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_chime_sdk_media_pipelines import AsyncChimeSDKMediaPipelinesClient
+from capo_chime_sdk_media_pipelines import AsyncChimeSDKMediaPipelinesClient
 
 
 async def main():

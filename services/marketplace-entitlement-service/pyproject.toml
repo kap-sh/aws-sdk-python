@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-marketplace-entitlement-service"
+name = "capo-marketplace-entitlement-service"
 version = "0.1.0"
 description = "Python SDK for Marketplace Entitlement Service."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-pi"
+name = "capo-pi"
 version = "0.1.0"
 description = "Python SDK for PI."
 readme = "README.md"

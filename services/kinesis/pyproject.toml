@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-kinesis"
+name = "capo-kinesis"
 version = "0.1.1"
 description = "Python SDK for Kinesis."
 readme = "README.md"

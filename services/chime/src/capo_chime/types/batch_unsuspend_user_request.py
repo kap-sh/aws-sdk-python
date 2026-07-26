@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.chime#BatchUnsuspendUserRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_chime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_chime.types.non_empty_string
+    import capo_chime.types.user_id_list
+
+
+class BatchUnsuspendUserRequest(TypedDict, closed=True):
+    account_id: "capo_chime.types.non_empty_string.NonEmptyString"
+    """<p>The Amazon Chime account ID.</p>"""
+    user_id_list: "capo_chime.types.user_id_list.UserIdList"
+    """<p>The request containing the user IDs to unsuspend.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchUnsuspendUserRequest) -> dict:
+    out: dict = {}
+    import capo_chime.types.user_id_list
+
+    out["UserIdList"] = capo_chime.types.user_id_list.serialize_json(
+        value["user_id_list"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> BatchUnsuspendUserRequest:
+    out: BatchUnsuspendUserRequest = {}  # type: ignore[typeddict-item]
+    if "UserIdList" in data:
+        import capo_chime.types.user_id_list
+
+        out["user_id_list"] = capo_chime.types.user_id_list.deserialize_json(
+            data["UserIdList"]
+        )
+    else:
+        raise DeserializationError("BatchUnsuspendUserRequest.user_id_list required")
+    return out

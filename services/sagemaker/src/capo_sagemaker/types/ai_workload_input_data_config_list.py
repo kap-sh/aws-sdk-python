@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#AIWorkloadInputDataConfigList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.ai_workload_input_data_config
+
+AIWorkloadInputDataConfigList: TypeAlias = list[
+    "capo_sagemaker.types.ai_workload_input_data_config.AIWorkloadInputDataConfig"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AIWorkloadInputDataConfigList) -> list:
+    import capo_sagemaker.types.ai_workload_input_data_config
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_sagemaker.types.ai_workload_input_data_config.serialize_aws_json_1_1(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> AIWorkloadInputDataConfigList:
+    import capo_sagemaker.types.ai_workload_input_data_config
+
+    out: AIWorkloadInputDataConfigList = []
+    for item in data:
+        out.append(
+            capo_sagemaker.types.ai_workload_input_data_config.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

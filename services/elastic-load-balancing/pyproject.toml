@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-elastic-load-balancing"
+name = "capo-elastic-load-balancing"
 version = "0.1.0"
 description = "Python SDK for Elastic Load Balancing."
 readme = "README.md"

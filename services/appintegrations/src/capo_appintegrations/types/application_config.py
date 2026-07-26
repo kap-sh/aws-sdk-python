@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.appintegrations#ApplicationConfig``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_appintegrations.types.contact_handling
+
+
+class ApplicationConfig(TypedDict, closed=True):
+    contact_handling: NotRequired[
+        "capo_appintegrations.types.contact_handling.ContactHandling"
+    ]
+    """<p>The contact handling configuration for the application.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ApplicationConfig) -> dict:
+    out: dict = {}
+    if "contact_handling" in value:
+        import capo_appintegrations.types.contact_handling
+
+        out["ContactHandling"] = (
+            capo_appintegrations.types.contact_handling.serialize_json(
+                value["contact_handling"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ApplicationConfig:
+    out: ApplicationConfig = {}  # type: ignore[typeddict-item]
+    if "ContactHandling" in data:
+        import capo_appintegrations.types.contact_handling
+
+        out["contact_handling"] = (
+            capo_appintegrations.types.contact_handling.deserialize_json(
+                data["ContactHandling"]
+            )
+        )
+    return out

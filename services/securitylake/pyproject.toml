@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-securitylake"
+name = "capo-securitylake"
 version = "0.1.0"
 description = "Python SDK for Securitylake."
 readme = "README.md"

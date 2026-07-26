@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#CreateDashboardResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.arn
+    import capo_quicksight.types.resource_status
+    import capo_quicksight.types.short_restrictive_resource_id
+    import capo_quicksight.types.status_code
+    import capo_quicksight.types.string
+
+
+class CreateDashboardResponse(TypedDict, closed=True):
+    arn: NotRequired["capo_quicksight.types.arn.Arn"]
+    """<p>The ARN of the dashboard.</p>"""
+    version_arn: NotRequired["capo_quicksight.types.arn.Arn"]
+    """<p>The ARN of the dashboard, including the version number of the first version that is created.</p>"""
+    dashboard_id: NotRequired[
+        "capo_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
+    ]
+    """<p>The ID for the dashboard.</p>"""
+    creation_status: NotRequired["capo_quicksight.types.resource_status.ResourceStatus"]
+    """<p>The status of the dashboard creation request.</p>"""
+    status: "capo_quicksight.types.status_code.StatusCode"
+    """<p>The HTTP status of the request.</p>"""
+    request_id: NotRequired["capo_quicksight.types.string.String"]
+    """<p>The Amazon Web Services request ID for this operation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateDashboardResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "version_arn" in value:
+        out["VersionArn"] = value["version_arn"]
+    if "dashboard_id" in value:
+        out["DashboardId"] = value["dashboard_id"]
+    if "creation_status" in value:
+        import capo_quicksight.types.resource_status
+
+        out["CreationStatus"] = capo_quicksight.types.resource_status.serialize_json(
+            value["creation_status"]
+        )
+    if "request_id" in value:
+        out["RequestId"] = value["request_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateDashboardResponse:
+    out: CreateDashboardResponse = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "VersionArn" in data:
+        out["version_arn"] = data["VersionArn"]
+    if "DashboardId" in data:
+        out["dashboard_id"] = data["DashboardId"]
+    if "CreationStatus" in data:
+        import capo_quicksight.types.resource_status
+
+        out["creation_status"] = capo_quicksight.types.resource_status.deserialize_json(
+            data["CreationStatus"]
+        )
+    if "RequestId" in data:
+        out["request_id"] = data["RequestId"]
+    return out

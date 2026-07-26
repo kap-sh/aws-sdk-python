@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.qbusiness#ListGroupsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_qbusiness.types.group_summary_list
+    import capo_qbusiness.types.next_token
+
+
+class ListGroupsResponse(TypedDict, closed=True):
+    next_token: NotRequired["capo_qbusiness.types.next_token.NextToken"]
+    """<p>If the response is truncated, Amazon Q Business returns this token that you can use in the subsequent request to retrieve the next set of groups that are mapped to users.</p>"""
+    items: NotRequired["capo_qbusiness.types.group_summary_list.GroupSummaryList"]
+    """<p>Summary information for list of groups that are mapped to users.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListGroupsResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "items" in value:
+        import capo_qbusiness.types.group_summary_list
+
+        out["items"] = capo_qbusiness.types.group_summary_list.serialize_json(
+            value["items"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListGroupsResponse:
+    out: ListGroupsResponse = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "items" in data:
+        import capo_qbusiness.types.group_summary_list
+
+        out["items"] = capo_qbusiness.types.group_summary_list.deserialize_json(
+            data["items"]
+        )
+    return out

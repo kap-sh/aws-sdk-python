@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-athena"
+name = "capo-athena"
 version = "0.1.0"
 description = "Python SDK for Athena."
 readme = "README.md"

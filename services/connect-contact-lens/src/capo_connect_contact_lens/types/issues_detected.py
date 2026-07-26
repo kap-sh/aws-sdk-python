@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcontactlens#IssuesDetected``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_connect_contact_lens.types.issue_detected
+
+IssuesDetected: TypeAlias = list[
+    "capo_connect_contact_lens.types.issue_detected.IssueDetected"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IssuesDetected) -> list:
+    import capo_connect_contact_lens.types.issue_detected
+
+    out: list = []
+    for item in value:
+        out.append(capo_connect_contact_lens.types.issue_detected.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> IssuesDetected:
+    import capo_connect_contact_lens.types.issue_detected
+
+    out: IssuesDetected = []
+    for item in data:
+        out.append(
+            capo_connect_contact_lens.types.issue_detected.deserialize_json(item)
+        )
+    return out

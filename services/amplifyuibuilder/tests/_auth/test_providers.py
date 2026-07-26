@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
-from aws_sdk_amplifyuibuilder._auth._providers import (
+from capo_amplifyuibuilder._auth._providers import (
     CachedProvider,
     Ec2InstanceMetadataProvider,
     EcsContainerCredentialsProvider,

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-iotsitewise"
+name = "capo-iotsitewise"
 version = "0.1.0"
 description = "Python SDK for Iotsitewise."
 readme = "README.md"

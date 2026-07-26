@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentReportsDestination``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_auditmanager.types.assessment_report_destination_type
+    import capo_auditmanager.types.s3_url
+
+
+class AssessmentReportsDestination(TypedDict, closed=True):
+    destination_type: NotRequired[
+        "capo_auditmanager.types.assessment_report_destination_type.AssessmentReportDestinationType"
+    ]
+    """<p> The destination type, such as Amazon S3. </p>"""
+    destination: NotRequired["capo_auditmanager.types.s3_url.S3Url"]
+    """<p> The destination bucket where Audit Manager stores assessment reports. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AssessmentReportsDestination) -> dict:
+    out: dict = {}
+    if "destination_type" in value:
+        import capo_auditmanager.types.assessment_report_destination_type
+
+        out["destinationType"] = (
+            capo_auditmanager.types.assessment_report_destination_type.serialize_json(
+                value["destination_type"]
+            )
+        )
+    if "destination" in value:
+        out["destination"] = value["destination"]
+    return out
+
+
+def deserialize_json(data: dict) -> AssessmentReportsDestination:
+    out: AssessmentReportsDestination = {}  # type: ignore[typeddict-item]
+    if "destinationType" in data:
+        import capo_auditmanager.types.assessment_report_destination_type
+
+        out["destination_type"] = (
+            capo_auditmanager.types.assessment_report_destination_type.deserialize_json(
+                data["destinationType"]
+            )
+        )
+    if "destination" in data:
+        out["destination"] = data["destination"]
+    return out

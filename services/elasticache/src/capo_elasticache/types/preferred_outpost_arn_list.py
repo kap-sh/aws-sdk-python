@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticache#PreferredOutpostArnList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from capo_elasticache._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_elasticache.types.string
+
+PreferredOutpostArnList: TypeAlias = list["capo_elasticache.types.string.String"]
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: PreferredOutpostArnList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        pairs.append((f"{prefix}.PreferredOutpostArn.{n}", str(item)))
+
+
+def deserialize_query(el: Element) -> PreferredOutpostArnList:
+    out: PreferredOutpostArnList = []
+    for child in el.findall("PreferredOutpostArn"):
+        out.append(str(child.text or ""))
+    return out
+
+
+def serialize_query_flat(
+    value: PreferredOutpostArnList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        pairs.append((f"{prefix}.{n}", str(item)))
+
+
+def deserialize_query_flat(parent: Element, tag: str) -> PreferredOutpostArnList:
+    out: PreferredOutpostArnList = []
+    for child in parent.findall(tag):
+        out.append(str(child.text or ""))
+    return out

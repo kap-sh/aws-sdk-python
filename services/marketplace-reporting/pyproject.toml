@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-marketplace-reporting"
+name = "capo-marketplace-reporting"
 version = "0.1.0"
 description = "Python SDK for Marketplace Reporting."
 readme = "README.md"

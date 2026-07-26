@@ -1,0 +1,788 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Optional
+
+import capo_scheduler._auth._signers
+import capo_scheduler._auth._sigv4
+from capo_scheduler._services._pipeline import (
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    OperationRequest,
+    OperationResponse,
+    aexecute_pipeline,
+    execute_pipeline,
+)
+
+if TYPE_CHECKING:
+    import capo_scheduler.types.action_after_completion
+    import capo_scheduler.types.client_token
+    import capo_scheduler.types.create_schedule_input
+    import capo_scheduler.types.create_schedule_output
+    import capo_scheduler.types.delete_schedule_input
+    import capo_scheduler.types.delete_schedule_output
+    import capo_scheduler.types.description
+    import capo_scheduler.types.end_date
+    import capo_scheduler.types.flexible_time_window
+    import capo_scheduler.types.get_schedule_input
+    import capo_scheduler.types.get_schedule_output
+    import capo_scheduler.types.kms_key_arn
+    import capo_scheduler.types.list_schedules_input
+    import capo_scheduler.types.list_schedules_output
+    import capo_scheduler.types.max_results
+    import capo_scheduler.types.name
+    import capo_scheduler.types.name_prefix
+    import capo_scheduler.types.next_token
+    import capo_scheduler.types.schedule_expression
+    import capo_scheduler.types.schedule_expression_timezone
+    import capo_scheduler.types.schedule_group_name
+    import capo_scheduler.types.schedule_state
+    import capo_scheduler.types.schedule_summary
+    import capo_scheduler.types.start_date
+    import capo_scheduler.types.target
+    import capo_scheduler.types.update_schedule_input
+    import capo_scheduler.types.update_schedule_output
+    from capo_scheduler._services.async_scheduler import (
+        AsyncSchedulerClient,
+        AsyncSchedulerClientConfig,
+    )
+    from capo_scheduler._services.scheduler import (
+        SchedulerClient,
+        SchedulerClientConfig,
+    )
+
+
+class Schedule:
+    def __init__(self, service: SchedulerClient) -> None:
+        self._service = service
+
+    def put(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        schedule_expression: "capo_scheduler.types.schedule_expression.ScheduleExpression",
+        target: "capo_scheduler.types.target.Target",
+        flexible_time_window: "capo_scheduler.types.flexible_time_window.FlexibleTimeWindow",
+        *,
+        config_overrides: Optional[SchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        start_date: Optional["capo_scheduler.types.start_date.StartDate"] = None,
+        end_date: Optional["capo_scheduler.types.end_date.EndDate"] = None,
+        description: Optional["capo_scheduler.types.description.Description"] = None,
+        schedule_expression_timezone: Optional[
+            "capo_scheduler.types.schedule_expression_timezone.ScheduleExpressionTimezone"
+        ] = None,
+        state: Optional["capo_scheduler.types.schedule_state.ScheduleState"] = None,
+        kms_key_arn: Optional["capo_scheduler.types.kms_key_arn.KmsKeyArn"] = None,
+        client_token: Optional["capo_scheduler.types.client_token.ClientToken"] = None,
+        action_after_completion: Optional[
+            "capo_scheduler.types.action_after_completion.ActionAfterCompletion"
+        ] = None,
+    ) -> "capo_scheduler.types.create_schedule_output.CreateScheduleOutput":
+        r"""<p>Creates the specified schedule.</p>
+
+        Args:
+            name: <p>The name of the schedule that you are creating.</p>
+            group_name: <p>The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.</p>
+            schedule_expression: <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
+            start_date: <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+            end_date: <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+            description: <p>The description you specify for the schedule.</p>
+            schedule_expression_timezone: <p>The timezone in which the scheduling expression is evaluated.</p>
+            state: <p>Specifies whether the schedule is enabled or disabled.</p>
+            kms_key_arn: <p>The Amazon Resource Name (ARN) for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.</p>
+            target: <p>The schedule's target.</p>
+            flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
+            client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+            action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            capo_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_scheduler.types.create_schedule_input.CreateScheduleInput]",
+        ) -> OperationResponse[
+            "capo_scheduler.types.create_schedule_output.CreateScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.create_schedule
+
+            output, http_response = (
+                capo_scheduler._operations.aws_chronos_service.create_schedule.create_schedule(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
+        if start_date is not None:
+            input_["start_date"] = start_date
+        if end_date is not None:
+            input_["end_date"] = end_date
+        if description is not None:
+            input_["description"] = description
+        if schedule_expression_timezone is not None:
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
+        if state is not None:
+            input_["state"] = state
+        if kms_key_arn is not None:
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
+        if client_token is not None:
+            input_["client_token"] = client_token
+        if action_after_completion is not None:
+            input_["action_after_completion"] = action_after_completion
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def read(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        *,
+        config_overrides: Optional[SchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+    ) -> "capo_scheduler.types.get_schedule_output.GetScheduleOutput":
+        """<p>Retrieves the specified schedule.</p>
+
+        Args:
+            name: <p>The name of the schedule to retrieve.</p>
+            group_name: <p>The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.</p>
+
+        Raises:
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_scheduler.types.get_schedule_input.GetScheduleInput]",
+        ) -> OperationResponse[
+            "capo_scheduler.types.get_schedule_output.GetScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.get_schedule
+
+            output, http_response = (
+                capo_scheduler._operations.aws_chronos_service.get_schedule.get_schedule(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        schedule_expression: "capo_scheduler.types.schedule_expression.ScheduleExpression",
+        target: "capo_scheduler.types.target.Target",
+        flexible_time_window: "capo_scheduler.types.flexible_time_window.FlexibleTimeWindow",
+        *,
+        config_overrides: Optional[SchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        start_date: Optional["capo_scheduler.types.start_date.StartDate"] = None,
+        end_date: Optional["capo_scheduler.types.end_date.EndDate"] = None,
+        description: Optional["capo_scheduler.types.description.Description"] = None,
+        schedule_expression_timezone: Optional[
+            "capo_scheduler.types.schedule_expression_timezone.ScheduleExpressionTimezone"
+        ] = None,
+        state: Optional["capo_scheduler.types.schedule_state.ScheduleState"] = None,
+        kms_key_arn: Optional["capo_scheduler.types.kms_key_arn.KmsKeyArn"] = None,
+        client_token: Optional["capo_scheduler.types.client_token.ClientToken"] = None,
+        action_after_completion: Optional[
+            "capo_scheduler.types.action_after_completion.ActionAfterCompletion"
+        ] = None,
+    ) -> "capo_scheduler.types.update_schedule_output.UpdateScheduleOutput":
+        r"""<p> Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update. </p> <p> Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters for your <code>UpdateSchedule</code> call. </p>
+
+        Args:
+            name: <p>The name of the schedule that you are updating.</p>
+            group_name: <p>The name of the schedule group with which the schedule is associated. You must provide this value in order for EventBridge Scheduler to find the schedule you want to update. If you omit this value, EventBridge Scheduler assumes the group is associated to the default group.</p>
+            schedule_expression: <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
+            start_date: <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+            end_date: <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+            description: <p>The description you specify for the schedule.</p>
+            schedule_expression_timezone: <p>The timezone in which the scheduling expression is evaluated.</p>
+            state: <p>Specifies whether the schedule is enabled or disabled.</p>
+            kms_key_arn: <p>The ARN for the customer managed KMS key that that you want EventBridge Scheduler to use to encrypt and decrypt your data.</p>
+            target: <p>The schedule target. You can use this operation to change the target that your schedule invokes.</p>
+            flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
+            client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+            action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            capo_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_scheduler.types.update_schedule_input.UpdateScheduleInput]",
+        ) -> OperationResponse[
+            "capo_scheduler.types.update_schedule_output.UpdateScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.update_schedule
+
+            output, http_response = (
+                capo_scheduler._operations.aws_chronos_service.update_schedule.update_schedule(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
+        if start_date is not None:
+            input_["start_date"] = start_date
+        if end_date is not None:
+            input_["end_date"] = end_date
+        if description is not None:
+            input_["description"] = description
+        if schedule_expression_timezone is not None:
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
+        if state is not None:
+            input_["state"] = state
+        if kms_key_arn is not None:
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
+        if client_token is not None:
+            input_["client_token"] = client_token
+        if action_after_completion is not None:
+            input_["action_after_completion"] = action_after_completion
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        *,
+        config_overrides: Optional[SchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        client_token: Optional["capo_scheduler.types.client_token.ClientToken"] = None,
+    ) -> "capo_scheduler.types.delete_schedule_output.DeleteScheduleOutput":
+        """<p>Deletes the specified schedule.</p>
+
+        Args:
+            name: <p>The name of the schedule to delete.</p>
+            group_name: <p>The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.</p>
+            client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+
+        Raises:
+            capo_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_scheduler.types.delete_schedule_input.DeleteScheduleInput]",
+        ) -> OperationResponse[
+            "capo_scheduler.types.delete_schedule_output.DeleteScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.delete_schedule
+
+            output, http_response = (
+                capo_scheduler._operations.aws_chronos_service.delete_schedule.delete_schedule(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list(
+        self,
+        *,
+        config_overrides: Optional[SchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        name_prefix: Optional["capo_scheduler.types.name_prefix.NamePrefix"] = None,
+        state: Optional["capo_scheduler.types.schedule_state.ScheduleState"] = None,
+        next_token: Optional["capo_scheduler.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_scheduler.types.max_results.MaxResults"] = None,
+    ) -> "capo_scheduler.types.list_schedules_output.ListSchedulesOutput":
+        """<p>Returns a paginated list of your EventBridge Scheduler schedules.</p>
+
+        Args:
+            group_name: <p>If specified, only lists the schedules whose associated schedule group matches the given filter.</p>
+            name_prefix: <p>Schedule name prefix to return the filtered list of resources.</p>
+            state: <p>If specified, only lists the schedules whose current state matches the given filter.</p>
+            next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
+            max_results: <p>If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_scheduler.types.list_schedules_input.ListSchedulesInput]",
+        ) -> OperationResponse[
+            "capo_scheduler.types.list_schedules_output.ListSchedulesOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.list_schedules
+
+            output, http_response = (
+                capo_scheduler._operations.aws_chronos_service.list_schedules.list_schedules(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
+        if group_name is not None:
+            input_["group_name"] = group_name
+        if name_prefix is not None:
+            input_["name_prefix"] = name_prefix
+        if state is not None:
+            input_["state"] = state
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+
+class AsyncSchedule:
+    def __init__(self, service: AsyncSchedulerClient) -> None:
+        self._service = service
+
+    async def put(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        schedule_expression: "capo_scheduler.types.schedule_expression.ScheduleExpression",
+        target: "capo_scheduler.types.target.Target",
+        flexible_time_window: "capo_scheduler.types.flexible_time_window.FlexibleTimeWindow",
+        *,
+        config_overrides: Optional[AsyncSchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        start_date: Optional["capo_scheduler.types.start_date.StartDate"] = None,
+        end_date: Optional["capo_scheduler.types.end_date.EndDate"] = None,
+        description: Optional["capo_scheduler.types.description.Description"] = None,
+        schedule_expression_timezone: Optional[
+            "capo_scheduler.types.schedule_expression_timezone.ScheduleExpressionTimezone"
+        ] = None,
+        state: Optional["capo_scheduler.types.schedule_state.ScheduleState"] = None,
+        kms_key_arn: Optional["capo_scheduler.types.kms_key_arn.KmsKeyArn"] = None,
+        client_token: Optional["capo_scheduler.types.client_token.ClientToken"] = None,
+        action_after_completion: Optional[
+            "capo_scheduler.types.action_after_completion.ActionAfterCompletion"
+        ] = None,
+    ) -> "capo_scheduler.types.create_schedule_output.CreateScheduleOutput":
+        r"""<p>Creates the specified schedule.</p>
+
+        Args:
+            name: <p>The name of the schedule that you are creating.</p>
+            group_name: <p>The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.</p>
+            schedule_expression: <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
+            start_date: <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+            end_date: <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+            description: <p>The description you specify for the schedule.</p>
+            schedule_expression_timezone: <p>The timezone in which the scheduling expression is evaluated.</p>
+            state: <p>Specifies whether the schedule is enabled or disabled.</p>
+            kms_key_arn: <p>The Amazon Resource Name (ARN) for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.</p>
+            target: <p>The schedule's target.</p>
+            flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
+            client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+            action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            capo_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_scheduler.types.create_schedule_input.CreateScheduleInput]",
+        ) -> AsyncOperationResponse[
+            "capo_scheduler.types.create_schedule_output.CreateScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.create_schedule
+
+            (
+                output,
+                http_response,
+            ) = await capo_scheduler._operations.aws_chronos_service.create_schedule.async_create_schedule(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
+        if start_date is not None:
+            input_["start_date"] = start_date
+        if end_date is not None:
+            input_["end_date"] = end_date
+        if description is not None:
+            input_["description"] = description
+        if schedule_expression_timezone is not None:
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
+        if state is not None:
+            input_["state"] = state
+        if kms_key_arn is not None:
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
+        if client_token is not None:
+            input_["client_token"] = client_token
+        if action_after_completion is not None:
+            input_["action_after_completion"] = action_after_completion
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def read(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        *,
+        config_overrides: Optional[AsyncSchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+    ) -> "capo_scheduler.types.get_schedule_output.GetScheduleOutput":
+        """<p>Retrieves the specified schedule.</p>
+
+        Args:
+            name: <p>The name of the schedule to retrieve.</p>
+            group_name: <p>The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.</p>
+
+        Raises:
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_scheduler.types.get_schedule_input.GetScheduleInput]",
+        ) -> AsyncOperationResponse[
+            "capo_scheduler.types.get_schedule_output.GetScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.get_schedule
+
+            (
+                output,
+                http_response,
+            ) = await capo_scheduler._operations.aws_chronos_service.get_schedule.async_get_schedule(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        schedule_expression: "capo_scheduler.types.schedule_expression.ScheduleExpression",
+        target: "capo_scheduler.types.target.Target",
+        flexible_time_window: "capo_scheduler.types.flexible_time_window.FlexibleTimeWindow",
+        *,
+        config_overrides: Optional[AsyncSchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        start_date: Optional["capo_scheduler.types.start_date.StartDate"] = None,
+        end_date: Optional["capo_scheduler.types.end_date.EndDate"] = None,
+        description: Optional["capo_scheduler.types.description.Description"] = None,
+        schedule_expression_timezone: Optional[
+            "capo_scheduler.types.schedule_expression_timezone.ScheduleExpressionTimezone"
+        ] = None,
+        state: Optional["capo_scheduler.types.schedule_state.ScheduleState"] = None,
+        kms_key_arn: Optional["capo_scheduler.types.kms_key_arn.KmsKeyArn"] = None,
+        client_token: Optional["capo_scheduler.types.client_token.ClientToken"] = None,
+        action_after_completion: Optional[
+            "capo_scheduler.types.action_after_completion.ActionAfterCompletion"
+        ] = None,
+    ) -> "capo_scheduler.types.update_schedule_output.UpdateScheduleOutput":
+        r"""<p> Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to its system-default value after the update. </p> <p> Before calling this operation, we recommend that you call the <code>GetSchedule</code> API operation and make a note of all optional parameters for your <code>UpdateSchedule</code> call. </p>
+
+        Args:
+            name: <p>The name of the schedule that you are updating.</p>
+            group_name: <p>The name of the schedule group with which the schedule is associated. You must provide this value in order for EventBridge Scheduler to find the schedule you want to update. If you omit this value, EventBridge Scheduler assumes the group is associated to the default group.</p>
+            schedule_expression: <p> The expression that defines when the schedule runs. The following formats are supported. </p> <ul> <li> <p> <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code> </p> </li> <li> <p> <code>rate</code> expression - <code>rate(value unit)</code> </p> </li> <li> <p> <code>cron</code> expression - <code>cron(fields)</code> </p> </li> </ul> <p> You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month. </p> <p> A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>. </p> <p> A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options: <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code> </p> <p> For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>. </p>
+            start_date: <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify. EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
+            end_date: <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify. EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
+            description: <p>The description you specify for the schedule.</p>
+            schedule_expression_timezone: <p>The timezone in which the scheduling expression is evaluated.</p>
+            state: <p>Specifies whether the schedule is enabled or disabled.</p>
+            kms_key_arn: <p>The ARN for the customer managed KMS key that that you want EventBridge Scheduler to use to encrypt and decrypt your data.</p>
+            target: <p>The schedule target. You can use this operation to change the target that your schedule invokes.</p>
+            flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
+            client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+            action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            capo_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_scheduler.types.update_schedule_input.UpdateScheduleInput]",
+        ) -> AsyncOperationResponse[
+            "capo_scheduler.types.update_schedule_output.UpdateScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.update_schedule
+
+            (
+                output,
+                http_response,
+            ) = await capo_scheduler._operations.aws_chronos_service.update_schedule.async_update_schedule(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
+        if start_date is not None:
+            input_["start_date"] = start_date
+        if end_date is not None:
+            input_["end_date"] = end_date
+        if description is not None:
+            input_["description"] = description
+        if schedule_expression_timezone is not None:
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
+        if state is not None:
+            input_["state"] = state
+        if kms_key_arn is not None:
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
+        if client_token is not None:
+            input_["client_token"] = client_token
+        if action_after_completion is not None:
+            input_["action_after_completion"] = action_after_completion
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete(
+        self,
+        name: "capo_scheduler.types.name.Name",
+        *,
+        config_overrides: Optional[AsyncSchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        client_token: Optional["capo_scheduler.types.client_token.ClientToken"] = None,
+    ) -> "capo_scheduler.types.delete_schedule_output.DeleteScheduleOutput":
+        """<p>Deletes the specified schedule.</p>
+
+        Args:
+            name: <p>The name of the schedule to delete.</p>
+            group_name: <p>The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.</p>
+            client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+
+        Raises:
+            capo_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_scheduler.types.delete_schedule_input.DeleteScheduleInput]",
+        ) -> AsyncOperationResponse[
+            "capo_scheduler.types.delete_schedule_output.DeleteScheduleOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.delete_schedule
+
+            (
+                output,
+                http_response,
+            ) = await capo_scheduler._operations.aws_chronos_service.delete_schedule.async_delete_schedule(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if group_name is not None:
+            input_["group_name"] = group_name
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list(
+        self,
+        *,
+        config_overrides: Optional[AsyncSchedulerClientConfig] = None,
+        group_name: Optional[
+            "capo_scheduler.types.schedule_group_name.ScheduleGroupName"
+        ] = None,
+        name_prefix: Optional["capo_scheduler.types.name_prefix.NamePrefix"] = None,
+        state: Optional["capo_scheduler.types.schedule_state.ScheduleState"] = None,
+        next_token: Optional["capo_scheduler.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_scheduler.types.max_results.MaxResults"] = None,
+    ) -> "capo_scheduler.types.list_schedules_output.ListSchedulesOutput":
+        """<p>Returns a paginated list of your EventBridge Scheduler schedules.</p>
+
+        Args:
+            group_name: <p>If specified, only lists the schedules whose associated schedule group matches the given filter.</p>
+            name_prefix: <p>Schedule name prefix to return the filtered list of resources.</p>
+            state: <p>If specified, only lists the schedules whose current state matches the given filter.</p>
+            next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
+            max_results: <p>If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            capo_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            capo_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            capo_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_scheduler.types.list_schedules_input.ListSchedulesInput]",
+        ) -> AsyncOperationResponse[
+            "capo_scheduler.types.list_schedules_output.ListSchedulesOutput"
+        ]:
+            import capo_scheduler._operations.aws_chronos_service.list_schedules
+
+            (
+                output,
+                http_response,
+            ) = await capo_scheduler._operations.aws_chronos_service.list_schedules.async_list_schedules(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
+        if group_name is not None:
+            input_["group_name"] = group_name
+        if name_prefix is not None:
+            input_["name_prefix"] = name_prefix
+        if state is not None:
+            input_["state"] = state
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output

@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.timestreamquery#ScheduledQueryRunSummaryList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_timestream_query.types.scheduled_query_run_summary
+
+ScheduledQueryRunSummaryList: TypeAlias = list[
+    "capo_timestream_query.types.scheduled_query_run_summary.ScheduledQueryRunSummary"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ScheduledQueryRunSummaryList) -> list:
+    import capo_timestream_query.types.scheduled_query_run_summary
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_timestream_query.types.scheduled_query_run_summary.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> ScheduledQueryRunSummaryList:
+    import capo_timestream_query.types.scheduled_query_run_summary
+
+    out: ScheduledQueryRunSummaryList = []
+    for item in data:
+        out.append(
+            capo_timestream_query.types.scheduled_query_run_summary.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

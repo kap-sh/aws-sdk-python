@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.mediatailor#ScheduleConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_mediatailor.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_mediatailor.types.clip_range
+    import capo_mediatailor.types.transition
+
+
+class ScheduleConfiguration(TypedDict, closed=True):
+    transition: "capo_mediatailor.types.transition.Transition"
+    """<p>Program transition configurations.</p>"""
+    clip_range: NotRequired["capo_mediatailor.types.clip_range.ClipRange"]
+    """<p>Program clip range configuration.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ScheduleConfiguration) -> dict:
+    out: dict = {}
+    import capo_mediatailor.types.transition
+
+    out["Transition"] = capo_mediatailor.types.transition.serialize_json(
+        value["transition"]
+    )
+    if "clip_range" in value:
+        import capo_mediatailor.types.clip_range
+
+        out["ClipRange"] = capo_mediatailor.types.clip_range.serialize_json(
+            value["clip_range"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ScheduleConfiguration:
+    out: ScheduleConfiguration = {}  # type: ignore[typeddict-item]
+    if "Transition" in data:
+        import capo_mediatailor.types.transition
+
+        out["transition"] = capo_mediatailor.types.transition.deserialize_json(
+            data["Transition"]
+        )
+    else:
+        raise DeserializationError("ScheduleConfiguration.transition required")
+    if "ClipRange" in data:
+        import capo_mediatailor.types.clip_range
+
+        out["clip_range"] = capo_mediatailor.types.clip_range.deserialize_json(
+            data["ClipRange"]
+        )
+    return out

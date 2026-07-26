@@ -1,0 +1,144 @@
+"""Generated from Smithy shape ``com.amazonaws.swf#StartChildWorkflowExecutionDecisionAttributes``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_swf.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_swf.types.arn
+    import capo_swf.types.child_policy
+    import capo_swf.types.data
+    import capo_swf.types.duration_in_seconds_optional
+    import capo_swf.types.tag_list
+    import capo_swf.types.task_list
+    import capo_swf.types.task_priority
+    import capo_swf.types.workflow_id
+    import capo_swf.types.workflow_type
+
+
+class StartChildWorkflowExecutionDecisionAttributes(TypedDict, closed=True):
+    workflow_type: "capo_swf.types.workflow_type.WorkflowType"
+    """<p> The type of the workflow execution to be started.</p>"""
+    workflow_id: "capo_swf.types.workflow_id.WorkflowId"
+    r"""<p> The <code>workflowId</code> of the workflow execution.</p> <p>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
+    control: NotRequired["capo_swf.types.data.Data"]
+    """<p>The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.</p>"""
+    input: NotRequired["capo_swf.types.data.Data"]
+    """<p>The input to be provided to the workflow execution.</p>"""
+    execution_start_to_close_timeout: NotRequired[
+        "capo_swf.types.duration_in_seconds_optional.DurationInSecondsOptional"
+    ]
+    """<p>The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.</p> <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p> <note> <p>An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default execution start-to-close timeout was specified at registration time then a fault is returned.</p> </note>"""
+    task_list: NotRequired["capo_swf.types.task_list.TaskList"]
+    r"""<p>The name of the task list to be used for decision tasks of the child workflow execution.</p> <note> <p>A task list for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task list was specified at registration time then a fault is returned.</p> </note> <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
+    task_priority: NotRequired["capo_swf.types.task_priority.TaskPriority"]
+    r"""<p> A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p> <p>For more information about setting task priority, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html\">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>"""
+    task_start_to_close_timeout: NotRequired[
+        "capo_swf.types.duration_in_seconds_optional.DurationInSecondsOptional"
+    ]
+    """<p>Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the <code>defaultTaskStartToCloseTimout</code> specified when registering the workflow type using <a>RegisterWorkflowType</a>.</p> <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p> <note> <p>A task start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task start-to-close timeout was specified at registration time then a fault is returned.</p> </note>"""
+    child_policy: NotRequired["capo_swf.types.child_policy.ChildPolicy"]
+    """<p> If set, specifies the policy to use for the child workflow executions if the workflow execution being started is terminated by calling the <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using <a>RegisterWorkflowType</a>.</p> <p>The supported child policies are:</p> <ul> <li> <p> <code>TERMINATE</code> – The child executions are terminated.</p> </li> <li> <p> <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</p> </li> <li> <p> <code>ABANDON</code> – No action is taken. The child executions continue to run.</p> </li> </ul> <note> <p>A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned.</p> </note>"""
+    tag_list: NotRequired["capo_swf.types.tag_list.TagList"]
+    """<p>The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or <a>ListClosedWorkflowExecutions</a> and specifying a <a>TagFilter</a>.</p>"""
+    lambda_role: NotRequired["capo_swf.types.arn.Arn"]
+    """<p>The IAM role attached to the child workflow execution.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(
+    value: StartChildWorkflowExecutionDecisionAttributes,
+) -> dict:
+    out: dict = {}
+    import capo_swf.types.workflow_type
+
+    out["workflowType"] = capo_swf.types.workflow_type.serialize_aws_json_1_0(
+        value["workflow_type"]
+    )
+    out["workflowId"] = value["workflow_id"]
+    if "control" in value:
+        out["control"] = value["control"]
+    if "input" in value:
+        out["input"] = value["input"]
+    if "execution_start_to_close_timeout" in value:
+        out["executionStartToCloseTimeout"] = value["execution_start_to_close_timeout"]
+    if "task_list" in value:
+        import capo_swf.types.task_list
+
+        out["taskList"] = capo_swf.types.task_list.serialize_aws_json_1_0(
+            value["task_list"]
+        )
+    if "task_priority" in value:
+        out["taskPriority"] = value["task_priority"]
+    if "task_start_to_close_timeout" in value:
+        out["taskStartToCloseTimeout"] = value["task_start_to_close_timeout"]
+    if "child_policy" in value:
+        import capo_swf.types.child_policy
+
+        out["childPolicy"] = capo_swf.types.child_policy.serialize_aws_json_1_0(
+            value["child_policy"]
+        )
+    if "tag_list" in value:
+        import capo_swf.types.tag_list
+
+        out["tagList"] = capo_swf.types.tag_list.serialize_aws_json_1_0(
+            value["tag_list"]
+        )
+    if "lambda_role" in value:
+        out["lambdaRole"] = value["lambda_role"]
+    return out
+
+
+def deserialize_aws_json_1_0(
+    data: dict,
+) -> StartChildWorkflowExecutionDecisionAttributes:
+    out: StartChildWorkflowExecutionDecisionAttributes = {}  # type: ignore[typeddict-item]
+    if "workflowType" in data:
+        import capo_swf.types.workflow_type
+
+        out["workflow_type"] = capo_swf.types.workflow_type.deserialize_aws_json_1_0(
+            data["workflowType"]
+        )
+    else:
+        raise DeserializationError(
+            "StartChildWorkflowExecutionDecisionAttributes.workflow_type required"
+        )
+    if "workflowId" in data:
+        out["workflow_id"] = data["workflowId"]
+    else:
+        raise DeserializationError(
+            "StartChildWorkflowExecutionDecisionAttributes.workflow_id required"
+        )
+    if "control" in data:
+        out["control"] = data["control"]
+    if "input" in data:
+        out["input"] = data["input"]
+    if "executionStartToCloseTimeout" in data:
+        out["execution_start_to_close_timeout"] = data["executionStartToCloseTimeout"]
+    if "taskList" in data:
+        import capo_swf.types.task_list
+
+        out["task_list"] = capo_swf.types.task_list.deserialize_aws_json_1_0(
+            data["taskList"]
+        )
+    if "taskPriority" in data:
+        out["task_priority"] = data["taskPriority"]
+    if "taskStartToCloseTimeout" in data:
+        out["task_start_to_close_timeout"] = data["taskStartToCloseTimeout"]
+    if "childPolicy" in data:
+        import capo_swf.types.child_policy
+
+        out["child_policy"] = capo_swf.types.child_policy.deserialize_aws_json_1_0(
+            data["childPolicy"]
+        )
+    if "tagList" in data:
+        import capo_swf.types.tag_list
+
+        out["tag_list"] = capo_swf.types.tag_list.deserialize_aws_json_1_0(
+            data["tagList"]
+        )
+    if "lambdaRole" in data:
+        out["lambda_role"] = data["lambdaRole"]
+    return out

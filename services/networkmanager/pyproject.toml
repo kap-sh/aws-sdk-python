@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-networkmanager"
+name = "capo-networkmanager"
 version = "0.1.0"
 description = "Python SDK for Networkmanager."
 readme = "README.md"

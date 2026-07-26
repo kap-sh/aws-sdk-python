@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-ssm-sap"
+name = "capo-ssm-sap"
 version = "0.1.0"
 description = "Python SDK for SSM Sap."
 readme = "README.md"

@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.finspacedata#ListUsersRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_finspace_data.types.pagination_token
+    import capo_finspace_data.types.result_limit
+
+
+class ListUsersRequest(TypedDict, closed=True):
+    next_token: NotRequired["capo_finspace_data.types.pagination_token.PaginationToken"]
+    """<p>A token that indicates where a results page should begin.</p>"""
+    max_results: "capo_finspace_data.types.result_limit.ResultLimit"
+    """<p>The maximum number of results per page.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListUsersRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListUsersRequest:
+    out: ListUsersRequest = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.qapps#ListCategoriesOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_qapps.types.categories_list
+
+
+class ListCategoriesOutput(TypedDict, closed=True):
+    categories: NotRequired["capo_qapps.types.categories_list.CategoriesList"]
+    """<p>The categories of a Amazon Q Business application environment instance.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListCategoriesOutput) -> dict:
+    out: dict = {}
+    if "categories" in value:
+        import capo_qapps.types.categories_list
+
+        out["categories"] = capo_qapps.types.categories_list.serialize_json(
+            value["categories"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListCategoriesOutput:
+    out: ListCategoriesOutput = {}  # type: ignore[typeddict-item]
+    if "categories" in data:
+        import capo_qapps.types.categories_list
+
+        out["categories"] = capo_qapps.types.categories_list.deserialize_json(
+            data["categories"]
+        )
+    return out

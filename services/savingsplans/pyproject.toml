@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-savingsplans"
+name = "capo-savingsplans"
 version = "0.1.0"
 description = "Python SDK for Savingsplans."
 readme = "README.md"

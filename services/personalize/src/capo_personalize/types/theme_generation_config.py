@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.personalize#ThemeGenerationConfig``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_personalize.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_personalize.types.fields_for_theme_generation
+
+
+class ThemeGenerationConfig(TypedDict, closed=True):
+    fields_for_theme_generation: (
+        "capo_personalize.types.fields_for_theme_generation.FieldsForThemeGeneration"
+    )
+    """<p>Fields used to generate descriptive themes for a batch inference job.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ThemeGenerationConfig) -> dict:
+    out: dict = {}
+    import capo_personalize.types.fields_for_theme_generation
+
+    out["fieldsForThemeGeneration"] = (
+        capo_personalize.types.fields_for_theme_generation.serialize_aws_json_1_1(
+            value["fields_for_theme_generation"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ThemeGenerationConfig:
+    out: ThemeGenerationConfig = {}  # type: ignore[typeddict-item]
+    if "fieldsForThemeGeneration" in data:
+        import capo_personalize.types.fields_for_theme_generation
+
+        out["fields_for_theme_generation"] = (
+            capo_personalize.types.fields_for_theme_generation.deserialize_aws_json_1_1(
+                data["fieldsForThemeGeneration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ThemeGenerationConfig.fields_for_theme_generation required"
+        )
+    return out

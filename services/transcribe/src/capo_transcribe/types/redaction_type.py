@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#RedactionType``."""
+
+from typing import Literal, TypeAlias, cast
+
+RedactionType: TypeAlias = Literal["PII",]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RedactionType) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> RedactionType:
+    return cast(RedactionType, data)

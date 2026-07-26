@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-cloud9
+pip install capo-cloud9
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_cloud9 import AsyncCloud9Client
+from capo_cloud9 import AsyncCloud9Client
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_cloud9 import AsyncCloud9Client
-from aws_sdk_cloud9.error import BadRequestException
+from capo_cloud9 import AsyncCloud9Client
+from capo_cloud9.error import BadRequestException
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_cloud9 import AsyncCloud9Client
+from capo_cloud9 import AsyncCloud9Client
 
 
 async def main():

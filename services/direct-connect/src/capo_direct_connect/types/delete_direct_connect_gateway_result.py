@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.directconnect#DeleteDirectConnectGatewayResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_direct_connect.types.direct_connect_gateway
+
+
+class DeleteDirectConnectGatewayResult(TypedDict, closed=True):
+    direct_connect_gateway: NotRequired[
+        "capo_direct_connect.types.direct_connect_gateway.DirectConnectGateway"
+    ]
+    """<p>The Direct Connect gateway.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteDirectConnectGatewayResult) -> dict:
+    out: dict = {}
+    if "direct_connect_gateway" in value:
+        import capo_direct_connect.types.direct_connect_gateway
+
+        out["directConnectGateway"] = (
+            capo_direct_connect.types.direct_connect_gateway.serialize_aws_json_1_1(
+                value["direct_connect_gateway"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteDirectConnectGatewayResult:
+    out: DeleteDirectConnectGatewayResult = {}  # type: ignore[typeddict-item]
+    if "directConnectGateway" in data:
+        import capo_direct_connect.types.direct_connect_gateway
+
+        out["direct_connect_gateway"] = (
+            capo_direct_connect.types.direct_connect_gateway.deserialize_aws_json_1_1(
+                data["directConnectGateway"]
+            )
+        )
+    return out

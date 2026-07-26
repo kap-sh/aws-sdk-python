@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.timestreamwrite#DescribeEndpointsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_timestream_write.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_timestream_write.types.endpoints
+
+
+class DescribeEndpointsResponse(TypedDict, closed=True):
+    endpoints: "capo_timestream_write.types.endpoints.Endpoints"
+    """<p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code> request is made.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DescribeEndpointsResponse) -> dict:
+    out: dict = {}
+    import capo_timestream_write.types.endpoints
+
+    out["Endpoints"] = capo_timestream_write.types.endpoints.serialize_aws_json_1_0(
+        value["endpoints"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DescribeEndpointsResponse:
+    out: DescribeEndpointsResponse = {}  # type: ignore[typeddict-item]
+    if "Endpoints" in data:
+        import capo_timestream_write.types.endpoints
+
+        out["endpoints"] = (
+            capo_timestream_write.types.endpoints.deserialize_aws_json_1_0(
+                data["Endpoints"]
+            )
+        )
+    else:
+        raise DeserializationError("DescribeEndpointsResponse.endpoints required")
+    return out

@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.schemas#SearchSchemaSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_schemas.types.__list_of_search_schema_version_summary
+    import capo_schemas.types.__string
+
+
+class SearchSchemaSummary(TypedDict, closed=True):
+    registry_name: NotRequired["capo_schemas.types.__string.__string"]
+    """<p>The name of the registry.</p>"""
+    schema_arn: NotRequired["capo_schemas.types.__string.__string"]
+    """<p>The ARN of the schema.</p>"""
+    schema_name: NotRequired["capo_schemas.types.__string.__string"]
+    """<p>The name of the schema.</p>"""
+    schema_versions: NotRequired[
+        "capo_schemas.types.__list_of_search_schema_version_summary.__listOfSearchSchemaVersionSummary"
+    ]
+    """<p>An array of schema version summaries.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SearchSchemaSummary) -> dict:
+    out: dict = {}
+    if "registry_name" in value:
+        out["RegistryName"] = value["registry_name"]
+    if "schema_arn" in value:
+        out["SchemaArn"] = value["schema_arn"]
+    if "schema_name" in value:
+        out["SchemaName"] = value["schema_name"]
+    if "schema_versions" in value:
+        import capo_schemas.types.__list_of_search_schema_version_summary
+
+        out["SchemaVersions"] = (
+            capo_schemas.types.__list_of_search_schema_version_summary.serialize_json(
+                value["schema_versions"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> SearchSchemaSummary:
+    out: SearchSchemaSummary = {}  # type: ignore[typeddict-item]
+    if "RegistryName" in data:
+        out["registry_name"] = data["RegistryName"]
+    if "SchemaArn" in data:
+        out["schema_arn"] = data["SchemaArn"]
+    if "SchemaName" in data:
+        out["schema_name"] = data["SchemaName"]
+    if "SchemaVersions" in data:
+        import capo_schemas.types.__list_of_search_schema_version_summary
+
+        out["schema_versions"] = (
+            capo_schemas.types.__list_of_search_schema_version_summary.deserialize_json(
+                data["SchemaVersions"]
+            )
+        )
+    return out

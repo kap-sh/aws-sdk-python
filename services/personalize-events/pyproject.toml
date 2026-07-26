@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-personalize-events"
+name = "capo-personalize-events"
 version = "0.1.0"
 description = "Python SDK for Personalize Events."
 readme = "README.md"

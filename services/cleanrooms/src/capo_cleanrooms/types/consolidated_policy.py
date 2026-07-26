@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#ConsolidatedPolicy``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_cleanrooms.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_cleanrooms.types.consolidated_policy_v1
+
+
+class _ConsolidatedPolicy_v1(TypedDict, closed=True):
+    v1: "capo_cleanrooms.types.consolidated_policy_v1.ConsolidatedPolicyV1"
+
+
+ConsolidatedPolicy: TypeAlias = _ConsolidatedPolicy_v1
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ConsolidatedPolicy) -> dict:
+    if "v1" in value:
+        import capo_cleanrooms.types.consolidated_policy_v1
+
+        return {
+            "v1": capo_cleanrooms.types.consolidated_policy_v1.serialize_json(
+                value["v1"]
+            )
+        }
+    else:
+        raise SerializationError("ConsolidatedPolicy: no variant present")
+
+
+def deserialize_json(data: dict) -> ConsolidatedPolicy:
+    if "v1" in data:
+        import capo_cleanrooms.types.consolidated_policy_v1
+
+        return {
+            "v1": capo_cleanrooms.types.consolidated_policy_v1.deserialize_json(
+                data["v1"]
+            )
+        }
+    else:
+        raise DeserializationError("ConsolidatedPolicy: no recognized variant key")

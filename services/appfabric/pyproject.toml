@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-appfabric"
+name = "capo-appfabric"
 version = "0.1.0"
 description = "Python SDK for Appfabric."
 readme = "README.md"

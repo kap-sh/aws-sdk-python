@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-amplifyuibuilder"
+name = "capo-amplifyuibuilder"
 version = "0.1.0"
 description = "Python SDK for Amplifyuibuilder."
 readme = "README.md"

@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.ssmincidents#PagerDutyIncidentConfiguration``."""
+
+from typing_extensions import TypedDict
+
+from capo_ssm_incidents.errors import DeserializationError
+
+
+class PagerDutyIncidentConfiguration(TypedDict, closed=True):
+    service_id: "str"
+    """<p>The ID of the PagerDuty service that the response plan associates with an incident when it launches.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PagerDutyIncidentConfiguration) -> dict:
+    out: dict = {}
+    out["serviceId"] = value["service_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> PagerDutyIncidentConfiguration:
+    out: PagerDutyIncidentConfiguration = {}  # type: ignore[typeddict-item]
+    if "serviceId" in data:
+        out["service_id"] = data["serviceId"]
+    else:
+        raise DeserializationError("PagerDutyIncidentConfiguration.service_id required")
+    return out

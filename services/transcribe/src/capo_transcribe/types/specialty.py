@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#Specialty``."""
+
+from typing import Literal, TypeAlias, cast
+
+Specialty: TypeAlias = Literal["PRIMARYCARE",]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Specialty) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> Specialty:
+    return cast(Specialty, data)

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-signin"
+name = "capo-signin"
 version = "0.1.0"
 description = "Python SDK for Signin."
 readme = "README.md"

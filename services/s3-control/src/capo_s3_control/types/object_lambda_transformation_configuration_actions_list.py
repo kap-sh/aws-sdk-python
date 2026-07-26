@@ -1,0 +1,65 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#ObjectLambdaTransformationConfigurationActionsList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from capo_s3_control._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import capo_s3_control.types.object_lambda_transformation_configuration_action
+
+ObjectLambdaTransformationConfigurationActionsList: TypeAlias = list[
+    "capo_s3_control.types.object_lambda_transformation_configuration_action.ObjectLambdaTransformationConfigurationAction"
+]
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: ObjectLambdaTransformationConfigurationActionsList, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    for item in value:
+        import capo_s3_control.types.object_lambda_transformation_configuration_action
+
+        capo_s3_control.types.object_lambda_transformation_configuration_action.serialize_xml(
+            item, el, "Action"
+        )
+
+
+def deserialize_xml(el: Element) -> ObjectLambdaTransformationConfigurationActionsList:
+    import capo_s3_control.types.object_lambda_transformation_configuration_action
+
+    out: ObjectLambdaTransformationConfigurationActionsList = []
+    for child in el.findall("Action"):
+        out.append(
+            capo_s3_control.types.object_lambda_transformation_configuration_action.deserialize_xml(
+                child
+            )
+        )
+    return out
+
+
+def serialize_xml_flat(
+    value: ObjectLambdaTransformationConfigurationActionsList, parent: Element, tag: str
+) -> None:
+    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    for item in value:
+        import capo_s3_control.types.object_lambda_transformation_configuration_action
+
+        capo_s3_control.types.object_lambda_transformation_configuration_action.serialize_xml(
+            item, parent, tag
+        )
+
+
+def deserialize_xml_flat(
+    parent: Element, tag: str
+) -> ObjectLambdaTransformationConfigurationActionsList:
+    import capo_s3_control.types.object_lambda_transformation_configuration_action
+
+    out: ObjectLambdaTransformationConfigurationActionsList = []
+    for child in parent.findall(tag):
+        out.append(
+            capo_s3_control.types.object_lambda_transformation_configuration_action.deserialize_xml(
+                child
+            )
+        )
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-rtbfabric"
+name = "capo-rtbfabric"
 version = "0.1.0"
 description = "Python SDK for Rtbfabric."
 readme = "README.md"

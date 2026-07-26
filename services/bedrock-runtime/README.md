@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-bedrock-runtime
+pip install capo-bedrock-runtime
 ```

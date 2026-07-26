@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticsearchservice#TagList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_elasticsearch_service.types.tag
+
+TagList: TypeAlias = list["capo_elasticsearch_service.types.tag.Tag"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TagList) -> list:
+    import capo_elasticsearch_service.types.tag
+
+    out: list = []
+    for item in value:
+        out.append(capo_elasticsearch_service.types.tag.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> TagList:
+    import capo_elasticsearch_service.types.tag
+
+    out: TagList = []
+    for item in data:
+        out.append(capo_elasticsearch_service.types.tag.deserialize_json(item))
+    return out

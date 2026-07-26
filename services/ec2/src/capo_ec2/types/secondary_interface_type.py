@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#SecondaryInterfaceType``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_ec2._protocol.xml import Element
+
+SecondaryInterfaceType: TypeAlias = Literal["secondary",]
+
+
+# --- ec2Query ser/de ---
+def to_ec2_query_text(value: SecondaryInterfaceType) -> str:
+    return value
+
+
+def from_ec2_query_text(text: str) -> SecondaryInterfaceType:
+    return cast(SecondaryInterfaceType, text)
+
+
+def serialize_ec2_query(
+    value: SecondaryInterfaceType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_ec2_query_text(value)))
+
+
+def deserialize_ec2_query(el: Element) -> SecondaryInterfaceType:
+    return from_ec2_query_text(el.text or "")

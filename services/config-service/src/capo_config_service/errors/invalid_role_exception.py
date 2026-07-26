@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#InvalidRoleException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_config_service.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_config_service.types.error_message
+
+
+class InvalidRoleException_(TypedDict, closed=True):
+    message: NotRequired["capo_config_service.types.error_message.ErrorMessage"]
+    """<p>Error executing the command</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: InvalidRoleException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> InvalidRoleException_:
+    out: InvalidRoleException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+class InvalidRoleException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.configservice#InvalidRoleException``."""
+
+    code: str | None = "InvalidRoleException"
+
+    def __init__(self, data: InvalidRoleException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidRoleException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "InvalidRoleException":
+        return cls(deserialize_aws_json_1_1(data))

@@ -1,0 +1,173 @@
+"""Generated from Smithy shape ``com.amazonaws.securityir#UpdateCase``."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+from urllib.parse import quote
+
+import zapros
+from typing_extensions import Never
+
+import capo_security_ir._auth._signers
+import capo_security_ir._auth._sigv4
+import capo_security_ir.errors.access_denied_exception
+import capo_security_ir.errors.conflict_exception
+import capo_security_ir.errors.internal_server_exception
+import capo_security_ir.errors.invalid_token_exception
+import capo_security_ir.errors.resource_not_found_exception
+import capo_security_ir.errors.security_incident_response_not_active_exception
+import capo_security_ir.errors.service_quota_exceeded_exception
+import capo_security_ir.errors.throttling_exception
+import capo_security_ir.errors.validation_exception
+import capo_security_ir.types.case_metadata
+import capo_security_ir.types.engagement_type
+import capo_security_ir.types.impacted_accounts
+import capo_security_ir.types.impacted_aws_region_list
+import capo_security_ir.types.impacted_services_list
+import capo_security_ir.types.threat_actor_ip_list
+import capo_security_ir.types.update_case_request
+import capo_security_ir.types.update_case_response
+import capo_security_ir.types.watchers
+from capo_security_ir._protocol.errors import parse_error_metadata_json
+from capo_security_ir._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_security_ir._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_security_ir.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "AccessDeniedException":
+            raise capo_security_ir.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
+        case "ConflictException":
+            raise capo_security_ir.errors.conflict_exception.ConflictException.from_json(
+                data
+            )
+        case "InternalServerException":
+            raise capo_security_ir.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
+        case "InvalidTokenException":
+            raise capo_security_ir.errors.invalid_token_exception.InvalidTokenException.from_json(
+                data
+            )
+        case "ResourceNotFoundException":
+            raise capo_security_ir.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
+        case "SecurityIncidentResponseNotActiveException":
+            raise capo_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException.from_json(
+                data
+            )
+        case "ServiceQuotaExceededException":
+            raise capo_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data
+            )
+        case "ThrottlingException":
+            raise capo_security_ir.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
+        case "ValidationException":
+            raise capo_security_ir.errors.validation_exception.ValidationException.from_json(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_security_ir.types.update_case_response.UpdateCaseResponse:
+    out: capo_security_ir.types.update_case_response.UpdateCaseResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_security_ir.types.update_case_response.UpdateCaseResponse:
+    out: capo_security_ir.types.update_case_response.UpdateCaseResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_security_ir._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_security_ir._auth._sigv4.build_sigv4_auth_scheme(
+                "security-ir", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_security_ir._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_security_ir.types.update_case_request.UpdateCaseRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + "/v1/cases/{caseId}/update-case"
+    url = url.replace("{caseId}", quote(str(input_["case_id"]), safe=""))
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    body: bytes | None = json.dumps(
+        capo_security_ir.types.update_case_request.serialize_json(input_)
+    ).encode()
+    headers["content-type"] = "application/json"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def update_case(
+    options: OperationOptions,
+    input_: capo_security_ir.types.update_case_request.UpdateCaseRequest,
+) -> tuple[
+    capo_security_ir.types.update_case_response.UpdateCaseResponse, zapros.Response
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_update_case(
+    options: AsyncOperationOptions,
+    input_: capo_security_ir.types.update_case_request.UpdateCaseRequest,
+) -> tuple[
+    capo_security_ir.types.update_case_response.UpdateCaseResponse, zapros.Response
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

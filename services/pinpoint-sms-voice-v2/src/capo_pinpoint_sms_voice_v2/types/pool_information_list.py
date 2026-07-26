@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#PoolInformationList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_pinpoint_sms_voice_v2.types.pool_information
+
+PoolInformationList: TypeAlias = list[
+    "capo_pinpoint_sms_voice_v2.types.pool_information.PoolInformation"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: PoolInformationList) -> list:
+    import capo_pinpoint_sms_voice_v2.types.pool_information
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_pinpoint_sms_voice_v2.types.pool_information.serialize_aws_json_1_0(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> PoolInformationList:
+    import capo_pinpoint_sms_voice_v2.types.pool_information
+
+    out: PoolInformationList = []
+    for item in data:
+        out.append(
+            capo_pinpoint_sms_voice_v2.types.pool_information.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

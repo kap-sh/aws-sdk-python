@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 import pytest
-from aws_sdk_bedrock_runtime._services._aws_config import (
+from capo_bedrock_runtime._services._aws_config import (
     _env_bool,
     _load_profile,
     _profile_bool,

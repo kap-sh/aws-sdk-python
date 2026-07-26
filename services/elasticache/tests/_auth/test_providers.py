@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
-from aws_sdk_elasticache._auth._providers import (
+from capo_elasticache._auth._providers import (
     CachedProvider,
     Ec2InstanceMetadataProvider,
     EcsContainerCredentialsProvider,

@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#StringListConfigurationOptions``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.integer
+    import capo_securityhub.types.non_empty_string
+    import capo_securityhub.types.string_list
+
+
+class StringListConfigurationOptions(TypedDict, closed=True):
+    default_value: NotRequired["capo_securityhub.types.string_list.StringList"]
+    """<p> The Security Hub CSPM default value for a control parameter that is a list of strings. </p>"""
+    re2_expression: NotRequired[
+        "capo_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p> An RE2 regular expression that Security Hub CSPM uses to validate a user-provided list of strings for a control parameter. </p>"""
+    max_items: NotRequired["capo_securityhub.types.integer.Integer"]
+    """<p> The maximum number of list items that a string list control parameter can accept. </p>"""
+    expression_description: NotRequired[
+        "capo_securityhub.types.non_empty_string.NonEmptyString"
+    ]
+    """<p> The description of the RE2 regular expression. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StringListConfigurationOptions) -> dict:
+    out: dict = {}
+    if "default_value" in value:
+        import capo_securityhub.types.string_list
+
+        out["DefaultValue"] = capo_securityhub.types.string_list.serialize_json(
+            value["default_value"]
+        )
+    if "re2_expression" in value:
+        out["Re2Expression"] = value["re2_expression"]
+    if "max_items" in value:
+        out["MaxItems"] = value["max_items"]
+    if "expression_description" in value:
+        out["ExpressionDescription"] = value["expression_description"]
+    return out
+
+
+def deserialize_json(data: dict) -> StringListConfigurationOptions:
+    out: StringListConfigurationOptions = {}  # type: ignore[typeddict-item]
+    if "DefaultValue" in data:
+        import capo_securityhub.types.string_list
+
+        out["default_value"] = capo_securityhub.types.string_list.deserialize_json(
+            data["DefaultValue"]
+        )
+    if "Re2Expression" in data:
+        out["re2_expression"] = data["Re2Expression"]
+    if "MaxItems" in data:
+        out["max_items"] = data["MaxItems"]
+    if "ExpressionDescription" in data:
+        out["expression_description"] = data["ExpressionDescription"]
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-taxsettings"
+name = "capo-taxsettings"
 version = "0.1.0"
 description = "Python SDK for Taxsettings."
 readme = "README.md"

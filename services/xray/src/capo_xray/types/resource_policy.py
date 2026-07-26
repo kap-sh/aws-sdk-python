@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.xray#ResourcePolicy``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_xray.types.policy_document
+    import capo_xray.types.policy_name
+    import capo_xray.types.policy_revision_id
+    import capo_xray.types.timestamp
+
+
+class ResourcePolicy(TypedDict, closed=True):
+    policy_name: NotRequired["capo_xray.types.policy_name.PolicyName"]
+    """<p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>"""
+    policy_document: NotRequired["capo_xray.types.policy_document.PolicyDocument"]
+    """<p>The resource policy document, which can be up to 5kb in size.</p>"""
+    policy_revision_id: NotRequired[
+        "capo_xray.types.policy_revision_id.PolicyRevisionId"
+    ]
+    """<p>Returns the current policy revision id for this policy name.</p>"""
+    last_updated_time: NotRequired["capo_xray.types.timestamp.Timestamp"]
+    """<p>When the policy was last updated, in Unix time seconds.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ResourcePolicy) -> dict:
+    out: dict = {}
+    if "policy_name" in value:
+        out["PolicyName"] = value["policy_name"]
+    if "policy_document" in value:
+        out["PolicyDocument"] = value["policy_document"]
+    if "policy_revision_id" in value:
+        out["PolicyRevisionId"] = value["policy_revision_id"]
+    if "last_updated_time" in value:
+        import capo_xray.types.timestamp
+
+        out["LastUpdatedTime"] = capo_xray.types.timestamp.serialize_json(
+            value["last_updated_time"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ResourcePolicy:
+    out: ResourcePolicy = {}  # type: ignore[typeddict-item]
+    if "PolicyName" in data:
+        out["policy_name"] = data["PolicyName"]
+    if "PolicyDocument" in data:
+        out["policy_document"] = data["PolicyDocument"]
+    if "PolicyRevisionId" in data:
+        out["policy_revision_id"] = data["PolicyRevisionId"]
+    if "LastUpdatedTime" in data:
+        import capo_xray.types.timestamp
+
+        out["last_updated_time"] = capo_xray.types.timestamp.deserialize_json(
+            data["LastUpdatedTime"]
+        )
+    return out

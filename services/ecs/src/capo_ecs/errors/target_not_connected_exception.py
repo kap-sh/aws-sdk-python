@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.ecs#TargetNotConnectedException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ecs.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_ecs.types.string
+
+
+class TargetNotConnectedException_(TypedDict, closed=True):
+    message: NotRequired["capo_ecs.types.string.String"]
+    """<p> Message that describes the cause of the exception.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: TargetNotConnectedException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> TargetNotConnectedException_:
+    out: TargetNotConnectedException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+class TargetNotConnectedException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.ecs#TargetNotConnectedException``."""
+
+    code: str | None = "TargetNotConnectedException"
+
+    def __init__(self, data: TargetNotConnectedException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="TargetNotConnectedException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "TargetNotConnectedException":
+        return cls(deserialize_aws_json_1_1(data))

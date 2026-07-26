@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.osis#UpdatePipelineResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_osis.types.pipeline
+
+
+class UpdatePipelineResponse(TypedDict, closed=True):
+    pipeline: NotRequired["capo_osis.types.pipeline.Pipeline"]
+    """<p>Container for information about the updated pipeline.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdatePipelineResponse) -> dict:
+    out: dict = {}
+    if "pipeline" in value:
+        import capo_osis.types.pipeline
+
+        out["Pipeline"] = capo_osis.types.pipeline.serialize_json(value["pipeline"])
+    return out
+
+
+def deserialize_json(data: dict) -> UpdatePipelineResponse:
+    out: UpdatePipelineResponse = {}  # type: ignore[typeddict-item]
+    if "Pipeline" in data:
+        import capo_osis.types.pipeline
+
+        out["pipeline"] = capo_osis.types.pipeline.deserialize_json(data["Pipeline"])
+    return out

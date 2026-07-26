@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.imagebuilder#ProductCodeList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_imagebuilder.types.product_code_list_item
+
+ProductCodeList: TypeAlias = list[
+    "capo_imagebuilder.types.product_code_list_item.ProductCodeListItem"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ProductCodeList) -> list:
+    import capo_imagebuilder.types.product_code_list_item
+
+    out: list = []
+    for item in value:
+        out.append(capo_imagebuilder.types.product_code_list_item.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> ProductCodeList:
+    import capo_imagebuilder.types.product_code_list_item
+
+    out: ProductCodeList = []
+    for item in data:
+        out.append(
+            capo_imagebuilder.types.product_code_list_item.deserialize_json(item)
+        )
+    return out

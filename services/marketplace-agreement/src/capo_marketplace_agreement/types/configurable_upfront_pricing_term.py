@@ -1,0 +1,88 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ConfigurableUpfrontPricingTerm``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_marketplace_agreement.types.configurable_upfront_pricing_term_configuration
+    import capo_marketplace_agreement.types.configurable_upfront_rate_card_list
+    import capo_marketplace_agreement.types.currency_code
+    import capo_marketplace_agreement.types.term_id
+    import capo_marketplace_agreement.types.unversioned_term_type
+
+
+class ConfigurableUpfrontPricingTerm(TypedDict, closed=True):
+    type: NotRequired[
+        "capo_marketplace_agreement.types.unversioned_term_type.UnversionedTermType"
+    ]
+    """<p>Category of selector.</p>"""
+    id: NotRequired["capo_marketplace_agreement.types.term_id.TermId"]
+    """<p>The unique identifier of the term.</p>"""
+    currency_code: NotRequired[
+        "capo_marketplace_agreement.types.currency_code.CurrencyCode"
+    ]
+    """<p>Defines the currency for the prices mentioned in the term.</p>"""
+    rate_cards: NotRequired[
+        "capo_marketplace_agreement.types.configurable_upfront_rate_card_list.ConfigurableUpfrontRateCardList"
+    ]
+    """<p>A rate card defines the per unit rates for product dimensions.</p>"""
+    configuration: NotRequired[
+        "capo_marketplace_agreement.types.configurable_upfront_pricing_term_configuration.ConfigurableUpfrontPricingTermConfiguration"
+    ]
+    """<p>Additional parameters specified by the acceptor while accepting the term.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ConfigurableUpfrontPricingTerm) -> dict:
+    out: dict = {}
+    if "type" in value:
+        out["type"] = value["type"]
+    if "id" in value:
+        out["id"] = value["id"]
+    if "currency_code" in value:
+        out["currencyCode"] = value["currency_code"]
+    if "rate_cards" in value:
+        import capo_marketplace_agreement.types.configurable_upfront_rate_card_list
+
+        out["rateCards"] = (
+            capo_marketplace_agreement.types.configurable_upfront_rate_card_list.serialize_aws_json_1_0(
+                value["rate_cards"]
+            )
+        )
+    if "configuration" in value:
+        import capo_marketplace_agreement.types.configurable_upfront_pricing_term_configuration
+
+        out["configuration"] = (
+            capo_marketplace_agreement.types.configurable_upfront_pricing_term_configuration.serialize_aws_json_1_0(
+                value["configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ConfigurableUpfrontPricingTerm:
+    out: ConfigurableUpfrontPricingTerm = {}  # type: ignore[typeddict-item]
+    if "type" in data:
+        out["type"] = data["type"]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "currencyCode" in data:
+        out["currency_code"] = data["currencyCode"]
+    if "rateCards" in data:
+        import capo_marketplace_agreement.types.configurable_upfront_rate_card_list
+
+        out["rate_cards"] = (
+            capo_marketplace_agreement.types.configurable_upfront_rate_card_list.deserialize_aws_json_1_0(
+                data["rateCards"]
+            )
+        )
+    if "configuration" in data:
+        import capo_marketplace_agreement.types.configurable_upfront_pricing_term_configuration
+
+        out["configuration"] = (
+            capo_marketplace_agreement.types.configurable_upfront_pricing_term_configuration.deserialize_aws_json_1_0(
+                data["configuration"]
+            )
+        )
+    return out

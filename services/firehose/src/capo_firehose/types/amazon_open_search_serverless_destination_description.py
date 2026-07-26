@@ -1,0 +1,193 @@
+"""Generated from Smithy shape ``com.amazonaws.firehose#AmazonOpenSearchServerlessDestinationDescription``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_firehose.types.amazon_open_search_serverless_buffering_hints
+    import capo_firehose.types.amazon_open_search_serverless_collection_endpoint
+    import capo_firehose.types.amazon_open_search_serverless_index_name
+    import capo_firehose.types.amazon_open_search_serverless_retry_options
+    import capo_firehose.types.amazon_open_search_serverless_s3_backup_mode
+    import capo_firehose.types.cloud_watch_logging_options
+    import capo_firehose.types.processing_configuration
+    import capo_firehose.types.role_arn
+    import capo_firehose.types.s3_destination_description
+    import capo_firehose.types.vpc_configuration_description
+
+
+class AmazonOpenSearchServerlessDestinationDescription(TypedDict, closed=True):
+    role_arn: NotRequired["capo_firehose.types.role_arn.RoleARN"]
+    """<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>"""
+    collection_endpoint: NotRequired[
+        "capo_firehose.types.amazon_open_search_serverless_collection_endpoint.AmazonOpenSearchServerlessCollectionEndpoint"
+    ]
+    """<p>The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.</p>"""
+    index_name: NotRequired[
+        "capo_firehose.types.amazon_open_search_serverless_index_name.AmazonOpenSearchServerlessIndexName"
+    ]
+    """<p>The Serverless offering for Amazon OpenSearch Service index name.</p>"""
+    buffering_hints: NotRequired[
+        "capo_firehose.types.amazon_open_search_serverless_buffering_hints.AmazonOpenSearchServerlessBufferingHints"
+    ]
+    """<p>The buffering options.</p>"""
+    retry_options: NotRequired[
+        "capo_firehose.types.amazon_open_search_serverless_retry_options.AmazonOpenSearchServerlessRetryOptions"
+    ]
+    """<p>The Serverless offering for Amazon OpenSearch Service retry options.</p>"""
+    s3_backup_mode: NotRequired[
+        "capo_firehose.types.amazon_open_search_serverless_s3_backup_mode.AmazonOpenSearchServerlessS3BackupMode"
+    ]
+    """<p>The Amazon S3 backup mode.</p>"""
+    s3_destination_description: NotRequired[
+        "capo_firehose.types.s3_destination_description.S3DestinationDescription"
+    ]
+    processing_configuration: NotRequired[
+        "capo_firehose.types.processing_configuration.ProcessingConfiguration"
+    ]
+    cloud_watch_logging_options: NotRequired[
+        "capo_firehose.types.cloud_watch_logging_options.CloudWatchLoggingOptions"
+    ]
+    vpc_configuration_description: NotRequired[
+        "capo_firehose.types.vpc_configuration_description.VpcConfigurationDescription"
+    ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(
+    value: AmazonOpenSearchServerlessDestinationDescription,
+) -> dict:
+    out: dict = {}
+    if "role_arn" in value:
+        out["RoleARN"] = value["role_arn"]
+    if "collection_endpoint" in value:
+        out["CollectionEndpoint"] = value["collection_endpoint"]
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "buffering_hints" in value:
+        import capo_firehose.types.amazon_open_search_serverless_buffering_hints
+
+        out["BufferingHints"] = (
+            capo_firehose.types.amazon_open_search_serverless_buffering_hints.serialize_aws_json_1_1(
+                value["buffering_hints"]
+            )
+        )
+    if "retry_options" in value:
+        import capo_firehose.types.amazon_open_search_serverless_retry_options
+
+        out["RetryOptions"] = (
+            capo_firehose.types.amazon_open_search_serverless_retry_options.serialize_aws_json_1_1(
+                value["retry_options"]
+            )
+        )
+    if "s3_backup_mode" in value:
+        import capo_firehose.types.amazon_open_search_serverless_s3_backup_mode
+
+        out["S3BackupMode"] = (
+            capo_firehose.types.amazon_open_search_serverless_s3_backup_mode.serialize_aws_json_1_1(
+                value["s3_backup_mode"]
+            )
+        )
+    if "s3_destination_description" in value:
+        import capo_firehose.types.s3_destination_description
+
+        out["S3DestinationDescription"] = (
+            capo_firehose.types.s3_destination_description.serialize_aws_json_1_1(
+                value["s3_destination_description"]
+            )
+        )
+    if "processing_configuration" in value:
+        import capo_firehose.types.processing_configuration
+
+        out["ProcessingConfiguration"] = (
+            capo_firehose.types.processing_configuration.serialize_aws_json_1_1(
+                value["processing_configuration"]
+            )
+        )
+    if "cloud_watch_logging_options" in value:
+        import capo_firehose.types.cloud_watch_logging_options
+
+        out["CloudWatchLoggingOptions"] = (
+            capo_firehose.types.cloud_watch_logging_options.serialize_aws_json_1_1(
+                value["cloud_watch_logging_options"]
+            )
+        )
+    if "vpc_configuration_description" in value:
+        import capo_firehose.types.vpc_configuration_description
+
+        out["VpcConfigurationDescription"] = (
+            capo_firehose.types.vpc_configuration_description.serialize_aws_json_1_1(
+                value["vpc_configuration_description"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> AmazonOpenSearchServerlessDestinationDescription:
+    out: AmazonOpenSearchServerlessDestinationDescription = {}  # type: ignore[typeddict-item]
+    if "RoleARN" in data:
+        out["role_arn"] = data["RoleARN"]
+    if "CollectionEndpoint" in data:
+        out["collection_endpoint"] = data["CollectionEndpoint"]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "BufferingHints" in data:
+        import capo_firehose.types.amazon_open_search_serverless_buffering_hints
+
+        out["buffering_hints"] = (
+            capo_firehose.types.amazon_open_search_serverless_buffering_hints.deserialize_aws_json_1_1(
+                data["BufferingHints"]
+            )
+        )
+    if "RetryOptions" in data:
+        import capo_firehose.types.amazon_open_search_serverless_retry_options
+
+        out["retry_options"] = (
+            capo_firehose.types.amazon_open_search_serverless_retry_options.deserialize_aws_json_1_1(
+                data["RetryOptions"]
+            )
+        )
+    if "S3BackupMode" in data:
+        import capo_firehose.types.amazon_open_search_serverless_s3_backup_mode
+
+        out["s3_backup_mode"] = (
+            capo_firehose.types.amazon_open_search_serverless_s3_backup_mode.deserialize_aws_json_1_1(
+                data["S3BackupMode"]
+            )
+        )
+    if "S3DestinationDescription" in data:
+        import capo_firehose.types.s3_destination_description
+
+        out["s3_destination_description"] = (
+            capo_firehose.types.s3_destination_description.deserialize_aws_json_1_1(
+                data["S3DestinationDescription"]
+            )
+        )
+    if "ProcessingConfiguration" in data:
+        import capo_firehose.types.processing_configuration
+
+        out["processing_configuration"] = (
+            capo_firehose.types.processing_configuration.deserialize_aws_json_1_1(
+                data["ProcessingConfiguration"]
+            )
+        )
+    if "CloudWatchLoggingOptions" in data:
+        import capo_firehose.types.cloud_watch_logging_options
+
+        out["cloud_watch_logging_options"] = (
+            capo_firehose.types.cloud_watch_logging_options.deserialize_aws_json_1_1(
+                data["CloudWatchLoggingOptions"]
+            )
+        )
+    if "VpcConfigurationDescription" in data:
+        import capo_firehose.types.vpc_configuration_description
+
+        out["vpc_configuration_description"] = (
+            capo_firehose.types.vpc_configuration_description.deserialize_aws_json_1_1(
+                data["VpcConfigurationDescription"]
+            )
+        )
+    return out

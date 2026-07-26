@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplacediscovery#GrantList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_marketplace_discovery.types.grant_item
+
+GrantList: TypeAlias = list["capo_marketplace_discovery.types.grant_item.GrantItem"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GrantList) -> list:
+    import capo_marketplace_discovery.types.grant_item
+
+    out: list = []
+    for item in value:
+        out.append(capo_marketplace_discovery.types.grant_item.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> GrantList:
+    import capo_marketplace_discovery.types.grant_item
+
+    out: GrantList = []
+    for item in data:
+        out.append(capo_marketplace_discovery.types.grant_item.deserialize_json(item))
+    return out

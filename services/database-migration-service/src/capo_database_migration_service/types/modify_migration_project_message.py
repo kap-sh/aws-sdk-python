@@ -1,0 +1,125 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyMigrationProjectMessage``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_database_migration_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_database_migration_service.types.data_provider_descriptor_definition_list
+    import capo_database_migration_service.types.sc_application_attributes
+    import capo_database_migration_service.types.string
+
+
+class ModifyMigrationProjectMessage(TypedDict, closed=True):
+    migration_project_identifier: "capo_database_migration_service.types.string.String"
+    """<p>The identifier of the migration project. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.</p>"""
+    migration_project_name: NotRequired[
+        "capo_database_migration_service.types.string.String"
+    ]
+    """<p>A user-friendly name for the migration project.</p>"""
+    source_data_provider_descriptors: NotRequired[
+        "capo_database_migration_service.types.data_provider_descriptor_definition_list.DataProviderDescriptorDefinitionList"
+    ]
+    """<p>Information about the source data provider, including the name, ARN, and Amazon Web Services Secrets Manager parameters.</p>"""
+    target_data_provider_descriptors: NotRequired[
+        "capo_database_migration_service.types.data_provider_descriptor_definition_list.DataProviderDescriptorDefinitionList"
+    ]
+    """<p>Information about the target data provider, including the name, ARN, and Amazon Web Services Secrets Manager parameters.</p>"""
+    instance_profile_identifier: NotRequired[
+        "capo_database_migration_service.types.string.String"
+    ]
+    """<p>The name or Amazon Resource Name (ARN) for the instance profile.</p>"""
+    transformation_rules: NotRequired[
+        "capo_database_migration_service.types.string.String"
+    ]
+    """<p>The settings in JSON format for migration rules. Migration rules make it possible for you to change the object names according to the rules that you specify. For example, you can change an object name to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>"""
+    description: NotRequired["capo_database_migration_service.types.string.String"]
+    """<p>A user-friendly description of the migration project.</p>"""
+    schema_conversion_application_attributes: NotRequired[
+        "capo_database_migration_service.types.sc_application_attributes.SCApplicationAttributes"
+    ]
+    """<p>The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ModifyMigrationProjectMessage) -> dict:
+    out: dict = {}
+    out["MigrationProjectIdentifier"] = value["migration_project_identifier"]
+    if "migration_project_name" in value:
+        out["MigrationProjectName"] = value["migration_project_name"]
+    if "source_data_provider_descriptors" in value:
+        import capo_database_migration_service.types.data_provider_descriptor_definition_list
+
+        out["SourceDataProviderDescriptors"] = (
+            capo_database_migration_service.types.data_provider_descriptor_definition_list.serialize_aws_json_1_1(
+                value["source_data_provider_descriptors"]
+            )
+        )
+    if "target_data_provider_descriptors" in value:
+        import capo_database_migration_service.types.data_provider_descriptor_definition_list
+
+        out["TargetDataProviderDescriptors"] = (
+            capo_database_migration_service.types.data_provider_descriptor_definition_list.serialize_aws_json_1_1(
+                value["target_data_provider_descriptors"]
+            )
+        )
+    if "instance_profile_identifier" in value:
+        out["InstanceProfileIdentifier"] = value["instance_profile_identifier"]
+    if "transformation_rules" in value:
+        out["TransformationRules"] = value["transformation_rules"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "schema_conversion_application_attributes" in value:
+        import capo_database_migration_service.types.sc_application_attributes
+
+        out["SchemaConversionApplicationAttributes"] = (
+            capo_database_migration_service.types.sc_application_attributes.serialize_aws_json_1_1(
+                value["schema_conversion_application_attributes"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ModifyMigrationProjectMessage:
+    out: ModifyMigrationProjectMessage = {}  # type: ignore[typeddict-item]
+    if "MigrationProjectIdentifier" in data:
+        out["migration_project_identifier"] = data["MigrationProjectIdentifier"]
+    else:
+        raise DeserializationError(
+            "ModifyMigrationProjectMessage.migration_project_identifier required"
+        )
+    if "MigrationProjectName" in data:
+        out["migration_project_name"] = data["MigrationProjectName"]
+    if "SourceDataProviderDescriptors" in data:
+        import capo_database_migration_service.types.data_provider_descriptor_definition_list
+
+        out["source_data_provider_descriptors"] = (
+            capo_database_migration_service.types.data_provider_descriptor_definition_list.deserialize_aws_json_1_1(
+                data["SourceDataProviderDescriptors"]
+            )
+        )
+    if "TargetDataProviderDescriptors" in data:
+        import capo_database_migration_service.types.data_provider_descriptor_definition_list
+
+        out["target_data_provider_descriptors"] = (
+            capo_database_migration_service.types.data_provider_descriptor_definition_list.deserialize_aws_json_1_1(
+                data["TargetDataProviderDescriptors"]
+            )
+        )
+    if "InstanceProfileIdentifier" in data:
+        out["instance_profile_identifier"] = data["InstanceProfileIdentifier"]
+    if "TransformationRules" in data:
+        out["transformation_rules"] = data["TransformationRules"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "SchemaConversionApplicationAttributes" in data:
+        import capo_database_migration_service.types.sc_application_attributes
+
+        out["schema_conversion_application_attributes"] = (
+            capo_database_migration_service.types.sc_application_attributes.deserialize_aws_json_1_1(
+                data["SchemaConversionApplicationAttributes"]
+            )
+        )
+    return out

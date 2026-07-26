@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-iottwinmaker"
+name = "capo-iottwinmaker"
 version = "0.1.0"
 description = "Python SDK for Iottwinmaker."
 readme = "README.md"

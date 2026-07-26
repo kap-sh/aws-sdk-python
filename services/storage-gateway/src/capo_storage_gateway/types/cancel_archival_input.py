@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#CancelArchivalInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_storage_gateway.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_storage_gateway.types.gateway_arn
+    import capo_storage_gateway.types.tape_arn
+
+
+class CancelArchivalInput(TypedDict, closed=True):
+    gateway_arn: "capo_storage_gateway.types.gateway_arn.GatewayARN"
+    tape_arn: "capo_storage_gateway.types.tape_arn.TapeARN"
+    """<p>The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CancelArchivalInput) -> dict:
+    out: dict = {}
+    out["GatewayARN"] = value["gateway_arn"]
+    out["TapeARN"] = value["tape_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CancelArchivalInput:
+    out: CancelArchivalInput = {}  # type: ignore[typeddict-item]
+    if "GatewayARN" in data:
+        out["gateway_arn"] = data["GatewayARN"]
+    else:
+        raise DeserializationError("CancelArchivalInput.gateway_arn required")
+    if "TapeARN" in data:
+        out["tape_arn"] = data["TapeARN"]
+    else:
+        raise DeserializationError("CancelArchivalInput.tape_arn required")
+    return out

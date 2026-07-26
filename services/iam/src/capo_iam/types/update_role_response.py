@@ -1,0 +1,21 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#UpdateRoleResponse``."""
+
+from typing_extensions import TypedDict
+
+from capo_iam._protocol.xml import Element
+
+
+class UpdateRoleResponse(TypedDict, closed=True):
+    pass
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: UpdateRoleResponse, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pass
+
+
+def deserialize_query(el: Element) -> UpdateRoleResponse:
+    out: UpdateRoleResponse = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,113 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AgentRuntime``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.agent_runtime_arn
+    import capo_bedrock_agentcore_control.types.agent_runtime_id
+    import capo_bedrock_agentcore_control.types.agent_runtime_name
+    import capo_bedrock_agentcore_control.types.agent_runtime_status
+    import capo_bedrock_agentcore_control.types.agent_runtime_version
+    import capo_bedrock_agentcore_control.types.date_timestamp
+    import capo_bedrock_agentcore_control.types.description
+
+
+class AgentRuntime(TypedDict, closed=True):
+    agent_runtime_arn: (
+        "capo_bedrock_agentcore_control.types.agent_runtime_arn.AgentRuntimeArn"
+    )
+    """<p>The Amazon Resource Name (ARN) of the agent runtime.</p>"""
+    agent_runtime_id: (
+        "capo_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId"
+    )
+    """<p>The unique identifier of the agent runtime.</p>"""
+    agent_runtime_version: (
+        "capo_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
+    )
+    """<p>The version of the agent runtime.</p>"""
+    agent_runtime_name: (
+        "capo_bedrock_agentcore_control.types.agent_runtime_name.AgentRuntimeName"
+    )
+    """<p>The name of the agent runtime.</p>"""
+    description: "capo_bedrock_agentcore_control.types.description.Description"
+    """<p>The description of the agent runtime.</p>"""
+    last_updated_at: "capo_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    """<p>The timestamp when the agent runtime was last updated.</p>"""
+    status: (
+        "capo_bedrock_agentcore_control.types.agent_runtime_status.AgentRuntimeStatus"
+    )
+    """<p>The current status of the agent runtime.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AgentRuntime) -> dict:
+    out: dict = {}
+    out["agentRuntimeArn"] = value["agent_runtime_arn"]
+    out["agentRuntimeId"] = value["agent_runtime_id"]
+    out["agentRuntimeVersion"] = value["agent_runtime_version"]
+    out["agentRuntimeName"] = value["agent_runtime_name"]
+    out["description"] = value["description"]
+    import capo_bedrock_agentcore_control.types.date_timestamp
+
+    out["lastUpdatedAt"] = (
+        capo_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["last_updated_at"]
+        )
+    )
+    import capo_bedrock_agentcore_control.types.agent_runtime_status
+
+    out["status"] = (
+        capo_bedrock_agentcore_control.types.agent_runtime_status.serialize_json(
+            value["status"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AgentRuntime:
+    out: AgentRuntime = {}  # type: ignore[typeddict-item]
+    if "agentRuntimeArn" in data:
+        out["agent_runtime_arn"] = data["agentRuntimeArn"]
+    else:
+        raise DeserializationError("AgentRuntime.agent_runtime_arn required")
+    if "agentRuntimeId" in data:
+        out["agent_runtime_id"] = data["agentRuntimeId"]
+    else:
+        raise DeserializationError("AgentRuntime.agent_runtime_id required")
+    if "agentRuntimeVersion" in data:
+        out["agent_runtime_version"] = data["agentRuntimeVersion"]
+    else:
+        raise DeserializationError("AgentRuntime.agent_runtime_version required")
+    if "agentRuntimeName" in data:
+        out["agent_runtime_name"] = data["agentRuntimeName"]
+    else:
+        raise DeserializationError("AgentRuntime.agent_runtime_name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    else:
+        raise DeserializationError("AgentRuntime.description required")
+    if "lastUpdatedAt" in data:
+        import capo_bedrock_agentcore_control.types.date_timestamp
+
+        out["last_updated_at"] = (
+            capo_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["lastUpdatedAt"]
+            )
+        )
+    else:
+        raise DeserializationError("AgentRuntime.last_updated_at required")
+    if "status" in data:
+        import capo_bedrock_agentcore_control.types.agent_runtime_status
+
+        out["status"] = (
+            capo_bedrock_agentcore_control.types.agent_runtime_status.deserialize_json(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("AgentRuntime.status required")
+    return out

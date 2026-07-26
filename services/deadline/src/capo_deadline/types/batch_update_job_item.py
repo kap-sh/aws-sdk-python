@@ -1,0 +1,137 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#BatchUpdateJobItem``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_deadline.types.farm_id
+    import capo_deadline.types.job_description_override
+    import capo_deadline.types.job_id
+    import capo_deadline.types.job_name
+    import capo_deadline.types.job_priority
+    import capo_deadline.types.job_target_task_run_status
+    import capo_deadline.types.max_failed_tasks_count
+    import capo_deadline.types.max_retries_per_task
+    import capo_deadline.types.max_worker_count
+    import capo_deadline.types.queue_id
+    import capo_deadline.types.update_job_lifecycle_status
+
+
+class BatchUpdateJobItem(TypedDict, closed=True):
+    farm_id: "capo_deadline.types.farm_id.FarmId"
+    """<p>The farm ID of the job to update.</p>"""
+    queue_id: "capo_deadline.types.queue_id.QueueId"
+    """<p>The queue ID of the job to update.</p>"""
+    job_id: "capo_deadline.types.job_id.JobId"
+    """<p>The job ID of the job to update.</p>"""
+    target_task_run_status: NotRequired[
+        "capo_deadline.types.job_target_task_run_status.JobTargetTaskRunStatus"
+    ]
+    """<p>The task status to update the job's tasks to.</p>"""
+    priority: NotRequired["capo_deadline.types.job_priority.JobPriority"]
+    """<p>The job priority to update.</p>"""
+    max_failed_tasks_count: NotRequired[
+        "capo_deadline.types.max_failed_tasks_count.MaxFailedTasksCount"
+    ]
+    """<p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>"""
+    max_retries_per_task: NotRequired[
+        "capo_deadline.types.max_retries_per_task.MaxRetriesPerTask"
+    ]
+    """<p>The maximum number of retries per failed tasks.</p>"""
+    lifecycle_status: NotRequired[
+        "capo_deadline.types.update_job_lifecycle_status.UpdateJobLifecycleStatus"
+    ]
+    """<p>The status of a job in its lifecycle. When you change the status of the job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>"""
+    max_worker_count: NotRequired["capo_deadline.types.max_worker_count.MaxWorkerCount"]
+    """<p>The maximum number of worker hosts that can concurrently process a job.</p>"""
+    name: NotRequired["capo_deadline.types.job_name.JobName"]
+    """<p>The name of the job to update.</p>"""
+    description: NotRequired[
+        "capo_deadline.types.job_description_override.JobDescriptionOverride"
+    ]
+    """<p>The description of the job to update.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchUpdateJobItem) -> dict:
+    out: dict = {}
+    out["farmId"] = value["farm_id"]
+    out["queueId"] = value["queue_id"]
+    out["jobId"] = value["job_id"]
+    if "target_task_run_status" in value:
+        import capo_deadline.types.job_target_task_run_status
+
+        out["targetTaskRunStatus"] = (
+            capo_deadline.types.job_target_task_run_status.serialize_json(
+                value["target_task_run_status"]
+            )
+        )
+    if "priority" in value:
+        out["priority"] = value["priority"]
+    if "max_failed_tasks_count" in value:
+        out["maxFailedTasksCount"] = value["max_failed_tasks_count"]
+    if "max_retries_per_task" in value:
+        out["maxRetriesPerTask"] = value["max_retries_per_task"]
+    if "lifecycle_status" in value:
+        import capo_deadline.types.update_job_lifecycle_status
+
+        out["lifecycleStatus"] = (
+            capo_deadline.types.update_job_lifecycle_status.serialize_json(
+                value["lifecycle_status"]
+            )
+        )
+    if "max_worker_count" in value:
+        out["maxWorkerCount"] = value["max_worker_count"]
+    if "name" in value:
+        out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_json(data: dict) -> BatchUpdateJobItem:
+    out: BatchUpdateJobItem = {}  # type: ignore[typeddict-item]
+    if "farmId" in data:
+        out["farm_id"] = data["farmId"]
+    else:
+        raise DeserializationError("BatchUpdateJobItem.farm_id required")
+    if "queueId" in data:
+        out["queue_id"] = data["queueId"]
+    else:
+        raise DeserializationError("BatchUpdateJobItem.queue_id required")
+    if "jobId" in data:
+        out["job_id"] = data["jobId"]
+    else:
+        raise DeserializationError("BatchUpdateJobItem.job_id required")
+    if "targetTaskRunStatus" in data:
+        import capo_deadline.types.job_target_task_run_status
+
+        out["target_task_run_status"] = (
+            capo_deadline.types.job_target_task_run_status.deserialize_json(
+                data["targetTaskRunStatus"]
+            )
+        )
+    if "priority" in data:
+        out["priority"] = data["priority"]
+    if "maxFailedTasksCount" in data:
+        out["max_failed_tasks_count"] = data["maxFailedTasksCount"]
+    if "maxRetriesPerTask" in data:
+        out["max_retries_per_task"] = data["maxRetriesPerTask"]
+    if "lifecycleStatus" in data:
+        import capo_deadline.types.update_job_lifecycle_status
+
+        out["lifecycle_status"] = (
+            capo_deadline.types.update_job_lifecycle_status.deserialize_json(
+                data["lifecycleStatus"]
+            )
+        )
+    if "maxWorkerCount" in data:
+        out["max_worker_count"] = data["maxWorkerCount"]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

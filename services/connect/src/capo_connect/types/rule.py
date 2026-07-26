@@ -1,0 +1,156 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#Rule``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_connect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_connect.types.arn
+    import capo_connect.types.rule_actions
+    import capo_connect.types.rule_function
+    import capo_connect.types.rule_id
+    import capo_connect.types.rule_name
+    import capo_connect.types.rule_publish_status
+    import capo_connect.types.rule_trigger_event_source
+    import capo_connect.types.tag_map
+    import capo_connect.types.timestamp
+
+
+class Rule(TypedDict, closed=True):
+    name: "capo_connect.types.rule_name.RuleName"
+    """<p>The name of the rule.</p>"""
+    rule_id: "capo_connect.types.rule_id.RuleId"
+    """<p>A unique identifier for the rule.</p>"""
+    rule_arn: "capo_connect.types.arn.ARN"
+    """<p>The Amazon Resource Name (ARN) of the rule.</p>"""
+    trigger_event_source: (
+        "capo_connect.types.rule_trigger_event_source.RuleTriggerEventSource"
+    )
+    """<p>The event source to trigger the rule.</p>"""
+    function: "capo_connect.types.rule_function.RuleFunction"
+    """<p>The conditions of the rule.</p>"""
+    actions: "capo_connect.types.rule_actions.RuleActions"
+    """<p>A list of actions to be run when the rule is triggered.</p>"""
+    publish_status: "capo_connect.types.rule_publish_status.RulePublishStatus"
+    """<p>The publish status of the rule.</p>"""
+    created_time: "capo_connect.types.timestamp.Timestamp"
+    """<p>The timestamp for when the rule was created.</p>"""
+    last_updated_time: "capo_connect.types.timestamp.Timestamp"
+    """<p>The timestamp for the when the rule was last updated.</p>"""
+    last_updated_by: "capo_connect.types.arn.ARN"
+    """<p>The Amazon Resource Name (ARN) of the user who last updated the rule.</p>"""
+    tags: NotRequired["capo_connect.types.tag_map.TagMap"]
+    r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Rule) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    out["RuleId"] = value["rule_id"]
+    out["RuleArn"] = value["rule_arn"]
+    import capo_connect.types.rule_trigger_event_source
+
+    out["TriggerEventSource"] = (
+        capo_connect.types.rule_trigger_event_source.serialize_json(
+            value["trigger_event_source"]
+        )
+    )
+    out["Function"] = value["function"]
+    import capo_connect.types.rule_actions
+
+    out["Actions"] = capo_connect.types.rule_actions.serialize_json(value["actions"])
+    import capo_connect.types.rule_publish_status
+
+    out["PublishStatus"] = capo_connect.types.rule_publish_status.serialize_json(
+        value["publish_status"]
+    )
+    import capo_connect.types.timestamp
+
+    out["CreatedTime"] = capo_connect.types.timestamp.serialize_json(
+        value["created_time"]
+    )
+    import capo_connect.types.timestamp
+
+    out["LastUpdatedTime"] = capo_connect.types.timestamp.serialize_json(
+        value["last_updated_time"]
+    )
+    out["LastUpdatedBy"] = value["last_updated_by"]
+    if "tags" in value:
+        import capo_connect.types.tag_map
+
+        out["Tags"] = capo_connect.types.tag_map.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> Rule:
+    out: Rule = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("Rule.name required")
+    if "RuleId" in data:
+        out["rule_id"] = data["RuleId"]
+    else:
+        raise DeserializationError("Rule.rule_id required")
+    if "RuleArn" in data:
+        out["rule_arn"] = data["RuleArn"]
+    else:
+        raise DeserializationError("Rule.rule_arn required")
+    if "TriggerEventSource" in data:
+        import capo_connect.types.rule_trigger_event_source
+
+        out["trigger_event_source"] = (
+            capo_connect.types.rule_trigger_event_source.deserialize_json(
+                data["TriggerEventSource"]
+            )
+        )
+    else:
+        raise DeserializationError("Rule.trigger_event_source required")
+    if "Function" in data:
+        out["function"] = data["Function"]
+    else:
+        raise DeserializationError("Rule.function required")
+    if "Actions" in data:
+        import capo_connect.types.rule_actions
+
+        out["actions"] = capo_connect.types.rule_actions.deserialize_json(
+            data["Actions"]
+        )
+    else:
+        raise DeserializationError("Rule.actions required")
+    if "PublishStatus" in data:
+        import capo_connect.types.rule_publish_status
+
+        out["publish_status"] = capo_connect.types.rule_publish_status.deserialize_json(
+            data["PublishStatus"]
+        )
+    else:
+        raise DeserializationError("Rule.publish_status required")
+    if "CreatedTime" in data:
+        import capo_connect.types.timestamp
+
+        out["created_time"] = capo_connect.types.timestamp.deserialize_json(
+            data["CreatedTime"]
+        )
+    else:
+        raise DeserializationError("Rule.created_time required")
+    if "LastUpdatedTime" in data:
+        import capo_connect.types.timestamp
+
+        out["last_updated_time"] = capo_connect.types.timestamp.deserialize_json(
+            data["LastUpdatedTime"]
+        )
+    else:
+        raise DeserializationError("Rule.last_updated_time required")
+    if "LastUpdatedBy" in data:
+        out["last_updated_by"] = data["LastUpdatedBy"]
+    else:
+        raise DeserializationError("Rule.last_updated_by required")
+    if "Tags" in data:
+        import capo_connect.types.tag_map
+
+        out["tags"] = capo_connect.types.tag_map.deserialize_json(data["Tags"])
+    return out

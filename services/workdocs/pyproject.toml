@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-workdocs"
+name = "capo-workdocs"
 version = "0.1.0"
 description = "Python SDK for Workdocs."
 readme = "README.md"

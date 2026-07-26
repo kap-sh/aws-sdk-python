@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudtrail#RefreshSchedule``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_cloudtrail.types.refresh_schedule_frequency
+    import capo_cloudtrail.types.refresh_schedule_status
+    import capo_cloudtrail.types.time_of_day
+
+
+class RefreshSchedule(TypedDict, closed=True):
+    frequency: NotRequired[
+        "capo_cloudtrail.types.refresh_schedule_frequency.RefreshScheduleFrequency"
+    ]
+    """<p> The frequency at which you want the dashboard refreshed. </p>"""
+    status: NotRequired[
+        "capo_cloudtrail.types.refresh_schedule_status.RefreshScheduleStatus"
+    ]
+    """<p> Specifies whether the refresh schedule is enabled. Set the value to <code>ENABLED</code> to enable the refresh schedule, or to <code>DISABLED</code> to turn off the refresh schedule. </p>"""
+    time_of_day: NotRequired["capo_cloudtrail.types.time_of_day.TimeOfDay"]
+    """<p> The time of day in UTC to run the schedule; for hourly only refer to minutes; default is 00:00. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RefreshSchedule) -> dict:
+    out: dict = {}
+    if "frequency" in value:
+        import capo_cloudtrail.types.refresh_schedule_frequency
+
+        out["Frequency"] = (
+            capo_cloudtrail.types.refresh_schedule_frequency.serialize_aws_json_1_1(
+                value["frequency"]
+            )
+        )
+    if "status" in value:
+        import capo_cloudtrail.types.refresh_schedule_status
+
+        out["Status"] = (
+            capo_cloudtrail.types.refresh_schedule_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "time_of_day" in value:
+        out["TimeOfDay"] = value["time_of_day"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RefreshSchedule:
+    out: RefreshSchedule = {}  # type: ignore[typeddict-item]
+    if "Frequency" in data:
+        import capo_cloudtrail.types.refresh_schedule_frequency
+
+        out["frequency"] = (
+            capo_cloudtrail.types.refresh_schedule_frequency.deserialize_aws_json_1_1(
+                data["Frequency"]
+            )
+        )
+    if "Status" in data:
+        import capo_cloudtrail.types.refresh_schedule_status
+
+        out["status"] = (
+            capo_cloudtrail.types.refresh_schedule_status.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    if "TimeOfDay" in data:
+        out["time_of_day"] = data["TimeOfDay"]
+    return out

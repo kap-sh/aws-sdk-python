@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.xray#AnnotationValue``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_xray.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_xray.types.nullable_boolean
+    import capo_xray.types.nullable_double
+    import capo_xray.types.string
+
+
+class _AnnotationValue_NumberValue(TypedDict, closed=True):
+    NumberValue: "capo_xray.types.nullable_double.NullableDouble"
+
+
+class _AnnotationValue_BooleanValue(TypedDict, closed=True):
+    BooleanValue: "capo_xray.types.nullable_boolean.NullableBoolean"
+
+
+class _AnnotationValue_StringValue(TypedDict, closed=True):
+    StringValue: "capo_xray.types.string.String"
+
+
+AnnotationValue: TypeAlias = (
+    _AnnotationValue_NumberValue
+    | _AnnotationValue_BooleanValue
+    | _AnnotationValue_StringValue
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AnnotationValue) -> dict:
+    if "NumberValue" in value:
+        return {"NumberValue": value["NumberValue"]}
+    elif "BooleanValue" in value:
+        return {"BooleanValue": value["BooleanValue"]}
+    elif "StringValue" in value:
+        return {"StringValue": value["StringValue"]}
+    else:
+        raise SerializationError("AnnotationValue: no variant present")
+
+
+def deserialize_json(data: dict) -> AnnotationValue:
+    if "NumberValue" in data:
+        return {"NumberValue": data["NumberValue"]}
+    elif "BooleanValue" in data:
+        return {"BooleanValue": data["BooleanValue"]}
+    elif "StringValue" in data:
+        return {"StringValue": data["StringValue"]}
+    else:
+        raise DeserializationError("AnnotationValue: no recognized variant key")

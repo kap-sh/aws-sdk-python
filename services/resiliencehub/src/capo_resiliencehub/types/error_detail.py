@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehub#ErrorDetail``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_resiliencehub.types.error_message
+
+
+class ErrorDetail(TypedDict, closed=True):
+    error_message: NotRequired["capo_resiliencehub.types.error_message.ErrorMessage"]
+    """<p>Provides additional information about the error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ErrorDetail) -> dict:
+    out: dict = {}
+    if "error_message" in value:
+        out["errorMessage"] = value["error_message"]
+    return out
+
+
+def deserialize_json(data: dict) -> ErrorDetail:
+    out: ErrorDetail = {}  # type: ignore[typeddict-item]
+    if "errorMessage" in data:
+        out["error_message"] = data["errorMessage"]
+    return out

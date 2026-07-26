@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.ivs#GetPlaybackKeyPairResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_ivs.types.playback_key_pair
+
+
+class GetPlaybackKeyPairResponse(TypedDict, closed=True):
+    key_pair: NotRequired["capo_ivs.types.playback_key_pair.PlaybackKeyPair"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetPlaybackKeyPairResponse) -> dict:
+    out: dict = {}
+    if "key_pair" in value:
+        import capo_ivs.types.playback_key_pair
+
+        out["keyPair"] = capo_ivs.types.playback_key_pair.serialize_json(
+            value["key_pair"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetPlaybackKeyPairResponse:
+    out: GetPlaybackKeyPairResponse = {}  # type: ignore[typeddict-item]
+    if "keyPair" in data:
+        import capo_ivs.types.playback_key_pair
+
+        out["key_pair"] = capo_ivs.types.playback_key_pair.deserialize_json(
+            data["keyPair"]
+        )
+    return out

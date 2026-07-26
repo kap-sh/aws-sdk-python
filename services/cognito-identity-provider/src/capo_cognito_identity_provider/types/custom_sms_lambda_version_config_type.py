@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CustomSMSLambdaVersionConfigType``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_cognito_identity_provider.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_cognito_identity_provider.types.arn_type
+    import capo_cognito_identity_provider.types.custom_sms_sender_lambda_version_type
+
+
+class CustomSMSLambdaVersionConfigType(TypedDict, closed=True):
+    lambda_version: "capo_cognito_identity_provider.types.custom_sms_sender_lambda_version_type.CustomSMSSenderLambdaVersionType"
+    """<p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p> <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>"""
+    lambda_arn: "capo_cognito_identity_provider.types.arn_type.ArnType"
+    """<p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CustomSMSLambdaVersionConfigType) -> dict:
+    out: dict = {}
+    import capo_cognito_identity_provider.types.custom_sms_sender_lambda_version_type
+
+    out["LambdaVersion"] = (
+        capo_cognito_identity_provider.types.custom_sms_sender_lambda_version_type.serialize_aws_json_1_1(
+            value["lambda_version"]
+        )
+    )
+    out["LambdaArn"] = value["lambda_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CustomSMSLambdaVersionConfigType:
+    out: CustomSMSLambdaVersionConfigType = {}  # type: ignore[typeddict-item]
+    if "LambdaVersion" in data:
+        import capo_cognito_identity_provider.types.custom_sms_sender_lambda_version_type
+
+        out["lambda_version"] = (
+            capo_cognito_identity_provider.types.custom_sms_sender_lambda_version_type.deserialize_aws_json_1_1(
+                data["LambdaVersion"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CustomSMSLambdaVersionConfigType.lambda_version required"
+        )
+    if "LambdaArn" in data:
+        out["lambda_arn"] = data["LambdaArn"]
+    else:
+        raise DeserializationError(
+            "CustomSMSLambdaVersionConfigType.lambda_arn required"
+        )
+    return out

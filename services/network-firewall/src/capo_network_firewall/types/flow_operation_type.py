@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#FlowOperationType``."""
+
+from typing import Literal, TypeAlias, cast
+
+FlowOperationType: TypeAlias = Literal[
+    "FLOW_FLUSH",
+    "FLOW_CAPTURE",
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: FlowOperationType) -> str:
+    return value
+
+
+def deserialize_aws_json_1_0(data: str) -> FlowOperationType:
+    return cast(FlowOperationType, data)

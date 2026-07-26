@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-s3"
+name = "capo-s3"
 version = "0.1.0"
 description = "Python SDK for Amazon S3."
 readme = "README.md"

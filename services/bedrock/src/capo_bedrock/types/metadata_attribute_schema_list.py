@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#MetadataAttributeSchemaList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.metadata_attribute_schema
+
+MetadataAttributeSchemaList: TypeAlias = list[
+    "capo_bedrock.types.metadata_attribute_schema.MetadataAttributeSchema"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: MetadataAttributeSchemaList) -> list:
+    import capo_bedrock.types.metadata_attribute_schema
+
+    out: list = []
+    for item in value:
+        out.append(capo_bedrock.types.metadata_attribute_schema.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> MetadataAttributeSchemaList:
+    import capo_bedrock.types.metadata_attribute_schema
+
+    out: MetadataAttributeSchemaList = []
+    for item in data:
+        out.append(capo_bedrock.types.metadata_attribute_schema.deserialize_json(item))
+    return out

@@ -1,0 +1,174 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#PutKey``."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+from urllib.parse import quote
+
+import zapros
+from typing_extensions import Never
+
+import capo_cloudfront_keyvaluestore._auth._signers
+import capo_cloudfront_keyvaluestore._auth._sigv4
+import capo_cloudfront_keyvaluestore.errors.access_denied_exception
+import capo_cloudfront_keyvaluestore.errors.conflict_exception
+import capo_cloudfront_keyvaluestore.errors.internal_server_exception
+import capo_cloudfront_keyvaluestore.errors.resource_not_found_exception
+import capo_cloudfront_keyvaluestore.errors.service_quota_exceeded_exception
+import capo_cloudfront_keyvaluestore.errors.validation_exception
+import capo_cloudfront_keyvaluestore.types.put_key_request
+import capo_cloudfront_keyvaluestore.types.put_key_response
+from capo_cloudfront_keyvaluestore._protocol.errors import parse_error_metadata_json
+from capo_cloudfront_keyvaluestore._rule_engine._endpoint_rule_set import (
+    EndpointParams,
+    resolve,
+)
+from capo_cloudfront_keyvaluestore._rule_engine._endpoint_runtime import apply_label
+from capo_cloudfront_keyvaluestore._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from capo_cloudfront_keyvaluestore.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "AccessDeniedException":
+            raise capo_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
+        case "ConflictException":
+            raise capo_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException.from_json(
+                data
+            )
+        case "InternalServerException":
+            raise capo_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
+        case "ResourceNotFoundException":
+            raise capo_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
+        case "ServiceQuotaExceededException":
+            raise capo_cloudfront_keyvaluestore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data
+            )
+        case "ValidationException":
+            raise capo_cloudfront_keyvaluestore.errors.validation_exception.ValidationException.from_json(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse:
+    out: capo_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse = (
+        capo_cloudfront_keyvaluestore.types.put_key_response.deserialize_json(
+            json.loads(response.read())
+        )
+    )
+    out["e_tag"] = str(response.headers["ETag"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse:
+    out: capo_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse = (
+        capo_cloudfront_keyvaluestore.types.put_key_response.deserialize_json(
+            json.loads(await response.aread())
+        )
+    )
+    out["e_tag"] = str(response.headers["ETag"])
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_cloudfront_keyvaluestore._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_cloudfront_keyvaluestore._auth._sigv4.build_sigv4_auth_scheme(
+                "cloudfront-keyvaluestore", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_cloudfront_keyvaluestore._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            KvsARN=input_.get("kvs_arn"),
+            Region=options.region,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + "/key-value-stores/{KvsARN}/keys/{Key}"
+    url = url.replace("{Key}", quote(str(input_["key"]), safe=""))
+    url = apply_label(url, "{KvsARN}", str(input_["kvs_arn"]))
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    if "if_match" in input_:
+        headers["If-Match"] = str(input_["if_match"])
+    body: bytes | None = json.dumps(
+        capo_cloudfront_keyvaluestore.types.put_key_request.serialize_json(input_)
+    ).encode()
+    headers["content-type"] = "application/json"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def put_key(
+    options: OperationOptions,
+    input_: capo_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest,
+) -> tuple[
+    capo_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse, zapros.Response
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_put_key(
+    options: AsyncOperationOptions,
+    input_: capo_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest,
+) -> tuple[
+    capo_cloudfront_keyvaluestore.types.put_key_response.PutKeyResponse, zapros.Response
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

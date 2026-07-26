@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-network-firewall"
+name = "capo-network-firewall"
 version = "0.1.0"
 description = "Python SDK for Network Firewall."
 readme = "README.md"

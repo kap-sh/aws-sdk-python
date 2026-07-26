@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#ListAccessKeysResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_iam._protocol.xml import Element
+from capo_iam.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_iam.types.access_key_metadata_list_type
+    import capo_iam.types.boolean_type
+    import capo_iam.types.response_marker_type
+
+
+class ListAccessKeysResponse(TypedDict, closed=True):
+    access_key_metadata: (
+        "capo_iam.types.access_key_metadata_list_type.accessKeyMetadataListType"
+    )
+    """<p>A list of objects containing metadata about the access keys.</p>"""
+    is_truncated: "capo_iam.types.boolean_type.booleanType"
+    """<p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>"""
+    marker: NotRequired["capo_iam.types.response_marker_type.responseMarkerType"]
+    """<p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: ListAccessKeysResponse, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    import capo_iam.types.access_key_metadata_list_type
+
+    capo_iam.types.access_key_metadata_list_type.serialize_query(
+        value["access_key_metadata"], pairs, f"{prefix}.AccessKeyMetadata"
+    )
+    pairs.append(
+        (
+            f"{prefix}.IsTruncated",
+            "true" if value.get("is_truncated", False) else "false",
+        )
+    )
+    if "marker" in value:
+        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+
+
+def deserialize_query(el: Element) -> ListAccessKeysResponse:
+    out: ListAccessKeysResponse = {}  # type: ignore[typeddict-item]
+    child_access_key_metadata = el.find("AccessKeyMetadata")
+    if child_access_key_metadata is not None:
+        import capo_iam.types.access_key_metadata_list_type
+
+        out["access_key_metadata"] = (
+            capo_iam.types.access_key_metadata_list_type.deserialize_query(
+                child_access_key_metadata
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListAccessKeysResponse.access_key_metadata required"
+        )
+    child_is_truncated = el.find("IsTruncated")
+    if child_is_truncated is not None:
+        out["is_truncated"] = (child_is_truncated.text or "").lower() == "true"
+    else:
+        out["is_truncated"] = False
+    child_marker = el.find("Marker")
+    if child_marker is not None:
+        out["marker"] = str(child_marker.text or "")
+    return out

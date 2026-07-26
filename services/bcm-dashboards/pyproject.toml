@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-bcm-dashboards"
+name = "capo-bcm-dashboards"
 version = "0.1.0"
 description = "Python SDK for BCM Dashboards."
 readme = "README.md"

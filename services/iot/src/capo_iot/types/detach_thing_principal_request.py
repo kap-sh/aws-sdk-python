@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#DetachThingPrincipalRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_iot.types.principal
+    import capo_iot.types.thing_name
+
+
+class DetachThingPrincipalRequest(TypedDict, closed=True):
+    thing_name: "capo_iot.types.thing_name.ThingName"
+    """<p>The name of the thing.</p>"""
+    principal: "capo_iot.types.principal.Principal"
+    """<p>If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DetachThingPrincipalRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DetachThingPrincipalRequest:
+    out: DetachThingPrincipalRequest = {}  # type: ignore[typeddict-item]
+    return out

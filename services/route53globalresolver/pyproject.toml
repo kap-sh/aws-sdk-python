@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-route53globalresolver"
+name = "capo-route53globalresolver"
 version = "0.1.0"
 description = "Python SDK for Route53Globalresolver."
 readme = "README.md"

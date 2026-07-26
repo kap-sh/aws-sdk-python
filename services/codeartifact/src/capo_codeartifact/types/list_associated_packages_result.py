@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.codeartifact#ListAssociatedPackagesResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_codeartifact.types.associated_package_list
+    import capo_codeartifact.types.pagination_token
+
+
+class ListAssociatedPackagesResult(TypedDict, closed=True):
+    packages: NotRequired[
+        "capo_codeartifact.types.associated_package_list.AssociatedPackageList"
+    ]
+    """<p> The list of packages associated with the requested package group. </p>"""
+    next_token: NotRequired["capo_codeartifact.types.pagination_token.PaginationToken"]
+    """<p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAssociatedPackagesResult) -> dict:
+    out: dict = {}
+    if "packages" in value:
+        import capo_codeartifact.types.associated_package_list
+
+        out["packages"] = (
+            capo_codeartifact.types.associated_package_list.serialize_json(
+                value["packages"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListAssociatedPackagesResult:
+    out: ListAssociatedPackagesResult = {}  # type: ignore[typeddict-item]
+    if "packages" in data:
+        import capo_codeartifact.types.associated_package_list
+
+        out["packages"] = (
+            capo_codeartifact.types.associated_package_list.deserialize_json(
+                data["packages"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

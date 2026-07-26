@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 import pytest
-from aws_sdk_pca_connector_scep._services._aws_config import (
+from capo_pca_connector_scep._services._aws_config import (
     _env_bool,
     _load_profile,
     _profile_bool,

@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#AIAgentConfigurationMap``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_qconnect.types.ai_agent_configuration_data
+    import capo_qconnect.types.ai_agent_type
+
+AIAgentConfigurationMap: TypeAlias = dict[
+    "capo_qconnect.types.ai_agent_type.AIAgentType",
+    "capo_qconnect.types.ai_agent_configuration_data.AIAgentConfigurationData",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(input_to_serialize: AIAgentConfigurationMap) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        import capo_qconnect.types.ai_agent_configuration_data
+
+        out[key] = capo_qconnect.types.ai_agent_configuration_data.serialize_json(value)
+    return out
+
+
+def deserialize_json(data: dict) -> AIAgentConfigurationMap:
+    out: AIAgentConfigurationMap = {}
+    for key, value in data.items():
+        import capo_qconnect.types.ai_agent_configuration_data
+
+        out[key] = capo_qconnect.types.ai_agent_configuration_data.deserialize_json(
+            value
+        )
+    return out

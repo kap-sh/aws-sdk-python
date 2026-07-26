@@ -1,5 +1,0 @@
-"""Generated from Smithy shape ``com.amazonaws.databrew#LogGroupName``."""
-
-from typing import TypeAlias
-
-LogGroupName: TypeAlias = str

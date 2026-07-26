@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-account
+pip install capo-account
 ```

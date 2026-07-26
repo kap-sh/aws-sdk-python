@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-socialmessaging"
+name = "capo-socialmessaging"
 version = "0.1.0"
 description = "Python SDK for Socialmessaging."
 readme = "README.md"

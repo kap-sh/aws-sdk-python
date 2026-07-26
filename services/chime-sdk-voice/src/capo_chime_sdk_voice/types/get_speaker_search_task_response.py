@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GetSpeakerSearchTaskResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_chime_sdk_voice.types.speaker_search_task
+
+
+class GetSpeakerSearchTaskResponse(TypedDict, closed=True):
+    speaker_search_task: NotRequired[
+        "capo_chime_sdk_voice.types.speaker_search_task.SpeakerSearchTask"
+    ]
+    """<p>The details of the speaker search task.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetSpeakerSearchTaskResponse) -> dict:
+    out: dict = {}
+    if "speaker_search_task" in value:
+        import capo_chime_sdk_voice.types.speaker_search_task
+
+        out["SpeakerSearchTask"] = (
+            capo_chime_sdk_voice.types.speaker_search_task.serialize_json(
+                value["speaker_search_task"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetSpeakerSearchTaskResponse:
+    out: GetSpeakerSearchTaskResponse = {}  # type: ignore[typeddict-item]
+    if "SpeakerSearchTask" in data:
+        import capo_chime_sdk_voice.types.speaker_search_task
+
+        out["speaker_search_task"] = (
+            capo_chime_sdk_voice.types.speaker_search_task.deserialize_json(
+                data["SpeakerSearchTask"]
+            )
+        )
+    return out

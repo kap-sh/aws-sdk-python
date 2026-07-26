@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyDisjointRuleSet``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list
+    import capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list
+
+
+class AutomatedReasoningPolicyDisjointRuleSet(TypedDict, closed=True):
+    variables: "capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list.AutomatedReasoningPolicyDefinitionVariableNameList"
+    """<p>The set of variables that are used by the rules in this disjoint set.</p>"""
+    rules: "capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list.AutomatedReasoningPolicyDisjointedRuleIdList"
+    """<p>The list of rules that form this disjoint set, all operating on the same set of variables.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AutomatedReasoningPolicyDisjointRuleSet) -> dict:
+    out: dict = {}
+    import capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list
+
+    out["variables"] = (
+        capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list.serialize_json(
+            value["variables"]
+        )
+    )
+    import capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list
+
+    out["rules"] = (
+        capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list.serialize_json(
+            value["rules"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AutomatedReasoningPolicyDisjointRuleSet:
+    out: AutomatedReasoningPolicyDisjointRuleSet = {}  # type: ignore[typeddict-item]
+    if "variables" in data:
+        import capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list
+
+        out["variables"] = (
+            capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list.deserialize_json(
+                data["variables"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyDisjointRuleSet.variables required"
+        )
+    if "rules" in data:
+        import capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list
+
+        out["rules"] = (
+            capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list.deserialize_json(
+                data["rules"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyDisjointRuleSet.rules required"
+        )
+    return out

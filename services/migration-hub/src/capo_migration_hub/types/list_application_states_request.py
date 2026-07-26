@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhub#ListApplicationStatesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_migration_hub.types.application_ids
+    import capo_migration_hub.types.max_results
+    import capo_migration_hub.types.token
+
+
+class ListApplicationStatesRequest(TypedDict, closed=True):
+    application_ids: NotRequired[
+        "capo_migration_hub.types.application_ids.ApplicationIds"
+    ]
+    """<p>The configurationIds from the Application Discovery Service that uniquely identifies your applications.</p>"""
+    next_token: NotRequired["capo_migration_hub.types.token.Token"]
+    """<p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>"""
+    max_results: NotRequired["capo_migration_hub.types.max_results.MaxResults"]
+    """<p>Maximum number of results to be returned per page.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListApplicationStatesRequest) -> dict:
+    out: dict = {}
+    if "application_ids" in value:
+        import capo_migration_hub.types.application_ids
+
+        out["ApplicationIds"] = (
+            capo_migration_hub.types.application_ids.serialize_aws_json_1_1(
+                value["application_ids"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListApplicationStatesRequest:
+    out: ListApplicationStatesRequest = {}  # type: ignore[typeddict-item]
+    if "ApplicationIds" in data:
+        import capo_migration_hub.types.application_ids
+
+        out["application_ids"] = (
+            capo_migration_hub.types.application_ids.deserialize_aws_json_1_1(
+                data["ApplicationIds"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

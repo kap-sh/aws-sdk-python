@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.guardduty#ScanEc2InstanceWithFindingsResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_guardduty.types.ebs_volumes_result
+
+
+class ScanEc2InstanceWithFindingsResult(TypedDict, closed=True):
+    ebs_volumes: NotRequired["capo_guardduty.types.ebs_volumes_result.EbsVolumesResult"]
+    """<p>Describes the configuration of scanning EBS volumes as a data source.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ScanEc2InstanceWithFindingsResult) -> dict:
+    out: dict = {}
+    if "ebs_volumes" in value:
+        import capo_guardduty.types.ebs_volumes_result
+
+        out["ebsVolumes"] = capo_guardduty.types.ebs_volumes_result.serialize_json(
+            value["ebs_volumes"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ScanEc2InstanceWithFindingsResult:
+    out: ScanEc2InstanceWithFindingsResult = {}  # type: ignore[typeddict-item]
+    if "ebsVolumes" in data:
+        import capo_guardduty.types.ebs_volumes_result
+
+        out["ebs_volumes"] = capo_guardduty.types.ebs_volumes_result.deserialize_json(
+            data["ebsVolumes"]
+        )
+    return out

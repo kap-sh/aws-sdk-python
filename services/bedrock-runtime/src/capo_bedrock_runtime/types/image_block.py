@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#ImageBlock``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_runtime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_runtime.types.error_block
+    import capo_bedrock_runtime.types.image_format
+    import capo_bedrock_runtime.types.image_source
+
+
+class ImageBlock(TypedDict, closed=True):
+    format: "capo_bedrock_runtime.types.image_format.ImageFormat"
+    """<p>The format of the image.</p>"""
+    source: "capo_bedrock_runtime.types.image_source.ImageSource"
+    """<p>The source for the image.</p>"""
+    error: NotRequired["capo_bedrock_runtime.types.error_block.ErrorBlock"]
+    """<p>Error information if the image block could not be processed or contains invalid data.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ImageBlock) -> dict:
+    out: dict = {}
+    import capo_bedrock_runtime.types.image_format
+
+    out["format"] = capo_bedrock_runtime.types.image_format.serialize_json(
+        value["format"]
+    )
+    import capo_bedrock_runtime.types.image_source
+
+    out["source"] = capo_bedrock_runtime.types.image_source.serialize_json(
+        value["source"]
+    )
+    if "error" in value:
+        import capo_bedrock_runtime.types.error_block
+
+        out["error"] = capo_bedrock_runtime.types.error_block.serialize_json(
+            value["error"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ImageBlock:
+    out: ImageBlock = {}  # type: ignore[typeddict-item]
+    if "format" in data:
+        import capo_bedrock_runtime.types.image_format
+
+        out["format"] = capo_bedrock_runtime.types.image_format.deserialize_json(
+            data["format"]
+        )
+    else:
+        raise DeserializationError("ImageBlock.format required")
+    if "source" in data:
+        import capo_bedrock_runtime.types.image_source
+
+        out["source"] = capo_bedrock_runtime.types.image_source.deserialize_json(
+            data["source"]
+        )
+    else:
+        raise DeserializationError("ImageBlock.source required")
+    if "error" in data:
+        import capo_bedrock_runtime.types.error_block
+
+        out["error"] = capo_bedrock_runtime.types.error_block.deserialize_json(
+            data["error"]
+        )
+    return out

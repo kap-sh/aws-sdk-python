@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#FederatedCatalog``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_glue.types.federation_identifier
+    import capo_glue.types.name_string
+
+
+class FederatedCatalog(TypedDict, closed=True):
+    identifier: NotRequired[
+        "capo_glue.types.federation_identifier.FederationIdentifier"
+    ]
+    """<p>A unique identifier for the federated catalog.</p>"""
+    connection_name: NotRequired["capo_glue.types.name_string.NameString"]
+    """<p>The name of the connection to an external data source, for example a Redshift-federated catalog.</p>"""
+    connection_type: NotRequired["capo_glue.types.name_string.NameString"]
+    """<p>The type of connection used to access the federated catalog, specifying the protocol or method for connection to the external data source.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: FederatedCatalog) -> dict:
+    out: dict = {}
+    if "identifier" in value:
+        out["Identifier"] = value["identifier"]
+    if "connection_name" in value:
+        out["ConnectionName"] = value["connection_name"]
+    if "connection_type" in value:
+        out["ConnectionType"] = value["connection_type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> FederatedCatalog:
+    out: FederatedCatalog = {}  # type: ignore[typeddict-item]
+    if "Identifier" in data:
+        out["identifier"] = data["Identifier"]
+    if "ConnectionName" in data:
+        out["connection_name"] = data["ConnectionName"]
+    if "ConnectionType" in data:
+        out["connection_type"] = data["ConnectionType"]
+    return out

@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#FlowLogSet``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from capo_ec2._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_ec2.types.flow_log
+
+FlowLogSet: TypeAlias = list["capo_ec2.types.flow_log.FlowLog"]
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: FlowLogSet, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        import capo_ec2.types.flow_log
+
+        capo_ec2.types.flow_log.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
+
+
+def deserialize_ec2_query(parent: Element, tag: str) -> FlowLogSet:
+    import capo_ec2.types.flow_log
+
+    out: FlowLogSet = []
+    for child in parent.findall(tag):
+        out.append(capo_ec2.types.flow_log.deserialize_ec2_query(child))
+    return out

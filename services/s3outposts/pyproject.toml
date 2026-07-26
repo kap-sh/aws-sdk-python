@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-s3outposts"
+name = "capo-s3outposts"
 version = "0.1.0"
 description = "Python SDK for S3Outposts."
 readme = "README.md"

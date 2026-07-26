@@ -1,0 +1,134 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowAliasSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent.types.date_timestamp
+    import capo_bedrock_agent.types.description
+    import capo_bedrock_agent.types.flow_alias_arn
+    import capo_bedrock_agent.types.flow_alias_concurrency_configuration
+    import capo_bedrock_agent.types.flow_alias_id
+    import capo_bedrock_agent.types.flow_alias_routing_configuration
+    import capo_bedrock_agent.types.flow_id
+    import capo_bedrock_agent.types.name
+
+
+class FlowAliasSummary(TypedDict, closed=True):
+    name: "capo_bedrock_agent.types.name.Name"
+    """<p>The name of the alias.</p>"""
+    description: NotRequired["capo_bedrock_agent.types.description.Description"]
+    """<p>A description of the alias.</p>"""
+    routing_configuration: "capo_bedrock_agent.types.flow_alias_routing_configuration.FlowAliasRoutingConfiguration"
+    """<p>A list of configurations about the versions that the alias maps to. Currently, you can only specify one.</p>"""
+    concurrency_configuration: NotRequired[
+        "capo_bedrock_agent.types.flow_alias_concurrency_configuration.FlowAliasConcurrencyConfiguration"
+    ]
+    """<p>The configuration that specifies how nodes in the flow are executed concurrently.</p>"""
+    flow_id: "capo_bedrock_agent.types.flow_id.FlowId"
+    """<p>The unique identifier of the flow.</p>"""
+    id: "capo_bedrock_agent.types.flow_alias_id.FlowAliasId"
+    """<p>The unique identifier of the alias of the flow.</p>"""
+    arn: "capo_bedrock_agent.types.flow_alias_arn.FlowAliasArn"
+    """<p>The Amazon Resource Name (ARN) of the alias.</p>"""
+    created_at: "capo_bedrock_agent.types.date_timestamp.DateTimestamp"
+    """<p>The time at which the alias was created.</p>"""
+    updated_at: "capo_bedrock_agent.types.date_timestamp.DateTimestamp"
+    """<p>The time at which the alias was last updated.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FlowAliasSummary) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    import capo_bedrock_agent.types.flow_alias_routing_configuration
+
+    out["routingConfiguration"] = (
+        capo_bedrock_agent.types.flow_alias_routing_configuration.serialize_json(
+            value["routing_configuration"]
+        )
+    )
+    if "concurrency_configuration" in value:
+        import capo_bedrock_agent.types.flow_alias_concurrency_configuration
+
+        out["concurrencyConfiguration"] = (
+            capo_bedrock_agent.types.flow_alias_concurrency_configuration.serialize_json(
+                value["concurrency_configuration"]
+            )
+        )
+    out["flowId"] = value["flow_id"]
+    out["id"] = value["id"]
+    out["arn"] = value["arn"]
+    import capo_bedrock_agent.types.date_timestamp
+
+    out["createdAt"] = capo_bedrock_agent.types.date_timestamp.serialize_json(
+        value["created_at"]
+    )
+    import capo_bedrock_agent.types.date_timestamp
+
+    out["updatedAt"] = capo_bedrock_agent.types.date_timestamp.serialize_json(
+        value["updated_at"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> FlowAliasSummary:
+    out: FlowAliasSummary = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("FlowAliasSummary.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "routingConfiguration" in data:
+        import capo_bedrock_agent.types.flow_alias_routing_configuration
+
+        out["routing_configuration"] = (
+            capo_bedrock_agent.types.flow_alias_routing_configuration.deserialize_json(
+                data["routingConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError("FlowAliasSummary.routing_configuration required")
+    if "concurrencyConfiguration" in data:
+        import capo_bedrock_agent.types.flow_alias_concurrency_configuration
+
+        out["concurrency_configuration"] = (
+            capo_bedrock_agent.types.flow_alias_concurrency_configuration.deserialize_json(
+                data["concurrencyConfiguration"]
+            )
+        )
+    if "flowId" in data:
+        out["flow_id"] = data["flowId"]
+    else:
+        raise DeserializationError("FlowAliasSummary.flow_id required")
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("FlowAliasSummary.id required")
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("FlowAliasSummary.arn required")
+    if "createdAt" in data:
+        import capo_bedrock_agent.types.date_timestamp
+
+        out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
+            data["createdAt"]
+        )
+    else:
+        raise DeserializationError("FlowAliasSummary.created_at required")
+    if "updatedAt" in data:
+        import capo_bedrock_agent.types.date_timestamp
+
+        out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
+            data["updatedAt"]
+        )
+    else:
+        raise DeserializationError("FlowAliasSummary.updated_at required")
+    return out

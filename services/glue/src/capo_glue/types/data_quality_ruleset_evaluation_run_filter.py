@@ -1,0 +1,77 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#DataQualityRulesetEvaluationRunFilter``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_glue.types.data_source
+    import capo_glue.types.name_string
+    import capo_glue.types.timestamp
+
+
+class DataQualityRulesetEvaluationRunFilter(TypedDict, closed=True):
+    data_source: "capo_glue.types.data_source.DataSource"
+    """<p>Filter based on a data source (an Glue table) associated with the run.</p>"""
+    started_before: NotRequired["capo_glue.types.timestamp.Timestamp"]
+    """<p>Filter results by runs that started before this time.</p>"""
+    started_after: NotRequired["capo_glue.types.timestamp.Timestamp"]
+    """<p>Filter results by runs that started after this time.</p>"""
+    ruleset_name: NotRequired["capo_glue.types.name_string.NameString"]
+    """<p>Filter results by the name of the ruleset.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DataQualityRulesetEvaluationRunFilter) -> dict:
+    out: dict = {}
+    import capo_glue.types.data_source
+
+    out["DataSource"] = capo_glue.types.data_source.serialize_aws_json_1_1(
+        value["data_source"]
+    )
+    if "started_before" in value:
+        import capo_glue.types.timestamp
+
+        out["StartedBefore"] = capo_glue.types.timestamp.serialize_aws_json_1_1(
+            value["started_before"]
+        )
+    if "started_after" in value:
+        import capo_glue.types.timestamp
+
+        out["StartedAfter"] = capo_glue.types.timestamp.serialize_aws_json_1_1(
+            value["started_after"]
+        )
+    if "ruleset_name" in value:
+        out["RulesetName"] = value["ruleset_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DataQualityRulesetEvaluationRunFilter:
+    out: DataQualityRulesetEvaluationRunFilter = {}  # type: ignore[typeddict-item]
+    if "DataSource" in data:
+        import capo_glue.types.data_source
+
+        out["data_source"] = capo_glue.types.data_source.deserialize_aws_json_1_1(
+            data["DataSource"]
+        )
+    else:
+        raise DeserializationError(
+            "DataQualityRulesetEvaluationRunFilter.data_source required"
+        )
+    if "StartedBefore" in data:
+        import capo_glue.types.timestamp
+
+        out["started_before"] = capo_glue.types.timestamp.deserialize_aws_json_1_1(
+            data["StartedBefore"]
+        )
+    if "StartedAfter" in data:
+        import capo_glue.types.timestamp
+
+        out["started_after"] = capo_glue.types.timestamp.deserialize_aws_json_1_1(
+            data["StartedAfter"]
+        )
+    if "RulesetName" in data:
+        out["ruleset_name"] = data["RulesetName"]
+    return out

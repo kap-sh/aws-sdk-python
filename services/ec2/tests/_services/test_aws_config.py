@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 import pytest
-from aws_sdk_ec2._services._aws_config import (
+from capo_ec2._services._aws_config import (
     _env_bool,
     _load_profile,
     _profile_bool,

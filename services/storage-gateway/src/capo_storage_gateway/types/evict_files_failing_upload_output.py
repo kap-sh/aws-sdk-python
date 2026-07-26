@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#EvictFilesFailingUploadOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_storage_gateway.types.string
+
+
+class EvictFilesFailingUploadOutput(TypedDict, closed=True):
+    notification_id: NotRequired["capo_storage_gateway.types.string.string"]
+    """<p>The randomly generated ID of the CloudWatch notification associated with the cache clean operation. This ID is in UUID format.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EvictFilesFailingUploadOutput) -> dict:
+    out: dict = {}
+    if "notification_id" in value:
+        out["NotificationId"] = value["notification_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EvictFilesFailingUploadOutput:
+    out: EvictFilesFailingUploadOutput = {}  # type: ignore[typeddict-item]
+    if "NotificationId" in data:
+        out["notification_id"] = data["NotificationId"]
+    return out

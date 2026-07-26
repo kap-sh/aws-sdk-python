@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-medical-imaging"
+name = "capo-medical-imaging"
 version = "0.1.0"
 description = "Python SDK for Medical Imaging."
 readme = "README.md"

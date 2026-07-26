@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-forecastquery"
+name = "capo-forecastquery"
 version = "0.1.0"
 description = "Python SDK for Forecastquery."
 readme = "README.md"

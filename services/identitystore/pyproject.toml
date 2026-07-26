@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-identitystore"
+name = "capo-identitystore"
 version = "0.1.0"
 description = "Python SDK for Identitystore."
 readme = "README.md"

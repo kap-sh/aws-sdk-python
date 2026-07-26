@@ -1,0 +1,241 @@
+"""Generated from Smithy shape ``com.amazonaws.workmail#CreateMobileDeviceAccessRuleRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_workmail.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_workmail.types.device_model_list
+    import capo_workmail.types.device_operating_system_list
+    import capo_workmail.types.device_type_list
+    import capo_workmail.types.device_user_agent_list
+    import capo_workmail.types.idempotency_client_token
+    import capo_workmail.types.mobile_device_access_rule_description
+    import capo_workmail.types.mobile_device_access_rule_effect
+    import capo_workmail.types.mobile_device_access_rule_name
+    import capo_workmail.types.organization_id
+
+
+class CreateMobileDeviceAccessRuleRequest(TypedDict, closed=True):
+    organization_id: "capo_workmail.types.organization_id.OrganizationId"
+    """<p>The WorkMail organization under which the rule will be created.</p>"""
+    client_token: NotRequired[
+        "capo_workmail.types.idempotency_client_token.IdempotencyClientToken"
+    ]
+    """<p>The idempotency token for the client request.</p>"""
+    name: (
+        "capo_workmail.types.mobile_device_access_rule_name.MobileDeviceAccessRuleName"
+    )
+    """<p>The rule name.</p>"""
+    description: NotRequired[
+        "capo_workmail.types.mobile_device_access_rule_description.MobileDeviceAccessRuleDescription"
+    ]
+    """<p>The rule description.</p>"""
+    effect: "capo_workmail.types.mobile_device_access_rule_effect.MobileDeviceAccessRuleEffect"
+    """<p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>"""
+    device_types: NotRequired["capo_workmail.types.device_type_list.DeviceTypeList"]
+    """<p>Device types that the rule will match.</p>"""
+    not_device_types: NotRequired["capo_workmail.types.device_type_list.DeviceTypeList"]
+    """<p>Device types that the rule <b>will not</b> match. All other device types will match.</p>"""
+    device_models: NotRequired["capo_workmail.types.device_model_list.DeviceModelList"]
+    """<p>Device models that the rule will match.</p>"""
+    not_device_models: NotRequired[
+        "capo_workmail.types.device_model_list.DeviceModelList"
+    ]
+    """<p>Device models that the rule <b>will not</b> match. All other device models will match.</p>"""
+    device_operating_systems: NotRequired[
+        "capo_workmail.types.device_operating_system_list.DeviceOperatingSystemList"
+    ]
+    """<p>Device operating systems that the rule will match.</p>"""
+    not_device_operating_systems: NotRequired[
+        "capo_workmail.types.device_operating_system_list.DeviceOperatingSystemList"
+    ]
+    """<p>Device operating systems that the rule <b>will not</b> match. All other device operating systems will match.</p>"""
+    device_user_agents: NotRequired[
+        "capo_workmail.types.device_user_agent_list.DeviceUserAgentList"
+    ]
+    """<p>Device user agents that the rule will match.</p>"""
+    not_device_user_agents: NotRequired[
+        "capo_workmail.types.device_user_agent_list.DeviceUserAgentList"
+    ]
+    """<p>Device user agents that the rule <b>will not</b> match. All other device user agents will match.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateMobileDeviceAccessRuleRequest) -> dict:
+    out: dict = {}
+    out["OrganizationId"] = value["organization_id"]
+    if "client_token" in value:
+        out["ClientToken"] = value["client_token"]
+    out["Name"] = value["name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    import capo_workmail.types.mobile_device_access_rule_effect
+
+    out["Effect"] = (
+        capo_workmail.types.mobile_device_access_rule_effect.serialize_aws_json_1_1(
+            value["effect"]
+        )
+    )
+    if "device_types" in value:
+        import capo_workmail.types.device_type_list
+
+        out["DeviceTypes"] = (
+            capo_workmail.types.device_type_list.serialize_aws_json_1_1(
+                value["device_types"]
+            )
+        )
+    if "not_device_types" in value:
+        import capo_workmail.types.device_type_list
+
+        out["NotDeviceTypes"] = (
+            capo_workmail.types.device_type_list.serialize_aws_json_1_1(
+                value["not_device_types"]
+            )
+        )
+    if "device_models" in value:
+        import capo_workmail.types.device_model_list
+
+        out["DeviceModels"] = (
+            capo_workmail.types.device_model_list.serialize_aws_json_1_1(
+                value["device_models"]
+            )
+        )
+    if "not_device_models" in value:
+        import capo_workmail.types.device_model_list
+
+        out["NotDeviceModels"] = (
+            capo_workmail.types.device_model_list.serialize_aws_json_1_1(
+                value["not_device_models"]
+            )
+        )
+    if "device_operating_systems" in value:
+        import capo_workmail.types.device_operating_system_list
+
+        out["DeviceOperatingSystems"] = (
+            capo_workmail.types.device_operating_system_list.serialize_aws_json_1_1(
+                value["device_operating_systems"]
+            )
+        )
+    if "not_device_operating_systems" in value:
+        import capo_workmail.types.device_operating_system_list
+
+        out["NotDeviceOperatingSystems"] = (
+            capo_workmail.types.device_operating_system_list.serialize_aws_json_1_1(
+                value["not_device_operating_systems"]
+            )
+        )
+    if "device_user_agents" in value:
+        import capo_workmail.types.device_user_agent_list
+
+        out["DeviceUserAgents"] = (
+            capo_workmail.types.device_user_agent_list.serialize_aws_json_1_1(
+                value["device_user_agents"]
+            )
+        )
+    if "not_device_user_agents" in value:
+        import capo_workmail.types.device_user_agent_list
+
+        out["NotDeviceUserAgents"] = (
+            capo_workmail.types.device_user_agent_list.serialize_aws_json_1_1(
+                value["not_device_user_agents"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateMobileDeviceAccessRuleRequest:
+    out: CreateMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
+    if "OrganizationId" in data:
+        out["organization_id"] = data["OrganizationId"]
+    else:
+        raise DeserializationError(
+            "CreateMobileDeviceAccessRuleRequest.organization_id required"
+        )
+    if "ClientToken" in data:
+        out["client_token"] = data["ClientToken"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("CreateMobileDeviceAccessRuleRequest.name required")
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "Effect" in data:
+        import capo_workmail.types.mobile_device_access_rule_effect
+
+        out["effect"] = (
+            capo_workmail.types.mobile_device_access_rule_effect.deserialize_aws_json_1_1(
+                data["Effect"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateMobileDeviceAccessRuleRequest.effect required"
+        )
+    if "DeviceTypes" in data:
+        import capo_workmail.types.device_type_list
+
+        out["device_types"] = (
+            capo_workmail.types.device_type_list.deserialize_aws_json_1_1(
+                data["DeviceTypes"]
+            )
+        )
+    if "NotDeviceTypes" in data:
+        import capo_workmail.types.device_type_list
+
+        out["not_device_types"] = (
+            capo_workmail.types.device_type_list.deserialize_aws_json_1_1(
+                data["NotDeviceTypes"]
+            )
+        )
+    if "DeviceModels" in data:
+        import capo_workmail.types.device_model_list
+
+        out["device_models"] = (
+            capo_workmail.types.device_model_list.deserialize_aws_json_1_1(
+                data["DeviceModels"]
+            )
+        )
+    if "NotDeviceModels" in data:
+        import capo_workmail.types.device_model_list
+
+        out["not_device_models"] = (
+            capo_workmail.types.device_model_list.deserialize_aws_json_1_1(
+                data["NotDeviceModels"]
+            )
+        )
+    if "DeviceOperatingSystems" in data:
+        import capo_workmail.types.device_operating_system_list
+
+        out["device_operating_systems"] = (
+            capo_workmail.types.device_operating_system_list.deserialize_aws_json_1_1(
+                data["DeviceOperatingSystems"]
+            )
+        )
+    if "NotDeviceOperatingSystems" in data:
+        import capo_workmail.types.device_operating_system_list
+
+        out["not_device_operating_systems"] = (
+            capo_workmail.types.device_operating_system_list.deserialize_aws_json_1_1(
+                data["NotDeviceOperatingSystems"]
+            )
+        )
+    if "DeviceUserAgents" in data:
+        import capo_workmail.types.device_user_agent_list
+
+        out["device_user_agents"] = (
+            capo_workmail.types.device_user_agent_list.deserialize_aws_json_1_1(
+                data["DeviceUserAgents"]
+            )
+        )
+    if "NotDeviceUserAgents" in data:
+        import capo_workmail.types.device_user_agent_list
+
+        out["not_device_user_agents"] = (
+            capo_workmail.types.device_user_agent_list.deserialize_aws_json_1_1(
+                data["NotDeviceUserAgents"]
+            )
+        )
+    return out

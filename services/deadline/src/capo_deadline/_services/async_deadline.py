@@ -1,0 +1,1889 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#Deadline``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional
+
+from typing_extensions import Self, TypedDict
+from zapros import AsyncBaseHandler, AsyncClient
+
+import capo_deadline._auth._signers
+import capo_deadline._auth._sigv4
+from capo_deadline._auth._identity import Credentials
+from capo_deadline._auth._providers import (
+    CredentialsProvider,
+    IdentityProvider,
+    StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
+)
+from capo_deadline._auth._zapros_handler import AuthMiddleware
+from capo_deadline._pagination import resolve_path as _resolve_path
+from capo_deadline._resources.deadline.farm_resource import AsyncFarmResource
+from capo_deadline._resources.deadline.license_endpoint_resource import (
+    AsyncLicenseEndpointResource,
+)
+from capo_deadline._resources.deadline.monitor_resource import AsyncMonitorResource
+from capo_deadline._services._aws_config import aaws_config
+from capo_deadline._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import capo_deadline.types.aggregation_id
+    import capo_deadline.types.batch_get_job_identifiers
+    import capo_deadline.types.batch_get_job_request
+    import capo_deadline.types.batch_get_job_response
+    import capo_deadline.types.batch_get_session_action_identifiers
+    import capo_deadline.types.batch_get_session_action_request
+    import capo_deadline.types.batch_get_session_action_response
+    import capo_deadline.types.batch_get_session_identifiers
+    import capo_deadline.types.batch_get_session_request
+    import capo_deadline.types.batch_get_session_response
+    import capo_deadline.types.batch_get_step_identifiers
+    import capo_deadline.types.batch_get_step_request
+    import capo_deadline.types.batch_get_step_response
+    import capo_deadline.types.batch_get_task_identifiers
+    import capo_deadline.types.batch_get_task_request
+    import capo_deadline.types.batch_get_task_response
+    import capo_deadline.types.batch_get_worker_identifiers
+    import capo_deadline.types.batch_get_worker_request
+    import capo_deadline.types.batch_get_worker_response
+    import capo_deadline.types.batch_update_job_items
+    import capo_deadline.types.batch_update_job_request
+    import capo_deadline.types.batch_update_job_response
+    import capo_deadline.types.batch_update_task_items
+    import capo_deadline.types.batch_update_task_request
+    import capo_deadline.types.batch_update_task_response
+    import capo_deadline.types.client_token
+    import capo_deadline.types.create_queue_fleet_association_request
+    import capo_deadline.types.create_queue_fleet_association_response
+    import capo_deadline.types.create_queue_limit_association_request
+    import capo_deadline.types.create_queue_limit_association_response
+    import capo_deadline.types.delete_queue_fleet_association_request
+    import capo_deadline.types.delete_queue_fleet_association_response
+    import capo_deadline.types.delete_queue_limit_association_request
+    import capo_deadline.types.delete_queue_limit_association_response
+    import capo_deadline.types.farm_id
+    import capo_deadline.types.fleet_id
+    import capo_deadline.types.fleet_ids
+    import capo_deadline.types.get_queue_fleet_association_request
+    import capo_deadline.types.get_queue_fleet_association_response
+    import capo_deadline.types.get_queue_limit_association_request
+    import capo_deadline.types.get_queue_limit_association_response
+    import capo_deadline.types.get_sessions_statistics_aggregation_request
+    import capo_deadline.types.get_sessions_statistics_aggregation_response
+    import capo_deadline.types.integer
+    import capo_deadline.types.job_id
+    import capo_deadline.types.limit_id
+    import capo_deadline.types.list_available_metered_products_request
+    import capo_deadline.types.list_available_metered_products_response
+    import capo_deadline.types.list_queue_fleet_associations_request
+    import capo_deadline.types.list_queue_fleet_associations_response
+    import capo_deadline.types.list_queue_limit_associations_request
+    import capo_deadline.types.list_queue_limit_associations_response
+    import capo_deadline.types.list_tags_for_resource_request
+    import capo_deadline.types.list_tags_for_resource_response
+    import capo_deadline.types.max_results
+    import capo_deadline.types.metered_product_summary
+    import capo_deadline.types.next_token
+    import capo_deadline.types.period
+    import capo_deadline.types.queue_fleet_association_summary
+    import capo_deadline.types.queue_id
+    import capo_deadline.types.queue_ids
+    import capo_deadline.types.queue_limit_association_summary
+    import capo_deadline.types.search_grouped_filter_expressions
+    import capo_deadline.types.search_jobs_request
+    import capo_deadline.types.search_jobs_response
+    import capo_deadline.types.search_sort_expressions
+    import capo_deadline.types.search_steps_request
+    import capo_deadline.types.search_steps_response
+    import capo_deadline.types.search_tasks_request
+    import capo_deadline.types.search_tasks_response
+    import capo_deadline.types.search_workers_request
+    import capo_deadline.types.search_workers_response
+    import capo_deadline.types.sessions_statistics_resources
+    import capo_deadline.types.start_sessions_statistics_aggregation_request
+    import capo_deadline.types.start_sessions_statistics_aggregation_response
+    import capo_deadline.types.statistics
+    import capo_deadline.types.string
+    import capo_deadline.types.string_list
+    import capo_deadline.types.tag_resource_request
+    import capo_deadline.types.tag_resource_response
+    import capo_deadline.types.tags
+    import capo_deadline.types.timestamp
+    import capo_deadline.types.timezone
+    import capo_deadline.types.untag_resource_request
+    import capo_deadline.types.untag_resource_response
+    import capo_deadline.types.update_queue_fleet_association_request
+    import capo_deadline.types.update_queue_fleet_association_response
+    import capo_deadline.types.update_queue_fleet_association_status
+    import capo_deadline.types.update_queue_limit_association_request
+    import capo_deadline.types.update_queue_limit_association_response
+    import capo_deadline.types.update_queue_limit_association_status
+    import capo_deadline.types.usage_group_by
+    import capo_deadline.types.usage_statistics
+
+
+class AsyncdeadlineClientConfig(TypedDict, total=False, closed=True):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int | None
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: IdentityProvider[Credentials] | None
+
+
+class AsyncdeadlineClient:
+    """A client for the ``deadline`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
+        self._config = AsyncdeadlineClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": resolved_credentials_provider,
+            }
+        )
+
+        # resources
+        self.farm_resource = AsyncFarmResource(self)
+        self.license_endpoint_resource = AsyncLicenseEndpointResource(self)
+        self.monitor_resource = AsyncMonitorResource(self)
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncdeadlineClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncdeadlineClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aaws_config(),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts", self._config.get("retry_max_attempts")
+            ),
+            region=overrides.get("region", self._config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self._config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def batch_get_job(
+        self,
+        identifiers: "capo_deadline.types.batch_get_job_identifiers.BatchGetJobIdentifiers",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.batch_get_job_response.BatchGetJobResponse":
+        """<p>Retrieves multiple jobs in a single request. This is a batch version of the <code>GetJob</code> API.</p> <p>The result of getting each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            identifiers: <p>The list of job identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Get multiple jobs in a single request
+
+            >>> await client.batch_get_job(identifiers=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-234567890abcdef1234567890abcdef1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_get_job_request.BatchGetJobRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_get_job_response.BatchGetJobResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_get_job
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_get_job.async_batch_get_job(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_get_job_request.BatchGetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_get_session(
+        self,
+        identifiers: "capo_deadline.types.batch_get_session_identifiers.BatchGetSessionIdentifiers",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.batch_get_session_response.BatchGetSessionResponse":
+        """<p>Retrieves multiple sessions in a single request. This is a batch version of the <code>GetSession</code> API.</p> <p>The result of getting each session is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            identifiers: <p>The list of session identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Get multiple sessions in a single request
+
+            >>> await client.batch_get_session(identifiers=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'sessionId': 'session-1234567890abcdef1234567890abcdef'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'sessionId': 'session-234567890abcdef1234567890abcdef1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_get_session_request.BatchGetSessionRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_get_session_response.BatchGetSessionResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_get_session
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_get_session.async_batch_get_session(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_get_session_request.BatchGetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_get_session_action(
+        self,
+        identifiers: "capo_deadline.types.batch_get_session_action_identifiers.BatchGetSessionActionIdentifiers",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.batch_get_session_action_response.BatchGetSessionActionResponse":
+        """<p>Retrieves multiple session actions in a single request. This is a batch version of the <code>GetSessionAction</code> API.</p> <p>The result of getting each session action is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            identifiers: <p>The list of session action identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Get multiple session actions in a single request
+
+            >>> await client.batch_get_session_action(identifiers=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'sessionActionId': 'sessionaction-1234567890abcdef1234567890abcdef-0'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'sessionActionId': 'sessionaction-1234567890abcdef1234567890abcdef-1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_get_session_action_request.BatchGetSessionActionRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_get_session_action_response.BatchGetSessionActionResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_get_session_action
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_get_session_action.async_batch_get_session_action(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_get_session_action_request.BatchGetSessionActionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_get_step(
+        self,
+        identifiers: "capo_deadline.types.batch_get_step_identifiers.BatchGetStepIdentifiers",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.batch_get_step_response.BatchGetStepResponse":
+        """<p>Retrieves multiple steps in a single request. This is a batch version of the <code>GetStep</code> API.</p> <p>The result of getting each step is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            identifiers: <p>The list of step identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Get multiple steps in a single request
+
+            >>> await client.batch_get_step(identifiers=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'stepId': 'step-1234567890abcdef1234567890abcdef'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'stepId': 'step-234567890abcdef1234567890abcdef1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_get_step_request.BatchGetStepRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_get_step_response.BatchGetStepResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_get_step
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_get_step.async_batch_get_step(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_get_step_request.BatchGetStepRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_get_task(
+        self,
+        identifiers: "capo_deadline.types.batch_get_task_identifiers.BatchGetTaskIdentifiers",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.batch_get_task_response.BatchGetTaskResponse":
+        """<p>Retrieves multiple tasks in a single request. This is a batch version of the <code>GetTask</code> API.</p> <p>The result of getting each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            identifiers: <p>The list of task identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Get multiple tasks in a single request
+
+            >>> await client.batch_get_task(identifiers=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'stepId': 'step-1234567890abcdef1234567890abcdef', 'taskId': 'task-1234567890abcdef1234567890abcdef-0'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'stepId': 'step-1234567890abcdef1234567890abcdef', 'taskId': 'task-1234567890abcdef1234567890abcdef-1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_get_task_request.BatchGetTaskRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_get_task_response.BatchGetTaskResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_get_task
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_get_task.async_batch_get_task(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_get_task_request.BatchGetTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_get_worker(
+        self,
+        identifiers: "capo_deadline.types.batch_get_worker_identifiers.BatchGetWorkerIdentifiers",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.batch_get_worker_response.BatchGetWorkerResponse":
+        """<p>Retrieves multiple workers in a single request. This is a batch version of the <code>GetWorker</code> API.</p> <p>The result of getting each worker is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            identifiers: <p>The list of worker identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Get multiple workers in a single request
+
+            >>> await client.batch_get_worker(identifiers=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'fleetId': 'fleet-1234567890abcdef1234567890abcdef', 'workerId': 'worker-1234567890abcdef1234567890abcdef'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'fleetId': 'fleet-1234567890abcdef1234567890abcdef', 'workerId': 'worker-234567890abcdef1234567890abcdef1'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_get_worker_request.BatchGetWorkerRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_get_worker_response.BatchGetWorkerResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_get_worker
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_get_worker.async_batch_get_worker(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_get_worker_request.BatchGetWorkerRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_update_job(
+        self,
+        jobs: "capo_deadline.types.batch_update_job_items.BatchUpdateJobItems",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        client_token: Optional["capo_deadline.types.client_token.ClientToken"] = None,
+    ) -> "capo_deadline.types.batch_update_job_response.BatchUpdateJobResponse":
+        """<p>Updates multiple jobs in a single request. This is a batch version of the <code>UpdateJob</code> API.</p> <p>The result of updating each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p> <p>When you change the status of a job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>
+
+        Args:
+            client_token: <p>The unique token which the server uses to recognize retries of the same request.</p>
+            jobs: <p>The list of jobs to update. You can specify up to 100 jobs per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Update multiple jobs in a single request
+
+            >>> await client.batch_update_job(jobs=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'targetTaskRunStatus': 'FAILED'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-234567890abcdef1234567890abcdef1', 'targetTaskRunStatus': 'FAILED'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_update_job_request.BatchUpdateJobRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_update_job_response.BatchUpdateJobResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_update_job
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_update_job.async_batch_update_job(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_update_job_request.BatchUpdateJobRequest = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input_["client_token"] = client_token
+        input_["jobs"] = jobs
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def batch_update_task(
+        self,
+        tasks: "capo_deadline.types.batch_update_task_items.BatchUpdateTaskItems",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        client_token: Optional["capo_deadline.types.client_token.ClientToken"] = None,
+    ) -> "capo_deadline.types.batch_update_task_response.BatchUpdateTaskResponse":
+        """<p>Updates multiple tasks in a single request. This is a batch version of the <code>UpdateTask</code> API.</p> <p>The result of updating each task is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p>
+
+        Args:
+            client_token: <p>The unique token which the server uses to recognize retries of the same request.</p>
+            tasks: <p>The list of tasks to update. You can specify up to 100 tasks per request.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Update multiple tasks in a single request
+
+            >>> await client.batch_update_task(tasks=[{'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'stepId': 'step-1234567890abcdef1234567890abcdef', 'taskId': 'task-1234567890abcdef1234567890abcdef-0', 'targetRunStatus': 'FAILED'}, {'farmId': 'farm-1234567890abcdef1234567890abcdef', 'queueId': 'queue-1234567890abcdef1234567890abcdef', 'jobId': 'job-1234567890abcdef1234567890abcdef', 'stepId': 'step-1234567890abcdef1234567890abcdef', 'taskId': 'task-1234567890abcdef1234567890abcdef-1', 'targetRunStatus': 'FAILED'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.batch_update_task_request.BatchUpdateTaskRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.batch_update_task_response.BatchUpdateTaskResponse"
+        ]:
+            import capo_deadline._operations.deadline.batch_update_task
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.batch_update_task.async_batch_update_task(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.batch_update_task_request.BatchUpdateTaskRequest = {}  # type: ignore[typeddict-item]
+        if client_token is not None:
+            input_["client_token"] = client_token
+        input_["tasks"] = tasks
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_queue_fleet_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        fleet_id: "capo_deadline.types.fleet_id.FleetId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.create_queue_fleet_association_response.CreateQueueFleetAssociationResponse":
+        """<p>Creates an association between a queue and a fleet.</p>
+
+        Args:
+            farm_id: <p>The ID of the farm that the queue and fleet belong to.</p>
+            queue_id: <p>The queue ID.</p>
+            fleet_id: <p>The fleet ID.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.create_queue_fleet_association_request.CreateQueueFleetAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.create_queue_fleet_association_response.CreateQueueFleetAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.create_queue_fleet_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.create_queue_fleet_association.async_create_queue_fleet_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.create_queue_fleet_association_request.CreateQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def create_queue_limit_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        limit_id: "capo_deadline.types.limit_id.LimitId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.create_queue_limit_association_response.CreateQueueLimitAssociationResponse":
+        """<p>Associates a limit with a particular queue. After the limit is associated, all workers for jobs that specify the limit associated with the queue are subject to the limit. You can't associate two limits with the same <code>amountRequirementName</code> to the same queue.</p>
+
+        Args:
+            farm_id: <p>The unique identifier of the farm that contains the queue and limit to associate.</p>
+            queue_id: <p>The unique identifier of the queue to associate with the limit.</p>
+            limit_id: <p>The unique identifier of the limit to associate with the queue.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.create_queue_limit_association_request.CreateQueueLimitAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.create_queue_limit_association_response.CreateQueueLimitAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.create_queue_limit_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.create_queue_limit_association.async_create_queue_limit_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.create_queue_limit_association_request.CreateQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_queue_fleet_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        fleet_id: "capo_deadline.types.fleet_id.FleetId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.delete_queue_fleet_association_response.DeleteQueueFleetAssociationResponse":
+        """<p>Deletes a queue-fleet association.</p>
+
+        Args:
+            farm_id: <p>The farm ID of the farm that holds the queue-fleet association.</p>
+            queue_id: <p>The queue ID of the queue-fleet association.</p>
+            fleet_id: <p>The fleet ID of the queue-fleet association.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.delete_queue_fleet_association_request.DeleteQueueFleetAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.delete_queue_fleet_association_response.DeleteQueueFleetAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.delete_queue_fleet_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.delete_queue_fleet_association.async_delete_queue_fleet_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.delete_queue_fleet_association_request.DeleteQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_queue_limit_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        limit_id: "capo_deadline.types.limit_id.LimitId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.delete_queue_limit_association_response.DeleteQueueLimitAssociationResponse":
+        """<p>Removes the association between a queue and a limit. You must use the <code>UpdateQueueLimitAssociation</code> operation to set the status to <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> or <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code>. The status does not change immediately. Use the <code>GetQueueLimitAssociation</code> operation to see if the status changed to <code>STOPPED</code> before deleting the association.</p>
+
+        Args:
+            farm_id: <p>The unique identifier of the farm that contains the queue and limit to disassociate.</p>
+            queue_id: <p>The unique identifier of the queue to disassociate.</p>
+            limit_id: <p>The unique identifier of the limit to disassociate.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.delete_queue_limit_association_request.DeleteQueueLimitAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.delete_queue_limit_association_response.DeleteQueueLimitAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.delete_queue_limit_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.delete_queue_limit_association.async_delete_queue_limit_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.delete_queue_limit_association_request.DeleteQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_queue_fleet_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        fleet_id: "capo_deadline.types.fleet_id.FleetId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.get_queue_fleet_association_response.GetQueueFleetAssociationResponse":
+        """<p>Gets a queue-fleet association.</p>
+
+        Args:
+            farm_id: <p>The farm ID of the farm that contains the queue-fleet association.</p>
+            queue_id: <p>The queue ID for the queue-fleet association.</p>
+            fleet_id: <p>The fleet ID for the queue-fleet association.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.get_queue_fleet_association_request.GetQueueFleetAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.get_queue_fleet_association_response.GetQueueFleetAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.get_queue_fleet_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.get_queue_fleet_association.async_get_queue_fleet_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.get_queue_fleet_association_request.GetQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_queue_limit_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        limit_id: "capo_deadline.types.limit_id.LimitId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.get_queue_limit_association_response.GetQueueLimitAssociationResponse":
+        """<p>Gets information about a specific association between a queue and a limit.</p>
+
+        Args:
+            farm_id: <p>The unique identifier of the farm that contains the associated queue and limit.</p>
+            queue_id: <p>The unique identifier of the queue associated with the limit.</p>
+            limit_id: <p>The unique identifier of the limit associated with the queue.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.get_queue_limit_association_request.GetQueueLimitAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.get_queue_limit_association_response.GetQueueLimitAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.get_queue_limit_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.get_queue_limit_association.async_get_queue_limit_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.get_queue_limit_association_request.GetQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def get_sessions_statistics_aggregation(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        aggregation_id: "capo_deadline.types.aggregation_id.AggregationId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+    ) -> "capo_deadline.types.get_sessions_statistics_aggregation_response.GetSessionsStatisticsAggregationResponse":
+        """<p>Gets a set of statistics for queues or farms. Before you can call the <code>GetSessionStatisticsAggregation</code> operation, you must first call the <code>StartSessionsStatisticsAggregation</code> operation. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+
+        Args:
+            farm_id: <p>The identifier of the farm to include in the statistics. This should be the same as the farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+            next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+            max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+            aggregation_id: <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.get_sessions_statistics_aggregation_request.GetSessionsStatisticsAggregationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.get_sessions_statistics_aggregation_response.GetSessionsStatisticsAggregationResponse"
+        ]:
+            import capo_deadline._operations.deadline.get_sessions_statistics_aggregation
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.get_sessions_statistics_aggregation.async_get_sessions_statistics_aggregation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.get_sessions_statistics_aggregation_request.GetSessionsStatisticsAggregationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+        input_["aggregation_id"] = aggregation_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_get_sessions_statistics_aggregation(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        aggregation_id: "capo_deadline.types.aggregation_id.AggregationId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+    ) -> "AsyncIterator[capo_deadline.types.statistics.Statistics]":
+        _token = next_token
+        while True:
+            _response = await self.get_sessions_statistics_aggregation(
+                farm_id,
+                aggregation_id,
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("statistics",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_available_metered_products(
+        self,
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+    ) -> "capo_deadline.types.list_available_metered_products_response.ListAvailableMeteredProductsResponse":
+        """<p>A list of the available metered products.</p>
+
+        Args:
+            next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+            max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.list_available_metered_products_request.ListAvailableMeteredProductsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.list_available_metered_products_response.ListAvailableMeteredProductsResponse"
+        ]:
+            import capo_deadline._operations.deadline.list_available_metered_products
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.list_available_metered_products.async_list_available_metered_products(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.list_available_metered_products_request.ListAvailableMeteredProductsRequest = {}  # type: ignore[typeddict-item]
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_available_metered_products(
+        self,
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+    ) -> "AsyncIterator[capo_deadline.types.metered_product_summary.MeteredProductSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_available_metered_products(
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            _page = _resolve_path(_response, ("metered_products",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_queue_fleet_associations(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+        queue_id: Optional["capo_deadline.types.queue_id.QueueId"] = None,
+        fleet_id: Optional["capo_deadline.types.fleet_id.FleetId"] = None,
+    ) -> "capo_deadline.types.list_queue_fleet_associations_response.ListQueueFleetAssociationsResponse":
+        """<p>Lists queue-fleet associations.</p>
+
+        Args:
+            farm_id: <p>The farm ID for the queue-fleet association list.</p>
+            next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+            max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+            queue_id: <p>The queue ID for the queue-fleet association list.</p>
+            fleet_id: <p>The fleet ID for the queue-fleet association list.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.list_queue_fleet_associations_request.ListQueueFleetAssociationsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.list_queue_fleet_associations_response.ListQueueFleetAssociationsResponse"
+        ]:
+            import capo_deadline._operations.deadline.list_queue_fleet_associations
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.list_queue_fleet_associations.async_list_queue_fleet_associations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.list_queue_fleet_associations_request.ListQueueFleetAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if queue_id is not None:
+            input_["queue_id"] = queue_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_queue_fleet_associations(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+        queue_id: Optional["capo_deadline.types.queue_id.QueueId"] = None,
+        fleet_id: Optional["capo_deadline.types.fleet_id.FleetId"] = None,
+    ) -> "AsyncIterator[capo_deadline.types.queue_fleet_association_summary.QueueFleetAssociationSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_queue_fleet_associations(
+                farm_id,
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+                queue_id=queue_id,
+                fleet_id=fleet_id,
+            )
+            _page = _resolve_path(_response, ("queue_fleet_associations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_queue_limit_associations(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+        queue_id: Optional["capo_deadline.types.queue_id.QueueId"] = None,
+        limit_id: Optional["capo_deadline.types.limit_id.LimitId"] = None,
+    ) -> "capo_deadline.types.list_queue_limit_associations_response.ListQueueLimitAssociationsResponse":
+        """<p>Gets a list of the associations between queues and limits defined in a farm.</p>
+
+        Args:
+            farm_id: <p>The unique identifier of the farm that contains the limits and associations.</p>
+            next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+            max_results: <p>The maximum number of associations to return in each page of results.</p>
+            queue_id: <p>Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
+            limit_id: <p>Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.list_queue_limit_associations_request.ListQueueLimitAssociationsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.list_queue_limit_associations_response.ListQueueLimitAssociationsResponse"
+        ]:
+            import capo_deadline._operations.deadline.list_queue_limit_associations
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.list_queue_limit_associations.async_list_queue_limit_associations(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.list_queue_limit_associations_request.ListQueueLimitAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if queue_id is not None:
+            input_["queue_id"] = queue_id
+        if limit_id is not None:
+            input_["limit_id"] = limit_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_queue_limit_associations(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        next_token: Optional["capo_deadline.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_deadline.types.max_results.MaxResults"] = None,
+        queue_id: Optional["capo_deadline.types.queue_id.QueueId"] = None,
+        limit_id: Optional["capo_deadline.types.limit_id.LimitId"] = None,
+    ) -> "AsyncIterator[capo_deadline.types.queue_limit_association_summary.QueueLimitAssociationSummary]":
+        _token = next_token
+        while True:
+            _response = await self.list_queue_limit_associations(
+                farm_id,
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+                queue_id=queue_id,
+                limit_id=limit_id,
+            )
+            _page = _resolve_path(_response, ("queue_limit_associations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_tags_for_resource(
+        self,
+        resource_arn: "capo_deadline.types.string.String",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists tags for a resource.</p>
+
+        Args:
+            resource_arn: <p>The resource ARN to list tags for.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import capo_deadline._operations.deadline.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def search_jobs(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        item_offset: "capo_deadline.types.integer.Integer",
+        queue_ids: "capo_deadline.types.queue_ids.QueueIds",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        filter_expressions: Optional[
+            "capo_deadline.types.search_grouped_filter_expressions.SearchGroupedFilterExpressions"
+        ] = None,
+        sort_expressions: Optional[
+            "capo_deadline.types.search_sort_expressions.SearchSortExpressions"
+        ] = None,
+        page_size: Optional["capo_deadline.types.integer.Integer"] = None,
+    ) -> "capo_deadline.types.search_jobs_response.SearchJobsResponse":
+        """<p>Searches for jobs.</p>
+
+        Args:
+            farm_id: <p>The farm ID of the job.</p>
+            filter_expressions: <p>The search terms for a resource.</p>
+            sort_expressions: <p>The search terms for a resource.</p>
+            item_offset: <p>The offset for the search results.</p>
+            page_size: <p>Specifies the number of results to return.</p>
+            queue_ids: <p>The queue ID to use in the job search.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.search_jobs_request.SearchJobsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.search_jobs_response.SearchJobsResponse"
+        ]:
+            import capo_deadline._operations.deadline.search_jobs
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.search_jobs.async_search_jobs(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if filter_expressions is not None:
+            input_["filter_expressions"] = filter_expressions
+        if sort_expressions is not None:
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
+        if page_size is not None:
+            input_["page_size"] = page_size
+        input_["queue_ids"] = queue_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def search_steps(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        item_offset: "capo_deadline.types.integer.Integer",
+        queue_ids: "capo_deadline.types.queue_ids.QueueIds",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        filter_expressions: Optional[
+            "capo_deadline.types.search_grouped_filter_expressions.SearchGroupedFilterExpressions"
+        ] = None,
+        sort_expressions: Optional[
+            "capo_deadline.types.search_sort_expressions.SearchSortExpressions"
+        ] = None,
+        page_size: Optional["capo_deadline.types.integer.Integer"] = None,
+        job_id: Optional["capo_deadline.types.job_id.JobId"] = None,
+    ) -> "capo_deadline.types.search_steps_response.SearchStepsResponse":
+        """<p>Searches for steps.</p>
+
+        Args:
+            farm_id: <p>The farm ID to use for the step search.</p>
+            filter_expressions: <p>The search terms for a resource.</p>
+            sort_expressions: <p>The search terms for a resource.</p>
+            item_offset: <p>The offset for the search results.</p>
+            page_size: <p>Specifies the number of results to return.</p>
+            queue_ids: <p>The queue IDs in the step search.</p>
+            job_id: <p>The job ID to use in the step search.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.search_steps_request.SearchStepsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.search_steps_response.SearchStepsResponse"
+        ]:
+            import capo_deadline._operations.deadline.search_steps
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.search_steps.async_search_steps(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.search_steps_request.SearchStepsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if filter_expressions is not None:
+            input_["filter_expressions"] = filter_expressions
+        if sort_expressions is not None:
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
+        if page_size is not None:
+            input_["page_size"] = page_size
+        input_["queue_ids"] = queue_ids
+        if job_id is not None:
+            input_["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def search_tasks(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        item_offset: "capo_deadline.types.integer.Integer",
+        queue_ids: "capo_deadline.types.queue_ids.QueueIds",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        filter_expressions: Optional[
+            "capo_deadline.types.search_grouped_filter_expressions.SearchGroupedFilterExpressions"
+        ] = None,
+        sort_expressions: Optional[
+            "capo_deadline.types.search_sort_expressions.SearchSortExpressions"
+        ] = None,
+        page_size: Optional["capo_deadline.types.integer.Integer"] = None,
+        job_id: Optional["capo_deadline.types.job_id.JobId"] = None,
+    ) -> "capo_deadline.types.search_tasks_response.SearchTasksResponse":
+        """<p>Searches for tasks.</p>
+
+        Args:
+            farm_id: <p>The farm ID of the task.</p>
+            filter_expressions: <p>The search terms for a resource.</p>
+            sort_expressions: <p>The search terms for a resource.</p>
+            item_offset: <p>The offset for the search results.</p>
+            page_size: <p>Specifies the number of results to return.</p>
+            queue_ids: <p>The queue IDs to include in the search.</p>
+            job_id: <p>The job ID for the task search.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.search_tasks_request.SearchTasksRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.search_tasks_response.SearchTasksResponse"
+        ]:
+            import capo_deadline._operations.deadline.search_tasks
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.search_tasks.async_search_tasks(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.search_tasks_request.SearchTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if filter_expressions is not None:
+            input_["filter_expressions"] = filter_expressions
+        if sort_expressions is not None:
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
+        if page_size is not None:
+            input_["page_size"] = page_size
+        input_["queue_ids"] = queue_ids
+        if job_id is not None:
+            input_["job_id"] = job_id
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def search_workers(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        item_offset: "capo_deadline.types.integer.Integer",
+        fleet_ids: "capo_deadline.types.fleet_ids.FleetIds",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        filter_expressions: Optional[
+            "capo_deadline.types.search_grouped_filter_expressions.SearchGroupedFilterExpressions"
+        ] = None,
+        sort_expressions: Optional[
+            "capo_deadline.types.search_sort_expressions.SearchSortExpressions"
+        ] = None,
+        page_size: Optional["capo_deadline.types.integer.Integer"] = None,
+    ) -> "capo_deadline.types.search_workers_response.SearchWorkersResponse":
+        """<p>Searches for workers.</p>
+
+        Args:
+            farm_id: <p>The farm ID in the workers search.</p>
+            filter_expressions: <p>The search terms for a resource.</p>
+            sort_expressions: <p>The search terms for a resource.</p>
+            item_offset: <p>The offset for the search results.</p>
+            page_size: <p>Specifies the number of results to return.</p>
+            fleet_ids: <p>The fleet ID of the workers to search for.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.search_workers_request.SearchWorkersRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.search_workers_response.SearchWorkersResponse"
+        ]:
+            import capo_deadline._operations.deadline.search_workers
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.search_workers.async_search_workers(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.search_workers_request.SearchWorkersRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        if filter_expressions is not None:
+            input_["filter_expressions"] = filter_expressions
+        if sort_expressions is not None:
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
+        if page_size is not None:
+            input_["page_size"] = page_size
+        input_["fleet_ids"] = fleet_ids
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def start_sessions_statistics_aggregation(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        resource_ids: "capo_deadline.types.sessions_statistics_resources.SessionsStatisticsResources",
+        start_time: "capo_deadline.types.timestamp.Timestamp",
+        end_time: "capo_deadline.types.timestamp.Timestamp",
+        group_by: "capo_deadline.types.usage_group_by.UsageGroupBy",
+        statistics: "capo_deadline.types.usage_statistics.UsageStatistics",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        timezone: Optional["capo_deadline.types.timezone.Timezone"] = None,
+        period: Optional["capo_deadline.types.period.Period"] = None,
+    ) -> "capo_deadline.types.start_sessions_statistics_aggregation_response.StartSessionsStatisticsAggregationResponse":
+        r"""<p>Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+
+        Args:
+            farm_id: <p>The identifier of the farm that contains queues or fleets to return statistics for.</p>
+            resource_ids: <p>A list of fleet IDs or queue IDs to gather statistics for.</p>
+            start_time: <p>The Linux timestamp of the date and time that the statistics start.</p>
+            end_time: <p>The Linux timestamp of the date and time that the statistics end.</p>
+            timezone: <p>The timezone to use for the statistics. Use UTC notation such as \"UTC+8.\"</p>
+            period: <p>The period to aggregate the statistics.</p>
+            group_by: <p>The field to use to group the statistics.</p>
+            statistics: <p>One to four statistics to return.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.start_sessions_statistics_aggregation_request.StartSessionsStatisticsAggregationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.start_sessions_statistics_aggregation_response.StartSessionsStatisticsAggregationResponse"
+        ]:
+            import capo_deadline._operations.deadline.start_sessions_statistics_aggregation
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.start_sessions_statistics_aggregation.async_start_sessions_statistics_aggregation(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.start_sessions_statistics_aggregation_request.StartSessionsStatisticsAggregationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["resource_ids"] = resource_ids
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        if timezone is not None:
+            input_["timezone"] = timezone
+        if period is not None:
+            input_["period"] = period
+        input_["group_by"] = group_by
+        input_["statistics"] = statistics
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        resource_arn: "capo_deadline.types.string.String",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+        tags: Optional["capo_deadline.types.tags.Tags"] = None,
+    ) -> "capo_deadline.types.tag_resource_response.TagResourceResponse":
+        """<p>Tags a resource using the resource's ARN and desired tags.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to apply tags to.</p>
+            tags: <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import capo_deadline._operations.deadline.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        if tags is not None:
+            input_["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        resource_arn: "capo_deadline.types.string.String",
+        tag_keys: "capo_deadline.types.string_list.StringList",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes a tag from a resource using the resource's ARN and tag to remove.</p>
+
+        Args:
+            resource_arn: <p>The ARN of the resource to remove the tag from.</p>
+            tag_keys: <p>They keys of the tag.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import capo_deadline._operations.deadline.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_queue_fleet_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        fleet_id: "capo_deadline.types.fleet_id.FleetId",
+        status: "capo_deadline.types.update_queue_fleet_association_status.UpdateQueueFleetAssociationStatus",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.update_queue_fleet_association_response.UpdateQueueFleetAssociationResponse":
+        """<p>Updates a queue-fleet association.</p>
+
+        Args:
+            farm_id: <p>The farm ID to update.</p>
+            queue_id: <p>The queue ID to update.</p>
+            fleet_id: <p>The fleet ID to update.</p>
+            status: <p>The status to update.</p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.update_queue_fleet_association_request.UpdateQueueFleetAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.update_queue_fleet_association_response.UpdateQueueFleetAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.update_queue_fleet_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.update_queue_fleet_association.async_update_queue_fleet_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.update_queue_fleet_association_request.UpdateQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
+        input_["status"] = status
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_queue_limit_association(
+        self,
+        farm_id: "capo_deadline.types.farm_id.FarmId",
+        queue_id: "capo_deadline.types.queue_id.QueueId",
+        limit_id: "capo_deadline.types.limit_id.LimitId",
+        status: "capo_deadline.types.update_queue_limit_association_status.UpdateQueueLimitAssociationStatus",
+        *,
+        config_overrides: Optional[AsyncdeadlineClientConfig] = None,
+    ) -> "capo_deadline.types.update_queue_limit_association_response.UpdateQueueLimitAssociationResponse":
+        """<p>Updates the status of the queue. If you set the status to one of the <code>STOP_LIMIT_USAGE*</code> values, there will be a delay before the status transitions to the <code>STOPPED</code> state. </p>
+
+        Args:
+            farm_id: <p>The unique identifier of the farm that contains the associated queues and limits.</p>
+            queue_id: <p>The unique identifier of the queue associated to the limit.</p>
+            limit_id: <p>The unique identifier of the limit associated to the queue.</p>
+            status: <p>Sets the status of the limit. You can mark the limit active, or you can stop usage of the limit and either complete existing tasks or cancel any existing tasks immediately. </p>
+
+        Raises:
+            capo_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            capo_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            capo_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            capo_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            capo_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            capo_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_deadline.types.update_queue_limit_association_request.UpdateQueueLimitAssociationRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_deadline.types.update_queue_limit_association_response.UpdateQueueLimitAssociationResponse"
+        ]:
+            import capo_deadline._operations.deadline.update_queue_limit_association
+
+            (
+                output,
+                http_response,
+            ) = await capo_deadline._operations.deadline.update_queue_limit_association.async_update_queue_limit_association(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_deadline.types.update_queue_limit_association_request.UpdateQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
+        input_["status"] = status
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

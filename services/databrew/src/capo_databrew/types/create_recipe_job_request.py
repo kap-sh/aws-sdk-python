@@ -1,0 +1,202 @@
+"""Generated from Smithy shape ``com.amazonaws.databrew#CreateRecipeJobRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_databrew.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_databrew.types.arn
+    import capo_databrew.types.data_catalog_output_list
+    import capo_databrew.types.database_output_list
+    import capo_databrew.types.dataset_name
+    import capo_databrew.types.encryption_key_arn
+    import capo_databrew.types.encryption_mode
+    import capo_databrew.types.job_name
+    import capo_databrew.types.log_subscription
+    import capo_databrew.types.max_capacity
+    import capo_databrew.types.max_retries
+    import capo_databrew.types.output_list
+    import capo_databrew.types.project_name
+    import capo_databrew.types.recipe_reference
+    import capo_databrew.types.tag_map
+    import capo_databrew.types.timeout
+
+
+class CreateRecipeJobRequest(TypedDict, closed=True):
+    dataset_name: NotRequired["capo_databrew.types.dataset_name.DatasetName"]
+    """<p>The name of the dataset that this job processes.</p>"""
+    encryption_key_arn: NotRequired[
+        "capo_databrew.types.encryption_key_arn.EncryptionKeyArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the job.</p>"""
+    encryption_mode: NotRequired["capo_databrew.types.encryption_mode.EncryptionMode"]
+    """<p>The encryption mode for the job, which can be one of the following:</p> <ul> <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li> <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li> </ul>"""
+    name: "capo_databrew.types.job_name.JobName"
+    """<p>A unique name for the job. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</p>"""
+    log_subscription: NotRequired[
+        "capo_databrew.types.log_subscription.LogSubscription"
+    ]
+    """<p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled, CloudWatch writes one log stream for each job run.</p>"""
+    max_capacity: "capo_databrew.types.max_capacity.MaxCapacity"
+    """<p>The maximum number of nodes that DataBrew can consume when the job processes data.</p>"""
+    max_retries: "capo_databrew.types.max_retries.MaxRetries"
+    """<p>The maximum number of times to retry the job after a job run fails.</p>"""
+    outputs: NotRequired["capo_databrew.types.output_list.OutputList"]
+    """<p>One or more artifacts that represent the output from running the job.</p>"""
+    data_catalog_outputs: NotRequired[
+        "capo_databrew.types.data_catalog_output_list.DataCatalogOutputList"
+    ]
+    """<p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>"""
+    database_outputs: NotRequired[
+        "capo_databrew.types.database_output_list.DatabaseOutputList"
+    ]
+    """<p>Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write to. </p>"""
+    project_name: NotRequired["capo_databrew.types.project_name.ProjectName"]
+    """<p>Either the name of an existing project, or a combination of a recipe and a dataset to associate with the recipe.</p>"""
+    recipe_reference: NotRequired[
+        "capo_databrew.types.recipe_reference.RecipeReference"
+    ]
+    role_arn: "capo_databrew.types.arn.Arn"
+    """<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.</p>"""
+    tags: NotRequired["capo_databrew.types.tag_map.TagMap"]
+    """<p>Metadata tags to apply to this job.</p>"""
+    timeout: "capo_databrew.types.timeout.Timeout"
+    """<p>The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of <code>TIMEOUT</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateRecipeJobRequest) -> dict:
+    out: dict = {}
+    if "dataset_name" in value:
+        out["DatasetName"] = value["dataset_name"]
+    if "encryption_key_arn" in value:
+        out["EncryptionKeyArn"] = value["encryption_key_arn"]
+    if "encryption_mode" in value:
+        import capo_databrew.types.encryption_mode
+
+        out["EncryptionMode"] = capo_databrew.types.encryption_mode.serialize_json(
+            value["encryption_mode"]
+        )
+    out["Name"] = value["name"]
+    if "log_subscription" in value:
+        import capo_databrew.types.log_subscription
+
+        out["LogSubscription"] = capo_databrew.types.log_subscription.serialize_json(
+            value["log_subscription"]
+        )
+    out["MaxCapacity"] = value.get("max_capacity", 0)
+    out["MaxRetries"] = value.get("max_retries", 0)
+    if "outputs" in value:
+        import capo_databrew.types.output_list
+
+        out["Outputs"] = capo_databrew.types.output_list.serialize_json(
+            value["outputs"]
+        )
+    if "data_catalog_outputs" in value:
+        import capo_databrew.types.data_catalog_output_list
+
+        out["DataCatalogOutputs"] = (
+            capo_databrew.types.data_catalog_output_list.serialize_json(
+                value["data_catalog_outputs"]
+            )
+        )
+    if "database_outputs" in value:
+        import capo_databrew.types.database_output_list
+
+        out["DatabaseOutputs"] = (
+            capo_databrew.types.database_output_list.serialize_json(
+                value["database_outputs"]
+            )
+        )
+    if "project_name" in value:
+        out["ProjectName"] = value["project_name"]
+    if "recipe_reference" in value:
+        import capo_databrew.types.recipe_reference
+
+        out["RecipeReference"] = capo_databrew.types.recipe_reference.serialize_json(
+            value["recipe_reference"]
+        )
+    out["RoleArn"] = value["role_arn"]
+    if "tags" in value:
+        import capo_databrew.types.tag_map
+
+        out["Tags"] = capo_databrew.types.tag_map.serialize_json(value["tags"])
+    out["Timeout"] = value.get("timeout", 0)
+    return out
+
+
+def deserialize_json(data: dict) -> CreateRecipeJobRequest:
+    out: CreateRecipeJobRequest = {}  # type: ignore[typeddict-item]
+    if "DatasetName" in data:
+        out["dataset_name"] = data["DatasetName"]
+    if "EncryptionKeyArn" in data:
+        out["encryption_key_arn"] = data["EncryptionKeyArn"]
+    if "EncryptionMode" in data:
+        import capo_databrew.types.encryption_mode
+
+        out["encryption_mode"] = capo_databrew.types.encryption_mode.deserialize_json(
+            data["EncryptionMode"]
+        )
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("CreateRecipeJobRequest.name required")
+    if "LogSubscription" in data:
+        import capo_databrew.types.log_subscription
+
+        out["log_subscription"] = capo_databrew.types.log_subscription.deserialize_json(
+            data["LogSubscription"]
+        )
+    if "MaxCapacity" in data:
+        out["max_capacity"] = data["MaxCapacity"]
+    else:
+        out["max_capacity"] = 0
+    if "MaxRetries" in data:
+        out["max_retries"] = data["MaxRetries"]
+    else:
+        out["max_retries"] = 0
+    if "Outputs" in data:
+        import capo_databrew.types.output_list
+
+        out["outputs"] = capo_databrew.types.output_list.deserialize_json(
+            data["Outputs"]
+        )
+    if "DataCatalogOutputs" in data:
+        import capo_databrew.types.data_catalog_output_list
+
+        out["data_catalog_outputs"] = (
+            capo_databrew.types.data_catalog_output_list.deserialize_json(
+                data["DataCatalogOutputs"]
+            )
+        )
+    if "DatabaseOutputs" in data:
+        import capo_databrew.types.database_output_list
+
+        out["database_outputs"] = (
+            capo_databrew.types.database_output_list.deserialize_json(
+                data["DatabaseOutputs"]
+            )
+        )
+    if "ProjectName" in data:
+        out["project_name"] = data["ProjectName"]
+    if "RecipeReference" in data:
+        import capo_databrew.types.recipe_reference
+
+        out["recipe_reference"] = capo_databrew.types.recipe_reference.deserialize_json(
+            data["RecipeReference"]
+        )
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    else:
+        raise DeserializationError("CreateRecipeJobRequest.role_arn required")
+    if "Tags" in data:
+        import capo_databrew.types.tag_map
+
+        out["tags"] = capo_databrew.types.tag_map.deserialize_json(data["Tags"])
+    if "Timeout" in data:
+        out["timeout"] = data["Timeout"]
+    else:
+        out["timeout"] = 0
+    return out

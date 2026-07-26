@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-directory-service-data"
+name = "capo-directory-service-data"
 version = "0.1.0"
 description = "Python SDK for Directory Service Data."
 readme = "README.md"

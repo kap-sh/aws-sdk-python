@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-elasticache"
+name = "capo-elasticache"
 version = "0.1.0"
 description = "Python SDK for Elasticache."
 readme = "README.md"

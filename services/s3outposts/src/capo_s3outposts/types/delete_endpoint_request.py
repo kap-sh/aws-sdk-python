@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.s3outposts#DeleteEndpointRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_s3outposts.types.endpoint_id
+    import capo_s3outposts.types.outpost_id
+
+
+class DeleteEndpointRequest(TypedDict, closed=True):
+    endpoint_id: "capo_s3outposts.types.endpoint_id.EndpointId"
+    """<p>The ID of the endpoint.</p>"""
+    outpost_id: "capo_s3outposts.types.outpost_id.OutpostId"
+    """<p>The ID of the Outposts. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteEndpointRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteEndpointRequest:
+    out: DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
+    return out

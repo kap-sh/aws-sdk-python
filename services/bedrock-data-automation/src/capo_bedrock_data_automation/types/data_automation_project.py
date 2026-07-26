@@ -1,0 +1,249 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DataAutomationProject``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_data_automation.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_data_automation.types.custom_output_configuration
+    import capo_bedrock_data_automation.types.data_automation_library_configuration
+    import capo_bedrock_data_automation.types.data_automation_project_arn
+    import capo_bedrock_data_automation.types.data_automation_project_description
+    import capo_bedrock_data_automation.types.data_automation_project_name
+    import capo_bedrock_data_automation.types.data_automation_project_stage
+    import capo_bedrock_data_automation.types.data_automation_project_status
+    import capo_bedrock_data_automation.types.data_automation_project_type
+    import capo_bedrock_data_automation.types.date_timestamp
+    import capo_bedrock_data_automation.types.kms_encryption_context
+    import capo_bedrock_data_automation.types.kms_key_id
+    import capo_bedrock_data_automation.types.override_configuration
+    import capo_bedrock_data_automation.types.standard_output_configuration
+
+
+class DataAutomationProject(TypedDict, closed=True):
+    project_arn: "capo_bedrock_data_automation.types.data_automation_project_arn.DataAutomationProjectArn"
+    creation_time: "capo_bedrock_data_automation.types.date_timestamp.DateTimestamp"
+    last_modified_time: (
+        "capo_bedrock_data_automation.types.date_timestamp.DateTimestamp"
+    )
+    project_name: "capo_bedrock_data_automation.types.data_automation_project_name.DataAutomationProjectName"
+    project_stage: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_project_stage.DataAutomationProjectStage"
+    ]
+    project_type: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_project_type.DataAutomationProjectType"
+    ]
+    project_description: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_project_description.DataAutomationProjectDescription"
+    ]
+    standard_output_configuration: NotRequired[
+        "capo_bedrock_data_automation.types.standard_output_configuration.StandardOutputConfiguration"
+    ]
+    custom_output_configuration: NotRequired[
+        "capo_bedrock_data_automation.types.custom_output_configuration.CustomOutputConfiguration"
+    ]
+    override_configuration: NotRequired[
+        "capo_bedrock_data_automation.types.override_configuration.OverrideConfiguration"
+    ]
+    data_automation_library_configuration: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_library_configuration.DataAutomationLibraryConfiguration"
+    ]
+    status: "capo_bedrock_data_automation.types.data_automation_project_status.DataAutomationProjectStatus"
+    kms_key_id: NotRequired["capo_bedrock_data_automation.types.kms_key_id.KmsKeyId"]
+    kms_encryption_context: NotRequired[
+        "capo_bedrock_data_automation.types.kms_encryption_context.KmsEncryptionContext"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataAutomationProject) -> dict:
+    out: dict = {}
+    out["projectArn"] = value["project_arn"]
+    import capo_bedrock_data_automation.types.date_timestamp
+
+    out["creationTime"] = (
+        capo_bedrock_data_automation.types.date_timestamp.serialize_json(
+            value["creation_time"]
+        )
+    )
+    import capo_bedrock_data_automation.types.date_timestamp
+
+    out["lastModifiedTime"] = (
+        capo_bedrock_data_automation.types.date_timestamp.serialize_json(
+            value["last_modified_time"]
+        )
+    )
+    out["projectName"] = value["project_name"]
+    if "project_stage" in value:
+        import capo_bedrock_data_automation.types.data_automation_project_stage
+
+        out["projectStage"] = (
+            capo_bedrock_data_automation.types.data_automation_project_stage.serialize_json(
+                value["project_stage"]
+            )
+        )
+    if "project_type" in value:
+        import capo_bedrock_data_automation.types.data_automation_project_type
+
+        out["projectType"] = (
+            capo_bedrock_data_automation.types.data_automation_project_type.serialize_json(
+                value["project_type"]
+            )
+        )
+    if "project_description" in value:
+        out["projectDescription"] = value["project_description"]
+    if "standard_output_configuration" in value:
+        import capo_bedrock_data_automation.types.standard_output_configuration
+
+        out["standardOutputConfiguration"] = (
+            capo_bedrock_data_automation.types.standard_output_configuration.serialize_json(
+                value["standard_output_configuration"]
+            )
+        )
+    if "custom_output_configuration" in value:
+        import capo_bedrock_data_automation.types.custom_output_configuration
+
+        out["customOutputConfiguration"] = (
+            capo_bedrock_data_automation.types.custom_output_configuration.serialize_json(
+                value["custom_output_configuration"]
+            )
+        )
+    if "override_configuration" in value:
+        import capo_bedrock_data_automation.types.override_configuration
+
+        out["overrideConfiguration"] = (
+            capo_bedrock_data_automation.types.override_configuration.serialize_json(
+                value["override_configuration"]
+            )
+        )
+    if "data_automation_library_configuration" in value:
+        import capo_bedrock_data_automation.types.data_automation_library_configuration
+
+        out["dataAutomationLibraryConfiguration"] = (
+            capo_bedrock_data_automation.types.data_automation_library_configuration.serialize_json(
+                value["data_automation_library_configuration"]
+            )
+        )
+    import capo_bedrock_data_automation.types.data_automation_project_status
+
+    out["status"] = (
+        capo_bedrock_data_automation.types.data_automation_project_status.serialize_json(
+            value["status"]
+        )
+    )
+    if "kms_key_id" in value:
+        out["kmsKeyId"] = value["kms_key_id"]
+    if "kms_encryption_context" in value:
+        import capo_bedrock_data_automation.types.kms_encryption_context
+
+        out["kmsEncryptionContext"] = (
+            capo_bedrock_data_automation.types.kms_encryption_context.serialize_json(
+                value["kms_encryption_context"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DataAutomationProject:
+    out: DataAutomationProject = {}  # type: ignore[typeddict-item]
+    if "projectArn" in data:
+        out["project_arn"] = data["projectArn"]
+    else:
+        raise DeserializationError("DataAutomationProject.project_arn required")
+    if "creationTime" in data:
+        import capo_bedrock_data_automation.types.date_timestamp
+
+        out["creation_time"] = (
+            capo_bedrock_data_automation.types.date_timestamp.deserialize_json(
+                data["creationTime"]
+            )
+        )
+    else:
+        raise DeserializationError("DataAutomationProject.creation_time required")
+    if "lastModifiedTime" in data:
+        import capo_bedrock_data_automation.types.date_timestamp
+
+        out["last_modified_time"] = (
+            capo_bedrock_data_automation.types.date_timestamp.deserialize_json(
+                data["lastModifiedTime"]
+            )
+        )
+    else:
+        raise DeserializationError("DataAutomationProject.last_modified_time required")
+    if "projectName" in data:
+        out["project_name"] = data["projectName"]
+    else:
+        raise DeserializationError("DataAutomationProject.project_name required")
+    if "projectStage" in data:
+        import capo_bedrock_data_automation.types.data_automation_project_stage
+
+        out["project_stage"] = (
+            capo_bedrock_data_automation.types.data_automation_project_stage.deserialize_json(
+                data["projectStage"]
+            )
+        )
+    if "projectType" in data:
+        import capo_bedrock_data_automation.types.data_automation_project_type
+
+        out["project_type"] = (
+            capo_bedrock_data_automation.types.data_automation_project_type.deserialize_json(
+                data["projectType"]
+            )
+        )
+    if "projectDescription" in data:
+        out["project_description"] = data["projectDescription"]
+    if "standardOutputConfiguration" in data:
+        import capo_bedrock_data_automation.types.standard_output_configuration
+
+        out["standard_output_configuration"] = (
+            capo_bedrock_data_automation.types.standard_output_configuration.deserialize_json(
+                data["standardOutputConfiguration"]
+            )
+        )
+    if "customOutputConfiguration" in data:
+        import capo_bedrock_data_automation.types.custom_output_configuration
+
+        out["custom_output_configuration"] = (
+            capo_bedrock_data_automation.types.custom_output_configuration.deserialize_json(
+                data["customOutputConfiguration"]
+            )
+        )
+    if "overrideConfiguration" in data:
+        import capo_bedrock_data_automation.types.override_configuration
+
+        out["override_configuration"] = (
+            capo_bedrock_data_automation.types.override_configuration.deserialize_json(
+                data["overrideConfiguration"]
+            )
+        )
+    if "dataAutomationLibraryConfiguration" in data:
+        import capo_bedrock_data_automation.types.data_automation_library_configuration
+
+        out["data_automation_library_configuration"] = (
+            capo_bedrock_data_automation.types.data_automation_library_configuration.deserialize_json(
+                data["dataAutomationLibraryConfiguration"]
+            )
+        )
+    if "status" in data:
+        import capo_bedrock_data_automation.types.data_automation_project_status
+
+        out["status"] = (
+            capo_bedrock_data_automation.types.data_automation_project_status.deserialize_json(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("DataAutomationProject.status required")
+    if "kmsKeyId" in data:
+        out["kms_key_id"] = data["kmsKeyId"]
+    if "kmsEncryptionContext" in data:
+        import capo_bedrock_data_automation.types.kms_encryption_context
+
+        out["kms_encryption_context"] = (
+            capo_bedrock_data_automation.types.kms_encryption_context.deserialize_json(
+                data["kmsEncryptionContext"]
+            )
+        )
+    return out

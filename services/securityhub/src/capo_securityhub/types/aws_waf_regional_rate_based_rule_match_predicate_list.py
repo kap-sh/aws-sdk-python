@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafRegionalRateBasedRuleMatchPredicateList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.aws_waf_regional_rate_based_rule_match_predicate
+
+AwsWafRegionalRateBasedRuleMatchPredicateList: TypeAlias = list[
+    "capo_securityhub.types.aws_waf_regional_rate_based_rule_match_predicate.AwsWafRegionalRateBasedRuleMatchPredicate"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AwsWafRegionalRateBasedRuleMatchPredicateList) -> list:
+    import capo_securityhub.types.aws_waf_regional_rate_based_rule_match_predicate
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_securityhub.types.aws_waf_regional_rate_based_rule_match_predicate.serialize_json(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_json(data: list) -> AwsWafRegionalRateBasedRuleMatchPredicateList:
+    import capo_securityhub.types.aws_waf_regional_rate_based_rule_match_predicate
+
+    out: AwsWafRegionalRateBasedRuleMatchPredicateList = []
+    for item in data:
+        out.append(
+            capo_securityhub.types.aws_waf_regional_rate_based_rule_match_predicate.deserialize_json(
+                item
+            )
+        )
+    return out

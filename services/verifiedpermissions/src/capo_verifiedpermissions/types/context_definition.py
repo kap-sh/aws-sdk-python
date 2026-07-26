@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ContextDefinition``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_verifiedpermissions.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_verifiedpermissions.types.cedar_json
+    import capo_verifiedpermissions.types.context_map
+
+
+class _ContextDefinition_contextMap(TypedDict, closed=True):
+    contextMap: "capo_verifiedpermissions.types.context_map.ContextMap"
+
+
+class _ContextDefinition_cedarJson(TypedDict, closed=True):
+    cedarJson: "capo_verifiedpermissions.types.cedar_json.CedarJson"
+
+
+ContextDefinition: TypeAlias = (
+    _ContextDefinition_contextMap | _ContextDefinition_cedarJson
+)
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ContextDefinition) -> dict:
+    if "contextMap" in value:
+        import capo_verifiedpermissions.types.context_map
+
+        return {
+            "contextMap": capo_verifiedpermissions.types.context_map.serialize_aws_json_1_0(
+                value["contextMap"]
+            )
+        }
+    elif "cedarJson" in value:
+        return {"cedarJson": value["cedarJson"]}
+    else:
+        raise SerializationError("ContextDefinition: no variant present")
+
+
+def deserialize_aws_json_1_0(data: dict) -> ContextDefinition:
+    if "contextMap" in data:
+        import capo_verifiedpermissions.types.context_map
+
+        return {
+            "contextMap": capo_verifiedpermissions.types.context_map.deserialize_aws_json_1_0(
+                data["contextMap"]
+            )
+        }
+    elif "cedarJson" in data:
+        return {"cedarJson": data["cedarJson"]}
+    else:
+        raise DeserializationError("ContextDefinition: no recognized variant key")

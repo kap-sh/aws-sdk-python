@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-billingconductor"
+name = "capo-billingconductor"
 version = "0.1.0"
 description = "Python SDK for Billingconductor."
 readme = "README.md"

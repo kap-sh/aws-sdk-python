@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GetSipRuleRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_chime_sdk_voice.types.non_empty_string
+
+
+class GetSipRuleRequest(TypedDict, closed=True):
+    sip_rule_id: "capo_chime_sdk_voice.types.non_empty_string.NonEmptyString"
+    """<p>The SIP rule ID.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetSipRuleRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetSipRuleRequest:
+    out: GetSipRuleRequest = {}  # type: ignore[typeddict-item]
+    return out

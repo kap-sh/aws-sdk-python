@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-simspaceweaver"
+name = "capo-simspaceweaver"
 version = "0.1.0"
 description = "Python SDK for Simspaceweaver."
 readme = "README.md"

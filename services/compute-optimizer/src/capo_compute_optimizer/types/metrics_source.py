@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.computeoptimizer#MetricsSource``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_compute_optimizer.types.metric_source
+
+MetricsSource: TypeAlias = list[
+    "capo_compute_optimizer.types.metric_source.MetricSource"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: MetricsSource) -> list:
+    import capo_compute_optimizer.types.metric_source
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_compute_optimizer.types.metric_source.serialize_aws_json_1_0(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> MetricsSource:
+    import capo_compute_optimizer.types.metric_source
+
+    out: MetricsSource = []
+    for item in data:
+        out.append(
+            capo_compute_optimizer.types.metric_source.deserialize_aws_json_1_0(item)
+        )
+    return out

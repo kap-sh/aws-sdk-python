@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.novaact#ListWorkflowRunsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_nova_act.types.max_results
+    import capo_nova_act.types.next_token
+    import capo_nova_act.types.sort_order
+    import capo_nova_act.types.workflow_definition_name
+
+
+class ListWorkflowRunsRequest(TypedDict, closed=True):
+    workflow_definition_name: (
+        "capo_nova_act.types.workflow_definition_name.WorkflowDefinitionName"
+    )
+    """<p>The name of the workflow definition to list workflow runs for.</p>"""
+    max_results: NotRequired["capo_nova_act.types.max_results.MaxResults"]
+    """<p>The maximum number of workflow runs to return in a single response.</p>"""
+    next_token: NotRequired["capo_nova_act.types.next_token.NextToken"]
+    """<p>The token for retrieving the next page of results.</p>"""
+    sort_order: NotRequired["capo_nova_act.types.sort_order.SortOrder"]
+    """<p>The sort order for the returned workflow runs (ascending or descending).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListWorkflowRunsRequest) -> dict:
+    out: dict = {}
+    if "sort_order" in value:
+        import capo_nova_act.types.sort_order
+
+        out["sortOrder"] = capo_nova_act.types.sort_order.serialize_json(
+            value["sort_order"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListWorkflowRunsRequest:
+    out: ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
+    if "sortOrder" in data:
+        import capo_nova_act.types.sort_order
+
+        out["sort_order"] = capo_nova_act.types.sort_order.deserialize_json(
+            data["sortOrder"]
+        )
+    return out

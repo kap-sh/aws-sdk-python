@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.groundstation#UplinkConnectionDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_groundstation.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_groundstation.types.connection_details
+    import capo_groundstation.types.ranged_connection_details
+
+
+class UplinkConnectionDetails(TypedDict, closed=True):
+    ingress_address_and_port: (
+        "capo_groundstation.types.connection_details.ConnectionDetails"
+    )
+    agent_ip_and_port_address: (
+        "capo_groundstation.types.ranged_connection_details.RangedConnectionDetails"
+    )
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UplinkConnectionDetails) -> dict:
+    out: dict = {}
+    import capo_groundstation.types.connection_details
+
+    out["ingressAddressAndPort"] = (
+        capo_groundstation.types.connection_details.serialize_json(
+            value["ingress_address_and_port"]
+        )
+    )
+    import capo_groundstation.types.ranged_connection_details
+
+    out["agentIpAndPortAddress"] = (
+        capo_groundstation.types.ranged_connection_details.serialize_json(
+            value["agent_ip_and_port_address"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> UplinkConnectionDetails:
+    out: UplinkConnectionDetails = {}  # type: ignore[typeddict-item]
+    if "ingressAddressAndPort" in data:
+        import capo_groundstation.types.connection_details
+
+        out["ingress_address_and_port"] = (
+            capo_groundstation.types.connection_details.deserialize_json(
+                data["ingressAddressAndPort"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UplinkConnectionDetails.ingress_address_and_port required"
+        )
+    if "agentIpAndPortAddress" in data:
+        import capo_groundstation.types.ranged_connection_details
+
+        out["agent_ip_and_port_address"] = (
+            capo_groundstation.types.ranged_connection_details.deserialize_json(
+                data["agentIpAndPortAddress"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UplinkConnectionDetails.agent_ip_and_port_address required"
+        )
+    return out

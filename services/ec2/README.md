@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-ec2
+pip install capo-ec2
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_ec2 import AsyncEC2Client
+from capo_ec2 import AsyncEC2Client
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_ec2 import AsyncEC2Client
+from capo_ec2 import AsyncEC2Client
 
 
 async def main():
@@ -39,7 +39,7 @@ async def main():
 Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
-from aws_sdk_ec2 import AsyncEC2Client
+from capo_ec2 import AsyncEC2Client
 
 
 async def main():
@@ -55,7 +55,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_ec2 import AsyncEC2Client
+from capo_ec2 import AsyncEC2Client
 
 
 async def main():

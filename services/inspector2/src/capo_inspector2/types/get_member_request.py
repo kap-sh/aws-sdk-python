@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#GetMemberRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_inspector2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_inspector2.types.account_id
+
+
+class GetMemberRequest(TypedDict, closed=True):
+    account_id: "capo_inspector2.types.account_id.AccountId"
+    """<p>The Amazon Web Services account ID of the member account to retrieve information on.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMemberRequest) -> dict:
+    out: dict = {}
+    out["accountId"] = value["account_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetMemberRequest:
+    out: GetMemberRequest = {}  # type: ignore[typeddict-item]
+    if "accountId" in data:
+        out["account_id"] = data["accountId"]
+    else:
+        raise DeserializationError("GetMemberRequest.account_id required")
+    return out

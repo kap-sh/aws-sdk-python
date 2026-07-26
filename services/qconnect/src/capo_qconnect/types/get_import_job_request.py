@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#GetImportJobRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_qconnect.types.uuid
+    import capo_qconnect.types.uuid_or_arn
+
+
+class GetImportJobRequest(TypedDict, closed=True):
+    import_job_id: "capo_qconnect.types.uuid.Uuid"
+    """<p>The identifier of the import job to retrieve.</p>"""
+    knowledge_base_id: "capo_qconnect.types.uuid_or_arn.UuidOrArn"
+    """<p>The identifier of the knowledge base that the import job belongs to.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetImportJobRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetImportJobRequest:
+    out: GetImportJobRequest = {}  # type: ignore[typeddict-item]
+    return out

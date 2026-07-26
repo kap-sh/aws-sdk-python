@@ -1,0 +1,201 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#PutParameter``."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+
+import zapros
+from typing_extensions import Never
+
+import capo_ssm._auth._signers
+import capo_ssm._auth._sigv4
+import capo_ssm.errors.hierarchy_level_limit_exceeded_exception
+import capo_ssm.errors.hierarchy_type_mismatch_exception
+import capo_ssm.errors.incompatible_policy_exception
+import capo_ssm.errors.internal_server_error
+import capo_ssm.errors.invalid_allowed_pattern_exception
+import capo_ssm.errors.invalid_key_id
+import capo_ssm.errors.invalid_policy_attribute_exception
+import capo_ssm.errors.invalid_policy_type_exception
+import capo_ssm.errors.parameter_already_exists
+import capo_ssm.errors.parameter_limit_exceeded
+import capo_ssm.errors.parameter_max_version_limit_exceeded
+import capo_ssm.errors.parameter_pattern_mismatch_exception
+import capo_ssm.errors.policies_limit_exceeded_exception
+import capo_ssm.errors.too_many_updates
+import capo_ssm.errors.unsupported_parameter_type
+import capo_ssm.types.parameter_tier
+import capo_ssm.types.parameter_type
+import capo_ssm.types.put_parameter_request
+import capo_ssm.types.put_parameter_result
+import capo_ssm.types.tag_list
+from capo_ssm._protocol.errors import parse_error_metadata_json
+from capo_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_ssm.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "HierarchyLevelLimitExceededException":
+            raise capo_ssm.errors.hierarchy_level_limit_exceeded_exception.HierarchyLevelLimitExceededException.from_aws_json_1_1(
+                data
+            )
+        case "HierarchyTypeMismatchException":
+            raise capo_ssm.errors.hierarchy_type_mismatch_exception.HierarchyTypeMismatchException.from_aws_json_1_1(
+                data
+            )
+        case "IncompatiblePolicyException":
+            raise capo_ssm.errors.incompatible_policy_exception.IncompatiblePolicyException.from_aws_json_1_1(
+                data
+            )
+        case "InternalServerError":
+            raise capo_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
+                data
+            )
+        case "InvalidAllowedPatternException":
+            raise capo_ssm.errors.invalid_allowed_pattern_exception.InvalidAllowedPatternException.from_aws_json_1_1(
+                data
+            )
+        case "InvalidKeyId":
+            raise capo_ssm.errors.invalid_key_id.InvalidKeyId.from_aws_json_1_1(data)
+        case "InvalidPolicyAttributeException":
+            raise capo_ssm.errors.invalid_policy_attribute_exception.InvalidPolicyAttributeException.from_aws_json_1_1(
+                data
+            )
+        case "InvalidPolicyTypeException":
+            raise capo_ssm.errors.invalid_policy_type_exception.InvalidPolicyTypeException.from_aws_json_1_1(
+                data
+            )
+        case "ParameterAlreadyExists":
+            raise capo_ssm.errors.parameter_already_exists.ParameterAlreadyExists.from_aws_json_1_1(
+                data
+            )
+        case "ParameterLimitExceeded":
+            raise capo_ssm.errors.parameter_limit_exceeded.ParameterLimitExceeded.from_aws_json_1_1(
+                data
+            )
+        case "ParameterMaxVersionLimitExceeded":
+            raise capo_ssm.errors.parameter_max_version_limit_exceeded.ParameterMaxVersionLimitExceeded.from_aws_json_1_1(
+                data
+            )
+        case "ParameterPatternMismatchException":
+            raise capo_ssm.errors.parameter_pattern_mismatch_exception.ParameterPatternMismatchException.from_aws_json_1_1(
+                data
+            )
+        case "PoliciesLimitExceededException":
+            raise capo_ssm.errors.policies_limit_exceeded_exception.PoliciesLimitExceededException.from_aws_json_1_1(
+                data
+            )
+        case "TooManyUpdates":
+            raise capo_ssm.errors.too_many_updates.TooManyUpdates.from_aws_json_1_1(
+                data
+            )
+        case "UnsupportedParameterType":
+            raise capo_ssm.errors.unsupported_parameter_type.UnsupportedParameterType.from_aws_json_1_1(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_ssm.types.put_parameter_result.PutParameterResult:
+    out: capo_ssm.types.put_parameter_result.PutParameterResult = (
+        capo_ssm.types.put_parameter_result.deserialize_aws_json_1_1(
+            json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_ssm.types.put_parameter_result.PutParameterResult:
+    out: capo_ssm.types.put_parameter_result.PutParameterResult = (
+        capo_ssm.types.put_parameter_result.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_ssm._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_ssm._auth._sigv4.build_sigv4_auth_scheme("ssm", options.region)
+        )
+        if sigv4_config is not None:
+            return capo_ssm._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_ssm.types.put_parameter_request.PutParameterRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    headers["X-Amz-Target"] = "AmazonSSM.PutParameter"
+    body: bytes | None = json.dumps(
+        capo_ssm.types.put_parameter_request.serialize_aws_json_1_1(input_)
+    ).encode()
+    headers["content-type"] = "application/x-amz-json-1.1"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def put_parameter(
+    options: OperationOptions,
+    input_: capo_ssm.types.put_parameter_request.PutParameterRequest,
+) -> tuple[capo_ssm.types.put_parameter_result.PutParameterResult, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_put_parameter(
+    options: AsyncOperationOptions,
+    input_: capo_ssm.types.put_parameter_request.PutParameterRequest,
+) -> tuple[capo_ssm.types.put_parameter_result.PutParameterResult, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

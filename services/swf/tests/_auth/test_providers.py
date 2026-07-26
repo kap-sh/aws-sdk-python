@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
-from aws_sdk_swf._auth._providers import (
+from capo_swf._auth._providers import (
     CachedProvider,
     Ec2InstanceMetadataProvider,
     EcsContainerCredentialsProvider,

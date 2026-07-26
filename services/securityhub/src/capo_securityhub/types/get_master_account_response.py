@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#GetMasterAccountResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.invitation
+
+
+class GetMasterAccountResponse(TypedDict, closed=True):
+    master: NotRequired["capo_securityhub.types.invitation.Invitation"]
+    """<p>A list of details about the Security Hub CSPM administrator account for the current member account. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetMasterAccountResponse) -> dict:
+    out: dict = {}
+    if "master" in value:
+        import capo_securityhub.types.invitation
+
+        out["Master"] = capo_securityhub.types.invitation.serialize_json(
+            value["master"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetMasterAccountResponse:
+    out: GetMasterAccountResponse = {}  # type: ignore[typeddict-item]
+    if "Master" in data:
+        import capo_securityhub.types.invitation
+
+        out["master"] = capo_securityhub.types.invitation.deserialize_json(
+            data["Master"]
+        )
+    return out

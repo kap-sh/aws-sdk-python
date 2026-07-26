@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-s3outposts
+pip install capo-s3outposts
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_s3outposts import AsyncS3OutpostsClient
+from capo_s3outposts import AsyncS3OutpostsClient
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_s3outposts import AsyncS3OutpostsClient
+from capo_s3outposts import AsyncS3OutpostsClient
 
 
 async def main():
@@ -39,8 +39,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_s3outposts import AsyncS3OutpostsClient
-from aws_sdk_s3outposts.error import AccessDeniedException
+from capo_s3outposts import AsyncS3OutpostsClient
+from capo_s3outposts.error import AccessDeniedException
 
 
 async def main():
@@ -59,7 +59,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_s3outposts import AsyncS3OutpostsClient
+from capo_s3outposts import AsyncS3OutpostsClient
 
 
 async def main():

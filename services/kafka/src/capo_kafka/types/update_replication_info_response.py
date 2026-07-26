@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.kafka#UpdateReplicationInfoResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_kafka.types.__string
+    import capo_kafka.types.replicator_state
+
+
+class UpdateReplicationInfoResponse(TypedDict, closed=True):
+    replicator_arn: NotRequired["capo_kafka.types.__string.__string"]
+    """<p>The Amazon Resource Name (ARN) of the replicator.</p>"""
+    replicator_state: NotRequired["capo_kafka.types.replicator_state.ReplicatorState"]
+    """<p>State of the replicator.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateReplicationInfoResponse) -> dict:
+    out: dict = {}
+    if "replicator_arn" in value:
+        out["replicatorArn"] = value["replicator_arn"]
+    if "replicator_state" in value:
+        import capo_kafka.types.replicator_state
+
+        out["replicatorState"] = capo_kafka.types.replicator_state.serialize_json(
+            value["replicator_state"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateReplicationInfoResponse:
+    out: UpdateReplicationInfoResponse = {}  # type: ignore[typeddict-item]
+    if "replicatorArn" in data:
+        out["replicator_arn"] = data["replicatorArn"]
+    if "replicatorState" in data:
+        import capo_kafka.types.replicator_state
+
+        out["replicator_state"] = capo_kafka.types.replicator_state.deserialize_json(
+            data["replicatorState"]
+        )
+    return out

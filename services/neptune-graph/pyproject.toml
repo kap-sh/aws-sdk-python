@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-neptune-graph"
+name = "capo-neptune-graph"
 version = "0.1.0"
 description = "Python SDK for Neptune Graph."
 readme = "README.md"

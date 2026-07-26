@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-arc-region-switch"
+name = "capo-arc-region-switch"
 version = "0.1.0"
 description = "Python SDK for Arc Region Switch."
 readme = "README.md"

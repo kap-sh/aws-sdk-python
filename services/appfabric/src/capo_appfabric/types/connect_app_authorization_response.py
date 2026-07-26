@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.appfabric#ConnectAppAuthorizationResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_appfabric.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_appfabric.types.app_authorization_summary
+
+
+class ConnectAppAuthorizationResponse(TypedDict, closed=True):
+    app_authorization_summary: (
+        "capo_appfabric.types.app_authorization_summary.AppAuthorizationSummary"
+    )
+    """<p>Contains a summary of the app authorization.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ConnectAppAuthorizationResponse) -> dict:
+    out: dict = {}
+    import capo_appfabric.types.app_authorization_summary
+
+    out["appAuthorizationSummary"] = (
+        capo_appfabric.types.app_authorization_summary.serialize_json(
+            value["app_authorization_summary"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> ConnectAppAuthorizationResponse:
+    out: ConnectAppAuthorizationResponse = {}  # type: ignore[typeddict-item]
+    if "appAuthorizationSummary" in data:
+        import capo_appfabric.types.app_authorization_summary
+
+        out["app_authorization_summary"] = (
+            capo_appfabric.types.app_authorization_summary.deserialize_json(
+                data["appAuthorizationSummary"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ConnectAppAuthorizationResponse.app_authorization_summary required"
+        )
+    return out

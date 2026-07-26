@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.repostspace#ListTagsForResourceRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_repostspace.types.arn
+
+
+class ListTagsForResourceRequest(TypedDict, closed=True):
+    resource_arn: "capo_repostspace.types.arn.Arn"
+    """<p>The ARN of the resource that the tags are associated with.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListTagsForResourceRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListTagsForResourceRequest:
+    out: ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+    return out

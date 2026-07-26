@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralchannel#CreateRelationshipResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_partnercentral_channel.types.create_relationship_detail
+
+
+class CreateRelationshipResponse(TypedDict, closed=True):
+    relationship_detail: NotRequired[
+        "capo_partnercentral_channel.types.create_relationship_detail.CreateRelationshipDetail"
+    ]
+    """<p>Details of the created relationship.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: CreateRelationshipResponse) -> dict:
+    out: dict = {}
+    if "relationship_detail" in value:
+        import capo_partnercentral_channel.types.create_relationship_detail
+
+        out["relationshipDetail"] = (
+            capo_partnercentral_channel.types.create_relationship_detail.serialize_aws_json_1_0(
+                value["relationship_detail"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> CreateRelationshipResponse:
+    out: CreateRelationshipResponse = {}  # type: ignore[typeddict-item]
+    if "relationshipDetail" in data:
+        import capo_partnercentral_channel.types.create_relationship_detail
+
+        out["relationship_detail"] = (
+            capo_partnercentral_channel.types.create_relationship_detail.deserialize_aws_json_1_0(
+                data["relationshipDetail"]
+            )
+        )
+    return out

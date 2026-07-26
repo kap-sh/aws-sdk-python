@@ -1,0 +1,93 @@
+"""Generated from Smithy shape ``com.amazonaws.globalaccelerator#AllowCustomRoutingTrafficRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_global_accelerator.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_global_accelerator.types.destination_addresses
+    import capo_global_accelerator.types.destination_ports
+    import capo_global_accelerator.types.generic_boolean
+    import capo_global_accelerator.types.generic_string
+
+
+class AllowCustomRoutingTrafficRequest(TypedDict, closed=True):
+    endpoint_group_arn: "capo_global_accelerator.types.generic_string.GenericString"
+    """<p>The Amazon Resource Name (ARN) of the endpoint group.</p>"""
+    endpoint_id: "capo_global_accelerator.types.generic_string.GenericString"
+    """<p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>"""
+    destination_addresses: NotRequired[
+        "capo_global_accelerator.types.destination_addresses.DestinationAddresses"
+    ]
+    """<p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to allow to receive traffic. The IP addresses must be a subset of the IP addresses that you specified for the endpoint group.</p> <p> <code>DestinationAddresses</code> is required if <code>AllowAllTrafficToEndpoint</code> is <code>FALSE</code> or is not specified.</p>"""
+    destination_ports: NotRequired[
+        "capo_global_accelerator.types.destination_ports.DestinationPorts"
+    ]
+    """<p>A list of specific Amazon EC2 instance ports (destination ports) that you want to allow to receive traffic.</p>"""
+    allow_all_traffic_to_endpoint: NotRequired[
+        "capo_global_accelerator.types.generic_boolean.GenericBoolean"
+    ]
+    """<p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint can receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p> <p>When set to TRUE, <i>all</i> destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p> <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that are allowed to receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group.</p> <p>The default value is FALSE.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AllowCustomRoutingTrafficRequest) -> dict:
+    out: dict = {}
+    out["EndpointGroupArn"] = value["endpoint_group_arn"]
+    out["EndpointId"] = value["endpoint_id"]
+    if "destination_addresses" in value:
+        import capo_global_accelerator.types.destination_addresses
+
+        out["DestinationAddresses"] = (
+            capo_global_accelerator.types.destination_addresses.serialize_aws_json_1_1(
+                value["destination_addresses"]
+            )
+        )
+    if "destination_ports" in value:
+        import capo_global_accelerator.types.destination_ports
+
+        out["DestinationPorts"] = (
+            capo_global_accelerator.types.destination_ports.serialize_aws_json_1_1(
+                value["destination_ports"]
+            )
+        )
+    if "allow_all_traffic_to_endpoint" in value:
+        out["AllowAllTrafficToEndpoint"] = value["allow_all_traffic_to_endpoint"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AllowCustomRoutingTrafficRequest:
+    out: AllowCustomRoutingTrafficRequest = {}  # type: ignore[typeddict-item]
+    if "EndpointGroupArn" in data:
+        out["endpoint_group_arn"] = data["EndpointGroupArn"]
+    else:
+        raise DeserializationError(
+            "AllowCustomRoutingTrafficRequest.endpoint_group_arn required"
+        )
+    if "EndpointId" in data:
+        out["endpoint_id"] = data["EndpointId"]
+    else:
+        raise DeserializationError(
+            "AllowCustomRoutingTrafficRequest.endpoint_id required"
+        )
+    if "DestinationAddresses" in data:
+        import capo_global_accelerator.types.destination_addresses
+
+        out["destination_addresses"] = (
+            capo_global_accelerator.types.destination_addresses.deserialize_aws_json_1_1(
+                data["DestinationAddresses"]
+            )
+        )
+    if "DestinationPorts" in data:
+        import capo_global_accelerator.types.destination_ports
+
+        out["destination_ports"] = (
+            capo_global_accelerator.types.destination_ports.deserialize_aws_json_1_1(
+                data["DestinationPorts"]
+            )
+        )
+    if "AllowAllTrafficToEndpoint" in data:
+        out["allow_all_traffic_to_endpoint"] = data["AllowAllTrafficToEndpoint"]
+    return out

@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalSecondaryIndexAutoScalingUpdate``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_dynamodb.types.auto_scaling_settings_update
+    import capo_dynamodb.types.index_name
+
+
+class GlobalSecondaryIndexAutoScalingUpdate(TypedDict, closed=True):
+    index_name: NotRequired["capo_dynamodb.types.index_name.IndexName"]
+    """<p>The name of the global secondary index.</p>"""
+    provisioned_write_capacity_auto_scaling_update: NotRequired[
+        "capo_dynamodb.types.auto_scaling_settings_update.AutoScalingSettingsUpdate"
+    ]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GlobalSecondaryIndexAutoScalingUpdate) -> dict:
+    out: dict = {}
+    if "index_name" in value:
+        out["IndexName"] = value["index_name"]
+    if "provisioned_write_capacity_auto_scaling_update" in value:
+        import capo_dynamodb.types.auto_scaling_settings_update
+
+        out["ProvisionedWriteCapacityAutoScalingUpdate"] = (
+            capo_dynamodb.types.auto_scaling_settings_update.serialize_aws_json_1_0(
+                value["provisioned_write_capacity_auto_scaling_update"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexAutoScalingUpdate:
+    out: GlobalSecondaryIndexAutoScalingUpdate = {}  # type: ignore[typeddict-item]
+    if "IndexName" in data:
+        out["index_name"] = data["IndexName"]
+    if "ProvisionedWriteCapacityAutoScalingUpdate" in data:
+        import capo_dynamodb.types.auto_scaling_settings_update
+
+        out["provisioned_write_capacity_auto_scaling_update"] = (
+            capo_dynamodb.types.auto_scaling_settings_update.deserialize_aws_json_1_0(
+                data["ProvisionedWriteCapacityAutoScalingUpdate"]
+            )
+        )
+    return out

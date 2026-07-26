@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#DetectKeyPhrasesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_comprehend.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_comprehend.types.customer_input_string
+    import capo_comprehend.types.language_code
+
+
+class DetectKeyPhrasesRequest(TypedDict, closed=True):
+    text: "capo_comprehend.types.customer_input_string.CustomerInputString"
+    """<p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded characters.</p>"""
+    language_code: "capo_comprehend.types.language_code.LanguageCode"
+    """<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DetectKeyPhrasesRequest) -> dict:
+    out: dict = {}
+    out["Text"] = value["text"]
+    import capo_comprehend.types.language_code
+
+    out["LanguageCode"] = capo_comprehend.types.language_code.serialize_aws_json_1_1(
+        value["language_code"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DetectKeyPhrasesRequest:
+    out: DetectKeyPhrasesRequest = {}  # type: ignore[typeddict-item]
+    if "Text" in data:
+        out["text"] = data["Text"]
+    else:
+        raise DeserializationError("DetectKeyPhrasesRequest.text required")
+    if "LanguageCode" in data:
+        import capo_comprehend.types.language_code
+
+        out["language_code"] = (
+            capo_comprehend.types.language_code.deserialize_aws_json_1_1(
+                data["LanguageCode"]
+            )
+        )
+    else:
+        raise DeserializationError("DetectKeyPhrasesRequest.language_code required")
+    return out

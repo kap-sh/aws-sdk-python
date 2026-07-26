@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyGenerateFidelityReportDocumentList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.automated_reasoning_policy_build_workflow_document
+
+AutomatedReasoningPolicyGenerateFidelityReportDocumentList: TypeAlias = list[
+    "capo_bedrock.types.automated_reasoning_policy_build_workflow_document.AutomatedReasoningPolicyBuildWorkflowDocument"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(
+    value: AutomatedReasoningPolicyGenerateFidelityReportDocumentList,
+) -> list:
+    import capo_bedrock.types.automated_reasoning_policy_build_workflow_document
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_bedrock.types.automated_reasoning_policy_build_workflow_document.serialize_json(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_json(
+    data: list,
+) -> AutomatedReasoningPolicyGenerateFidelityReportDocumentList:
+    import capo_bedrock.types.automated_reasoning_policy_build_workflow_document
+
+    out: AutomatedReasoningPolicyGenerateFidelityReportDocumentList = []
+    for item in data:
+        out.append(
+            capo_bedrock.types.automated_reasoning_policy_build_workflow_document.deserialize_json(
+                item
+            )
+        )
+    return out

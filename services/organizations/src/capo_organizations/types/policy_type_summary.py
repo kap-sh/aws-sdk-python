@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.organizations#PolicyTypeSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_organizations.types.policy_type
+    import capo_organizations.types.policy_type_status
+
+
+class PolicyTypeSummary(TypedDict, closed=True):
+    type: NotRequired["capo_organizations.types.policy_type.PolicyType"]
+    """<p>The name of the policy type.</p>"""
+    status: NotRequired["capo_organizations.types.policy_type_status.PolicyTypeStatus"]
+    """<p>The status of the policy type as it relates to the associated root. To attach a policy of the specified type to a root or to an OU or account in that root, it must be available in the organization and enabled for that root.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PolicyTypeSummary) -> dict:
+    out: dict = {}
+    if "type" in value:
+        import capo_organizations.types.policy_type
+
+        out["Type"] = capo_organizations.types.policy_type.serialize_aws_json_1_1(
+            value["type"]
+        )
+    if "status" in value:
+        import capo_organizations.types.policy_type_status
+
+        out["Status"] = (
+            capo_organizations.types.policy_type_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PolicyTypeSummary:
+    out: PolicyTypeSummary = {}  # type: ignore[typeddict-item]
+    if "Type" in data:
+        import capo_organizations.types.policy_type
+
+        out["type"] = capo_organizations.types.policy_type.deserialize_aws_json_1_1(
+            data["Type"]
+        )
+    if "Status" in data:
+        import capo_organizations.types.policy_type_status
+
+        out["status"] = (
+            capo_organizations.types.policy_type_status.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    return out

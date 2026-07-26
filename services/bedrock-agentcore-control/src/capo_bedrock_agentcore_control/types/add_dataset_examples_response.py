@@ -1,0 +1,105 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AddDatasetExamplesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import capo_bedrock_agentcore_control.types.dataset_arn
+    import capo_bedrock_agentcore_control.types.dataset_id
+    import capo_bedrock_agentcore_control.types.dataset_status
+    import capo_bedrock_agentcore_control.types.example_id_list
+
+
+class AddDatasetExamplesResponse(TypedDict, closed=True):
+    dataset_arn: "capo_bedrock_agentcore_control.types.dataset_arn.DatasetArn"
+    """<p> The Amazon Resource Name (ARN) of the dataset. </p>"""
+    dataset_id: "capo_bedrock_agentcore_control.types.dataset_id.DatasetId"
+    """<p> The unique identifier of the dataset. </p>"""
+    status: "capo_bedrock_agentcore_control.types.dataset_status.DatasetStatus"
+    """<p> The current status of the dataset. </p>"""
+    added_count: "int"
+    """<p> The number of examples added. </p>"""
+    updated_at: "datetime.datetime"
+    """<p> The timestamp when the examples were added. </p>"""
+    example_ids: "capo_bedrock_agentcore_control.types.example_id_list.ExampleIdList"
+    """<p> IDs of all added examples (auto-generated UUIDs). </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AddDatasetExamplesResponse) -> dict:
+    out: dict = {}
+    out["datasetArn"] = value["dataset_arn"]
+    out["datasetId"] = value["dataset_id"]
+    import capo_bedrock_agentcore_control.types.dataset_status
+
+    out["status"] = capo_bedrock_agentcore_control.types.dataset_status.serialize_json(
+        value["status"]
+    )
+    out["addedCount"] = value["added_count"]
+    import capo_bedrock_agentcore_control.types._prelude.timestamp
+
+    out["updatedAt"] = (
+        capo_bedrock_agentcore_control.types._prelude.timestamp.serialize_json(
+            value["updated_at"]
+        )
+    )
+    import capo_bedrock_agentcore_control.types.example_id_list
+
+    out["exampleIds"] = (
+        capo_bedrock_agentcore_control.types.example_id_list.serialize_json(
+            value["example_ids"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AddDatasetExamplesResponse:
+    out: AddDatasetExamplesResponse = {}  # type: ignore[typeddict-item]
+    if "datasetArn" in data:
+        out["dataset_arn"] = data["datasetArn"]
+    else:
+        raise DeserializationError("AddDatasetExamplesResponse.dataset_arn required")
+    if "datasetId" in data:
+        out["dataset_id"] = data["datasetId"]
+    else:
+        raise DeserializationError("AddDatasetExamplesResponse.dataset_id required")
+    if "status" in data:
+        import capo_bedrock_agentcore_control.types.dataset_status
+
+        out["status"] = (
+            capo_bedrock_agentcore_control.types.dataset_status.deserialize_json(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("AddDatasetExamplesResponse.status required")
+    if "addedCount" in data:
+        out["added_count"] = data["addedCount"]
+    else:
+        raise DeserializationError("AddDatasetExamplesResponse.added_count required")
+    if "updatedAt" in data:
+        import capo_bedrock_agentcore_control.types._prelude.timestamp
+
+        out["updated_at"] = (
+            capo_bedrock_agentcore_control.types._prelude.timestamp.deserialize_json(
+                data["updatedAt"]
+            )
+        )
+    else:
+        raise DeserializationError("AddDatasetExamplesResponse.updated_at required")
+    if "exampleIds" in data:
+        import capo_bedrock_agentcore_control.types.example_id_list
+
+        out["example_ids"] = (
+            capo_bedrock_agentcore_control.types.example_id_list.deserialize_json(
+                data["exampleIds"]
+            )
+        )
+    else:
+        raise DeserializationError("AddDatasetExamplesResponse.example_ids required")
+    return out

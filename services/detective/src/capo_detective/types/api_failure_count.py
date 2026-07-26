@@ -1,0 +1,5 @@
+"""Generated from Smithy shape ``com.amazonaws.detective#APIFailureCount``."""
+
+from typing import TypeAlias
+
+APIFailureCount: TypeAlias = int

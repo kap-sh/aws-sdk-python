@@ -1,0 +1,123 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#TotalOptions``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.string
+    import capo_quicksight.types.table_cell_style
+    import capo_quicksight.types.table_totals_placement
+    import capo_quicksight.types.table_totals_scroll_status
+    import capo_quicksight.types.total_aggregation_option_list
+    import capo_quicksight.types.visibility
+
+
+class TotalOptions(TypedDict, closed=True):
+    totals_visibility: NotRequired["capo_quicksight.types.visibility.Visibility"]
+    """<p>The visibility configuration for the total cells.</p>"""
+    placement: NotRequired[
+        "capo_quicksight.types.table_totals_placement.TableTotalsPlacement"
+    ]
+    """<p>The placement (start, end) for the total cells.</p>"""
+    scroll_status: NotRequired[
+        "capo_quicksight.types.table_totals_scroll_status.TableTotalsScrollStatus"
+    ]
+    """<p>The scroll status (pinned, scrolled) for the total cells.</p>"""
+    custom_label: NotRequired["capo_quicksight.types.string.String"]
+    """<p>The custom label string for the total cells.</p>"""
+    total_cell_style: NotRequired[
+        "capo_quicksight.types.table_cell_style.TableCellStyle"
+    ]
+    """<p>Cell styling options for the total cells.</p>"""
+    total_aggregation_options: NotRequired[
+        "capo_quicksight.types.total_aggregation_option_list.TotalAggregationOptionList"
+    ]
+    """<p>The total aggregation settings for each value field.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TotalOptions) -> dict:
+    out: dict = {}
+    if "totals_visibility" in value:
+        import capo_quicksight.types.visibility
+
+        out["TotalsVisibility"] = capo_quicksight.types.visibility.serialize_json(
+            value["totals_visibility"]
+        )
+    if "placement" in value:
+        import capo_quicksight.types.table_totals_placement
+
+        out["Placement"] = capo_quicksight.types.table_totals_placement.serialize_json(
+            value["placement"]
+        )
+    if "scroll_status" in value:
+        import capo_quicksight.types.table_totals_scroll_status
+
+        out["ScrollStatus"] = (
+            capo_quicksight.types.table_totals_scroll_status.serialize_json(
+                value["scroll_status"]
+            )
+        )
+    if "custom_label" in value:
+        out["CustomLabel"] = value["custom_label"]
+    if "total_cell_style" in value:
+        import capo_quicksight.types.table_cell_style
+
+        out["TotalCellStyle"] = capo_quicksight.types.table_cell_style.serialize_json(
+            value["total_cell_style"]
+        )
+    if "total_aggregation_options" in value:
+        import capo_quicksight.types.total_aggregation_option_list
+
+        out["TotalAggregationOptions"] = (
+            capo_quicksight.types.total_aggregation_option_list.serialize_json(
+                value["total_aggregation_options"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TotalOptions:
+    out: TotalOptions = {}  # type: ignore[typeddict-item]
+    if "TotalsVisibility" in data:
+        import capo_quicksight.types.visibility
+
+        out["totals_visibility"] = capo_quicksight.types.visibility.deserialize_json(
+            data["TotalsVisibility"]
+        )
+    if "Placement" in data:
+        import capo_quicksight.types.table_totals_placement
+
+        out["placement"] = (
+            capo_quicksight.types.table_totals_placement.deserialize_json(
+                data["Placement"]
+            )
+        )
+    if "ScrollStatus" in data:
+        import capo_quicksight.types.table_totals_scroll_status
+
+        out["scroll_status"] = (
+            capo_quicksight.types.table_totals_scroll_status.deserialize_json(
+                data["ScrollStatus"]
+            )
+        )
+    if "CustomLabel" in data:
+        out["custom_label"] = data["CustomLabel"]
+    if "TotalCellStyle" in data:
+        import capo_quicksight.types.table_cell_style
+
+        out["total_cell_style"] = (
+            capo_quicksight.types.table_cell_style.deserialize_json(
+                data["TotalCellStyle"]
+            )
+        )
+    if "TotalAggregationOptions" in data:
+        import capo_quicksight.types.total_aggregation_option_list
+
+        out["total_aggregation_options"] = (
+            capo_quicksight.types.total_aggregation_option_list.deserialize_json(
+                data["TotalAggregationOptions"]
+            )
+        )
+    return out

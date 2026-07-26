@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-inspector2"
+name = "capo-inspector2"
 version = "0.1.0"
 description = "Python SDK for Inspector2."
 readme = "README.md"

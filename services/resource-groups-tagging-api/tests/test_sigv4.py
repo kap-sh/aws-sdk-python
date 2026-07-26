@@ -18,7 +18,7 @@ import pytest
 from pywhatwgurl import URL
 from zapros import Headers, Request
 
-from aws_sdk_resource_groups_tagging_api._auth._sigv4 import (
+from capo_resource_groups_tagging_api._auth._sigv4 import (
     SigV4AuthContext,
     _build_canonical_request,
     _canonical_headers,
@@ -412,7 +412,7 @@ def test_canonical_request_structure():
 def test_async_body_rejected(monkeypatch):
     """``sign_sigv4`` itself takes ``bytes``; the middleware enforces the
     no-async-stream rule. Smoke-test it via AuthMiddleware directly."""
-    from aws_sdk_resource_groups_tagging_api._auth._zapros_handler import AuthMiddleware
+    from capo_resource_groups_tagging_api._auth._zapros_handler import AuthMiddleware
 
     async def _agen():  # pragma: no cover - never awaited
         yield b""

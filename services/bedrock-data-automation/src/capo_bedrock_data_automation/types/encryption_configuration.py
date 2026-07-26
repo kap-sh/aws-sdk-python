@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#EncryptionConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_data_automation.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_data_automation.types.kms_encryption_context
+    import capo_bedrock_data_automation.types.kms_key_id
+
+
+class EncryptionConfiguration(TypedDict, closed=True):
+    kms_key_id: "capo_bedrock_data_automation.types.kms_key_id.KmsKeyId"
+    kms_encryption_context: NotRequired[
+        "capo_bedrock_data_automation.types.kms_encryption_context.KmsEncryptionContext"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EncryptionConfiguration) -> dict:
+    out: dict = {}
+    out["kmsKeyId"] = value["kms_key_id"]
+    if "kms_encryption_context" in value:
+        import capo_bedrock_data_automation.types.kms_encryption_context
+
+        out["kmsEncryptionContext"] = (
+            capo_bedrock_data_automation.types.kms_encryption_context.serialize_json(
+                value["kms_encryption_context"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EncryptionConfiguration:
+    out: EncryptionConfiguration = {}  # type: ignore[typeddict-item]
+    if "kmsKeyId" in data:
+        out["kms_key_id"] = data["kmsKeyId"]
+    else:
+        raise DeserializationError("EncryptionConfiguration.kms_key_id required")
+    if "kmsEncryptionContext" in data:
+        import capo_bedrock_data_automation.types.kms_encryption_context
+
+        out["kms_encryption_context"] = (
+            capo_bedrock_data_automation.types.kms_encryption_context.deserialize_json(
+                data["kmsEncryptionContext"]
+            )
+        )
+    return out

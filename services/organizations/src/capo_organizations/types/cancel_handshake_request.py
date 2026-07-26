@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.organizations#CancelHandshakeRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_organizations.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_organizations.types.handshake_id
+
+
+class CancelHandshakeRequest(TypedDict, closed=True):
+    handshake_id: "capo_organizations.types.handshake_id.HandshakeId"
+    r"""<p>ID for the handshake that you want to cancel. You can get the ID from the <a>ListHandshakesForOrganization</a> operation.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CancelHandshakeRequest) -> dict:
+    out: dict = {}
+    out["HandshakeId"] = value["handshake_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CancelHandshakeRequest:
+    out: CancelHandshakeRequest = {}  # type: ignore[typeddict-item]
+    if "HandshakeId" in data:
+        out["handshake_id"] = data["HandshakeId"]
+    else:
+        raise DeserializationError("CancelHandshakeRequest.handshake_id required")
+    return out

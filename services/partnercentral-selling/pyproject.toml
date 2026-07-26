@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-partnercentral-selling"
+name = "capo-partnercentral-selling"
 version = "0.1.0"
 description = "Python SDK for Partnercentral Selling."
 readme = "README.md"

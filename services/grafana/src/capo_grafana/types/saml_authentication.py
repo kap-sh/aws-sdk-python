@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.grafana#SamlAuthentication``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_grafana.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_grafana.types.saml_configuration
+    import capo_grafana.types.saml_configuration_status
+
+
+class SamlAuthentication(TypedDict, closed=True):
+    status: "capo_grafana.types.saml_configuration_status.SamlConfigurationStatus"
+    """<p>Specifies whether the workspace's SAML configuration is complete.</p>"""
+    configuration: NotRequired[
+        "capo_grafana.types.saml_configuration.SamlConfiguration"
+    ]
+    """<p>A structure containing details about how this workspace works with SAML. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SamlAuthentication) -> dict:
+    out: dict = {}
+    out["status"] = value["status"]
+    if "configuration" in value:
+        import capo_grafana.types.saml_configuration
+
+        out["configuration"] = capo_grafana.types.saml_configuration.serialize_json(
+            value["configuration"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> SamlAuthentication:
+    out: SamlAuthentication = {}  # type: ignore[typeddict-item]
+    if "status" in data:
+        out["status"] = data["status"]
+    else:
+        raise DeserializationError("SamlAuthentication.status required")
+    if "configuration" in data:
+        import capo_grafana.types.saml_configuration
+
+        out["configuration"] = capo_grafana.types.saml_configuration.deserialize_json(
+            data["configuration"]
+        )
+    return out

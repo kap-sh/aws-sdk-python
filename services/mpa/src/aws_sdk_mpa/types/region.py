@@ -1,5 +1,0 @@
-"""Generated from Smithy shape ``com.amazonaws.mpa#Region``."""
-
-from typing import TypeAlias
-
-Region: TypeAlias = str

@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeContextRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.context_name_or_arn
+
+
+class DescribeContextRequest(TypedDict, closed=True):
+    context_name: NotRequired[
+        "capo_sagemaker.types.context_name_or_arn.ContextNameOrArn"
+    ]
+    """<p>The name of the context to describe.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeContextRequest) -> dict:
+    out: dict = {}
+    if "context_name" in value:
+        out["ContextName"] = value["context_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeContextRequest:
+    out: DescribeContextRequest = {}  # type: ignore[typeddict-item]
+    if "ContextName" in data:
+        out["context_name"] = data["ContextName"]
+    return out

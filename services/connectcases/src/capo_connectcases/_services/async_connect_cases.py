@@ -1,0 +1,290 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcases#AmazonConnectCases``."""
+
+import warnings
+from typing import TYPE_CHECKING, Any, Iterable, Optional
+
+from typing_extensions import Self, TypedDict
+from zapros import AsyncBaseHandler, AsyncClient
+
+import capo_connectcases._auth._signers
+import capo_connectcases._auth._sigv4
+from capo_connectcases._auth._identity import Credentials
+from capo_connectcases._auth._providers import (
+    CredentialsProvider,
+    IdentityProvider,
+    StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
+)
+from capo_connectcases._auth._zapros_handler import AuthMiddleware
+from capo_connectcases._resources.amazon_connect_cases.case import AsyncCase
+from capo_connectcases._resources.amazon_connect_cases.case_rule import AsyncCaseRule
+from capo_connectcases._resources.amazon_connect_cases.domain import AsyncDomain
+from capo_connectcases._resources.amazon_connect_cases.field import AsyncField
+from capo_connectcases._resources.amazon_connect_cases.layout import AsyncLayout
+from capo_connectcases._resources.amazon_connect_cases.template import AsyncTemplate
+from capo_connectcases._services._aws_config import aaws_config
+from capo_connectcases._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import capo_connectcases.types.arn
+    import capo_connectcases.types.list_tags_for_resource_request
+    import capo_connectcases.types.list_tags_for_resource_response
+    import capo_connectcases.types.tag_key_list
+    import capo_connectcases.types.tag_resource_request
+    import capo_connectcases.types.tags
+    import capo_connectcases.types.untag_resource_request
+
+
+class AsyncConnectCasesClientConfig(TypedDict, total=False, closed=True):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int | None
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: IdentityProvider[Credentials] | None
+
+
+class AsyncConnectCasesClient:
+    """A client for the ``ConnectCases`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
+        self._config = AsyncConnectCasesClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": resolved_credentials_provider,
+            }
+        )
+
+        # resources
+        self.case = AsyncCase(self)
+        self.case_rule = AsyncCaseRule(self)
+        self.domain = AsyncDomain(self)
+        self.field = AsyncField(self)
+        self.layout = AsyncLayout(self)
+        self.template = AsyncTemplate(self)
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncConnectCasesClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncConnectCasesClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aaws_config(),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts", self._config.get("retry_max_attempts")
+            ),
+            region=overrides.get("region", self._config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self._config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def list_tags_for_resource(
+        self,
+        arn: "capo_connectcases.types.arn.Arn",
+        *,
+        config_overrides: Optional[AsyncConnectCasesClientConfig] = None,
+    ) -> "capo_connectcases.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists tags for a resource.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN)</p>
+
+        Raises:
+            capo_connectcases.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            capo_connectcases.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            capo_connectcases.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+            capo_connectcases.errors.throttling_exception.ThrottlingException: <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+            capo_connectcases.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            capo_connectcases.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_connectcases.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_connectcases.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import capo_connectcases._operations.amazon_connect_cases.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_connectcases._operations.amazon_connect_cases.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_connectcases.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        arn: "capo_connectcases.types.arn.Arn",
+        tags: "capo_connectcases.types.tags.Tags",
+        *,
+        config_overrides: Optional[AsyncConnectCasesClientConfig] = None,
+    ) -> None:
+        """<p>Adds tags to a resource.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN)</p>
+            tags: <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            capo_connectcases.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            capo_connectcases.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            capo_connectcases.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+            capo_connectcases.errors.throttling_exception.ThrottlingException: <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+            capo_connectcases.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            capo_connectcases.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_connectcases.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import capo_connectcases._operations.amazon_connect_cases.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_connectcases._operations.amazon_connect_cases.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_connectcases.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        arn: "capo_connectcases.types.arn.Arn",
+        tag_keys: "capo_connectcases.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[AsyncConnectCasesClientConfig] = None,
+    ) -> None:
+        """<p>Untags a resource.</p>
+
+        Args:
+            arn: <p>The Amazon Resource Name (ARN)</p>
+            tag_keys: <p>List of tag keys.</p>
+
+        Raises:
+            capo_connectcases.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            capo_connectcases.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            capo_connectcases.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+            capo_connectcases.errors.throttling_exception.ThrottlingException: <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+            capo_connectcases.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            capo_connectcases.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_connectcases.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import capo_connectcases._operations.amazon_connect_cases.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_connectcases._operations.amazon_connect_cases.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_connectcases.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

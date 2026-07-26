@@ -1,0 +1,91 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#UpdateEventBridgeRuleTemplateRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_medialive.types.__list_of_event_bridge_rule_template_target
+    import capo_medialive.types.__string
+    import capo_medialive.types.__string_min0_max1024
+    import capo_medialive.types.__string_min1_max255_pattern_s
+    import capo_medialive.types.__string_pattern_s
+    import capo_medialive.types.event_bridge_rule_template_event_type
+
+
+class UpdateEventBridgeRuleTemplateRequest(TypedDict, closed=True):
+    description: NotRequired[
+        "capo_medialive.types.__string_min0_max1024.__stringMin0Max1024"
+    ]
+    """A resource's optional description."""
+    event_targets: NotRequired[
+        "capo_medialive.types.__list_of_event_bridge_rule_template_target.__listOfEventBridgeRuleTemplateTarget"
+    ]
+    event_type: NotRequired[
+        "capo_medialive.types.event_bridge_rule_template_event_type.EventBridgeRuleTemplateEventType"
+    ]
+    group_identifier: NotRequired[
+        "capo_medialive.types.__string_pattern_s.__stringPatternS"
+    ]
+    """An eventbridge rule template group's identifier. Can be either be its id or current name."""
+    identifier: "capo_medialive.types.__string.__string"
+    """An eventbridge rule template's identifier. Can be either be its id or current name."""
+    name: NotRequired[
+        "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS"
+    ]
+    """A resource's name. Names must be unique within the scope of a resource type in a specific region."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateEventBridgeRuleTemplateRequest) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["description"] = value["description"]
+    if "event_targets" in value:
+        import capo_medialive.types.__list_of_event_bridge_rule_template_target
+
+        out["eventTargets"] = (
+            capo_medialive.types.__list_of_event_bridge_rule_template_target.serialize_json(
+                value["event_targets"]
+            )
+        )
+    if "event_type" in value:
+        import capo_medialive.types.event_bridge_rule_template_event_type
+
+        out["eventType"] = (
+            capo_medialive.types.event_bridge_rule_template_event_type.serialize_json(
+                value["event_type"]
+            )
+        )
+    if "group_identifier" in value:
+        out["groupIdentifier"] = value["group_identifier"]
+    if "name" in value:
+        out["name"] = value["name"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateEventBridgeRuleTemplateRequest:
+    out: UpdateEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
+    if "description" in data:
+        out["description"] = data["description"]
+    if "eventTargets" in data:
+        import capo_medialive.types.__list_of_event_bridge_rule_template_target
+
+        out["event_targets"] = (
+            capo_medialive.types.__list_of_event_bridge_rule_template_target.deserialize_json(
+                data["eventTargets"]
+            )
+        )
+    if "eventType" in data:
+        import capo_medialive.types.event_bridge_rule_template_event_type
+
+        out["event_type"] = (
+            capo_medialive.types.event_bridge_rule_template_event_type.deserialize_json(
+                data["eventType"]
+            )
+        )
+    if "groupIdentifier" in data:
+        out["group_identifier"] = data["groupIdentifier"]
+    if "name" in data:
+        out["name"] = data["name"]
+    return out

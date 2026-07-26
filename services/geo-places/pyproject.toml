@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-geo-places"
+name = "capo-geo-places"
 version = "0.1.0"
 description = "Python SDK for Geo Places."
 readme = "README.md"

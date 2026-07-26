@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.health#DescribeEventDetailsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_health.types.describe_event_details_failed_set
+    import capo_health.types.describe_event_details_successful_set
+
+
+class DescribeEventDetailsResponse(TypedDict, closed=True):
+    successful_set: NotRequired[
+        "capo_health.types.describe_event_details_successful_set.DescribeEventDetailsSuccessfulSet"
+    ]
+    """<p>Information about the events that could be retrieved.</p>"""
+    failed_set: NotRequired[
+        "capo_health.types.describe_event_details_failed_set.DescribeEventDetailsFailedSet"
+    ]
+    """<p>Error messages for any events that could not be retrieved.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeEventDetailsResponse) -> dict:
+    out: dict = {}
+    if "successful_set" in value:
+        import capo_health.types.describe_event_details_successful_set
+
+        out["successfulSet"] = (
+            capo_health.types.describe_event_details_successful_set.serialize_aws_json_1_1(
+                value["successful_set"]
+            )
+        )
+    if "failed_set" in value:
+        import capo_health.types.describe_event_details_failed_set
+
+        out["failedSet"] = (
+            capo_health.types.describe_event_details_failed_set.serialize_aws_json_1_1(
+                value["failed_set"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeEventDetailsResponse:
+    out: DescribeEventDetailsResponse = {}  # type: ignore[typeddict-item]
+    if "successfulSet" in data:
+        import capo_health.types.describe_event_details_successful_set
+
+        out["successful_set"] = (
+            capo_health.types.describe_event_details_successful_set.deserialize_aws_json_1_1(
+                data["successfulSet"]
+            )
+        )
+    if "failedSet" in data:
+        import capo_health.types.describe_event_details_failed_set
+
+        out["failed_set"] = (
+            capo_health.types.describe_event_details_failed_set.deserialize_aws_json_1_1(
+                data["failedSet"]
+            )
+        )
+    return out

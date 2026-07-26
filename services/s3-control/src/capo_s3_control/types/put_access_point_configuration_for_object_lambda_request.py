@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#PutAccessPointConfigurationForObjectLambdaRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_s3_control._protocol.xml import Element, SubElement
+from capo_s3_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_s3_control.types.account_id
+    import capo_s3_control.types.object_lambda_access_point_name
+    import capo_s3_control.types.object_lambda_configuration
+
+
+class PutAccessPointConfigurationForObjectLambdaRequest(TypedDict, closed=True):
+    account_id: "capo_s3_control.types.account_id.AccountId"
+    """<p>The account ID for the account that owns the specified Object Lambda Access Point.</p>"""
+    name: "capo_s3_control.types.object_lambda_access_point_name.ObjectLambdaAccessPointName"
+    """<p>The name of the Object Lambda Access Point.</p>"""
+    configuration: (
+        "capo_s3_control.types.object_lambda_configuration.ObjectLambdaConfiguration"
+    )
+    """<p>Object Lambda Access Point configuration document.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: PutAccessPointConfigurationForObjectLambdaRequest, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    import capo_s3_control.types.object_lambda_configuration
+
+    capo_s3_control.types.object_lambda_configuration.serialize_xml(
+        value["configuration"], el, "Configuration"
+    )
+
+
+def deserialize_xml(el: Element) -> PutAccessPointConfigurationForObjectLambdaRequest:
+    out: PutAccessPointConfigurationForObjectLambdaRequest = {}  # type: ignore[typeddict-item]
+    child_configuration = el.find("Configuration")
+    if child_configuration is not None:
+        import capo_s3_control.types.object_lambda_configuration
+
+        out["configuration"] = (
+            capo_s3_control.types.object_lambda_configuration.deserialize_xml(
+                child_configuration
+            )
+        )
+    else:
+        raise DeserializationError(
+            "PutAccessPointConfigurationForObjectLambdaRequest.configuration required"
+        )
+    return out

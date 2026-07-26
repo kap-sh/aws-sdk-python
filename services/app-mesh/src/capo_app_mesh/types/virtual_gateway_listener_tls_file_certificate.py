@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayListenerTlsFileCertificate``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_app_mesh.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_app_mesh.types.file_path
+
+
+class VirtualGatewayListenerTlsFileCertificate(TypedDict, closed=True):
+    certificate_chain: "capo_app_mesh.types.file_path.FilePath"
+    """<p>The certificate chain for the certificate.</p>"""
+    private_key: "capo_app_mesh.types.file_path.FilePath"
+    """<p>The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: VirtualGatewayListenerTlsFileCertificate) -> dict:
+    out: dict = {}
+    out["certificateChain"] = value["certificate_chain"]
+    out["privateKey"] = value["private_key"]
+    return out
+
+
+def deserialize_json(data: dict) -> VirtualGatewayListenerTlsFileCertificate:
+    out: VirtualGatewayListenerTlsFileCertificate = {}  # type: ignore[typeddict-item]
+    if "certificateChain" in data:
+        out["certificate_chain"] = data["certificateChain"]
+    else:
+        raise DeserializationError(
+            "VirtualGatewayListenerTlsFileCertificate.certificate_chain required"
+        )
+    if "privateKey" in data:
+        out["private_key"] = data["privateKey"]
+    else:
+        raise DeserializationError(
+            "VirtualGatewayListenerTlsFileCertificate.private_key required"
+        )
+    return out

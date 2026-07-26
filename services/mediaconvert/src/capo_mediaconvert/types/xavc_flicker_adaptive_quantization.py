@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconvert#XavcFlickerAdaptiveQuantization``."""
+
+from typing import Literal, TypeAlias, cast
+
+"""The best way to set up adaptive quantization is to keep the default value, Auto, for the setting Adaptive quantization. When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. Enable this setting to have the encoder reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. This setting is disabled by default. Related setting: In addition to enabling this setting, you must also set Adaptive quantization to a value other than Off or Auto. Use Adaptive quantization to adjust the degree of smoothing that Flicker adaptive quantization provides."""
+XavcFlickerAdaptiveQuantization: TypeAlias = Literal[
+    "DISABLED",
+    "ENABLED",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: XavcFlickerAdaptiveQuantization) -> str:
+    return value
+
+
+def deserialize_json(data: str) -> XavcFlickerAdaptiveQuantization:
+    return cast(XavcFlickerAdaptiveQuantization, data)

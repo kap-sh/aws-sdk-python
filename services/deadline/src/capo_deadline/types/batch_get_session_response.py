@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#BatchGetSessionResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_deadline.types.batch_get_session_errors
+    import capo_deadline.types.batch_get_session_items
+
+
+class BatchGetSessionResponse(TypedDict, closed=True):
+    sessions: "capo_deadline.types.batch_get_session_items.BatchGetSessionItems"
+    """<p>A list of sessions that were successfully retrieved.</p>"""
+    errors: "capo_deadline.types.batch_get_session_errors.BatchGetSessionErrors"
+    """<p>A list of errors for sessions that could not be retrieved.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchGetSessionResponse) -> dict:
+    out: dict = {}
+    import capo_deadline.types.batch_get_session_items
+
+    out["sessions"] = capo_deadline.types.batch_get_session_items.serialize_json(
+        value["sessions"]
+    )
+    import capo_deadline.types.batch_get_session_errors
+
+    out["errors"] = capo_deadline.types.batch_get_session_errors.serialize_json(
+        value["errors"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> BatchGetSessionResponse:
+    out: BatchGetSessionResponse = {}  # type: ignore[typeddict-item]
+    if "sessions" in data:
+        import capo_deadline.types.batch_get_session_items
+
+        out["sessions"] = capo_deadline.types.batch_get_session_items.deserialize_json(
+            data["sessions"]
+        )
+    else:
+        raise DeserializationError("BatchGetSessionResponse.sessions required")
+    if "errors" in data:
+        import capo_deadline.types.batch_get_session_errors
+
+        out["errors"] = capo_deadline.types.batch_get_session_errors.deserialize_json(
+            data["errors"]
+        )
+    else:
+        raise DeserializationError("BatchGetSessionResponse.errors required")
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-workmail"
+name = "capo-workmail"
 version = "0.1.0"
 description = "Python SDK for Workmail."
 readme = "README.md"

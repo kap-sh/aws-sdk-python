@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconvert#GetPolicyResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_mediaconvert.types.policy
+
+
+class GetPolicyResponse(TypedDict, closed=True):
+    policy: NotRequired["capo_mediaconvert.types.policy.Policy"]
+    """A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetPolicyResponse) -> dict:
+    out: dict = {}
+    if "policy" in value:
+        import capo_mediaconvert.types.policy
+
+        out["policy"] = capo_mediaconvert.types.policy.serialize_json(value["policy"])
+    return out
+
+
+def deserialize_json(data: dict) -> GetPolicyResponse:
+    out: GetPolicyResponse = {}  # type: ignore[typeddict-item]
+    if "policy" in data:
+        import capo_mediaconvert.types.policy
+
+        out["policy"] = capo_mediaconvert.types.policy.deserialize_json(data["policy"])
+    return out

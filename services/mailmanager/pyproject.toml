@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-mailmanager"
+name = "capo-mailmanager"
 version = "0.1.0"
 description = "Python SDK for Mailmanager."
 readme = "README.md"

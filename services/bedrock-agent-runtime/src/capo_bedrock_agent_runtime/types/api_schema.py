@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#APISchema``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agent_runtime.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent_runtime.types.payload
+    import capo_bedrock_agent_runtime.types.s3_identifier
+
+
+class _APISchema_s3(TypedDict, closed=True):
+    s3: "capo_bedrock_agent_runtime.types.s3_identifier.S3Identifier"
+
+
+class _APISchema_payload(TypedDict, closed=True):
+    payload: "capo_bedrock_agent_runtime.types.payload.Payload"
+
+
+APISchema: TypeAlias = _APISchema_s3 | _APISchema_payload
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: APISchema) -> dict:
+    if "s3" in value:
+        import capo_bedrock_agent_runtime.types.s3_identifier
+
+        return {
+            "s3": capo_bedrock_agent_runtime.types.s3_identifier.serialize_json(
+                value["s3"]
+            )
+        }
+    elif "payload" in value:
+        return {"payload": value["payload"]}
+    else:
+        raise SerializationError("APISchema: no variant present")
+
+
+def deserialize_json(data: dict) -> APISchema:
+    if "s3" in data:
+        import capo_bedrock_agent_runtime.types.s3_identifier
+
+        return {
+            "s3": capo_bedrock_agent_runtime.types.s3_identifier.deserialize_json(
+                data["s3"]
+            )
+        }
+    elif "payload" in data:
+        return {"payload": data["payload"]}
+    else:
+        raise DeserializationError("APISchema: no recognized variant key")

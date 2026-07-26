@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.auditmanager#GetAssessmentRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_auditmanager.types.uuid
+
+
+class GetAssessmentRequest(TypedDict, closed=True):
+    assessment_id: "capo_auditmanager.types.uuid.UUID"
+    """<p>The unique identifier for the assessment. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetAssessmentRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetAssessmentRequest:
+    out: GetAssessmentRequest = {}  # type: ignore[typeddict-item]
+    return out

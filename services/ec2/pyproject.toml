@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-ec2"
+name = "capo-ec2"
 version = "0.4.0"
 description = "Python SDK for Amazon EC2."
 readme = "README.md"

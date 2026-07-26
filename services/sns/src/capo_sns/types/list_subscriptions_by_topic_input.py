@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.sns#ListSubscriptionsByTopicInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_sns._protocol.xml import Element
+from capo_sns.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_sns.types.next_token
+    import capo_sns.types.topic_arn
+
+
+class ListSubscriptionsByTopicInput(TypedDict, closed=True):
+    topic_arn: "capo_sns.types.topic_arn.topicARN"
+    """<p>The ARN of the topic for which you wish to find subscriptions.</p>"""
+    next_token: NotRequired["capo_sns.types.next_token.nextToken"]
+    """<p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: ListSubscriptionsByTopicInput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+    if "next_token" in value:
+        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+
+
+def deserialize_query(el: Element) -> ListSubscriptionsByTopicInput:
+    out: ListSubscriptionsByTopicInput = {}  # type: ignore[typeddict-item]
+    child_topic_arn = el.find("TopicArn")
+    if child_topic_arn is not None:
+        out["topic_arn"] = str(child_topic_arn.text or "")
+    else:
+        raise DeserializationError("ListSubscriptionsByTopicInput.topic_arn required")
+    child_next_token = el.find("NextToken")
+    if child_next_token is not None:
+        out["next_token"] = str(child_next_token.text or "")
+    return out

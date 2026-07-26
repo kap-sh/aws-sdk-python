@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-qapps"
+name = "capo-qapps"
 version = "0.1.0"
 description = "Python SDK for Qapps."
 readme = "README.md"

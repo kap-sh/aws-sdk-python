@@ -1,0 +1,182 @@
+"""Generated from Smithy shape ``com.amazonaws.mailmanager#GetAddressListImportJobResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_mailmanager.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import capo_mailmanager.types.address_list_id
+    import capo_mailmanager.types.error_message
+    import capo_mailmanager.types.import_data_format
+    import capo_mailmanager.types.import_job_status
+    import capo_mailmanager.types.job_id
+    import capo_mailmanager.types.job_items_count
+    import capo_mailmanager.types.job_name
+    import capo_mailmanager.types.pre_signed_url
+
+
+class GetAddressListImportJobResponse(TypedDict, closed=True):
+    job_id: "capo_mailmanager.types.job_id.JobId"
+    """<p>The identifier of the import job.</p>"""
+    name: "capo_mailmanager.types.job_name.JobName"
+    """<p>A user-friendly name for the import job.</p>"""
+    status: "capo_mailmanager.types.import_job_status.ImportJobStatus"
+    """<p>The status of the import job.</p>"""
+    pre_signed_url: "capo_mailmanager.types.pre_signed_url.PreSignedUrl"
+    """<p>The pre-signed URL target for uploading the input file.</p>"""
+    imported_items_count: NotRequired[
+        "capo_mailmanager.types.job_items_count.JobItemsCount"
+    ]
+    """<p>The number of input addresses successfully imported into the address list.</p>"""
+    failed_items_count: NotRequired[
+        "capo_mailmanager.types.job_items_count.JobItemsCount"
+    ]
+    """<p>The number of input addresses that failed to be imported into the address list.</p>"""
+    import_data_format: "capo_mailmanager.types.import_data_format.ImportDataFormat"
+    """<p>The format of the input for an import job.</p>"""
+    address_list_id: "capo_mailmanager.types.address_list_id.AddressListId"
+    """<p>The unique identifier of the address list the import job was created for.</p>"""
+    created_timestamp: "datetime.datetime"
+    """<p>The timestamp of when the import job was created.</p>"""
+    start_timestamp: NotRequired["datetime.datetime"]
+    """<p>The timestamp of when the import job was started.</p>"""
+    completed_timestamp: NotRequired["datetime.datetime"]
+    """<p>The timestamp of when the import job was completed.</p>"""
+    error: NotRequired["capo_mailmanager.types.error_message.ErrorMessage"]
+    """<p>The reason for failure of an import job.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: GetAddressListImportJobResponse) -> dict:
+    out: dict = {}
+    out["JobId"] = value["job_id"]
+    out["Name"] = value["name"]
+    import capo_mailmanager.types.import_job_status
+
+    out["Status"] = capo_mailmanager.types.import_job_status.serialize_aws_json_1_0(
+        value["status"]
+    )
+    out["PreSignedUrl"] = value["pre_signed_url"]
+    if "imported_items_count" in value:
+        out["ImportedItemsCount"] = value["imported_items_count"]
+    if "failed_items_count" in value:
+        out["FailedItemsCount"] = value["failed_items_count"]
+    import capo_mailmanager.types.import_data_format
+
+    out["ImportDataFormat"] = (
+        capo_mailmanager.types.import_data_format.serialize_aws_json_1_0(
+            value["import_data_format"]
+        )
+    )
+    out["AddressListId"] = value["address_list_id"]
+    import capo_mailmanager.types._prelude.timestamp
+
+    out["CreatedTimestamp"] = (
+        capo_mailmanager.types._prelude.timestamp.serialize_aws_json_1_0(
+            value["created_timestamp"]
+        )
+    )
+    if "start_timestamp" in value:
+        import capo_mailmanager.types._prelude.timestamp
+
+        out["StartTimestamp"] = (
+            capo_mailmanager.types._prelude.timestamp.serialize_aws_json_1_0(
+                value["start_timestamp"]
+            )
+        )
+    if "completed_timestamp" in value:
+        import capo_mailmanager.types._prelude.timestamp
+
+        out["CompletedTimestamp"] = (
+            capo_mailmanager.types._prelude.timestamp.serialize_aws_json_1_0(
+                value["completed_timestamp"]
+            )
+        )
+    if "error" in value:
+        out["Error"] = value["error"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> GetAddressListImportJobResponse:
+    out: GetAddressListImportJobResponse = {}  # type: ignore[typeddict-item]
+    if "JobId" in data:
+        out["job_id"] = data["JobId"]
+    else:
+        raise DeserializationError("GetAddressListImportJobResponse.job_id required")
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("GetAddressListImportJobResponse.name required")
+    if "Status" in data:
+        import capo_mailmanager.types.import_job_status
+
+        out["status"] = (
+            capo_mailmanager.types.import_job_status.deserialize_aws_json_1_0(
+                data["Status"]
+            )
+        )
+    else:
+        raise DeserializationError("GetAddressListImportJobResponse.status required")
+    if "PreSignedUrl" in data:
+        out["pre_signed_url"] = data["PreSignedUrl"]
+    else:
+        raise DeserializationError(
+            "GetAddressListImportJobResponse.pre_signed_url required"
+        )
+    if "ImportedItemsCount" in data:
+        out["imported_items_count"] = data["ImportedItemsCount"]
+    if "FailedItemsCount" in data:
+        out["failed_items_count"] = data["FailedItemsCount"]
+    if "ImportDataFormat" in data:
+        import capo_mailmanager.types.import_data_format
+
+        out["import_data_format"] = (
+            capo_mailmanager.types.import_data_format.deserialize_aws_json_1_0(
+                data["ImportDataFormat"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetAddressListImportJobResponse.import_data_format required"
+        )
+    if "AddressListId" in data:
+        out["address_list_id"] = data["AddressListId"]
+    else:
+        raise DeserializationError(
+            "GetAddressListImportJobResponse.address_list_id required"
+        )
+    if "CreatedTimestamp" in data:
+        import capo_mailmanager.types._prelude.timestamp
+
+        out["created_timestamp"] = (
+            capo_mailmanager.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["CreatedTimestamp"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "GetAddressListImportJobResponse.created_timestamp required"
+        )
+    if "StartTimestamp" in data:
+        import capo_mailmanager.types._prelude.timestamp
+
+        out["start_timestamp"] = (
+            capo_mailmanager.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["StartTimestamp"]
+            )
+        )
+    if "CompletedTimestamp" in data:
+        import capo_mailmanager.types._prelude.timestamp
+
+        out["completed_timestamp"] = (
+            capo_mailmanager.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["CompletedTimestamp"]
+            )
+        )
+    if "Error" in data:
+        out["error"] = data["Error"]
+    return out

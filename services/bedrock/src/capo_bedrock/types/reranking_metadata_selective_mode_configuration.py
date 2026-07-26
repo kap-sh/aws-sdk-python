@@ -1,0 +1,75 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#RerankingMetadataSelectiveModeConfiguration``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.fields_for_reranking
+
+
+class _RerankingMetadataSelectiveModeConfiguration_fieldsToInclude(
+    TypedDict, closed=True
+):
+    fieldsToInclude: "capo_bedrock.types.fields_for_reranking.FieldsForReranking"
+
+
+class _RerankingMetadataSelectiveModeConfiguration_fieldsToExclude(
+    TypedDict, closed=True
+):
+    fieldsToExclude: "capo_bedrock.types.fields_for_reranking.FieldsForReranking"
+
+
+RerankingMetadataSelectiveModeConfiguration: TypeAlias = (
+    _RerankingMetadataSelectiveModeConfiguration_fieldsToInclude
+    | _RerankingMetadataSelectiveModeConfiguration_fieldsToExclude
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RerankingMetadataSelectiveModeConfiguration) -> dict:
+    if "fieldsToInclude" in value:
+        import capo_bedrock.types.fields_for_reranking
+
+        return {
+            "fieldsToInclude": capo_bedrock.types.fields_for_reranking.serialize_json(
+                value["fieldsToInclude"]
+            )
+        }
+    elif "fieldsToExclude" in value:
+        import capo_bedrock.types.fields_for_reranking
+
+        return {
+            "fieldsToExclude": capo_bedrock.types.fields_for_reranking.serialize_json(
+                value["fieldsToExclude"]
+            )
+        }
+    else:
+        raise SerializationError(
+            "RerankingMetadataSelectiveModeConfiguration: no variant present"
+        )
+
+
+def deserialize_json(data: dict) -> RerankingMetadataSelectiveModeConfiguration:
+    if "fieldsToInclude" in data:
+        import capo_bedrock.types.fields_for_reranking
+
+        return {
+            "fieldsToInclude": capo_bedrock.types.fields_for_reranking.deserialize_json(
+                data["fieldsToInclude"]
+            )
+        }
+    elif "fieldsToExclude" in data:
+        import capo_bedrock.types.fields_for_reranking
+
+        return {
+            "fieldsToExclude": capo_bedrock.types.fields_for_reranking.deserialize_json(
+                data["fieldsToExclude"]
+            )
+        }
+    else:
+        raise DeserializationError(
+            "RerankingMetadataSelectiveModeConfiguration: no recognized variant key"
+        )

@@ -1,0 +1,134 @@
+"""Generated from Smithy shape ``com.amazonaws.qbusiness#ChatOutputStream``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_qbusiness._iter import AnyIterator
+from capo_qbusiness._protocol.eventstream import Message
+
+if TYPE_CHECKING:
+    import capo_qbusiness.types.action_review_event
+    import capo_qbusiness.types.auth_challenge_request_event
+    import capo_qbusiness.types.failed_attachment_event
+    import capo_qbusiness.types.metadata_event
+    import capo_qbusiness.types.text_output_event
+
+
+class _ChatOutputStream_textEvent(TypedDict, closed=True):
+    textEvent: "capo_qbusiness.types.text_output_event.TextOutputEvent"
+
+
+class _ChatOutputStream_metadataEvent(TypedDict, closed=True):
+    metadataEvent: "capo_qbusiness.types.metadata_event.MetadataEvent"
+
+
+class _ChatOutputStream_actionReviewEvent(TypedDict, closed=True):
+    actionReviewEvent: "capo_qbusiness.types.action_review_event.ActionReviewEvent"
+
+
+class _ChatOutputStream_failedAttachmentEvent(TypedDict, closed=True):
+    failedAttachmentEvent: (
+        "capo_qbusiness.types.failed_attachment_event.FailedAttachmentEvent"
+    )
+
+
+class _ChatOutputStream_authChallengeRequestEvent(TypedDict, closed=True):
+    authChallengeRequestEvent: (
+        "capo_qbusiness.types.auth_challenge_request_event.AuthChallengeRequestEvent"
+    )
+
+
+_ChatOutputStream: TypeAlias = (
+    _ChatOutputStream_textEvent
+    | _ChatOutputStream_metadataEvent
+    | _ChatOutputStream_actionReviewEvent
+    | _ChatOutputStream_failedAttachmentEvent
+    | _ChatOutputStream_authChallengeRequestEvent
+)
+ChatOutputStream: TypeAlias = AnyIterator[_ChatOutputStream]
+
+
+def serialize_event_json(value: _ChatOutputStream) -> bytes:
+    match value:
+        case {"textEvent": payload}:
+            import capo_qbusiness.types.text_output_event
+
+            return capo_qbusiness.types.text_output_event.serialize_event_json(payload)
+        case {"metadataEvent": payload}:
+            import capo_qbusiness.types.metadata_event
+
+            return capo_qbusiness.types.metadata_event.serialize_event_json(payload)
+        case {"actionReviewEvent": payload}:
+            import capo_qbusiness.types.action_review_event
+
+            return capo_qbusiness.types.action_review_event.serialize_event_json(
+                payload
+            )
+        case {"failedAttachmentEvent": payload}:
+            import capo_qbusiness.types.failed_attachment_event
+
+            return capo_qbusiness.types.failed_attachment_event.serialize_event_json(
+                payload
+            )
+        case {"authChallengeRequestEvent": payload}:
+            import capo_qbusiness.types.auth_challenge_request_event
+
+            return (
+                capo_qbusiness.types.auth_challenge_request_event.serialize_event_json(
+                    payload
+                )
+            )
+        case _:
+            raise ValueError(f"ChatOutputStream: unrecognized variant {value!r}")
+
+
+def deserialize_event_json(message: Message) -> _ChatOutputStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "textEvent":
+            import capo_qbusiness.types.text_output_event
+
+            return {
+                "textEvent": capo_qbusiness.types.text_output_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "metadataEvent":
+            import capo_qbusiness.types.metadata_event
+
+            return {
+                "metadataEvent": capo_qbusiness.types.metadata_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "actionReviewEvent":
+            import capo_qbusiness.types.action_review_event
+
+            return {
+                "actionReviewEvent": capo_qbusiness.types.action_review_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "failedAttachmentEvent":
+            import capo_qbusiness.types.failed_attachment_event
+
+            return {
+                "failedAttachmentEvent": capo_qbusiness.types.failed_attachment_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "authChallengeRequestEvent":
+            import capo_qbusiness.types.auth_challenge_request_event
+
+            return {
+                "authChallengeRequestEvent": capo_qbusiness.types.auth_challenge_request_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"ChatOutputStream: unrecognized event-type {event_type!r}"
+            )

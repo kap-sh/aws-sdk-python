@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#DataFieldComboSeriesItem``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.combo_chart_series_settings
+    import capo_quicksight.types.field_id
+    import capo_quicksight.types.sensitive_string
+
+
+class DataFieldComboSeriesItem(TypedDict, closed=True):
+    field_id: "capo_quicksight.types.field_id.FieldId"
+    """<p>Field ID of the field that you are setting the series configuration for.</p>"""
+    field_value: NotRequired["capo_quicksight.types.sensitive_string.SensitiveString"]
+    """<p>Field value of the field that you are setting the series configuration for.</p>"""
+    settings: NotRequired[
+        "capo_quicksight.types.combo_chart_series_settings.ComboChartSeriesSettings"
+    ]
+    """<p>Options that determine the presentation of series associated to the field.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataFieldComboSeriesItem) -> dict:
+    out: dict = {}
+    out["FieldId"] = value["field_id"]
+    if "field_value" in value:
+        out["FieldValue"] = value["field_value"]
+    if "settings" in value:
+        import capo_quicksight.types.combo_chart_series_settings
+
+        out["Settings"] = (
+            capo_quicksight.types.combo_chart_series_settings.serialize_json(
+                value["settings"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DataFieldComboSeriesItem:
+    out: DataFieldComboSeriesItem = {}  # type: ignore[typeddict-item]
+    if "FieldId" in data:
+        out["field_id"] = data["FieldId"]
+    else:
+        raise DeserializationError("DataFieldComboSeriesItem.field_id required")
+    if "FieldValue" in data:
+        out["field_value"] = data["FieldValue"]
+    if "Settings" in data:
+        import capo_quicksight.types.combo_chart_series_settings
+
+        out["settings"] = (
+            capo_quicksight.types.combo_chart_series_settings.deserialize_json(
+                data["Settings"]
+            )
+        )
+    return out

@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplaceagreement#EntitlementList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_marketplace_agreement.types.entitlement
+
+EntitlementList: TypeAlias = list[
+    "capo_marketplace_agreement.types.entitlement.Entitlement"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: EntitlementList) -> list:
+    import capo_marketplace_agreement.types.entitlement
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_marketplace_agreement.types.entitlement.serialize_aws_json_1_0(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> EntitlementList:
+    import capo_marketplace_agreement.types.entitlement
+
+    out: EntitlementList = []
+    for item in data:
+        out.append(
+            capo_marketplace_agreement.types.entitlement.deserialize_aws_json_1_0(item)
+        )
+    return out

@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#NeoVpcSubnets``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.neo_vpc_subnet_id
+
+NeoVpcSubnets: TypeAlias = list["capo_sagemaker.types.neo_vpc_subnet_id.NeoVpcSubnetId"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: NeoVpcSubnets) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> NeoVpcSubnets:
+    return list(data)

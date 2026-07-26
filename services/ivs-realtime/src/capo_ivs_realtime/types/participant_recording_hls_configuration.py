@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.ivsrealtime#ParticipantRecordingHlsConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_ivs_realtime.types.participant_recording_target_segment_duration_seconds
+
+
+class ParticipantRecordingHlsConfiguration(TypedDict, closed=True):
+    target_segment_duration_seconds: NotRequired[
+        "capo_ivs_realtime.types.participant_recording_target_segment_duration_seconds.ParticipantRecordingTargetSegmentDurationSeconds"
+    ]
+    """<p>Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ParticipantRecordingHlsConfiguration) -> dict:
+    out: dict = {}
+    if "target_segment_duration_seconds" in value:
+        out["targetSegmentDurationSeconds"] = value["target_segment_duration_seconds"]
+    return out
+
+
+def deserialize_json(data: dict) -> ParticipantRecordingHlsConfiguration:
+    out: ParticipantRecordingHlsConfiguration = {}  # type: ignore[typeddict-item]
+    if "targetSegmentDurationSeconds" in data:
+        out["target_segment_duration_seconds"] = data["targetSegmentDurationSeconds"]
+    return out

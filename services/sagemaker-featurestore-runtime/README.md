@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-sagemaker-featurestore-runtime
+pip install capo-sagemaker-featurestore-runtime
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_sagemaker_featurestore_runtime import AsyncSageMakerFeatureStoreRuntimeClient
+from capo_sagemaker_featurestore_runtime import AsyncSageMakerFeatureStoreRuntimeClient
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_sagemaker_featurestore_runtime import AsyncSageMakerFeatureStoreRuntimeClient
-from aws_sdk_sagemaker_featurestore_runtime.error import AccessForbidden
+from capo_sagemaker_featurestore_runtime import AsyncSageMakerFeatureStoreRuntimeClient
+from capo_sagemaker_featurestore_runtime.error import AccessForbidden
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_sagemaker_featurestore_runtime import AsyncSageMakerFeatureStoreRuntimeClient
+from capo_sagemaker_featurestore_runtime import AsyncSageMakerFeatureStoreRuntimeClient
 
 
 async def main():

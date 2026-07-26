@@ -1,0 +1,105 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningValidFinding``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
+
+
+class GuardrailAutomatedReasoningValidFinding(TypedDict, closed=True):
+    translation: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_translation.GuardrailAutomatedReasoningTranslation"
+    ]
+    """<p>The logical translation of the input that this finding validates.</p>"""
+    claims_true_scenario: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario.GuardrailAutomatedReasoningScenario"
+    ]
+    """<p>An example scenario demonstrating how the claims are logically true.</p>"""
+    supporting_rules: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list.GuardrailAutomatedReasoningRuleList"
+    ]
+    """<p>The automated reasoning policy rules that support why this result is considered valid.</p>"""
+    logic_warning: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning.GuardrailAutomatedReasoningLogicWarning"
+    ]
+    """<p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GuardrailAutomatedReasoningValidFinding) -> dict:
+    out: dict = {}
+    if "translation" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
+
+        out["translation"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_translation.serialize_json(
+                value["translation"]
+            )
+        )
+    if "claims_true_scenario" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario
+
+        out["claimsTrueScenario"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario.serialize_json(
+                value["claims_true_scenario"]
+            )
+        )
+    if "supporting_rules" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
+
+        out["supportingRules"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list.serialize_json(
+                value["supporting_rules"]
+            )
+        )
+    if "logic_warning" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
+
+        out["logicWarning"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning.serialize_json(
+                value["logic_warning"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GuardrailAutomatedReasoningValidFinding:
+    out: GuardrailAutomatedReasoningValidFinding = {}  # type: ignore[typeddict-item]
+    if "translation" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
+
+        out["translation"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_translation.deserialize_json(
+                data["translation"]
+            )
+        )
+    if "claimsTrueScenario" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario
+
+        out["claims_true_scenario"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario.deserialize_json(
+                data["claimsTrueScenario"]
+            )
+        )
+    if "supportingRules" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
+
+        out["supporting_rules"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list.deserialize_json(
+                data["supportingRules"]
+            )
+        )
+    if "logicWarning" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
+
+        out["logic_warning"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning.deserialize_json(
+                data["logicWarning"]
+            )
+        )
+    return out

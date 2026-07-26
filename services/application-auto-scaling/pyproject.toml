@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-application-auto-scaling"
+name = "capo-application-auto-scaling"
 version = "0.1.0"
 description = "Python SDK for Application Auto Scaling."
 readme = "README.md"

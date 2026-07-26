@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.codecatalyst#CreateDevEnvironmentResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_codecatalyst.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_codecatalyst.types.name_string
+    import capo_codecatalyst.types.uuid
+
+
+class CreateDevEnvironmentResponse(TypedDict, closed=True):
+    space_name: "capo_codecatalyst.types.name_string.NameString"
+    """<p>The name of the space.</p>"""
+    project_name: "capo_codecatalyst.types.name_string.NameString"
+    """<p>The name of the project in the space.</p>"""
+    id: "capo_codecatalyst.types.uuid.Uuid"
+    """<p>The system-generated unique ID of the Dev Environment. </p>"""
+    vpc_connection_name: NotRequired["capo_codecatalyst.types.name_string.NameString"]
+    """<p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateDevEnvironmentResponse) -> dict:
+    out: dict = {}
+    out["spaceName"] = value["space_name"]
+    out["projectName"] = value["project_name"]
+    out["id"] = value["id"]
+    if "vpc_connection_name" in value:
+        out["vpcConnectionName"] = value["vpc_connection_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreateDevEnvironmentResponse:
+    out: CreateDevEnvironmentResponse = {}  # type: ignore[typeddict-item]
+    if "spaceName" in data:
+        out["space_name"] = data["spaceName"]
+    else:
+        raise DeserializationError("CreateDevEnvironmentResponse.space_name required")
+    if "projectName" in data:
+        out["project_name"] = data["projectName"]
+    else:
+        raise DeserializationError("CreateDevEnvironmentResponse.project_name required")
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("CreateDevEnvironmentResponse.id required")
+    if "vpcConnectionName" in data:
+        out["vpc_connection_name"] = data["vpcConnectionName"]
+    return out

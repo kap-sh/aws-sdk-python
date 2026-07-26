@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#ListLayersResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lambda.types.layers_list
+    import capo_lambda.types.string
+
+
+class ListLayersResponse(TypedDict, closed=True):
+    next_marker: NotRequired["capo_lambda.types.string.String"]
+    """<p>A pagination token returned when the response doesn't contain all layers.</p>"""
+    layers: NotRequired["capo_lambda.types.layers_list.LayersList"]
+    """<p>A list of function layers.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListLayersResponse) -> dict:
+    out: dict = {}
+    if "next_marker" in value:
+        out["NextMarker"] = value["next_marker"]
+    if "layers" in value:
+        import capo_lambda.types.layers_list
+
+        out["Layers"] = capo_lambda.types.layers_list.serialize_json(value["layers"])
+    return out
+
+
+def deserialize_json(data: dict) -> ListLayersResponse:
+    out: ListLayersResponse = {}  # type: ignore[typeddict-item]
+    if "NextMarker" in data:
+        out["next_marker"] = data["NextMarker"]
+    if "Layers" in data:
+        import capo_lambda.types.layers_list
+
+        out["layers"] = capo_lambda.types.layers_list.deserialize_json(data["Layers"])
+    return out

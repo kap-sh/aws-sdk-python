@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#AvailableNumberSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_connect.types.phone_number
+    import capo_connect.types.phone_number_country_code
+    import capo_connect.types.phone_number_type
+
+
+class AvailableNumberSummary(TypedDict, closed=True):
+    phone_number: NotRequired["capo_connect.types.phone_number.PhoneNumber"]
+    """<p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>"""
+    phone_number_country_code: NotRequired[
+        "capo_connect.types.phone_number_country_code.PhoneNumberCountryCode"
+    ]
+    """<p>The ISO country code.</p>"""
+    phone_number_type: NotRequired[
+        "capo_connect.types.phone_number_type.PhoneNumberType"
+    ]
+    """<p>The type of phone number.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AvailableNumberSummary) -> dict:
+    out: dict = {}
+    if "phone_number" in value:
+        out["PhoneNumber"] = value["phone_number"]
+    if "phone_number_country_code" in value:
+        import capo_connect.types.phone_number_country_code
+
+        out["PhoneNumberCountryCode"] = (
+            capo_connect.types.phone_number_country_code.serialize_json(
+                value["phone_number_country_code"]
+            )
+        )
+    if "phone_number_type" in value:
+        import capo_connect.types.phone_number_type
+
+        out["PhoneNumberType"] = capo_connect.types.phone_number_type.serialize_json(
+            value["phone_number_type"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AvailableNumberSummary:
+    out: AvailableNumberSummary = {}  # type: ignore[typeddict-item]
+    if "PhoneNumber" in data:
+        out["phone_number"] = data["PhoneNumber"]
+    if "PhoneNumberCountryCode" in data:
+        import capo_connect.types.phone_number_country_code
+
+        out["phone_number_country_code"] = (
+            capo_connect.types.phone_number_country_code.deserialize_json(
+                data["PhoneNumberCountryCode"]
+            )
+        )
+    if "PhoneNumberType" in data:
+        import capo_connect.types.phone_number_type
+
+        out["phone_number_type"] = (
+            capo_connect.types.phone_number_type.deserialize_json(
+                data["PhoneNumberType"]
+            )
+        )
+    return out

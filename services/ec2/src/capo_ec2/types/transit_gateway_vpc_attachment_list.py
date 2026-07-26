@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayVpcAttachmentList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from capo_ec2._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_ec2.types.transit_gateway_vpc_attachment
+
+TransitGatewayVpcAttachmentList: TypeAlias = list[
+    "capo_ec2.types.transit_gateway_vpc_attachment.TransitGatewayVpcAttachment"
+]
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: TransitGatewayVpcAttachmentList, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    for n, item in enumerate(value, 1):
+        import capo_ec2.types.transit_gateway_vpc_attachment
+
+        capo_ec2.types.transit_gateway_vpc_attachment.serialize_ec2_query(
+            item, pairs, f"{prefix}.{n}"
+        )
+
+
+def deserialize_ec2_query(parent: Element, tag: str) -> TransitGatewayVpcAttachmentList:
+    import capo_ec2.types.transit_gateway_vpc_attachment
+
+    out: TransitGatewayVpcAttachmentList = []
+    for child in parent.findall(tag):
+        out.append(
+            capo_ec2.types.transit_gateway_vpc_attachment.deserialize_ec2_query(child)
+        )
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-marketplace-agreement"
+name = "capo-marketplace-agreement"
 version = "0.1.0"
 description = "Python SDK for Marketplace Agreement."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-panorama"
+name = "capo-panorama"
 version = "0.1.0"
 description = "Python SDK for Panorama."
 readme = "README.md"

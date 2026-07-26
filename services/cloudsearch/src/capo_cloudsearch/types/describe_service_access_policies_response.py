@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudsearch#DescribeServiceAccessPoliciesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_cloudsearch._protocol.xml import Element
+from capo_cloudsearch.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_cloudsearch.types.access_policies_status
+
+
+class DescribeServiceAccessPoliciesResponse(TypedDict, closed=True):
+    access_policies: (
+        "capo_cloudsearch.types.access_policies_status.AccessPoliciesStatus"
+    )
+    """<p>The access rules configured for the domain specified in the request.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DescribeServiceAccessPoliciesResponse,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    import capo_cloudsearch.types.access_policies_status
+
+    capo_cloudsearch.types.access_policies_status.serialize_query(
+        value["access_policies"], pairs, f"{prefix}.AccessPolicies"
+    )
+
+
+def deserialize_query(el: Element) -> DescribeServiceAccessPoliciesResponse:
+    out: DescribeServiceAccessPoliciesResponse = {}  # type: ignore[typeddict-item]
+    child_access_policies = el.find("AccessPolicies")
+    if child_access_policies is not None:
+        import capo_cloudsearch.types.access_policies_status
+
+        out["access_policies"] = (
+            capo_cloudsearch.types.access_policies_status.deserialize_query(
+                child_access_policies
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DescribeServiceAccessPoliciesResponse.access_policies required"
+        )
+    return out

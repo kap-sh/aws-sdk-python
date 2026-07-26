@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-mediastore"
+name = "capo-mediastore"
 version = "0.1.0"
 description = "Python SDK for Mediastore."
 readme = "README.md"

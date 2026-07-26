@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-sso-admin"
+name = "capo-sso-admin"
 version = "0.1.0"
 description = "Python SDK for SSO Admin."
 readme = "README.md"

@@ -1,0 +1,79 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeRegistrationFieldDefinitionsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_pinpoint_sms_voice_v2.types.field_path_list
+    import capo_pinpoint_sms_voice_v2.types.max_results
+    import capo_pinpoint_sms_voice_v2.types.next_token
+    import capo_pinpoint_sms_voice_v2.types.registration_type
+    import capo_pinpoint_sms_voice_v2.types.section_path
+
+
+class DescribeRegistrationFieldDefinitionsRequest(TypedDict, closed=True):
+    registration_type: (
+        "capo_pinpoint_sms_voice_v2.types.registration_type.RegistrationType"
+    )
+    """<p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>"""
+    section_path: NotRequired[
+        "capo_pinpoint_sms_voice_v2.types.section_path.SectionPath"
+    ]
+    """<p>The path to the section of the registration.</p>"""
+    field_paths: NotRequired[
+        "capo_pinpoint_sms_voice_v2.types.field_path_list.FieldPathList"
+    ]
+    """<p>An array of paths to the registration form field.</p>"""
+    next_token: NotRequired["capo_pinpoint_sms_voice_v2.types.next_token.NextToken"]
+    """<p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>"""
+    max_results: NotRequired["capo_pinpoint_sms_voice_v2.types.max_results.MaxResults"]
+    """<p>The maximum number of results to return per each request.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DescribeRegistrationFieldDefinitionsRequest) -> dict:
+    out: dict = {}
+    out["RegistrationType"] = value["registration_type"]
+    if "section_path" in value:
+        out["SectionPath"] = value["section_path"]
+    if "field_paths" in value:
+        import capo_pinpoint_sms_voice_v2.types.field_path_list
+
+        out["FieldPaths"] = (
+            capo_pinpoint_sms_voice_v2.types.field_path_list.serialize_aws_json_1_0(
+                value["field_paths"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DescribeRegistrationFieldDefinitionsRequest:
+    out: DescribeRegistrationFieldDefinitionsRequest = {}  # type: ignore[typeddict-item]
+    if "RegistrationType" in data:
+        out["registration_type"] = data["RegistrationType"]
+    else:
+        raise DeserializationError(
+            "DescribeRegistrationFieldDefinitionsRequest.registration_type required"
+        )
+    if "SectionPath" in data:
+        out["section_path"] = data["SectionPath"]
+    if "FieldPaths" in data:
+        import capo_pinpoint_sms_voice_v2.types.field_path_list
+
+        out["field_paths"] = (
+            capo_pinpoint_sms_voice_v2.types.field_path_list.deserialize_aws_json_1_0(
+                data["FieldPaths"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

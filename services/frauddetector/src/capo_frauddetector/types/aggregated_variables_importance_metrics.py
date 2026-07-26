@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.frauddetector#AggregatedVariablesImportanceMetrics``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_frauddetector.types.list_of_aggregated_log_odds_metrics
+
+
+class AggregatedVariablesImportanceMetrics(TypedDict, closed=True):
+    log_odds_metrics: NotRequired[
+        "capo_frauddetector.types.list_of_aggregated_log_odds_metrics.ListOfAggregatedLogOddsMetrics"
+    ]
+    """<p> List of variables' metrics. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AggregatedVariablesImportanceMetrics) -> dict:
+    out: dict = {}
+    if "log_odds_metrics" in value:
+        import capo_frauddetector.types.list_of_aggregated_log_odds_metrics
+
+        out["logOddsMetrics"] = (
+            capo_frauddetector.types.list_of_aggregated_log_odds_metrics.serialize_aws_json_1_1(
+                value["log_odds_metrics"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AggregatedVariablesImportanceMetrics:
+    out: AggregatedVariablesImportanceMetrics = {}  # type: ignore[typeddict-item]
+    if "logOddsMetrics" in data:
+        import capo_frauddetector.types.list_of_aggregated_log_odds_metrics
+
+        out["log_odds_metrics"] = (
+            capo_frauddetector.types.list_of_aggregated_log_odds_metrics.deserialize_aws_json_1_1(
+                data["logOddsMetrics"]
+            )
+        )
+    return out

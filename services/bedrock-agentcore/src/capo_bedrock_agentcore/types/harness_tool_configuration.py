@@ -1,0 +1,138 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessToolConfiguration``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agentcore.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore.types.harness_agent_core_browser_config
+    import capo_bedrock_agentcore.types.harness_agent_core_code_interpreter_config
+    import capo_bedrock_agentcore.types.harness_agent_core_gateway_config
+    import capo_bedrock_agentcore.types.harness_inline_function_config
+    import capo_bedrock_agentcore.types.harness_remote_mcp_config
+
+
+class _HarnessToolConfiguration_remoteMcp(TypedDict, closed=True):
+    remoteMcp: (
+        "capo_bedrock_agentcore.types.harness_remote_mcp_config.HarnessRemoteMcpConfig"
+    )
+
+
+class _HarnessToolConfiguration_agentCoreBrowser(TypedDict, closed=True):
+    agentCoreBrowser: "capo_bedrock_agentcore.types.harness_agent_core_browser_config.HarnessAgentCoreBrowserConfig"
+
+
+class _HarnessToolConfiguration_agentCoreGateway(TypedDict, closed=True):
+    agentCoreGateway: "capo_bedrock_agentcore.types.harness_agent_core_gateway_config.HarnessAgentCoreGatewayConfig"
+
+
+class _HarnessToolConfiguration_inlineFunction(TypedDict, closed=True):
+    inlineFunction: "capo_bedrock_agentcore.types.harness_inline_function_config.HarnessInlineFunctionConfig"
+
+
+class _HarnessToolConfiguration_agentCoreCodeInterpreter(TypedDict, closed=True):
+    agentCoreCodeInterpreter: "capo_bedrock_agentcore.types.harness_agent_core_code_interpreter_config.HarnessAgentCoreCodeInterpreterConfig"
+
+
+HarnessToolConfiguration: TypeAlias = (
+    _HarnessToolConfiguration_remoteMcp
+    | _HarnessToolConfiguration_agentCoreBrowser
+    | _HarnessToolConfiguration_agentCoreGateway
+    | _HarnessToolConfiguration_inlineFunction
+    | _HarnessToolConfiguration_agentCoreCodeInterpreter
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: HarnessToolConfiguration) -> dict:
+    if "remoteMcp" in value:
+        import capo_bedrock_agentcore.types.harness_remote_mcp_config
+
+        return {
+            "remoteMcp": capo_bedrock_agentcore.types.harness_remote_mcp_config.serialize_json(
+                value["remoteMcp"]
+            )
+        }
+    elif "agentCoreBrowser" in value:
+        import capo_bedrock_agentcore.types.harness_agent_core_browser_config
+
+        return {
+            "agentCoreBrowser": capo_bedrock_agentcore.types.harness_agent_core_browser_config.serialize_json(
+                value["agentCoreBrowser"]
+            )
+        }
+    elif "agentCoreGateway" in value:
+        import capo_bedrock_agentcore.types.harness_agent_core_gateway_config
+
+        return {
+            "agentCoreGateway": capo_bedrock_agentcore.types.harness_agent_core_gateway_config.serialize_json(
+                value["agentCoreGateway"]
+            )
+        }
+    elif "inlineFunction" in value:
+        import capo_bedrock_agentcore.types.harness_inline_function_config
+
+        return {
+            "inlineFunction": capo_bedrock_agentcore.types.harness_inline_function_config.serialize_json(
+                value["inlineFunction"]
+            )
+        }
+    elif "agentCoreCodeInterpreter" in value:
+        import capo_bedrock_agentcore.types.harness_agent_core_code_interpreter_config
+
+        return {
+            "agentCoreCodeInterpreter": capo_bedrock_agentcore.types.harness_agent_core_code_interpreter_config.serialize_json(
+                value["agentCoreCodeInterpreter"]
+            )
+        }
+    else:
+        raise SerializationError("HarnessToolConfiguration: no variant present")
+
+
+def deserialize_json(data: dict) -> HarnessToolConfiguration:
+    if "remoteMcp" in data:
+        import capo_bedrock_agentcore.types.harness_remote_mcp_config
+
+        return {
+            "remoteMcp": capo_bedrock_agentcore.types.harness_remote_mcp_config.deserialize_json(
+                data["remoteMcp"]
+            )
+        }
+    elif "agentCoreBrowser" in data:
+        import capo_bedrock_agentcore.types.harness_agent_core_browser_config
+
+        return {
+            "agentCoreBrowser": capo_bedrock_agentcore.types.harness_agent_core_browser_config.deserialize_json(
+                data["agentCoreBrowser"]
+            )
+        }
+    elif "agentCoreGateway" in data:
+        import capo_bedrock_agentcore.types.harness_agent_core_gateway_config
+
+        return {
+            "agentCoreGateway": capo_bedrock_agentcore.types.harness_agent_core_gateway_config.deserialize_json(
+                data["agentCoreGateway"]
+            )
+        }
+    elif "inlineFunction" in data:
+        import capo_bedrock_agentcore.types.harness_inline_function_config
+
+        return {
+            "inlineFunction": capo_bedrock_agentcore.types.harness_inline_function_config.deserialize_json(
+                data["inlineFunction"]
+            )
+        }
+    elif "agentCoreCodeInterpreter" in data:
+        import capo_bedrock_agentcore.types.harness_agent_core_code_interpreter_config
+
+        return {
+            "agentCoreCodeInterpreter": capo_bedrock_agentcore.types.harness_agent_core_code_interpreter_config.deserialize_json(
+                data["agentCoreCodeInterpreter"]
+            )
+        }
+    else:
+        raise DeserializationError(
+            "HarnessToolConfiguration: no recognized variant key"
+        )

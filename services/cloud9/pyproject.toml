@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cloud9"
+name = "capo-cloud9"
 version = "0.1.0"
 description = "Python SDK for Cloud9."
 readme = "README.md"

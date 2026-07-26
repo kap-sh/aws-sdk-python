@@ -1,0 +1,98 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyTypeValueAnnotation``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.automated_reasoning_policy_add_type_value
+    import capo_bedrock.types.automated_reasoning_policy_delete_type_value
+    import capo_bedrock.types.automated_reasoning_policy_update_type_value
+
+
+class _AutomatedReasoningPolicyTypeValueAnnotation_addTypeValue(TypedDict, closed=True):
+    addTypeValue: "capo_bedrock.types.automated_reasoning_policy_add_type_value.AutomatedReasoningPolicyAddTypeValue"
+
+
+class _AutomatedReasoningPolicyTypeValueAnnotation_updateTypeValue(
+    TypedDict, closed=True
+):
+    updateTypeValue: "capo_bedrock.types.automated_reasoning_policy_update_type_value.AutomatedReasoningPolicyUpdateTypeValue"
+
+
+class _AutomatedReasoningPolicyTypeValueAnnotation_deleteTypeValue(
+    TypedDict, closed=True
+):
+    deleteTypeValue: "capo_bedrock.types.automated_reasoning_policy_delete_type_value.AutomatedReasoningPolicyDeleteTypeValue"
+
+
+AutomatedReasoningPolicyTypeValueAnnotation: TypeAlias = (
+    _AutomatedReasoningPolicyTypeValueAnnotation_addTypeValue
+    | _AutomatedReasoningPolicyTypeValueAnnotation_updateTypeValue
+    | _AutomatedReasoningPolicyTypeValueAnnotation_deleteTypeValue
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AutomatedReasoningPolicyTypeValueAnnotation) -> dict:
+    if "addTypeValue" in value:
+        import capo_bedrock.types.automated_reasoning_policy_add_type_value
+
+        return {
+            "addTypeValue": capo_bedrock.types.automated_reasoning_policy_add_type_value.serialize_json(
+                value["addTypeValue"]
+            )
+        }
+    elif "updateTypeValue" in value:
+        import capo_bedrock.types.automated_reasoning_policy_update_type_value
+
+        return {
+            "updateTypeValue": capo_bedrock.types.automated_reasoning_policy_update_type_value.serialize_json(
+                value["updateTypeValue"]
+            )
+        }
+    elif "deleteTypeValue" in value:
+        import capo_bedrock.types.automated_reasoning_policy_delete_type_value
+
+        return {
+            "deleteTypeValue": capo_bedrock.types.automated_reasoning_policy_delete_type_value.serialize_json(
+                value["deleteTypeValue"]
+            )
+        }
+    else:
+        raise SerializationError(
+            "AutomatedReasoningPolicyTypeValueAnnotation: no variant present"
+        )
+
+
+def deserialize_json(data: dict) -> AutomatedReasoningPolicyTypeValueAnnotation:
+    if "addTypeValue" in data:
+        import capo_bedrock.types.automated_reasoning_policy_add_type_value
+
+        return {
+            "addTypeValue": capo_bedrock.types.automated_reasoning_policy_add_type_value.deserialize_json(
+                data["addTypeValue"]
+            )
+        }
+    elif "updateTypeValue" in data:
+        import capo_bedrock.types.automated_reasoning_policy_update_type_value
+
+        return {
+            "updateTypeValue": capo_bedrock.types.automated_reasoning_policy_update_type_value.deserialize_json(
+                data["updateTypeValue"]
+            )
+        }
+    elif "deleteTypeValue" in data:
+        import capo_bedrock.types.automated_reasoning_policy_delete_type_value
+
+        return {
+            "deleteTypeValue": capo_bedrock.types.automated_reasoning_policy_delete_type_value.deserialize_json(
+                data["deleteTypeValue"]
+            )
+        }
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyTypeValueAnnotation: no recognized variant key"
+        )

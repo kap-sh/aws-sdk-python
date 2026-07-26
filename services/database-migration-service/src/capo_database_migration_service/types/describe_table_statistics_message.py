@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeTableStatisticsMessage``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_database_migration_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_database_migration_service.types.filter_list
+    import capo_database_migration_service.types.integer_optional
+    import capo_database_migration_service.types.string
+
+
+class DescribeTableStatisticsMessage(TypedDict, closed=True):
+    replication_task_arn: "capo_database_migration_service.types.string.String"
+    """<p>The Amazon Resource Name (ARN) of the replication task.</p>"""
+    max_records: NotRequired[
+        "capo_database_migration_service.types.integer_optional.IntegerOptional"
+    ]
+    """<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 500.</p>"""
+    marker: NotRequired["capo_database_migration_service.types.string.String"]
+    """<p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"""
+    filters: NotRequired["capo_database_migration_service.types.filter_list.FilterList"]
+    """<p>Filters applied to table statistics.</p> <p>Valid filter names: schema-name | table-name | table-state</p> <p>A combination of filters creates an AND condition where each record matches all specified filters.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeTableStatisticsMessage) -> dict:
+    out: dict = {}
+    out["ReplicationTaskArn"] = value["replication_task_arn"]
+    if "max_records" in value:
+        out["MaxRecords"] = value["max_records"]
+    if "marker" in value:
+        out["Marker"] = value["marker"]
+    if "filters" in value:
+        import capo_database_migration_service.types.filter_list
+
+        out["Filters"] = (
+            capo_database_migration_service.types.filter_list.serialize_aws_json_1_1(
+                value["filters"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeTableStatisticsMessage:
+    out: DescribeTableStatisticsMessage = {}  # type: ignore[typeddict-item]
+    if "ReplicationTaskArn" in data:
+        out["replication_task_arn"] = data["ReplicationTaskArn"]
+    else:
+        raise DeserializationError(
+            "DescribeTableStatisticsMessage.replication_task_arn required"
+        )
+    if "MaxRecords" in data:
+        out["max_records"] = data["MaxRecords"]
+    if "Marker" in data:
+        out["marker"] = data["Marker"]
+    if "Filters" in data:
+        import capo_database_migration_service.types.filter_list
+
+        out["filters"] = (
+            capo_database_migration_service.types.filter_list.deserialize_aws_json_1_1(
+                data["Filters"]
+            )
+        )
+    return out

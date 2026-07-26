@@ -1,0 +1,237 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AmazonBedrockControlPlaneService``."""
+
+import warnings
+from typing import Any, Iterable, Optional
+
+from typing_extensions import Self, TypedDict
+from zapros import AsyncBaseHandler, AsyncClient
+
+from capo_bedrock._auth._identity import Credentials
+from capo_bedrock._auth._providers import (
+    BearerTokenProvider,
+    CredentialsProvider,
+    IdentityProvider,
+    StaticAwsCredentialsProvider,
+    StaticBearerTokenProvider,
+    default_aws_credentials_chain,
+)
+from capo_bedrock._auth._zapros_handler import AuthMiddleware
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.advanced_prompt_optimization_job_resource import (
+    AsyncAdvancedPromptOptimizationJobResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.allowlist_resource import (
+    AsyncAllowlistResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.automated_reasoning_policy_resource import (
+    AsyncAutomatedReasoningPolicyResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.bedrock_marketplace_resource import (
+    AsyncBedrockMarketplaceResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.custom_model_deployment_resource import (
+    AsyncCustomModelDeploymentResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.custom_model_resource import (
+    AsyncCustomModelResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.data_retention_resource import (
+    AsyncDataRetentionResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.enforced_guardrail_configuration_resource import (
+    AsyncEnforcedGuardrailConfigurationResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.evaluation_job_resource import (
+    AsyncEvaluationJobResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.guardrails_resource import (
+    AsyncGuardrailsResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.inference_profile_resource import (
+    AsyncInferenceProfileResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.logging_resource import (
+    AsyncLoggingResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.model_copy_resource import (
+    AsyncModelCopyResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.model_import_resource import (
+    AsyncModelImportResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.model_invocation_job_resource import (
+    AsyncModelInvocationJobResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.model_resource import (
+    AsyncModelResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.prompt_router_resource import (
+    AsyncPromptRouterResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.provisioned_model_throughput_resource import (
+    AsyncProvisionedModelThroughputResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.resource_policy_resource import (
+    AsyncResourcePolicyResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.subscription_resource import (
+    AsyncSubscriptionResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.tagging_resource import (
+    AsyncTaggingResource,
+)
+from capo_bedrock._resources.amazon_bedrock_control_plane_service.training_resource import (
+    AsyncTrainingResource,
+)
+from capo_bedrock._services._aws_config import aaws_config
+from capo_bedrock._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    aretry,
+)
+
+
+class AsyncBedrockClientConfig(TypedDict, total=False, closed=True):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int | None
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: IdentityProvider[Credentials] | None
+    bearer_provider: BearerTokenProvider | None
+
+
+class AsyncBedrockClient:
+    """A client for the ``Bedrock`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+        bearer: Bearer token for authentication.
+        bearer_provider: Provider that resolves bearer tokens. Takes precedence over ``bearer``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+        bearer: str | None = None,
+        bearer_provider: BearerTokenProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
+        if bearer is not None and bearer_provider is not None:
+            warnings.warn(
+                "Both bearer and bearer_provider given; provider takes precedence"
+            )
+        if bearer_provider is None and bearer is not None:
+            bearer_provider = StaticBearerTokenProvider(bearer)
+        self._config = AsyncBedrockClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": resolved_credentials_provider,
+                "bearer_provider": bearer_provider,
+            }
+        )
+
+        # resources
+        self.advanced_prompt_optimization_job_resource = (
+            AsyncAdvancedPromptOptimizationJobResource(self)
+        )
+        self.allowlist_resource = AsyncAllowlistResource(self)
+        self.automated_reasoning_policy_resource = (
+            AsyncAutomatedReasoningPolicyResource(self)
+        )
+        self.bedrock_marketplace_resource = AsyncBedrockMarketplaceResource(self)
+        self.custom_model_deployment_resource = AsyncCustomModelDeploymentResource(self)
+        self.custom_model_resource = AsyncCustomModelResource(self)
+        self.data_retention_resource = AsyncDataRetentionResource(self)
+        self.enforced_guardrail_configuration_resource = (
+            AsyncEnforcedGuardrailConfigurationResource(self)
+        )
+        self.evaluation_job_resource = AsyncEvaluationJobResource(self)
+        self.guardrails_resource = AsyncGuardrailsResource(self)
+        self.inference_profile_resource = AsyncInferenceProfileResource(self)
+        self.logging_resource = AsyncLoggingResource(self)
+        self.model_copy_resource = AsyncModelCopyResource(self)
+        self.model_import_resource = AsyncModelImportResource(self)
+        self.model_invocation_job_resource = AsyncModelInvocationJobResource(self)
+        self.model_resource = AsyncModelResource(self)
+        self.prompt_router_resource = AsyncPromptRouterResource(self)
+        self.provisioned_model_throughput_resource = (
+            AsyncProvisionedModelThroughputResource(self)
+        )
+        self.resource_policy_resource = AsyncResourcePolicyResource(self)
+        self.subscription_resource = AsyncSubscriptionResource(self)
+        self.tagging_resource = AsyncTaggingResource(self)
+        self.training_resource = AsyncTrainingResource(self)
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncBedrockClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncBedrockClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aaws_config(),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts", self._config.get("retry_max_attempts")
+            ),
+            region=overrides.get("region", self._config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self._config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+            bearer_provider=overrides.get(
+                "bearer_provider", self._config.get("bearer_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

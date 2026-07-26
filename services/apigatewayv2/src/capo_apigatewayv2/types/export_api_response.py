@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.apigatewayv2#ExportApiResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_apigatewayv2.types.exported_api
+
+
+class ExportApiResponse(TypedDict, closed=True):
+    body: NotRequired["capo_apigatewayv2.types.exported_api.ExportedApi"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ExportApiResponse) -> dict:
+    out: dict = {}
+    if "body" in value:
+        import capo_apigatewayv2.types.exported_api
+
+        out["body"] = capo_apigatewayv2.types.exported_api.serialize_json(value["body"])
+    return out
+
+
+def deserialize_json(data: dict) -> ExportApiResponse:
+    out: ExportApiResponse = {}  # type: ignore[typeddict-item]
+    if "body" in data:
+        import capo_apigatewayv2.types.exported_api
+
+        out["body"] = capo_apigatewayv2.types.exported_api.deserialize_json(
+            data["body"]
+        )
+    return out

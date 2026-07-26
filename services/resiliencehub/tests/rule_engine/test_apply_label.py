@@ -4,7 +4,7 @@ of the resolved endpoint URL."""
 
 from __future__ import annotations
 
-from aws_sdk_resiliencehub._rule_engine._endpoint_runtime import apply_label
+from capo_resiliencehub._rule_engine._endpoint_runtime import apply_label
 
 
 def test_strips_when_value_is_host_label() -> None:

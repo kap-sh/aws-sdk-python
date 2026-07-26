@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.groundstation#ContactReservationDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_groundstation.types.uuid
+
+
+class ContactReservationDetails(TypedDict, closed=True):
+    contact_id: NotRequired["capo_groundstation.types.uuid.Uuid"]
+    """<p>UUID of a contact.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ContactReservationDetails) -> dict:
+    out: dict = {}
+    if "contact_id" in value:
+        out["contactId"] = value["contact_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> ContactReservationDetails:
+    out: ContactReservationDetails = {}  # type: ignore[typeddict-item]
+    if "contactId" in data:
+        out["contact_id"] = data["contactId"]
+    return out

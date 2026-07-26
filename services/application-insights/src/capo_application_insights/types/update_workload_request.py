@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationinsights#UpdateWorkloadRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_application_insights.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_application_insights.types.component_name
+    import capo_application_insights.types.resource_group_name
+    import capo_application_insights.types.workload_configuration
+    import capo_application_insights.types.workload_id
+
+
+class UpdateWorkloadRequest(TypedDict, closed=True):
+    resource_group_name: (
+        "capo_application_insights.types.resource_group_name.ResourceGroupName"
+    )
+    """<p>The name of the resource group.</p>"""
+    component_name: "capo_application_insights.types.component_name.ComponentName"
+    """<p> The name of the component. </p>"""
+    workload_id: NotRequired["capo_application_insights.types.workload_id.WorkloadId"]
+    """<p>The ID of the workload.</p>"""
+    workload_configuration: (
+        "capo_application_insights.types.workload_configuration.WorkloadConfiguration"
+    )
+    """<p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateWorkloadRequest) -> dict:
+    out: dict = {}
+    out["ResourceGroupName"] = value["resource_group_name"]
+    out["ComponentName"] = value["component_name"]
+    if "workload_id" in value:
+        out["WorkloadId"] = value["workload_id"]
+    import capo_application_insights.types.workload_configuration
+
+    out["WorkloadConfiguration"] = (
+        capo_application_insights.types.workload_configuration.serialize_aws_json_1_1(
+            value["workload_configuration"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateWorkloadRequest:
+    out: UpdateWorkloadRequest = {}  # type: ignore[typeddict-item]
+    if "ResourceGroupName" in data:
+        out["resource_group_name"] = data["ResourceGroupName"]
+    else:
+        raise DeserializationError("UpdateWorkloadRequest.resource_group_name required")
+    if "ComponentName" in data:
+        out["component_name"] = data["ComponentName"]
+    else:
+        raise DeserializationError("UpdateWorkloadRequest.component_name required")
+    if "WorkloadId" in data:
+        out["workload_id"] = data["WorkloadId"]
+    if "WorkloadConfiguration" in data:
+        import capo_application_insights.types.workload_configuration
+
+        out["workload_configuration"] = (
+            capo_application_insights.types.workload_configuration.deserialize_aws_json_1_1(
+                data["WorkloadConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdateWorkloadRequest.workload_configuration required"
+        )
+    return out

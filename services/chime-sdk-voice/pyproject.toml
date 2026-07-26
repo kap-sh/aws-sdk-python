@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-chime-sdk-voice"
+name = "capo-chime-sdk-voice"
 version = "0.1.0"
 description = "Python SDK for Chime SDK Voice."
 readme = "README.md"

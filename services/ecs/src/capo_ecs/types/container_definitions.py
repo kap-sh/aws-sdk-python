@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.ecs#ContainerDefinitions``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_ecs.types.container_definition
+
+ContainerDefinitions: TypeAlias = list[
+    "capo_ecs.types.container_definition.ContainerDefinition"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ContainerDefinitions) -> list:
+    import capo_ecs.types.container_definition
+
+    out: list = []
+    for item in value:
+        out.append(capo_ecs.types.container_definition.serialize_aws_json_1_1(item))
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> ContainerDefinitions:
+    import capo_ecs.types.container_definition
+
+    out: ContainerDefinitions = []
+    for item in data:
+        out.append(capo_ecs.types.container_definition.deserialize_aws_json_1_1(item))
+    return out

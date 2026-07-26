@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-finspace-data"
+name = "capo-finspace-data"
 version = "0.1.0"
 description = "Python SDK for Finspace Data."
 readme = "README.md"

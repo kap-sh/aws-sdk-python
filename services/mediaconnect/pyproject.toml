@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-mediaconnect"
+name = "capo-mediaconnect"
 version = "0.1.0"
 description = "Python SDK for Mediaconnect."
 readme = "README.md"

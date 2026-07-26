@@ -1,0 +1,116 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateCodeInterpreterRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.certificates
+    import capo_bedrock_agentcore_control.types.client_token
+    import capo_bedrock_agentcore_control.types.code_interpreter_network_configuration
+    import capo_bedrock_agentcore_control.types.description
+    import capo_bedrock_agentcore_control.types.role_arn
+    import capo_bedrock_agentcore_control.types.sandbox_name
+    import capo_bedrock_agentcore_control.types.tags_map
+
+
+class CreateCodeInterpreterRequest(TypedDict, closed=True):
+    name: "capo_bedrock_agentcore_control.types.sandbox_name.SandboxName"
+    """<p>The name of the code interpreter. The name must be unique within your account.</p>"""
+    description: NotRequired[
+        "capo_bedrock_agentcore_control.types.description.Description"
+    ]
+    """<p>The description of the code interpreter.</p>"""
+    execution_role_arn: NotRequired[
+        "capo_bedrock_agentcore_control.types.role_arn.RoleArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the code interpreter to access Amazon Web Services services.</p>"""
+    network_configuration: "capo_bedrock_agentcore_control.types.code_interpreter_network_configuration.CodeInterpreterNetworkConfiguration"
+    """<p>The network configuration for the code interpreter. This configuration specifies the network mode for the code interpreter.</p>"""
+    certificates: NotRequired[
+        "capo_bedrock_agentcore_control.types.certificates.Certificates"
+    ]
+    """<p>A list of certificates to install in the code interpreter.</p>"""
+    client_token: NotRequired[
+        "capo_bedrock_agentcore_control.types.client_token.ClientToken"
+    ]
+    """<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>"""
+    tags: NotRequired["capo_bedrock_agentcore_control.types.tags_map.TagsMap"]
+    """<p>A map of tag keys and values to assign to the code interpreter. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateCodeInterpreterRequest) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "execution_role_arn" in value:
+        out["executionRoleArn"] = value["execution_role_arn"]
+    import capo_bedrock_agentcore_control.types.code_interpreter_network_configuration
+
+    out["networkConfiguration"] = (
+        capo_bedrock_agentcore_control.types.code_interpreter_network_configuration.serialize_json(
+            value["network_configuration"]
+        )
+    )
+    if "certificates" in value:
+        import capo_bedrock_agentcore_control.types.certificates
+
+        out["certificates"] = (
+            capo_bedrock_agentcore_control.types.certificates.serialize_json(
+                value["certificates"]
+            )
+        )
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    if "tags" in value:
+        import capo_bedrock_agentcore_control.types.tags_map
+
+        out["tags"] = capo_bedrock_agentcore_control.types.tags_map.serialize_json(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateCodeInterpreterRequest:
+    out: CreateCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("CreateCodeInterpreterRequest.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "executionRoleArn" in data:
+        out["execution_role_arn"] = data["executionRoleArn"]
+    if "networkConfiguration" in data:
+        import capo_bedrock_agentcore_control.types.code_interpreter_network_configuration
+
+        out["network_configuration"] = (
+            capo_bedrock_agentcore_control.types.code_interpreter_network_configuration.deserialize_json(
+                data["networkConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "CreateCodeInterpreterRequest.network_configuration required"
+        )
+    if "certificates" in data:
+        import capo_bedrock_agentcore_control.types.certificates
+
+        out["certificates"] = (
+            capo_bedrock_agentcore_control.types.certificates.deserialize_json(
+                data["certificates"]
+            )
+        )
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    if "tags" in data:
+        import capo_bedrock_agentcore_control.types.tags_map
+
+        out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(
+            data["tags"]
+        )
+    return out

@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.codegurusecurity#ScanSummaries``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_codeguru_security.types.scan_summary
+
+ScanSummaries: TypeAlias = list["capo_codeguru_security.types.scan_summary.ScanSummary"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ScanSummaries) -> list:
+    import capo_codeguru_security.types.scan_summary
+
+    out: list = []
+    for item in value:
+        out.append(capo_codeguru_security.types.scan_summary.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> ScanSummaries:
+    import capo_codeguru_security.types.scan_summary
+
+    out: ScanSummaries = []
+    for item in data:
+        out.append(capo_codeguru_security.types.scan_summary.deserialize_json(item))
+    return out

@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListEntitiesFilter``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_iottwinmaker.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_iottwinmaker.types.component_type_id
+    import capo_iottwinmaker.types.parent_entity_id
+    import capo_iottwinmaker.types.string
+
+
+class _ListEntitiesFilter_parentEntityId(TypedDict, closed=True):
+    parentEntityId: "capo_iottwinmaker.types.parent_entity_id.ParentEntityId"
+
+
+class _ListEntitiesFilter_componentTypeId(TypedDict, closed=True):
+    componentTypeId: "capo_iottwinmaker.types.component_type_id.ComponentTypeId"
+
+
+class _ListEntitiesFilter_externalId(TypedDict, closed=True):
+    externalId: "capo_iottwinmaker.types.string.String"
+
+
+ListEntitiesFilter: TypeAlias = (
+    _ListEntitiesFilter_parentEntityId
+    | _ListEntitiesFilter_componentTypeId
+    | _ListEntitiesFilter_externalId
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListEntitiesFilter) -> dict:
+    if "parentEntityId" in value:
+        return {"parentEntityId": value["parentEntityId"]}
+    elif "componentTypeId" in value:
+        return {"componentTypeId": value["componentTypeId"]}
+    elif "externalId" in value:
+        return {"externalId": value["externalId"]}
+    else:
+        raise SerializationError("ListEntitiesFilter: no variant present")
+
+
+def deserialize_json(data: dict) -> ListEntitiesFilter:
+    if "parentEntityId" in data:
+        return {"parentEntityId": data["parentEntityId"]}
+    elif "componentTypeId" in data:
+        return {"componentTypeId": data["componentTypeId"]}
+    elif "externalId" in data:
+        return {"externalId": data["externalId"]}
+    else:
+        raise DeserializationError("ListEntitiesFilter: no recognized variant key")

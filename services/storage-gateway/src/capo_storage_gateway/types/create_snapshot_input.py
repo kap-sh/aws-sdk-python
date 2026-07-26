@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#CreateSnapshotInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_storage_gateway.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_storage_gateway.types.snapshot_description
+    import capo_storage_gateway.types.tags
+    import capo_storage_gateway.types.volume_arn
+
+
+class CreateSnapshotInput(TypedDict, closed=True):
+    volume_arn: "capo_storage_gateway.types.volume_arn.VolumeARN"
+    """<p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes.</p>"""
+    snapshot_description: (
+        "capo_storage_gateway.types.snapshot_description.SnapshotDescription"
+    )
+    """<p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the <b>Description</b> field, and in the Storage Gateway snapshot <b>Details</b> pane, <b>Description</b> field.</p>"""
+    tags: NotRequired["capo_storage_gateway.types.tags.Tags"]
+    """<p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateSnapshotInput) -> dict:
+    out: dict = {}
+    out["VolumeARN"] = value["volume_arn"]
+    out["SnapshotDescription"] = value["snapshot_description"]
+    if "tags" in value:
+        import capo_storage_gateway.types.tags
+
+        out["Tags"] = capo_storage_gateway.types.tags.serialize_aws_json_1_1(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateSnapshotInput:
+    out: CreateSnapshotInput = {}  # type: ignore[typeddict-item]
+    if "VolumeARN" in data:
+        out["volume_arn"] = data["VolumeARN"]
+    else:
+        raise DeserializationError("CreateSnapshotInput.volume_arn required")
+    if "SnapshotDescription" in data:
+        out["snapshot_description"] = data["SnapshotDescription"]
+    else:
+        raise DeserializationError("CreateSnapshotInput.snapshot_description required")
+    if "Tags" in data:
+        import capo_storage_gateway.types.tags
+
+        out["tags"] = capo_storage_gateway.types.tags.deserialize_aws_json_1_1(
+            data["Tags"]
+        )
+    return out

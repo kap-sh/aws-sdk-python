@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-migrationhubstrategy"
+name = "capo-migrationhubstrategy"
 version = "0.1.0"
 description = "Python SDK for Migrationhubstrategy."
 readme = "README.md"

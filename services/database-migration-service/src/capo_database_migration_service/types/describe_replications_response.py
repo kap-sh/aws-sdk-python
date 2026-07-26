@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeReplicationsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_database_migration_service.types.replication_list
+    import capo_database_migration_service.types.string
+
+
+class DescribeReplicationsResponse(TypedDict, closed=True):
+    marker: NotRequired["capo_database_migration_service.types.string.String"]
+    """<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"""
+    replications: NotRequired[
+        "capo_database_migration_service.types.replication_list.ReplicationList"
+    ]
+    """<p>The replication descriptions.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeReplicationsResponse) -> dict:
+    out: dict = {}
+    if "marker" in value:
+        out["Marker"] = value["marker"]
+    if "replications" in value:
+        import capo_database_migration_service.types.replication_list
+
+        out["Replications"] = (
+            capo_database_migration_service.types.replication_list.serialize_aws_json_1_1(
+                value["replications"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeReplicationsResponse:
+    out: DescribeReplicationsResponse = {}  # type: ignore[typeddict-item]
+    if "Marker" in data:
+        out["marker"] = data["Marker"]
+    if "Replications" in data:
+        import capo_database_migration_service.types.replication_list
+
+        out["replications"] = (
+            capo_database_migration_service.types.replication_list.deserialize_aws_json_1_1(
+                data["Replications"]
+            )
+        )
+    return out

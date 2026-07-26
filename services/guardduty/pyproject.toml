@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-guardduty"
+name = "capo-guardduty"
 version = "0.1.0"
 description = "Python SDK for Guardduty."
 readme = "README.md"

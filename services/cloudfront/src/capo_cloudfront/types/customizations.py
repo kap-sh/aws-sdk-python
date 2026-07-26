@@ -1,0 +1,76 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#Customizations``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.certificate
+    import capo_cloudfront.types.geo_restriction_customization
+    import capo_cloudfront.types.web_acl_customization
+
+
+class Customizations(TypedDict, closed=True):
+    web_acl: NotRequired[
+        "capo_cloudfront.types.web_acl_customization.WebAclCustomization"
+    ]
+    """<p>The WAF web ACL.</p>"""
+    certificate: NotRequired["capo_cloudfront.types.certificate.Certificate"]
+    """<p>The Certificate Manager (ACM) certificate.</p>"""
+    geo_restrictions: NotRequired[
+        "capo_cloudfront.types.geo_restriction_customization.GeoRestrictionCustomization"
+    ]
+    """<p>The geographic restrictions.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: Customizations, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    if "web_acl" in value:
+        import capo_cloudfront.types.web_acl_customization
+
+        capo_cloudfront.types.web_acl_customization.serialize_xml(
+            value["web_acl"], el, "WebAcl"
+        )
+    if "certificate" in value:
+        import capo_cloudfront.types.certificate
+
+        capo_cloudfront.types.certificate.serialize_xml(
+            value["certificate"], el, "Certificate"
+        )
+    if "geo_restrictions" in value:
+        import capo_cloudfront.types.geo_restriction_customization
+
+        capo_cloudfront.types.geo_restriction_customization.serialize_xml(
+            value["geo_restrictions"], el, "GeoRestrictions"
+        )
+
+
+def deserialize_xml(el: Element) -> Customizations:
+    out: Customizations = {}  # type: ignore[typeddict-item]
+    child_web_acl = el.find("WebAcl")
+    if child_web_acl is not None:
+        import capo_cloudfront.types.web_acl_customization
+
+        out["web_acl"] = capo_cloudfront.types.web_acl_customization.deserialize_xml(
+            child_web_acl
+        )
+    child_certificate = el.find("Certificate")
+    if child_certificate is not None:
+        import capo_cloudfront.types.certificate
+
+        out["certificate"] = capo_cloudfront.types.certificate.deserialize_xml(
+            child_certificate
+        )
+    child_geo_restrictions = el.find("GeoRestrictions")
+    if child_geo_restrictions is not None:
+        import capo_cloudfront.types.geo_restriction_customization
+
+        out["geo_restrictions"] = (
+            capo_cloudfront.types.geo_restriction_customization.deserialize_xml(
+                child_geo_restrictions
+            )
+        )
+    return out

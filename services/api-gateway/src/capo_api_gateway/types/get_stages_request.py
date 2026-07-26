@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.apigateway#GetStagesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_api_gateway.types.string
+
+
+class GetStagesRequest(TypedDict, closed=True):
+    rest_api_id: "capo_api_gateway.types.string.String"
+    """<p>The string identifier of the associated RestApi.</p>"""
+    deployment_id: NotRequired["capo_api_gateway.types.string.String"]
+    """<p>The stages' deployment identifiers.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetStagesRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetStagesRequest:
+    out: GetStagesRequest = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,76 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#FailedAssociationResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_inspector2.types.association_result_status_code
+    import capo_inspector2.types.association_result_status_message
+    import capo_inspector2.types.code_security_resource
+    import capo_inspector2.types.scan_configuration_arn
+
+
+class FailedAssociationResult(TypedDict, closed=True):
+    scan_configuration_arn: NotRequired[
+        "capo_inspector2.types.scan_configuration_arn.ScanConfigurationArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the scan configuration that failed to be associated or disassociated.</p>"""
+    resource: NotRequired[
+        "capo_inspector2.types.code_security_resource.CodeSecurityResource"
+    ]
+    status_code: NotRequired[
+        "capo_inspector2.types.association_result_status_code.AssociationResultStatusCode"
+    ]
+    """<p>The status code indicating why the association or disassociation failed.</p>"""
+    status_message: NotRequired[
+        "capo_inspector2.types.association_result_status_message.AssociationResultStatusMessage"
+    ]
+    """<p>A message explaining why the association or disassociation failed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FailedAssociationResult) -> dict:
+    out: dict = {}
+    if "scan_configuration_arn" in value:
+        out["scanConfigurationArn"] = value["scan_configuration_arn"]
+    if "resource" in value:
+        import capo_inspector2.types.code_security_resource
+
+        out["resource"] = capo_inspector2.types.code_security_resource.serialize_json(
+            value["resource"]
+        )
+    if "status_code" in value:
+        import capo_inspector2.types.association_result_status_code
+
+        out["statusCode"] = (
+            capo_inspector2.types.association_result_status_code.serialize_json(
+                value["status_code"]
+            )
+        )
+    if "status_message" in value:
+        out["statusMessage"] = value["status_message"]
+    return out
+
+
+def deserialize_json(data: dict) -> FailedAssociationResult:
+    out: FailedAssociationResult = {}  # type: ignore[typeddict-item]
+    if "scanConfigurationArn" in data:
+        out["scan_configuration_arn"] = data["scanConfigurationArn"]
+    if "resource" in data:
+        import capo_inspector2.types.code_security_resource
+
+        out["resource"] = capo_inspector2.types.code_security_resource.deserialize_json(
+            data["resource"]
+        )
+    if "statusCode" in data:
+        import capo_inspector2.types.association_result_status_code
+
+        out["status_code"] = (
+            capo_inspector2.types.association_result_status_code.deserialize_json(
+                data["statusCode"]
+            )
+        )
+    if "statusMessage" in data:
+        out["status_message"] = data["statusMessage"]
+    return out

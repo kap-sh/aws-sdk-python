@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-health
+pip install capo-health
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_health import AsyncHealthClient
+from capo_health import AsyncHealthClient
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_health import AsyncHealthClient
+from capo_health import AsyncHealthClient
 
 
 async def main():
@@ -39,8 +39,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_health import AsyncHealthClient
-from aws_sdk_health.error import InvalidPaginationToken
+from capo_health import AsyncHealthClient
+from capo_health.error import InvalidPaginationToken
 
 
 async def main():
@@ -59,7 +59,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_health import AsyncHealthClient
+from capo_health import AsyncHealthClient
 
 
 async def main():

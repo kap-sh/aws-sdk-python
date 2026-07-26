@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-payment-cryptography"
+name = "capo-payment-cryptography"
 version = "0.1.0"
 description = "Python SDK for Payment Cryptography."
 readme = "README.md"

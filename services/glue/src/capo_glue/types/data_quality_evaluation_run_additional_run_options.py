@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#DataQualityEvaluationRunAdditionalRunOptions``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_glue.types.dq_composite_rule_evaluation_method
+    import capo_glue.types.generic_string
+    import capo_glue.types.nullable_boolean
+    import capo_glue.types.uri_string
+
+
+class DataQualityEvaluationRunAdditionalRunOptions(TypedDict, closed=True):
+    cloud_watch_metrics_enabled: NotRequired[
+        "capo_glue.types.nullable_boolean.NullableBoolean"
+    ]
+    """<p>Whether or not to enable CloudWatch metrics.</p>"""
+    results_s3_prefix: NotRequired["capo_glue.types.uri_string.UriString"]
+    """<p>Prefix for Amazon S3 to store results.</p>"""
+    composite_rule_evaluation_method: NotRequired[
+        "capo_glue.types.dq_composite_rule_evaluation_method.DQCompositeRuleEvaluationMethod"
+    ]
+    """<p>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</p>"""
+    custom_log_group_prefix: NotRequired["capo_glue.types.generic_string.GenericString"]
+    """<p>A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to <code><CustomLogGroupPrefix>/error</code> and <code><CustomLogGroupPrefix>/output</code> instead of the default <code>/aws-glue/data-quality/error</code> and <code>/aws-glue/data-quality/output</code> log groups.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DataQualityEvaluationRunAdditionalRunOptions) -> dict:
+    out: dict = {}
+    if "cloud_watch_metrics_enabled" in value:
+        out["CloudWatchMetricsEnabled"] = value["cloud_watch_metrics_enabled"]
+    if "results_s3_prefix" in value:
+        out["ResultsS3Prefix"] = value["results_s3_prefix"]
+    if "composite_rule_evaluation_method" in value:
+        import capo_glue.types.dq_composite_rule_evaluation_method
+
+        out["CompositeRuleEvaluationMethod"] = (
+            capo_glue.types.dq_composite_rule_evaluation_method.serialize_aws_json_1_1(
+                value["composite_rule_evaluation_method"]
+            )
+        )
+    if "custom_log_group_prefix" in value:
+        out["CustomLogGroupPrefix"] = value["custom_log_group_prefix"]
+    return out
+
+
+def deserialize_aws_json_1_1(
+    data: dict,
+) -> DataQualityEvaluationRunAdditionalRunOptions:
+    out: DataQualityEvaluationRunAdditionalRunOptions = {}  # type: ignore[typeddict-item]
+    if "CloudWatchMetricsEnabled" in data:
+        out["cloud_watch_metrics_enabled"] = data["CloudWatchMetricsEnabled"]
+    if "ResultsS3Prefix" in data:
+        out["results_s3_prefix"] = data["ResultsS3Prefix"]
+    if "CompositeRuleEvaluationMethod" in data:
+        import capo_glue.types.dq_composite_rule_evaluation_method
+
+        out["composite_rule_evaluation_method"] = (
+            capo_glue.types.dq_composite_rule_evaluation_method.deserialize_aws_json_1_1(
+                data["CompositeRuleEvaluationMethod"]
+            )
+        )
+    if "CustomLogGroupPrefix" in data:
+        out["custom_log_group_prefix"] = data["CustomLogGroupPrefix"]
+    return out

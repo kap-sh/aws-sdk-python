@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-ssm-quicksetup"
+name = "capo-ssm-quicksetup"
 version = "0.1.0"
 description = "Python SDK for SSM Quicksetup."
 readme = "README.md"

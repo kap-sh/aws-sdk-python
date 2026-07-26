@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehendmedical#DescribeSNOMEDCTInferenceJobResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_comprehendmedical.types.comprehend_medical_async_job_properties
+
+
+class DescribeSNOMEDCTInferenceJobResponse(TypedDict, closed=True):
+    comprehend_medical_async_job_properties: NotRequired[
+        "capo_comprehendmedical.types.comprehend_medical_async_job_properties.ComprehendMedicalAsyncJobProperties"
+    ]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeSNOMEDCTInferenceJobResponse) -> dict:
+    out: dict = {}
+    if "comprehend_medical_async_job_properties" in value:
+        import capo_comprehendmedical.types.comprehend_medical_async_job_properties
+
+        out["ComprehendMedicalAsyncJobProperties"] = (
+            capo_comprehendmedical.types.comprehend_medical_async_job_properties.serialize_aws_json_1_1(
+                value["comprehend_medical_async_job_properties"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeSNOMEDCTInferenceJobResponse:
+    out: DescribeSNOMEDCTInferenceJobResponse = {}  # type: ignore[typeddict-item]
+    if "ComprehendMedicalAsyncJobProperties" in data:
+        import capo_comprehendmedical.types.comprehend_medical_async_job_properties
+
+        out["comprehend_medical_async_job_properties"] = (
+            capo_comprehendmedical.types.comprehend_medical_async_job_properties.deserialize_aws_json_1_1(
+                data["ComprehendMedicalAsyncJobProperties"]
+            )
+        )
+    return out

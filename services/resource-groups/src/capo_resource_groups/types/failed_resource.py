@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.resourcegroups#FailedResource``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_resource_groups.types.error_code
+    import capo_resource_groups.types.error_message
+    import capo_resource_groups.types.resource_arn
+
+
+class FailedResource(TypedDict, closed=True):
+    resource_arn: NotRequired["capo_resource_groups.types.resource_arn.ResourceArn"]
+    """<p>The Amazon resource name (ARN) of the resource that failed to be added or removed.</p>"""
+    error_message: NotRequired["capo_resource_groups.types.error_message.ErrorMessage"]
+    """<p>The error message text associated with the failure.</p>"""
+    error_code: NotRequired["capo_resource_groups.types.error_code.ErrorCode"]
+    """<p>The error code associated with the failure.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: FailedResource) -> dict:
+    out: dict = {}
+    if "resource_arn" in value:
+        out["ResourceArn"] = value["resource_arn"]
+    if "error_message" in value:
+        out["ErrorMessage"] = value["error_message"]
+    if "error_code" in value:
+        out["ErrorCode"] = value["error_code"]
+    return out
+
+
+def deserialize_json(data: dict) -> FailedResource:
+    out: FailedResource = {}  # type: ignore[typeddict-item]
+    if "ResourceArn" in data:
+        out["resource_arn"] = data["ResourceArn"]
+    if "ErrorMessage" in data:
+        out["error_message"] = data["ErrorMessage"]
+    if "ErrorCode" in data:
+        out["error_code"] = data["ErrorCode"]
+    return out

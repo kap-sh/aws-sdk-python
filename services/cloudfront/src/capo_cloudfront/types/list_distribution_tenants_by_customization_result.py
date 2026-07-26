@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#ListDistributionTenantsByCustomizationResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.distribution_tenant_list
+    import capo_cloudfront.types.string
+
+
+class ListDistributionTenantsByCustomizationResult(TypedDict, closed=True):
+    next_marker: NotRequired["capo_cloudfront.types.string.string"]
+    """<p>A token used for pagination of results returned in the response. You can use the token from the previous request to define where the current request should begin.</p>"""
+    distribution_tenant_list: NotRequired[
+        "capo_cloudfront.types.distribution_tenant_list.DistributionTenantList"
+    ]
+    """<p>A list of distribution tenants with the specified customization.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: ListDistributionTenantsByCustomizationResult, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    if "next_marker" in value:
+        SubElement(el, "NextMarker").text = str(value["next_marker"])
+    if "distribution_tenant_list" in value:
+        import capo_cloudfront.types.distribution_tenant_list
+
+        capo_cloudfront.types.distribution_tenant_list.serialize_xml(
+            value["distribution_tenant_list"], el, "DistributionTenantList"
+        )
+
+
+def deserialize_xml(el: Element) -> ListDistributionTenantsByCustomizationResult:
+    out: ListDistributionTenantsByCustomizationResult = {}  # type: ignore[typeddict-item]
+    child_next_marker = el.find("NextMarker")
+    if child_next_marker is not None:
+        out["next_marker"] = str(child_next_marker.text or "")
+    child_distribution_tenant_list = el.find("DistributionTenantList")
+    if child_distribution_tenant_list is not None:
+        import capo_cloudfront.types.distribution_tenant_list
+
+        out["distribution_tenant_list"] = (
+            capo_cloudfront.types.distribution_tenant_list.deserialize_xml(
+                child_distribution_tenant_list
+            )
+        )
+    return out

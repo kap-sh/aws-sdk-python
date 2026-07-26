@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.resourceexplorer2#Index``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_resource_explorer_2.types.index_type
+
+
+class Index(TypedDict, closed=True):
+    region: NotRequired["str"]
+    """<p>The Amazon Web Services Region in which the index exists.</p>"""
+    arn: NotRequired["str"]
+    r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index.</p>"""
+    type: NotRequired["capo_resource_explorer_2.types.index_type.IndexType"]
+    """<p>The type of index. It can be one of the following values:</p> <ul> <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> </ul>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Index) -> dict:
+    out: dict = {}
+    if "region" in value:
+        out["Region"] = value["region"]
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "type" in value:
+        out["Type"] = value["type"]
+    return out
+
+
+def deserialize_json(data: dict) -> Index:
+    out: Index = {}  # type: ignore[typeddict-item]
+    if "Region" in data:
+        out["region"] = data["Region"]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "Type" in data:
+        out["type"] = data["Type"]
+    return out

@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#GetDataSourceRunInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_datazone.types.data_source_run_id
+    import capo_datazone.types.domain_id
+
+
+class GetDataSourceRunInput(TypedDict, closed=True):
+    domain_identifier: "capo_datazone.types.domain_id.DomainId"
+    """<p>The ID of the domain in which this data source run was performed.</p>"""
+    identifier: "capo_datazone.types.data_source_run_id.DataSourceRunId"
+    """<p>The ID of the data source run.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetDataSourceRunInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetDataSourceRunInput:
+    out: GetDataSourceRunInput = {}  # type: ignore[typeddict-item]
+    return out

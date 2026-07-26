@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.macie2#BucketPolicy``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_macie2.types.__boolean
+
+
+class BucketPolicy(TypedDict, closed=True):
+    allows_public_read_access: NotRequired["capo_macie2.types.__boolean.__boolean"]
+    """<p>Specifies whether the bucket policy allows the general public to have read access to the bucket.</p>"""
+    allows_public_write_access: NotRequired["capo_macie2.types.__boolean.__boolean"]
+    """<p>Specifies whether the bucket policy allows the general public to have write access to the bucket.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BucketPolicy) -> dict:
+    out: dict = {}
+    if "allows_public_read_access" in value:
+        out["allowsPublicReadAccess"] = value["allows_public_read_access"]
+    if "allows_public_write_access" in value:
+        out["allowsPublicWriteAccess"] = value["allows_public_write_access"]
+    return out
+
+
+def deserialize_json(data: dict) -> BucketPolicy:
+    out: BucketPolicy = {}  # type: ignore[typeddict-item]
+    if "allowsPublicReadAccess" in data:
+        out["allows_public_read_access"] = data["allowsPublicReadAccess"]
+    if "allowsPublicWriteAccess" in data:
+        out["allows_public_write_access"] = data["allowsPublicWriteAccess"]
+    return out

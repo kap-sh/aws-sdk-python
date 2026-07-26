@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#ActionsSuppressedBy``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_cloudwatch._protocol.xml import Element
+
+ActionsSuppressedBy: TypeAlias = Literal[
+    "WaitPeriod",
+    "ExtensionPeriod",
+    "Alarm",
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ActionsSuppressedBy) -> str:
+    return value
+
+
+def deserialize_aws_json_1_0(data: str) -> ActionsSuppressedBy:
+    return cast(ActionsSuppressedBy, data)
+
+
+# --- awsQuery ser/de ---
+def to_query_text(value: ActionsSuppressedBy) -> str:
+    return value
+
+
+def from_query_text(text: str) -> ActionsSuppressedBy:
+    return cast(ActionsSuppressedBy, text)
+
+
+def serialize_query(
+    value: ActionsSuppressedBy, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> ActionsSuppressedBy:
+    return from_query_text(el.text or "")

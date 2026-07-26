@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#PreconditionFailed``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+from capo_cloudfront.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.string
+
+
+class PreconditionFailed_(TypedDict, closed=True):
+    message: NotRequired["capo_cloudfront.types.string.string"]
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: PreconditionFailed_, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    if "message" in value:
+        SubElement(el, "Message").text = str(value["message"])
+
+
+def deserialize_xml(el: Element) -> PreconditionFailed_:
+    out: PreconditionFailed_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("Message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class PreconditionFailed(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.cloudfront#PreconditionFailed``."""
+
+    code: str | None = "PreconditionFailed"
+
+    def __init__(self, data: PreconditionFailed_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="PreconditionFailed",
+        )
+        self.data = data
+
+    @classmethod
+    def from_xml(cls, el: Element) -> "PreconditionFailed":
+        return cls(deserialize_xml(el))

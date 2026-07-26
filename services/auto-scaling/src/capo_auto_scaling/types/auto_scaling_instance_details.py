@@ -1,0 +1,164 @@
+"""Generated from Smithy shape ``com.amazonaws.autoscaling#AutoScalingInstanceDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_auto_scaling._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_auto_scaling.types.instance_protected
+    import capo_auto_scaling.types.launch_template_specification
+    import capo_auto_scaling.types.xml_string_max_len19
+    import capo_auto_scaling.types.xml_string_max_len32
+    import capo_auto_scaling.types.xml_string_max_len255
+
+
+class AutoScalingInstanceDetails(TypedDict, closed=True):
+    instance_id: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
+    ]
+    """<p>The ID of the instance.</p>"""
+    instance_type: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p>The instance type of the EC2 instance.</p>"""
+    auto_scaling_group_name: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p>The name of the Auto Scaling group for the instance.</p>"""
+    availability_zone: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p>The Availability Zone for the instance.</p>"""
+    availability_zone_id: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p> The Availability Zone ID where the instance is located. </p>"""
+    lifecycle_state: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len32.XmlStringMaxLen32"
+    ]
+    r"""<p>The lifecycle state for the instance. The <code>Quarantined</code> state is not used. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html\">Amazon EC2 Auto Scaling instance lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <p>Valid values: <code>Pending</code> | <code>Pending:Wait</code> | <code>Pending:Proceed</code> | <code>Quarantined</code> | <code>InService</code> | <code>Terminating</code> | <code>Terminating:Wait</code> | <code>Terminating:Proceed</code> | <code>Terminating:Retained</code> | <code>Terminated</code> | <code>Detaching</code> | <code>Detached</code> | <code>EnteringStandby</code> | <code>Standby</code> | <code>ReplacingRootVolume</code> | <code>ReplacingRootVolume:Wait</code> | <code>ReplacingRootVolume:Proceed</code> | <code>RootVolumeReplaced</code> | <code>Warmed:Pending</code> | <code>Warmed:Pending:Wait</code> | <code>Warmed:Pending:Proceed</code> | <code>Warmed:Pending:Retained</code> | <code>Warmed:Terminating</code> | <code>Warmed:Terminating:Wait</code> | <code>Warmed:Terminating:Proceed</code> | <code>Warmed:Terminating:Retained</code> | <code>Warmed:Terminated</code> | <code>Warmed:Stopped</code> | <code>Warmed:Running</code> | <code>Warmed:Hibernated</code> </p>"""
+    health_status: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len32.XmlStringMaxLen32"
+    ]
+    """<p>The last reported health status of this instance. <code>Healthy</code> means that the instance is healthy and should remain in service. <code>Unhealthy</code> means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.</p>"""
+    launch_configuration_name: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p>The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.</p>"""
+    launch_template: NotRequired[
+        "capo_auto_scaling.types.launch_template_specification.LaunchTemplateSpecification"
+    ]
+    """<p>The launch template for the instance.</p>"""
+    image_id: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+    ]
+    """<p> The ID of the Amazon Machine Image (AMI) associated with the instance. This field shows the current AMI ID of the instance's root volume. It may differ from the original AMI used when the instance was first launched. </p> <p> This field appears for: </p> <ul> <li> <p>Instances with root volume replacements through Instance Refresh</p> </li> <li> <p>Instances launched with AMI overrides </p> </li> </ul> <p>This field won't appear for:</p> <ul> <li> <p>Existing instances launched from Launch Templates without overrides</p> </li> <li> <p>Existing instances that didn’t have their root volume replaced through Instance Refresh</p> </li> </ul>"""
+    protected_from_scale_in: NotRequired[
+        "capo_auto_scaling.types.instance_protected.InstanceProtected"
+    ]
+    """<p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.</p>"""
+    weighted_capacity: NotRequired[
+        "capo_auto_scaling.types.xml_string_max_len32.XmlStringMaxLen32"
+    ]
+    """<p>The number of capacity units contributed by the instance based on its instance type.</p> <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: AutoScalingInstanceDetails, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "instance_id" in value:
+        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+    if "instance_type" in value:
+        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+    if "auto_scaling_group_name" in value:
+        pairs.append(
+            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+        )
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "lifecycle_state" in value:
+        pairs.append((f"{prefix}.LifecycleState", str(value["lifecycle_state"])))
+    if "health_status" in value:
+        pairs.append((f"{prefix}.HealthStatus", str(value["health_status"])))
+    if "launch_configuration_name" in value:
+        pairs.append(
+            (
+                f"{prefix}.LaunchConfigurationName",
+                str(value["launch_configuration_name"]),
+            )
+        )
+    if "launch_template" in value:
+        import capo_auto_scaling.types.launch_template_specification
+
+        capo_auto_scaling.types.launch_template_specification.serialize_query(
+            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+        )
+    if "image_id" in value:
+        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+    if "protected_from_scale_in" in value:
+        pairs.append(
+            (
+                f"{prefix}.ProtectedFromScaleIn",
+                "true" if value["protected_from_scale_in"] else "false",
+            )
+        )
+    if "weighted_capacity" in value:
+        pairs.append((f"{prefix}.WeightedCapacity", str(value["weighted_capacity"])))
+
+
+def deserialize_query(el: Element) -> AutoScalingInstanceDetails:
+    out: AutoScalingInstanceDetails = {}  # type: ignore[typeddict-item]
+    child_instance_id = el.find("InstanceId")
+    if child_instance_id is not None:
+        out["instance_id"] = str(child_instance_id.text or "")
+    child_instance_type = el.find("InstanceType")
+    if child_instance_type is not None:
+        out["instance_type"] = str(child_instance_type.text or "")
+    child_auto_scaling_group_name = el.find("AutoScalingGroupName")
+    if child_auto_scaling_group_name is not None:
+        out["auto_scaling_group_name"] = str(child_auto_scaling_group_name.text or "")
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_lifecycle_state = el.find("LifecycleState")
+    if child_lifecycle_state is not None:
+        out["lifecycle_state"] = str(child_lifecycle_state.text or "")
+    child_health_status = el.find("HealthStatus")
+    if child_health_status is not None:
+        out["health_status"] = str(child_health_status.text or "")
+    child_launch_configuration_name = el.find("LaunchConfigurationName")
+    if child_launch_configuration_name is not None:
+        out["launch_configuration_name"] = str(
+            child_launch_configuration_name.text or ""
+        )
+    child_launch_template = el.find("LaunchTemplate")
+    if child_launch_template is not None:
+        import capo_auto_scaling.types.launch_template_specification
+
+        out["launch_template"] = (
+            capo_auto_scaling.types.launch_template_specification.deserialize_query(
+                child_launch_template
+            )
+        )
+    child_image_id = el.find("ImageId")
+    if child_image_id is not None:
+        out["image_id"] = str(child_image_id.text or "")
+    child_protected_from_scale_in = el.find("ProtectedFromScaleIn")
+    if child_protected_from_scale_in is not None:
+        out["protected_from_scale_in"] = (
+            child_protected_from_scale_in.text or ""
+        ).lower() == "true"
+    child_weighted_capacity = el.find("WeightedCapacity")
+    if child_weighted_capacity is not None:
+        out["weighted_capacity"] = str(child_weighted_capacity.text or "")
+    return out

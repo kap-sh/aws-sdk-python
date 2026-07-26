@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-waf"
+name = "capo-waf"
 version = "0.1.0"
 description = "Python SDK for WAF."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-health"
+name = "capo-health"
 version = "0.1.0"
 description = "Python SDK for Health."
 readme = "README.md"

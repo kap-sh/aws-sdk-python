@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-mediapackage-vod"
+name = "capo-mediapackage-vod"
 version = "0.1.0"
 description = "Python SDK for Mediapackage Vod."
 readme = "README.md"

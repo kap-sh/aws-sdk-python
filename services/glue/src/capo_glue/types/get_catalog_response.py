@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#GetCatalogResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_glue.types.catalog
+
+
+class GetCatalogResponse(TypedDict, closed=True):
+    catalog: NotRequired["capo_glue.types.catalog.Catalog"]
+    """<p>A <code>Catalog</code> object. The definition of the specified catalog in the Glue Data Catalog.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetCatalogResponse) -> dict:
+    out: dict = {}
+    if "catalog" in value:
+        import capo_glue.types.catalog
+
+        out["Catalog"] = capo_glue.types.catalog.serialize_aws_json_1_1(
+            value["catalog"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetCatalogResponse:
+    out: GetCatalogResponse = {}  # type: ignore[typeddict-item]
+    if "Catalog" in data:
+        import capo_glue.types.catalog
+
+        out["catalog"] = capo_glue.types.catalog.deserialize_aws_json_1_1(
+            data["Catalog"]
+        )
+    return out

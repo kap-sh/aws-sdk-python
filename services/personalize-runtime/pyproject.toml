@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-personalize-runtime"
+name = "capo-personalize-runtime"
 version = "0.1.0"
 description = "Python SDK for Personalize Runtime."
 readme = "README.md"

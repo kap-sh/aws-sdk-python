@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-codestar-connections"
+name = "capo-codestar-connections"
 version = "0.1.0"
 description = "Python SDK for Codestar Connections."
 readme = "README.md"

@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.artifact#GetReportRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_artifact.types.report_id
+    import capo_artifact.types.short_string_attribute
+    import capo_artifact.types.version_attribute
+
+
+class GetReportRequest(TypedDict, closed=True):
+    report_id: "capo_artifact.types.report_id.ReportId"
+    """<p>Unique resource ID for the report resource.</p>"""
+    report_version: NotRequired[
+        "capo_artifact.types.version_attribute.VersionAttribute"
+    ]
+    """<p>Version for the report resource.</p>"""
+    term_token: "capo_artifact.types.short_string_attribute.ShortStringAttribute"
+    """<p>Unique download token provided by GetTermForReport API.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetReportRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetReportRequest:
+    out: GetReportRequest = {}  # type: ignore[typeddict-item]
+    return out

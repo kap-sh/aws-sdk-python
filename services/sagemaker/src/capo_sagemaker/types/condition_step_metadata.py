@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#ConditionStepMetadata``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.condition_outcome
+
+
+class ConditionStepMetadata(TypedDict, closed=True):
+    outcome: NotRequired["capo_sagemaker.types.condition_outcome.ConditionOutcome"]
+    """<p>The outcome of the Condition step evaluation.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ConditionStepMetadata) -> dict:
+    out: dict = {}
+    if "outcome" in value:
+        import capo_sagemaker.types.condition_outcome
+
+        out["Outcome"] = capo_sagemaker.types.condition_outcome.serialize_aws_json_1_1(
+            value["outcome"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ConditionStepMetadata:
+    out: ConditionStepMetadata = {}  # type: ignore[typeddict-item]
+    if "Outcome" in data:
+        import capo_sagemaker.types.condition_outcome
+
+        out["outcome"] = (
+            capo_sagemaker.types.condition_outcome.deserialize_aws_json_1_1(
+                data["Outcome"]
+            )
+        )
+    return out

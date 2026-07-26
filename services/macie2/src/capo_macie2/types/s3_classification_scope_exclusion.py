@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.macie2#S3ClassificationScopeExclusion``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_macie2.types.__list_of_s3_bucket_name
+
+
+class S3ClassificationScopeExclusion(TypedDict, closed=True):
+    bucket_names: NotRequired[
+        "capo_macie2.types.__list_of_s3_bucket_name.__listOfS3BucketName"
+    ]
+    """<p>An array of strings, one for each S3 bucket that is excluded. Each string is the full name of an excluded bucket.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: S3ClassificationScopeExclusion) -> dict:
+    out: dict = {}
+    if "bucket_names" in value:
+        import capo_macie2.types.__list_of_s3_bucket_name
+
+        out["bucketNames"] = capo_macie2.types.__list_of_s3_bucket_name.serialize_json(
+            value["bucket_names"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> S3ClassificationScopeExclusion:
+    out: S3ClassificationScopeExclusion = {}  # type: ignore[typeddict-item]
+    if "bucketNames" in data:
+        import capo_macie2.types.__list_of_s3_bucket_name
+
+        out["bucket_names"] = (
+            capo_macie2.types.__list_of_s3_bucket_name.deserialize_json(
+                data["bucketNames"]
+            )
+        )
+    return out

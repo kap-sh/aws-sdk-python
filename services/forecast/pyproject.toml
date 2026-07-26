@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-forecast"
+name = "capo-forecast"
 version = "0.1.0"
 description = "Python SDK for Forecast."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-route53-recovery-readiness"
+name = "capo-route53-recovery-readiness"
 version = "0.1.0"
 description = "Python SDK for Route53 Recovery Readiness."
 readme = "README.md"

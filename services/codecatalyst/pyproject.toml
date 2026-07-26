@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-codecatalyst"
+name = "capo-codecatalyst"
 version = "0.1.0"
 description = "Python SDK for Codecatalyst."
 readme = "README.md"

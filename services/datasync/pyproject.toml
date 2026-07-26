@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-datasync"
+name = "capo-datasync"
 version = "0.1.0"
 description = "Python SDK for Datasync."
 readme = "README.md"

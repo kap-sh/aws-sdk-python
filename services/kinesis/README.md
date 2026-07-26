@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-kinesis
+pip install capo-kinesis
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_kinesis import AsyncKinesisClient
+from capo_kinesis import AsyncKinesisClient
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
-from aws_sdk_kinesis import AsyncKinesisClient
+from capo_kinesis import AsyncKinesisClient
 
 
 async def main():
@@ -38,8 +38,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_kinesis import AsyncKinesisClient
-from aws_sdk_kinesis.error import AccessDeniedException
+from capo_kinesis import AsyncKinesisClient
+from capo_kinesis.error import AccessDeniedException
 
 
 async def main():
@@ -58,7 +58,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_kinesis import AsyncKinesisClient
+from capo_kinesis import AsyncKinesisClient
 
 
 async def main():

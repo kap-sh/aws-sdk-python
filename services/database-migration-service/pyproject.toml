@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-database-migration-service"
+name = "capo-database-migration-service"
 version = "0.1.0"
 description = "Python SDK for Database Migration Service."
 readme = "README.md"

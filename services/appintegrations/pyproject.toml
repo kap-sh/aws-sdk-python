@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-appintegrations"
+name = "capo-appintegrations"
 version = "0.1.0"
 description = "Python SDK for Appintegrations."
 readme = "README.md"

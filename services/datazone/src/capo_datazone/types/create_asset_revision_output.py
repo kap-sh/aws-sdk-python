@@ -1,0 +1,271 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#CreateAssetRevisionOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_datazone.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_datazone.types.asset_id
+    import capo_datazone.types.asset_listing_details
+    import capo_datazone.types.asset_name
+    import capo_datazone.types.asset_type_identifier
+    import capo_datazone.types.created_at
+    import capo_datazone.types.created_by
+    import capo_datazone.types.description
+    import capo_datazone.types.domain_id
+    import capo_datazone.types.external_identifier
+    import capo_datazone.types.form_output_list
+    import capo_datazone.types.glossary_terms
+    import capo_datazone.types.governed_glossary_terms
+    import capo_datazone.types.prediction_configuration
+    import capo_datazone.types.project_id
+    import capo_datazone.types.revision
+    import capo_datazone.types.time_series_data_point_summary_form_output_list
+
+
+class CreateAssetRevisionOutput(TypedDict, closed=True):
+    id: "capo_datazone.types.asset_id.AssetId"
+    """<p>The unique identifier of the asset revision.</p>"""
+    name: "capo_datazone.types.asset_name.AssetName"
+    """<p>The revised name of the asset.</p>"""
+    type_identifier: "capo_datazone.types.asset_type_identifier.AssetTypeIdentifier"
+    """<p>The identifier of the revision type.</p>"""
+    type_revision: "capo_datazone.types.revision.Revision"
+    """<p>The revision type of the asset.</p>"""
+    external_identifier: NotRequired[
+        "capo_datazone.types.external_identifier.ExternalIdentifier"
+    ]
+    """<p>The external identifier of the asset.</p>"""
+    revision: "capo_datazone.types.revision.Revision"
+    """<p>The revision of the asset.</p>"""
+    description: NotRequired["capo_datazone.types.description.Description"]
+    """<p>The revised asset description.</p>"""
+    created_at: NotRequired["capo_datazone.types.created_at.CreatedAt"]
+    """<p>The timestamp of when the asset revision occured.</p>"""
+    created_by: NotRequired["capo_datazone.types.created_by.CreatedBy"]
+    """<p>The Amazon DataZone user who performed the asset revision.</p>"""
+    first_revision_created_at: NotRequired["capo_datazone.types.created_at.CreatedAt"]
+    """<p>The timestamp of when the first asset revision occured.</p>"""
+    first_revision_created_by: NotRequired["capo_datazone.types.created_by.CreatedBy"]
+    """<p>The Amazon DataZone user who performed the first asset revision.</p>"""
+    glossary_terms: NotRequired["capo_datazone.types.glossary_terms.GlossaryTerms"]
+    """<p>The glossary terms that were attached to the asset as part of asset revision.</p>"""
+    governed_glossary_terms: NotRequired[
+        "capo_datazone.types.governed_glossary_terms.GovernedGlossaryTerms"
+    ]
+    """<p>The glossary terms in a restricted glossary.</p>"""
+    owning_project_id: "capo_datazone.types.project_id.ProjectId"
+    """<p>The unique identifier of the revised project that owns the asset.</p>"""
+    domain_id: "capo_datazone.types.domain_id.DomainId"
+    """<p>The unique identifier of the Amazon DataZone domain where the asset was revised.</p>"""
+    listing: NotRequired[
+        "capo_datazone.types.asset_listing_details.AssetListingDetails"
+    ]
+    """<p>The details of an asset published in an Amazon DataZone catalog. </p>"""
+    forms_output: "capo_datazone.types.form_output_list.FormOutputList"
+    """<p>The metadata forms that were attached to the asset as part of the asset revision.</p>"""
+    read_only_forms_output: NotRequired[
+        "capo_datazone.types.form_output_list.FormOutputList"
+    ]
+    """<p>The read-only metadata forms that were attached to the asset as part of the asset revision.</p>"""
+    latest_time_series_data_point_forms_output: NotRequired[
+        "capo_datazone.types.time_series_data_point_summary_form_output_list.TimeSeriesDataPointSummaryFormOutputList"
+    ]
+    """<p>The latest data point that was imported into the time series form for the asset. </p>"""
+    prediction_configuration: NotRequired[
+        "capo_datazone.types.prediction_configuration.PredictionConfiguration"
+    ]
+    """<p>The configuration of the automatically generated business-friendly metadata for the asset.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateAssetRevisionOutput) -> dict:
+    out: dict = {}
+    out["id"] = value["id"]
+    out["name"] = value["name"]
+    out["typeIdentifier"] = value["type_identifier"]
+    out["typeRevision"] = value["type_revision"]
+    if "external_identifier" in value:
+        out["externalIdentifier"] = value["external_identifier"]
+    out["revision"] = value["revision"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "created_at" in value:
+        import capo_datazone.types.created_at
+
+        out["createdAt"] = capo_datazone.types.created_at.serialize_json(
+            value["created_at"]
+        )
+    if "created_by" in value:
+        out["createdBy"] = value["created_by"]
+    if "first_revision_created_at" in value:
+        import capo_datazone.types.created_at
+
+        out["firstRevisionCreatedAt"] = capo_datazone.types.created_at.serialize_json(
+            value["first_revision_created_at"]
+        )
+    if "first_revision_created_by" in value:
+        out["firstRevisionCreatedBy"] = value["first_revision_created_by"]
+    if "glossary_terms" in value:
+        import capo_datazone.types.glossary_terms
+
+        out["glossaryTerms"] = capo_datazone.types.glossary_terms.serialize_json(
+            value["glossary_terms"]
+        )
+    if "governed_glossary_terms" in value:
+        import capo_datazone.types.governed_glossary_terms
+
+        out["governedGlossaryTerms"] = (
+            capo_datazone.types.governed_glossary_terms.serialize_json(
+                value["governed_glossary_terms"]
+            )
+        )
+    out["owningProjectId"] = value["owning_project_id"]
+    out["domainId"] = value["domain_id"]
+    if "listing" in value:
+        import capo_datazone.types.asset_listing_details
+
+        out["listing"] = capo_datazone.types.asset_listing_details.serialize_json(
+            value["listing"]
+        )
+    import capo_datazone.types.form_output_list
+
+    out["formsOutput"] = capo_datazone.types.form_output_list.serialize_json(
+        value["forms_output"]
+    )
+    if "read_only_forms_output" in value:
+        import capo_datazone.types.form_output_list
+
+        out["readOnlyFormsOutput"] = (
+            capo_datazone.types.form_output_list.serialize_json(
+                value["read_only_forms_output"]
+            )
+        )
+    if "latest_time_series_data_point_forms_output" in value:
+        import capo_datazone.types.time_series_data_point_summary_form_output_list
+
+        out["latestTimeSeriesDataPointFormsOutput"] = (
+            capo_datazone.types.time_series_data_point_summary_form_output_list.serialize_json(
+                value["latest_time_series_data_point_forms_output"]
+            )
+        )
+    if "prediction_configuration" in value:
+        import capo_datazone.types.prediction_configuration
+
+        out["predictionConfiguration"] = (
+            capo_datazone.types.prediction_configuration.serialize_json(
+                value["prediction_configuration"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateAssetRevisionOutput:
+    out: CreateAssetRevisionOutput = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.id required")
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.name required")
+    if "typeIdentifier" in data:
+        out["type_identifier"] = data["typeIdentifier"]
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.type_identifier required")
+    if "typeRevision" in data:
+        out["type_revision"] = data["typeRevision"]
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.type_revision required")
+    if "externalIdentifier" in data:
+        out["external_identifier"] = data["externalIdentifier"]
+    if "revision" in data:
+        out["revision"] = data["revision"]
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.revision required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "createdAt" in data:
+        import capo_datazone.types.created_at
+
+        out["created_at"] = capo_datazone.types.created_at.deserialize_json(
+            data["createdAt"]
+        )
+    if "createdBy" in data:
+        out["created_by"] = data["createdBy"]
+    if "firstRevisionCreatedAt" in data:
+        import capo_datazone.types.created_at
+
+        out["first_revision_created_at"] = (
+            capo_datazone.types.created_at.deserialize_json(
+                data["firstRevisionCreatedAt"]
+            )
+        )
+    if "firstRevisionCreatedBy" in data:
+        out["first_revision_created_by"] = data["firstRevisionCreatedBy"]
+    if "glossaryTerms" in data:
+        import capo_datazone.types.glossary_terms
+
+        out["glossary_terms"] = capo_datazone.types.glossary_terms.deserialize_json(
+            data["glossaryTerms"]
+        )
+    if "governedGlossaryTerms" in data:
+        import capo_datazone.types.governed_glossary_terms
+
+        out["governed_glossary_terms"] = (
+            capo_datazone.types.governed_glossary_terms.deserialize_json(
+                data["governedGlossaryTerms"]
+            )
+        )
+    if "owningProjectId" in data:
+        out["owning_project_id"] = data["owningProjectId"]
+    else:
+        raise DeserializationError(
+            "CreateAssetRevisionOutput.owning_project_id required"
+        )
+    if "domainId" in data:
+        out["domain_id"] = data["domainId"]
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.domain_id required")
+    if "listing" in data:
+        import capo_datazone.types.asset_listing_details
+
+        out["listing"] = capo_datazone.types.asset_listing_details.deserialize_json(
+            data["listing"]
+        )
+    if "formsOutput" in data:
+        import capo_datazone.types.form_output_list
+
+        out["forms_output"] = capo_datazone.types.form_output_list.deserialize_json(
+            data["formsOutput"]
+        )
+    else:
+        raise DeserializationError("CreateAssetRevisionOutput.forms_output required")
+    if "readOnlyFormsOutput" in data:
+        import capo_datazone.types.form_output_list
+
+        out["read_only_forms_output"] = (
+            capo_datazone.types.form_output_list.deserialize_json(
+                data["readOnlyFormsOutput"]
+            )
+        )
+    if "latestTimeSeriesDataPointFormsOutput" in data:
+        import capo_datazone.types.time_series_data_point_summary_form_output_list
+
+        out["latest_time_series_data_point_forms_output"] = (
+            capo_datazone.types.time_series_data_point_summary_form_output_list.deserialize_json(
+                data["latestTimeSeriesDataPointFormsOutput"]
+            )
+        )
+    if "predictionConfiguration" in data:
+        import capo_datazone.types.prediction_configuration
+
+        out["prediction_configuration"] = (
+            capo_datazone.types.prediction_configuration.deserialize_json(
+                data["predictionConfiguration"]
+            )
+        )
+    return out

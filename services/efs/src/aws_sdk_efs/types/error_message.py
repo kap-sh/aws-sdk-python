@@ -1,6 +1,0 @@
-"""Generated from Smithy shape ``com.amazonaws.efs#ErrorMessage``."""
-
-from typing import TypeAlias
-
-"""<p>The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.</p>"""
-ErrorMessage: TypeAlias = str

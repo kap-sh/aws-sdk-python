@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-ec2-instance-connect"
+name = "capo-ec2-instance-connect"
 version = "0.1.0"
 description = "Python SDK for EC2 Instance Connect."
 readme = "README.md"

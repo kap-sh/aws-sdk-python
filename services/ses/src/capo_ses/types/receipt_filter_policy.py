@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.ses#ReceiptFilterPolicy``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_ses._protocol.xml import Element
+
+ReceiptFilterPolicy: TypeAlias = Literal[
+    "Block",
+    "Allow",
+]
+
+
+# --- awsQuery ser/de ---
+def to_query_text(value: ReceiptFilterPolicy) -> str:
+    return value
+
+
+def from_query_text(text: str) -> ReceiptFilterPolicy:
+    return cast(ReceiptFilterPolicy, text)
+
+
+def serialize_query(
+    value: ReceiptFilterPolicy, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> ReceiptFilterPolicy:
+    return from_query_text(el.text or "")

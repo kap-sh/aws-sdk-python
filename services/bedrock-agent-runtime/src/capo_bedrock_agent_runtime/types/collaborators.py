@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Collaborators``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent_runtime.types.collaborator
+
+Collaborators: TypeAlias = list[
+    "capo_bedrock_agent_runtime.types.collaborator.Collaborator"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Collaborators) -> list:
+    import capo_bedrock_agent_runtime.types.collaborator
+
+    out: list = []
+    for item in value:
+        out.append(capo_bedrock_agent_runtime.types.collaborator.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> Collaborators:
+    import capo_bedrock_agent_runtime.types.collaborator
+
+    out: Collaborators = []
+    for item in data:
+        out.append(capo_bedrock_agent_runtime.types.collaborator.deserialize_json(item))
+    return out

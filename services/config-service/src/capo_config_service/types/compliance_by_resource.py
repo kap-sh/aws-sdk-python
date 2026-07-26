@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#ComplianceByResource``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_config_service.types.base_resource_id
+    import capo_config_service.types.compliance
+    import capo_config_service.types.string_with_char_limit256
+
+
+class ComplianceByResource(TypedDict, closed=True):
+    resource_type: NotRequired[
+        "capo_config_service.types.string_with_char_limit256.StringWithCharLimit256"
+    ]
+    """<p>The type of the Amazon Web Services resource that was evaluated.</p>"""
+    resource_id: NotRequired[
+        "capo_config_service.types.base_resource_id.BaseResourceId"
+    ]
+    """<p>The ID of the Amazon Web Services resource that was evaluated.</p>"""
+    compliance: NotRequired["capo_config_service.types.compliance.Compliance"]
+    """<p>Indicates whether the Amazon Web Services resource complies with all of the Config rules that evaluated it.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ComplianceByResource) -> dict:
+    out: dict = {}
+    if "resource_type" in value:
+        out["ResourceType"] = value["resource_type"]
+    if "resource_id" in value:
+        out["ResourceId"] = value["resource_id"]
+    if "compliance" in value:
+        import capo_config_service.types.compliance
+
+        out["Compliance"] = capo_config_service.types.compliance.serialize_aws_json_1_1(
+            value["compliance"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ComplianceByResource:
+    out: ComplianceByResource = {}  # type: ignore[typeddict-item]
+    if "ResourceType" in data:
+        out["resource_type"] = data["ResourceType"]
+    if "ResourceId" in data:
+        out["resource_id"] = data["ResourceId"]
+    if "Compliance" in data:
+        import capo_config_service.types.compliance
+
+        out["compliance"] = (
+            capo_config_service.types.compliance.deserialize_aws_json_1_1(
+                data["Compliance"]
+            )
+        )
+    return out

@@ -1,0 +1,76 @@
+"""Generated from Smithy shape ``com.amazonaws.apigatewaymanagementapi#GetConnectionResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_apigatewaymanagementapi.types.__timestamp_iso8601
+    import capo_apigatewaymanagementapi.types.identity
+
+
+class GetConnectionResponse(TypedDict, closed=True):
+    connected_at: NotRequired[
+        "capo_apigatewaymanagementapi.types.__timestamp_iso8601.__timestampIso8601"
+    ]
+    """<p>The time in ISO 8601 format for when the connection was established.</p>"""
+    identity: NotRequired["capo_apigatewaymanagementapi.types.identity.Identity"]
+    last_active_at: NotRequired[
+        "capo_apigatewaymanagementapi.types.__timestamp_iso8601.__timestampIso8601"
+    ]
+    """<p>The time in ISO 8601 format for when the connection was last active.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetConnectionResponse) -> dict:
+    out: dict = {}
+    if "connected_at" in value:
+        import capo_apigatewaymanagementapi.types.__timestamp_iso8601
+
+        out["connectedAt"] = (
+            capo_apigatewaymanagementapi.types.__timestamp_iso8601.serialize_json(
+                value["connected_at"]
+            )
+        )
+    if "identity" in value:
+        import capo_apigatewaymanagementapi.types.identity
+
+        out["identity"] = capo_apigatewaymanagementapi.types.identity.serialize_json(
+            value["identity"]
+        )
+    if "last_active_at" in value:
+        import capo_apigatewaymanagementapi.types.__timestamp_iso8601
+
+        out["lastActiveAt"] = (
+            capo_apigatewaymanagementapi.types.__timestamp_iso8601.serialize_json(
+                value["last_active_at"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetConnectionResponse:
+    out: GetConnectionResponse = {}  # type: ignore[typeddict-item]
+    if "connectedAt" in data:
+        import capo_apigatewaymanagementapi.types.__timestamp_iso8601
+
+        out["connected_at"] = (
+            capo_apigatewaymanagementapi.types.__timestamp_iso8601.deserialize_json(
+                data["connectedAt"]
+            )
+        )
+    if "identity" in data:
+        import capo_apigatewaymanagementapi.types.identity
+
+        out["identity"] = capo_apigatewaymanagementapi.types.identity.deserialize_json(
+            data["identity"]
+        )
+    if "lastActiveAt" in data:
+        import capo_apigatewaymanagementapi.types.__timestamp_iso8601
+
+        out["last_active_at"] = (
+            capo_apigatewaymanagementapi.types.__timestamp_iso8601.deserialize_json(
+                data["lastActiveAt"]
+            )
+        )
+    return out

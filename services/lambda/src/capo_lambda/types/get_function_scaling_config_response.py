@@ -1,0 +1,69 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#GetFunctionScalingConfigResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lambda.types.function_arn
+    import capo_lambda.types.function_scaling_config
+
+
+class GetFunctionScalingConfigResponse(TypedDict, closed=True):
+    function_arn: NotRequired["capo_lambda.types.function_arn.FunctionArn"]
+    """<p>The Amazon Resource Name (ARN) of the function.</p>"""
+    applied_function_scaling_config: NotRequired[
+        "capo_lambda.types.function_scaling_config.FunctionScalingConfig"
+    ]
+    """<p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>"""
+    requested_function_scaling_config: NotRequired[
+        "capo_lambda.types.function_scaling_config.FunctionScalingConfig"
+    ]
+    """<p>The scaling configuration that was requested for the function.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetFunctionScalingConfigResponse) -> dict:
+    out: dict = {}
+    if "function_arn" in value:
+        out["FunctionArn"] = value["function_arn"]
+    if "applied_function_scaling_config" in value:
+        import capo_lambda.types.function_scaling_config
+
+        out["AppliedFunctionScalingConfig"] = (
+            capo_lambda.types.function_scaling_config.serialize_json(
+                value["applied_function_scaling_config"]
+            )
+        )
+    if "requested_function_scaling_config" in value:
+        import capo_lambda.types.function_scaling_config
+
+        out["RequestedFunctionScalingConfig"] = (
+            capo_lambda.types.function_scaling_config.serialize_json(
+                value["requested_function_scaling_config"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetFunctionScalingConfigResponse:
+    out: GetFunctionScalingConfigResponse = {}  # type: ignore[typeddict-item]
+    if "FunctionArn" in data:
+        out["function_arn"] = data["FunctionArn"]
+    if "AppliedFunctionScalingConfig" in data:
+        import capo_lambda.types.function_scaling_config
+
+        out["applied_function_scaling_config"] = (
+            capo_lambda.types.function_scaling_config.deserialize_json(
+                data["AppliedFunctionScalingConfig"]
+            )
+        )
+    if "RequestedFunctionScalingConfig" in data:
+        import capo_lambda.types.function_scaling_config
+
+        out["requested_function_scaling_config"] = (
+            capo_lambda.types.function_scaling_config.deserialize_json(
+                data["RequestedFunctionScalingConfig"]
+            )
+        )
+    return out

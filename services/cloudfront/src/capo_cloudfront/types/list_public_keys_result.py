@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#ListPublicKeysResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.public_key_list
+
+
+class ListPublicKeysResult(TypedDict, closed=True):
+    public_key_list: NotRequired["capo_cloudfront.types.public_key_list.PublicKeyList"]
+    """<p>Returns a list of all public keys that have been added to CloudFront for this account.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: ListPublicKeysResult, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    if "public_key_list" in value:
+        import capo_cloudfront.types.public_key_list
+
+        capo_cloudfront.types.public_key_list.serialize_xml(
+            value["public_key_list"], el, "PublicKeyList"
+        )
+
+
+def deserialize_xml(el: Element) -> ListPublicKeysResult:
+    out: ListPublicKeysResult = {}  # type: ignore[typeddict-item]
+    child_public_key_list = el.find("PublicKeyList")
+    if child_public_key_list is not None:
+        import capo_cloudfront.types.public_key_list
+
+        out["public_key_list"] = capo_cloudfront.types.public_key_list.deserialize_xml(
+            child_public_key_list
+        )
+    return out

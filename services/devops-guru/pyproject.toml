@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-devops-guru"
+name = "capo-devops-guru"
 version = "0.1.0"
 description = "Python SDK for Devops Guru."
 readme = "README.md"

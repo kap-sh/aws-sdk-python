@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-iot"
+name = "capo-iot"
 version = "0.1.0"
 description = "Python SDK for IOT."
 readme = "README.md"

@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-kinesis-analytics
+pip install capo-kinesis-analytics
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_kinesis_analytics import AsyncKinesisAnalyticsClient
+from capo_kinesis_analytics import AsyncKinesisAnalyticsClient
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_kinesis_analytics import AsyncKinesisAnalyticsClient
-from aws_sdk_kinesis_analytics.error import ConcurrentModificationException
+from capo_kinesis_analytics import AsyncKinesisAnalyticsClient
+from capo_kinesis_analytics.error import ConcurrentModificationException
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_kinesis_analytics import AsyncKinesisAnalyticsClient
+from capo_kinesis_analytics import AsyncKinesisAnalyticsClient
 
 
 async def main():

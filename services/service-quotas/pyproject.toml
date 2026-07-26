@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-service-quotas"
+name = "capo-service-quotas"
 version = "0.1.0"
 description = "Python SDK for Service Quotas."
 readme = "README.md"

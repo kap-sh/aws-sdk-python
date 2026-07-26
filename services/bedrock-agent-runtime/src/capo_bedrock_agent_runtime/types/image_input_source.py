@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ImageInputSource``."""
+
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agent_runtime.errors import DeserializationError, SerializationError
+
+
+class _ImageInputSource_bytes(TypedDict, closed=True):
+    bytes: "bytes"
+
+
+ImageInputSource: TypeAlias = _ImageInputSource_bytes
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ImageInputSource) -> dict:
+    if "bytes" in value:
+        import capo_bedrock_agent_runtime.types._prelude.blob
+
+        return {
+            "bytes": capo_bedrock_agent_runtime.types._prelude.blob.serialize_json(
+                value["bytes"]
+            )
+        }
+    else:
+        raise SerializationError("ImageInputSource: no variant present")
+
+
+def deserialize_json(data: dict) -> ImageInputSource:
+    if "bytes" in data:
+        import capo_bedrock_agent_runtime.types._prelude.blob
+
+        return {
+            "bytes": capo_bedrock_agent_runtime.types._prelude.blob.deserialize_json(
+                data["bytes"]
+            )
+        }
+    else:
+        raise DeserializationError("ImageInputSource: no recognized variant key")

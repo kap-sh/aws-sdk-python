@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpcPeeringConnectionStatusDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.non_empty_string
+
+
+class AwsEc2VpcPeeringConnectionStatusDetails(TypedDict, closed=True):
+    code: NotRequired["capo_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p>The status of the VPC peering connection. </p>"""
+    message: NotRequired["capo_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p>A message that provides more information about the status, if applicable. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AwsEc2VpcPeeringConnectionStatusDetails) -> dict:
+    out: dict = {}
+    if "code" in value:
+        out["Code"] = value["code"]
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> AwsEc2VpcPeeringConnectionStatusDetails:
+    out: AwsEc2VpcPeeringConnectionStatusDetails = {}  # type: ignore[typeddict-item]
+    if "Code" in data:
+        out["code"] = data["Code"]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out

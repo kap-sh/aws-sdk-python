@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-marketplace-metering
+pip install capo-marketplace-metering
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_marketplace_metering import AsyncMarketplaceMeteringClient
+from capo_marketplace_metering import AsyncMarketplaceMeteringClient
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_marketplace_metering import AsyncMarketplaceMeteringClient
-from aws_sdk_marketplace_metering.error import DisabledApiException
+from capo_marketplace_metering import AsyncMarketplaceMeteringClient
+from capo_marketplace_metering.error import DisabledApiException
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_marketplace_metering import AsyncMarketplaceMeteringClient
+from capo_marketplace_metering import AsyncMarketplaceMeteringClient
 
 
 async def main():

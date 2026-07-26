@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#DataPathSort``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.data_path_value_list
+    import capo_quicksight.types.sort_direction
+
+
+class DataPathSort(TypedDict, closed=True):
+    direction: "capo_quicksight.types.sort_direction.SortDirection"
+    """<p>Determines the sort direction.</p>"""
+    sort_paths: "capo_quicksight.types.data_path_value_list.DataPathValueList"
+    """<p>The list of data paths that need to be sorted.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataPathSort) -> dict:
+    out: dict = {}
+    import capo_quicksight.types.sort_direction
+
+    out["Direction"] = capo_quicksight.types.sort_direction.serialize_json(
+        value["direction"]
+    )
+    import capo_quicksight.types.data_path_value_list
+
+    out["SortPaths"] = capo_quicksight.types.data_path_value_list.serialize_json(
+        value["sort_paths"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> DataPathSort:
+    out: DataPathSort = {}  # type: ignore[typeddict-item]
+    if "Direction" in data:
+        import capo_quicksight.types.sort_direction
+
+        out["direction"] = capo_quicksight.types.sort_direction.deserialize_json(
+            data["Direction"]
+        )
+    else:
+        raise DeserializationError("DataPathSort.direction required")
+    if "SortPaths" in data:
+        import capo_quicksight.types.data_path_value_list
+
+        out["sort_paths"] = capo_quicksight.types.data_path_value_list.deserialize_json(
+            data["SortPaths"]
+        )
+    else:
+        raise DeserializationError("DataPathSort.sort_paths required")
+    return out

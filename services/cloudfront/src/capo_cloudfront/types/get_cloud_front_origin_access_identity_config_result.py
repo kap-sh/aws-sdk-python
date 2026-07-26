@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#GetCloudFrontOriginAccessIdentityConfigResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.cloud_front_origin_access_identity_config
+    import capo_cloudfront.types.string
+
+
+class GetCloudFrontOriginAccessIdentityConfigResult(TypedDict, closed=True):
+    cloud_front_origin_access_identity_config: NotRequired[
+        "capo_cloudfront.types.cloud_front_origin_access_identity_config.CloudFrontOriginAccessIdentityConfig"
+    ]
+    """<p>The origin access identity's configuration information.</p>"""
+    e_tag: NotRequired["capo_cloudfront.types.string.string"]
+    """<p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(
+    value: GetCloudFrontOriginAccessIdentityConfigResult, parent: Element, tag: str
+) -> None:
+    el = SubElement(parent, tag)
+    if "cloud_front_origin_access_identity_config" in value:
+        import capo_cloudfront.types.cloud_front_origin_access_identity_config
+
+        capo_cloudfront.types.cloud_front_origin_access_identity_config.serialize_xml(
+            value["cloud_front_origin_access_identity_config"],
+            el,
+            "CloudFrontOriginAccessIdentityConfig",
+        )
+
+
+def deserialize_xml(el: Element) -> GetCloudFrontOriginAccessIdentityConfigResult:
+    out: GetCloudFrontOriginAccessIdentityConfigResult = {}  # type: ignore[typeddict-item]
+    child_cloud_front_origin_access_identity_config = el.find(
+        "CloudFrontOriginAccessIdentityConfig"
+    )
+    if child_cloud_front_origin_access_identity_config is not None:
+        import capo_cloudfront.types.cloud_front_origin_access_identity_config
+
+        out["cloud_front_origin_access_identity_config"] = (
+            capo_cloudfront.types.cloud_front_origin_access_identity_config.deserialize_xml(
+                child_cloud_front_origin_access_identity_config
+            )
+        )
+    return out

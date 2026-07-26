@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.rdsdata#UpdateResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_rds_data.types.field_list
+
+
+class UpdateResult(TypedDict, closed=True):
+    generated_fields: NotRequired["capo_rds_data.types.field_list.FieldList"]
+    """<p>Values for fields generated during the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateResult) -> dict:
+    out: dict = {}
+    if "generated_fields" in value:
+        import capo_rds_data.types.field_list
+
+        out["generatedFields"] = capo_rds_data.types.field_list.serialize_json(
+            value["generated_fields"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateResult:
+    out: UpdateResult = {}  # type: ignore[typeddict-item]
+    if "generatedFields" in data:
+        import capo_rds_data.types.field_list
+
+        out["generated_fields"] = capo_rds_data.types.field_list.deserialize_json(
+            data["generatedFields"]
+        )
+    return out

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.eventbridge#SageMakerPipelineParameters``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_eventbridge.types.sage_maker_pipeline_parameter_list
+
+
+class SageMakerPipelineParameters(TypedDict, closed=True):
+    pipeline_parameter_list: NotRequired[
+        "capo_eventbridge.types.sage_maker_pipeline_parameter_list.SageMakerPipelineParameterList"
+    ]
+    """<p>List of Parameter names and values for SageMaker AI Model Building Pipeline execution.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SageMakerPipelineParameters) -> dict:
+    out: dict = {}
+    if "pipeline_parameter_list" in value:
+        import capo_eventbridge.types.sage_maker_pipeline_parameter_list
+
+        out["PipelineParameterList"] = (
+            capo_eventbridge.types.sage_maker_pipeline_parameter_list.serialize_aws_json_1_1(
+                value["pipeline_parameter_list"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SageMakerPipelineParameters:
+    out: SageMakerPipelineParameters = {}  # type: ignore[typeddict-item]
+    if "PipelineParameterList" in data:
+        import capo_eventbridge.types.sage_maker_pipeline_parameter_list
+
+        out["pipeline_parameter_list"] = (
+            capo_eventbridge.types.sage_maker_pipeline_parameter_list.deserialize_aws_json_1_1(
+                data["PipelineParameterList"]
+            )
+        )
+    return out

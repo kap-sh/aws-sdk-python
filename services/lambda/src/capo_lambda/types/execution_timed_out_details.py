@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.lambda#ExecutionTimedOutDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lambda.types.event_error
+
+
+class ExecutionTimedOutDetails(TypedDict, closed=True):
+    error: NotRequired["capo_lambda.types.event_error.EventError"]
+    """<p>Details about the execution timeout.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ExecutionTimedOutDetails) -> dict:
+    out: dict = {}
+    if "error" in value:
+        import capo_lambda.types.event_error
+
+        out["Error"] = capo_lambda.types.event_error.serialize_json(value["error"])
+    return out
+
+
+def deserialize_json(data: dict) -> ExecutionTimedOutDetails:
+    out: ExecutionTimedOutDetails = {}  # type: ignore[typeddict-item]
+    if "Error" in data:
+        import capo_lambda.types.event_error
+
+        out["error"] = capo_lambda.types.event_error.deserialize_json(data["Error"])
+    return out

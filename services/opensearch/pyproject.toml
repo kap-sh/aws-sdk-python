@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-opensearch"
+name = "capo-opensearch"
 version = "0.1.0"
 description = "Python SDK for Opensearch."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-sfn"
+name = "capo-sfn"
 version = "0.1.0"
 description = "Python SDK for SFN."
 readme = "README.md"

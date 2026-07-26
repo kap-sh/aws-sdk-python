@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cost-and-usage-report-service"
+name = "capo-cost-and-usage-report-service"
 version = "0.1.0"
 description = "Python SDK for Cost And Usage Report Service."
 readme = "README.md"

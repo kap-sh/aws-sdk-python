@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#AssociationStatus``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ssm.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_ssm.types.association_status_name
+    import capo_ssm.types.date_time
+    import capo_ssm.types.status_additional_info
+    import capo_ssm.types.status_message
+
+
+class AssociationStatus(TypedDict, closed=True):
+    date: "capo_ssm.types.date_time.DateTime"
+    """<p>The date when the status changed.</p>"""
+    name: "capo_ssm.types.association_status_name.AssociationStatusName"
+    """<p>The status.</p>"""
+    message: "capo_ssm.types.status_message.StatusMessage"
+    """<p>The reason for the status.</p>"""
+    additional_info: NotRequired[
+        "capo_ssm.types.status_additional_info.StatusAdditionalInfo"
+    ]
+    """<p>A user-defined string.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AssociationStatus) -> dict:
+    out: dict = {}
+    import capo_ssm.types.date_time
+
+    out["Date"] = capo_ssm.types.date_time.serialize_aws_json_1_1(value["date"])
+    import capo_ssm.types.association_status_name
+
+    out["Name"] = capo_ssm.types.association_status_name.serialize_aws_json_1_1(
+        value["name"]
+    )
+    out["Message"] = value["message"]
+    if "additional_info" in value:
+        out["AdditionalInfo"] = value["additional_info"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AssociationStatus:
+    out: AssociationStatus = {}  # type: ignore[typeddict-item]
+    if "Date" in data:
+        import capo_ssm.types.date_time
+
+        out["date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(data["Date"])
+    else:
+        raise DeserializationError("AssociationStatus.date required")
+    if "Name" in data:
+        import capo_ssm.types.association_status_name
+
+        out["name"] = capo_ssm.types.association_status_name.deserialize_aws_json_1_1(
+            data["Name"]
+        )
+    else:
+        raise DeserializationError("AssociationStatus.name required")
+    if "Message" in data:
+        out["message"] = data["Message"]
+    else:
+        raise DeserializationError("AssociationStatus.message required")
+    if "AdditionalInfo" in data:
+        out["additional_info"] = data["AdditionalInfo"]
+    return out

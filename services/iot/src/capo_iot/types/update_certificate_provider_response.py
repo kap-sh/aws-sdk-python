@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#UpdateCertificateProviderResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_iot.types.certificate_provider_arn
+    import capo_iot.types.certificate_provider_name
+
+
+class UpdateCertificateProviderResponse(TypedDict, closed=True):
+    certificate_provider_name: NotRequired[
+        "capo_iot.types.certificate_provider_name.CertificateProviderName"
+    ]
+    """<p>The name of the certificate provider.</p>"""
+    certificate_provider_arn: NotRequired[
+        "capo_iot.types.certificate_provider_arn.CertificateProviderArn"
+    ]
+    """<p>The ARN of the certificate provider.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateCertificateProviderResponse) -> dict:
+    out: dict = {}
+    if "certificate_provider_name" in value:
+        out["certificateProviderName"] = value["certificate_provider_name"]
+    if "certificate_provider_arn" in value:
+        out["certificateProviderArn"] = value["certificate_provider_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateCertificateProviderResponse:
+    out: UpdateCertificateProviderResponse = {}  # type: ignore[typeddict-item]
+    if "certificateProviderName" in data:
+        out["certificate_provider_name"] = data["certificateProviderName"]
+    if "certificateProviderArn" in data:
+        out["certificate_provider_arn"] = data["certificateProviderArn"]
+    return out

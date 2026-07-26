@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#DescribeRoleAliasResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_iot.types.role_alias_description
+
+
+class DescribeRoleAliasResponse(TypedDict, closed=True):
+    role_alias_description: NotRequired[
+        "capo_iot.types.role_alias_description.RoleAliasDescription"
+    ]
+    """<p>The role alias description.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeRoleAliasResponse) -> dict:
+    out: dict = {}
+    if "role_alias_description" in value:
+        import capo_iot.types.role_alias_description
+
+        out["roleAliasDescription"] = (
+            capo_iot.types.role_alias_description.serialize_json(
+                value["role_alias_description"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeRoleAliasResponse:
+    out: DescribeRoleAliasResponse = {}  # type: ignore[typeddict-item]
+    if "roleAliasDescription" in data:
+        import capo_iot.types.role_alias_description
+
+        out["role_alias_description"] = (
+            capo_iot.types.role_alias_description.deserialize_json(
+                data["roleAliasDescription"]
+            )
+        )
+    return out

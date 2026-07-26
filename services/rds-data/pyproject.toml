@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-rds-data"
+name = "capo-rds-data"
 version = "0.1.0"
 description = "Python SDK for RDS Data."
 readme = "README.md"

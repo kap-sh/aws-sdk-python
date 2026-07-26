@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.apigateway#SdkTypes``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_api_gateway.types.list_of_sdk_type
+
+
+class SdkTypes(TypedDict, closed=True):
+    items: NotRequired["capo_api_gateway.types.list_of_sdk_type.ListOfSdkType"]
+    """<p>The current page of elements from this collection.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SdkTypes) -> dict:
+    out: dict = {}
+    if "items" in value:
+        import capo_api_gateway.types.list_of_sdk_type
+
+        out["item"] = capo_api_gateway.types.list_of_sdk_type.serialize_json(
+            value["items"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> SdkTypes:
+    out: SdkTypes = {}  # type: ignore[typeddict-item]
+    if "item" in data:
+        import capo_api_gateway.types.list_of_sdk_type
+
+        out["items"] = capo_api_gateway.types.list_of_sdk_type.deserialize_json(
+            data["item"]
+        )
+    return out

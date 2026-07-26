@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#ListSchedulingPoliciesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_batch.types.scheduling_policy_listing_detail_list
+    import capo_batch.types.string
+
+
+class ListSchedulingPoliciesResponse(TypedDict, closed=True):
+    scheduling_policies: NotRequired[
+        "capo_batch.types.scheduling_policy_listing_detail_list.SchedulingPolicyListingDetailList"
+    ]
+    """<p>A list of scheduling policies that match the request.</p>"""
+    next_token: NotRequired["capo_batch.types.string.String"]
+    """<p>The <code>nextToken</code> value to include in a future <code>ListSchedulingPolicies</code> request. When the results of a <code>ListSchedulingPolicies</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListSchedulingPoliciesResponse) -> dict:
+    out: dict = {}
+    if "scheduling_policies" in value:
+        import capo_batch.types.scheduling_policy_listing_detail_list
+
+        out["schedulingPolicies"] = (
+            capo_batch.types.scheduling_policy_listing_detail_list.serialize_json(
+                value["scheduling_policies"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListSchedulingPoliciesResponse:
+    out: ListSchedulingPoliciesResponse = {}  # type: ignore[typeddict-item]
+    if "schedulingPolicies" in data:
+        import capo_batch.types.scheduling_policy_listing_detail_list
+
+        out["scheduling_policies"] = (
+            capo_batch.types.scheduling_policy_listing_detail_list.deserialize_json(
+                data["schedulingPolicies"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

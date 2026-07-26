@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#BaseModelName``."""
+
+from typing import Literal, TypeAlias, cast
+
+BaseModelName: TypeAlias = Literal[
+    "NarrowBand",
+    "WideBand",
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BaseModelName) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> BaseModelName:
+    return cast(BaseModelName, data)

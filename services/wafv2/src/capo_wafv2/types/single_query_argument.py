@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.wafv2#SingleQueryArgument``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_wafv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_wafv2.types.field_to_match_data
+
+
+class SingleQueryArgument(TypedDict, closed=True):
+    name: "capo_wafv2.types.field_to_match_data.FieldToMatchData"
+    """<p>The name of the query argument to inspect.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SingleQueryArgument) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SingleQueryArgument:
+    out: SingleQueryArgument = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("SingleQueryArgument.name required")
+    return out

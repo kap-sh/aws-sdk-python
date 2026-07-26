@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchGetAssetPropertyValueErrorInfo``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_iotsitewise.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_iotsitewise.types.batch_get_asset_property_value_error_code
+    import capo_iotsitewise.types.timestamp
+
+
+class BatchGetAssetPropertyValueErrorInfo(TypedDict, closed=True):
+    error_code: "capo_iotsitewise.types.batch_get_asset_property_value_error_code.BatchGetAssetPropertyValueErrorCode"
+    """<p>The error code.</p>"""
+    error_timestamp: "capo_iotsitewise.types.timestamp.Timestamp"
+    """<p>The date the error occurred, in Unix epoch time.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchGetAssetPropertyValueErrorInfo) -> dict:
+    out: dict = {}
+    import capo_iotsitewise.types.batch_get_asset_property_value_error_code
+
+    out["errorCode"] = (
+        capo_iotsitewise.types.batch_get_asset_property_value_error_code.serialize_json(
+            value["error_code"]
+        )
+    )
+    import capo_iotsitewise.types.timestamp
+
+    out["errorTimestamp"] = capo_iotsitewise.types.timestamp.serialize_json(
+        value["error_timestamp"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> BatchGetAssetPropertyValueErrorInfo:
+    out: BatchGetAssetPropertyValueErrorInfo = {}  # type: ignore[typeddict-item]
+    if "errorCode" in data:
+        import capo_iotsitewise.types.batch_get_asset_property_value_error_code
+
+        out["error_code"] = (
+            capo_iotsitewise.types.batch_get_asset_property_value_error_code.deserialize_json(
+                data["errorCode"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "BatchGetAssetPropertyValueErrorInfo.error_code required"
+        )
+    if "errorTimestamp" in data:
+        import capo_iotsitewise.types.timestamp
+
+        out["error_timestamp"] = capo_iotsitewise.types.timestamp.deserialize_json(
+            data["errorTimestamp"]
+        )
+    else:
+        raise DeserializationError(
+            "BatchGetAssetPropertyValueErrorInfo.error_timestamp required"
+        )
+    return out

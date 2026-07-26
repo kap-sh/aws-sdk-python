@@ -1,0 +1,189 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticache#CreateSnapshot``."""
+
+from __future__ import annotations
+
+from typing import Any
+from urllib.parse import urlencode
+
+import zapros
+from typing_extensions import Never
+
+import capo_elasticache._auth._signers
+import capo_elasticache._auth._sigv4
+import capo_elasticache.errors.cache_cluster_not_found_fault
+import capo_elasticache.errors.invalid_cache_cluster_state_fault
+import capo_elasticache.errors.invalid_parameter_combination_exception
+import capo_elasticache.errors.invalid_parameter_value_exception
+import capo_elasticache.errors.invalid_replication_group_state_fault
+import capo_elasticache.errors.replication_group_not_found_fault
+import capo_elasticache.errors.snapshot_already_exists_fault
+import capo_elasticache.errors.snapshot_feature_not_supported_fault
+import capo_elasticache.errors.snapshot_quota_exceeded_fault
+import capo_elasticache.errors.tag_quota_per_resource_exceeded
+import capo_elasticache.types.create_snapshot_message
+import capo_elasticache.types.create_snapshot_result
+import capo_elasticache.types.snapshot
+import capo_elasticache.types.tag_list
+from capo_elasticache._protocol.errors import parse_error_metadata
+from capo_elasticache._protocol.xml import fromstring
+from capo_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_elasticache._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_elasticache.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    root = fromstring(response.read())
+    code, message = parse_error_metadata(root)
+    match code:
+        case "CacheClusterNotFoundFault":
+            raise capo_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault.from_query(
+                root
+            )
+        case "InvalidCacheClusterStateFault":
+            raise capo_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault.from_query(
+                root
+            )
+        case "InvalidParameterCombinationException":
+            raise capo_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_query(
+                root
+            )
+        case "InvalidParameterValueException":
+            raise capo_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
+                root
+            )
+        case "InvalidReplicationGroupStateFault":
+            raise capo_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault.from_query(
+                root
+            )
+        case "ReplicationGroupNotFoundFault":
+            raise capo_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault.from_query(
+                root
+            )
+        case "SnapshotAlreadyExistsFault":
+            raise capo_elasticache.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault.from_query(
+                root
+            )
+        case "SnapshotFeatureNotSupportedFault":
+            raise capo_elasticache.errors.snapshot_feature_not_supported_fault.SnapshotFeatureNotSupportedFault.from_query(
+                root
+            )
+        case "SnapshotQuotaExceededFault":
+            raise capo_elasticache.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault.from_query(
+                root
+            )
+        case "TagQuotaPerResourceExceeded":
+            raise capo_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded.from_query(
+                root
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_elasticache.types.create_snapshot_result.CreateSnapshotResult:
+    root = fromstring(response.read())
+    result = root.find("CreateSnapshotResult")
+    out: capo_elasticache.types.create_snapshot_result.CreateSnapshotResult = (
+        capo_elasticache.types.create_snapshot_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_elasticache.types.create_snapshot_result.CreateSnapshotResult:
+    root = fromstring(await response.aread())
+    result = root.find("CreateSnapshotResult")
+    out: capo_elasticache.types.create_snapshot_result.CreateSnapshotResult = (
+        capo_elasticache.types.create_snapshot_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_elasticache._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_elasticache._auth._sigv4.build_sigv4_auth_scheme(
+                "elasticache", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_elasticache._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_elasticache.types.create_snapshot_message.CreateSnapshotMessage,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    pairs: list[tuple[str, str]] = []
+    pairs.append(("Action", "CreateSnapshot"))
+    pairs.append(("Version", "2015-02-02"))
+    capo_elasticache.types.create_snapshot_message.serialize_query(input_, pairs, "")
+    body: bytes | None = urlencode(pairs).encode()
+    headers["content-type"] = "application/x-www-form-urlencoded"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def create_snapshot(
+    options: OperationOptions,
+    input_: capo_elasticache.types.create_snapshot_message.CreateSnapshotMessage,
+) -> tuple[
+    capo_elasticache.types.create_snapshot_result.CreateSnapshotResult, zapros.Response
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_create_snapshot(
+    options: AsyncOperationOptions,
+    input_: capo_elasticache.types.create_snapshot_message.CreateSnapshotMessage,
+) -> tuple[
+    capo_elasticache.types.create_snapshot_result.CreateSnapshotResult, zapros.Response
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

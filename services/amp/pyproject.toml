@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-amp"
+name = "capo-amp"
 version = "0.1.0"
 description = "Python SDK for Amp."
 readme = "README.md"

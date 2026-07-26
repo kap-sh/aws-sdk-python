@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-config-service"
+name = "capo-config-service"
 version = "0.1.0"
 description = "Python SDK for Config Service."
 readme = "README.md"

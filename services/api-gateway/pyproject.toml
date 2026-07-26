@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-api-gateway"
+name = "capo-api-gateway"
 version = "0.1.0"
 description = "Python SDK for API Gateway."
 readme = "README.md"

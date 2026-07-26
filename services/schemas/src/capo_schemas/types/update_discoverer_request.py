@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.schemas#UpdateDiscovererRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_schemas.types.__boolean
+    import capo_schemas.types.__string
+    import capo_schemas.types.__string_min0_max256
+
+
+class UpdateDiscovererRequest(TypedDict, closed=True):
+    description: NotRequired[
+        "capo_schemas.types.__string_min0_max256.__stringMin0Max256"
+    ]
+    """<p>The description of the discoverer to update.</p>"""
+    discoverer_id: "capo_schemas.types.__string.__string"
+    """<p>The ID of the discoverer.</p>"""
+    cross_account: NotRequired["capo_schemas.types.__boolean.__boolean"]
+    """<p>Support discovery of schemas in events sent to the bus from another account. (default: true)</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateDiscovererRequest) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "cross_account" in value:
+        out["CrossAccount"] = value["cross_account"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateDiscovererRequest:
+    out: UpdateDiscovererRequest = {}  # type: ignore[typeddict-item]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "CrossAccount" in data:
+        out["cross_account"] = data["CrossAccount"]
+    return out

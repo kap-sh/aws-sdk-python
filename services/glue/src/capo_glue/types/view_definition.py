@@ -1,0 +1,137 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#ViewDefinition``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_glue.types.arn_string
+    import capo_glue.types.hash_string
+    import capo_glue.types.last_refresh_type
+    import capo_glue.types.nullable_boolean
+    import capo_glue.types.refresh_seconds
+    import capo_glue.types.table_version_id
+    import capo_glue.types.view_representation_list
+    import capo_glue.types.view_sub_object_version_ids_list
+    import capo_glue.types.view_sub_objects_list
+
+
+class ViewDefinition(TypedDict, closed=True):
+    is_protected: NotRequired["capo_glue.types.nullable_boolean.NullableBoolean"]
+    """<p>You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>"""
+    definer: NotRequired["capo_glue.types.arn_string.ArnString"]
+    """<p>The definer of a view in SQL.</p>"""
+    view_version_id: "capo_glue.types.table_version_id.TableVersionId"
+    """<p>The ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID. </p>"""
+    view_version_token: NotRequired["capo_glue.types.hash_string.HashString"]
+    """<p>The version ID of the Apache Iceberg table.</p>"""
+    refresh_seconds: NotRequired["capo_glue.types.refresh_seconds.RefreshSeconds"]
+    """<p>Auto refresh interval in seconds for the materialized view. If not specified, the view will not automatically refresh.</p>"""
+    last_refresh_type: NotRequired["capo_glue.types.last_refresh_type.LastRefreshType"]
+    """<p>Sets the method used for the most recent refresh.</p>"""
+    sub_objects: NotRequired["capo_glue.types.view_sub_objects_list.ViewSubObjectsList"]
+    """<p>A list of table Amazon Resource Names (ARNs).</p>"""
+    sub_object_version_ids: NotRequired[
+        "capo_glue.types.view_sub_object_version_ids_list.ViewSubObjectVersionIdsList"
+    ]
+    """<p>List of the Apache Iceberg table versions referenced by the materialized view.</p>"""
+    representations: NotRequired[
+        "capo_glue.types.view_representation_list.ViewRepresentationList"
+    ]
+    """<p>A list of representations.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ViewDefinition) -> dict:
+    out: dict = {}
+    if "is_protected" in value:
+        out["IsProtected"] = value["is_protected"]
+    if "definer" in value:
+        out["Definer"] = value["definer"]
+    out["ViewVersionId"] = value.get("view_version_id", 0)
+    if "view_version_token" in value:
+        out["ViewVersionToken"] = value["view_version_token"]
+    if "refresh_seconds" in value:
+        out["RefreshSeconds"] = value["refresh_seconds"]
+    if "last_refresh_type" in value:
+        import capo_glue.types.last_refresh_type
+
+        out["LastRefreshType"] = (
+            capo_glue.types.last_refresh_type.serialize_aws_json_1_1(
+                value["last_refresh_type"]
+            )
+        )
+    if "sub_objects" in value:
+        import capo_glue.types.view_sub_objects_list
+
+        out["SubObjects"] = (
+            capo_glue.types.view_sub_objects_list.serialize_aws_json_1_1(
+                value["sub_objects"]
+            )
+        )
+    if "sub_object_version_ids" in value:
+        import capo_glue.types.view_sub_object_version_ids_list
+
+        out["SubObjectVersionIds"] = (
+            capo_glue.types.view_sub_object_version_ids_list.serialize_aws_json_1_1(
+                value["sub_object_version_ids"]
+            )
+        )
+    if "representations" in value:
+        import capo_glue.types.view_representation_list
+
+        out["Representations"] = (
+            capo_glue.types.view_representation_list.serialize_aws_json_1_1(
+                value["representations"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ViewDefinition:
+    out: ViewDefinition = {}  # type: ignore[typeddict-item]
+    if "IsProtected" in data:
+        out["is_protected"] = data["IsProtected"]
+    if "Definer" in data:
+        out["definer"] = data["Definer"]
+    if "ViewVersionId" in data:
+        out["view_version_id"] = data["ViewVersionId"]
+    else:
+        out["view_version_id"] = 0
+    if "ViewVersionToken" in data:
+        out["view_version_token"] = data["ViewVersionToken"]
+    if "RefreshSeconds" in data:
+        out["refresh_seconds"] = data["RefreshSeconds"]
+    if "LastRefreshType" in data:
+        import capo_glue.types.last_refresh_type
+
+        out["last_refresh_type"] = (
+            capo_glue.types.last_refresh_type.deserialize_aws_json_1_1(
+                data["LastRefreshType"]
+            )
+        )
+    if "SubObjects" in data:
+        import capo_glue.types.view_sub_objects_list
+
+        out["sub_objects"] = (
+            capo_glue.types.view_sub_objects_list.deserialize_aws_json_1_1(
+                data["SubObjects"]
+            )
+        )
+    if "SubObjectVersionIds" in data:
+        import capo_glue.types.view_sub_object_version_ids_list
+
+        out["sub_object_version_ids"] = (
+            capo_glue.types.view_sub_object_version_ids_list.deserialize_aws_json_1_1(
+                data["SubObjectVersionIds"]
+            )
+        )
+    if "Representations" in data:
+        import capo_glue.types.view_representation_list
+
+        out["representations"] = (
+            capo_glue.types.view_representation_list.deserialize_aws_json_1_1(
+                data["Representations"]
+            )
+        )
+    return out

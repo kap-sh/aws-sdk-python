@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-machine-learning"
+name = "capo-machine-learning"
 version = "0.1.0"
 description = "Python SDK for Machine Learning."
 readme = "README.md"

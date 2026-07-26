@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#OptionSpecification``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_elastic_beanstalk._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_elastic_beanstalk.types.configuration_option_name
+    import capo_elastic_beanstalk.types.option_namespace
+    import capo_elastic_beanstalk.types.resource_name
+
+
+class OptionSpecification(TypedDict, closed=True):
+    resource_name: NotRequired[
+        "capo_elastic_beanstalk.types.resource_name.ResourceName"
+    ]
+    """<p>A unique resource name for a time-based scaling configuration option.</p>"""
+    namespace: NotRequired[
+        "capo_elastic_beanstalk.types.option_namespace.OptionNamespace"
+    ]
+    """<p>A unique namespace identifying the option's associated AWS resource.</p>"""
+    option_name: NotRequired[
+        "capo_elastic_beanstalk.types.configuration_option_name.ConfigurationOptionName"
+    ]
+    """<p>The name of the configuration option.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: OptionSpecification, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "resource_name" in value:
+        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+    if "namespace" in value:
+        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+    if "option_name" in value:
+        pairs.append((f"{prefix}.OptionName", str(value["option_name"])))
+
+
+def deserialize_query(el: Element) -> OptionSpecification:
+    out: OptionSpecification = {}  # type: ignore[typeddict-item]
+    child_resource_name = el.find("ResourceName")
+    if child_resource_name is not None:
+        out["resource_name"] = str(child_resource_name.text or "")
+    child_namespace = el.find("Namespace")
+    if child_namespace is not None:
+        out["namespace"] = str(child_namespace.text or "")
+    child_option_name = el.find("OptionName")
+    if child_option_name is not None:
+        out["option_name"] = str(child_option_name.text or "")
+    return out

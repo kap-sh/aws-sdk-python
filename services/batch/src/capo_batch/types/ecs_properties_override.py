@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#EcsPropertiesOverride``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_batch.types.list_task_properties_override
+
+
+class EcsPropertiesOverride(TypedDict, closed=True):
+    task_properties: NotRequired[
+        "capo_batch.types.list_task_properties_override.ListTaskPropertiesOverride"
+    ]
+    """<p>The overrides for the Amazon ECS task definition of a job.</p> <note> <p>This object is currently limited to one element.</p> </note>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EcsPropertiesOverride) -> dict:
+    out: dict = {}
+    if "task_properties" in value:
+        import capo_batch.types.list_task_properties_override
+
+        out["taskProperties"] = (
+            capo_batch.types.list_task_properties_override.serialize_json(
+                value["task_properties"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EcsPropertiesOverride:
+    out: EcsPropertiesOverride = {}  # type: ignore[typeddict-item]
+    if "taskProperties" in data:
+        import capo_batch.types.list_task_properties_override
+
+        out["task_properties"] = (
+            capo_batch.types.list_task_properties_override.deserialize_json(
+                data["taskProperties"]
+            )
+        )
+    return out

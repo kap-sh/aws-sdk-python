@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.licensemanager#ListUsageForLicenseConfigurationResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_license_manager.types.license_configuration_usage_list
+    import capo_license_manager.types.string
+
+
+class ListUsageForLicenseConfigurationResponse(TypedDict, closed=True):
+    license_configuration_usage_list: NotRequired[
+        "capo_license_manager.types.license_configuration_usage_list.LicenseConfigurationUsageList"
+    ]
+    """<p>Information about the license configurations.</p>"""
+    next_token: NotRequired["capo_license_manager.types.string.String"]
+    """<p>Token for the next set of results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListUsageForLicenseConfigurationResponse) -> dict:
+    out: dict = {}
+    if "license_configuration_usage_list" in value:
+        import capo_license_manager.types.license_configuration_usage_list
+
+        out["LicenseConfigurationUsageList"] = (
+            capo_license_manager.types.license_configuration_usage_list.serialize_aws_json_1_1(
+                value["license_configuration_usage_list"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListUsageForLicenseConfigurationResponse:
+    out: ListUsageForLicenseConfigurationResponse = {}  # type: ignore[typeddict-item]
+    if "LicenseConfigurationUsageList" in data:
+        import capo_license_manager.types.license_configuration_usage_list
+
+        out["license_configuration_usage_list"] = (
+            capo_license_manager.types.license_configuration_usage_list.deserialize_aws_json_1_1(
+                data["LicenseConfigurationUsageList"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

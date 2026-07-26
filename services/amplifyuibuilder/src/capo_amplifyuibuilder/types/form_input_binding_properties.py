@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormInputBindingProperties``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_amplifyuibuilder.types.form_input_binding_properties_value
+
+FormInputBindingProperties: TypeAlias = dict[
+    "str",
+    "capo_amplifyuibuilder.types.form_input_binding_properties_value.FormInputBindingPropertiesValue",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(input_to_serialize: FormInputBindingProperties) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        import capo_amplifyuibuilder.types.form_input_binding_properties_value
+
+        out[key] = (
+            capo_amplifyuibuilder.types.form_input_binding_properties_value.serialize_json(
+                value
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> FormInputBindingProperties:
+    out: FormInputBindingProperties = {}
+    for key, value in data.items():
+        import capo_amplifyuibuilder.types.form_input_binding_properties_value
+
+        out[key] = (
+            capo_amplifyuibuilder.types.form_input_binding_properties_value.deserialize_json(
+                value
+            )
+        )
+    return out

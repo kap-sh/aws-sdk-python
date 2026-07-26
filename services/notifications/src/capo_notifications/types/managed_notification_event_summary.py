@@ -1,0 +1,98 @@
+"""Generated from Smithy shape ``com.amazonaws.notifications#ManagedNotificationEventSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_notifications.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_notifications.types.event_status
+    import capo_notifications.types.managed_source_event_metadata_summary
+    import capo_notifications.types.message_components_summary
+    import capo_notifications.types.notification_type
+    import capo_notifications.types.schema_version
+
+
+class ManagedNotificationEventSummary(TypedDict, closed=True):
+    schema_version: "capo_notifications.types.schema_version.SchemaVersion"
+    """<p>The schema version of the <code>ManagedNotificationEvent</code>.</p>"""
+    source_event_metadata: "capo_notifications.types.managed_source_event_metadata_summary.ManagedSourceEventMetadataSummary"
+    """<p>Contains metadata about the event that caused the <code>ManagedNotificationEvent</code>.</p>"""
+    message_components: (
+        "capo_notifications.types.message_components_summary.MessageComponentsSummary"
+    )
+    event_status: "capo_notifications.types.event_status.EventStatus"
+    """<p>The managed notification event status.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>HEALTHY</code> </p> <ul> <li> <p>All <code>EventRules</code> are <code>ACTIVE</code>.</p> </li> </ul> </li> <li> <p> <code>UNHEALTHY</code> </p> <ul> <li> <p>Some <code>EventRules</code> are <code>ACTIVE</code> and some are <code>INACTIVE</code>.</p> </li> </ul> </li> </ul> </li> </ul>"""
+    notification_type: "capo_notifications.types.notification_type.NotificationType"
+    """<p>The Type of event causing the notification.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ALERT</code> </p> <ul> <li> <p>A notification about an event where something was triggered, initiated, reopened, deployed, or a threshold was breached.</p> </li> </ul> </li> <li> <p> <code>WARNING</code> </p> <ul> <li> <p>A notification about an event where an issue is about to arise. For example, something is approaching a threshold.</p> </li> </ul> </li> <li> <p> <code>ANNOUNCEMENT</code> </p> <ul> <li> <p>A notification about an important event. For example, a step in a workflow or escalation path or that a workflow was updated.</p> </li> </ul> </li> <li> <p> <code>INFORMATIONAL</code> </p> <ul> <li> <p>A notification about informational messages. For example, recommendations, service announcements, or reminders.</p> </li> </ul> </li> </ul> </li> </ul>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ManagedNotificationEventSummary) -> dict:
+    out: dict = {}
+    out["schemaVersion"] = value["schema_version"]
+    import capo_notifications.types.managed_source_event_metadata_summary
+
+    out["sourceEventMetadata"] = (
+        capo_notifications.types.managed_source_event_metadata_summary.serialize_json(
+            value["source_event_metadata"]
+        )
+    )
+    import capo_notifications.types.message_components_summary
+
+    out["messageComponents"] = (
+        capo_notifications.types.message_components_summary.serialize_json(
+            value["message_components"]
+        )
+    )
+    out["eventStatus"] = value["event_status"]
+    out["notificationType"] = value["notification_type"]
+    return out
+
+
+def deserialize_json(data: dict) -> ManagedNotificationEventSummary:
+    out: ManagedNotificationEventSummary = {}  # type: ignore[typeddict-item]
+    if "schemaVersion" in data:
+        out["schema_version"] = data["schemaVersion"]
+    else:
+        raise DeserializationError(
+            "ManagedNotificationEventSummary.schema_version required"
+        )
+    if "sourceEventMetadata" in data:
+        import capo_notifications.types.managed_source_event_metadata_summary
+
+        out["source_event_metadata"] = (
+            capo_notifications.types.managed_source_event_metadata_summary.deserialize_json(
+                data["sourceEventMetadata"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ManagedNotificationEventSummary.source_event_metadata required"
+        )
+    if "messageComponents" in data:
+        import capo_notifications.types.message_components_summary
+
+        out["message_components"] = (
+            capo_notifications.types.message_components_summary.deserialize_json(
+                data["messageComponents"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ManagedNotificationEventSummary.message_components required"
+        )
+    if "eventStatus" in data:
+        out["event_status"] = data["eventStatus"]
+    else:
+        raise DeserializationError(
+            "ManagedNotificationEventSummary.event_status required"
+        )
+    if "notificationType" in data:
+        out["notification_type"] = data["notificationType"]
+    else:
+        raise DeserializationError(
+            "ManagedNotificationEventSummary.notification_type required"
+        )
+    return out

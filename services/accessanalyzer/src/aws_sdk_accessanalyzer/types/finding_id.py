@@ -1,5 +1,0 @@
-"""Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingId``."""
-
-from typing import TypeAlias
-
-FindingId: TypeAlias = str

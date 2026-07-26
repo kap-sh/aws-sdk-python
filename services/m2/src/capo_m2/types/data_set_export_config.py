@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.m2#DataSetExportConfig``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_m2.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_m2.types.data_set_export_list
+
+
+class _DataSetExportConfig_s3Location(TypedDict, closed=True):
+    s3Location: "str"
+
+
+class _DataSetExportConfig_dataSets(TypedDict, closed=True):
+    dataSets: "capo_m2.types.data_set_export_list.DataSetExportList"
+
+
+DataSetExportConfig: TypeAlias = (
+    _DataSetExportConfig_s3Location | _DataSetExportConfig_dataSets
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataSetExportConfig) -> dict:
+    if "s3Location" in value:
+        return {"s3Location": value["s3Location"]}
+    elif "dataSets" in value:
+        import capo_m2.types.data_set_export_list
+
+        return {
+            "dataSets": capo_m2.types.data_set_export_list.serialize_json(
+                value["dataSets"]
+            )
+        }
+    else:
+        raise SerializationError("DataSetExportConfig: no variant present")
+
+
+def deserialize_json(data: dict) -> DataSetExportConfig:
+    if "s3Location" in data:
+        return {"s3Location": data["s3Location"]}
+    elif "dataSets" in data:
+        import capo_m2.types.data_set_export_list
+
+        return {
+            "dataSets": capo_m2.types.data_set_export_list.deserialize_json(
+                data["dataSets"]
+            )
+        }
+    else:
+        raise DeserializationError("DataSetExportConfig: no recognized variant key")

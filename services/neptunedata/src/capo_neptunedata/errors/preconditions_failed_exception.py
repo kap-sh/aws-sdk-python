@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.neptunedata#PreconditionsFailedException``."""
+
+from typing_extensions import TypedDict
+
+from capo_neptunedata.errors import DeserializationError, ServiceError
+
+
+class PreconditionsFailedException_(TypedDict, closed=True):
+    detailed_message: "str"
+    """<p>A detailed message describing the problem.</p>"""
+    request_id: "str"
+    """<p>The ID of the request in question.</p>"""
+    code: "str"
+    """<p>The HTTP status code returned with the exception.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PreconditionsFailedException_) -> dict:
+    out: dict = {}
+    out["detailedMessage"] = value["detailed_message"]
+    out["requestId"] = value["request_id"]
+    out["code"] = value["code"]
+    return out
+
+
+def deserialize_json(data: dict) -> PreconditionsFailedException_:
+    out: PreconditionsFailedException_ = {}  # type: ignore[typeddict-item]
+    if "detailedMessage" in data:
+        out["detailed_message"] = data["detailedMessage"]
+    else:
+        raise DeserializationError(
+            "PreconditionsFailedException_.detailed_message required"
+        )
+    if "requestId" in data:
+        out["request_id"] = data["requestId"]
+    else:
+        raise DeserializationError("PreconditionsFailedException_.request_id required")
+    if "code" in data:
+        out["code"] = data["code"]
+    else:
+        raise DeserializationError("PreconditionsFailedException_.code required")
+    return out
+
+
+class PreconditionsFailedException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.neptunedata#PreconditionsFailedException``."""
+
+    code: str | None = "PreconditionsFailedException"
+
+    def __init__(self, data: PreconditionsFailedException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="PreconditionsFailedException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "PreconditionsFailedException":
+        return cls(deserialize_json(data))

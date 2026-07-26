@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.finspace#KxDatabaseListEntry``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_finspace.types.database_name
+    import capo_finspace.types.timestamp
+
+
+class KxDatabaseListEntry(TypedDict, closed=True):
+    database_name: NotRequired["capo_finspace.types.database_name.DatabaseName"]
+    """<p>The name of the kdb database.</p>"""
+    created_timestamp: NotRequired["capo_finspace.types.timestamp.Timestamp"]
+    """<p>The timestamp at which the database was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>"""
+    last_modified_timestamp: NotRequired["capo_finspace.types.timestamp.Timestamp"]
+    """<p>The last time that the database was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: KxDatabaseListEntry) -> dict:
+    out: dict = {}
+    if "database_name" in value:
+        out["databaseName"] = value["database_name"]
+    if "created_timestamp" in value:
+        import capo_finspace.types.timestamp
+
+        out["createdTimestamp"] = capo_finspace.types.timestamp.serialize_json(
+            value["created_timestamp"]
+        )
+    if "last_modified_timestamp" in value:
+        import capo_finspace.types.timestamp
+
+        out["lastModifiedTimestamp"] = capo_finspace.types.timestamp.serialize_json(
+            value["last_modified_timestamp"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> KxDatabaseListEntry:
+    out: KxDatabaseListEntry = {}  # type: ignore[typeddict-item]
+    if "databaseName" in data:
+        out["database_name"] = data["databaseName"]
+    if "createdTimestamp" in data:
+        import capo_finspace.types.timestamp
+
+        out["created_timestamp"] = capo_finspace.types.timestamp.deserialize_json(
+            data["createdTimestamp"]
+        )
+    if "lastModifiedTimestamp" in data:
+        import capo_finspace.types.timestamp
+
+        out["last_modified_timestamp"] = capo_finspace.types.timestamp.deserialize_json(
+            data["lastModifiedTimestamp"]
+        )
+    return out

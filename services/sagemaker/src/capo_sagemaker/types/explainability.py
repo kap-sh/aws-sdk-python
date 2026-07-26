@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#Explainability``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.metrics_source
+
+
+class Explainability(TypedDict, closed=True):
+    report: NotRequired["capo_sagemaker.types.metrics_source.MetricsSource"]
+    """<p>The explainability report for a model.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Explainability) -> dict:
+    out: dict = {}
+    if "report" in value:
+        import capo_sagemaker.types.metrics_source
+
+        out["Report"] = capo_sagemaker.types.metrics_source.serialize_aws_json_1_1(
+            value["report"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> Explainability:
+    out: Explainability = {}  # type: ignore[typeddict-item]
+    if "Report" in data:
+        import capo_sagemaker.types.metrics_source
+
+        out["report"] = capo_sagemaker.types.metrics_source.deserialize_aws_json_1_1(
+            data["Report"]
+        )
+    return out

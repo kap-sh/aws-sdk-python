@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#Fields``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_cloudsearch_domain.types.field_value
+    import capo_cloudsearch_domain.types.string
+
+Fields: TypeAlias = dict[
+    "capo_cloudsearch_domain.types.string.String",
+    "capo_cloudsearch_domain.types.field_value.FieldValue",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(input_to_serialize: Fields) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        import capo_cloudsearch_domain.types.field_value
+
+        out[key] = capo_cloudsearch_domain.types.field_value.serialize_json(value)
+    return out
+
+
+def deserialize_json(data: dict) -> Fields:
+    out: Fields = {}
+    for key, value in data.items():
+        import capo_cloudsearch_domain.types.field_value
+
+        out[key] = capo_cloudsearch_domain.types.field_value.deserialize_json(value)
+    return out

@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#Statistic``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_cloudwatch._protocol.xml import Element
+
+Statistic: TypeAlias = Literal[
+    "SampleCount",
+    "Average",
+    "Sum",
+    "Minimum",
+    "Maximum",
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: Statistic) -> str:
+    return value
+
+
+def deserialize_aws_json_1_0(data: str) -> Statistic:
+    return cast(Statistic, data)
+
+
+# --- awsQuery ser/de ---
+def to_query_text(value: Statistic) -> str:
+    return value
+
+
+def from_query_text(text: str) -> Statistic:
+    return cast(Statistic, text)
+
+
+def serialize_query(
+    value: Statistic, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> Statistic:
+    return from_query_text(el.text or "")

@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.workmailmessageflow#PutRawMessageContentRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_workmailmessageflow.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_workmailmessageflow.types.message_id_type
+    import capo_workmailmessageflow.types.raw_message_content
+
+
+class PutRawMessageContentRequest(TypedDict, closed=True):
+    message_id: "capo_workmailmessageflow.types.message_id_type.messageIdType"
+    """<p>The identifier of the email message being updated.</p>"""
+    content: "capo_workmailmessageflow.types.raw_message_content.RawMessageContent"
+    """<p>Describes the raw message content of the updated email message.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutRawMessageContentRequest) -> dict:
+    out: dict = {}
+    import capo_workmailmessageflow.types.raw_message_content
+
+    out["content"] = capo_workmailmessageflow.types.raw_message_content.serialize_json(
+        value["content"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> PutRawMessageContentRequest:
+    out: PutRawMessageContentRequest = {}  # type: ignore[typeddict-item]
+    if "content" in data:
+        import capo_workmailmessageflow.types.raw_message_content
+
+        out["content"] = (
+            capo_workmailmessageflow.types.raw_message_content.deserialize_json(
+                data["content"]
+            )
+        )
+    else:
+        raise DeserializationError("PutRawMessageContentRequest.content required")
+    return out

@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehubv2#DeleteUserJourneyResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_resiliencehubv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_resiliencehubv2.types.user_journey_id
+
+
+class DeleteUserJourneyResponse(TypedDict, closed=True):
+    user_journey_id: "capo_resiliencehubv2.types.user_journey_id.UserJourneyId"
+    """<p>The identifier of the deleted user journey.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteUserJourneyResponse) -> dict:
+    out: dict = {}
+    out["userJourneyId"] = value["user_journey_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteUserJourneyResponse:
+    out: DeleteUserJourneyResponse = {}  # type: ignore[typeddict-item]
+    if "userJourneyId" in data:
+        out["user_journey_id"] = data["userJourneyId"]
+    else:
+        raise DeserializationError("DeleteUserJourneyResponse.user_journey_id required")
+    return out

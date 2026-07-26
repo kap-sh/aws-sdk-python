@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.codeartifact#ListRepositoriesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_codeartifact.types.list_repositories_max_results
+    import capo_codeartifact.types.pagination_token
+    import capo_codeartifact.types.repository_name
+
+
+class ListRepositoriesRequest(TypedDict, closed=True):
+    repository_prefix: NotRequired[
+        "capo_codeartifact.types.repository_name.RepositoryName"
+    ]
+    """<p> A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>"""
+    max_results: NotRequired[
+        "capo_codeartifact.types.list_repositories_max_results.ListRepositoriesMaxResults"
+    ]
+    """<p> The maximum number of results to return per page. </p>"""
+    next_token: NotRequired["capo_codeartifact.types.pagination_token.PaginationToken"]
+    """<p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListRepositoriesRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListRepositoriesRequest:
+    out: ListRepositoriesRequest = {}  # type: ignore[typeddict-item]
+    return out

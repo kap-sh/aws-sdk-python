@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.entityresolution#DeletedUniqueIdList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_entityresolution.types.deleted_unique_id
+
+DeletedUniqueIdList: TypeAlias = list[
+    "capo_entityresolution.types.deleted_unique_id.DeletedUniqueId"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeletedUniqueIdList) -> list:
+    import capo_entityresolution.types.deleted_unique_id
+
+    out: list = []
+    for item in value:
+        out.append(capo_entityresolution.types.deleted_unique_id.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> DeletedUniqueIdList:
+    import capo_entityresolution.types.deleted_unique_id
+
+    out: DeletedUniqueIdList = []
+    for item in data:
+        out.append(capo_entityresolution.types.deleted_unique_id.deserialize_json(item))
+    return out

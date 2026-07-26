@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.synthetics#GetCanaryResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_synthetics.types.canary
+
+
+class GetCanaryResponse(TypedDict, closed=True):
+    canary: NotRequired["capo_synthetics.types.canary.Canary"]
+    """<p>A structure that contains the full information about the canary.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetCanaryResponse) -> dict:
+    out: dict = {}
+    if "canary" in value:
+        import capo_synthetics.types.canary
+
+        out["Canary"] = capo_synthetics.types.canary.serialize_json(value["canary"])
+    return out
+
+
+def deserialize_json(data: dict) -> GetCanaryResponse:
+    out: GetCanaryResponse = {}  # type: ignore[typeddict-item]
+    if "Canary" in data:
+        import capo_synthetics.types.canary
+
+        out["canary"] = capo_synthetics.types.canary.deserialize_json(data["Canary"])
+    return out

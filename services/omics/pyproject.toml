@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-omics"
+name = "capo-omics"
 version = "0.1.0"
 description = "Python SDK for Omics."
 readme = "README.md"

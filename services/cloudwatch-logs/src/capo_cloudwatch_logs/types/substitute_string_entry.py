@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#SubstituteStringEntry``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_cloudwatch_logs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_cloudwatch_logs.types.from_key
+    import capo_cloudwatch_logs.types.source
+    import capo_cloudwatch_logs.types.to_key
+
+SubstituteStringEntry = TypedDict(
+    "SubstituteStringEntry",
+    {
+        "source": "capo_cloudwatch_logs.types.source.Source",
+        "from": "capo_cloudwatch_logs.types.from_key.FromKey",
+        "to": "capo_cloudwatch_logs.types.to_key.ToKey",
+    },
+    closed=True,
+)
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SubstituteStringEntry) -> dict:
+    out: dict = {}
+    out["source"] = value["source"]
+    out["from"] = value["from"]
+    out["to"] = value["to"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SubstituteStringEntry:
+    out: SubstituteStringEntry = {}  # type: ignore[typeddict-item]
+    if "source" in data:
+        out["source"] = data["source"]
+    else:
+        raise DeserializationError("SubstituteStringEntry.source required")
+    if "from" in data:
+        out["from"] = data["from"]
+    else:
+        raise DeserializationError("SubstituteStringEntry.from required")
+    if "to" in data:
+        out["to"] = data["to"]
+    else:
+        raise DeserializationError("SubstituteStringEntry.to required")
+    return out

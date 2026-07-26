@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#UntagResourceRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_lex_model_building_service.types.amazon_resource_name
+    import capo_lex_model_building_service.types.tag_key_list
+
+
+class UntagResourceRequest(TypedDict, closed=True):
+    resource_arn: (
+        "capo_lex_model_building_service.types.amazon_resource_name.AmazonResourceName"
+    )
+    """<p>The Amazon Resource Name (ARN) of the resource to remove the tags from.</p>"""
+    tag_keys: "capo_lex_model_building_service.types.tag_key_list.TagKeyList"
+    """<p>A list of tag keys to remove from the resource. If a tag key does not exist on the resource, it is ignored.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UntagResourceRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> UntagResourceRequest:
+    out: UntagResourceRequest = {}  # type: ignore[typeddict-item]
+    return out

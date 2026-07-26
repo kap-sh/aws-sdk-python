@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-managedblockchain-query"
+name = "capo-managedblockchain-query"
 version = "0.1.0"
 description = "Python SDK for Managedblockchain Query."
 readme = "README.md"

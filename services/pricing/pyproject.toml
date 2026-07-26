@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-pricing"
+name = "capo-pricing"
 version = "0.1.0"
 description = "Python SDK for Pricing."
 readme = "README.md"

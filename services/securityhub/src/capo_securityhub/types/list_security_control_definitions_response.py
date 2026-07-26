@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#ListSecurityControlDefinitionsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.next_token
+    import capo_securityhub.types.security_control_definitions
+
+
+class ListSecurityControlDefinitionsResponse(TypedDict, closed=True):
+    security_control_definitions: NotRequired[
+        "capo_securityhub.types.security_control_definitions.SecurityControlDefinitions"
+    ]
+    """<p> An array of controls that apply to the specified standard. </p>"""
+    next_token: NotRequired["capo_securityhub.types.next_token.NextToken"]
+    """<p> A pagination parameter that's included in the response only if it was included in the request. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListSecurityControlDefinitionsResponse) -> dict:
+    out: dict = {}
+    if "security_control_definitions" in value:
+        import capo_securityhub.types.security_control_definitions
+
+        out["SecurityControlDefinitions"] = (
+            capo_securityhub.types.security_control_definitions.serialize_json(
+                value["security_control_definitions"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListSecurityControlDefinitionsResponse:
+    out: ListSecurityControlDefinitionsResponse = {}  # type: ignore[typeddict-item]
+    if "SecurityControlDefinitions" in data:
+        import capo_securityhub.types.security_control_definitions
+
+        out["security_control_definitions"] = (
+            capo_securityhub.types.security_control_definitions.deserialize_json(
+                data["SecurityControlDefinitions"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

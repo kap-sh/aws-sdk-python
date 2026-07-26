@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-kinesis-analytics-v2"
+name = "capo-kinesis-analytics-v2"
 version = "0.1.0"
 description = "Python SDK for Kinesis Analytics V2."
 readme = "README.md"

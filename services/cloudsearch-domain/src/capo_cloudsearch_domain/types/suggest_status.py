@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SuggestStatus``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_cloudsearch_domain.types.long
+    import capo_cloudsearch_domain.types.string
+
+
+class SuggestStatus(TypedDict, closed=True):
+    timems: "capo_cloudsearch_domain.types.long.Long"
+    """<p>How long it took to process the request, in milliseconds.</p>"""
+    rid: NotRequired["capo_cloudsearch_domain.types.string.String"]
+    """<p>The encrypted resource ID for the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SuggestStatus) -> dict:
+    out: dict = {}
+    out["timems"] = value.get("timems", 0)
+    if "rid" in value:
+        out["rid"] = value["rid"]
+    return out
+
+
+def deserialize_json(data: dict) -> SuggestStatus:
+    out: SuggestStatus = {}  # type: ignore[typeddict-item]
+    if "timems" in data:
+        out["timems"] = data["timems"]
+    else:
+        out["timems"] = 0
+    if "rid" in data:
+        out["rid"] = data["rid"]
+    return out

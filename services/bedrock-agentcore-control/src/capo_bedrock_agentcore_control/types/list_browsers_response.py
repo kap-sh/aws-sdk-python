@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListBrowsersResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.browser_summaries
+    import capo_bedrock_agentcore_control.types.next_token
+
+
+class ListBrowsersResponse(TypedDict, closed=True):
+    browser_summaries: (
+        "capo_bedrock_agentcore_control.types.browser_summaries.BrowserSummaries"
+    )
+    """<p>The list of browser summaries.</p>"""
+    next_token: NotRequired["capo_bedrock_agentcore_control.types.next_token.NextToken"]
+    """<p>A token to retrieve the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListBrowsersResponse) -> dict:
+    out: dict = {}
+    import capo_bedrock_agentcore_control.types.browser_summaries
+
+    out["browserSummaries"] = (
+        capo_bedrock_agentcore_control.types.browser_summaries.serialize_json(
+            value["browser_summaries"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListBrowsersResponse:
+    out: ListBrowsersResponse = {}  # type: ignore[typeddict-item]
+    if "browserSummaries" in data:
+        import capo_bedrock_agentcore_control.types.browser_summaries
+
+        out["browser_summaries"] = (
+            capo_bedrock_agentcore_control.types.browser_summaries.deserialize_json(
+                data["browserSummaries"]
+            )
+        )
+    else:
+        raise DeserializationError("ListBrowsersResponse.browser_summaries required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

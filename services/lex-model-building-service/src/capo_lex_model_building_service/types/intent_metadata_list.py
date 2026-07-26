@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#IntentMetadataList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_lex_model_building_service.types.intent_metadata
+
+IntentMetadataList: TypeAlias = list[
+    "capo_lex_model_building_service.types.intent_metadata.IntentMetadata"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IntentMetadataList) -> list:
+    import capo_lex_model_building_service.types.intent_metadata
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_lex_model_building_service.types.intent_metadata.serialize_json(item)
+        )
+    return out
+
+
+def deserialize_json(data: list) -> IntentMetadataList:
+    import capo_lex_model_building_service.types.intent_metadata
+
+    out: IntentMetadataList = []
+    for item in data:
+        out.append(
+            capo_lex_model_building_service.types.intent_metadata.deserialize_json(item)
+        )
+    return out

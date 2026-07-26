@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#UpdateStepRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_deadline.types.client_token
+    import capo_deadline.types.farm_id
+    import capo_deadline.types.job_id
+    import capo_deadline.types.queue_id
+    import capo_deadline.types.step_id
+    import capo_deadline.types.step_target_task_run_status
+
+
+class UpdateStepRequest(TypedDict, closed=True):
+    farm_id: "capo_deadline.types.farm_id.FarmId"
+    """<p>The farm ID to update.</p>"""
+    queue_id: "capo_deadline.types.queue_id.QueueId"
+    """<p>The queue ID to update.</p>"""
+    job_id: "capo_deadline.types.job_id.JobId"
+    """<p>The job ID to update.</p>"""
+    step_id: "capo_deadline.types.step_id.StepId"
+    """<p>The step ID to update.</p>"""
+    client_token: NotRequired["capo_deadline.types.client_token.ClientToken"]
+    """<p>The unique token which the server uses to recognize retries of the same request.</p>"""
+    target_task_run_status: (
+        "capo_deadline.types.step_target_task_run_status.StepTargetTaskRunStatus"
+    )
+    """<p>The task status to update the step's tasks to.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateStepRequest) -> dict:
+    out: dict = {}
+    import capo_deadline.types.step_target_task_run_status
+
+    out["targetTaskRunStatus"] = (
+        capo_deadline.types.step_target_task_run_status.serialize_json(
+            value["target_task_run_status"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateStepRequest:
+    out: UpdateStepRequest = {}  # type: ignore[typeddict-item]
+    if "targetTaskRunStatus" in data:
+        import capo_deadline.types.step_target_task_run_status
+
+        out["target_task_run_status"] = (
+            capo_deadline.types.step_target_task_run_status.deserialize_json(
+                data["targetTaskRunStatus"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateStepRequest.target_task_run_status required")
+    return out

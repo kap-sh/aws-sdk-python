@@ -1,0 +1,113 @@
+"""Generated from Smithy shape ``com.amazonaws.rdsdata#Field``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_rds_data.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_rds_data.types.array_value
+    import capo_rds_data.types.blob
+    import capo_rds_data.types.boxed_boolean
+    import capo_rds_data.types.boxed_double
+    import capo_rds_data.types.boxed_long
+    import capo_rds_data.types.string
+
+
+class _Field_isNull(TypedDict, closed=True):
+    isNull: "capo_rds_data.types.boxed_boolean.BoxedBoolean"
+
+
+class _Field_booleanValue(TypedDict, closed=True):
+    booleanValue: "capo_rds_data.types.boxed_boolean.BoxedBoolean"
+
+
+class _Field_longValue(TypedDict, closed=True):
+    longValue: "capo_rds_data.types.boxed_long.BoxedLong"
+
+
+class _Field_doubleValue(TypedDict, closed=True):
+    doubleValue: "capo_rds_data.types.boxed_double.BoxedDouble"
+
+
+class _Field_stringValue(TypedDict, closed=True):
+    stringValue: "capo_rds_data.types.string.String"
+
+
+class _Field_blobValue(TypedDict, closed=True):
+    blobValue: "capo_rds_data.types.blob.Blob"
+
+
+class _Field_arrayValue(TypedDict, closed=True):
+    arrayValue: "capo_rds_data.types.array_value.ArrayValue"
+
+
+Field: TypeAlias = (
+    _Field_isNull
+    | _Field_booleanValue
+    | _Field_longValue
+    | _Field_doubleValue
+    | _Field_stringValue
+    | _Field_blobValue
+    | _Field_arrayValue
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Field) -> dict:
+    if "isNull" in value:
+        return {"isNull": value["isNull"]}
+    elif "booleanValue" in value:
+        return {"booleanValue": value["booleanValue"]}
+    elif "longValue" in value:
+        return {"longValue": value["longValue"]}
+    elif "doubleValue" in value:
+        return {"doubleValue": value["doubleValue"]}
+    elif "stringValue" in value:
+        return {"stringValue": value["stringValue"]}
+    elif "blobValue" in value:
+        import capo_rds_data.types.blob
+
+        return {
+            "blobValue": capo_rds_data.types.blob.serialize_json(value["blobValue"])
+        }
+    elif "arrayValue" in value:
+        import capo_rds_data.types.array_value
+
+        return {
+            "arrayValue": capo_rds_data.types.array_value.serialize_json(
+                value["arrayValue"]
+            )
+        }
+    else:
+        raise SerializationError("Field: no variant present")
+
+
+def deserialize_json(data: dict) -> Field:
+    if "isNull" in data:
+        return {"isNull": data["isNull"]}
+    elif "booleanValue" in data:
+        return {"booleanValue": data["booleanValue"]}
+    elif "longValue" in data:
+        return {"longValue": data["longValue"]}
+    elif "doubleValue" in data:
+        return {"doubleValue": data["doubleValue"]}
+    elif "stringValue" in data:
+        return {"stringValue": data["stringValue"]}
+    elif "blobValue" in data:
+        import capo_rds_data.types.blob
+
+        return {
+            "blobValue": capo_rds_data.types.blob.deserialize_json(data["blobValue"])
+        }
+    elif "arrayValue" in data:
+        import capo_rds_data.types.array_value
+
+        return {
+            "arrayValue": capo_rds_data.types.array_value.deserialize_json(
+                data["arrayValue"]
+            )
+        }
+    else:
+        raise DeserializationError("Field: no recognized variant key")

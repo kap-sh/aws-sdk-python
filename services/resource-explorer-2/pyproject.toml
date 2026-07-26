@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-resource-explorer-2"
+name = "capo-resource-explorer-2"
 version = "0.1.0"
 description = "Python SDK for Resource Explorer 2."
 readme = "README.md"

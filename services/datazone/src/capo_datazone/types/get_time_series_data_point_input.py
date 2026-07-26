@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.datazone#GetTimeSeriesDataPointInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_datazone.types.domain_id
+    import capo_datazone.types.entity_identifier
+    import capo_datazone.types.time_series_data_point_identifier
+    import capo_datazone.types.time_series_entity_type
+    import capo_datazone.types.time_series_form_name
+
+
+class GetTimeSeriesDataPointInput(TypedDict, closed=True):
+    domain_identifier: "capo_datazone.types.domain_id.DomainId"
+    """<p>The ID of the Amazon DataZone domain that houses the asset for which you want to get the data point.</p>"""
+    entity_identifier: "capo_datazone.types.entity_identifier.EntityIdentifier"
+    """<p>The ID of the asset for which you want to get the data point.</p>"""
+    entity_type: "capo_datazone.types.time_series_entity_type.TimeSeriesEntityType"
+    """<p>The type of the asset for which you want to get the data point.</p>"""
+    identifier: "capo_datazone.types.time_series_data_point_identifier.TimeSeriesDataPointIdentifier"
+    """<p>The ID of the data point that you want to get.</p>"""
+    form_name: "capo_datazone.types.time_series_form_name.TimeSeriesFormName"
+    """<p>The name of the time series form that houses the data point that you want to get.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetTimeSeriesDataPointInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetTimeSeriesDataPointInput:
+    out: GetTimeSeriesDataPointInput = {}  # type: ignore[typeddict-item]
+    return out

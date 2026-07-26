@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.tnb#ListSolFunctionInstancesOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_tnb.types.list_sol_function_instance_resources
+    import capo_tnb.types.pagination_token
+
+
+class ListSolFunctionInstancesOutput(TypedDict, closed=True):
+    next_token: NotRequired["capo_tnb.types.pagination_token.PaginationToken"]
+    """<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"""
+    function_instances: NotRequired[
+        "capo_tnb.types.list_sol_function_instance_resources.ListSolFunctionInstanceResources"
+    ]
+    """<p>Network function instances.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListSolFunctionInstancesOutput) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "function_instances" in value:
+        import capo_tnb.types.list_sol_function_instance_resources
+
+        out["functionInstances"] = (
+            capo_tnb.types.list_sol_function_instance_resources.serialize_json(
+                value["function_instances"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListSolFunctionInstancesOutput:
+    out: ListSolFunctionInstancesOutput = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "functionInstances" in data:
+        import capo_tnb.types.list_sol_function_instance_resources
+
+        out["function_instances"] = (
+            capo_tnb.types.list_sol_function_instance_resources.deserialize_json(
+                data["functionInstances"]
+            )
+        )
+    return out

@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkidentity#ListAppInstanceAdminsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_chime_sdk_identity.types.chime_arn
+    import capo_chime_sdk_identity.types.max_results
+    import capo_chime_sdk_identity.types.next_token
+
+
+class ListAppInstanceAdminsRequest(TypedDict, closed=True):
+    app_instance_arn: "capo_chime_sdk_identity.types.chime_arn.ChimeArn"
+    """<p>The ARN of the <code>AppInstance</code>.</p>"""
+    max_results: NotRequired["capo_chime_sdk_identity.types.max_results.MaxResults"]
+    """<p>The maximum number of administrators that you want to return.</p>"""
+    next_token: NotRequired["capo_chime_sdk_identity.types.next_token.NextToken"]
+    """<p>The token returned from previous API requests until the number of administrators is reached.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAppInstanceAdminsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListAppInstanceAdminsRequest:
+    out: ListAppInstanceAdminsRequest = {}  # type: ignore[typeddict-item]
+    return out

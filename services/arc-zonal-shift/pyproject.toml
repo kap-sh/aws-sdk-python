@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-arc-zonal-shift"
+name = "capo-arc-zonal-shift"
 version = "0.1.0"
 description = "Python SDK for Arc Zonal Shift."
 readme = "README.md"

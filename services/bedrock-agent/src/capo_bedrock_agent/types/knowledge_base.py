@@ -1,0 +1,171 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#KnowledgeBase``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agent.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent.types.date_timestamp
+    import capo_bedrock_agent.types.description
+    import capo_bedrock_agent.types.failure_reasons
+    import capo_bedrock_agent.types.id
+    import capo_bedrock_agent.types.knowledge_base_arn
+    import capo_bedrock_agent.types.knowledge_base_configuration
+    import capo_bedrock_agent.types.knowledge_base_role_arn
+    import capo_bedrock_agent.types.knowledge_base_status
+    import capo_bedrock_agent.types.name
+    import capo_bedrock_agent.types.storage_configuration
+
+
+class KnowledgeBase(TypedDict, closed=True):
+    knowledge_base_id: "capo_bedrock_agent.types.id.Id"
+    """<p>The unique identifier of the knowledge base.</p>"""
+    name: "capo_bedrock_agent.types.name.Name"
+    """<p>The name of the knowledge base.</p>"""
+    knowledge_base_arn: "capo_bedrock_agent.types.knowledge_base_arn.KnowledgeBaseArn"
+    """<p>The Amazon Resource Name (ARN) of the knowledge base.</p>"""
+    description: NotRequired["capo_bedrock_agent.types.description.Description"]
+    """<p>The description of the knowledge base.</p>"""
+    role_arn: "capo_bedrock_agent.types.knowledge_base_role_arn.KnowledgeBaseRoleArn"
+    """<p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>"""
+    knowledge_base_configuration: "capo_bedrock_agent.types.knowledge_base_configuration.KnowledgeBaseConfiguration"
+    """<p>Contains details about the embeddings configuration of the knowledge base.</p>"""
+    storage_configuration: NotRequired[
+        "capo_bedrock_agent.types.storage_configuration.StorageConfiguration"
+    ]
+    """<p>Contains details about the storage configuration of the knowledge base.</p>"""
+    status: "capo_bedrock_agent.types.knowledge_base_status.KnowledgeBaseStatus"
+    """<p>The status of the knowledge base. The following statuses are possible:</p> <ul> <li> <p>CREATING – The knowledge base is being created.</p> </li> <li> <p>ACTIVE – The knowledge base is ready to be queried.</p> </li> <li> <p>DELETING – The knowledge base is being deleted.</p> </li> <li> <p>UPDATING – The knowledge base is being updated.</p> </li> <li> <p>FAILED – The knowledge base API operation failed.</p> </li> </ul>"""
+    created_at: "capo_bedrock_agent.types.date_timestamp.DateTimestamp"
+    """<p>The time the knowledge base was created.</p>"""
+    updated_at: "capo_bedrock_agent.types.date_timestamp.DateTimestamp"
+    """<p>The time the knowledge base was last updated.</p>"""
+    failure_reasons: NotRequired[
+        "capo_bedrock_agent.types.failure_reasons.FailureReasons"
+    ]
+    """<p>A list of reasons that the API operation on the knowledge base failed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: KnowledgeBase) -> dict:
+    out: dict = {}
+    out["knowledgeBaseId"] = value["knowledge_base_id"]
+    out["name"] = value["name"]
+    out["knowledgeBaseArn"] = value["knowledge_base_arn"]
+    if "description" in value:
+        out["description"] = value["description"]
+    out["roleArn"] = value["role_arn"]
+    import capo_bedrock_agent.types.knowledge_base_configuration
+
+    out["knowledgeBaseConfiguration"] = (
+        capo_bedrock_agent.types.knowledge_base_configuration.serialize_json(
+            value["knowledge_base_configuration"]
+        )
+    )
+    if "storage_configuration" in value:
+        import capo_bedrock_agent.types.storage_configuration
+
+        out["storageConfiguration"] = (
+            capo_bedrock_agent.types.storage_configuration.serialize_json(
+                value["storage_configuration"]
+            )
+        )
+    import capo_bedrock_agent.types.knowledge_base_status
+
+    out["status"] = capo_bedrock_agent.types.knowledge_base_status.serialize_json(
+        value["status"]
+    )
+    import capo_bedrock_agent.types.date_timestamp
+
+    out["createdAt"] = capo_bedrock_agent.types.date_timestamp.serialize_json(
+        value["created_at"]
+    )
+    import capo_bedrock_agent.types.date_timestamp
+
+    out["updatedAt"] = capo_bedrock_agent.types.date_timestamp.serialize_json(
+        value["updated_at"]
+    )
+    if "failure_reasons" in value:
+        import capo_bedrock_agent.types.failure_reasons
+
+        out["failureReasons"] = capo_bedrock_agent.types.failure_reasons.serialize_json(
+            value["failure_reasons"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> KnowledgeBase:
+    out: KnowledgeBase = {}  # type: ignore[typeddict-item]
+    if "knowledgeBaseId" in data:
+        out["knowledge_base_id"] = data["knowledgeBaseId"]
+    else:
+        raise DeserializationError("KnowledgeBase.knowledge_base_id required")
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("KnowledgeBase.name required")
+    if "knowledgeBaseArn" in data:
+        out["knowledge_base_arn"] = data["knowledgeBaseArn"]
+    else:
+        raise DeserializationError("KnowledgeBase.knowledge_base_arn required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    else:
+        raise DeserializationError("KnowledgeBase.role_arn required")
+    if "knowledgeBaseConfiguration" in data:
+        import capo_bedrock_agent.types.knowledge_base_configuration
+
+        out["knowledge_base_configuration"] = (
+            capo_bedrock_agent.types.knowledge_base_configuration.deserialize_json(
+                data["knowledgeBaseConfiguration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "KnowledgeBase.knowledge_base_configuration required"
+        )
+    if "storageConfiguration" in data:
+        import capo_bedrock_agent.types.storage_configuration
+
+        out["storage_configuration"] = (
+            capo_bedrock_agent.types.storage_configuration.deserialize_json(
+                data["storageConfiguration"]
+            )
+        )
+    if "status" in data:
+        import capo_bedrock_agent.types.knowledge_base_status
+
+        out["status"] = capo_bedrock_agent.types.knowledge_base_status.deserialize_json(
+            data["status"]
+        )
+    else:
+        raise DeserializationError("KnowledgeBase.status required")
+    if "createdAt" in data:
+        import capo_bedrock_agent.types.date_timestamp
+
+        out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
+            data["createdAt"]
+        )
+    else:
+        raise DeserializationError("KnowledgeBase.created_at required")
+    if "updatedAt" in data:
+        import capo_bedrock_agent.types.date_timestamp
+
+        out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
+            data["updatedAt"]
+        )
+    else:
+        raise DeserializationError("KnowledgeBase.updated_at required")
+    if "failureReasons" in data:
+        import capo_bedrock_agent.types.failure_reasons
+
+        out["failure_reasons"] = (
+            capo_bedrock_agent.types.failure_reasons.deserialize_json(
+                data["failureReasons"]
+            )
+        )
+    return out

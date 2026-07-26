@@ -1,6 +1,6 @@
 import pytest
-from aws_sdk_pca_connector_ad._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_pca_connector_ad._rule_engine._endpoint_runtime import EndpointError
+from capo_pca_connector_ad._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_pca_connector_ad._rule_engine._endpoint_runtime import EndpointError
 import re
 import zapros
 

@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#DeactivateEvaluationFormResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_connect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_connect.types.arn
+    import capo_connect.types.resource_id
+    import capo_connect.types.version_number
+
+
+class DeactivateEvaluationFormResponse(TypedDict, closed=True):
+    evaluation_form_id: "capo_connect.types.resource_id.ResourceId"
+    """<p>The unique identifier for the evaluation form.</p>"""
+    evaluation_form_arn: "capo_connect.types.arn.ARN"
+    """<p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>"""
+    evaluation_form_version: "capo_connect.types.version_number.VersionNumber"
+    """<p>The version of the deactivated evaluation form resource.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeactivateEvaluationFormResponse) -> dict:
+    out: dict = {}
+    out["EvaluationFormId"] = value["evaluation_form_id"]
+    out["EvaluationFormArn"] = value["evaluation_form_arn"]
+    out["EvaluationFormVersion"] = value.get("evaluation_form_version", 0)
+    return out
+
+
+def deserialize_json(data: dict) -> DeactivateEvaluationFormResponse:
+    out: DeactivateEvaluationFormResponse = {}  # type: ignore[typeddict-item]
+    if "EvaluationFormId" in data:
+        out["evaluation_form_id"] = data["EvaluationFormId"]
+    else:
+        raise DeserializationError(
+            "DeactivateEvaluationFormResponse.evaluation_form_id required"
+        )
+    if "EvaluationFormArn" in data:
+        out["evaluation_form_arn"] = data["EvaluationFormArn"]
+    else:
+        raise DeserializationError(
+            "DeactivateEvaluationFormResponse.evaluation_form_arn required"
+        )
+    if "EvaluationFormVersion" in data:
+        out["evaluation_form_version"] = data["EvaluationFormVersion"]
+    else:
+        out["evaluation_form_version"] = 0
+    return out

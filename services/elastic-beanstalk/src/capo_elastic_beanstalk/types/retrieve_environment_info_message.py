@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#RetrieveEnvironmentInfoMessage``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_elastic_beanstalk._protocol.xml import Element
+from capo_elastic_beanstalk.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_elastic_beanstalk.types.environment_id
+    import capo_elastic_beanstalk.types.environment_info_type
+    import capo_elastic_beanstalk.types.environment_name
+
+
+class RetrieveEnvironmentInfoMessage(TypedDict, closed=True):
+    environment_id: NotRequired[
+        "capo_elastic_beanstalk.types.environment_id.EnvironmentId"
+    ]
+    """<p>The ID of the data's environment.</p> <p>If no such environment is found, returns an <code>InvalidParameterValue</code> error.</p> <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.</p>"""
+    environment_name: NotRequired[
+        "capo_elastic_beanstalk.types.environment_name.EnvironmentName"
+    ]
+    """<p>The name of the data's environment.</p> <p> If no such environment is found, returns an <code>InvalidParameterValue</code> error. </p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"""
+    info_type: "capo_elastic_beanstalk.types.environment_info_type.EnvironmentInfoType"
+    """<p>The type of information to retrieve.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: RetrieveEnvironmentInfoMessage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "environment_id" in value:
+        pairs.append((f"{prefix}.EnvironmentId", str(value["environment_id"])))
+    if "environment_name" in value:
+        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+    import capo_elastic_beanstalk.types.environment_info_type
+
+    capo_elastic_beanstalk.types.environment_info_type.serialize_query(
+        value["info_type"], pairs, f"{prefix}.InfoType"
+    )
+
+
+def deserialize_query(el: Element) -> RetrieveEnvironmentInfoMessage:
+    out: RetrieveEnvironmentInfoMessage = {}  # type: ignore[typeddict-item]
+    child_environment_id = el.find("EnvironmentId")
+    if child_environment_id is not None:
+        out["environment_id"] = str(child_environment_id.text or "")
+    child_environment_name = el.find("EnvironmentName")
+    if child_environment_name is not None:
+        out["environment_name"] = str(child_environment_name.text or "")
+    child_info_type = el.find("InfoType")
+    if child_info_type is not None:
+        import capo_elastic_beanstalk.types.environment_info_type
+
+        out["info_type"] = (
+            capo_elastic_beanstalk.types.environment_info_type.deserialize_query(
+                child_info_type
+            )
+        )
+    else:
+        raise DeserializationError("RetrieveEnvironmentInfoMessage.info_type required")
+    return out

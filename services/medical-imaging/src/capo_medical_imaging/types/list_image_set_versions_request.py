@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.medicalimaging#ListImageSetVersionsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_medical_imaging.types.datastore_id
+    import capo_medical_imaging.types.image_set_id
+    import capo_medical_imaging.types.next_token
+
+
+class ListImageSetVersionsRequest(TypedDict, closed=True):
+    datastore_id: "capo_medical_imaging.types.datastore_id.DatastoreId"
+    """<p>The data store identifier.</p>"""
+    image_set_id: "capo_medical_imaging.types.image_set_id.ImageSetId"
+    """<p>The image set identifier.</p>"""
+    next_token: NotRequired["capo_medical_imaging.types.next_token.NextToken"]
+    """<p>The pagination token used to request the list of image set versions on the next page.</p>"""
+    max_results: NotRequired["int"]
+    """<p>The max results count.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListImageSetVersionsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListImageSetVersionsRequest:
+    out: ListImageSetVersionsRequest = {}  # type: ignore[typeddict-item]
+    return out

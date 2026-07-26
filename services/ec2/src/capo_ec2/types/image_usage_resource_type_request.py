@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ImageUsageResourceTypeRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ec2._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_ec2.types.image_usage_resource_type_name
+    import capo_ec2.types.image_usage_resource_type_option_request_list
+
+
+class ImageUsageResourceTypeRequest(TypedDict, closed=True):
+    resource_type: NotRequired[
+        "capo_ec2.types.image_usage_resource_type_name.ImageUsageResourceTypeName"
+    ]
+    """<p>The resource type.</p> <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code> </p>"""
+    resource_type_options: NotRequired[
+        "capo_ec2.types.image_usage_resource_type_option_request_list.ImageUsageResourceTypeOptionRequestList"
+    ]
+    """<p>The options that affect the scope of the report. Valid only when <code>ResourceType</code> is <code>ec2:LaunchTemplate</code>.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ImageUsageResourceTypeRequest, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "resource_type" in value:
+        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+    if "resource_type_options" in value:
+        import capo_ec2.types.image_usage_resource_type_option_request_list
+
+        capo_ec2.types.image_usage_resource_type_option_request_list.serialize_ec2_query(
+            value["resource_type_options"], pairs, f"{prefix}.ResourceTypeOptions"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ImageUsageResourceTypeRequest:
+    out: ImageUsageResourceTypeRequest = {}  # type: ignore[typeddict-item]
+    child_resource_type = el.find("ResourceType")
+    if child_resource_type is not None:
+        out["resource_type"] = str(child_resource_type.text or "")
+    if el.find("ResourceTypeOptions") is not None:
+        import capo_ec2.types.image_usage_resource_type_option_request_list
+
+        out["resource_type_options"] = (
+            capo_ec2.types.image_usage_resource_type_option_request_list.deserialize_ec2_query(
+                el, "ResourceTypeOptions"
+            )
+        )
+    return out

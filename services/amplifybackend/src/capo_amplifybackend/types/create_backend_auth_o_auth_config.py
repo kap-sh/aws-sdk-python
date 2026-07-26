@@ -1,0 +1,132 @@
+"""Generated from Smithy shape ``com.amazonaws.amplifybackend#CreateBackendAuthOAuthConfig``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_amplifybackend.types.__string
+    import capo_amplifybackend.types.list_of__string
+    import capo_amplifybackend.types.list_of_o_auth_scopes_element
+    import capo_amplifybackend.types.o_auth_grant_type
+    import capo_amplifybackend.types.social_provider_settings
+
+
+class CreateBackendAuthOAuthConfig(TypedDict, closed=True):
+    domain_prefix: NotRequired["capo_amplifybackend.types.__string.__string"]
+    """<p>The domain prefix for your Amplify app.</p>"""
+    o_auth_grant_type: NotRequired[
+        "capo_amplifybackend.types.o_auth_grant_type.OAuthGrantType"
+    ]
+    """<p>The OAuth grant type that you use to allow app users to authenticate from your Amplify app.</p>"""
+    o_auth_scopes: NotRequired[
+        "capo_amplifybackend.types.list_of_o_auth_scopes_element.ListOfOAuthScopesElement"
+    ]
+    """<p>List of OAuth-related flows used to allow your app users to authenticate from your Amplify app.</p>"""
+    redirect_sign_in_ur_is: NotRequired[
+        "capo_amplifybackend.types.list_of__string.ListOf__string"
+    ]
+    """<p>The redirected URI for signing in to your Amplify app.</p>"""
+    redirect_sign_out_ur_is: NotRequired[
+        "capo_amplifybackend.types.list_of__string.ListOf__string"
+    ]
+    """<p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>"""
+    social_provider_settings: NotRequired[
+        "capo_amplifybackend.types.social_provider_settings.SocialProviderSettings"
+    ]
+    """<p>The settings for using social providers to access your Amplify app.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateBackendAuthOAuthConfig) -> dict:
+    out: dict = {}
+    if "domain_prefix" in value:
+        out["domainPrefix"] = value["domain_prefix"]
+    if "o_auth_grant_type" in value:
+        import capo_amplifybackend.types.o_auth_grant_type
+
+        out["oAuthGrantType"] = (
+            capo_amplifybackend.types.o_auth_grant_type.serialize_json(
+                value["o_auth_grant_type"]
+            )
+        )
+    if "o_auth_scopes" in value:
+        import capo_amplifybackend.types.list_of_o_auth_scopes_element
+
+        out["oAuthScopes"] = (
+            capo_amplifybackend.types.list_of_o_auth_scopes_element.serialize_json(
+                value["o_auth_scopes"]
+            )
+        )
+    if "redirect_sign_in_ur_is" in value:
+        import capo_amplifybackend.types.list_of__string
+
+        out["redirectSignInURIs"] = (
+            capo_amplifybackend.types.list_of__string.serialize_json(
+                value["redirect_sign_in_ur_is"]
+            )
+        )
+    if "redirect_sign_out_ur_is" in value:
+        import capo_amplifybackend.types.list_of__string
+
+        out["redirectSignOutURIs"] = (
+            capo_amplifybackend.types.list_of__string.serialize_json(
+                value["redirect_sign_out_ur_is"]
+            )
+        )
+    if "social_provider_settings" in value:
+        import capo_amplifybackend.types.social_provider_settings
+
+        out["socialProviderSettings"] = (
+            capo_amplifybackend.types.social_provider_settings.serialize_json(
+                value["social_provider_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateBackendAuthOAuthConfig:
+    out: CreateBackendAuthOAuthConfig = {}  # type: ignore[typeddict-item]
+    if "domainPrefix" in data:
+        out["domain_prefix"] = data["domainPrefix"]
+    if "oAuthGrantType" in data:
+        import capo_amplifybackend.types.o_auth_grant_type
+
+        out["o_auth_grant_type"] = (
+            capo_amplifybackend.types.o_auth_grant_type.deserialize_json(
+                data["oAuthGrantType"]
+            )
+        )
+    if "oAuthScopes" in data:
+        import capo_amplifybackend.types.list_of_o_auth_scopes_element
+
+        out["o_auth_scopes"] = (
+            capo_amplifybackend.types.list_of_o_auth_scopes_element.deserialize_json(
+                data["oAuthScopes"]
+            )
+        )
+    if "redirectSignInURIs" in data:
+        import capo_amplifybackend.types.list_of__string
+
+        out["redirect_sign_in_ur_is"] = (
+            capo_amplifybackend.types.list_of__string.deserialize_json(
+                data["redirectSignInURIs"]
+            )
+        )
+    if "redirectSignOutURIs" in data:
+        import capo_amplifybackend.types.list_of__string
+
+        out["redirect_sign_out_ur_is"] = (
+            capo_amplifybackend.types.list_of__string.deserialize_json(
+                data["redirectSignOutURIs"]
+            )
+        )
+    if "socialProviderSettings" in data:
+        import capo_amplifybackend.types.social_provider_settings
+
+        out["social_provider_settings"] = (
+            capo_amplifybackend.types.social_provider_settings.deserialize_json(
+                data["socialProviderSettings"]
+            )
+        )
+    return out

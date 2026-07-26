@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.route53resolver#LimitExceededException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_route53resolver.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_route53resolver.types.string
+
+
+class LimitExceededException_(TypedDict, closed=True):
+    message: NotRequired["capo_route53resolver.types.string.String"]
+    resource_type: NotRequired["capo_route53resolver.types.string.String"]
+    """<p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: LimitExceededException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    if "resource_type" in value:
+        out["ResourceType"] = value["resource_type"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> LimitExceededException_:
+    out: LimitExceededException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    if "ResourceType" in data:
+        out["resource_type"] = data["ResourceType"]
+    return out
+
+
+class LimitExceededException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.route53resolver#LimitExceededException``."""
+
+    code: str | None = "LimitExceededException"
+
+    def __init__(self, data: LimitExceededException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="LimitExceededException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "LimitExceededException":
+        return cls(deserialize_aws_json_1_1(data))

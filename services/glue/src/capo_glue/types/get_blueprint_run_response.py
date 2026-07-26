@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#GetBlueprintRunResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_glue.types.blueprint_run
+
+
+class GetBlueprintRunResponse(TypedDict, closed=True):
+    blueprint_run: NotRequired["capo_glue.types.blueprint_run.BlueprintRun"]
+    """<p>Returns a <code>BlueprintRun</code> object.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetBlueprintRunResponse) -> dict:
+    out: dict = {}
+    if "blueprint_run" in value:
+        import capo_glue.types.blueprint_run
+
+        out["BlueprintRun"] = capo_glue.types.blueprint_run.serialize_aws_json_1_1(
+            value["blueprint_run"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetBlueprintRunResponse:
+    out: GetBlueprintRunResponse = {}  # type: ignore[typeddict-item]
+    if "BlueprintRun" in data:
+        import capo_glue.types.blueprint_run
+
+        out["blueprint_run"] = capo_glue.types.blueprint_run.deserialize_aws_json_1_1(
+            data["BlueprintRun"]
+        )
+    return out

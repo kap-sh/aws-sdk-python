@@ -1,0 +1,490 @@
+from __future__ import annotations
+
+from typing import Any
+
+from ._aws_partition import aws_partition
+from ._endpoint_runtime import (
+    Endpoint,
+    EndpointError,
+    get_attr,
+    interpolate,
+    string_equals,
+)
+
+
+class EndpointParams:
+    def __init__(
+        self,
+        *,
+        UseDualStack: bool | None = None,
+        UseFIPS: bool | None = None,
+        Endpoint: str | None = None,
+        Region: str | None = None,
+        IsControlPlane: bool | None = None,
+    ):
+        self.UseDualStack = UseDualStack if UseDualStack is not None else False
+        self.UseFIPS = UseFIPS if UseFIPS is not None else False
+        self.Endpoint = Endpoint if Endpoint is not None else None
+        self.Region = Region if Region is not None else None
+        self.IsControlPlane = IsControlPlane if IsControlPlane is not None else None
+
+
+def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
+    """Resolve endpoint from parameters using generated ruleset."""
+    _locals: dict[str, Any] = {}
+    if p.IsControlPlane is not None:
+        if p.IsControlPlane is True:
+            if p.Region is not None:
+                _locals["PartitionResult"] = aws_partition(p.Region)
+                if _locals["PartitionResult"] is not None:
+                    if string_equals(
+                        get_attr(
+                            _locals["PartitionResult"], interpolate("name", p, _locals)
+                        ),
+                        interpolate("aws", p, _locals),
+                    ):
+                        return Endpoint(
+                            url=interpolate(
+                                "https://signin.{Region}.api.aws", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingName": interpolate(
+                                            "signin", p, _locals
+                                        ),
+                                        "signingRegion": interpolate(
+                                            "{Region}", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+                    if string_equals(
+                        get_attr(
+                            _locals["PartitionResult"], interpolate("name", p, _locals)
+                        ),
+                        interpolate("aws-cn", p, _locals),
+                    ):
+                        return Endpoint(
+                            url=interpolate(
+                                "https://signin.{Region}.api.amazonwebservices.com.cn",
+                                p,
+                                _locals,
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingName": interpolate(
+                                            "signin", p, _locals
+                                        ),
+                                        "signingRegion": interpolate(
+                                            "{Region}", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+                    return Endpoint(
+                        url=interpolate(
+                            "https://signin.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            p,
+                            _locals,
+                        ),
+                        properties={
+                            "authSchemes": [
+                                {
+                                    "name": interpolate("sigv4", p, _locals),
+                                    "signingName": interpolate("signin", p, _locals),
+                                    "signingRegion": interpolate(
+                                        "{Region}", p, _locals
+                                    ),
+                                }
+                            ]
+                        },
+                        headers={},
+                    )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.aws.amazon.com", p, _locals
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-cn", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.amazonaws.cn", p, _locals
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-us-gov", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.amazonaws-us-gov.com",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-iso", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.c2shome.ic.gov", p, _locals
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-iso-b", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.sc2shome.sgov.gov",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-iso-f", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.csphome.hci.ic.gov",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-iso-e", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.csphome.adc-e.uk",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-eusc", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin.amazonaws-eusc.eu",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is True:
+                if p.UseDualStack is False:
+                    if string_equals(
+                        p.Region, interpolate("us-gov-west-1", p, _locals)
+                    ):
+                        return Endpoint(
+                            url=interpolate(
+                                "https://signin-fips.amazonaws-us-gov.com", p, _locals
+                            ),
+                            properties={},
+                            headers={},
+                        )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is True:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        if string_equals(
+                            get_attr(
+                                _locals["PartitionResult"],
+                                interpolate("name", p, _locals),
+                            ),
+                            interpolate("aws-us-gov", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://{Region}.signin-fips.amazonaws-us-gov.com",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        if not (p.Endpoint is not None):
+            if p.UseFIPS is False:
+                if p.UseDualStack is False:
+                    _locals["PartitionResult"] = aws_partition(p.Region)
+                    if _locals["PartitionResult"] is not None:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://{Region}.signin.{PartitionResult#dnsSuffix}",
+                                p,
+                                _locals,
+                            ),
+                            properties={},
+                            headers={},
+                        )
+    _locals: dict[str, Any] = {}
+    if p.Endpoint is not None:
+        if p.UseFIPS is True:
+            raise EndpointError(
+                interpolate(
+                    "Invalid Configuration: FIPS and custom endpoint are not supported",
+                    p,
+                    _locals,
+                )
+            )
+        if p.UseDualStack is True:
+            raise EndpointError(
+                interpolate(
+                    "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                    p,
+                    _locals,
+                )
+            )
+        return Endpoint(url=p.Endpoint, properties={}, headers={})
+    _locals: dict[str, Any] = {}
+    if p.Region is not None:
+        _locals["PartitionResult"] = aws_partition(p.Region)
+        if _locals["PartitionResult"] is not None:
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://{Region}.signin.aws.amazon.com", p, _locals
+                            ),
+                            properties={},
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-cn", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://{Region}.signin.amazonaws.cn", p, _locals
+                            ),
+                            properties={},
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-us-gov", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://{Region}.signin.amazonaws-us-gov.com",
+                                p,
+                                _locals,
+                            ),
+                            properties={},
+                            headers={},
+                        )
+            if p.UseFIPS is True:
+                if p.UseDualStack is True:
+                    if True is get_attr(
+                        _locals["PartitionResult"],
+                        interpolate("supportsFIPS", p, _locals),
+                    ):
+                        if True is get_attr(
+                            _locals["PartitionResult"],
+                            interpolate("supportsDualStack", p, _locals),
+                        ):
+                            return Endpoint(
+                                url=interpolate(
+                                    "https://signin-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                    p,
+                                    _locals,
+                                ),
+                                properties={},
+                                headers={},
+                            )
+                    raise EndpointError(
+                        interpolate(
+                            "FIPS and DualStack are enabled, but this partition does not support one or both",
+                            p,
+                            _locals,
+                        )
+                    )
+            if p.UseFIPS is True:
+                if p.UseDualStack is False:
+                    if (
+                        get_attr(
+                            _locals["PartitionResult"],
+                            interpolate("supportsFIPS", p, _locals),
+                        )
+                        is True
+                    ):
+                        return Endpoint(
+                            url=interpolate(
+                                "https://signin-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                p,
+                                _locals,
+                            ),
+                            properties={},
+                            headers={},
+                        )
+                    raise EndpointError(
+                        interpolate(
+                            "FIPS is enabled but this partition does not support FIPS",
+                            p,
+                            _locals,
+                        )
+                    )
+            if p.UseFIPS is False:
+                if p.UseDualStack is True:
+                    if True is get_attr(
+                        _locals["PartitionResult"],
+                        interpolate("supportsDualStack", p, _locals),
+                    ):
+                        return Endpoint(
+                            url=interpolate(
+                                "https://signin.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                p,
+                                _locals,
+                            ),
+                            properties={},
+                            headers={},
+                        )
+                    raise EndpointError(
+                        interpolate(
+                            "DualStack is enabled but this partition does not support DualStack",
+                            p,
+                            _locals,
+                        )
+                    )
+            return Endpoint(
+                url=interpolate(
+                    "https://signin.{Region}.{PartitionResult#dnsSuffix}", p, _locals
+                ),
+                properties={},
+                headers={},
+            )
+    raise EndpointError(
+        interpolate("Invalid Configuration: Missing Region", p, _locals)
+    )
+    raise EndpointError("No endpoint rules matched")

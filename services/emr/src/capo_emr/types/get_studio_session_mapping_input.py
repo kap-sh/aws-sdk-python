@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.emr#GetStudioSessionMappingInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_emr.types.identity_type
+    import capo_emr.types.xml_string_max_len256
+
+
+class GetStudioSessionMappingInput(TypedDict, closed=True):
+    studio_id: NotRequired["capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
+    """<p>The ID of the Amazon EMR Studio.</p>"""
+    identity_id: NotRequired["capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
+    r"""<p>The globally unique identifier (GUID) of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>"""
+    identity_name: NotRequired[
+        "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+    ]
+    r"""<p>The name of the user or group to fetch. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>"""
+    identity_type: NotRequired["capo_emr.types.identity_type.IdentityType"]
+    """<p>Specifies whether the identity to fetch is a user or a group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetStudioSessionMappingInput) -> dict:
+    out: dict = {}
+    if "studio_id" in value:
+        out["StudioId"] = value["studio_id"]
+    if "identity_id" in value:
+        out["IdentityId"] = value["identity_id"]
+    if "identity_name" in value:
+        out["IdentityName"] = value["identity_name"]
+    if "identity_type" in value:
+        import capo_emr.types.identity_type
+
+        out["IdentityType"] = capo_emr.types.identity_type.serialize_aws_json_1_1(
+            value["identity_type"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetStudioSessionMappingInput:
+    out: GetStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
+    if "StudioId" in data:
+        out["studio_id"] = data["StudioId"]
+    if "IdentityId" in data:
+        out["identity_id"] = data["IdentityId"]
+    if "IdentityName" in data:
+        out["identity_name"] = data["IdentityName"]
+    if "IdentityType" in data:
+        import capo_emr.types.identity_type
+
+        out["identity_type"] = capo_emr.types.identity_type.deserialize_aws_json_1_1(
+            data["IdentityType"]
+        )
+    return out

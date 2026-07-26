@@ -1,0 +1,73 @@
+"""Generated from Smithy shape ``com.amazonaws.greengrass#GetFunctionDefinitionVersionResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_greengrass.types.__string
+    import capo_greengrass.types.function_definition_version
+
+
+class GetFunctionDefinitionVersionResponse(TypedDict, closed=True):
+    arn: NotRequired["capo_greengrass.types.__string.__string"]
+    """The ARN of the function definition version."""
+    creation_timestamp: NotRequired["capo_greengrass.types.__string.__string"]
+    """The time, in milliseconds since the epoch, when the function definition version was created."""
+    definition: NotRequired[
+        "capo_greengrass.types.function_definition_version.FunctionDefinitionVersion"
+    ]
+    """Information on the definition."""
+    id: NotRequired["capo_greengrass.types.__string.__string"]
+    """The ID of the function definition version."""
+    next_token: NotRequired["capo_greengrass.types.__string.__string"]
+    """The token for the next set of results, or ''null'' if there are no additional results."""
+    version: NotRequired["capo_greengrass.types.__string.__string"]
+    """The version of the function definition version."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetFunctionDefinitionVersionResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "creation_timestamp" in value:
+        out["CreationTimestamp"] = value["creation_timestamp"]
+    if "definition" in value:
+        import capo_greengrass.types.function_definition_version
+
+        out["Definition"] = (
+            capo_greengrass.types.function_definition_version.serialize_json(
+                value["definition"]
+            )
+        )
+    if "id" in value:
+        out["Id"] = value["id"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "version" in value:
+        out["Version"] = value["version"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetFunctionDefinitionVersionResponse:
+    out: GetFunctionDefinitionVersionResponse = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "CreationTimestamp" in data:
+        out["creation_timestamp"] = data["CreationTimestamp"]
+    if "Definition" in data:
+        import capo_greengrass.types.function_definition_version
+
+        out["definition"] = (
+            capo_greengrass.types.function_definition_version.deserialize_json(
+                data["Definition"]
+            )
+        )
+    if "Id" in data:
+        out["id"] = data["Id"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "Version" in data:
+        out["version"] = data["Version"]
+    return out

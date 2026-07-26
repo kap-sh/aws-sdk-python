@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-transcribe-streaming"
+name = "capo-transcribe-streaming"
 version = "0.1.0"
 description = "Python SDK for Transcribe Streaming."
 readme = "README.md"

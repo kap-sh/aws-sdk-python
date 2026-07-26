@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticache#DeleteServerlessCacheResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_elasticache._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_elasticache.types.serverless_cache
+
+
+class DeleteServerlessCacheResponse(TypedDict, closed=True):
+    serverless_cache: NotRequired[
+        "capo_elasticache.types.serverless_cache.ServerlessCache"
+    ]
+    """<p>Provides the details of the specified serverless cache that is about to be deleted.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DeleteServerlessCacheResponse, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "serverless_cache" in value:
+        import capo_elasticache.types.serverless_cache
+
+        capo_elasticache.types.serverless_cache.serialize_query(
+            value["serverless_cache"], pairs, f"{prefix}.ServerlessCache"
+        )
+
+
+def deserialize_query(el: Element) -> DeleteServerlessCacheResponse:
+    out: DeleteServerlessCacheResponse = {}  # type: ignore[typeddict-item]
+    child_serverless_cache = el.find("ServerlessCache")
+    if child_serverless_cache is not None:
+        import capo_elasticache.types.serverless_cache
+
+        out["serverless_cache"] = (
+            capo_elasticache.types.serverless_cache.deserialize_query(
+                child_serverless_cache
+            )
+        )
+    return out

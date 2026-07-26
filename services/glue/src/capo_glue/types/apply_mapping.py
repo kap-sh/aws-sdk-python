@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#ApplyMapping``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_glue.types.mappings
+    import capo_glue.types.node_name
+    import capo_glue.types.one_input
+
+
+class ApplyMapping(TypedDict, closed=True):
+    name: "capo_glue.types.node_name.NodeName"
+    """<p>The name of the transform node.</p>"""
+    inputs: "capo_glue.types.one_input.OneInput"
+    """<p>The data inputs identified by their node names.</p>"""
+    mapping: "capo_glue.types.mappings.Mappings"
+    """<p>Specifies the mapping of data property keys in the data source to data property keys in the data target.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ApplyMapping) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    import capo_glue.types.one_input
+
+    out["Inputs"] = capo_glue.types.one_input.serialize_aws_json_1_1(value["inputs"])
+    import capo_glue.types.mappings
+
+    out["Mapping"] = capo_glue.types.mappings.serialize_aws_json_1_1(value["mapping"])
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ApplyMapping:
+    out: ApplyMapping = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("ApplyMapping.name required")
+    if "Inputs" in data:
+        import capo_glue.types.one_input
+
+        out["inputs"] = capo_glue.types.one_input.deserialize_aws_json_1_1(
+            data["Inputs"]
+        )
+    else:
+        raise DeserializationError("ApplyMapping.inputs required")
+    if "Mapping" in data:
+        import capo_glue.types.mappings
+
+        out["mapping"] = capo_glue.types.mappings.deserialize_aws_json_1_1(
+            data["Mapping"]
+        )
+    else:
+        raise DeserializationError("ApplyMapping.mapping required")
+    return out

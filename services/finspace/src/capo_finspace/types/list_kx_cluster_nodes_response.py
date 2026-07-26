@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.finspace#ListKxClusterNodesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_finspace.types.kx_node_summaries
+    import capo_finspace.types.pagination_token
+
+
+class ListKxClusterNodesResponse(TypedDict, closed=True):
+    nodes: NotRequired["capo_finspace.types.kx_node_summaries.KxNodeSummaries"]
+    """<p>A list of nodes associated with the cluster.</p>"""
+    next_token: NotRequired["capo_finspace.types.pagination_token.PaginationToken"]
+    """<p>A token that indicates where a results page should begin.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListKxClusterNodesResponse) -> dict:
+    out: dict = {}
+    if "nodes" in value:
+        import capo_finspace.types.kx_node_summaries
+
+        out["nodes"] = capo_finspace.types.kx_node_summaries.serialize_json(
+            value["nodes"]
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListKxClusterNodesResponse:
+    out: ListKxClusterNodesResponse = {}  # type: ignore[typeddict-item]
+    if "nodes" in data:
+        import capo_finspace.types.kx_node_summaries
+
+        out["nodes"] = capo_finspace.types.kx_node_summaries.deserialize_json(
+            data["nodes"]
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

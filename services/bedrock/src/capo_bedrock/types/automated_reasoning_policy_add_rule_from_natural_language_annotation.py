@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.automated_reasoning_policy_annotation_rule_natural_language
+
+
+class AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation(
+    TypedDict, closed=True
+):
+    natural_language: "capo_bedrock.types.automated_reasoning_policy_annotation_rule_natural_language.AutomatedReasoningPolicyAnnotationRuleNaturalLanguage"
+    """<p>The natural language description of the rule that should be converted into a formal logical expression.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(
+    value: AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation,
+) -> dict:
+    out: dict = {}
+    out["naturalLanguage"] = value["natural_language"]
+    return out
+
+
+def deserialize_json(
+    data: dict,
+) -> AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation:
+    out: AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation = {}  # type: ignore[typeddict-item]
+    if "naturalLanguage" in data:
+        out["natural_language"] = data["naturalLanguage"]
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation.natural_language required"
+        )
+    return out

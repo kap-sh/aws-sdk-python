@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudhsm#ModifyHapgResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_cloudhsm.types.hapg_arn
+
+
+class ModifyHapgResponse(TypedDict, closed=True):
+    hapg_arn: NotRequired["capo_cloudhsm.types.hapg_arn.HapgArn"]
+    """<p>The ARN of the high-availability partition group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ModifyHapgResponse) -> dict:
+    out: dict = {}
+    if "hapg_arn" in value:
+        out["HapgArn"] = value["hapg_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ModifyHapgResponse:
+    out: ModifyHapgResponse = {}  # type: ignore[typeddict-item]
+    if "HapgArn" in data:
+        out["hapg_arn"] = data["HapgArn"]
+    return out

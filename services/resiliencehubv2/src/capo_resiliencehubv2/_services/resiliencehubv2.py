@@ -1,0 +1,3578 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehubv2#NGRHServiceCore``."""
+
+import datetime
+import warnings
+from collections.abc import Iterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional
+
+from typing_extensions import Self, TypedDict
+from zapros import BaseHandler, Client
+
+import capo_resiliencehubv2._auth._signers
+import capo_resiliencehubv2._auth._sigv4
+from capo_resiliencehubv2._auth._identity import Credentials
+from capo_resiliencehubv2._auth._providers import (
+    CredentialsProvider,
+    IdentityProvider,
+    StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
+)
+from capo_resiliencehubv2._auth._zapros_handler import AuthMiddleware
+from capo_resiliencehubv2._pagination import resolve_path as _resolve_path
+from capo_resiliencehubv2._resources.ngrh_service_core.iam_app_resource import (
+    IamAppResource,
+)
+from capo_resiliencehubv2._resources.ngrh_service_core.iam_policy_resource import (
+    IamPolicyResource,
+)
+from capo_resiliencehubv2._resources.ngrh_service_core.iam_resiliency_policy_resource import (
+    IamResiliencyPolicyResource,
+)
+from capo_resiliencehubv2._resources.ngrh_service_core.iam_service_resource import (
+    IamServiceResource,
+)
+from capo_resiliencehubv2._resources.ngrh_service_core.iam_system_resource import (
+    IamSystemResource,
+)
+from capo_resiliencehubv2._services._aws_config import aws_config
+from capo_resiliencehubv2._services._pipeline import (
+    Interceptor,
+    OperationOptions,
+    OperationRequest,
+    OperationResponse,
+    execute_pipeline,
+    retry,
+)
+
+if TYPE_CHECKING:
+    import capo_resiliencehubv2.types.account_id
+    import capo_resiliencehubv2.types.arn
+    import capo_resiliencehubv2.types.assertion
+    import capo_resiliencehubv2.types.assertion_source
+    import capo_resiliencehubv2.types.assertion_text
+    import capo_resiliencehubv2.types.assessment_status
+    import capo_resiliencehubv2.types.assessment_summary
+    import capo_resiliencehubv2.types.associated_system_list
+    import capo_resiliencehubv2.types.availability_slo
+    import capo_resiliencehubv2.types.aws_region
+    import capo_resiliencehubv2.types.client_token
+    import capo_resiliencehubv2.types.create_assertion_request
+    import capo_resiliencehubv2.types.create_assertion_response
+    import capo_resiliencehubv2.types.create_input_source_request
+    import capo_resiliencehubv2.types.create_input_source_response
+    import capo_resiliencehubv2.types.create_policy_request
+    import capo_resiliencehubv2.types.create_policy_response
+    import capo_resiliencehubv2.types.create_report_request
+    import capo_resiliencehubv2.types.create_report_response
+    import capo_resiliencehubv2.types.create_service_function_request
+    import capo_resiliencehubv2.types.create_service_function_resources_request
+    import capo_resiliencehubv2.types.create_service_function_resources_response
+    import capo_resiliencehubv2.types.create_service_function_response
+    import capo_resiliencehubv2.types.create_service_request
+    import capo_resiliencehubv2.types.create_service_response
+    import capo_resiliencehubv2.types.create_system_request
+    import capo_resiliencehubv2.types.create_system_response
+    import capo_resiliencehubv2.types.create_user_journey_request
+    import capo_resiliencehubv2.types.create_user_journey_response
+    import capo_resiliencehubv2.types.data_recovery_targets
+    import capo_resiliencehubv2.types.delete_assertion_request
+    import capo_resiliencehubv2.types.delete_assertion_response
+    import capo_resiliencehubv2.types.delete_input_source_request
+    import capo_resiliencehubv2.types.delete_input_source_response
+    import capo_resiliencehubv2.types.delete_policy_request
+    import capo_resiliencehubv2.types.delete_policy_response
+    import capo_resiliencehubv2.types.delete_service_function_request
+    import capo_resiliencehubv2.types.delete_service_function_resources_request
+    import capo_resiliencehubv2.types.delete_service_function_resources_response
+    import capo_resiliencehubv2.types.delete_service_function_response
+    import capo_resiliencehubv2.types.delete_service_request
+    import capo_resiliencehubv2.types.delete_service_response
+    import capo_resiliencehubv2.types.delete_system_request
+    import capo_resiliencehubv2.types.delete_system_response
+    import capo_resiliencehubv2.types.delete_user_journey_request
+    import capo_resiliencehubv2.types.delete_user_journey_response
+    import capo_resiliencehubv2.types.dependency_criticality
+    import capo_resiliencehubv2.types.dependency_discovery_input
+    import capo_resiliencehubv2.types.dependency_summary
+    import capo_resiliencehubv2.types.entity_description
+    import capo_resiliencehubv2.types.entity_id
+    import capo_resiliencehubv2.types.entity_label
+    import capo_resiliencehubv2.types.entity_name
+    import capo_resiliencehubv2.types.failure_category
+    import capo_resiliencehubv2.types.finding_severity
+    import capo_resiliencehubv2.types.finding_status
+    import capo_resiliencehubv2.types.finding_summary
+    import capo_resiliencehubv2.types.get_failure_mode_finding_request
+    import capo_resiliencehubv2.types.get_failure_mode_finding_response
+    import capo_resiliencehubv2.types.get_policy_request
+    import capo_resiliencehubv2.types.get_policy_response
+    import capo_resiliencehubv2.types.get_service_request
+    import capo_resiliencehubv2.types.get_service_response
+    import capo_resiliencehubv2.types.get_system_request
+    import capo_resiliencehubv2.types.get_system_response
+    import capo_resiliencehubv2.types.get_user_journey_request
+    import capo_resiliencehubv2.types.get_user_journey_response
+    import capo_resiliencehubv2.types.import_app_request
+    import capo_resiliencehubv2.types.import_app_response
+    import capo_resiliencehubv2.types.import_policy_request
+    import capo_resiliencehubv2.types.import_policy_response
+    import capo_resiliencehubv2.types.input_source_id
+    import capo_resiliencehubv2.types.input_source_summary
+    import capo_resiliencehubv2.types.input_source_type
+    import capo_resiliencehubv2.types.kms_key_id
+    import capo_resiliencehubv2.types.list_assertions_request
+    import capo_resiliencehubv2.types.list_assertions_response
+    import capo_resiliencehubv2.types.list_dependencies_request
+    import capo_resiliencehubv2.types.list_dependencies_response
+    import capo_resiliencehubv2.types.list_failure_mode_assessments_request
+    import capo_resiliencehubv2.types.list_failure_mode_assessments_response
+    import capo_resiliencehubv2.types.list_failure_mode_findings_request
+    import capo_resiliencehubv2.types.list_failure_mode_findings_response
+    import capo_resiliencehubv2.types.list_input_sources_request
+    import capo_resiliencehubv2.types.list_input_sources_response
+    import capo_resiliencehubv2.types.list_policies_request
+    import capo_resiliencehubv2.types.list_policies_response
+    import capo_resiliencehubv2.types.list_reports_request
+    import capo_resiliencehubv2.types.list_reports_response
+    import capo_resiliencehubv2.types.list_resources_request
+    import capo_resiliencehubv2.types.list_resources_response
+    import capo_resiliencehubv2.types.list_service_events_request
+    import capo_resiliencehubv2.types.list_service_events_response
+    import capo_resiliencehubv2.types.list_service_functions_request
+    import capo_resiliencehubv2.types.list_service_functions_response
+    import capo_resiliencehubv2.types.list_service_topology_edges_request
+    import capo_resiliencehubv2.types.list_service_topology_edges_response
+    import capo_resiliencehubv2.types.list_services_request
+    import capo_resiliencehubv2.types.list_services_response
+    import capo_resiliencehubv2.types.list_system_events_request
+    import capo_resiliencehubv2.types.list_system_events_response
+    import capo_resiliencehubv2.types.list_systems_request
+    import capo_resiliencehubv2.types.list_systems_response
+    import capo_resiliencehubv2.types.list_tags_for_resource_request
+    import capo_resiliencehubv2.types.list_tags_for_resource_response
+    import capo_resiliencehubv2.types.list_user_journeys_request
+    import capo_resiliencehubv2.types.list_user_journeys_response
+    import capo_resiliencehubv2.types.long_description
+    import capo_resiliencehubv2.types.max_results
+    import capo_resiliencehubv2.types.multi_az_disaster_recovery_approach
+    import capo_resiliencehubv2.types.multi_az_targets
+    import capo_resiliencehubv2.types.multi_region_disaster_recovery_approach
+    import capo_resiliencehubv2.types.multi_region_targets
+    import capo_resiliencehubv2.types.next_token
+    import capo_resiliencehubv2.types.ou_id
+    import capo_resiliencehubv2.types.permission_model
+    import capo_resiliencehubv2.types.policy_summary
+    import capo_resiliencehubv2.types.query_granularity
+    import capo_resiliencehubv2.types.region_list
+    import capo_resiliencehubv2.types.report_generation_result
+    import capo_resiliencehubv2.types.report_type
+    import capo_resiliencehubv2.types.resource_configuration
+    import capo_resiliencehubv2.types.resource_list
+    import capo_resiliencehubv2.types.service_event
+    import capo_resiliencehubv2.types.service_event_type_list
+    import capo_resiliencehubv2.types.service_function
+    import capo_resiliencehubv2.types.service_function_criticality
+    import capo_resiliencehubv2.types.service_report_configuration
+    import capo_resiliencehubv2.types.service_resource
+    import capo_resiliencehubv2.types.service_summary
+    import capo_resiliencehubv2.types.service_topology_edge_summary
+    import capo_resiliencehubv2.types.start_failure_mode_assessment_request
+    import capo_resiliencehubv2.types.start_failure_mode_assessment_response
+    import capo_resiliencehubv2.types.system_event
+    import capo_resiliencehubv2.types.system_event_type_list
+    import capo_resiliencehubv2.types.system_summary
+    import capo_resiliencehubv2.types.tag_key_list
+    import capo_resiliencehubv2.types.tag_map
+    import capo_resiliencehubv2.types.tag_resource_request
+    import capo_resiliencehubv2.types.tag_resource_response
+    import capo_resiliencehubv2.types.untag_resource_request
+    import capo_resiliencehubv2.types.untag_resource_response
+    import capo_resiliencehubv2.types.update_assertion_request
+    import capo_resiliencehubv2.types.update_assertion_response
+    import capo_resiliencehubv2.types.update_dependency_request
+    import capo_resiliencehubv2.types.update_dependency_response
+    import capo_resiliencehubv2.types.update_failure_mode_finding_request
+    import capo_resiliencehubv2.types.update_failure_mode_finding_response
+    import capo_resiliencehubv2.types.update_policy_request
+    import capo_resiliencehubv2.types.update_policy_response
+    import capo_resiliencehubv2.types.update_service_function_request
+    import capo_resiliencehubv2.types.update_service_function_response
+    import capo_resiliencehubv2.types.update_service_request
+    import capo_resiliencehubv2.types.update_service_response
+    import capo_resiliencehubv2.types.update_system_request
+    import capo_resiliencehubv2.types.update_system_response
+    import capo_resiliencehubv2.types.update_user_journey_request
+    import capo_resiliencehubv2.types.update_user_journey_response
+    import capo_resiliencehubv2.types.user_journey_id
+    import capo_resiliencehubv2.types.user_journey_summary
+    import capo_resiliencehubv2.types.uuid
+
+
+class resiliencehubv2ClientConfig(TypedDict, total=False, closed=True):
+    operation_interceptors: Iterable[Interceptor[Any, Any]]
+    retry_max_attempts: int | None
+    region: str | None
+    use_dual_stack: bool | None
+    use_fips: bool | None
+    endpoint: str | None
+    credentials_provider: IdentityProvider[Credentials] | None
+
+
+class resiliencehubv2Client:
+    """A client for the ``resiliencehubv2`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        use_dual_stack: The value of the ``AWS::UseDualStack`` endpoint parameter.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: BaseHandler | None = None,
+        operation_interceptors: Iterable[Interceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        region: str | None = None,
+        use_dual_stack: bool | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = Client(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                Client(http_handler)
+            )
+        self._config = resiliencehubv2ClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": retry_max_attempts,
+                "region": region,
+                "use_dual_stack": use_dual_stack,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "credentials_provider": resolved_credentials_provider,
+            }
+        )
+
+        # resources
+        self.iam_app_resource = IamAppResource(self)
+        self.iam_policy_resource = IamPolicyResource(self)
+        self.iam_resiliency_policy_resource = IamResiliencyPolicyResource(self)
+        self.iam_service_resource = IamServiceResource(self)
+        self.iam_system_resource = IamSystemResource(self)
+
+    def operation_options(
+        self, config_overrides: Optional[resiliencehubv2ClientConfig] = None
+    ) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
+        overrides: resiliencehubv2ClientConfig = config_overrides or {}
+        interceptors_: list[Interceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aws_config(),
+            retry(),
+        ]
+        options_: OperationOptions = OperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts", self._config.get("retry_max_attempts")
+            ),
+            region=overrides.get("region", self._config.get("region")),
+            use_dual_stack=overrides.get(
+                "use_dual_stack", self._config.get("use_dual_stack")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    def create_assertion(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        text: "capo_resiliencehubv2.types.assertion_text.AssertionText",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_assertion_response.CreateAssertionResponse":
+        """<p>Creates a resilience assertion for a service.</p>
+
+        Args:
+            text: <p>The text content of the assertion.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_assertion_request.CreateAssertionRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_assertion_response.CreateAssertionResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_assertion
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_assertion.create_assertion(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_assertion_request.CreateAssertionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["text"] = text
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_input_source(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        resource_configuration: "capo_resiliencehubv2.types.resource_configuration.ResourceConfiguration",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_input_source_response.CreateInputSourceResponse":
+        """<p>Creates an input source for a service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_input_source_request.CreateInputSourceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_input_source_response.CreateInputSourceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_input_source
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_input_source.create_input_source(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_input_source_request.CreateInputSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["resource_configuration"] = resource_configuration
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_policy(
+        self,
+        name: "capo_resiliencehubv2.types.entity_name.EntityName",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.long_description.LongDescription"
+        ] = None,
+        availability_slo: Optional[
+            "capo_resiliencehubv2.types.availability_slo.AvailabilitySlo"
+        ] = None,
+        multi_az: Optional[
+            "capo_resiliencehubv2.types.multi_az_targets.MultiAzTargets"
+        ] = None,
+        multi_region: Optional[
+            "capo_resiliencehubv2.types.multi_region_targets.MultiRegionTargets"
+        ] = None,
+        data_recovery: Optional[
+            "capo_resiliencehubv2.types.data_recovery_targets.DataRecoveryTargets"
+        ] = None,
+        kms_key_id: Optional["capo_resiliencehubv2.types.kms_key_id.KmsKeyId"] = None,
+        tags: Optional["capo_resiliencehubv2.types.tag_map.TagMap"] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_policy_response.CreatePolicyResponse":
+        """<p>Creates a resilience policy that defines availability and disaster recovery requirements.</p>
+
+        Args:
+            availability_slo: <p>The availability SLO for the resilience policy.</p>
+            multi_az: <p>The multi-AZ disaster recovery targets for the resilience policy.</p>
+            multi_region: <p>The multi-Region disaster recovery targets for the resilience policy.</p>
+            data_recovery: <p>The data recovery targets for the resilience policy.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_policy_request.CreatePolicyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_policy_response.CreatePolicyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_policy
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_policy.create_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if availability_slo is not None:
+            input_["availability_slo"] = availability_slo
+        if multi_az is not None:
+            input_["multi_az"] = multi_az
+        if multi_region is not None:
+            input_["multi_region"] = multi_region
+        if data_recovery is not None:
+            input_["data_recovery"] = data_recovery
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
+        if tags is not None:
+            input_["tags"] = tags
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_report(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        report_type: "capo_resiliencehubv2.types.report_type.ReportType",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_report_response.CreateReportResponse":
+        """<p>On-demand report creation. Idempotent — duplicate requests with same clientToken return existing result.</p>
+
+        Args:
+            report_type: <p>The type of report to generate.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_report_request.CreateReportRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_report_response.CreateReportResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_report
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_report.create_report(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_report_request.CreateReportRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["report_type"] = report_type
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_service(
+        self,
+        name: "capo_resiliencehubv2.types.entity_name.EntityName",
+        regions: "capo_resiliencehubv2.types.region_list.RegionList",
+        permission_model: "capo_resiliencehubv2.types.permission_model.PermissionModel",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.long_description.LongDescription"
+        ] = None,
+        associated_systems: Optional[
+            "capo_resiliencehubv2.types.associated_system_list.AssociatedSystemList"
+        ] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        dependency_discovery: Optional[
+            "capo_resiliencehubv2.types.dependency_discovery_input.DependencyDiscoveryInput"
+        ] = None,
+        report_configuration: Optional[
+            "capo_resiliencehubv2.types.service_report_configuration.ServiceReportConfiguration"
+        ] = None,
+        kms_key_id: Optional["capo_resiliencehubv2.types.kms_key_id.KmsKeyId"] = None,
+        tags: Optional["capo_resiliencehubv2.types.tag_map.TagMap"] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_service_response.CreateServiceResponse":
+        """<p>Creates a service.</p>
+
+        Args:
+            associated_systems: <p>The systems to associate with the service.</p>
+            regions: <p>The AWS Regions where the service operates.</p>
+            permission_model: <p>The permission model for the service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_service_request.CreateServiceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_service_response.CreateServiceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_service
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_service.create_service(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if associated_systems is not None:
+            input_["associated_systems"] = associated_systems
+        if policy_arn is not None:
+            input_["policy_arn"] = policy_arn
+        input_["regions"] = regions
+        input_["permission_model"] = permission_model
+        if dependency_discovery is not None:
+            input_["dependency_discovery"] = dependency_discovery
+        if report_configuration is not None:
+            input_["report_configuration"] = report_configuration
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
+        if tags is not None:
+            input_["tags"] = tags
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_service_function(
+        self,
+        name: "capo_resiliencehubv2.types.entity_label.EntityLabel",
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        criticality: "capo_resiliencehubv2.types.service_function_criticality.ServiceFunctionCriticality",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.entity_description.EntityDescription"
+        ] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_service_function_response.CreateServiceFunctionResponse":
+        """<p>Creates a service function within a service.</p>
+
+        Args:
+            criticality: <p>The criticality level of the service function.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_service_function_request.CreateServiceFunctionRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_service_function_response.CreateServiceFunctionResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_service_function
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_service_function.create_service_function(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_service_function_request.CreateServiceFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["service_arn"] = service_arn
+        if description is not None:
+            input_["description"] = description
+        input_["criticality"] = criticality
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_service_function_resources(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        service_function_id: "capo_resiliencehubv2.types.entity_id.EntityId",
+        resources: "capo_resiliencehubv2.types.resource_list.ResourceList",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.create_service_function_resources_response.CreateServiceFunctionResourcesResponse":
+        """<p>Associates resources with a service function.</p>
+
+        Args:
+            service_function_id: <p>The identifier of the service function to associate resources with.</p>
+            resources: <p>The list of resources to associate with the service function.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_service_function_resources_request.CreateServiceFunctionResourcesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_service_function_resources_response.CreateServiceFunctionResourcesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_service_function_resources
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_service_function_resources.create_service_function_resources(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_service_function_resources_request.CreateServiceFunctionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
+        input_["resources"] = resources
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_system(
+        self,
+        name: "capo_resiliencehubv2.types.entity_name.EntityName",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.entity_description.EntityDescription"
+        ] = None,
+        sharing_enabled: Optional[bool] = None,
+        kms_key_id: Optional["capo_resiliencehubv2.types.kms_key_id.KmsKeyId"] = None,
+        tags: Optional["capo_resiliencehubv2.types.tag_map.TagMap"] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_system_response.CreateSystemResponse":
+        """<p>Creates a system that represents a logical grouping of services.</p>
+
+        Args:
+            sharing_enabled: <p>Indicates whether cross-account sharing is enabled for the system.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_system_request.CreateSystemRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_system_response.CreateSystemResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_system
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_system.create_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_system_request.CreateSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if sharing_enabled is not None:
+            input_["sharing_enabled"] = sharing_enabled
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
+        if tags is not None:
+            input_["tags"] = tags
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_user_journey(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        name: "capo_resiliencehubv2.types.entity_label.EntityLabel",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.entity_description.EntityDescription"
+        ] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.create_user_journey_response.CreateUserJourneyResponse":
+        """<p>Creates a user journey within a system.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.create_user_journey_request.CreateUserJourneyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.create_user_journey_response.CreateUserJourneyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.create_user_journey
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.create_user_journey.create_user_journey(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.create_user_journey_request.CreateUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if policy_arn is not None:
+            input_["policy_arn"] = policy_arn
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_assertion(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        assertion_id: "capo_resiliencehubv2.types.uuid.Uuid",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_assertion_response.DeleteAssertionResponse":
+        """<p>Deletes a resilience assertion from a service.</p>
+
+        Args:
+            assertion_id: <p>The unique identifier of the assertion to delete.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_assertion_request.DeleteAssertionRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_assertion_response.DeleteAssertionResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_assertion
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_assertion.delete_assertion(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_assertion_request.DeleteAssertionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["assertion_id"] = assertion_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_input_source(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        input_source_id: "capo_resiliencehubv2.types.input_source_id.InputSourceId",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_input_source_response.DeleteInputSourceResponse":
+        """<p>Deletes an input source.</p>
+
+        Args:
+            input_source_id: <p>The identifier of the input source to delete.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_input_source_request.DeleteInputSourceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_input_source_response.DeleteInputSourceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_input_source
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_input_source.delete_input_source(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_input_source_request.DeleteInputSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["input_source_id"] = input_source_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_policy(
+        self,
+        policy_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_policy_response.DeletePolicyResponse":
+        """<p>Deletes a resilience policy.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_policy_request.DeletePolicyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_policy_response.DeletePolicyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_policy
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_policy.delete_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_service(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_service_response.DeleteServiceResponse":
+        """<p>Deletes a service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_service_request.DeleteServiceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_service_response.DeleteServiceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_service
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_service.delete_service(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_service_function(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        service_function_id: "capo_resiliencehubv2.types.entity_id.EntityId",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_service_function_response.DeleteServiceFunctionResponse":
+        """<p>Deletes a service function.</p>
+
+        Args:
+            service_function_id: <p>The identifier of the service function to delete.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_service_function_request.DeleteServiceFunctionRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_service_function_response.DeleteServiceFunctionResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_service_function
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_service_function.delete_service_function(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_service_function_request.DeleteServiceFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_service_function_resources(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        service_function_id: "capo_resiliencehubv2.types.entity_id.EntityId",
+        resources: "capo_resiliencehubv2.types.resource_list.ResourceList",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_service_function_resources_response.DeleteServiceFunctionResourcesResponse":
+        """<p>Removes resources from a service function.</p>
+
+        Args:
+            service_function_id: <p>The identifier of the service function to remove resources from.</p>
+            resources: <p>The list of resources to remove from the service function.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_service_function_resources_request.DeleteServiceFunctionResourcesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_service_function_resources_response.DeleteServiceFunctionResourcesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_service_function_resources
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_service_function_resources.delete_service_function_resources(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_service_function_resources_request.DeleteServiceFunctionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
+        input_["resources"] = resources
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_system(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_system_response.DeleteSystemResponse":
+        """<p>Deletes a system.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_system_request.DeleteSystemRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_system_response.DeleteSystemResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_system
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_system.delete_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_system_request.DeleteSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_user_journey(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        user_journey_id: "capo_resiliencehubv2.types.user_journey_id.UserJourneyId",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.delete_user_journey_response.DeleteUserJourneyResponse":
+        """<p>Deletes a user journey.</p>
+
+        Args:
+            user_journey_id: <p>The identifier of the user journey to delete.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.delete_user_journey_request.DeleteUserJourneyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.delete_user_journey_response.DeleteUserJourneyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.delete_user_journey
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.delete_user_journey.delete_user_journey(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.delete_user_journey_request.DeleteUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["user_journey_id"] = user_journey_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_failure_mode_finding(
+        self,
+        finding_id: "capo_resiliencehubv2.types.uuid.Uuid",
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.get_failure_mode_finding_response.GetFailureModeFindingResponse":
+        """<p>Retrieves a finding by findingId.</p>
+
+        Args:
+            finding_id: <p>The unique identifier of the finding to retrieve.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.get_failure_mode_finding_request.GetFailureModeFindingRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.get_failure_mode_finding_response.GetFailureModeFindingResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.get_failure_mode_finding
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.get_failure_mode_finding.get_failure_mode_finding(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.get_failure_mode_finding_request.GetFailureModeFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
+        input_["service_arn"] = service_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_policy(
+        self,
+        policy_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.get_policy_response.GetPolicyResponse":
+        """<p>Retrieves a resilience policy by ARN.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.get_policy_request.GetPolicyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.get_policy_response.GetPolicyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.get_policy
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.get_policy.get_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_service(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.get_service_response.GetServiceResponse":
+        """<p>Retrieves a service by ARN.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.get_service_request.GetServiceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.get_service_response.GetServiceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.get_service
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.get_service.get_service(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_system(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.get_system_response.GetSystemResponse":
+        """<p>Retrieves a system by ARN.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.get_system_request.GetSystemRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.get_system_response.GetSystemResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.get_system
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.get_system.get_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.get_system_request.GetSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_user_journey(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        user_journey_id: "capo_resiliencehubv2.types.user_journey_id.UserJourneyId",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.get_user_journey_response.GetUserJourneyResponse":
+        """<p>Retrieves a user journey.</p>
+
+        Args:
+            user_journey_id: <p>The identifier of the user journey to retrieve.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.get_user_journey_request.GetUserJourneyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.get_user_journey_response.GetUserJourneyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.get_user_journey
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.get_user_journey.get_user_journey(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.get_user_journey_request.GetUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["user_journey_id"] = user_journey_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def import_app(
+        self,
+        v1_app_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        kms_key_id: Optional["capo_resiliencehubv2.types.kms_key_id.KmsKeyId"] = None,
+        skip_manually_added_resources: Optional[bool] = None,
+        associated_systems: Optional[
+            "capo_resiliencehubv2.types.associated_system_list.AssociatedSystemList"
+        ] = None,
+        tags: Optional["capo_resiliencehubv2.types.tag_map.TagMap"] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.import_app_response.ImportAppResponse":
+        """<p>Imports a V1 app into the V2 resource model, creating a service with the same name.</p>
+
+        Args:
+            skip_manually_added_resources: <p>Whether to skip manually added resources during import.</p>
+            associated_systems: <p>The systems to associate with the imported service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.import_app_request.ImportAppRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.import_app_response.ImportAppResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.import_app
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.import_app.import_app(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.import_app_request.ImportAppRequest = {}  # type: ignore[typeddict-item]
+        input_["v1_app_arn"] = v1_app_arn
+        if policy_arn is not None:
+            input_["policy_arn"] = policy_arn
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
+        if skip_manually_added_resources is not None:
+            input_["skip_manually_added_resources"] = skip_manually_added_resources
+        if associated_systems is not None:
+            input_["associated_systems"] = associated_systems
+        if tags is not None:
+            input_["tags"] = tags
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def import_policy(
+        self,
+        v1_policy_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        kms_key_id: Optional["capo_resiliencehubv2.types.kms_key_id.KmsKeyId"] = None,
+        availability_slo: Optional[
+            "capo_resiliencehubv2.types.availability_slo.AvailabilitySlo"
+        ] = None,
+        multi_az_disaster_recovery_approach: Optional[
+            "capo_resiliencehubv2.types.multi_az_disaster_recovery_approach.MultiAzDisasterRecoveryApproach"
+        ] = None,
+        multi_region_disaster_recovery_approach: Optional[
+            "capo_resiliencehubv2.types.multi_region_disaster_recovery_approach.MultiRegionDisasterRecoveryApproach"
+        ] = None,
+        tags: Optional["capo_resiliencehubv2.types.tag_map.TagMap"] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.import_policy_response.ImportPolicyResponse":
+        """<p>Imports a V1 policy into V2, mapping RTO/RPO values from V1 scenarios.</p>
+
+        Args:
+            availability_slo: <p>The availability SLO to set on the imported policy.</p>
+            multi_az_disaster_recovery_approach: <p>The multi-AZ disaster recovery approach for the imported policy.</p>
+            multi_region_disaster_recovery_approach: <p>The multi-Region disaster recovery approach for the imported policy.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.import_policy_request.ImportPolicyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.import_policy_response.ImportPolicyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.import_policy
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.import_policy.import_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.import_policy_request.ImportPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["v1_policy_arn"] = v1_policy_arn
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
+        if availability_slo is not None:
+            input_["availability_slo"] = availability_slo
+        if multi_az_disaster_recovery_approach is not None:
+            input_["multi_az_disaster_recovery_approach"] = (
+                multi_az_disaster_recovery_approach
+            )
+        if multi_region_disaster_recovery_approach is not None:
+            input_["multi_region_disaster_recovery_approach"] = (
+                multi_region_disaster_recovery_approach
+            )
+        if tags is not None:
+            input_["tags"] = tags
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_assertions(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        source: Optional[
+            "capo_resiliencehubv2.types.assertion_source.AssertionSource"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_assertions_response.ListAssertionsResponse":
+        """<p>Lists resilience assertions for a service.</p>
+
+        Args:
+            source: <p>Filter assertions by source type.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_assertions_request.ListAssertionsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_assertions_response.ListAssertionsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_assertions
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_assertions.list_assertions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_assertions_request.ListAssertionsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if source is not None:
+            input_["source"] = source
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_assertions(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        source: Optional[
+            "capo_resiliencehubv2.types.assertion_source.AssertionSource"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.assertion.Assertion]":
+        _token = next_token
+        while True:
+            _response = self.list_assertions(
+                service_arn,
+                config_overrides=config_overrides,
+                source=source,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("assertions",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_dependencies(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        service_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        query_range_start_time: Optional[datetime.datetime] = None,
+        query_range_end_time: Optional[datetime.datetime] = None,
+        query_range_granularity: Optional[
+            "capo_resiliencehubv2.types.query_granularity.QueryGranularity"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> (
+        "capo_resiliencehubv2.types.list_dependencies_response.ListDependenciesResponse"
+    ):
+        """<p>Lists dependencies discovered for services.</p>
+
+        Args:
+            query_range_start_time: <p>The start time for the dependency query range.</p>
+            query_range_end_time: <p>The end time for the dependency query range.</p>
+            query_range_granularity: <p>The granularity for the dependency query range.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_dependencies_request.ListDependenciesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_dependencies_response.ListDependenciesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_dependencies
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_dependencies.list_dependencies(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_dependencies_request.ListDependenciesRequest = {}  # type: ignore[typeddict-item]
+        if service_arn is not None:
+            input_["service_arn"] = service_arn
+        if query_range_start_time is not None:
+            input_["query_range_start_time"] = query_range_start_time
+        if query_range_end_time is not None:
+            input_["query_range_end_time"] = query_range_end_time
+        if query_range_granularity is not None:
+            input_["query_range_granularity"] = query_range_granularity
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_dependencies(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        service_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        query_range_start_time: Optional[datetime.datetime] = None,
+        query_range_end_time: Optional[datetime.datetime] = None,
+        query_range_granularity: Optional[
+            "capo_resiliencehubv2.types.query_granularity.QueryGranularity"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.dependency_summary.DependencySummary]":
+        _token = next_token
+        while True:
+            _response = self.list_dependencies(
+                config_overrides=config_overrides,
+                service_arn=service_arn,
+                query_range_start_time=query_range_start_time,
+                query_range_end_time=query_range_end_time,
+                query_range_granularity=query_range_granularity,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("dependency_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_failure_mode_assessments(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_failure_mode_assessments_response.ListFailureModeAssessmentsResponse":
+        """<p>Lists failure mode assessments.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_failure_mode_assessments_request.ListFailureModeAssessmentsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_failure_mode_assessments_response.ListFailureModeAssessmentsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_failure_mode_assessments
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_failure_mode_assessments.list_failure_mode_assessments(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_failure_mode_assessments_request.ListFailureModeAssessmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_failure_mode_assessments(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.assessment_summary.AssessmentSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_failure_mode_assessments(
+                service_arn,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("assessment_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_failure_mode_findings(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        severity: Optional[
+            "capo_resiliencehubv2.types.finding_severity.FindingSeverity"
+        ] = None,
+        failure_category: Optional[
+            "capo_resiliencehubv2.types.failure_category.FailureCategory"
+        ] = None,
+        status: Optional[
+            "capo_resiliencehubv2.types.finding_status.FindingStatus"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_failure_mode_findings_response.ListFailureModeFindingsResponse":
+        """<p>List findings.</p>
+
+        Args:
+            severity: <p>Filter findings by severity.</p>
+            failure_category: <p>Filter findings by failure category.</p>
+            status: <p>Filter findings by status.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_failure_mode_findings_request.ListFailureModeFindingsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_failure_mode_findings_response.ListFailureModeFindingsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_failure_mode_findings
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_failure_mode_findings.list_failure_mode_findings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_failure_mode_findings_request.ListFailureModeFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if severity is not None:
+            input_["severity"] = severity
+        if failure_category is not None:
+            input_["failure_category"] = failure_category
+        if status is not None:
+            input_["status"] = status
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_failure_mode_findings(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        severity: Optional[
+            "capo_resiliencehubv2.types.finding_severity.FindingSeverity"
+        ] = None,
+        failure_category: Optional[
+            "capo_resiliencehubv2.types.failure_category.FailureCategory"
+        ] = None,
+        status: Optional[
+            "capo_resiliencehubv2.types.finding_status.FindingStatus"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.finding_summary.FindingSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_failure_mode_findings(
+                service_arn,
+                config_overrides=config_overrides,
+                severity=severity,
+                failure_category=failure_category,
+                status=status,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("findings_summary",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_input_sources(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        type: Optional[
+            "capo_resiliencehubv2.types.input_source_type.InputSourceType"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_input_sources_response.ListInputSourcesResponse":
+        """<p>Lists input sources for a service.</p>
+
+        Args:
+            type: <p>Filter input sources by type.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_input_sources_request.ListInputSourcesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_input_sources_response.ListInputSourcesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_input_sources
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_input_sources.list_input_sources(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_input_sources_request.ListInputSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if type is not None:
+            input_["type"] = type
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_input_sources(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        type: Optional[
+            "capo_resiliencehubv2.types.input_source_type.InputSourceType"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.input_source_summary.InputSourceSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_input_sources(
+                service_arn,
+                config_overrides=config_overrides,
+                type=type,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("input_source_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_policies(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_policies_response.ListPoliciesResponse":
+        """<p>Lists resilience policies.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_policies_request.ListPoliciesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_policies_response.ListPoliciesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_policies
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_policies.list_policies(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_policies(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.policy_summary.PolicySummary]":
+        _token = next_token
+        while True:
+            _response = self.list_policies(
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("policy_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_reports(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        service_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        report_type: Optional[
+            "capo_resiliencehubv2.types.report_type.ReportType"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_reports_response.ListReportsResponse":
+        """<p>List reports for a service, or all reports owned by the account if serviceArn is not provided.</p>
+
+        Args:
+            service_arn: <p>Optional. If not provided, lists all reports owned by the account.</p>
+            report_type: <p>Filter reports by type.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_reports_request.ListReportsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_reports_response.ListReportsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_reports
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_reports.list_reports(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
+        if service_arn is not None:
+            input_["service_arn"] = service_arn
+        if report_type is not None:
+            input_["report_type"] = report_type
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_reports(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        service_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        report_type: Optional[
+            "capo_resiliencehubv2.types.report_type.ReportType"
+        ] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.report_generation_result.ReportGenerationResult]":
+        _token = next_token
+        while True:
+            _response = self.list_reports(
+                config_overrides=config_overrides,
+                service_arn=service_arn,
+                report_type=report_type,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("report_generation_results",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_resources(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        service_function_id: Optional[
+            "capo_resiliencehubv2.types.entity_id.EntityId"
+        ] = None,
+        aws_region: Optional["capo_resiliencehubv2.types.aws_region.AwsRegion"] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_resources_response.ListResourcesResponse":
+        """<p>List resources.</p>
+
+        Args:
+            service_function_id: <p>Filter resources by service function identifier.</p>
+            aws_region: <p>Filter resources by AWS Region.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_resources_request.ListResourcesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_resources_response.ListResourcesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_resources
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_resources.list_resources(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if service_function_id is not None:
+            input_["service_function_id"] = service_function_id
+        if aws_region is not None:
+            input_["aws_region"] = aws_region
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_resources(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        service_function_id: Optional[
+            "capo_resiliencehubv2.types.entity_id.EntityId"
+        ] = None,
+        aws_region: Optional["capo_resiliencehubv2.types.aws_region.AwsRegion"] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.service_resource.ServiceResource]":
+        _token = next_token
+        while True:
+            _response = self.list_resources(
+                service_arn,
+                config_overrides=config_overrides,
+                service_function_id=service_function_id,
+                aws_region=aws_region,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("service_resources",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_service_events(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        event_types: Optional[
+            "capo_resiliencehubv2.types.service_event_type_list.ServiceEventTypeList"
+        ] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_service_events_response.ListServiceEventsResponse":
+        """<p>Lists events for a service.</p>
+
+        Args:
+            event_types: <p>Filter events by type.</p>
+            start_time: <p>The start time for filtering events.</p>
+            end_time: <p>The end time for filtering events.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_service_events_request.ListServiceEventsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_service_events_response.ListServiceEventsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_service_events
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_service_events.list_service_events(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_service_events_request.ListServiceEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if event_types is not None:
+            input_["event_types"] = event_types
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_service_events(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        event_types: Optional[
+            "capo_resiliencehubv2.types.service_event_type_list.ServiceEventTypeList"
+        ] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.service_event.ServiceEvent]":
+        _token = next_token
+        while True:
+            _response = self.list_service_events(
+                service_arn,
+                config_overrides=config_overrides,
+                event_types=event_types,
+                start_time=start_time,
+                end_time=end_time,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("events",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_service_functions(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_service_functions_response.ListServiceFunctionsResponse":
+        """<p>Lists service functions for a service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_service_functions_request.ListServiceFunctionsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_service_functions_response.ListServiceFunctionsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_service_functions
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_service_functions.list_service_functions(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_service_functions_request.ListServiceFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_service_functions(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.service_function.ServiceFunction]":
+        _token = next_token
+        while True:
+            _response = self.list_service_functions(
+                service_arn,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("service_functions",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_services(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        system_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        user_journey_id: Optional[
+            "capo_resiliencehubv2.types.user_journey_id.UserJourneyId"
+        ] = None,
+        ou_id: Optional["capo_resiliencehubv2.types.ou_id.OuId"] = None,
+        account_id: Optional["capo_resiliencehubv2.types.account_id.AccountId"] = None,
+        assessment_status: Optional[
+            "capo_resiliencehubv2.types.assessment_status.AssessmentStatus"
+        ] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_services_response.ListServicesResponse":
+        """<p>Lists services.</p>
+
+        Args:
+            user_journey_id: <p>Filter services by user journey identifier.</p>
+            ou_id: <p>Filter services by organizational unit (OU) identifier.</p>
+            account_id: <p>Filter services by AWS account ID.</p>
+            assessment_status: <p>Filter services by assessment status.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_services_request.ListServicesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_services_response.ListServicesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_services
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_services.list_services(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        if system_arn is not None:
+            input_["system_arn"] = system_arn
+        if user_journey_id is not None:
+            input_["user_journey_id"] = user_journey_id
+        if ou_id is not None:
+            input_["ou_id"] = ou_id
+        if account_id is not None:
+            input_["account_id"] = account_id
+        if assessment_status is not None:
+            input_["assessment_status"] = assessment_status
+        if policy_arn is not None:
+            input_["policy_arn"] = policy_arn
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_services(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        system_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        user_journey_id: Optional[
+            "capo_resiliencehubv2.types.user_journey_id.UserJourneyId"
+        ] = None,
+        ou_id: Optional["capo_resiliencehubv2.types.ou_id.OuId"] = None,
+        account_id: Optional["capo_resiliencehubv2.types.account_id.AccountId"] = None,
+        assessment_status: Optional[
+            "capo_resiliencehubv2.types.assessment_status.AssessmentStatus"
+        ] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.service_summary.ServiceSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_services(
+                config_overrides=config_overrides,
+                system_arn=system_arn,
+                user_journey_id=user_journey_id,
+                ou_id=ou_id,
+                account_id=account_id,
+                assessment_status=assessment_status,
+                policy_arn=policy_arn,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("service_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_service_topology_edges(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_service_topology_edges_response.ListServiceTopologyEdgesResponse":
+        """<p>Lists topology edges for a service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_service_topology_edges_request.ListServiceTopologyEdgesRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_service_topology_edges_response.ListServiceTopologyEdgesResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_service_topology_edges
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_service_topology_edges.list_service_topology_edges(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_service_topology_edges_request.ListServiceTopologyEdgesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_service_topology_edges(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.service_topology_edge_summary.ServiceTopologyEdgeSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_service_topology_edges(
+                service_arn,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("service_topology_edge_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_system_events(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        event_types: Optional[
+            "capo_resiliencehubv2.types.system_event_type_list.SystemEventTypeList"
+        ] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_system_events_response.ListSystemEventsResponse":
+        """<p>Lists events for a system.</p>
+
+        Args:
+            event_types: <p>Filter events by type.</p>
+            start_time: <p>The start time for filtering events.</p>
+            end_time: <p>The end time for filtering events.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_system_events_request.ListSystemEventsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_system_events_response.ListSystemEventsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_system_events
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_system_events.list_system_events(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_system_events_request.ListSystemEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        if event_types is not None:
+            input_["event_types"] = event_types
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_system_events(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        event_types: Optional[
+            "capo_resiliencehubv2.types.system_event_type_list.SystemEventTypeList"
+        ] = None,
+        start_time: Optional[datetime.datetime] = None,
+        end_time: Optional[datetime.datetime] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.system_event.SystemEvent]":
+        _token = next_token
+        while True:
+            _response = self.list_system_events(
+                system_arn,
+                config_overrides=config_overrides,
+                event_types=event_types,
+                start_time=start_time,
+                end_time=end_time,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("events",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_systems(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        ou_id: Optional["capo_resiliencehubv2.types.ou_id.OuId"] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_systems_response.ListSystemsResponse":
+        """<p>Lists systems.</p>
+
+        Args:
+            ou_id: <p>Filter systems by organizational unit (OU) identifier.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_systems_request.ListSystemsRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_systems_response.ListSystemsResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_systems
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_systems.list_systems(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_systems_request.ListSystemsRequest = {}  # type: ignore[typeddict-item]
+        if ou_id is not None:
+            input_["ou_id"] = ou_id
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_systems(
+        self,
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        ou_id: Optional["capo_resiliencehubv2.types.ou_id.OuId"] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.system_summary.SystemSummary]":
+        _token = next_token
+        while True:
+            _response = self.list_systems(
+                config_overrides=config_overrides,
+                ou_id=ou_id,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("system_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def list_tags_for_resource(
+        self,
+        resource_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists the tags for a resource.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_tags_for_resource
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_tags_for_resource.list_tags_for_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_user_journeys(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "capo_resiliencehubv2.types.list_user_journeys_response.ListUserJourneysResponse":
+        """<p>Lists user journeys for a system.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.list_user_journeys_request.ListUserJourneysRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.list_user_journeys_response.ListUserJourneysResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.list_user_journeys
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.list_user_journeys.list_user_journeys(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.list_user_journeys_request.ListUserJourneysRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_user_journeys(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        max_results: Optional[
+            "capo_resiliencehubv2.types.max_results.MaxResults"
+        ] = None,
+        next_token: Optional["capo_resiliencehubv2.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_resiliencehubv2.types.user_journey_summary.UserJourneySummary]":
+        _token = next_token
+        while True:
+            _response = self.list_user_journeys(
+                system_arn,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("user_journey_summaries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    def start_failure_mode_assessment(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        client_token: Optional[
+            "capo_resiliencehubv2.types.client_token.ClientToken"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.start_failure_mode_assessment_response.StartFailureModeAssessmentResponse":
+        """<p>Start a failure mode assessment.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.start_failure_mode_assessment_request.StartFailureModeAssessmentRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.start_failure_mode_assessment_response.StartFailureModeAssessmentResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.start_failure_mode_assessment
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.start_failure_mode_assessment.start_failure_mode_assessment(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.start_failure_mode_assessment_request.StartFailureModeAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def tag_resource(
+        self,
+        resource_arn: "capo_resiliencehubv2.types.arn.Arn",
+        tags: "capo_resiliencehubv2.types.tag_map.TagMap",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.tag_resource_response.TagResourceResponse":
+        """<p>Adds tags to a resource.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.tag_resource_request.TagResourceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.tag_resource
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.tag_resource.tag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def untag_resource(
+        self,
+        resource_arn: "capo_resiliencehubv2.types.arn.Arn",
+        tag_keys: "capo_resiliencehubv2.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+    ) -> "capo_resiliencehubv2.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes tags from a resource.</p>
+
+        Args:
+            tag_keys: <p>The tag keys to remove from the resource.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.untag_resource_request.UntagResourceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.untag_resource
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.untag_resource.untag_resource(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_assertion(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        assertion_id: "capo_resiliencehubv2.types.uuid.Uuid",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        text: Optional[
+            "capo_resiliencehubv2.types.assertion_text.AssertionText"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.update_assertion_response.UpdateAssertionResponse":
+        """<p>Updates a resilience assertion.</p>
+
+        Args:
+            assertion_id: <p>The unique identifier of the assertion to update.</p>
+            text: <p>The updated text content of the assertion.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_assertion_request.UpdateAssertionRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_assertion_response.UpdateAssertionResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_assertion
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_assertion.update_assertion(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_assertion_request.UpdateAssertionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["assertion_id"] = assertion_id
+        if text is not None:
+            input_["text"] = text
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_dependency(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        dependency_id: "capo_resiliencehubv2.types.uuid.Uuid",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        criticality: Optional[
+            "capo_resiliencehubv2.types.dependency_criticality.DependencyCriticality"
+        ] = None,
+        comment: Optional[str] = None,
+    ) -> (
+        "capo_resiliencehubv2.types.update_dependency_response.UpdateDependencyResponse"
+    ):
+        """<p>Updates a dependency classification.</p>
+
+        Args:
+            dependency_id: <p>The identifier of the dependency to update.</p>
+            criticality: <p>The updated criticality level of the dependency.</p>
+            comment: <p>A comment about the dependency.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_dependency_request.UpdateDependencyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_dependency_response.UpdateDependencyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_dependency
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_dependency.update_dependency(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_dependency_request.UpdateDependencyRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["dependency_id"] = dependency_id
+        if criticality is not None:
+            input_["criticality"] = criticality
+        if comment is not None:
+            input_["comment"] = comment
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_failure_mode_finding(
+        self,
+        finding_id: "capo_resiliencehubv2.types.uuid.Uuid",
+        status: "capo_resiliencehubv2.types.finding_status.FindingStatus",
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        comment: Optional[str] = None,
+    ) -> "capo_resiliencehubv2.types.update_failure_mode_finding_response.UpdateFailureModeFindingResponse":
+        """<p>Updates an existing finding.</p>
+
+        Args:
+            finding_id: <p>The identifier of the finding to update.</p>
+            status: <p>The new status for the finding.</p>
+            comment: <p>A comment about the finding update.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_failure_mode_finding_request.UpdateFailureModeFindingRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_failure_mode_finding_response.UpdateFailureModeFindingResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_failure_mode_finding
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_failure_mode_finding.update_failure_mode_finding(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_failure_mode_finding_request.UpdateFailureModeFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
+        input_["status"] = status
+        input_["service_arn"] = service_arn
+        if comment is not None:
+            input_["comment"] = comment
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_policy(
+        self,
+        policy_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.long_description.LongDescription"
+        ] = None,
+        availability_slo: Optional[
+            "capo_resiliencehubv2.types.availability_slo.AvailabilitySlo"
+        ] = None,
+        multi_az: Optional[
+            "capo_resiliencehubv2.types.multi_az_targets.MultiAzTargets"
+        ] = None,
+        multi_region: Optional[
+            "capo_resiliencehubv2.types.multi_region_targets.MultiRegionTargets"
+        ] = None,
+        data_recovery: Optional[
+            "capo_resiliencehubv2.types.data_recovery_targets.DataRecoveryTargets"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.update_policy_response.UpdatePolicyResponse":
+        """<p>Updates an existing resilience policy.</p>
+
+        Args:
+            availability_slo: <p>The updated availability SLO for the policy.</p>
+            multi_az: <p>The updated multi-AZ disaster recovery targets for the policy.</p>
+            multi_region: <p>The updated multi-Region disaster recovery targets for the policy.</p>
+            data_recovery: <p>The updated data recovery targets for the policy.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_policy_request.UpdatePolicyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_policy_response.UpdatePolicyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_policy
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_policy.update_policy(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
+        if description is not None:
+            input_["description"] = description
+        if availability_slo is not None:
+            input_["availability_slo"] = availability_slo
+        if multi_az is not None:
+            input_["multi_az"] = multi_az
+        if multi_region is not None:
+            input_["multi_region"] = multi_region
+        if data_recovery is not None:
+            input_["data_recovery"] = data_recovery
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_service(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.long_description.LongDescription"
+        ] = None,
+        associated_systems: Optional[
+            "capo_resiliencehubv2.types.associated_system_list.AssociatedSystemList"
+        ] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+        regions: Optional["capo_resiliencehubv2.types.region_list.RegionList"] = None,
+        permission_model: Optional[
+            "capo_resiliencehubv2.types.permission_model.PermissionModel"
+        ] = None,
+        dependency_discovery: Optional[
+            "capo_resiliencehubv2.types.dependency_discovery_input.DependencyDiscoveryInput"
+        ] = None,
+        report_configuration: Optional[
+            "capo_resiliencehubv2.types.service_report_configuration.ServiceReportConfiguration"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.update_service_response.UpdateServiceResponse":
+        """<p>Updates an existing service.</p>
+
+        Args:
+            associated_systems: <p>The updated systems to associate with the service.</p>
+            regions: <p>The updated AWS Regions where the service operates.</p>
+            permission_model: <p>The updated permission model for the service.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_service_request.UpdateServiceRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_service_response.UpdateServiceResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_service
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_service.update_service(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        if description is not None:
+            input_["description"] = description
+        if associated_systems is not None:
+            input_["associated_systems"] = associated_systems
+        if policy_arn is not None:
+            input_["policy_arn"] = policy_arn
+        if regions is not None:
+            input_["regions"] = regions
+        if permission_model is not None:
+            input_["permission_model"] = permission_model
+        if dependency_discovery is not None:
+            input_["dependency_discovery"] = dependency_discovery
+        if report_configuration is not None:
+            input_["report_configuration"] = report_configuration
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_service_function(
+        self,
+        service_arn: "capo_resiliencehubv2.types.arn.Arn",
+        service_function_id: "capo_resiliencehubv2.types.entity_id.EntityId",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        name: Optional["capo_resiliencehubv2.types.entity_label.EntityLabel"] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.entity_description.EntityDescription"
+        ] = None,
+        criticality: Optional[
+            "capo_resiliencehubv2.types.service_function_criticality.ServiceFunctionCriticality"
+        ] = None,
+    ) -> "capo_resiliencehubv2.types.update_service_function_response.UpdateServiceFunctionResponse":
+        """<p>Updates a service function.</p>
+
+        Args:
+            service_function_id: <p>The identifier of the service function to update.</p>
+            criticality: <p>The updated criticality level of the service function.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_service_function_request.UpdateServiceFunctionRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_service_function_response.UpdateServiceFunctionResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_service_function
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_service_function.update_service_function(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_service_function_request.UpdateServiceFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
+        if name is not None:
+            input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if criticality is not None:
+            input_["criticality"] = criticality
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_system(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.entity_description.EntityDescription"
+        ] = None,
+        sharing_enabled: Optional[bool] = None,
+    ) -> "capo_resiliencehubv2.types.update_system_response.UpdateSystemResponse":
+        """<p>Updates an existing system.</p>
+
+        Args:
+            sharing_enabled: <p>Whether cross-account sharing is enabled for the system.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_system_request.UpdateSystemRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_system_response.UpdateSystemResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_system
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_system.update_system(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_system_request.UpdateSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        if description is not None:
+            input_["description"] = description
+        if sharing_enabled is not None:
+            input_["sharing_enabled"] = sharing_enabled
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def update_user_journey(
+        self,
+        system_arn: "capo_resiliencehubv2.types.arn.Arn",
+        user_journey_id: "capo_resiliencehubv2.types.user_journey_id.UserJourneyId",
+        *,
+        config_overrides: Optional[resiliencehubv2ClientConfig] = None,
+        name: Optional["capo_resiliencehubv2.types.entity_label.EntityLabel"] = None,
+        description: Optional[
+            "capo_resiliencehubv2.types.entity_description.EntityDescription"
+        ] = None,
+        policy_arn: Optional["capo_resiliencehubv2.types.arn.Arn"] = None,
+    ) -> "capo_resiliencehubv2.types.update_user_journey_response.UpdateUserJourneyResponse":
+        """<p>Updates an existing user journey.</p>
+
+        Args:
+            user_journey_id: <p>The identifier of the user journey to update.</p>
+
+        Raises:
+            capo_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            capo_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            capo_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            capo_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            capo_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            capo_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_resiliencehubv2.types.update_user_journey_request.UpdateUserJourneyRequest]",
+        ) -> OperationResponse[
+            "capo_resiliencehubv2.types.update_user_journey_response.UpdateUserJourneyResponse"
+        ]:
+            import capo_resiliencehubv2._operations.ngrh_service_core.update_user_journey
+
+            output, http_response = (
+                capo_resiliencehubv2._operations.ngrh_service_core.update_user_journey.update_user_journey(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_resiliencehubv2.types.update_user_journey_request.UpdateUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["user_journey_id"] = user_journey_id
+        if name is not None:
+            input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if policy_arn is not None:
+            input_["policy_arn"] = policy_arn
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def __enter__(self) -> Self:
+        return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any):
+        self._client.close()

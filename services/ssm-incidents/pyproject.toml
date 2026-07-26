@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-ssm-incidents"
+name = "capo-ssm-incidents"
 version = "0.1.0"
 description = "Python SDK for SSM Incidents."
 readme = "README.md"

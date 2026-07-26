@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.apigateway#ListOfString``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_api_gateway.types.string
+
+ListOfString: TypeAlias = list["capo_api_gateway.types.string.String"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListOfString) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> ListOfString:
+    return list(data)

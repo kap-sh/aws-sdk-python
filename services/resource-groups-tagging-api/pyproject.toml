@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-resource-groups-tagging-api"
+name = "capo-resource-groups-tagging-api"
 version = "0.1.0"
 description = "Python SDK for Resource Groups Tagging API."
 readme = "README.md"

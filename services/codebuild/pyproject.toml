@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-codebuild"
+name = "capo-codebuild"
 version = "0.1.0"
 description = "Python SDK for Codebuild."
 readme = "README.md"

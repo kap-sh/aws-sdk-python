@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.appsync#BadRequestDetail``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_appsync.types.code_errors
+
+
+class BadRequestDetail(TypedDict, closed=True):
+    code_errors: NotRequired["capo_appsync.types.code_errors.CodeErrors"]
+    """<p>Contains the list of errors in the request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BadRequestDetail) -> dict:
+    out: dict = {}
+    if "code_errors" in value:
+        import capo_appsync.types.code_errors
+
+        out["codeErrors"] = capo_appsync.types.code_errors.serialize_json(
+            value["code_errors"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> BadRequestDetail:
+    out: BadRequestDetail = {}  # type: ignore[typeddict-item]
+    if "codeErrors" in data:
+        import capo_appsync.types.code_errors
+
+        out["code_errors"] = capo_appsync.types.code_errors.deserialize_json(
+            data["codeErrors"]
+        )
+    return out

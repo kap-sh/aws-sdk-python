@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#ListTenantsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sesv2.types.next_token
+    import capo_sesv2.types.tenant_info_list
+
+
+class ListTenantsResponse(TypedDict, closed=True):
+    tenants: NotRequired["capo_sesv2.types.tenant_info_list.TenantInfoList"]
+    """<p>An array that contains basic information about each tenant.</p>"""
+    next_token: NotRequired["capo_sesv2.types.next_token.NextToken"]
+    """<p>A token that indicates that there are additional tenants to list. To view additional tenants, issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListTenantsResponse) -> dict:
+    out: dict = {}
+    if "tenants" in value:
+        import capo_sesv2.types.tenant_info_list
+
+        out["Tenants"] = capo_sesv2.types.tenant_info_list.serialize_json(
+            value["tenants"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListTenantsResponse:
+    out: ListTenantsResponse = {}  # type: ignore[typeddict-item]
+    if "Tenants" in data:
+        import capo_sesv2.types.tenant_info_list
+
+        out["tenants"] = capo_sesv2.types.tenant_info_list.deserialize_json(
+            data["Tenants"]
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

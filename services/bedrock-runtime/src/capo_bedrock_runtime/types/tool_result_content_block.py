@@ -1,0 +1,130 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolResultContentBlock``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_runtime.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_runtime.types.document_block
+    import capo_bedrock_runtime.types.image_block
+    import capo_bedrock_runtime.types.search_result_block
+    import capo_bedrock_runtime.types.video_block
+
+
+class _ToolResultContentBlock_json(TypedDict, closed=True):
+    json: "object"
+
+
+class _ToolResultContentBlock_text(TypedDict, closed=True):
+    text: "str"
+
+
+class _ToolResultContentBlock_image(TypedDict, closed=True):
+    image: "capo_bedrock_runtime.types.image_block.ImageBlock"
+
+
+class _ToolResultContentBlock_document(TypedDict, closed=True):
+    document: "capo_bedrock_runtime.types.document_block.DocumentBlock"
+
+
+class _ToolResultContentBlock_video(TypedDict, closed=True):
+    video: "capo_bedrock_runtime.types.video_block.VideoBlock"
+
+
+class _ToolResultContentBlock_searchResult(TypedDict, closed=True):
+    searchResult: "capo_bedrock_runtime.types.search_result_block.SearchResultBlock"
+
+
+ToolResultContentBlock: TypeAlias = (
+    _ToolResultContentBlock_json
+    | _ToolResultContentBlock_text
+    | _ToolResultContentBlock_image
+    | _ToolResultContentBlock_document
+    | _ToolResultContentBlock_video
+    | _ToolResultContentBlock_searchResult
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ToolResultContentBlock) -> dict:
+    if "json" in value:
+        return {"json": value["json"]}
+    elif "text" in value:
+        return {"text": value["text"]}
+    elif "image" in value:
+        import capo_bedrock_runtime.types.image_block
+
+        return {
+            "image": capo_bedrock_runtime.types.image_block.serialize_json(
+                value["image"]
+            )
+        }
+    elif "document" in value:
+        import capo_bedrock_runtime.types.document_block
+
+        return {
+            "document": capo_bedrock_runtime.types.document_block.serialize_json(
+                value["document"]
+            )
+        }
+    elif "video" in value:
+        import capo_bedrock_runtime.types.video_block
+
+        return {
+            "video": capo_bedrock_runtime.types.video_block.serialize_json(
+                value["video"]
+            )
+        }
+    elif "searchResult" in value:
+        import capo_bedrock_runtime.types.search_result_block
+
+        return {
+            "searchResult": capo_bedrock_runtime.types.search_result_block.serialize_json(
+                value["searchResult"]
+            )
+        }
+    else:
+        raise SerializationError("ToolResultContentBlock: no variant present")
+
+
+def deserialize_json(data: dict) -> ToolResultContentBlock:
+    if "json" in data:
+        return {"json": data["json"]}
+    elif "text" in data:
+        return {"text": data["text"]}
+    elif "image" in data:
+        import capo_bedrock_runtime.types.image_block
+
+        return {
+            "image": capo_bedrock_runtime.types.image_block.deserialize_json(
+                data["image"]
+            )
+        }
+    elif "document" in data:
+        import capo_bedrock_runtime.types.document_block
+
+        return {
+            "document": capo_bedrock_runtime.types.document_block.deserialize_json(
+                data["document"]
+            )
+        }
+    elif "video" in data:
+        import capo_bedrock_runtime.types.video_block
+
+        return {
+            "video": capo_bedrock_runtime.types.video_block.deserialize_json(
+                data["video"]
+            )
+        }
+    elif "searchResult" in data:
+        import capo_bedrock_runtime.types.search_result_block
+
+        return {
+            "searchResult": capo_bedrock_runtime.types.search_result_block.deserialize_json(
+                data["searchResult"]
+            )
+        }
+    else:
+        raise DeserializationError("ToolResultContentBlock: no recognized variant key")

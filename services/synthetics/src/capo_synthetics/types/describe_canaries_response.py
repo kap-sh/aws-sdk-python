@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.synthetics#DescribeCanariesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_synthetics.types.canaries
+    import capo_synthetics.types.token
+
+
+class DescribeCanariesResponse(TypedDict, closed=True):
+    canaries: NotRequired["capo_synthetics.types.canaries.Canaries"]
+    """<p>Returns an array. Each item in the array contains the full information about one canary.</p>"""
+    next_token: NotRequired["capo_synthetics.types.token.Token"]
+    """<p>A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next set of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeCanariesResponse) -> dict:
+    out: dict = {}
+    if "canaries" in value:
+        import capo_synthetics.types.canaries
+
+        out["Canaries"] = capo_synthetics.types.canaries.serialize_json(
+            value["canaries"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeCanariesResponse:
+    out: DescribeCanariesResponse = {}  # type: ignore[typeddict-item]
+    if "Canaries" in data:
+        import capo_synthetics.types.canaries
+
+        out["canaries"] = capo_synthetics.types.canaries.deserialize_json(
+            data["Canaries"]
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

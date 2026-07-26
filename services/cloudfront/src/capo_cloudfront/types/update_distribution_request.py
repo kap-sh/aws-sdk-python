@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#UpdateDistributionRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+from capo_cloudfront.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.distribution_config
+    import capo_cloudfront.types.string
+
+
+class UpdateDistributionRequest(TypedDict, closed=True):
+    distribution_config: "capo_cloudfront.types.distribution_config.DistributionConfig"
+    """<p>The distribution's configuration information.</p>"""
+    id: "capo_cloudfront.types.string.string"
+    """<p>The distribution's id.</p>"""
+    if_match: NotRequired["capo_cloudfront.types.string.string"]
+    """<p>The value of the <code>ETag</code> header that you received when retrieving the distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: UpdateDistributionRequest, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    import capo_cloudfront.types.distribution_config
+
+    capo_cloudfront.types.distribution_config.serialize_xml(
+        value["distribution_config"], el, "DistributionConfig"
+    )
+
+
+def deserialize_xml(el: Element) -> UpdateDistributionRequest:
+    out: UpdateDistributionRequest = {}  # type: ignore[typeddict-item]
+    child_distribution_config = el.find("DistributionConfig")
+    if child_distribution_config is not None:
+        import capo_cloudfront.types.distribution_config
+
+        out["distribution_config"] = (
+            capo_cloudfront.types.distribution_config.deserialize_xml(
+                child_distribution_config
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdateDistributionRequest.distribution_config required"
+        )
+    return out

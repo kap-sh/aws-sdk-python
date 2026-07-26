@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#AssociateUserProficienciesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_connect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_connect.types.instance_id
+    import capo_connect.types.user_id
+    import capo_connect.types.user_proficiency_list
+
+
+class AssociateUserProficienciesRequest(TypedDict, closed=True):
+    instance_id: "capo_connect.types.instance_id.InstanceId"
+    """<p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN of the instance).</p>"""
+    user_id: "capo_connect.types.user_id.UserId"
+    """<p>The identifier of the user account.</p>"""
+    user_proficiencies: "capo_connect.types.user_proficiency_list.UserProficiencyList"
+    """<p>The proficiencies to associate with the user.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AssociateUserProficienciesRequest) -> dict:
+    out: dict = {}
+    import capo_connect.types.user_proficiency_list
+
+    out["UserProficiencies"] = capo_connect.types.user_proficiency_list.serialize_json(
+        value["user_proficiencies"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> AssociateUserProficienciesRequest:
+    out: AssociateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
+    if "UserProficiencies" in data:
+        import capo_connect.types.user_proficiency_list
+
+        out["user_proficiencies"] = (
+            capo_connect.types.user_proficiency_list.deserialize_json(
+                data["UserProficiencies"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "AssociateUserProficienciesRequest.user_proficiencies required"
+        )
+    return out

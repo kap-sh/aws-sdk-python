@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-redshift-data"
+name = "capo-redshift-data"
 version = "0.1.0"
 description = "Python SDK for Redshift Data."
 readme = "README.md"

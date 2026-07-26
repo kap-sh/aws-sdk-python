@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.bcmdataexports#DestinationConfigurations``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bcm_data_exports.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bcm_data_exports.types.s3_destination
+
+
+class DestinationConfigurations(TypedDict, closed=True):
+    s3_destination: "capo_bcm_data_exports.types.s3_destination.S3Destination"
+    """<p>An object that describes the destination of the data exports file.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DestinationConfigurations) -> dict:
+    out: dict = {}
+    import capo_bcm_data_exports.types.s3_destination
+
+    out["S3Destination"] = (
+        capo_bcm_data_exports.types.s3_destination.serialize_aws_json_1_1(
+            value["s3_destination"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DestinationConfigurations:
+    out: DestinationConfigurations = {}  # type: ignore[typeddict-item]
+    if "S3Destination" in data:
+        import capo_bcm_data_exports.types.s3_destination
+
+        out["s3_destination"] = (
+            capo_bcm_data_exports.types.s3_destination.deserialize_aws_json_1_1(
+                data["S3Destination"]
+            )
+        )
+    else:
+        raise DeserializationError("DestinationConfigurations.s3_destination required")
+    return out

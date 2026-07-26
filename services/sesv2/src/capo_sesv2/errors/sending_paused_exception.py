@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#SendingPausedException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_sesv2.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_sesv2.types.error_message
+
+
+class SendingPausedException_(TypedDict, closed=True):
+    message: NotRequired["capo_sesv2.types.error_message.ErrorMessage"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SendingPausedException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> SendingPausedException_:
+    out: SendingPausedException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+class SendingPausedException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.sesv2#SendingPausedException``."""
+
+    code: str | None = "SendingPausedException"
+
+    def __init__(self, data: SendingPausedException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="SendingPausedException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "SendingPausedException":
+        return cls(deserialize_json(data))

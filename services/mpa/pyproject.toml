@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-mpa"
+name = "capo-mpa"
 version = "0.1.0"
 description = "Python SDK for MPA."
 readme = "README.md"

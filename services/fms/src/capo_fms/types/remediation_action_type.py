@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.fms#RemediationActionType``."""
+
+from typing import Literal, TypeAlias, cast
+
+RemediationActionType: TypeAlias = Literal[
+    "REMOVE",
+    "MODIFY",
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RemediationActionType) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> RemediationActionType:
+    return cast(RemediationActionType, data)

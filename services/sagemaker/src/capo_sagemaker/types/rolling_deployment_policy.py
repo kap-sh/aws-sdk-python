@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#RollingDeploymentPolicy``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.capacity_size_config
+
+
+class RollingDeploymentPolicy(TypedDict, closed=True):
+    maximum_batch_size: NotRequired[
+        "capo_sagemaker.types.capacity_size_config.CapacitySizeConfig"
+    ]
+    """<p>The maximum amount of instances in the cluster that SageMaker can update at a time.</p>"""
+    rollback_maximum_batch_size: NotRequired[
+        "capo_sagemaker.types.capacity_size_config.CapacitySizeConfig"
+    ]
+    """<p>The maximum amount of instances in the cluster that SageMaker can roll back at a time.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RollingDeploymentPolicy) -> dict:
+    out: dict = {}
+    if "maximum_batch_size" in value:
+        import capo_sagemaker.types.capacity_size_config
+
+        out["MaximumBatchSize"] = (
+            capo_sagemaker.types.capacity_size_config.serialize_aws_json_1_1(
+                value["maximum_batch_size"]
+            )
+        )
+    if "rollback_maximum_batch_size" in value:
+        import capo_sagemaker.types.capacity_size_config
+
+        out["RollbackMaximumBatchSize"] = (
+            capo_sagemaker.types.capacity_size_config.serialize_aws_json_1_1(
+                value["rollback_maximum_batch_size"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RollingDeploymentPolicy:
+    out: RollingDeploymentPolicy = {}  # type: ignore[typeddict-item]
+    if "MaximumBatchSize" in data:
+        import capo_sagemaker.types.capacity_size_config
+
+        out["maximum_batch_size"] = (
+            capo_sagemaker.types.capacity_size_config.deserialize_aws_json_1_1(
+                data["MaximumBatchSize"]
+            )
+        )
+    if "RollbackMaximumBatchSize" in data:
+        import capo_sagemaker.types.capacity_size_config
+
+        out["rollback_maximum_batch_size"] = (
+            capo_sagemaker.types.capacity_size_config.deserialize_aws_json_1_1(
+                data["RollbackMaximumBatchSize"]
+            )
+        )
+    return out

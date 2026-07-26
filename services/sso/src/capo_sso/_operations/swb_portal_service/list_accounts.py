@@ -1,0 +1,150 @@
+"""Generated from Smithy shape ``com.amazonaws.sso#ListAccounts``."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+
+import zapros
+from typing_extensions import Never
+
+import capo_sso._auth._signers
+import capo_sso._auth._sigv4
+import capo_sso.errors.invalid_request_exception
+import capo_sso.errors.resource_not_found_exception
+import capo_sso.errors.too_many_requests_exception
+import capo_sso.errors.unauthorized_exception
+import capo_sso.types.account_list_type
+import capo_sso.types.list_accounts_request
+import capo_sso.types.list_accounts_response
+from capo_sso._protocol.errors import parse_error_metadata_json
+from capo_sso._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_sso._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_sso.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "InvalidRequestException":
+            raise capo_sso.errors.invalid_request_exception.InvalidRequestException.from_json(
+                data
+            )
+        case "ResourceNotFoundException":
+            raise capo_sso.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data
+            )
+        case "TooManyRequestsException":
+            raise capo_sso.errors.too_many_requests_exception.TooManyRequestsException.from_json(
+                data
+            )
+        case "UnauthorizedException":
+            raise capo_sso.errors.unauthorized_exception.UnauthorizedException.from_json(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_sso.types.list_accounts_response.ListAccountsResponse:
+    out: capo_sso.types.list_accounts_response.ListAccountsResponse = (
+        capo_sso.types.list_accounts_response.deserialize_json(
+            json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_sso.types.list_accounts_response.ListAccountsResponse:
+    out: capo_sso.types.list_accounts_response.ListAccountsResponse = (
+        capo_sso.types.list_accounts_response.deserialize_json(
+            json.loads(await response.aread())
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_sso._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_sso._auth._sigv4.build_sigv4_auth_scheme(
+                "awsssoportal", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_sso._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    return None
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_sso.types.list_accounts_request.ListAccountsRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + "/assignment/accounts"
+    params: dict[str, str] = {}
+    if "next_token" in input_:
+        params["next_token"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["max_result"] = str(input_["max_results"])
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    if "access_token" in input_:
+        headers["x-amz-sso_bearer_token"] = str(input_["access_token"])
+    body: bytes | None = b""
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def list_accounts(
+    options: OperationOptions,
+    input_: capo_sso.types.list_accounts_request.ListAccountsRequest,
+) -> tuple[capo_sso.types.list_accounts_response.ListAccountsResponse, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_list_accounts(
+    options: AsyncOperationOptions,
+    input_: capo_sso.types.list_accounts_request.ListAccountsRequest,
+) -> tuple[capo_sso.types.list_accounts_response.ListAccountsResponse, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

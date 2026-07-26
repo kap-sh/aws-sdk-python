@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-mediapackagev2"
+name = "capo-mediapackagev2"
 version = "0.1.0"
 description = "Python SDK for Mediapackagev2."
 readme = "README.md"

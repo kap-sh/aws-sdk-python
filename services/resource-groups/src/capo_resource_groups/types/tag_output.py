@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.resourcegroups#TagOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_resource_groups.types.group_arn_v2
+    import capo_resource_groups.types.tags
+
+
+class TagOutput(TypedDict, closed=True):
+    arn: NotRequired["capo_resource_groups.types.group_arn_v2.GroupArnV2"]
+    """<p>The Amazon resource name (ARN) of the tagged resource.</p>"""
+    tags: NotRequired["capo_resource_groups.types.tags.Tags"]
+    """<p>The tags that have been added to the specified resource group.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TagOutput) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "tags" in value:
+        import capo_resource_groups.types.tags
+
+        out["Tags"] = capo_resource_groups.types.tags.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> TagOutput:
+    out: TagOutput = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "Tags" in data:
+        import capo_resource_groups.types.tags
+
+        out["tags"] = capo_resource_groups.types.tags.deserialize_json(data["Tags"])
+    return out

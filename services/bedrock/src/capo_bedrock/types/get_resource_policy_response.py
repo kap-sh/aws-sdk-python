@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#GetResourcePolicyResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.resource_policy_document
+
+
+class GetResourcePolicyResponse(TypedDict, closed=True):
+    resource_policy: NotRequired[
+        "capo_bedrock.types.resource_policy_document.ResourcePolicyDocument"
+    ]
+    """<p>The JSON string representing the Bedrock resource policy.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetResourcePolicyResponse) -> dict:
+    out: dict = {}
+    if "resource_policy" in value:
+        out["resourcePolicy"] = value["resource_policy"]
+    return out
+
+
+def deserialize_json(data: dict) -> GetResourcePolicyResponse:
+    out: GetResourcePolicyResponse = {}  # type: ignore[typeddict-item]
+    if "resourcePolicy" in data:
+        out["resource_policy"] = data["resourcePolicy"]
+    return out

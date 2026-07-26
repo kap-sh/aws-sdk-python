@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-codeguruprofiler"
+name = "capo-codeguruprofiler"
 version = "0.1.0"
 description = "Python SDK for Codeguruprofiler."
 readme = "README.md"

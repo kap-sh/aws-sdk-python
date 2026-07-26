@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplacemetering#RegisterUsageResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_marketplace_metering.types.non_empty_string
+    import capo_marketplace_metering.types.timestamp
+
+
+class RegisterUsageResult(TypedDict, closed=True):
+    public_key_rotation_timestamp: NotRequired[
+        "capo_marketplace_metering.types.timestamp.Timestamp"
+    ]
+    """<p>(Optional) Only included when public key version has expired</p>"""
+    signature: NotRequired[
+        "capo_marketplace_metering.types.non_empty_string.NonEmptyString"
+    ]
+    """<p>JWT Token</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RegisterUsageResult) -> dict:
+    out: dict = {}
+    if "public_key_rotation_timestamp" in value:
+        import capo_marketplace_metering.types.timestamp
+
+        out["PublicKeyRotationTimestamp"] = (
+            capo_marketplace_metering.types.timestamp.serialize_aws_json_1_1(
+                value["public_key_rotation_timestamp"]
+            )
+        )
+    if "signature" in value:
+        out["Signature"] = value["signature"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RegisterUsageResult:
+    out: RegisterUsageResult = {}  # type: ignore[typeddict-item]
+    if "PublicKeyRotationTimestamp" in data:
+        import capo_marketplace_metering.types.timestamp
+
+        out["public_key_rotation_timestamp"] = (
+            capo_marketplace_metering.types.timestamp.deserialize_aws_json_1_1(
+                data["PublicKeyRotationTimestamp"]
+            )
+        )
+    if "Signature" in data:
+        out["signature"] = data["Signature"]
+    return out

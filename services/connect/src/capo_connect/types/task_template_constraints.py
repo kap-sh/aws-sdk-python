@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#TaskTemplateConstraints``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_connect.types.invisible_task_template_fields
+    import capo_connect.types.read_only_task_template_fields
+    import capo_connect.types.required_task_template_fields
+
+
+class TaskTemplateConstraints(TypedDict, closed=True):
+    required_fields: NotRequired[
+        "capo_connect.types.required_task_template_fields.RequiredTaskTemplateFields"
+    ]
+    """<p>Lists the fields that are required to be filled by agents.</p>"""
+    read_only_fields: NotRequired[
+        "capo_connect.types.read_only_task_template_fields.ReadOnlyTaskTemplateFields"
+    ]
+    """<p>Lists the fields that are read-only to agents, and cannot be edited.</p>"""
+    invisible_fields: NotRequired[
+        "capo_connect.types.invisible_task_template_fields.InvisibleTaskTemplateFields"
+    ]
+    """<p>Lists the fields that are invisible to agents.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TaskTemplateConstraints) -> dict:
+    out: dict = {}
+    if "required_fields" in value:
+        import capo_connect.types.required_task_template_fields
+
+        out["RequiredFields"] = (
+            capo_connect.types.required_task_template_fields.serialize_json(
+                value["required_fields"]
+            )
+        )
+    if "read_only_fields" in value:
+        import capo_connect.types.read_only_task_template_fields
+
+        out["ReadOnlyFields"] = (
+            capo_connect.types.read_only_task_template_fields.serialize_json(
+                value["read_only_fields"]
+            )
+        )
+    if "invisible_fields" in value:
+        import capo_connect.types.invisible_task_template_fields
+
+        out["InvisibleFields"] = (
+            capo_connect.types.invisible_task_template_fields.serialize_json(
+                value["invisible_fields"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TaskTemplateConstraints:
+    out: TaskTemplateConstraints = {}  # type: ignore[typeddict-item]
+    if "RequiredFields" in data:
+        import capo_connect.types.required_task_template_fields
+
+        out["required_fields"] = (
+            capo_connect.types.required_task_template_fields.deserialize_json(
+                data["RequiredFields"]
+            )
+        )
+    if "ReadOnlyFields" in data:
+        import capo_connect.types.read_only_task_template_fields
+
+        out["read_only_fields"] = (
+            capo_connect.types.read_only_task_template_fields.deserialize_json(
+                data["ReadOnlyFields"]
+            )
+        )
+    if "InvisibleFields" in data:
+        import capo_connect.types.invisible_task_template_fields
+
+        out["invisible_fields"] = (
+            capo_connect.types.invisible_task_template_fields.deserialize_json(
+                data["InvisibleFields"]
+            )
+        )
+    return out

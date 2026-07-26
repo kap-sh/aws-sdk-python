@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#WafOverrideAction``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.non_empty_string
+
+
+class WafOverrideAction(TypedDict, closed=True):
+    type: NotRequired["capo_securityhub.types.non_empty_string.NonEmptyString"]
+    """<p> <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> .</p> <p>If set to <code>NONE</code>, the rule's action takes place.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: WafOverrideAction) -> dict:
+    out: dict = {}
+    if "type" in value:
+        out["Type"] = value["type"]
+    return out
+
+
+def deserialize_json(data: dict) -> WafOverrideAction:
+    out: WafOverrideAction = {}  # type: ignore[typeddict-item]
+    if "Type" in data:
+        out["type"] = data["Type"]
+    return out

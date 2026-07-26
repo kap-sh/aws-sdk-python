@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainChangeProgressResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_opensearch.types.change_progress_status_details
+
+
+class DescribeDomainChangeProgressResponse(TypedDict, closed=True):
+    change_progress_status: NotRequired[
+        "capo_opensearch.types.change_progress_status_details.ChangeProgressStatusDetails"
+    ]
+    """<p>Container for information about the stages of a configuration change happening on a domain.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeDomainChangeProgressResponse) -> dict:
+    out: dict = {}
+    if "change_progress_status" in value:
+        import capo_opensearch.types.change_progress_status_details
+
+        out["ChangeProgressStatus"] = (
+            capo_opensearch.types.change_progress_status_details.serialize_json(
+                value["change_progress_status"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeDomainChangeProgressResponse:
+    out: DescribeDomainChangeProgressResponse = {}  # type: ignore[typeddict-item]
+    if "ChangeProgressStatus" in data:
+        import capo_opensearch.types.change_progress_status_details
+
+        out["change_progress_status"] = (
+            capo_opensearch.types.change_progress_status_details.deserialize_json(
+                data["ChangeProgressStatus"]
+            )
+        )
+    return out

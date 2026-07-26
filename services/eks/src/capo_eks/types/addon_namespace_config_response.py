@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#AddonNamespaceConfigResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_eks.types.namespace
+
+
+class AddonNamespaceConfigResponse(TypedDict, closed=True):
+    namespace: NotRequired["capo_eks.types.namespace.namespace"]
+    """<p>The name of the Kubernetes namespace where the addon is installed.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AddonNamespaceConfigResponse) -> dict:
+    out: dict = {}
+    if "namespace" in value:
+        out["namespace"] = value["namespace"]
+    return out
+
+
+def deserialize_json(data: dict) -> AddonNamespaceConfigResponse:
+    out: AddonNamespaceConfigResponse = {}  # type: ignore[typeddict-item]
+    if "namespace" in data:
+        out["namespace"] = data["namespace"]
+    return out

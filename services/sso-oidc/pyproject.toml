@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-sso-oidc"
+name = "capo-sso-oidc"
 version = "0.1.0"
 description = "Python SDK for SSO Oidc."
 readme = "README.md"

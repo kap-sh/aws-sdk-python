@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.ses#CreateConfigurationSetEventDestinationRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_ses._protocol.xml import Element
+from capo_ses.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_ses.types.configuration_set_name
+    import capo_ses.types.event_destination
+
+
+class CreateConfigurationSetEventDestinationRequest(TypedDict, closed=True):
+    configuration_set_name: "capo_ses.types.configuration_set_name.ConfigurationSetName"
+    """<p>The name of the configuration set that the event destination should be associated with.</p>"""
+    event_destination: "capo_ses.types.event_destination.EventDestination"
+    """<p>An object that describes the Amazon Web Services service that email sending event where information is published.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: CreateConfigurationSetEventDestinationRequest,
+    pairs: list[tuple[str, str]],
+    prefix: str,
+) -> None:
+    pairs.append(
+        (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+    )
+    import capo_ses.types.event_destination
+
+    capo_ses.types.event_destination.serialize_query(
+        value["event_destination"], pairs, f"{prefix}.EventDestination"
+    )
+
+
+def deserialize_query(el: Element) -> CreateConfigurationSetEventDestinationRequest:
+    out: CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+    child_configuration_set_name = el.find("ConfigurationSetName")
+    if child_configuration_set_name is not None:
+        out["configuration_set_name"] = str(child_configuration_set_name.text or "")
+    else:
+        raise DeserializationError(
+            "CreateConfigurationSetEventDestinationRequest.configuration_set_name required"
+        )
+    child_event_destination = el.find("EventDestination")
+    if child_event_destination is not None:
+        import capo_ses.types.event_destination
+
+        out["event_destination"] = capo_ses.types.event_destination.deserialize_query(
+            child_event_destination
+        )
+    else:
+        raise DeserializationError(
+            "CreateConfigurationSetEventDestinationRequest.event_destination required"
+        )
+    return out

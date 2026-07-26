@@ -1,0 +1,80 @@
+"""Generated from Smithy shape ``com.amazonaws.acm#CertificateFilter``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_acm.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_acm.types.acm_certificate_metadata_filter
+    import capo_acm.types.arn
+    import capo_acm.types.x509_attribute_filter
+
+
+class _CertificateFilter_CertificateArn(TypedDict, closed=True):
+    CertificateArn: "capo_acm.types.arn.Arn"
+
+
+class _CertificateFilter_X509AttributeFilter(TypedDict, closed=True):
+    X509AttributeFilter: "capo_acm.types.x509_attribute_filter.X509AttributeFilter"
+
+
+class _CertificateFilter_AcmCertificateMetadataFilter(TypedDict, closed=True):
+    AcmCertificateMetadataFilter: (
+        "capo_acm.types.acm_certificate_metadata_filter.AcmCertificateMetadataFilter"
+    )
+
+
+CertificateFilter: TypeAlias = (
+    _CertificateFilter_CertificateArn
+    | _CertificateFilter_X509AttributeFilter
+    | _CertificateFilter_AcmCertificateMetadataFilter
+)
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CertificateFilter) -> dict:
+    if "CertificateArn" in value:
+        return {"CertificateArn": value["CertificateArn"]}
+    elif "X509AttributeFilter" in value:
+        import capo_acm.types.x509_attribute_filter
+
+        return {
+            "X509AttributeFilter": capo_acm.types.x509_attribute_filter.serialize_aws_json_1_1(
+                value["X509AttributeFilter"]
+            )
+        }
+    elif "AcmCertificateMetadataFilter" in value:
+        import capo_acm.types.acm_certificate_metadata_filter
+
+        return {
+            "AcmCertificateMetadataFilter": capo_acm.types.acm_certificate_metadata_filter.serialize_aws_json_1_1(
+                value["AcmCertificateMetadataFilter"]
+            )
+        }
+    else:
+        raise SerializationError("CertificateFilter: no variant present")
+
+
+def deserialize_aws_json_1_1(data: dict) -> CertificateFilter:
+    if "CertificateArn" in data:
+        return {"CertificateArn": data["CertificateArn"]}
+    elif "X509AttributeFilter" in data:
+        import capo_acm.types.x509_attribute_filter
+
+        return {
+            "X509AttributeFilter": capo_acm.types.x509_attribute_filter.deserialize_aws_json_1_1(
+                data["X509AttributeFilter"]
+            )
+        }
+    elif "AcmCertificateMetadataFilter" in data:
+        import capo_acm.types.acm_certificate_metadata_filter
+
+        return {
+            "AcmCertificateMetadataFilter": capo_acm.types.acm_certificate_metadata_filter.deserialize_aws_json_1_1(
+                data["AcmCertificateMetadataFilter"]
+            )
+        }
+    else:
+        raise DeserializationError("CertificateFilter: no recognized variant key")

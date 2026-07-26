@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.route53globalresolver#DeleteAccessTokenInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_route53globalresolver.types.resource_id
+
+
+class DeleteAccessTokenInput(TypedDict, closed=True):
+    access_token_id: "capo_route53globalresolver.types.resource_id.ResourceId"
+    """<p>The unique identifier of the access token to delete.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteAccessTokenInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteAccessTokenInput:
+    out: DeleteAccessTokenInput = {}  # type: ignore[typeddict-item]
+    return out

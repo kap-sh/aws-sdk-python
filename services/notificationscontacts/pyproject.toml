@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-notificationscontacts"
+name = "capo-notificationscontacts"
 version = "0.1.0"
 description = "Python SDK for Notificationscontacts."
 readme = "README.md"

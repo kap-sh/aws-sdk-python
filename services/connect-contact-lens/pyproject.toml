@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-connect-contact-lens"
+name = "capo-connect-contact-lens"
 version = "0.1.0"
 description = "Python SDK for Connect Contact Lens."
 readme = "README.md"

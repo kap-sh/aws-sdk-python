@@ -1,0 +1,56 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeRecommendationLimitationsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_database_migration_service.types.filter_list
+    import capo_database_migration_service.types.integer_optional
+    import capo_database_migration_service.types.string
+
+
+class DescribeRecommendationLimitationsRequest(TypedDict, closed=True):
+    filters: NotRequired["capo_database_migration_service.types.filter_list.FilterList"]
+    """<p>Filters applied to the limitations described in the form of key-value pairs.</p> <p>Valid filter names: <code>database-id</code> | <code>engine-name</code> </p>"""
+    max_records: NotRequired[
+        "capo_database_migration_service.types.integer_optional.IntegerOptional"
+    ]
+    """<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token in the response so that you can retrieve the remaining results.</p>"""
+    next_token: NotRequired["capo_database_migration_service.types.string.String"]
+    """<p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeRecommendationLimitationsRequest) -> dict:
+    out: dict = {}
+    if "filters" in value:
+        import capo_database_migration_service.types.filter_list
+
+        out["Filters"] = (
+            capo_database_migration_service.types.filter_list.serialize_aws_json_1_1(
+                value["filters"]
+            )
+        )
+    if "max_records" in value:
+        out["MaxRecords"] = value["max_records"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeRecommendationLimitationsRequest:
+    out: DescribeRecommendationLimitationsRequest = {}  # type: ignore[typeddict-item]
+    if "Filters" in data:
+        import capo_database_migration_service.types.filter_list
+
+        out["filters"] = (
+            capo_database_migration_service.types.filter_list.deserialize_aws_json_1_1(
+                data["Filters"]
+            )
+        )
+    if "MaxRecords" in data:
+        out["max_records"] = data["MaxRecords"]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

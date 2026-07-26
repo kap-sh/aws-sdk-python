@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-license-manager"
+name = "capo-license-manager"
 version = "0.1.0"
 description = "Python SDK for License Manager."
 readme = "README.md"

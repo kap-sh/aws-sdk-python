@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cognito-sync"
+name = "capo-cognito-sync"
 version = "0.1.0"
 description = "Python SDK for Cognito Sync."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-secrets-manager"
+name = "capo-secrets-manager"
 version = "0.3.0"
 description = "Python SDK for AWS Secrets Manager."
 readme = "README.md"

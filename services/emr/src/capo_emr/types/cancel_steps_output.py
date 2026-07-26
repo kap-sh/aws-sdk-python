@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.emr#CancelStepsOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_emr.types.cancel_steps_info_list
+
+
+class CancelStepsOutput(TypedDict, closed=True):
+    cancel_steps_info_list: NotRequired[
+        "capo_emr.types.cancel_steps_info_list.CancelStepsInfoList"
+    ]
+    """<p>A list of <a>CancelStepsInfo</a>, which shows the status of specified cancel requests for each <code>StepID</code> specified.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CancelStepsOutput) -> dict:
+    out: dict = {}
+    if "cancel_steps_info_list" in value:
+        import capo_emr.types.cancel_steps_info_list
+
+        out["CancelStepsInfoList"] = (
+            capo_emr.types.cancel_steps_info_list.serialize_aws_json_1_1(
+                value["cancel_steps_info_list"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CancelStepsOutput:
+    out: CancelStepsOutput = {}  # type: ignore[typeddict-item]
+    if "CancelStepsInfoList" in data:
+        import capo_emr.types.cancel_steps_info_list
+
+        out["cancel_steps_info_list"] = (
+            capo_emr.types.cancel_steps_info_list.deserialize_aws_json_1_1(
+                data["CancelStepsInfoList"]
+            )
+        )
+    return out

@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.customerprofiles#DomainList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_customer_profiles.types.list_domain_item
+
+DomainList: TypeAlias = list[
+    "capo_customer_profiles.types.list_domain_item.ListDomainItem"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DomainList) -> list:
+    import capo_customer_profiles.types.list_domain_item
+
+    out: list = []
+    for item in value:
+        out.append(capo_customer_profiles.types.list_domain_item.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> DomainList:
+    import capo_customer_profiles.types.list_domain_item
+
+    out: DomainList = []
+    for item in data:
+        out.append(capo_customer_profiles.types.list_domain_item.deserialize_json(item))
+    return out

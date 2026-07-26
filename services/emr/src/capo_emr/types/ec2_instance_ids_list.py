@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.emr#EC2InstanceIdsList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_emr.types.instance_id
+
+EC2InstanceIdsList: TypeAlias = list["capo_emr.types.instance_id.InstanceId"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EC2InstanceIdsList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> EC2InstanceIdsList:
+    return list(data)

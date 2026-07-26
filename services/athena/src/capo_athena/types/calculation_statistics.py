@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.athena#CalculationStatistics``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_athena.types.description_string
+    import capo_athena.types.long
+
+
+class CalculationStatistics(TypedDict, closed=True):
+    dpu_execution_in_millis: NotRequired["capo_athena.types.long.Long"]
+    """<p>The data processing unit execution time in milliseconds for the calculation.</p>"""
+    progress: NotRequired["capo_athena.types.description_string.DescriptionString"]
+    """<p>The progress of the calculation.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CalculationStatistics) -> dict:
+    out: dict = {}
+    if "dpu_execution_in_millis" in value:
+        out["DpuExecutionInMillis"] = value["dpu_execution_in_millis"]
+    if "progress" in value:
+        out["Progress"] = value["progress"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CalculationStatistics:
+    out: CalculationStatistics = {}  # type: ignore[typeddict-item]
+    if "DpuExecutionInMillis" in data:
+        out["dpu_execution_in_millis"] = data["DpuExecutionInMillis"]
+    if "Progress" in data:
+        out["progress"] = data["Progress"]
+    return out

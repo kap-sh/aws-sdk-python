@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.ecrpublic#CompleteLayerUploadRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ecr_public.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_ecr_public.types.layer_digest_list
+    import capo_ecr_public.types.registry_id_or_alias
+    import capo_ecr_public.types.repository_name
+    import capo_ecr_public.types.upload_id
+
+
+class CompleteLayerUploadRequest(TypedDict, closed=True):
+    registry_id: NotRequired[
+        "capo_ecr_public.types.registry_id_or_alias.RegistryIdOrAlias"
+    ]
+    """<p>The Amazon Web Services account ID, or registry alias, associated with the registry where layers are uploaded. If you do not specify a registry, the default public registry is assumed.</p>"""
+    repository_name: "capo_ecr_public.types.repository_name.RepositoryName"
+    """<p>The name of the repository in a public registry to associate with the image layer.</p>"""
+    upload_id: "capo_ecr_public.types.upload_id.UploadId"
+    """<p>The upload ID from a previous <a>InitiateLayerUpload</a> operation to associate with the image layer.</p>"""
+    layer_digests: "capo_ecr_public.types.layer_digest_list.LayerDigestList"
+    """<p>The <code>sha256</code> digest of the image layer.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CompleteLayerUploadRequest) -> dict:
+    out: dict = {}
+    if "registry_id" in value:
+        out["registryId"] = value["registry_id"]
+    out["repositoryName"] = value["repository_name"]
+    out["uploadId"] = value["upload_id"]
+    import capo_ecr_public.types.layer_digest_list
+
+    out["layerDigests"] = (
+        capo_ecr_public.types.layer_digest_list.serialize_aws_json_1_1(
+            value["layer_digests"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CompleteLayerUploadRequest:
+    out: CompleteLayerUploadRequest = {}  # type: ignore[typeddict-item]
+    if "registryId" in data:
+        out["registry_id"] = data["registryId"]
+    if "repositoryName" in data:
+        out["repository_name"] = data["repositoryName"]
+    else:
+        raise DeserializationError(
+            "CompleteLayerUploadRequest.repository_name required"
+        )
+    if "uploadId" in data:
+        out["upload_id"] = data["uploadId"]
+    else:
+        raise DeserializationError("CompleteLayerUploadRequest.upload_id required")
+    if "layerDigests" in data:
+        import capo_ecr_public.types.layer_digest_list
+
+        out["layer_digests"] = (
+            capo_ecr_public.types.layer_digest_list.deserialize_aws_json_1_1(
+                data["layerDigests"]
+            )
+        )
+    else:
+        raise DeserializationError("CompleteLayerUploadRequest.layer_digests required")
+    return out

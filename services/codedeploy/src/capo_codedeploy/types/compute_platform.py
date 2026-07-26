@@ -1,0 +1,18 @@
+"""Generated from Smithy shape ``com.amazonaws.codedeploy#ComputePlatform``."""
+
+from typing import Literal, TypeAlias, cast
+
+ComputePlatform: TypeAlias = Literal[
+    "Server",
+    "Lambda",
+    "ECS",
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ComputePlatform) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> ComputePlatform:
+    return cast(ComputePlatform, data)

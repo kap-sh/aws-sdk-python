@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.finspacedata#GetProgrammaticAccessCredentialsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_finspace_data.types.id_type
+    import capo_finspace_data.types.session_duration
+
+
+class GetProgrammaticAccessCredentialsRequest(TypedDict, closed=True):
+    duration_in_minutes: NotRequired[
+        "capo_finspace_data.types.session_duration.SessionDuration"
+    ]
+    """<p>The time duration in which the credentials remain valid. </p>"""
+    environment_id: "capo_finspace_data.types.id_type.IdType"
+    """<p>The FinSpace environment identifier.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetProgrammaticAccessCredentialsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetProgrammaticAccessCredentialsRequest:
+    out: GetProgrammaticAccessCredentialsRequest = {}  # type: ignore[typeddict-item]
+    return out

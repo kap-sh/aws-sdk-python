@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-frauddetector"
+name = "capo-frauddetector"
 version = "0.1.0"
 description = "Python SDK for Frauddetector."
 readme = "README.md"

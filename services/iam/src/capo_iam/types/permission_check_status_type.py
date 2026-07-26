@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#permissionCheckStatusType``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_iam._protocol.xml import Element
+
+permissionCheckStatusType: TypeAlias = Literal[
+    "COMPLETE",
+    "IN_PROGRESS",
+    "FAILED",
+]
+
+
+# --- awsQuery ser/de ---
+def to_query_text(value: permissionCheckStatusType) -> str:
+    return value
+
+
+def from_query_text(text: str) -> permissionCheckStatusType:
+    return cast(permissionCheckStatusType, text)
+
+
+def serialize_query(
+    value: permissionCheckStatusType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_query_text(value)))
+
+
+def deserialize_query(el: Element) -> permissionCheckStatusType:
+    return from_query_text(el.text or "")

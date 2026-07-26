@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-greengrassv2"
+name = "capo-greengrassv2"
 version = "0.1.0"
 description = "Python SDK for Greengrassv2."
 readme = "README.md"

@@ -1,0 +1,126 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ExportImageResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ec2._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_ec2.types.disk_image_format
+    import capo_ec2.types.export_task_s3_location
+    import capo_ec2.types.string
+    import capo_ec2.types.tag_list
+
+
+class ExportImageResult(TypedDict, closed=True):
+    description: NotRequired["capo_ec2.types.string.String"]
+    """<p>A description of the image being exported.</p>"""
+    disk_image_format: NotRequired["capo_ec2.types.disk_image_format.DiskImageFormat"]
+    """<p>The disk image format for the exported image.</p>"""
+    export_image_task_id: NotRequired["capo_ec2.types.string.String"]
+    """<p>The ID of the export image task.</p>"""
+    image_id: NotRequired["capo_ec2.types.string.String"]
+    """<p>The ID of the image.</p>"""
+    role_name: NotRequired["capo_ec2.types.string.String"]
+    """<p>The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket.</p>"""
+    progress: NotRequired["capo_ec2.types.string.String"]
+    """<p>The percent complete of the export image task.</p>"""
+    s3_export_location: NotRequired[
+        "capo_ec2.types.export_task_s3_location.ExportTaskS3Location"
+    ]
+    """<p>Information about the destination Amazon S3 bucket.</p>"""
+    status: NotRequired["capo_ec2.types.string.String"]
+    """<p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>, <code>deleting</code>, and <code>deleted</code>.</p>"""
+    status_message: NotRequired["capo_ec2.types.string.String"]
+    """<p>The status message for the export image task.</p>"""
+    tags: NotRequired["capo_ec2.types.tag_list.TagList"]
+    """<p>Any tags assigned to the export image task.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ExportImageResult, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "disk_image_format" in value:
+        import capo_ec2.types.disk_image_format
+
+        capo_ec2.types.disk_image_format.serialize_ec2_query(
+            value["disk_image_format"], pairs, f"{prefix}.DiskImageFormat"
+        )
+    if "export_image_task_id" in value:
+        pairs.append(
+            (f"{prefix}.ExportImageTaskId", str(value["export_image_task_id"]))
+        )
+    if "image_id" in value:
+        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+    if "role_name" in value:
+        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+    if "progress" in value:
+        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+    if "s3_export_location" in value:
+        import capo_ec2.types.export_task_s3_location
+
+        capo_ec2.types.export_task_s3_location.serialize_ec2_query(
+            value["s3_export_location"], pairs, f"{prefix}.S3ExportLocation"
+        )
+    if "status" in value:
+        pairs.append((f"{prefix}.Status", str(value["status"])))
+    if "status_message" in value:
+        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+    if "tags" in value:
+        import capo_ec2.types.tag_list
+
+        capo_ec2.types.tag_list.serialize_ec2_query(
+            value["tags"], pairs, f"{prefix}.TagSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ExportImageResult:
+    out: ExportImageResult = {}  # type: ignore[typeddict-item]
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_disk_image_format = el.find("DiskImageFormat")
+    if child_disk_image_format is not None:
+        import capo_ec2.types.disk_image_format
+
+        out["disk_image_format"] = (
+            capo_ec2.types.disk_image_format.deserialize_ec2_query(
+                child_disk_image_format
+            )
+        )
+    child_export_image_task_id = el.find("ExportImageTaskId")
+    if child_export_image_task_id is not None:
+        out["export_image_task_id"] = str(child_export_image_task_id.text or "")
+    child_image_id = el.find("ImageId")
+    if child_image_id is not None:
+        out["image_id"] = str(child_image_id.text or "")
+    child_role_name = el.find("RoleName")
+    if child_role_name is not None:
+        out["role_name"] = str(child_role_name.text or "")
+    child_progress = el.find("Progress")
+    if child_progress is not None:
+        out["progress"] = str(child_progress.text or "")
+    child_s3_export_location = el.find("S3ExportLocation")
+    if child_s3_export_location is not None:
+        import capo_ec2.types.export_task_s3_location
+
+        out["s3_export_location"] = (
+            capo_ec2.types.export_task_s3_location.deserialize_ec2_query(
+                child_s3_export_location
+            )
+        )
+    child_status = el.find("Status")
+    if child_status is not None:
+        out["status"] = str(child_status.text or "")
+    child_status_message = el.find("StatusMessage")
+    if child_status_message is not None:
+        out["status_message"] = str(child_status_message.text or "")
+    if el.find("TagSet") is not None:
+        import capo_ec2.types.tag_list
+
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+    return out

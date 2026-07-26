@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#Result``."""
+
+from typing import Literal, TypeAlias, cast
+
+Result: TypeAlias = Literal[
+    "ROLLBACK",
+    "FAIL",
+    "RETRY",
+    "SKIP",
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: Result) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> Result:
+    return cast(Result, data)

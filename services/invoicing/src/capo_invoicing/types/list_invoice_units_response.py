@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.invoicing#ListInvoiceUnitsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_invoicing.types.invoice_units
+    import capo_invoicing.types.next_token_string
+
+
+class ListInvoiceUnitsResponse(TypedDict, closed=True):
+    invoice_units: NotRequired["capo_invoicing.types.invoice_units.InvoiceUnits"]
+    """<p> An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. </p>"""
+    next_token: NotRequired["capo_invoicing.types.next_token_string.NextTokenString"]
+    """<p>The next token used to indicate where the returned list should start from. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListInvoiceUnitsResponse) -> dict:
+    out: dict = {}
+    if "invoice_units" in value:
+        import capo_invoicing.types.invoice_units
+
+        out["InvoiceUnits"] = capo_invoicing.types.invoice_units.serialize_aws_json_1_0(
+            value["invoice_units"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListInvoiceUnitsResponse:
+    out: ListInvoiceUnitsResponse = {}  # type: ignore[typeddict-item]
+    if "InvoiceUnits" in data:
+        import capo_invoicing.types.invoice_units
+
+        out["invoice_units"] = (
+            capo_invoicing.types.invoice_units.deserialize_aws_json_1_0(
+                data["InvoiceUnits"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

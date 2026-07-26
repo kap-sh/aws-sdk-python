@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-connectcampaigns"
+name = "capo-connectcampaigns"
 version = "0.1.0"
 description = "Python SDK for Connectcampaigns."
 readme = "README.md"

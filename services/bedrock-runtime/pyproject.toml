@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-bedrock-runtime"
+name = "capo-bedrock-runtime"
 version = "0.1.0"
 description = "Python SDK for Bedrock Runtime."
 readme = "README.md"

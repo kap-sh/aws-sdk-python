@@ -1,0 +1,107 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#Schedule``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_inspector2.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_inspector2.types.daily_schedule
+    import capo_inspector2.types.monthly_schedule
+    import capo_inspector2.types.one_time_schedule
+    import capo_inspector2.types.weekly_schedule
+
+
+class _Schedule_oneTime(TypedDict, closed=True):
+    oneTime: "capo_inspector2.types.one_time_schedule.OneTimeSchedule"
+
+
+class _Schedule_daily(TypedDict, closed=True):
+    daily: "capo_inspector2.types.daily_schedule.DailySchedule"
+
+
+class _Schedule_weekly(TypedDict, closed=True):
+    weekly: "capo_inspector2.types.weekly_schedule.WeeklySchedule"
+
+
+class _Schedule_monthly(TypedDict, closed=True):
+    monthly: "capo_inspector2.types.monthly_schedule.MonthlySchedule"
+
+
+Schedule: TypeAlias = (
+    _Schedule_oneTime | _Schedule_daily | _Schedule_weekly | _Schedule_monthly
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Schedule) -> dict:
+    if "oneTime" in value:
+        import capo_inspector2.types.one_time_schedule
+
+        return {
+            "oneTime": capo_inspector2.types.one_time_schedule.serialize_json(
+                value["oneTime"]
+            )
+        }
+    elif "daily" in value:
+        import capo_inspector2.types.daily_schedule
+
+        return {
+            "daily": capo_inspector2.types.daily_schedule.serialize_json(value["daily"])
+        }
+    elif "weekly" in value:
+        import capo_inspector2.types.weekly_schedule
+
+        return {
+            "weekly": capo_inspector2.types.weekly_schedule.serialize_json(
+                value["weekly"]
+            )
+        }
+    elif "monthly" in value:
+        import capo_inspector2.types.monthly_schedule
+
+        return {
+            "monthly": capo_inspector2.types.monthly_schedule.serialize_json(
+                value["monthly"]
+            )
+        }
+    else:
+        raise SerializationError("Schedule: no variant present")
+
+
+def deserialize_json(data: dict) -> Schedule:
+    if "oneTime" in data:
+        import capo_inspector2.types.one_time_schedule
+
+        return {
+            "oneTime": capo_inspector2.types.one_time_schedule.deserialize_json(
+                data["oneTime"]
+            )
+        }
+    elif "daily" in data:
+        import capo_inspector2.types.daily_schedule
+
+        return {
+            "daily": capo_inspector2.types.daily_schedule.deserialize_json(
+                data["daily"]
+            )
+        }
+    elif "weekly" in data:
+        import capo_inspector2.types.weekly_schedule
+
+        return {
+            "weekly": capo_inspector2.types.weekly_schedule.deserialize_json(
+                data["weekly"]
+            )
+        }
+    elif "monthly" in data:
+        import capo_inspector2.types.monthly_schedule
+
+        return {
+            "monthly": capo_inspector2.types.monthly_schedule.deserialize_json(
+                data["monthly"]
+            )
+        }
+    else:
+        raise DeserializationError("Schedule: no recognized variant key")

@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-ssm-guiconnect
+pip install capo-ssm-guiconnect
 ```

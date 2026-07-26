@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-comprehendmedical"
+name = "capo-comprehendmedical"
 version = "0.1.0"
 description = "Python SDK for Comprehendmedical."
 readme = "README.md"

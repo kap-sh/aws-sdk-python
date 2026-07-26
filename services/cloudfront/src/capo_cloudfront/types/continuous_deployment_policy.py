@@ -1,0 +1,75 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudfront#ContinuousDeploymentPolicy``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_cloudfront._protocol.xml import Element, SubElement
+from capo_cloudfront.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_cloudfront.types.continuous_deployment_policy_config
+    import capo_cloudfront.types.string
+    import capo_cloudfront.types.timestamp
+
+
+class ContinuousDeploymentPolicy(TypedDict, closed=True):
+    id: "capo_cloudfront.types.string.string"
+    """<p>The identifier of the continuous deployment policy.</p>"""
+    last_modified_time: "capo_cloudfront.types.timestamp.timestamp"
+    """<p>The date and time the continuous deployment policy was last modified.</p>"""
+    continuous_deployment_policy_config: "capo_cloudfront.types.continuous_deployment_policy_config.ContinuousDeploymentPolicyConfig"
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: ContinuousDeploymentPolicy, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    SubElement(el, "Id").text = str(value["id"])
+    import capo_cloudfront.types.timestamp
+
+    capo_cloudfront.types.timestamp.serialize_xml(
+        value["last_modified_time"], el, "LastModifiedTime"
+    )
+    import capo_cloudfront.types.continuous_deployment_policy_config
+
+    capo_cloudfront.types.continuous_deployment_policy_config.serialize_xml(
+        value["continuous_deployment_policy_config"],
+        el,
+        "ContinuousDeploymentPolicyConfig",
+    )
+
+
+def deserialize_xml(el: Element) -> ContinuousDeploymentPolicy:
+    out: ContinuousDeploymentPolicy = {}  # type: ignore[typeddict-item]
+    child_id = el.find("Id")
+    if child_id is not None:
+        out["id"] = str(child_id.text or "")
+    else:
+        raise DeserializationError("ContinuousDeploymentPolicy.id required")
+    child_last_modified_time = el.find("LastModifiedTime")
+    if child_last_modified_time is not None:
+        import capo_cloudfront.types.timestamp
+
+        out["last_modified_time"] = capo_cloudfront.types.timestamp.deserialize_xml(
+            child_last_modified_time
+        )
+    else:
+        raise DeserializationError(
+            "ContinuousDeploymentPolicy.last_modified_time required"
+        )
+    child_continuous_deployment_policy_config = el.find(
+        "ContinuousDeploymentPolicyConfig"
+    )
+    if child_continuous_deployment_policy_config is not None:
+        import capo_cloudfront.types.continuous_deployment_policy_config
+
+        out["continuous_deployment_policy_config"] = (
+            capo_cloudfront.types.continuous_deployment_policy_config.deserialize_xml(
+                child_continuous_deployment_policy_config
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ContinuousDeploymentPolicy.continuous_deployment_policy_config required"
+        )
+    return out

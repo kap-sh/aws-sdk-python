@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-networkmonitor"
+name = "capo-networkmonitor"
 version = "0.1.0"
 description = "Python SDK for Networkmonitor."
 readme = "README.md"

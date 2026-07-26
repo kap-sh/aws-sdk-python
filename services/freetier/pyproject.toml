@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-freetier"
+name = "capo-freetier"
 version = "0.1.0"
 description = "Python SDK for Freetier."
 readme = "README.md"

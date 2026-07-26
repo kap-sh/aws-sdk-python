@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-pinpoint"
+name = "capo-pinpoint"
 version = "0.1.0"
 description = "Python SDK for Pinpoint."
 readme = "README.md"

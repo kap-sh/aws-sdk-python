@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#PrincipalType``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_ec2._protocol.xml import Element
+
+PrincipalType: TypeAlias = Literal[
+    "All",
+    "Service",
+    "OrganizationUnit",
+    "Account",
+    "User",
+    "Role",
+]
+
+
+# --- ec2Query ser/de ---
+def to_ec2_query_text(value: PrincipalType) -> str:
+    return value
+
+
+def from_ec2_query_text(text: str) -> PrincipalType:
+    return cast(PrincipalType, text)
+
+
+def serialize_ec2_query(
+    value: PrincipalType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_ec2_query_text(value)))
+
+
+def deserialize_ec2_query(el: Element) -> PrincipalType:
+    return from_ec2_query_text(el.text or "")

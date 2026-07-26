@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.lightsail#DnsRecordCreationState``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lightsail.types.dns_record_creation_state_code
+    import capo_lightsail.types.string
+
+
+class DnsRecordCreationState(TypedDict, closed=True):
+    code: NotRequired[
+        "capo_lightsail.types.dns_record_creation_state_code.DnsRecordCreationStateCode"
+    ]
+    """<p>The status code for the automated DNS record creation.</p> <p>Following are the possible values:</p> <ul> <li> <p> <code>SUCCEEDED</code> - The validation records were successfully added to the domain.</p> </li> <li> <p> <code>STARTED</code> - The automatic DNS record creation has started.</p> </li> <li> <p> <code>FAILED</code> - The validation records failed to be added to the domain.</p> </li> </ul>"""
+    message: NotRequired["capo_lightsail.types.string.string"]
+    """<p>The message that describes the reason for the status code.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DnsRecordCreationState) -> dict:
+    out: dict = {}
+    if "code" in value:
+        import capo_lightsail.types.dns_record_creation_state_code
+
+        out["code"] = (
+            capo_lightsail.types.dns_record_creation_state_code.serialize_aws_json_1_1(
+                value["code"]
+            )
+        )
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DnsRecordCreationState:
+    out: DnsRecordCreationState = {}  # type: ignore[typeddict-item]
+    if "code" in data:
+        import capo_lightsail.types.dns_record_creation_state_code
+
+        out["code"] = (
+            capo_lightsail.types.dns_record_creation_state_code.deserialize_aws_json_1_1(
+                data["code"]
+            )
+        )
+    if "message" in data:
+        out["message"] = data["message"]
+    return out

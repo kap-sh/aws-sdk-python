@@ -1,0 +1,101 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SemanticMemoryStrategyInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.description
+    import capo_bedrock_agentcore_control.types.memory_record_schema
+    import capo_bedrock_agentcore_control.types.name
+    import capo_bedrock_agentcore_control.types.namespaces_list
+
+
+class SemanticMemoryStrategyInput(TypedDict, closed=True):
+    name: "capo_bedrock_agentcore_control.types.name.Name"
+    """<p>The name of the semantic memory strategy.</p>"""
+    description: NotRequired[
+        "capo_bedrock_agentcore_control.types.description.Description"
+    ]
+    """<p>The description of the semantic memory strategy.</p>"""
+    namespaces: NotRequired[
+        "capo_bedrock_agentcore_control.types.namespaces_list.NamespacesList"
+    ]
+    """<p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the semantic memory strategy.</p>"""
+    namespace_templates: NotRequired[
+        "capo_bedrock_agentcore_control.types.namespaces_list.NamespacesList"
+    ]
+    """<p>The namespaceTemplates associated with the semantic memory strategy.</p>"""
+    memory_record_schema: NotRequired[
+        "capo_bedrock_agentcore_control.types.memory_record_schema.MemoryRecordSchema"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SemanticMemoryStrategyInput) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "namespaces" in value:
+        import capo_bedrock_agentcore_control.types.namespaces_list
+
+        out["namespaces"] = (
+            capo_bedrock_agentcore_control.types.namespaces_list.serialize_json(
+                value["namespaces"]
+            )
+        )
+    if "namespace_templates" in value:
+        import capo_bedrock_agentcore_control.types.namespaces_list
+
+        out["namespaceTemplates"] = (
+            capo_bedrock_agentcore_control.types.namespaces_list.serialize_json(
+                value["namespace_templates"]
+            )
+        )
+    if "memory_record_schema" in value:
+        import capo_bedrock_agentcore_control.types.memory_record_schema
+
+        out["memoryRecordSchema"] = (
+            capo_bedrock_agentcore_control.types.memory_record_schema.serialize_json(
+                value["memory_record_schema"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> SemanticMemoryStrategyInput:
+    out: SemanticMemoryStrategyInput = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("SemanticMemoryStrategyInput.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "namespaces" in data:
+        import capo_bedrock_agentcore_control.types.namespaces_list
+
+        out["namespaces"] = (
+            capo_bedrock_agentcore_control.types.namespaces_list.deserialize_json(
+                data["namespaces"]
+            )
+        )
+    if "namespaceTemplates" in data:
+        import capo_bedrock_agentcore_control.types.namespaces_list
+
+        out["namespace_templates"] = (
+            capo_bedrock_agentcore_control.types.namespaces_list.deserialize_json(
+                data["namespaceTemplates"]
+            )
+        )
+    if "memoryRecordSchema" in data:
+        import capo_bedrock_agentcore_control.types.memory_record_schema
+
+        out["memory_record_schema"] = (
+            capo_bedrock_agentcore_control.types.memory_record_schema.deserialize_json(
+                data["memoryRecordSchema"]
+            )
+        )
+    return out

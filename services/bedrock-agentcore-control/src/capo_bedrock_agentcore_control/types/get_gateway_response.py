@@ -1,0 +1,328 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetGatewayResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.authorizer_configuration
+    import capo_bedrock_agentcore_control.types.authorizer_type
+    import capo_bedrock_agentcore_control.types.date_timestamp
+    import capo_bedrock_agentcore_control.types.exception_level
+    import capo_bedrock_agentcore_control.types.gateway_arn
+    import capo_bedrock_agentcore_control.types.gateway_description
+    import capo_bedrock_agentcore_control.types.gateway_id
+    import capo_bedrock_agentcore_control.types.gateway_interceptor_configurations
+    import capo_bedrock_agentcore_control.types.gateway_name
+    import capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration
+    import capo_bedrock_agentcore_control.types.gateway_protocol_configuration
+    import capo_bedrock_agentcore_control.types.gateway_protocol_type
+    import capo_bedrock_agentcore_control.types.gateway_status
+    import capo_bedrock_agentcore_control.types.gateway_url
+    import capo_bedrock_agentcore_control.types.kms_key_arn
+    import capo_bedrock_agentcore_control.types.role_arn
+    import capo_bedrock_agentcore_control.types.status_reasons
+    import capo_bedrock_agentcore_control.types.workload_identity_details
+
+
+class GetGatewayResponse(TypedDict, closed=True):
+    gateway_arn: "capo_bedrock_agentcore_control.types.gateway_arn.GatewayArn"
+    """<p>The Amazon Resource Name (ARN) of the gateway.</p>"""
+    gateway_id: "capo_bedrock_agentcore_control.types.gateway_id.GatewayId"
+    """<p>The unique identifier of the gateway.</p>"""
+    gateway_url: NotRequired[
+        "capo_bedrock_agentcore_control.types.gateway_url.GatewayUrl"
+    ]
+    """<p>An endpoint for invoking gateway.</p>"""
+    created_at: "capo_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    """<p>The timestamp when the gateway was created.</p>"""
+    updated_at: "capo_bedrock_agentcore_control.types.date_timestamp.DateTimestamp"
+    """<p>The timestamp when the gateway was last updated.</p>"""
+    status: "capo_bedrock_agentcore_control.types.gateway_status.GatewayStatus"
+    """<p>The current status of the gateway.</p>"""
+    status_reasons: NotRequired[
+        "capo_bedrock_agentcore_control.types.status_reasons.StatusReasons"
+    ]
+    """<p>The reasons for the current status of the gateway.</p>"""
+    name: "capo_bedrock_agentcore_control.types.gateway_name.GatewayName"
+    """<p>The name of the gateway.</p>"""
+    description: NotRequired[
+        "capo_bedrock_agentcore_control.types.gateway_description.GatewayDescription"
+    ]
+    """<p>The description of the gateway.</p>"""
+    role_arn: NotRequired["capo_bedrock_agentcore_control.types.role_arn.RoleArn"]
+    """<p>The IAM role ARN that provides permissions for the gateway.</p>"""
+    protocol_type: (
+        "capo_bedrock_agentcore_control.types.gateway_protocol_type.GatewayProtocolType"
+    )
+    """<p>Protocol applied to a gateway.</p>"""
+    protocol_configuration: NotRequired[
+        "capo_bedrock_agentcore_control.types.gateway_protocol_configuration.GatewayProtocolConfiguration"
+    ]
+    authorizer_type: (
+        "capo_bedrock_agentcore_control.types.authorizer_type.AuthorizerType"
+    )
+    """<p>Authorizer type for the gateway.</p>"""
+    authorizer_configuration: NotRequired[
+        "capo_bedrock_agentcore_control.types.authorizer_configuration.AuthorizerConfiguration"
+    ]
+    """<p>The authorizer configuration for the gateway.</p>"""
+    kms_key_arn: NotRequired[
+        "capo_bedrock_agentcore_control.types.kms_key_arn.KmsKeyArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the gateway.</p>"""
+    interceptor_configurations: NotRequired[
+        "capo_bedrock_agentcore_control.types.gateway_interceptor_configurations.GatewayInterceptorConfigurations"
+    ]
+    """<p>The interceptors configured on the gateway.</p>"""
+    policy_engine_configuration: NotRequired[
+        "capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration.GatewayPolicyEngineConfiguration"
+    ]
+    """<p>The policy engine configuration for the gateway.</p>"""
+    workload_identity_details: NotRequired[
+        "capo_bedrock_agentcore_control.types.workload_identity_details.WorkloadIdentityDetails"
+    ]
+    """<p>The workload identity details for the gateway.</p>"""
+    exception_level: NotRequired[
+        "capo_bedrock_agentcore_control.types.exception_level.ExceptionLevel"
+    ]
+    """<p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetGatewayResponse) -> dict:
+    out: dict = {}
+    out["gatewayArn"] = value["gateway_arn"]
+    out["gatewayId"] = value["gateway_id"]
+    if "gateway_url" in value:
+        out["gatewayUrl"] = value["gateway_url"]
+    import capo_bedrock_agentcore_control.types.date_timestamp
+
+    out["createdAt"] = (
+        capo_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["created_at"]
+        )
+    )
+    import capo_bedrock_agentcore_control.types.date_timestamp
+
+    out["updatedAt"] = (
+        capo_bedrock_agentcore_control.types.date_timestamp.serialize_json(
+            value["updated_at"]
+        )
+    )
+    import capo_bedrock_agentcore_control.types.gateway_status
+
+    out["status"] = capo_bedrock_agentcore_control.types.gateway_status.serialize_json(
+        value["status"]
+    )
+    if "status_reasons" in value:
+        import capo_bedrock_agentcore_control.types.status_reasons
+
+        out["statusReasons"] = (
+            capo_bedrock_agentcore_control.types.status_reasons.serialize_json(
+                value["status_reasons"]
+            )
+        )
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "role_arn" in value:
+        out["roleArn"] = value["role_arn"]
+    import capo_bedrock_agentcore_control.types.gateway_protocol_type
+
+    out["protocolType"] = (
+        capo_bedrock_agentcore_control.types.gateway_protocol_type.serialize_json(
+            value.get("protocol_type", "MCP")
+        )
+    )
+    if "protocol_configuration" in value:
+        import capo_bedrock_agentcore_control.types.gateway_protocol_configuration
+
+        out["protocolConfiguration"] = (
+            capo_bedrock_agentcore_control.types.gateway_protocol_configuration.serialize_json(
+                value["protocol_configuration"]
+            )
+        )
+    import capo_bedrock_agentcore_control.types.authorizer_type
+
+    out["authorizerType"] = (
+        capo_bedrock_agentcore_control.types.authorizer_type.serialize_json(
+            value["authorizer_type"]
+        )
+    )
+    if "authorizer_configuration" in value:
+        import capo_bedrock_agentcore_control.types.authorizer_configuration
+
+        out["authorizerConfiguration"] = (
+            capo_bedrock_agentcore_control.types.authorizer_configuration.serialize_json(
+                value["authorizer_configuration"]
+            )
+        )
+    if "kms_key_arn" in value:
+        out["kmsKeyArn"] = value["kms_key_arn"]
+    if "interceptor_configurations" in value:
+        import capo_bedrock_agentcore_control.types.gateway_interceptor_configurations
+
+        out["interceptorConfigurations"] = (
+            capo_bedrock_agentcore_control.types.gateway_interceptor_configurations.serialize_json(
+                value["interceptor_configurations"]
+            )
+        )
+    if "policy_engine_configuration" in value:
+        import capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration
+
+        out["policyEngineConfiguration"] = (
+            capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration.serialize_json(
+                value["policy_engine_configuration"]
+            )
+        )
+    if "workload_identity_details" in value:
+        import capo_bedrock_agentcore_control.types.workload_identity_details
+
+        out["workloadIdentityDetails"] = (
+            capo_bedrock_agentcore_control.types.workload_identity_details.serialize_json(
+                value["workload_identity_details"]
+            )
+        )
+    if "exception_level" in value:
+        import capo_bedrock_agentcore_control.types.exception_level
+
+        out["exceptionLevel"] = (
+            capo_bedrock_agentcore_control.types.exception_level.serialize_json(
+                value["exception_level"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetGatewayResponse:
+    out: GetGatewayResponse = {}  # type: ignore[typeddict-item]
+    if "gatewayArn" in data:
+        out["gateway_arn"] = data["gatewayArn"]
+    else:
+        raise DeserializationError("GetGatewayResponse.gateway_arn required")
+    if "gatewayId" in data:
+        out["gateway_id"] = data["gatewayId"]
+    else:
+        raise DeserializationError("GetGatewayResponse.gateway_id required")
+    if "gatewayUrl" in data:
+        out["gateway_url"] = data["gatewayUrl"]
+    if "createdAt" in data:
+        import capo_bedrock_agentcore_control.types.date_timestamp
+
+        out["created_at"] = (
+            capo_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["createdAt"]
+            )
+        )
+    else:
+        raise DeserializationError("GetGatewayResponse.created_at required")
+    if "updatedAt" in data:
+        import capo_bedrock_agentcore_control.types.date_timestamp
+
+        out["updated_at"] = (
+            capo_bedrock_agentcore_control.types.date_timestamp.deserialize_json(
+                data["updatedAt"]
+            )
+        )
+    else:
+        raise DeserializationError("GetGatewayResponse.updated_at required")
+    if "status" in data:
+        import capo_bedrock_agentcore_control.types.gateway_status
+
+        out["status"] = (
+            capo_bedrock_agentcore_control.types.gateway_status.deserialize_json(
+                data["status"]
+            )
+        )
+    else:
+        raise DeserializationError("GetGatewayResponse.status required")
+    if "statusReasons" in data:
+        import capo_bedrock_agentcore_control.types.status_reasons
+
+        out["status_reasons"] = (
+            capo_bedrock_agentcore_control.types.status_reasons.deserialize_json(
+                data["statusReasons"]
+            )
+        )
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("GetGatewayResponse.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "roleArn" in data:
+        out["role_arn"] = data["roleArn"]
+    if "protocolType" in data:
+        import capo_bedrock_agentcore_control.types.gateway_protocol_type
+
+        out["protocol_type"] = (
+            capo_bedrock_agentcore_control.types.gateway_protocol_type.deserialize_json(
+                data["protocolType"]
+            )
+        )
+    else:
+        out["protocol_type"] = "MCP"
+    if "protocolConfiguration" in data:
+        import capo_bedrock_agentcore_control.types.gateway_protocol_configuration
+
+        out["protocol_configuration"] = (
+            capo_bedrock_agentcore_control.types.gateway_protocol_configuration.deserialize_json(
+                data["protocolConfiguration"]
+            )
+        )
+    if "authorizerType" in data:
+        import capo_bedrock_agentcore_control.types.authorizer_type
+
+        out["authorizer_type"] = (
+            capo_bedrock_agentcore_control.types.authorizer_type.deserialize_json(
+                data["authorizerType"]
+            )
+        )
+    else:
+        raise DeserializationError("GetGatewayResponse.authorizer_type required")
+    if "authorizerConfiguration" in data:
+        import capo_bedrock_agentcore_control.types.authorizer_configuration
+
+        out["authorizer_configuration"] = (
+            capo_bedrock_agentcore_control.types.authorizer_configuration.deserialize_json(
+                data["authorizerConfiguration"]
+            )
+        )
+    if "kmsKeyArn" in data:
+        out["kms_key_arn"] = data["kmsKeyArn"]
+    if "interceptorConfigurations" in data:
+        import capo_bedrock_agentcore_control.types.gateway_interceptor_configurations
+
+        out["interceptor_configurations"] = (
+            capo_bedrock_agentcore_control.types.gateway_interceptor_configurations.deserialize_json(
+                data["interceptorConfigurations"]
+            )
+        )
+    if "policyEngineConfiguration" in data:
+        import capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration
+
+        out["policy_engine_configuration"] = (
+            capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration.deserialize_json(
+                data["policyEngineConfiguration"]
+            )
+        )
+    if "workloadIdentityDetails" in data:
+        import capo_bedrock_agentcore_control.types.workload_identity_details
+
+        out["workload_identity_details"] = (
+            capo_bedrock_agentcore_control.types.workload_identity_details.deserialize_json(
+                data["workloadIdentityDetails"]
+            )
+        )
+    if "exceptionLevel" in data:
+        import capo_bedrock_agentcore_control.types.exception_level
+
+        out["exception_level"] = (
+            capo_bedrock_agentcore_control.types.exception_level.deserialize_json(
+                data["exceptionLevel"]
+            )
+        )
+    return out

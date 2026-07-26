@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-bedrock-agent-runtime
+pip install capo-bedrock-agent-runtime
 ```

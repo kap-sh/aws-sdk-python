@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-simpledbv2"
+name = "capo-simpledbv2"
 version = "0.1.0"
 description = "Python SDK for Simpledbv2."
 readme = "README.md"

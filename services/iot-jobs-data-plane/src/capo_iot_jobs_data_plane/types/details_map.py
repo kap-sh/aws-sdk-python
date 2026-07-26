@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#DetailsMap``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_iot_jobs_data_plane.types.details_key
+    import capo_iot_jobs_data_plane.types.details_value
+
+DetailsMap: TypeAlias = dict[
+    "capo_iot_jobs_data_plane.types.details_key.DetailsKey",
+    "capo_iot_jobs_data_plane.types.details_value.DetailsValue",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(input_to_serialize: DetailsMap) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        out[key] = value
+    return out
+
+
+def deserialize_json(data: dict) -> DetailsMap:
+    out: DetailsMap = {}
+    for key, value in data.items():
+        out[key] = value
+    return out

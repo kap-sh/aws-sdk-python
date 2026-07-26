@@ -1,0 +1,68 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RecommendationConfig``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agentcore.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore.types.system_prompt_recommendation_config
+    import capo_bedrock_agentcore.types.tool_description_recommendation_config
+
+
+class _RecommendationConfig_systemPromptRecommendationConfig(TypedDict, closed=True):
+    systemPromptRecommendationConfig: "capo_bedrock_agentcore.types.system_prompt_recommendation_config.SystemPromptRecommendationConfig"
+
+
+class _RecommendationConfig_toolDescriptionRecommendationConfig(TypedDict, closed=True):
+    toolDescriptionRecommendationConfig: "capo_bedrock_agentcore.types.tool_description_recommendation_config.ToolDescriptionRecommendationConfig"
+
+
+RecommendationConfig: TypeAlias = (
+    _RecommendationConfig_systemPromptRecommendationConfig
+    | _RecommendationConfig_toolDescriptionRecommendationConfig
+)
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RecommendationConfig) -> dict:
+    if "systemPromptRecommendationConfig" in value:
+        import capo_bedrock_agentcore.types.system_prompt_recommendation_config
+
+        return {
+            "systemPromptRecommendationConfig": capo_bedrock_agentcore.types.system_prompt_recommendation_config.serialize_json(
+                value["systemPromptRecommendationConfig"]
+            )
+        }
+    elif "toolDescriptionRecommendationConfig" in value:
+        import capo_bedrock_agentcore.types.tool_description_recommendation_config
+
+        return {
+            "toolDescriptionRecommendationConfig": capo_bedrock_agentcore.types.tool_description_recommendation_config.serialize_json(
+                value["toolDescriptionRecommendationConfig"]
+            )
+        }
+    else:
+        raise SerializationError("RecommendationConfig: no variant present")
+
+
+def deserialize_json(data: dict) -> RecommendationConfig:
+    if "systemPromptRecommendationConfig" in data:
+        import capo_bedrock_agentcore.types.system_prompt_recommendation_config
+
+        return {
+            "systemPromptRecommendationConfig": capo_bedrock_agentcore.types.system_prompt_recommendation_config.deserialize_json(
+                data["systemPromptRecommendationConfig"]
+            )
+        }
+    elif "toolDescriptionRecommendationConfig" in data:
+        import capo_bedrock_agentcore.types.tool_description_recommendation_config
+
+        return {
+            "toolDescriptionRecommendationConfig": capo_bedrock_agentcore.types.tool_description_recommendation_config.deserialize_json(
+                data["toolDescriptionRecommendationConfig"]
+            )
+        }
+    else:
+        raise DeserializationError("RecommendationConfig: no recognized variant key")

@@ -1,0 +1,155 @@
+"""Generated from Smithy shape ``com.amazonaws.redshift#DescribeScheduledActions``."""
+
+from __future__ import annotations
+
+from typing import Any
+from urllib.parse import urlencode
+
+import zapros
+from typing_extensions import Never
+
+import capo_redshift._auth._signers
+import capo_redshift._auth._sigv4
+import capo_redshift.errors.scheduled_action_not_found_fault
+import capo_redshift.errors.unauthorized_operation
+import capo_redshift.types.describe_scheduled_actions_message
+import capo_redshift.types.scheduled_action_filter_list
+import capo_redshift.types.scheduled_action_list
+import capo_redshift.types.scheduled_action_type_values
+import capo_redshift.types.scheduled_actions_message
+import capo_redshift.types.t_stamp
+from capo_redshift._protocol.errors import parse_error_metadata
+from capo_redshift._protocol.xml import fromstring
+from capo_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_redshift.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    root = fromstring(response.read())
+    code, message = parse_error_metadata(root)
+    match code:
+        case "ScheduledActionNotFoundFault":
+            raise capo_redshift.errors.scheduled_action_not_found_fault.ScheduledActionNotFoundFault.from_query(
+                root
+            )
+        case "UnauthorizedOperation":
+            raise capo_redshift.errors.unauthorized_operation.UnauthorizedOperation.from_query(
+                root
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_redshift.types.scheduled_actions_message.ScheduledActionsMessage:
+    root = fromstring(response.read())
+    result = root.find("DescribeScheduledActionsResult")
+    out: capo_redshift.types.scheduled_actions_message.ScheduledActionsMessage = (
+        capo_redshift.types.scheduled_actions_message.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_redshift.types.scheduled_actions_message.ScheduledActionsMessage:
+    root = fromstring(await response.aread())
+    result = root.find("DescribeScheduledActionsResult")
+    out: capo_redshift.types.scheduled_actions_message.ScheduledActionsMessage = (
+        capo_redshift.types.scheduled_actions_message.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_redshift._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_redshift._auth._sigv4.build_sigv4_auth_scheme(
+                "redshift", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_redshift._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_redshift.types.describe_scheduled_actions_message.DescribeScheduledActionsMessage,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    pairs: list[tuple[str, str]] = []
+    pairs.append(("Action", "DescribeScheduledActions"))
+    pairs.append(("Version", "2012-12-01"))
+    capo_redshift.types.describe_scheduled_actions_message.serialize_query(
+        input_, pairs, ""
+    )
+    body: bytes | None = urlencode(pairs).encode()
+    headers["content-type"] = "application/x-www-form-urlencoded"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def describe_scheduled_actions(
+    options: OperationOptions,
+    input_: capo_redshift.types.describe_scheduled_actions_message.DescribeScheduledActionsMessage,
+) -> tuple[
+    capo_redshift.types.scheduled_actions_message.ScheduledActionsMessage,
+    zapros.Response,
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_describe_scheduled_actions(
+    options: AsyncOperationOptions,
+    input_: capo_redshift.types.describe_scheduled_actions_message.DescribeScheduledActionsMessage,
+) -> tuple[
+    capo_redshift.types.scheduled_actions_message.ScheduledActionsMessage,
+    zapros.Response,
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

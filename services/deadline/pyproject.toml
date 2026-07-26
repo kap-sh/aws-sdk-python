@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-deadline"
+name = "capo-deadline"
 version = "0.1.0"
 description = "Python SDK for Deadline."
 readme = "README.md"

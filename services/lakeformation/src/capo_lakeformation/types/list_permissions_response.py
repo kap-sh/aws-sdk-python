@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.lakeformation#ListPermissionsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lakeformation.types.principal_resource_permissions_list
+    import capo_lakeformation.types.token
+
+
+class ListPermissionsResponse(TypedDict, closed=True):
+    principal_resource_permissions: NotRequired[
+        "capo_lakeformation.types.principal_resource_permissions_list.PrincipalResourcePermissionsList"
+    ]
+    """<p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>"""
+    next_token: NotRequired["capo_lakeformation.types.token.Token"]
+    """<p>A continuation token, if this is not the first call to retrieve this list.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListPermissionsResponse) -> dict:
+    out: dict = {}
+    if "principal_resource_permissions" in value:
+        import capo_lakeformation.types.principal_resource_permissions_list
+
+        out["PrincipalResourcePermissions"] = (
+            capo_lakeformation.types.principal_resource_permissions_list.serialize_json(
+                value["principal_resource_permissions"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListPermissionsResponse:
+    out: ListPermissionsResponse = {}  # type: ignore[typeddict-item]
+    if "PrincipalResourcePermissions" in data:
+        import capo_lakeformation.types.principal_resource_permissions_list
+
+        out["principal_resource_permissions"] = (
+            capo_lakeformation.types.principal_resource_permissions_list.deserialize_json(
+                data["PrincipalResourcePermissions"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

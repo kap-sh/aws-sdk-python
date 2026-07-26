@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-iot-events-data"
+name = "capo-iot-events-data"
 version = "0.1.0"
 description = "Python SDK for IOT Events Data."
 readme = "README.md"

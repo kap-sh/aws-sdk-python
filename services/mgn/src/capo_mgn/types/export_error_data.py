@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.mgn#ExportErrorData``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_mgn.types.large_bounded_string
+
+
+class ExportErrorData(TypedDict, closed=True):
+    raw_error: NotRequired["capo_mgn.types.large_bounded_string.LargeBoundedString"]
+    """<p>Export errors data raw error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ExportErrorData) -> dict:
+    out: dict = {}
+    if "raw_error" in value:
+        out["rawError"] = value["raw_error"]
+    return out
+
+
+def deserialize_json(data: dict) -> ExportErrorData:
+    out: ExportErrorData = {}  # type: ignore[typeddict-item]
+    if "rawError" in data:
+        out["raw_error"] = data["rawError"]
+    return out

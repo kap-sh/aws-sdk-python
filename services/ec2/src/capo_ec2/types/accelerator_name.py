@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#AcceleratorName``."""
+
+from typing import Literal, TypeAlias, cast
+
+from capo_ec2._protocol.xml import Element
+
+AcceleratorName: TypeAlias = Literal[
+    "a100",
+    "inferentia",
+    "k520",
+    "k80",
+    "m60",
+    "radeon-pro-v520",
+    "t4",
+    "vu9p",
+    "v100",
+    "a10g",
+    "h100",
+    "t4g",
+    "l40s",
+    "l4",
+    "gaudi-hl-205",
+    "inferentia2",
+    "trainium",
+    "trainium2",
+    "u30",
+]
+
+
+# --- ec2Query ser/de ---
+def to_ec2_query_text(value: AcceleratorName) -> str:
+    return value
+
+
+def from_ec2_query_text(text: str) -> AcceleratorName:
+    return cast(AcceleratorName, text)
+
+
+def serialize_ec2_query(
+    value: AcceleratorName, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((prefix, to_ec2_query_text(value)))
+
+
+def deserialize_ec2_query(el: Element) -> AcceleratorName:
+    return from_ec2_query_text(el.text or "")

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-accessanalyzer"
+name = "capo-accessanalyzer"
 version = "0.1.0"
 description = "Python SDK for Accessanalyzer."
 readme = "README.md"

@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineVariable``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_codepipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_codepipeline.types.pipeline_variable_name
+    import capo_codepipeline.types.pipeline_variable_value
+
+
+class PipelineVariable(TypedDict, closed=True):
+    name: "capo_codepipeline.types.pipeline_variable_name.PipelineVariableName"
+    """<p>The name of a pipeline-level variable.</p>"""
+    value: "capo_codepipeline.types.pipeline_variable_value.PipelineVariableValue"
+    """<p>The value of a pipeline-level variable.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: PipelineVariable) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    out["value"] = value["value"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> PipelineVariable:
+    out: PipelineVariable = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("PipelineVariable.name required")
+    if "value" in data:
+        out["value"] = data["value"]
+    else:
+        raise DeserializationError("PipelineVariable.value required")
+    return out

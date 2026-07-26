@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 import pytest
-from aws_sdk_migration_hub_refactor_spaces._services._aws_config import (
+from capo_migration_hub_refactor_spaces._services._aws_config import (
     _env_bool,
     _load_profile,
     _profile_bool,

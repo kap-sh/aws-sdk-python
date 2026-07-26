@@ -1,0 +1,78 @@
+"""Generated from Smithy shape ``com.amazonaws.schemas#PutCodeBindingResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_schemas.types.__string
+    import capo_schemas.types.__timestamp_iso8601
+    import capo_schemas.types.code_generation_status
+
+
+class PutCodeBindingResponse(TypedDict, closed=True):
+    creation_date: NotRequired[
+        "capo_schemas.types.__timestamp_iso8601.__timestampIso8601"
+    ]
+    """<p>The time and date that the code binding was created.</p>"""
+    last_modified: NotRequired[
+        "capo_schemas.types.__timestamp_iso8601.__timestampIso8601"
+    ]
+    """<p>The date and time that code bindings were modified.</p>"""
+    schema_version: NotRequired["capo_schemas.types.__string.__string"]
+    """<p>The version number of the schema.</p>"""
+    status: NotRequired[
+        "capo_schemas.types.code_generation_status.CodeGenerationStatus"
+    ]
+    """<p>The current status of code binding generation.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutCodeBindingResponse) -> dict:
+    out: dict = {}
+    if "creation_date" in value:
+        import capo_schemas.types.__timestamp_iso8601
+
+        out["CreationDate"] = capo_schemas.types.__timestamp_iso8601.serialize_json(
+            value["creation_date"]
+        )
+    if "last_modified" in value:
+        import capo_schemas.types.__timestamp_iso8601
+
+        out["LastModified"] = capo_schemas.types.__timestamp_iso8601.serialize_json(
+            value["last_modified"]
+        )
+    if "schema_version" in value:
+        out["SchemaVersion"] = value["schema_version"]
+    if "status" in value:
+        import capo_schemas.types.code_generation_status
+
+        out["Status"] = capo_schemas.types.code_generation_status.serialize_json(
+            value["status"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PutCodeBindingResponse:
+    out: PutCodeBindingResponse = {}  # type: ignore[typeddict-item]
+    if "CreationDate" in data:
+        import capo_schemas.types.__timestamp_iso8601
+
+        out["creation_date"] = capo_schemas.types.__timestamp_iso8601.deserialize_json(
+            data["CreationDate"]
+        )
+    if "LastModified" in data:
+        import capo_schemas.types.__timestamp_iso8601
+
+        out["last_modified"] = capo_schemas.types.__timestamp_iso8601.deserialize_json(
+            data["LastModified"]
+        )
+    if "SchemaVersion" in data:
+        out["schema_version"] = data["SchemaVersion"]
+    if "Status" in data:
+        import capo_schemas.types.code_generation_status
+
+        out["status"] = capo_schemas.types.code_generation_status.deserialize_json(
+            data["Status"]
+        )
+    return out

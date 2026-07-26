@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cognito-identity-provider"
+name = "capo-cognito-identity-provider"
 version = "0.1.0"
 description = "Python SDK for Cognito Identity Provider."
 readme = "README.md"

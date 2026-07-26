@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-geo-maps
+pip install capo-geo-maps
 ```

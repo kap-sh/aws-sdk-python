@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.odb#DayOfWeek``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_odb.types.day_of_week_name
+
+
+class DayOfWeek(TypedDict, closed=True):
+    name: NotRequired["capo_odb.types.day_of_week_name.DayOfWeekName"]
+    """<p>The name of the day of the week.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DayOfWeek) -> dict:
+    out: dict = {}
+    if "name" in value:
+        import capo_odb.types.day_of_week_name
+
+        out["name"] = capo_odb.types.day_of_week_name.serialize_aws_json_1_0(
+            value["name"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DayOfWeek:
+    out: DayOfWeek = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        import capo_odb.types.day_of_week_name
+
+        out["name"] = capo_odb.types.day_of_week_name.deserialize_aws_json_1_0(
+            data["name"]
+        )
+    return out

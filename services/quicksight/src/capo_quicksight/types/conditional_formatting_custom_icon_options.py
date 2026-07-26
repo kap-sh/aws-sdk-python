@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#ConditionalFormattingCustomIconOptions``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.icon
+    import capo_quicksight.types.unicode_icon
+
+
+class ConditionalFormattingCustomIconOptions(TypedDict, closed=True):
+    icon: NotRequired["capo_quicksight.types.icon.Icon"]
+    """<p>Determines the type of icon.</p>"""
+    unicode_icon: NotRequired["capo_quicksight.types.unicode_icon.UnicodeIcon"]
+    """<p>Determines the Unicode icon type.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ConditionalFormattingCustomIconOptions) -> dict:
+    out: dict = {}
+    if "icon" in value:
+        import capo_quicksight.types.icon
+
+        out["Icon"] = capo_quicksight.types.icon.serialize_json(value["icon"])
+    if "unicode_icon" in value:
+        out["UnicodeIcon"] = value["unicode_icon"]
+    return out
+
+
+def deserialize_json(data: dict) -> ConditionalFormattingCustomIconOptions:
+    out: ConditionalFormattingCustomIconOptions = {}  # type: ignore[typeddict-item]
+    if "Icon" in data:
+        import capo_quicksight.types.icon
+
+        out["icon"] = capo_quicksight.types.icon.deserialize_json(data["Icon"])
+    if "UnicodeIcon" in data:
+        out["unicode_icon"] = data["UnicodeIcon"]
+    return out

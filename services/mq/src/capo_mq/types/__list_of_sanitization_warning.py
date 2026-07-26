@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.mq#__listOfSanitizationWarning``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_mq.types.sanitization_warning
+
+__listOfSanitizationWarning: TypeAlias = list[
+    "capo_mq.types.sanitization_warning.SanitizationWarning"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: __listOfSanitizationWarning) -> list:
+    import capo_mq.types.sanitization_warning
+
+    out: list = []
+    for item in value:
+        out.append(capo_mq.types.sanitization_warning.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> __listOfSanitizationWarning:
+    import capo_mq.types.sanitization_warning
+
+    out: __listOfSanitizationWarning = []
+    for item in data:
+        out.append(capo_mq.types.sanitization_warning.deserialize_json(item))
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-transfer"
+name = "capo-transfer"
 version = "0.1.0"
 description = "Python SDK for Transfer."
 readme = "README.md"

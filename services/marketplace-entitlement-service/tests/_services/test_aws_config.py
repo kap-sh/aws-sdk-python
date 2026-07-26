@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 import pytest
-from aws_sdk_marketplace_entitlement_service._services._aws_config import (
+from capo_marketplace_entitlement_service._services._aws_config import (
     _env_bool,
     _load_profile,
     _profile_bool,

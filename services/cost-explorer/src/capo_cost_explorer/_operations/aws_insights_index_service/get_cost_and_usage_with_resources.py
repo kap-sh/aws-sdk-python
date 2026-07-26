@@ -1,0 +1,176 @@
+"""Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostAndUsageWithResources``."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+
+import zapros
+from typing_extensions import Never
+
+import capo_cost_explorer._auth._signers
+import capo_cost_explorer._auth._sigv4
+import capo_cost_explorer.errors.bill_expiration_exception
+import capo_cost_explorer.errors.billing_view_health_status_exception
+import capo_cost_explorer.errors.data_unavailable_exception
+import capo_cost_explorer.errors.invalid_next_token_exception
+import capo_cost_explorer.errors.limit_exceeded_exception
+import capo_cost_explorer.errors.request_changed_exception
+import capo_cost_explorer.errors.resource_not_found_exception
+import capo_cost_explorer.types.date_interval
+import capo_cost_explorer.types.dimension_values_with_attributes_list
+import capo_cost_explorer.types.expression
+import capo_cost_explorer.types.get_cost_and_usage_with_resources_request
+import capo_cost_explorer.types.get_cost_and_usage_with_resources_response
+import capo_cost_explorer.types.granularity
+import capo_cost_explorer.types.group_definitions
+import capo_cost_explorer.types.metric_names
+import capo_cost_explorer.types.results_by_time
+from capo_cost_explorer._protocol.errors import parse_error_metadata_json
+from capo_cost_explorer._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_cost_explorer._services._pipeline import (
+    AsyncOperationOptions,
+    OperationOptions,
+)
+from capo_cost_explorer.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "BillExpirationException":
+            raise capo_cost_explorer.errors.bill_expiration_exception.BillExpirationException.from_aws_json_1_1(
+                data
+            )
+        case "BillingViewHealthStatusException":
+            raise capo_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException.from_aws_json_1_1(
+                data
+            )
+        case "DataUnavailableException":
+            raise capo_cost_explorer.errors.data_unavailable_exception.DataUnavailableException.from_aws_json_1_1(
+                data
+            )
+        case "InvalidNextTokenException":
+            raise capo_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException.from_aws_json_1_1(
+                data
+            )
+        case "LimitExceededException":
+            raise capo_cost_explorer.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
+                data
+            )
+        case "RequestChangedException":
+            raise capo_cost_explorer.errors.request_changed_exception.RequestChangedException.from_aws_json_1_1(
+                data
+            )
+        case "ResourceNotFoundException":
+            raise capo_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_cost_explorer.types.get_cost_and_usage_with_resources_response.GetCostAndUsageWithResourcesResponse:
+    out: capo_cost_explorer.types.get_cost_and_usage_with_resources_response.GetCostAndUsageWithResourcesResponse = capo_cost_explorer.types.get_cost_and_usage_with_resources_response.deserialize_aws_json_1_1(
+        json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_cost_explorer.types.get_cost_and_usage_with_resources_response.GetCostAndUsageWithResourcesResponse:
+    out: capo_cost_explorer.types.get_cost_and_usage_with_resources_response.GetCostAndUsageWithResourcesResponse = capo_cost_explorer.types.get_cost_and_usage_with_resources_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_cost_explorer._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_cost_explorer._auth._sigv4.build_sigv4_auth_scheme(
+                "ce", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_cost_explorer._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_cost_explorer.types.get_cost_and_usage_with_resources_request.GetCostAndUsageWithResourcesRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+            Region=options.region,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostAndUsageWithResources"
+    body: bytes | None = json.dumps(
+        capo_cost_explorer.types.get_cost_and_usage_with_resources_request.serialize_aws_json_1_1(
+            input_
+        )
+    ).encode()
+    headers["content-type"] = "application/x-amz-json-1.1"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def get_cost_and_usage_with_resources(
+    options: OperationOptions,
+    input_: capo_cost_explorer.types.get_cost_and_usage_with_resources_request.GetCostAndUsageWithResourcesRequest,
+) -> tuple[
+    capo_cost_explorer.types.get_cost_and_usage_with_resources_response.GetCostAndUsageWithResourcesResponse,
+    zapros.Response,
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_get_cost_and_usage_with_resources(
+    options: AsyncOperationOptions,
+    input_: capo_cost_explorer.types.get_cost_and_usage_with_resources_request.GetCostAndUsageWithResourcesRequest,
+) -> tuple[
+    capo_cost_explorer.types.get_cost_and_usage_with_resources_response.GetCostAndUsageWithResourcesResponse,
+    zapros.Response,
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

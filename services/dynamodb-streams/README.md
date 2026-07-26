@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-dynamodb-streams
+pip install capo-dynamodb-streams
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_dynamodb_streams import AsyncDynamoDBStreamsClient
+from capo_dynamodb_streams import AsyncDynamoDBStreamsClient
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_dynamodb_streams import AsyncDynamoDBStreamsClient
-from aws_sdk_dynamodb_streams.error import InternalServerError
+from capo_dynamodb_streams import AsyncDynamoDBStreamsClient
+from capo_dynamodb_streams.error import InternalServerError
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_dynamodb_streams import AsyncDynamoDBStreamsClient
+from capo_dynamodb_streams import AsyncDynamoDBStreamsClient
 
 
 async def main():

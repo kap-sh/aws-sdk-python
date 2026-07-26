@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-marketplace-catalog"
+name = "capo-marketplace-catalog"
 version = "0.1.0"
 description = "Python SDK for Marketplace Catalog."
 readme = "README.md"

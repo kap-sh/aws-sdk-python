@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-pinpoint-sms-voice"
+name = "capo-pinpoint-sms-voice"
 version = "0.1.0"
 description = "Python SDK for Pinpoint Sms Voice."
 readme = "README.md"

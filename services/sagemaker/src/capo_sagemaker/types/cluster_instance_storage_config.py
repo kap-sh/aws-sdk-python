@@ -1,0 +1,98 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterInstanceStorageConfig``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_sagemaker.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.cluster_ebs_volume_config
+    import capo_sagemaker.types.cluster_fsx_lustre_config
+    import capo_sagemaker.types.cluster_fsx_open_zfs_config
+
+
+class _ClusterInstanceStorageConfig_EbsVolumeConfig(TypedDict, closed=True):
+    EbsVolumeConfig: (
+        "capo_sagemaker.types.cluster_ebs_volume_config.ClusterEbsVolumeConfig"
+    )
+
+
+class _ClusterInstanceStorageConfig_FsxLustreConfig(TypedDict, closed=True):
+    FsxLustreConfig: (
+        "capo_sagemaker.types.cluster_fsx_lustre_config.ClusterFsxLustreConfig"
+    )
+
+
+class _ClusterInstanceStorageConfig_FsxOpenZfsConfig(TypedDict, closed=True):
+    FsxOpenZfsConfig: (
+        "capo_sagemaker.types.cluster_fsx_open_zfs_config.ClusterFsxOpenZfsConfig"
+    )
+
+
+ClusterInstanceStorageConfig: TypeAlias = (
+    _ClusterInstanceStorageConfig_EbsVolumeConfig
+    | _ClusterInstanceStorageConfig_FsxLustreConfig
+    | _ClusterInstanceStorageConfig_FsxOpenZfsConfig
+)
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ClusterInstanceStorageConfig) -> dict:
+    if "EbsVolumeConfig" in value:
+        import capo_sagemaker.types.cluster_ebs_volume_config
+
+        return {
+            "EbsVolumeConfig": capo_sagemaker.types.cluster_ebs_volume_config.serialize_aws_json_1_1(
+                value["EbsVolumeConfig"]
+            )
+        }
+    elif "FsxLustreConfig" in value:
+        import capo_sagemaker.types.cluster_fsx_lustre_config
+
+        return {
+            "FsxLustreConfig": capo_sagemaker.types.cluster_fsx_lustre_config.serialize_aws_json_1_1(
+                value["FsxLustreConfig"]
+            )
+        }
+    elif "FsxOpenZfsConfig" in value:
+        import capo_sagemaker.types.cluster_fsx_open_zfs_config
+
+        return {
+            "FsxOpenZfsConfig": capo_sagemaker.types.cluster_fsx_open_zfs_config.serialize_aws_json_1_1(
+                value["FsxOpenZfsConfig"]
+            )
+        }
+    else:
+        raise SerializationError("ClusterInstanceStorageConfig: no variant present")
+
+
+def deserialize_aws_json_1_1(data: dict) -> ClusterInstanceStorageConfig:
+    if "EbsVolumeConfig" in data:
+        import capo_sagemaker.types.cluster_ebs_volume_config
+
+        return {
+            "EbsVolumeConfig": capo_sagemaker.types.cluster_ebs_volume_config.deserialize_aws_json_1_1(
+                data["EbsVolumeConfig"]
+            )
+        }
+    elif "FsxLustreConfig" in data:
+        import capo_sagemaker.types.cluster_fsx_lustre_config
+
+        return {
+            "FsxLustreConfig": capo_sagemaker.types.cluster_fsx_lustre_config.deserialize_aws_json_1_1(
+                data["FsxLustreConfig"]
+            )
+        }
+    elif "FsxOpenZfsConfig" in data:
+        import capo_sagemaker.types.cluster_fsx_open_zfs_config
+
+        return {
+            "FsxOpenZfsConfig": capo_sagemaker.types.cluster_fsx_open_zfs_config.deserialize_aws_json_1_1(
+                data["FsxOpenZfsConfig"]
+            )
+        }
+    else:
+        raise DeserializationError(
+            "ClusterInstanceStorageConfig: no recognized variant key"
+        )

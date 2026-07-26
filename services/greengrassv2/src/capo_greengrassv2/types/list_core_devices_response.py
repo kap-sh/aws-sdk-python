@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.greengrassv2#ListCoreDevicesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_greengrassv2.types.core_devices_list
+    import capo_greengrassv2.types.next_token_string
+
+
+class ListCoreDevicesResponse(TypedDict, closed=True):
+    core_devices: NotRequired[
+        "capo_greengrassv2.types.core_devices_list.CoreDevicesList"
+    ]
+    """<p>A list that summarizes each core device.</p>"""
+    next_token: NotRequired["capo_greengrassv2.types.next_token_string.NextTokenString"]
+    """<p>The token for the next set of results, or null if there are no additional results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListCoreDevicesResponse) -> dict:
+    out: dict = {}
+    if "core_devices" in value:
+        import capo_greengrassv2.types.core_devices_list
+
+        out["coreDevices"] = capo_greengrassv2.types.core_devices_list.serialize_json(
+            value["core_devices"]
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListCoreDevicesResponse:
+    out: ListCoreDevicesResponse = {}  # type: ignore[typeddict-item]
+    if "coreDevices" in data:
+        import capo_greengrassv2.types.core_devices_list
+
+        out["core_devices"] = (
+            capo_greengrassv2.types.core_devices_list.deserialize_json(
+                data["coreDevices"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

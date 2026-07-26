@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-serverlessapplicationrepository"
+name = "capo-serverlessapplicationrepository"
 version = "0.1.0"
 description = "Python SDK for Serverlessapplicationrepository."
 readme = "README.md"

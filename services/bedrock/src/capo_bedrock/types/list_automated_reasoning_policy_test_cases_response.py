@@ -1,0 +1,52 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#ListAutomatedReasoningPolicyTestCasesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.automated_reasoning_policy_test_case_list
+    import capo_bedrock.types.pagination_token
+
+
+class ListAutomatedReasoningPolicyTestCasesResponse(TypedDict, closed=True):
+    test_cases: "capo_bedrock.types.automated_reasoning_policy_test_case_list.AutomatedReasoningPolicyTestCaseList"
+    """<p>A list of tests for the specified policy.</p>"""
+    next_token: NotRequired["capo_bedrock.types.pagination_token.PaginationToken"]
+    """<p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAutomatedReasoningPolicyTestCasesResponse) -> dict:
+    out: dict = {}
+    import capo_bedrock.types.automated_reasoning_policy_test_case_list
+
+    out["testCases"] = (
+        capo_bedrock.types.automated_reasoning_policy_test_case_list.serialize_json(
+            value["test_cases"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListAutomatedReasoningPolicyTestCasesResponse:
+    out: ListAutomatedReasoningPolicyTestCasesResponse = {}  # type: ignore[typeddict-item]
+    if "testCases" in data:
+        import capo_bedrock.types.automated_reasoning_policy_test_case_list
+
+        out["test_cases"] = (
+            capo_bedrock.types.automated_reasoning_policy_test_case_list.deserialize_json(
+                data["testCases"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "ListAutomatedReasoningPolicyTestCasesResponse.test_cases required"
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

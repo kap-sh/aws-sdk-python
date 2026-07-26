@@ -1,0 +1,61 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessMessage``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agentcore.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore.types.harness_content_blocks
+    import capo_bedrock_agentcore.types.harness_conversation_role
+
+
+class HarnessMessage(TypedDict, closed=True):
+    role: (
+        "capo_bedrock_agentcore.types.harness_conversation_role.HarnessConversationRole"
+    )
+    """<p>The role of the message sender.</p>"""
+    content: "capo_bedrock_agentcore.types.harness_content_blocks.HarnessContentBlocks"
+    """<p>The content blocks of the message.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: HarnessMessage) -> dict:
+    out: dict = {}
+    import capo_bedrock_agentcore.types.harness_conversation_role
+
+    out["role"] = capo_bedrock_agentcore.types.harness_conversation_role.serialize_json(
+        value["role"]
+    )
+    import capo_bedrock_agentcore.types.harness_content_blocks
+
+    out["content"] = capo_bedrock_agentcore.types.harness_content_blocks.serialize_json(
+        value["content"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> HarnessMessage:
+    out: HarnessMessage = {}  # type: ignore[typeddict-item]
+    if "role" in data:
+        import capo_bedrock_agentcore.types.harness_conversation_role
+
+        out["role"] = (
+            capo_bedrock_agentcore.types.harness_conversation_role.deserialize_json(
+                data["role"]
+            )
+        )
+    else:
+        raise DeserializationError("HarnessMessage.role required")
+    if "content" in data:
+        import capo_bedrock_agentcore.types.harness_content_blocks
+
+        out["content"] = (
+            capo_bedrock_agentcore.types.harness_content_blocks.deserialize_json(
+                data["content"]
+            )
+        )
+    else:
+        raise DeserializationError("HarnessMessage.content required")
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-account"
+name = "capo-account"
 version = "0.1.0"
 description = "Python SDK for Account."
 readme = "README.md"

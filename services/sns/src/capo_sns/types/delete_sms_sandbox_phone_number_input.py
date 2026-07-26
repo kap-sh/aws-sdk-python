@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.sns#DeleteSMSSandboxPhoneNumberInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_sns._protocol.xml import Element
+from capo_sns.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_sns.types.phone_number_string
+
+
+class DeleteSMSSandboxPhoneNumberInput(TypedDict, closed=True):
+    phone_number: "capo_sns.types.phone_number_string.PhoneNumberString"
+    """<p>The destination phone number to delete.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DeleteSMSSandboxPhoneNumberInput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pairs.append((f"{prefix}.PhoneNumber", str(value["phone_number"])))
+
+
+def deserialize_query(el: Element) -> DeleteSMSSandboxPhoneNumberInput:
+    out: DeleteSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
+    child_phone_number = el.find("PhoneNumber")
+    if child_phone_number is not None:
+        out["phone_number"] = str(child_phone_number.text or "")
+    else:
+        raise DeserializationError(
+            "DeleteSMSSandboxPhoneNumberInput.phone_number required"
+        )
+    return out

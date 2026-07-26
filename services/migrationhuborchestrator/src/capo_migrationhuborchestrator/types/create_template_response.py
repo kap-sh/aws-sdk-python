@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#CreateTemplateResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_migrationhuborchestrator.types.string_map
+
+
+class CreateTemplateResponse(TypedDict, closed=True):
+    template_id: NotRequired["str"]
+    """<p>The ID of the migration workflow template.</p>"""
+    template_arn: NotRequired["str"]
+    r"""<p>The Amazon Resource Name (ARN) of the migration workflow template. The format for an Migration Hub Orchestrator template ARN is <code>arn:aws:migrationhub-orchestrator:region:account:template/template-abcd1234</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"""
+    tags: NotRequired["capo_migrationhuborchestrator.types.string_map.StringMap"]
+    """<p>The tags added to the migration workflow template.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateTemplateResponse) -> dict:
+    out: dict = {}
+    if "template_id" in value:
+        out["templateId"] = value["template_id"]
+    if "template_arn" in value:
+        out["templateArn"] = value["template_arn"]
+    if "tags" in value:
+        import capo_migrationhuborchestrator.types.string_map
+
+        out["tags"] = capo_migrationhuborchestrator.types.string_map.serialize_json(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateTemplateResponse:
+    out: CreateTemplateResponse = {}  # type: ignore[typeddict-item]
+    if "templateId" in data:
+        out["template_id"] = data["templateId"]
+    if "templateArn" in data:
+        out["template_arn"] = data["templateArn"]
+    if "tags" in data:
+        import capo_migrationhuborchestrator.types.string_map
+
+        out["tags"] = capo_migrationhuborchestrator.types.string_map.deserialize_json(
+            data["tags"]
+        )
+    return out

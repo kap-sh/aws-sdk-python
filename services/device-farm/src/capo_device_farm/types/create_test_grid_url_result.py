@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.devicefarm#CreateTestGridUrlResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_device_farm.types.date_time
+    import capo_device_farm.types.sensitive_string
+
+
+class CreateTestGridUrlResult(TypedDict, closed=True):
+    url: NotRequired["capo_device_farm.types.sensitive_string.SensitiveString"]
+    """<p>A signed URL, expiring in <a>CreateTestGridUrlRequest$expiresInSeconds</a> seconds, to be passed to a <code>RemoteWebDriver</code>. </p>"""
+    expires: NotRequired["capo_device_farm.types.date_time.DateTime"]
+    """<p>The number of seconds the URL from <a>CreateTestGridUrlResult$url</a> stays active.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateTestGridUrlResult) -> dict:
+    out: dict = {}
+    if "url" in value:
+        out["url"] = value["url"]
+    if "expires" in value:
+        import capo_device_farm.types.date_time
+
+        out["expires"] = capo_device_farm.types.date_time.serialize_aws_json_1_1(
+            value["expires"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateTestGridUrlResult:
+    out: CreateTestGridUrlResult = {}  # type: ignore[typeddict-item]
+    if "url" in data:
+        out["url"] = data["url"]
+    if "expires" in data:
+        import capo_device_farm.types.date_time
+
+        out["expires"] = capo_device_farm.types.date_time.deserialize_aws_json_1_1(
+            data["expires"]
+        )
+    return out

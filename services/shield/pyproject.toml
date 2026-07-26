@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-shield"
+name = "capo-shield"
 version = "0.1.0"
 description = "Python SDK for Shield."
 readme = "README.md"

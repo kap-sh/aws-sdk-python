@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-appconfig"
+name = "capo-appconfig"
 version = "0.1.0"
 description = "Python SDK for Appconfig."
 readme = "README.md"

@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DisassociateProtectConfigurationResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_pinpoint_sms_voice_v2.types.configuration_set_name
+    import capo_pinpoint_sms_voice_v2.types.protect_configuration_arn
+    import capo_pinpoint_sms_voice_v2.types.protect_configuration_id
+
+
+class DisassociateProtectConfigurationResult(TypedDict, closed=True):
+    configuration_set_arn: "str"
+    """<p>The Amazon Resource Name (ARN) of the configuration set.</p>"""
+    configuration_set_name: (
+        "capo_pinpoint_sms_voice_v2.types.configuration_set_name.ConfigurationSetName"
+    )
+    """<p>The name of the ConfigurationSet.</p>"""
+    protect_configuration_arn: "capo_pinpoint_sms_voice_v2.types.protect_configuration_arn.ProtectConfigurationArn"
+    """<p>The Amazon Resource Name (ARN) of the protect configuration.</p>"""
+    protect_configuration_id: "capo_pinpoint_sms_voice_v2.types.protect_configuration_id.ProtectConfigurationId"
+    """<p>The unique identifier for the protect configuration.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: DisassociateProtectConfigurationResult) -> dict:
+    out: dict = {}
+    out["ConfigurationSetArn"] = value["configuration_set_arn"]
+    out["ConfigurationSetName"] = value["configuration_set_name"]
+    out["ProtectConfigurationArn"] = value["protect_configuration_arn"]
+    out["ProtectConfigurationId"] = value["protect_configuration_id"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> DisassociateProtectConfigurationResult:
+    out: DisassociateProtectConfigurationResult = {}  # type: ignore[typeddict-item]
+    if "ConfigurationSetArn" in data:
+        out["configuration_set_arn"] = data["ConfigurationSetArn"]
+    else:
+        raise DeserializationError(
+            "DisassociateProtectConfigurationResult.configuration_set_arn required"
+        )
+    if "ConfigurationSetName" in data:
+        out["configuration_set_name"] = data["ConfigurationSetName"]
+    else:
+        raise DeserializationError(
+            "DisassociateProtectConfigurationResult.configuration_set_name required"
+        )
+    if "ProtectConfigurationArn" in data:
+        out["protect_configuration_arn"] = data["ProtectConfigurationArn"]
+    else:
+        raise DeserializationError(
+            "DisassociateProtectConfigurationResult.protect_configuration_arn required"
+        )
+    if "ProtectConfigurationId" in data:
+        out["protect_configuration_id"] = data["ProtectConfigurationId"]
+    else:
+        raise DeserializationError(
+            "DisassociateProtectConfigurationResult.protect_configuration_id required"
+        )
+    return out

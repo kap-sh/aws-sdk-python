@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-snowball"
+name = "capo-snowball"
 version = "0.1.0"
 description = "Python SDK for Snowball."
 readme = "README.md"

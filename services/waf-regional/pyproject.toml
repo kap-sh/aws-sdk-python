@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-waf-regional"
+name = "capo-waf-regional"
 version = "0.1.0"
 description = "Python SDK for WAF Regional."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-wickr"
+name = "capo-wickr"
 version = "0.1.0"
 description = "Python SDK for Wickr."
 readme = "README.md"

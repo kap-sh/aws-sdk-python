@@ -1,0 +1,5 @@
+"""Generated from Smithy shape ``com.amazonaws.auditmanager#ControlsCount``."""
+
+from typing import TypeAlias
+
+ControlsCount: TypeAlias = int

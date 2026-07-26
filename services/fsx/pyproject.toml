@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-fsx"
+name = "capo-fsx"
 version = "0.1.0"
 description = "Python SDK for FSX."
 readme = "README.md"

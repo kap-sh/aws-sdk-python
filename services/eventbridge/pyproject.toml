@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-eventbridge"
+name = "capo-eventbridge"
 version = "0.1.0"
 description = "Python SDK for Eventbridge."
 readme = "README.md"

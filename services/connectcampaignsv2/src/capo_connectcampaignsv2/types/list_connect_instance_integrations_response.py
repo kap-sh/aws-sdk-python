@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#ListConnectInstanceIntegrationsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_connectcampaignsv2.types.integration_summary_list
+    import capo_connectcampaignsv2.types.next_token
+
+
+class ListConnectInstanceIntegrationsResponse(TypedDict, closed=True):
+    next_token: NotRequired["capo_connectcampaignsv2.types.next_token.NextToken"]
+    integration_summary_list: NotRequired[
+        "capo_connectcampaignsv2.types.integration_summary_list.IntegrationSummaryList"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListConnectInstanceIntegrationsResponse) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    if "integration_summary_list" in value:
+        import capo_connectcampaignsv2.types.integration_summary_list
+
+        out["integrationSummaryList"] = (
+            capo_connectcampaignsv2.types.integration_summary_list.serialize_json(
+                value["integration_summary_list"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListConnectInstanceIntegrationsResponse:
+    out: ListConnectInstanceIntegrationsResponse = {}  # type: ignore[typeddict-item]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    if "integrationSummaryList" in data:
+        import capo_connectcampaignsv2.types.integration_summary_list
+
+        out["integration_summary_list"] = (
+            capo_connectcampaignsv2.types.integration_summary_list.deserialize_json(
+                data["integrationSummaryList"]
+            )
+        )
+    return out

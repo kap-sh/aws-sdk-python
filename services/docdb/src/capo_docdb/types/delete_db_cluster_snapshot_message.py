@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.docdb#DeleteDBClusterSnapshotMessage``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_docdb._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_docdb.types.string
+
+
+class DeleteDBClusterSnapshotMessage(TypedDict, closed=True):
+    db_cluster_snapshot_identifier: NotRequired["capo_docdb.types.string.String"]
+    """<p>The identifier of the cluster snapshot to delete.</p> <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: DeleteDBClusterSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "db_cluster_snapshot_identifier" in value:
+        pairs.append(
+            (
+                f"{prefix}.DBClusterSnapshotIdentifier",
+                str(value["db_cluster_snapshot_identifier"]),
+            )
+        )
+
+
+def deserialize_query(el: Element) -> DeleteDBClusterSnapshotMessage:
+    out: DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+    child_db_cluster_snapshot_identifier = el.find("DBClusterSnapshotIdentifier")
+    if child_db_cluster_snapshot_identifier is not None:
+        out["db_cluster_snapshot_identifier"] = str(
+            child_db_cluster_snapshot_identifier.text or ""
+        )
+    return out

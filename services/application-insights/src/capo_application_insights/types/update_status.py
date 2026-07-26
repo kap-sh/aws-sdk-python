@@ -1,0 +1,14 @@
+"""Generated from Smithy shape ``com.amazonaws.applicationinsights#UpdateStatus``."""
+
+from typing import Literal, TypeAlias, cast
+
+UpdateStatus: TypeAlias = Literal["RESOLVED",]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateStatus) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> UpdateStatus:
+    return cast(UpdateStatus, data)

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-repostspace"
+name = "capo-repostspace"
 version = "0.1.0"
 description = "Python SDK for Repostspace."
 readme = "README.md"

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyReplicationSubnetGroupResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_database_migration_service.types.replication_subnet_group
+
+
+class ModifyReplicationSubnetGroupResponse(TypedDict, closed=True):
+    replication_subnet_group: NotRequired[
+        "capo_database_migration_service.types.replication_subnet_group.ReplicationSubnetGroup"
+    ]
+    """<p>The modified replication subnet group.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ModifyReplicationSubnetGroupResponse) -> dict:
+    out: dict = {}
+    if "replication_subnet_group" in value:
+        import capo_database_migration_service.types.replication_subnet_group
+
+        out["ReplicationSubnetGroup"] = (
+            capo_database_migration_service.types.replication_subnet_group.serialize_aws_json_1_1(
+                value["replication_subnet_group"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ModifyReplicationSubnetGroupResponse:
+    out: ModifyReplicationSubnetGroupResponse = {}  # type: ignore[typeddict-item]
+    if "ReplicationSubnetGroup" in data:
+        import capo_database_migration_service.types.replication_subnet_group
+
+        out["replication_subnet_group"] = (
+            capo_database_migration_service.types.replication_subnet_group.deserialize_aws_json_1_1(
+                data["ReplicationSubnetGroup"]
+            )
+        )
+    return out

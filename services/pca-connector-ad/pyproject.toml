@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-pca-connector-ad"
+name = "capo-pca-connector-ad"
 version = "0.1.0"
 description = "Python SDK for Pca Connector Ad."
 readme = "README.md"

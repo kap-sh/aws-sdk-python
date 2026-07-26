@@ -1,0 +1,256 @@
+"""Generated from Smithy shape ``com.amazonaws.firehose#ExtendedS3DestinationConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_firehose.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_firehose.types.bucket_arn
+    import capo_firehose.types.buffering_hints
+    import capo_firehose.types.cloud_watch_logging_options
+    import capo_firehose.types.compression_format
+    import capo_firehose.types.custom_time_zone
+    import capo_firehose.types.data_format_conversion_configuration
+    import capo_firehose.types.dynamic_partitioning_configuration
+    import capo_firehose.types.encryption_configuration
+    import capo_firehose.types.error_output_prefix
+    import capo_firehose.types.file_extension
+    import capo_firehose.types.prefix
+    import capo_firehose.types.processing_configuration
+    import capo_firehose.types.role_arn
+    import capo_firehose.types.s3_backup_mode
+    import capo_firehose.types.s3_destination_configuration
+
+
+class ExtendedS3DestinationConfiguration(TypedDict, closed=True):
+    role_arn: "capo_firehose.types.role_arn.RoleARN"
+    r"""<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
+    bucket_arn: "capo_firehose.types.bucket_arn.BucketARN"
+    r"""<p>The ARN of the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
+    prefix: NotRequired["capo_firehose.types.prefix.Prefix"]
+    r"""<p>The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>.</p>"""
+    error_output_prefix: NotRequired[
+        "capo_firehose.types.error_output_prefix.ErrorOutputPrefix"
+    ]
+    r"""<p>A prefix that Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>.</p>"""
+    buffering_hints: NotRequired["capo_firehose.types.buffering_hints.BufferingHints"]
+    """<p>The buffering option.</p>"""
+    compression_format: NotRequired[
+        "capo_firehose.types.compression_format.CompressionFormat"
+    ]
+    """<p>The compression format. If no value is specified, the default is UNCOMPRESSED.</p>"""
+    encryption_configuration: NotRequired[
+        "capo_firehose.types.encryption_configuration.EncryptionConfiguration"
+    ]
+    """<p>The encryption configuration. If no value is specified, the default is no encryption.</p>"""
+    cloud_watch_logging_options: NotRequired[
+        "capo_firehose.types.cloud_watch_logging_options.CloudWatchLoggingOptions"
+    ]
+    """<p>The Amazon CloudWatch logging options for your Firehose stream.</p>"""
+    processing_configuration: NotRequired[
+        "capo_firehose.types.processing_configuration.ProcessingConfiguration"
+    ]
+    """<p>The data processing configuration.</p>"""
+    s3_backup_mode: NotRequired["capo_firehose.types.s3_backup_mode.S3BackupMode"]
+    """<p>The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it. </p>"""
+    s3_backup_configuration: NotRequired[
+        "capo_firehose.types.s3_destination_configuration.S3DestinationConfiguration"
+    ]
+    """<p>The configuration for backup in Amazon S3.</p>"""
+    data_format_conversion_configuration: NotRequired[
+        "capo_firehose.types.data_format_conversion_configuration.DataFormatConversionConfiguration"
+    ]
+    """<p>The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.</p>"""
+    dynamic_partitioning_configuration: NotRequired[
+        "capo_firehose.types.dynamic_partitioning_configuration.DynamicPartitioningConfiguration"
+    ]
+    """<p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. </p>"""
+    file_extension: NotRequired["capo_firehose.types.file_extension.FileExtension"]
+    """<p>Specify a file extension. It will override the default file extension</p>"""
+    custom_time_zone: NotRequired["capo_firehose.types.custom_time_zone.CustomTimeZone"]
+    """<p>The time zone you prefer. UTC is the default.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExtendedS3DestinationConfiguration) -> dict:
+    out: dict = {}
+    out["RoleARN"] = value["role_arn"]
+    out["BucketARN"] = value["bucket_arn"]
+    if "prefix" in value:
+        out["Prefix"] = value["prefix"]
+    if "error_output_prefix" in value:
+        out["ErrorOutputPrefix"] = value["error_output_prefix"]
+    if "buffering_hints" in value:
+        import capo_firehose.types.buffering_hints
+
+        out["BufferingHints"] = (
+            capo_firehose.types.buffering_hints.serialize_aws_json_1_1(
+                value["buffering_hints"]
+            )
+        )
+    if "compression_format" in value:
+        import capo_firehose.types.compression_format
+
+        out["CompressionFormat"] = (
+            capo_firehose.types.compression_format.serialize_aws_json_1_1(
+                value["compression_format"]
+            )
+        )
+    if "encryption_configuration" in value:
+        import capo_firehose.types.encryption_configuration
+
+        out["EncryptionConfiguration"] = (
+            capo_firehose.types.encryption_configuration.serialize_aws_json_1_1(
+                value["encryption_configuration"]
+            )
+        )
+    if "cloud_watch_logging_options" in value:
+        import capo_firehose.types.cloud_watch_logging_options
+
+        out["CloudWatchLoggingOptions"] = (
+            capo_firehose.types.cloud_watch_logging_options.serialize_aws_json_1_1(
+                value["cloud_watch_logging_options"]
+            )
+        )
+    if "processing_configuration" in value:
+        import capo_firehose.types.processing_configuration
+
+        out["ProcessingConfiguration"] = (
+            capo_firehose.types.processing_configuration.serialize_aws_json_1_1(
+                value["processing_configuration"]
+            )
+        )
+    if "s3_backup_mode" in value:
+        import capo_firehose.types.s3_backup_mode
+
+        out["S3BackupMode"] = capo_firehose.types.s3_backup_mode.serialize_aws_json_1_1(
+            value["s3_backup_mode"]
+        )
+    if "s3_backup_configuration" in value:
+        import capo_firehose.types.s3_destination_configuration
+
+        out["S3BackupConfiguration"] = (
+            capo_firehose.types.s3_destination_configuration.serialize_aws_json_1_1(
+                value["s3_backup_configuration"]
+            )
+        )
+    if "data_format_conversion_configuration" in value:
+        import capo_firehose.types.data_format_conversion_configuration
+
+        out["DataFormatConversionConfiguration"] = (
+            capo_firehose.types.data_format_conversion_configuration.serialize_aws_json_1_1(
+                value["data_format_conversion_configuration"]
+            )
+        )
+    if "dynamic_partitioning_configuration" in value:
+        import capo_firehose.types.dynamic_partitioning_configuration
+
+        out["DynamicPartitioningConfiguration"] = (
+            capo_firehose.types.dynamic_partitioning_configuration.serialize_aws_json_1_1(
+                value["dynamic_partitioning_configuration"]
+            )
+        )
+    if "file_extension" in value:
+        out["FileExtension"] = value["file_extension"]
+    if "custom_time_zone" in value:
+        out["CustomTimeZone"] = value["custom_time_zone"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExtendedS3DestinationConfiguration:
+    out: ExtendedS3DestinationConfiguration = {}  # type: ignore[typeddict-item]
+    if "RoleARN" in data:
+        out["role_arn"] = data["RoleARN"]
+    else:
+        raise DeserializationError(
+            "ExtendedS3DestinationConfiguration.role_arn required"
+        )
+    if "BucketARN" in data:
+        out["bucket_arn"] = data["BucketARN"]
+    else:
+        raise DeserializationError(
+            "ExtendedS3DestinationConfiguration.bucket_arn required"
+        )
+    if "Prefix" in data:
+        out["prefix"] = data["Prefix"]
+    if "ErrorOutputPrefix" in data:
+        out["error_output_prefix"] = data["ErrorOutputPrefix"]
+    if "BufferingHints" in data:
+        import capo_firehose.types.buffering_hints
+
+        out["buffering_hints"] = (
+            capo_firehose.types.buffering_hints.deserialize_aws_json_1_1(
+                data["BufferingHints"]
+            )
+        )
+    if "CompressionFormat" in data:
+        import capo_firehose.types.compression_format
+
+        out["compression_format"] = (
+            capo_firehose.types.compression_format.deserialize_aws_json_1_1(
+                data["CompressionFormat"]
+            )
+        )
+    if "EncryptionConfiguration" in data:
+        import capo_firehose.types.encryption_configuration
+
+        out["encryption_configuration"] = (
+            capo_firehose.types.encryption_configuration.deserialize_aws_json_1_1(
+                data["EncryptionConfiguration"]
+            )
+        )
+    if "CloudWatchLoggingOptions" in data:
+        import capo_firehose.types.cloud_watch_logging_options
+
+        out["cloud_watch_logging_options"] = (
+            capo_firehose.types.cloud_watch_logging_options.deserialize_aws_json_1_1(
+                data["CloudWatchLoggingOptions"]
+            )
+        )
+    if "ProcessingConfiguration" in data:
+        import capo_firehose.types.processing_configuration
+
+        out["processing_configuration"] = (
+            capo_firehose.types.processing_configuration.deserialize_aws_json_1_1(
+                data["ProcessingConfiguration"]
+            )
+        )
+    if "S3BackupMode" in data:
+        import capo_firehose.types.s3_backup_mode
+
+        out["s3_backup_mode"] = (
+            capo_firehose.types.s3_backup_mode.deserialize_aws_json_1_1(
+                data["S3BackupMode"]
+            )
+        )
+    if "S3BackupConfiguration" in data:
+        import capo_firehose.types.s3_destination_configuration
+
+        out["s3_backup_configuration"] = (
+            capo_firehose.types.s3_destination_configuration.deserialize_aws_json_1_1(
+                data["S3BackupConfiguration"]
+            )
+        )
+    if "DataFormatConversionConfiguration" in data:
+        import capo_firehose.types.data_format_conversion_configuration
+
+        out["data_format_conversion_configuration"] = (
+            capo_firehose.types.data_format_conversion_configuration.deserialize_aws_json_1_1(
+                data["DataFormatConversionConfiguration"]
+            )
+        )
+    if "DynamicPartitioningConfiguration" in data:
+        import capo_firehose.types.dynamic_partitioning_configuration
+
+        out["dynamic_partitioning_configuration"] = (
+            capo_firehose.types.dynamic_partitioning_configuration.deserialize_aws_json_1_1(
+                data["DynamicPartitioningConfiguration"]
+            )
+        )
+    if "FileExtension" in data:
+        out["file_extension"] = data["FileExtension"]
+    if "CustomTimeZone" in data:
+        out["custom_time_zone"] = data["CustomTimeZone"]
+    return out

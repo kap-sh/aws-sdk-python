@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.interconnect#ListTagsForResourceResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_interconnect.types.tag_map
+
+
+class ListTagsForResourceResponse(TypedDict, closed=True):
+    tags: NotRequired["capo_interconnect.types.tag_map.TagMap"]
+    """<p>The tags on the specified ARN.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListTagsForResourceResponse) -> dict:
+    out: dict = {}
+    if "tags" in value:
+        import capo_interconnect.types.tag_map
+
+        out["tags"] = capo_interconnect.types.tag_map.serialize_aws_json_1_0(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListTagsForResourceResponse:
+    out: ListTagsForResourceResponse = {}  # type: ignore[typeddict-item]
+    if "tags" in data:
+        import capo_interconnect.types.tag_map
+
+        out["tags"] = capo_interconnect.types.tag_map.deserialize_aws_json_1_0(
+            data["tags"]
+        )
+    return out

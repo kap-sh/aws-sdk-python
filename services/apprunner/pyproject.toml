@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-apprunner"
+name = "capo-apprunner"
 version = "0.1.0"
 description = "Python SDK for Apprunner."
 readme = "README.md"

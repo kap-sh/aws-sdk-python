@@ -1,0 +1,132 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#PropertyDefinitionResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_iottwinmaker.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_iottwinmaker.types.boolean
+    import capo_iottwinmaker.types.configuration
+    import capo_iottwinmaker.types.data_type
+    import capo_iottwinmaker.types.data_value
+    import capo_iottwinmaker.types.property_display_name
+
+
+class PropertyDefinitionResponse(TypedDict, closed=True):
+    data_type: "capo_iottwinmaker.types.data_type.DataType"
+    """<p>An object that contains information about the data type.</p>"""
+    is_time_series: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property consists of time series data.</p>"""
+    is_required_in_entity: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property is required in an entity.</p>"""
+    is_external_id: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property ID comes from an external data store.</p>"""
+    is_stored_externally: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property is stored externally.</p>"""
+    is_imported: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property definition is imported from an external data store.</p>"""
+    is_final: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property definition can be updated.</p>"""
+    is_inherited: "capo_iottwinmaker.types.boolean.Boolean"
+    """<p>A Boolean value that specifies whether the property definition is inherited from a parent entity.</p>"""
+    default_value: NotRequired["capo_iottwinmaker.types.data_value.DataValue"]
+    """<p>An object that contains the default value.</p>"""
+    configuration: NotRequired["capo_iottwinmaker.types.configuration.Configuration"]
+    """<p>A mapping that specifies configuration information about the property.</p>"""
+    display_name: NotRequired[
+        "capo_iottwinmaker.types.property_display_name.PropertyDisplayName"
+    ]
+    """<p>A friendly name for the property.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PropertyDefinitionResponse) -> dict:
+    out: dict = {}
+    import capo_iottwinmaker.types.data_type
+
+    out["dataType"] = capo_iottwinmaker.types.data_type.serialize_json(
+        value["data_type"]
+    )
+    out["isTimeSeries"] = value["is_time_series"]
+    out["isRequiredInEntity"] = value["is_required_in_entity"]
+    out["isExternalId"] = value["is_external_id"]
+    out["isStoredExternally"] = value["is_stored_externally"]
+    out["isImported"] = value["is_imported"]
+    out["isFinal"] = value["is_final"]
+    out["isInherited"] = value["is_inherited"]
+    if "default_value" in value:
+        import capo_iottwinmaker.types.data_value
+
+        out["defaultValue"] = capo_iottwinmaker.types.data_value.serialize_json(
+            value["default_value"]
+        )
+    if "configuration" in value:
+        import capo_iottwinmaker.types.configuration
+
+        out["configuration"] = capo_iottwinmaker.types.configuration.serialize_json(
+            value["configuration"]
+        )
+    if "display_name" in value:
+        out["displayName"] = value["display_name"]
+    return out
+
+
+def deserialize_json(data: dict) -> PropertyDefinitionResponse:
+    out: PropertyDefinitionResponse = {}  # type: ignore[typeddict-item]
+    if "dataType" in data:
+        import capo_iottwinmaker.types.data_type
+
+        out["data_type"] = capo_iottwinmaker.types.data_type.deserialize_json(
+            data["dataType"]
+        )
+    else:
+        raise DeserializationError("PropertyDefinitionResponse.data_type required")
+    if "isTimeSeries" in data:
+        out["is_time_series"] = data["isTimeSeries"]
+    else:
+        raise DeserializationError("PropertyDefinitionResponse.is_time_series required")
+    if "isRequiredInEntity" in data:
+        out["is_required_in_entity"] = data["isRequiredInEntity"]
+    else:
+        raise DeserializationError(
+            "PropertyDefinitionResponse.is_required_in_entity required"
+        )
+    if "isExternalId" in data:
+        out["is_external_id"] = data["isExternalId"]
+    else:
+        raise DeserializationError("PropertyDefinitionResponse.is_external_id required")
+    if "isStoredExternally" in data:
+        out["is_stored_externally"] = data["isStoredExternally"]
+    else:
+        raise DeserializationError(
+            "PropertyDefinitionResponse.is_stored_externally required"
+        )
+    if "isImported" in data:
+        out["is_imported"] = data["isImported"]
+    else:
+        raise DeserializationError("PropertyDefinitionResponse.is_imported required")
+    if "isFinal" in data:
+        out["is_final"] = data["isFinal"]
+    else:
+        raise DeserializationError("PropertyDefinitionResponse.is_final required")
+    if "isInherited" in data:
+        out["is_inherited"] = data["isInherited"]
+    else:
+        raise DeserializationError("PropertyDefinitionResponse.is_inherited required")
+    if "defaultValue" in data:
+        import capo_iottwinmaker.types.data_value
+
+        out["default_value"] = capo_iottwinmaker.types.data_value.deserialize_json(
+            data["defaultValue"]
+        )
+    if "configuration" in data:
+        import capo_iottwinmaker.types.configuration
+
+        out["configuration"] = capo_iottwinmaker.types.configuration.deserialize_json(
+            data["configuration"]
+        )
+    if "displayName" in data:
+        out["display_name"] = data["displayName"]
+    return out

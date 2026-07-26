@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-iotsecuretunneling"
+name = "capo-iotsecuretunneling"
 version = "0.1.0"
 description = "Python SDK for Iotsecuretunneling."
 readme = "README.md"

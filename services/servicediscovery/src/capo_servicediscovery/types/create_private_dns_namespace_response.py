@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.servicediscovery#CreatePrivateDnsNamespaceResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_servicediscovery.types.operation_id
+
+
+class CreatePrivateDnsNamespaceResponse(TypedDict, closed=True):
+    operation_id: NotRequired["capo_servicediscovery.types.operation_id.OperationId"]
+    r"""<p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html\">GetOperation</a>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreatePrivateDnsNamespaceResponse) -> dict:
+    out: dict = {}
+    if "operation_id" in value:
+        out["OperationId"] = value["operation_id"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreatePrivateDnsNamespaceResponse:
+    out: CreatePrivateDnsNamespaceResponse = {}  # type: ignore[typeddict-item]
+    if "OperationId" in data:
+        out["operation_id"] = data["OperationId"]
+    return out

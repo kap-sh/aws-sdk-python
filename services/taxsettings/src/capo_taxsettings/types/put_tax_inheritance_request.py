@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.taxsettings#PutTaxInheritanceRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_taxsettings.types.heritage_status
+
+
+class PutTaxInheritanceRequest(TypedDict, closed=True):
+    heritage_status: NotRequired[
+        "capo_taxsettings.types.heritage_status.HeritageStatus"
+    ]
+    """<p>The tax inheritance status. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PutTaxInheritanceRequest) -> dict:
+    out: dict = {}
+    if "heritage_status" in value:
+        import capo_taxsettings.types.heritage_status
+
+        out["heritageStatus"] = capo_taxsettings.types.heritage_status.serialize_json(
+            value["heritage_status"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PutTaxInheritanceRequest:
+    out: PutTaxInheritanceRequest = {}  # type: ignore[typeddict-item]
+    if "heritageStatus" in data:
+        import capo_taxsettings.types.heritage_status
+
+        out["heritage_status"] = (
+            capo_taxsettings.types.heritage_status.deserialize_json(
+                data["heritageStatus"]
+            )
+        )
+    return out

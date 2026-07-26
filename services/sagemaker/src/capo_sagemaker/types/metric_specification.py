@@ -1,0 +1,67 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#MetricSpecification``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_sagemaker.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.customized_metric_specification
+    import capo_sagemaker.types.predefined_metric_specification
+
+
+class _MetricSpecification_Predefined(TypedDict, closed=True):
+    Predefined: "capo_sagemaker.types.predefined_metric_specification.PredefinedMetricSpecification"
+
+
+class _MetricSpecification_Customized(TypedDict, closed=True):
+    Customized: "capo_sagemaker.types.customized_metric_specification.CustomizedMetricSpecification"
+
+
+MetricSpecification: TypeAlias = (
+    _MetricSpecification_Predefined | _MetricSpecification_Customized
+)
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: MetricSpecification) -> dict:
+    if "Predefined" in value:
+        import capo_sagemaker.types.predefined_metric_specification
+
+        return {
+            "Predefined": capo_sagemaker.types.predefined_metric_specification.serialize_aws_json_1_1(
+                value["Predefined"]
+            )
+        }
+    elif "Customized" in value:
+        import capo_sagemaker.types.customized_metric_specification
+
+        return {
+            "Customized": capo_sagemaker.types.customized_metric_specification.serialize_aws_json_1_1(
+                value["Customized"]
+            )
+        }
+    else:
+        raise SerializationError("MetricSpecification: no variant present")
+
+
+def deserialize_aws_json_1_1(data: dict) -> MetricSpecification:
+    if "Predefined" in data:
+        import capo_sagemaker.types.predefined_metric_specification
+
+        return {
+            "Predefined": capo_sagemaker.types.predefined_metric_specification.deserialize_aws_json_1_1(
+                data["Predefined"]
+            )
+        }
+    elif "Customized" in data:
+        import capo_sagemaker.types.customized_metric_specification
+
+        return {
+            "Customized": capo_sagemaker.types.customized_metric_specification.deserialize_aws_json_1_1(
+                data["Customized"]
+            )
+        }
+    else:
+        raise DeserializationError("MetricSpecification: no recognized variant key")

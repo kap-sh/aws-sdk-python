@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#UpdateJobQueueResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_batch.types.string
+
+
+class UpdateJobQueueResponse(TypedDict, closed=True):
+    job_queue_name: NotRequired["capo_batch.types.string.String"]
+    """<p>The name of the job queue.</p>"""
+    job_queue_arn: NotRequired["capo_batch.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the job queue.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateJobQueueResponse) -> dict:
+    out: dict = {}
+    if "job_queue_name" in value:
+        out["jobQueueName"] = value["job_queue_name"]
+    if "job_queue_arn" in value:
+        out["jobQueueArn"] = value["job_queue_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateJobQueueResponse:
+    out: UpdateJobQueueResponse = {}  # type: ignore[typeddict-item]
+    if "jobQueueName" in data:
+        out["job_queue_name"] = data["jobQueueName"]
+    if "jobQueueArn" in data:
+        out["job_queue_arn"] = data["jobQueueArn"]
+    return out

@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhub#ListSourceResourcesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_migration_hub.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_migration_hub.types.max_results_source_resources
+    import capo_migration_hub.types.migration_task_name
+    import capo_migration_hub.types.progress_update_stream
+    import capo_migration_hub.types.token
+
+
+class ListSourceResourcesRequest(TypedDict, closed=True):
+    progress_update_stream: (
+        "capo_migration_hub.types.progress_update_stream.ProgressUpdateStream"
+    )
+    """<p>The name of the progress-update stream, which is used for access control as well as a namespace for migration-task names that is implicitly linked to your AWS account. The progress-update stream must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.</p>"""
+    migration_task_name: (
+        "capo_migration_hub.types.migration_task_name.MigrationTaskName"
+    )
+    """<p>A unique identifier that references the migration task. <i>Do not store confidential data in this field.</i> </p>"""
+    next_token: NotRequired["capo_migration_hub.types.token.Token"]
+    """<p>If <code>NextToken</code> was returned by a previous call, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. To retrieve the next page of results, specify the <code>NextToken</code> value that the previous call returned. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>"""
+    max_results: NotRequired[
+        "capo_migration_hub.types.max_results_source_resources.MaxResultsSourceResources"
+    ]
+    """<p>The maximum number of results to include in the response. If more results exist than the value that you specify here for <code>MaxResults</code>, the response will include a token that you can use to retrieve the next set of results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListSourceResourcesRequest) -> dict:
+    out: dict = {}
+    out["ProgressUpdateStream"] = value["progress_update_stream"]
+    out["MigrationTaskName"] = value["migration_task_name"]
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListSourceResourcesRequest:
+    out: ListSourceResourcesRequest = {}  # type: ignore[typeddict-item]
+    if "ProgressUpdateStream" in data:
+        out["progress_update_stream"] = data["ProgressUpdateStream"]
+    else:
+        raise DeserializationError(
+            "ListSourceResourcesRequest.progress_update_stream required"
+        )
+    if "MigrationTaskName" in data:
+        out["migration_task_name"] = data["MigrationTaskName"]
+    else:
+        raise DeserializationError(
+            "ListSourceResourcesRequest.migration_task_name required"
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

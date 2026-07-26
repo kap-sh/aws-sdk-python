@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-osis"
+name = "capo-osis"
 version = "0.1.0"
 description = "Python SDK for OSIS."
 readme = "README.md"

@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#QuickResponseDataProvider``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_qconnect.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_qconnect.types.quick_response_content
+
+
+class _QuickResponseDataProvider_content(TypedDict, closed=True):
+    content: "capo_qconnect.types.quick_response_content.QuickResponseContent"
+
+
+QuickResponseDataProvider: TypeAlias = _QuickResponseDataProvider_content
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: QuickResponseDataProvider) -> dict:
+    if "content" in value:
+        return {"content": value["content"]}
+    else:
+        raise SerializationError("QuickResponseDataProvider: no variant present")
+
+
+def deserialize_json(data: dict) -> QuickResponseDataProvider:
+    if "content" in data:
+        return {"content": data["content"]}
+    else:
+        raise DeserializationError(
+            "QuickResponseDataProvider: no recognized variant key"
+        )

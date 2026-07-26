@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.qbusiness#AssociatedGroup``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_qbusiness.types.group_name
+    import capo_qbusiness.types.membership_type
+
+
+class AssociatedGroup(TypedDict, closed=True):
+    name: NotRequired["capo_qbusiness.types.group_name.GroupName"]
+    """<p>The name of the group associated with the user. This is used to identify the group in access control decisions.</p>"""
+    type: NotRequired["capo_qbusiness.types.membership_type.MembershipType"]
+    """<p>The type of the associated group. This indicates the scope of the group's applicability.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AssociatedGroup) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["name"] = value["name"]
+    if "type" in value:
+        import capo_qbusiness.types.membership_type
+
+        out["type"] = capo_qbusiness.types.membership_type.serialize_json(value["type"])
+    return out
+
+
+def deserialize_json(data: dict) -> AssociatedGroup:
+    out: AssociatedGroup = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    if "type" in data:
+        import capo_qbusiness.types.membership_type
+
+        out["type"] = capo_qbusiness.types.membership_type.deserialize_json(
+            data["type"]
+        )
+    return out

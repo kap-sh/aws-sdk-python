@@ -1,0 +1,70 @@
+"""Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkSegment``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_networkmanager.types.constrained_string
+    import capo_networkmanager.types.constrained_string_list
+    import capo_networkmanager.types.external_region_code_list
+
+
+class CoreNetworkSegment(TypedDict, closed=True):
+    name: NotRequired["capo_networkmanager.types.constrained_string.ConstrainedString"]
+    """<p>The name of a core network segment.</p>"""
+    edge_locations: NotRequired[
+        "capo_networkmanager.types.external_region_code_list.ExternalRegionCodeList"
+    ]
+    """<p>The Regions where the edges are located.</p>"""
+    shared_segments: NotRequired[
+        "capo_networkmanager.types.constrained_string_list.ConstrainedStringList"
+    ]
+    """<p>The shared segments of a core network.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CoreNetworkSegment) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "edge_locations" in value:
+        import capo_networkmanager.types.external_region_code_list
+
+        out["EdgeLocations"] = (
+            capo_networkmanager.types.external_region_code_list.serialize_json(
+                value["edge_locations"]
+            )
+        )
+    if "shared_segments" in value:
+        import capo_networkmanager.types.constrained_string_list
+
+        out["SharedSegments"] = (
+            capo_networkmanager.types.constrained_string_list.serialize_json(
+                value["shared_segments"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CoreNetworkSegment:
+    out: CoreNetworkSegment = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "EdgeLocations" in data:
+        import capo_networkmanager.types.external_region_code_list
+
+        out["edge_locations"] = (
+            capo_networkmanager.types.external_region_code_list.deserialize_json(
+                data["EdgeLocations"]
+            )
+        )
+    if "SharedSegments" in data:
+        import capo_networkmanager.types.constrained_string_list
+
+        out["shared_segments"] = (
+            capo_networkmanager.types.constrained_string_list.deserialize_json(
+                data["SharedSegments"]
+            )
+        )
+    return out

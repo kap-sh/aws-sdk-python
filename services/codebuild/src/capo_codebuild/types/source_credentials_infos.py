@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#SourceCredentialsInfos``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_codebuild.types.source_credentials_info
+
+SourceCredentialsInfos: TypeAlias = list[
+    "capo_codebuild.types.source_credentials_info.SourceCredentialsInfo"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SourceCredentialsInfos) -> list:
+    import capo_codebuild.types.source_credentials_info
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_codebuild.types.source_credentials_info.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> SourceCredentialsInfos:
+    import capo_codebuild.types.source_credentials_info
+
+    out: SourceCredentialsInfos = []
+    for item in data:
+        out.append(
+            capo_codebuild.types.source_credentials_info.deserialize_aws_json_1_1(item)
+        )
+    return out

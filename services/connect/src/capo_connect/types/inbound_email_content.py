@@ -1,0 +1,60 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#InboundEmailContent``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_connect.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_connect.types.inbound_message_source_type
+    import capo_connect.types.inbound_raw_message
+
+
+class InboundEmailContent(TypedDict, closed=True):
+    message_source_type: (
+        "capo_connect.types.inbound_message_source_type.InboundMessageSourceType"
+    )
+    """<p>The message source type, that is, <code>RAW</code>.</p>"""
+    raw_message: NotRequired["capo_connect.types.inbound_raw_message.InboundRawMessage"]
+    """<p>The raw email body content.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: InboundEmailContent) -> dict:
+    out: dict = {}
+    import capo_connect.types.inbound_message_source_type
+
+    out["MessageSourceType"] = (
+        capo_connect.types.inbound_message_source_type.serialize_json(
+            value["message_source_type"]
+        )
+    )
+    if "raw_message" in value:
+        import capo_connect.types.inbound_raw_message
+
+        out["RawMessage"] = capo_connect.types.inbound_raw_message.serialize_json(
+            value["raw_message"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> InboundEmailContent:
+    out: InboundEmailContent = {}  # type: ignore[typeddict-item]
+    if "MessageSourceType" in data:
+        import capo_connect.types.inbound_message_source_type
+
+        out["message_source_type"] = (
+            capo_connect.types.inbound_message_source_type.deserialize_json(
+                data["MessageSourceType"]
+            )
+        )
+    else:
+        raise DeserializationError("InboundEmailContent.message_source_type required")
+    if "RawMessage" in data:
+        import capo_connect.types.inbound_raw_message
+
+        out["raw_message"] = capo_connect.types.inbound_raw_message.deserialize_json(
+            data["RawMessage"]
+        )
+    return out

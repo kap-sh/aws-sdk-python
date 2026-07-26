@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-backup-gateway"
+name = "capo-backup-gateway"
 version = "0.1.0"
 description = "Python SDK for Backup Gateway."
 readme = "README.md"

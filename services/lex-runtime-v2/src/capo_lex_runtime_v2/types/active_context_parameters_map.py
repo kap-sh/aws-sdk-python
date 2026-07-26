@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.lexruntimev2#ActiveContextParametersMap``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_lex_runtime_v2.types.parameter_name
+    import capo_lex_runtime_v2.types.text
+
+ActiveContextParametersMap: TypeAlias = dict[
+    "capo_lex_runtime_v2.types.parameter_name.ParameterName",
+    "capo_lex_runtime_v2.types.text.Text",
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(input_to_serialize: ActiveContextParametersMap) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        out[key] = value
+    return out
+
+
+def deserialize_json(data: dict) -> ActiveContextParametersMap:
+    out: ActiveContextParametersMap = {}
+    for key, value in data.items():
+        out[key] = value
+    return out

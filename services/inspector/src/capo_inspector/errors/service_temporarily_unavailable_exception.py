@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector#ServiceTemporarilyUnavailableException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_inspector.errors import DeserializationError, ServiceError
+
+if TYPE_CHECKING:
+    import capo_inspector.types.bool
+    import capo_inspector.types.error_message
+
+
+class ServiceTemporarilyUnavailableException_(TypedDict, closed=True):
+    message: "capo_inspector.types.error_message.ErrorMessage"
+    """<p>Details of the exception error.</p>"""
+    can_retry: "capo_inspector.types.bool.Bool"
+    """<p>You can wait and then retry your request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ServiceTemporarilyUnavailableException_) -> dict:
+    out: dict = {}
+    out["message"] = value["message"]
+    out["canRetry"] = value["can_retry"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ServiceTemporarilyUnavailableException_:
+    out: ServiceTemporarilyUnavailableException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    else:
+        raise DeserializationError(
+            "ServiceTemporarilyUnavailableException_.message required"
+        )
+    if "canRetry" in data:
+        out["can_retry"] = data["canRetry"]
+    else:
+        raise DeserializationError(
+            "ServiceTemporarilyUnavailableException_.can_retry required"
+        )
+    return out
+
+
+class ServiceTemporarilyUnavailableException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.inspector#ServiceTemporarilyUnavailableException``."""
+
+    code: str | None = "ServiceTemporarilyUnavailableException"
+
+    def __init__(self, data: ServiceTemporarilyUnavailableException_):
+        super().__init__(
+            "server",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ServiceTemporarilyUnavailableException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "ServiceTemporarilyUnavailableException":
+        return cls(deserialize_aws_json_1_1(data))

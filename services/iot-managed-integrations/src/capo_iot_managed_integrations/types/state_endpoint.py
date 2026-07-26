@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#StateEndpoint``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_iot_managed_integrations.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_iot_managed_integrations.types.endpoint_id
+    import capo_iot_managed_integrations.types.state_capabilities
+
+
+class StateEndpoint(TypedDict, closed=True):
+    endpoint_id: "capo_iot_managed_integrations.types.endpoint_id.EndpointId"
+    """<p>Numeric identifier of the endpoint</p>"""
+    capabilities: (
+        "capo_iot_managed_integrations.types.state_capabilities.StateCapabilities"
+    )
+    """<p>Describe the endpoint with an id, a name, and the relevant capabilities for the reporting state.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StateEndpoint) -> dict:
+    out: dict = {}
+    out["endpointId"] = value["endpoint_id"]
+    import capo_iot_managed_integrations.types.state_capabilities
+
+    out["capabilities"] = (
+        capo_iot_managed_integrations.types.state_capabilities.serialize_json(
+            value["capabilities"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> StateEndpoint:
+    out: StateEndpoint = {}  # type: ignore[typeddict-item]
+    if "endpointId" in data:
+        out["endpoint_id"] = data["endpointId"]
+    else:
+        raise DeserializationError("StateEndpoint.endpoint_id required")
+    if "capabilities" in data:
+        import capo_iot_managed_integrations.types.state_capabilities
+
+        out["capabilities"] = (
+            capo_iot_managed_integrations.types.state_capabilities.deserialize_json(
+                data["capabilities"]
+            )
+        )
+    else:
+        raise DeserializationError("StateEndpoint.capabilities required")
+    return out

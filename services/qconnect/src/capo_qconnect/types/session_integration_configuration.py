@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#SessionIntegrationConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_qconnect.types.generic_arn
+
+
+class SessionIntegrationConfiguration(TypedDict, closed=True):
+    topic_integration_arn: NotRequired["capo_qconnect.types.generic_arn.GenericArn"]
+    """<p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SessionIntegrationConfiguration) -> dict:
+    out: dict = {}
+    if "topic_integration_arn" in value:
+        out["topicIntegrationArn"] = value["topic_integration_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> SessionIntegrationConfiguration:
+    out: SessionIntegrationConfiguration = {}  # type: ignore[typeddict-item]
+    if "topicIntegrationArn" in data:
+        out["topic_integration_arn"] = data["topicIntegrationArn"]
+    return out

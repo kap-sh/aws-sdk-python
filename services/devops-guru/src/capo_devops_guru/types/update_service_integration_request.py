@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateServiceIntegrationRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_devops_guru.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_devops_guru.types.update_service_integration_config
+
+
+class UpdateServiceIntegrationRequest(TypedDict, closed=True):
+    service_integration: "capo_devops_guru.types.update_service_integration_config.UpdateServiceIntegrationConfig"
+    """<p> An <code>IntegratedServiceConfig</code> object used to specify the integrated service you want to update, and whether you want to update it to enabled or disabled. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateServiceIntegrationRequest) -> dict:
+    out: dict = {}
+    import capo_devops_guru.types.update_service_integration_config
+
+    out["ServiceIntegration"] = (
+        capo_devops_guru.types.update_service_integration_config.serialize_json(
+            value["service_integration"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateServiceIntegrationRequest:
+    out: UpdateServiceIntegrationRequest = {}  # type: ignore[typeddict-item]
+    if "ServiceIntegration" in data:
+        import capo_devops_guru.types.update_service_integration_config
+
+        out["service_integration"] = (
+            capo_devops_guru.types.update_service_integration_config.deserialize_json(
+                data["ServiceIntegration"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdateServiceIntegrationRequest.service_integration required"
+        )
+    return out

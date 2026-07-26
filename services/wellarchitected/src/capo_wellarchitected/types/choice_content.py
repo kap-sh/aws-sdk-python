@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.wellarchitected#ChoiceContent``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_wellarchitected.types.choice_content_display_text
+    import capo_wellarchitected.types.choice_content_url
+
+
+class ChoiceContent(TypedDict, closed=True):
+    display_text: NotRequired[
+        "capo_wellarchitected.types.choice_content_display_text.ChoiceContentDisplayText"
+    ]
+    """<p>The display text for the choice content.</p>"""
+    url: NotRequired["capo_wellarchitected.types.choice_content_url.ChoiceContentUrl"]
+    """<p>The URL for the choice content.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ChoiceContent) -> dict:
+    out: dict = {}
+    if "display_text" in value:
+        out["DisplayText"] = value["display_text"]
+    if "url" in value:
+        out["Url"] = value["url"]
+    return out
+
+
+def deserialize_json(data: dict) -> ChoiceContent:
+    out: ChoiceContent = {}  # type: ignore[typeddict-item]
+    if "DisplayText" in data:
+        out["display_text"] = data["DisplayText"]
+    if "Url" in data:
+        out["url"] = data["Url"]
+    return out

@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#EndpointConfigSummaryList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.endpoint_config_summary
+
+EndpointConfigSummaryList: TypeAlias = list[
+    "capo_sagemaker.types.endpoint_config_summary.EndpointConfigSummary"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EndpointConfigSummaryList) -> list:
+    import capo_sagemaker.types.endpoint_config_summary
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_sagemaker.types.endpoint_config_summary.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> EndpointConfigSummaryList:
+    import capo_sagemaker.types.endpoint_config_summary
+
+    out: EndpointConfigSummaryList = []
+    for item in data:
+        out.append(
+            capo_sagemaker.types.endpoint_config_summary.deserialize_aws_json_1_1(item)
+        )
+    return out

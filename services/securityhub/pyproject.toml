@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-securityhub"
+name = "capo-securityhub"
 version = "0.1.0"
 description = "Python SDK for Securityhub."
 readme = "README.md"

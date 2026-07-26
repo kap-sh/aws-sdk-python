@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-location
+pip install capo-location
 ```

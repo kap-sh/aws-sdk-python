@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.rekognition#FaceMatch``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_rekognition.types.face
+    import capo_rekognition.types.percent
+
+
+class FaceMatch(TypedDict, closed=True):
+    similarity: NotRequired["capo_rekognition.types.percent.Percent"]
+    """<p>Confidence in the match of this face with the input face.</p>"""
+    face: NotRequired["capo_rekognition.types.face.Face"]
+    """<p>Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: FaceMatch) -> dict:
+    out: dict = {}
+    if "similarity" in value:
+        out["Similarity"] = value["similarity"]
+    if "face" in value:
+        import capo_rekognition.types.face
+
+        out["Face"] = capo_rekognition.types.face.serialize_aws_json_1_1(value["face"])
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> FaceMatch:
+    out: FaceMatch = {}  # type: ignore[typeddict-item]
+    if "Similarity" in data:
+        out["similarity"] = data["Similarity"]
+    if "Face" in data:
+        import capo_rekognition.types.face
+
+        out["face"] = capo_rekognition.types.face.deserialize_aws_json_1_1(data["Face"])
+    return out

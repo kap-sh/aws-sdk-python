@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.kendra#SiteMapsConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_kendra.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_kendra.types.site_maps_list
+
+
+class SiteMapsConfiguration(TypedDict, closed=True):
+    site_maps: "capo_kendra.types.site_maps_list.SiteMapsList"
+    """<p>The list of sitemap URLs of the websites you want to crawl.</p> <p>The list can include a maximum of three sitemap URLs.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SiteMapsConfiguration) -> dict:
+    out: dict = {}
+    import capo_kendra.types.site_maps_list
+
+    out["SiteMaps"] = capo_kendra.types.site_maps_list.serialize_aws_json_1_1(
+        value["site_maps"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SiteMapsConfiguration:
+    out: SiteMapsConfiguration = {}  # type: ignore[typeddict-item]
+    if "SiteMaps" in data:
+        import capo_kendra.types.site_maps_list
+
+        out["site_maps"] = capo_kendra.types.site_maps_list.deserialize_aws_json_1_1(
+            data["SiteMaps"]
+        )
+    else:
+        raise DeserializationError("SiteMapsConfiguration.site_maps required")
+    return out

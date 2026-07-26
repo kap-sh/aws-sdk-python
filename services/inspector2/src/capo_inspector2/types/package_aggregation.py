@@ -1,0 +1,54 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#PackageAggregation``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_inspector2.types.package_sort_by
+    import capo_inspector2.types.sort_order
+    import capo_inspector2.types.string_filter_list
+
+
+class PackageAggregation(TypedDict, closed=True):
+    package_names: NotRequired[
+        "capo_inspector2.types.string_filter_list.StringFilterList"
+    ]
+    """<p>The names of packages to aggregate findings on.</p>"""
+    sort_order: NotRequired["capo_inspector2.types.sort_order.SortOrder"]
+    """<p>The order to sort results by.</p>"""
+    sort_by: NotRequired["capo_inspector2.types.package_sort_by.PackageSortBy"]
+    """<p>The value to sort results by.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PackageAggregation) -> dict:
+    out: dict = {}
+    if "package_names" in value:
+        import capo_inspector2.types.string_filter_list
+
+        out["packageNames"] = capo_inspector2.types.string_filter_list.serialize_json(
+            value["package_names"]
+        )
+    if "sort_order" in value:
+        out["sortOrder"] = value["sort_order"]
+    if "sort_by" in value:
+        out["sortBy"] = value["sort_by"]
+    return out
+
+
+def deserialize_json(data: dict) -> PackageAggregation:
+    out: PackageAggregation = {}  # type: ignore[typeddict-item]
+    if "packageNames" in data:
+        import capo_inspector2.types.string_filter_list
+
+        out["package_names"] = (
+            capo_inspector2.types.string_filter_list.deserialize_json(
+                data["packageNames"]
+            )
+        )
+    if "sortOrder" in data:
+        out["sort_order"] = data["sortOrder"]
+    if "sortBy" in data:
+        out["sort_by"] = data["sortBy"]
+    return out

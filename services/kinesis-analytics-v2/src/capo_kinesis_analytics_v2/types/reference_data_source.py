@@ -1,0 +1,72 @@
+"""Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ReferenceDataSource``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_kinesis_analytics_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_kinesis_analytics_v2.types.in_app_table_name
+    import capo_kinesis_analytics_v2.types.s3_reference_data_source
+    import capo_kinesis_analytics_v2.types.source_schema
+
+
+class ReferenceDataSource(TypedDict, closed=True):
+    table_name: "capo_kinesis_analytics_v2.types.in_app_table_name.InAppTableName"
+    """<p>The name of the in-application table to create.</p>"""
+    s3_reference_data_source: NotRequired[
+        "capo_kinesis_analytics_v2.types.s3_reference_data_source.S3ReferenceDataSource"
+    ]
+    """<p>Identifies the S3 bucket and object that contains the reference data. A SQL-based Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>"""
+    reference_schema: "capo_kinesis_analytics_v2.types.source_schema.SourceSchema"
+    """<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ReferenceDataSource) -> dict:
+    out: dict = {}
+    out["TableName"] = value["table_name"]
+    if "s3_reference_data_source" in value:
+        import capo_kinesis_analytics_v2.types.s3_reference_data_source
+
+        out["S3ReferenceDataSource"] = (
+            capo_kinesis_analytics_v2.types.s3_reference_data_source.serialize_aws_json_1_1(
+                value["s3_reference_data_source"]
+            )
+        )
+    import capo_kinesis_analytics_v2.types.source_schema
+
+    out["ReferenceSchema"] = (
+        capo_kinesis_analytics_v2.types.source_schema.serialize_aws_json_1_1(
+            value["reference_schema"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ReferenceDataSource:
+    out: ReferenceDataSource = {}  # type: ignore[typeddict-item]
+    if "TableName" in data:
+        out["table_name"] = data["TableName"]
+    else:
+        raise DeserializationError("ReferenceDataSource.table_name required")
+    if "S3ReferenceDataSource" in data:
+        import capo_kinesis_analytics_v2.types.s3_reference_data_source
+
+        out["s3_reference_data_source"] = (
+            capo_kinesis_analytics_v2.types.s3_reference_data_source.deserialize_aws_json_1_1(
+                data["S3ReferenceDataSource"]
+            )
+        )
+    if "ReferenceSchema" in data:
+        import capo_kinesis_analytics_v2.types.source_schema
+
+        out["reference_schema"] = (
+            capo_kinesis_analytics_v2.types.source_schema.deserialize_aws_json_1_1(
+                data["ReferenceSchema"]
+            )
+        )
+    else:
+        raise DeserializationError("ReferenceDataSource.reference_schema required")
+    return out

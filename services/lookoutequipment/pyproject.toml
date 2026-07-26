@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-lookoutequipment"
+name = "capo-lookoutequipment"
 version = "0.1.0"
 description = "Python SDK for Lookoutequipment."
 readme = "README.md"

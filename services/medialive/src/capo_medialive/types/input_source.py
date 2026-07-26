@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#InputSource``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_medialive.types.__string
+
+
+class InputSource(TypedDict, closed=True):
+    password_param: NotRequired["capo_medialive.types.__string.__string"]
+    """The key used to extract the password from EC2 Parameter store."""
+    url: NotRequired["capo_medialive.types.__string.__string"]
+    """This represents the customer's source URL where stream is pulled from."""
+    username: NotRequired["capo_medialive.types.__string.__string"]
+    """The username for the input source."""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: InputSource) -> dict:
+    out: dict = {}
+    if "password_param" in value:
+        out["passwordParam"] = value["password_param"]
+    if "url" in value:
+        out["url"] = value["url"]
+    if "username" in value:
+        out["username"] = value["username"]
+    return out
+
+
+def deserialize_json(data: dict) -> InputSource:
+    out: InputSource = {}  # type: ignore[typeddict-item]
+    if "passwordParam" in data:
+        out["password_param"] = data["passwordParam"]
+    if "url" in data:
+        out["url"] = data["url"]
+    if "username" in data:
+        out["username"] = data["username"]
+    return out

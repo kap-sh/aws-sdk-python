@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-acm"
+name = "capo-acm"
 version = "0.1.1"
 description = "Python SDK for ACM."
 readme = "README.md"

@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#BundleIdList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_workspaces.types.bundle_id
+
+BundleIdList: TypeAlias = list["capo_workspaces.types.bundle_id.BundleId"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: BundleIdList) -> list:
+    return list(value)
+
+
+def deserialize_aws_json_1_1(data: list) -> BundleIdList:
+    return list(data)

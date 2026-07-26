@@ -1,0 +1,143 @@
+"""Generated from Smithy shape ``com.amazonaws.globalaccelerator#CustomRoutingAccelerator``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_global_accelerator.types.custom_routing_accelerator_status
+    import capo_global_accelerator.types.generic_boolean
+    import capo_global_accelerator.types.generic_string
+    import capo_global_accelerator.types.ip_address_type
+    import capo_global_accelerator.types.ip_sets
+    import capo_global_accelerator.types.timestamp
+
+
+class CustomRoutingAccelerator(TypedDict, closed=True):
+    accelerator_arn: NotRequired[
+        "capo_global_accelerator.types.generic_string.GenericString"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the custom routing accelerator.</p>"""
+    name: NotRequired["capo_global_accelerator.types.generic_string.GenericString"]
+    """<p>The name of the accelerator. The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>"""
+    ip_address_type: NotRequired[
+        "capo_global_accelerator.types.ip_address_type.IpAddressType"
+    ]
+    """<p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>"""
+    enabled: NotRequired["capo_global_accelerator.types.generic_boolean.GenericBoolean"]
+    """<p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>"""
+    ip_sets: NotRequired["capo_global_accelerator.types.ip_sets.IpSets"]
+    """<p>The static IP addresses that Global Accelerator associates with the accelerator.</p>"""
+    dns_name: NotRequired["capo_global_accelerator.types.generic_string.GenericString"]
+    r"""<p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses. </p> <p>The naming convention for the DNS name is the following: A lowercase letter a, followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example: a1234567890abcdef.awsglobalaccelerator.com.</p> <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both the A record and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p> <p>For more information about the default DNS name, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html\"> Support for DNS addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>"""
+    status: NotRequired[
+        "capo_global_accelerator.types.custom_routing_accelerator_status.CustomRoutingAcceleratorStatus"
+    ]
+    """<p>Describes the deployment status of the accelerator.</p>"""
+    created_time: NotRequired["capo_global_accelerator.types.timestamp.Timestamp"]
+    """<p>The date and time that the accelerator was created.</p>"""
+    last_modified_time: NotRequired["capo_global_accelerator.types.timestamp.Timestamp"]
+    """<p>The date and time that the accelerator was last modified.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CustomRoutingAccelerator) -> dict:
+    out: dict = {}
+    if "accelerator_arn" in value:
+        out["AcceleratorArn"] = value["accelerator_arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "ip_address_type" in value:
+        import capo_global_accelerator.types.ip_address_type
+
+        out["IpAddressType"] = (
+            capo_global_accelerator.types.ip_address_type.serialize_aws_json_1_1(
+                value["ip_address_type"]
+            )
+        )
+    if "enabled" in value:
+        out["Enabled"] = value["enabled"]
+    if "ip_sets" in value:
+        import capo_global_accelerator.types.ip_sets
+
+        out["IpSets"] = capo_global_accelerator.types.ip_sets.serialize_aws_json_1_1(
+            value["ip_sets"]
+        )
+    if "dns_name" in value:
+        out["DnsName"] = value["dns_name"]
+    if "status" in value:
+        import capo_global_accelerator.types.custom_routing_accelerator_status
+
+        out["Status"] = (
+            capo_global_accelerator.types.custom_routing_accelerator_status.serialize_aws_json_1_1(
+                value["status"]
+            )
+        )
+    if "created_time" in value:
+        import capo_global_accelerator.types.timestamp
+
+        out["CreatedTime"] = (
+            capo_global_accelerator.types.timestamp.serialize_aws_json_1_1(
+                value["created_time"]
+            )
+        )
+    if "last_modified_time" in value:
+        import capo_global_accelerator.types.timestamp
+
+        out["LastModifiedTime"] = (
+            capo_global_accelerator.types.timestamp.serialize_aws_json_1_1(
+                value["last_modified_time"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CustomRoutingAccelerator:
+    out: CustomRoutingAccelerator = {}  # type: ignore[typeddict-item]
+    if "AcceleratorArn" in data:
+        out["accelerator_arn"] = data["AcceleratorArn"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "IpAddressType" in data:
+        import capo_global_accelerator.types.ip_address_type
+
+        out["ip_address_type"] = (
+            capo_global_accelerator.types.ip_address_type.deserialize_aws_json_1_1(
+                data["IpAddressType"]
+            )
+        )
+    if "Enabled" in data:
+        out["enabled"] = data["Enabled"]
+    if "IpSets" in data:
+        import capo_global_accelerator.types.ip_sets
+
+        out["ip_sets"] = capo_global_accelerator.types.ip_sets.deserialize_aws_json_1_1(
+            data["IpSets"]
+        )
+    if "DnsName" in data:
+        out["dns_name"] = data["DnsName"]
+    if "Status" in data:
+        import capo_global_accelerator.types.custom_routing_accelerator_status
+
+        out["status"] = (
+            capo_global_accelerator.types.custom_routing_accelerator_status.deserialize_aws_json_1_1(
+                data["Status"]
+            )
+        )
+    if "CreatedTime" in data:
+        import capo_global_accelerator.types.timestamp
+
+        out["created_time"] = (
+            capo_global_accelerator.types.timestamp.deserialize_aws_json_1_1(
+                data["CreatedTime"]
+            )
+        )
+    if "LastModifiedTime" in data:
+        import capo_global_accelerator.types.timestamp
+
+        out["last_modified_time"] = (
+            capo_global_accelerator.types.timestamp.deserialize_aws_json_1_1(
+                data["LastModifiedTime"]
+            )
+        )
+    return out

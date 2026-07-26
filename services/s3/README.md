@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-s3
+pip install capo-s3
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -39,7 +39,7 @@ async def main():
 Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -62,7 +62,7 @@ async def main():
 Some operations return a streaming response body. Use the operation as an async context manager and iterate over the response field to read chunks.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -78,7 +78,7 @@ async def main():
 Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -92,7 +92,7 @@ async def main():
 Some operations support presigning, which generates a URL that can be used without credentials. Use the `presigned_` prefixed method on the client to get a presigned URL.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -107,8 +107,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
-from aws_sdk_s3.error import NoSuchUpload
+from capo_s3 import AsyncS3Client
+from capo_s3.error import NoSuchUpload
 
 
 async def main():
@@ -127,7 +127,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.lakeformation#DescribeTransactionResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lakeformation.types.transaction_description
+
+
+class DescribeTransactionResponse(TypedDict, closed=True):
+    transaction_description: NotRequired[
+        "capo_lakeformation.types.transaction_description.TransactionDescription"
+    ]
+    """<p>Returns a <code>TransactionDescription</code> object containing information about the transaction.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeTransactionResponse) -> dict:
+    out: dict = {}
+    if "transaction_description" in value:
+        import capo_lakeformation.types.transaction_description
+
+        out["TransactionDescription"] = (
+            capo_lakeformation.types.transaction_description.serialize_json(
+                value["transaction_description"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeTransactionResponse:
+    out: DescribeTransactionResponse = {}  # type: ignore[typeddict-item]
+    if "TransactionDescription" in data:
+        import capo_lakeformation.types.transaction_description
+
+        out["transaction_description"] = (
+            capo_lakeformation.types.transaction_description.deserialize_json(
+                data["TransactionDescription"]
+            )
+        )
+    return out

@@ -1,6 +1,6 @@
 import pytest
-from aws_sdk_elastic_load_balancing_v2._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_elastic_load_balancing_v2._rule_engine._endpoint_runtime import EndpointError
+from capo_elastic_load_balancing_v2._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_elastic_load_balancing_v2._rule_engine._endpoint_runtime import EndpointError
 import re
 import zapros
 

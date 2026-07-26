@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.kafka#PrometheusInfo``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_kafka.types.jmx_exporter_info
+    import capo_kafka.types.node_exporter_info
+
+
+class PrometheusInfo(TypedDict, closed=True):
+    jmx_exporter: NotRequired["capo_kafka.types.jmx_exporter_info.JmxExporterInfo"]
+    """<p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"""
+    node_exporter: NotRequired["capo_kafka.types.node_exporter_info.NodeExporterInfo"]
+    """<p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PrometheusInfo) -> dict:
+    out: dict = {}
+    if "jmx_exporter" in value:
+        import capo_kafka.types.jmx_exporter_info
+
+        out["jmxExporter"] = capo_kafka.types.jmx_exporter_info.serialize_json(
+            value["jmx_exporter"]
+        )
+    if "node_exporter" in value:
+        import capo_kafka.types.node_exporter_info
+
+        out["nodeExporter"] = capo_kafka.types.node_exporter_info.serialize_json(
+            value["node_exporter"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PrometheusInfo:
+    out: PrometheusInfo = {}  # type: ignore[typeddict-item]
+    if "jmxExporter" in data:
+        import capo_kafka.types.jmx_exporter_info
+
+        out["jmx_exporter"] = capo_kafka.types.jmx_exporter_info.deserialize_json(
+            data["jmxExporter"]
+        )
+    if "nodeExporter" in data:
+        import capo_kafka.types.node_exporter_info
+
+        out["node_exporter"] = capo_kafka.types.node_exporter_info.deserialize_json(
+            data["nodeExporter"]
+        )
+    return out

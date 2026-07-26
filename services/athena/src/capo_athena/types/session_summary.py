@@ -1,0 +1,74 @@
+"""Generated from Smithy shape ``com.amazonaws.athena#SessionSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_athena.types.description_string
+    import capo_athena.types.engine_version
+    import capo_athena.types.name_string
+    import capo_athena.types.session_id
+    import capo_athena.types.session_status
+
+
+class SessionSummary(TypedDict, closed=True):
+    session_id: NotRequired["capo_athena.types.session_id.SessionId"]
+    """<p>The session ID.</p>"""
+    description: NotRequired["capo_athena.types.description_string.DescriptionString"]
+    """<p>The session description.</p>"""
+    engine_version: NotRequired["capo_athena.types.engine_version.EngineVersion"]
+    """<p>The engine version used by the session (for example, <code>PySpark engine version 3</code>).</p>"""
+    notebook_version: NotRequired["capo_athena.types.name_string.NameString"]
+    """<p>The notebook version.</p>"""
+    status: NotRequired["capo_athena.types.session_status.SessionStatus"]
+    """<p>Contains information about the session status.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SessionSummary) -> dict:
+    out: dict = {}
+    if "session_id" in value:
+        out["SessionId"] = value["session_id"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "engine_version" in value:
+        import capo_athena.types.engine_version
+
+        out["EngineVersion"] = capo_athena.types.engine_version.serialize_aws_json_1_1(
+            value["engine_version"]
+        )
+    if "notebook_version" in value:
+        out["NotebookVersion"] = value["notebook_version"]
+    if "status" in value:
+        import capo_athena.types.session_status
+
+        out["Status"] = capo_athena.types.session_status.serialize_aws_json_1_1(
+            value["status"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SessionSummary:
+    out: SessionSummary = {}  # type: ignore[typeddict-item]
+    if "SessionId" in data:
+        out["session_id"] = data["SessionId"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "EngineVersion" in data:
+        import capo_athena.types.engine_version
+
+        out["engine_version"] = (
+            capo_athena.types.engine_version.deserialize_aws_json_1_1(
+                data["EngineVersion"]
+            )
+        )
+    if "NotebookVersion" in data:
+        out["notebook_version"] = data["NotebookVersion"]
+    if "Status" in data:
+        import capo_athena.types.session_status
+
+        out["status"] = capo_athena.types.session_status.deserialize_aws_json_1_1(
+            data["Status"]
+        )
+    return out

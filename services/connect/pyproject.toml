@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-connect"
+name = "capo-connect"
 version = "0.1.0"
 description = "Python SDK for Connect."
 readme = "README.md"

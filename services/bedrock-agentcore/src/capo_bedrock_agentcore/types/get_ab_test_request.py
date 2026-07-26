@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetABTestRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore.types.ab_test_id
+
+
+class GetABTestRequest(TypedDict, closed=True):
+    ab_test_id: "capo_bedrock_agentcore.types.ab_test_id.ABTestId"
+    """<p>The unique identifier of the A/B test to retrieve.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetABTestRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetABTestRequest:
+    out: GetABTestRequest = {}  # type: ignore[typeddict-item]
+    return out

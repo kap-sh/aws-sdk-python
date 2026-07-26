@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.comprehend#ListOfPiiEntityTypes``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_comprehend.types.pii_entity_type
+
+ListOfPiiEntityTypes: TypeAlias = list[
+    "capo_comprehend.types.pii_entity_type.PiiEntityType"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListOfPiiEntityTypes) -> list:
+    import capo_comprehend.types.pii_entity_type
+
+    out: list = []
+    for item in value:
+        out.append(capo_comprehend.types.pii_entity_type.serialize_aws_json_1_1(item))
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> ListOfPiiEntityTypes:
+    import capo_comprehend.types.pii_entity_type
+
+    out: ListOfPiiEntityTypes = []
+    for item in data:
+        out.append(capo_comprehend.types.pii_entity_type.deserialize_aws_json_1_1(item))
+    return out

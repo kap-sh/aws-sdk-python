@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.verifiedpermissions#UpdateCognitoGroupConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_verifiedpermissions.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_verifiedpermissions.types.group_entity_type
+
+
+class UpdateCognitoGroupConfiguration(TypedDict, closed=True):
+    group_entity_type: (
+        "capo_verifiedpermissions.types.group_entity_type.GroupEntityType"
+    )
+    """<p>The name of the schema entity type that's mapped to the user pool group. Defaults to <code>AWS::CognitoGroup</code>.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateCognitoGroupConfiguration) -> dict:
+    out: dict = {}
+    out["groupEntityType"] = value["group_entity_type"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateCognitoGroupConfiguration:
+    out: UpdateCognitoGroupConfiguration = {}  # type: ignore[typeddict-item]
+    if "groupEntityType" in data:
+        out["group_entity_type"] = data["groupEntityType"]
+    else:
+        raise DeserializationError(
+            "UpdateCognitoGroupConfiguration.group_entity_type required"
+        )
+    return out

@@ -1,0 +1,167 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#CreateDevEndpointRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_glue.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_glue.types.generic_string
+    import capo_glue.types.glue_version_string
+    import capo_glue.types.integer_value
+    import capo_glue.types.map_value
+    import capo_glue.types.name_string
+    import capo_glue.types.nullable_integer
+    import capo_glue.types.public_keys_list
+    import capo_glue.types.role_arn
+    import capo_glue.types.string_list
+    import capo_glue.types.tags_map
+    import capo_glue.types.worker_type
+
+
+class CreateDevEndpointRequest(TypedDict, closed=True):
+    endpoint_name: "capo_glue.types.generic_string.GenericString"
+    """<p>The name to be assigned to the new <code>DevEndpoint</code>.</p>"""
+    role_arn: "capo_glue.types.role_arn.RoleArn"
+    """<p>The IAM role for the <code>DevEndpoint</code>.</p>"""
+    security_group_ids: NotRequired["capo_glue.types.string_list.StringList"]
+    """<p>Security group IDs for the security groups to be used by the new <code>DevEndpoint</code>.</p>"""
+    subnet_id: NotRequired["capo_glue.types.generic_string.GenericString"]
+    """<p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>"""
+    public_key: NotRequired["capo_glue.types.generic_string.GenericString"]
+    """<p>The public key to be used by this <code>DevEndpoint</code> for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.</p>"""
+    public_keys: NotRequired["capo_glue.types.public_keys_list.PublicKeysList"]
+    """<p>A list of public keys to be used by the development endpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note>"""
+    number_of_nodes: "capo_glue.types.integer_value.IntegerValue"
+    """<p>The number of Glue Data Processing Units (DPUs) to allocate to this <code>DevEndpoint</code>.</p>"""
+    worker_type: NotRequired["capo_glue.types.worker_type.WorkerType"]
+    """<p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a development endpoint is created with the <code>G.2X</code> <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>"""
+    glue_version: NotRequired["capo_glue.types.glue_version_string.GlueVersionString"]
+    r"""<p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p> <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p> <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>"""
+    number_of_workers: NotRequired["capo_glue.types.nullable_integer.NullableInteger"]
+    """<p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"""
+    extra_python_libs_s3_path: NotRequired[
+        "capo_glue.types.generic_string.GenericString"
+    ]
+    r"""<p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p> </note>"""
+    extra_jars_s3_path: NotRequired["capo_glue.types.generic_string.GenericString"]
+    """<p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p>"""
+    security_configuration: NotRequired["capo_glue.types.name_string.NameString"]
+    """<p>The name of the <code>SecurityConfiguration</code> structure to be used with this <code>DevEndpoint</code>.</p>"""
+    tags: NotRequired["capo_glue.types.tags_map.TagsMap"]
+    r"""<p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide.</p>"""
+    arguments: NotRequired["capo_glue.types.map_value.MapValue"]
+    """<p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateDevEndpointRequest) -> dict:
+    out: dict = {}
+    out["EndpointName"] = value["endpoint_name"]
+    out["RoleArn"] = value["role_arn"]
+    if "security_group_ids" in value:
+        import capo_glue.types.string_list
+
+        out["SecurityGroupIds"] = capo_glue.types.string_list.serialize_aws_json_1_1(
+            value["security_group_ids"]
+        )
+    if "subnet_id" in value:
+        out["SubnetId"] = value["subnet_id"]
+    if "public_key" in value:
+        out["PublicKey"] = value["public_key"]
+    if "public_keys" in value:
+        import capo_glue.types.public_keys_list
+
+        out["PublicKeys"] = capo_glue.types.public_keys_list.serialize_aws_json_1_1(
+            value["public_keys"]
+        )
+    out["NumberOfNodes"] = value.get("number_of_nodes", 0)
+    if "worker_type" in value:
+        import capo_glue.types.worker_type
+
+        out["WorkerType"] = capo_glue.types.worker_type.serialize_aws_json_1_1(
+            value["worker_type"]
+        )
+    if "glue_version" in value:
+        out["GlueVersion"] = value["glue_version"]
+    if "number_of_workers" in value:
+        out["NumberOfWorkers"] = value["number_of_workers"]
+    if "extra_python_libs_s3_path" in value:
+        out["ExtraPythonLibsS3Path"] = value["extra_python_libs_s3_path"]
+    if "extra_jars_s3_path" in value:
+        out["ExtraJarsS3Path"] = value["extra_jars_s3_path"]
+    if "security_configuration" in value:
+        out["SecurityConfiguration"] = value["security_configuration"]
+    if "tags" in value:
+        import capo_glue.types.tags_map
+
+        out["Tags"] = capo_glue.types.tags_map.serialize_aws_json_1_1(value["tags"])
+    if "arguments" in value:
+        import capo_glue.types.map_value
+
+        out["Arguments"] = capo_glue.types.map_value.serialize_aws_json_1_1(
+            value["arguments"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateDevEndpointRequest:
+    out: CreateDevEndpointRequest = {}  # type: ignore[typeddict-item]
+    if "EndpointName" in data:
+        out["endpoint_name"] = data["EndpointName"]
+    else:
+        raise DeserializationError("CreateDevEndpointRequest.endpoint_name required")
+    if "RoleArn" in data:
+        out["role_arn"] = data["RoleArn"]
+    else:
+        raise DeserializationError("CreateDevEndpointRequest.role_arn required")
+    if "SecurityGroupIds" in data:
+        import capo_glue.types.string_list
+
+        out["security_group_ids"] = (
+            capo_glue.types.string_list.deserialize_aws_json_1_1(
+                data["SecurityGroupIds"]
+            )
+        )
+    if "SubnetId" in data:
+        out["subnet_id"] = data["SubnetId"]
+    if "PublicKey" in data:
+        out["public_key"] = data["PublicKey"]
+    if "PublicKeys" in data:
+        import capo_glue.types.public_keys_list
+
+        out["public_keys"] = capo_glue.types.public_keys_list.deserialize_aws_json_1_1(
+            data["PublicKeys"]
+        )
+    if "NumberOfNodes" in data:
+        out["number_of_nodes"] = data["NumberOfNodes"]
+    else:
+        out["number_of_nodes"] = 0
+    if "WorkerType" in data:
+        import capo_glue.types.worker_type
+
+        out["worker_type"] = capo_glue.types.worker_type.deserialize_aws_json_1_1(
+            data["WorkerType"]
+        )
+    if "GlueVersion" in data:
+        out["glue_version"] = data["GlueVersion"]
+    if "NumberOfWorkers" in data:
+        out["number_of_workers"] = data["NumberOfWorkers"]
+    if "ExtraPythonLibsS3Path" in data:
+        out["extra_python_libs_s3_path"] = data["ExtraPythonLibsS3Path"]
+    if "ExtraJarsS3Path" in data:
+        out["extra_jars_s3_path"] = data["ExtraJarsS3Path"]
+    if "SecurityConfiguration" in data:
+        out["security_configuration"] = data["SecurityConfiguration"]
+    if "Tags" in data:
+        import capo_glue.types.tags_map
+
+        out["tags"] = capo_glue.types.tags_map.deserialize_aws_json_1_1(data["Tags"])
+    if "Arguments" in data:
+        import capo_glue.types.map_value
+
+        out["arguments"] = capo_glue.types.map_value.deserialize_aws_json_1_1(
+            data["Arguments"]
+        )
+    return out

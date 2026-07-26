@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.ecr#RegistryPolicyNotFoundException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ecr.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_ecr.types.exception_message
+
+
+class RegistryPolicyNotFoundException_(TypedDict, closed=True):
+    message: NotRequired["capo_ecr.types.exception_message.ExceptionMessage"]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RegistryPolicyNotFoundException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RegistryPolicyNotFoundException_:
+    out: RegistryPolicyNotFoundException_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+class RegistryPolicyNotFoundException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.ecr#RegistryPolicyNotFoundException``."""
+
+    code: str | None = "RegistryPolicyNotFoundException"
+
+    def __init__(self, data: RegistryPolicyNotFoundException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="RegistryPolicyNotFoundException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_1(cls, data: dict) -> "RegistryPolicyNotFoundException":
+        return cls(deserialize_aws_json_1_1(data))

@@ -1,0 +1,99 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DataAutomationProjectSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_data_automation.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_data_automation.types.data_automation_project_arn
+    import capo_bedrock_data_automation.types.data_automation_project_name
+    import capo_bedrock_data_automation.types.data_automation_project_stage
+    import capo_bedrock_data_automation.types.data_automation_project_type
+    import capo_bedrock_data_automation.types.date_timestamp
+
+
+class DataAutomationProjectSummary(TypedDict, closed=True):
+    project_arn: "capo_bedrock_data_automation.types.data_automation_project_arn.DataAutomationProjectArn"
+    project_stage: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_project_stage.DataAutomationProjectStage"
+    ]
+    project_type: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_project_type.DataAutomationProjectType"
+    ]
+    project_name: NotRequired[
+        "capo_bedrock_data_automation.types.data_automation_project_name.DataAutomationProjectName"
+    ]
+    creation_time: "capo_bedrock_data_automation.types.date_timestamp.DateTimestamp"
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataAutomationProjectSummary) -> dict:
+    out: dict = {}
+    out["projectArn"] = value["project_arn"]
+    if "project_stage" in value:
+        import capo_bedrock_data_automation.types.data_automation_project_stage
+
+        out["projectStage"] = (
+            capo_bedrock_data_automation.types.data_automation_project_stage.serialize_json(
+                value["project_stage"]
+            )
+        )
+    if "project_type" in value:
+        import capo_bedrock_data_automation.types.data_automation_project_type
+
+        out["projectType"] = (
+            capo_bedrock_data_automation.types.data_automation_project_type.serialize_json(
+                value["project_type"]
+            )
+        )
+    if "project_name" in value:
+        out["projectName"] = value["project_name"]
+    import capo_bedrock_data_automation.types.date_timestamp
+
+    out["creationTime"] = (
+        capo_bedrock_data_automation.types.date_timestamp.serialize_json(
+            value["creation_time"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> DataAutomationProjectSummary:
+    out: DataAutomationProjectSummary = {}  # type: ignore[typeddict-item]
+    if "projectArn" in data:
+        out["project_arn"] = data["projectArn"]
+    else:
+        raise DeserializationError("DataAutomationProjectSummary.project_arn required")
+    if "projectStage" in data:
+        import capo_bedrock_data_automation.types.data_automation_project_stage
+
+        out["project_stage"] = (
+            capo_bedrock_data_automation.types.data_automation_project_stage.deserialize_json(
+                data["projectStage"]
+            )
+        )
+    if "projectType" in data:
+        import capo_bedrock_data_automation.types.data_automation_project_type
+
+        out["project_type"] = (
+            capo_bedrock_data_automation.types.data_automation_project_type.deserialize_json(
+                data["projectType"]
+            )
+        )
+    if "projectName" in data:
+        out["project_name"] = data["projectName"]
+    if "creationTime" in data:
+        import capo_bedrock_data_automation.types.date_timestamp
+
+        out["creation_time"] = (
+            capo_bedrock_data_automation.types.date_timestamp.deserialize_json(
+                data["creationTime"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DataAutomationProjectSummary.creation_time required"
+        )
+    return out

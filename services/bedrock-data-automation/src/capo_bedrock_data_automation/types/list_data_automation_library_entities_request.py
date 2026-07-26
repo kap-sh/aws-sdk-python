@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ListDataAutomationLibraryEntitiesRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock_data_automation.types.data_automation_library_arn
+    import capo_bedrock_data_automation.types.entity_type
+    import capo_bedrock_data_automation.types.max_results
+    import capo_bedrock_data_automation.types.next_token
+
+
+class ListDataAutomationLibraryEntitiesRequest(TypedDict, closed=True):
+    library_arn: "capo_bedrock_data_automation.types.data_automation_library_arn.DataAutomationLibraryArn"
+    """ARN generated at the server side when a DataAutomationLibrary is created"""
+    entity_type: "capo_bedrock_data_automation.types.entity_type.EntityType"
+    """The entity type for which the entity list is requested"""
+    max_results: NotRequired[
+        "capo_bedrock_data_automation.types.max_results.MaxResults"
+    ]
+    next_token: NotRequired["capo_bedrock_data_automation.types.next_token.NextToken"]
+    """Pagination token for retrieving the next set of results"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListDataAutomationLibraryEntitiesRequest) -> dict:
+    out: dict = {}
+    if "max_results" in value:
+        out["maxResults"] = value["max_results"]
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListDataAutomationLibraryEntitiesRequest:
+    out: ListDataAutomationLibraryEntitiesRequest = {}  # type: ignore[typeddict-item]
+    if "maxResults" in data:
+        out["max_results"] = data["maxResults"]
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

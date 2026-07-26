@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.macie2#AccessControlList``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_macie2.types.__boolean
+
+
+class AccessControlList(TypedDict, closed=True):
+    allows_public_read_access: NotRequired["capo_macie2.types.__boolean.__boolean"]
+    """<p>Specifies whether the ACL grants the general public with read access permissions for the bucket.</p>"""
+    allows_public_write_access: NotRequired["capo_macie2.types.__boolean.__boolean"]
+    """<p>Specifies whether the ACL grants the general public with write access permissions for the bucket.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AccessControlList) -> dict:
+    out: dict = {}
+    if "allows_public_read_access" in value:
+        out["allowsPublicReadAccess"] = value["allows_public_read_access"]
+    if "allows_public_write_access" in value:
+        out["allowsPublicWriteAccess"] = value["allows_public_write_access"]
+    return out
+
+
+def deserialize_json(data: dict) -> AccessControlList:
+    out: AccessControlList = {}  # type: ignore[typeddict-item]
+    if "allowsPublicReadAccess" in data:
+        out["allows_public_read_access"] = data["allowsPublicReadAccess"]
+    if "allowsPublicWriteAccess" in data:
+        out["allows_public_write_access"] = data["allowsPublicWriteAccess"]
+    return out

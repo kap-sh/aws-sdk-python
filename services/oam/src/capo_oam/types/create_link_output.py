@@ -1,0 +1,96 @@
+"""Generated from Smithy shape ``com.amazonaws.oam#CreateLinkOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_oam.types.link_configuration
+    import capo_oam.types.resource_types_output
+    import capo_oam.types.tag_map_output
+
+
+class CreateLinkOutput(TypedDict, closed=True):
+    arn: NotRequired["str"]
+    """<p>The ARN of the link that is newly created.</p>"""
+    id: NotRequired["str"]
+    """<p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>"""
+    label: NotRequired["str"]
+    """<p>The label that you assigned to this link. If the <code>labelTemplate</code> includes variables, this field displays the variables resolved to their actual values.</p>"""
+    label_template: NotRequired["str"]
+    """<p>The exact label template that you specified, with the variables not resolved.</p>"""
+    resource_types: NotRequired[
+        "capo_oam.types.resource_types_output.ResourceTypesOutput"
+    ]
+    """<p>The resource types supported by this link.</p>"""
+    sink_arn: NotRequired["str"]
+    """<p>The ARN of the sink that is used for this link.</p>"""
+    tags: NotRequired["capo_oam.types.tag_map_output.TagMapOutput"]
+    """<p>The tags assigned to the link.</p>"""
+    link_configuration: NotRequired[
+        "capo_oam.types.link_configuration.LinkConfiguration"
+    ]
+    """<p>This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateLinkOutput) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["Arn"] = value["arn"]
+    if "id" in value:
+        out["Id"] = value["id"]
+    if "label" in value:
+        out["Label"] = value["label"]
+    if "label_template" in value:
+        out["LabelTemplate"] = value["label_template"]
+    if "resource_types" in value:
+        import capo_oam.types.resource_types_output
+
+        out["ResourceTypes"] = capo_oam.types.resource_types_output.serialize_json(
+            value["resource_types"]
+        )
+    if "sink_arn" in value:
+        out["SinkArn"] = value["sink_arn"]
+    if "tags" in value:
+        import capo_oam.types.tag_map_output
+
+        out["Tags"] = capo_oam.types.tag_map_output.serialize_json(value["tags"])
+    if "link_configuration" in value:
+        import capo_oam.types.link_configuration
+
+        out["LinkConfiguration"] = capo_oam.types.link_configuration.serialize_json(
+            value["link_configuration"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> CreateLinkOutput:
+    out: CreateLinkOutput = {}  # type: ignore[typeddict-item]
+    if "Arn" in data:
+        out["arn"] = data["Arn"]
+    if "Id" in data:
+        out["id"] = data["Id"]
+    if "Label" in data:
+        out["label"] = data["Label"]
+    if "LabelTemplate" in data:
+        out["label_template"] = data["LabelTemplate"]
+    if "ResourceTypes" in data:
+        import capo_oam.types.resource_types_output
+
+        out["resource_types"] = capo_oam.types.resource_types_output.deserialize_json(
+            data["ResourceTypes"]
+        )
+    if "SinkArn" in data:
+        out["sink_arn"] = data["SinkArn"]
+    if "Tags" in data:
+        import capo_oam.types.tag_map_output
+
+        out["tags"] = capo_oam.types.tag_map_output.deserialize_json(data["Tags"])
+    if "LinkConfiguration" in data:
+        import capo_oam.types.link_configuration
+
+        out["link_configuration"] = capo_oam.types.link_configuration.deserialize_json(
+            data["LinkConfiguration"]
+        )
+    return out

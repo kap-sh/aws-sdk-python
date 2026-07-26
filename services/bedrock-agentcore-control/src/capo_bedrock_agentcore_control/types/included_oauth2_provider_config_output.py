@@ -1,0 +1,55 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#IncludedOauth2ProviderConfigOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.client_id_type
+    import capo_bedrock_agentcore_control.types.oauth2_discovery
+
+
+class IncludedOauth2ProviderConfigOutput(TypedDict, closed=True):
+    oauth_discovery: (
+        "capo_bedrock_agentcore_control.types.oauth2_discovery.Oauth2Discovery"
+    )
+    client_id: NotRequired[
+        "capo_bedrock_agentcore_control.types.client_id_type.ClientIdType"
+    ]
+    """<p>The client ID for the supported OAuth2 provider.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: IncludedOauth2ProviderConfigOutput) -> dict:
+    out: dict = {}
+    import capo_bedrock_agentcore_control.types.oauth2_discovery
+
+    out["oauthDiscovery"] = (
+        capo_bedrock_agentcore_control.types.oauth2_discovery.serialize_json(
+            value["oauth_discovery"]
+        )
+    )
+    if "client_id" in value:
+        out["clientId"] = value["client_id"]
+    return out
+
+
+def deserialize_json(data: dict) -> IncludedOauth2ProviderConfigOutput:
+    out: IncludedOauth2ProviderConfigOutput = {}  # type: ignore[typeddict-item]
+    if "oauthDiscovery" in data:
+        import capo_bedrock_agentcore_control.types.oauth2_discovery
+
+        out["oauth_discovery"] = (
+            capo_bedrock_agentcore_control.types.oauth2_discovery.deserialize_json(
+                data["oauthDiscovery"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "IncludedOauth2ProviderConfigOutput.oauth_discovery required"
+        )
+    if "clientId" in data:
+        out["client_id"] = data["clientId"]
+    return out

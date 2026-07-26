@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailSensitiveInformationPolicyAssessment``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list
+    import capo_bedrock_agent_runtime.types.guardrail_regex_filter_list
+
+
+class GuardrailSensitiveInformationPolicyAssessment(TypedDict, closed=True):
+    pii_entities: NotRequired[
+        "capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list.GuardrailPiiEntityFilterList"
+    ]
+    """<p>The details of the PII entities used in the sensitive policy assessment for the Guardrail.</p>"""
+    regexes: NotRequired[
+        "capo_bedrock_agent_runtime.types.guardrail_regex_filter_list.GuardrailRegexFilterList"
+    ]
+    """<p>The details of the regexes used in the sensitive policy assessment for the Guardrail.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GuardrailSensitiveInformationPolicyAssessment) -> dict:
+    out: dict = {}
+    if "pii_entities" in value:
+        import capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list
+
+        out["piiEntities"] = (
+            capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list.serialize_json(
+                value["pii_entities"]
+            )
+        )
+    if "regexes" in value:
+        import capo_bedrock_agent_runtime.types.guardrail_regex_filter_list
+
+        out["regexes"] = (
+            capo_bedrock_agent_runtime.types.guardrail_regex_filter_list.serialize_json(
+                value["regexes"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GuardrailSensitiveInformationPolicyAssessment:
+    out: GuardrailSensitiveInformationPolicyAssessment = {}  # type: ignore[typeddict-item]
+    if "piiEntities" in data:
+        import capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list
+
+        out["pii_entities"] = (
+            capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list.deserialize_json(
+                data["piiEntities"]
+            )
+        )
+    if "regexes" in data:
+        import capo_bedrock_agent_runtime.types.guardrail_regex_filter_list
+
+        out["regexes"] = (
+            capo_bedrock_agent_runtime.types.guardrail_regex_filter_list.deserialize_json(
+                data["regexes"]
+            )
+        )
+    return out

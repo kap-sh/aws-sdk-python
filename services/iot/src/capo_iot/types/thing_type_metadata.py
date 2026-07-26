@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#ThingTypeMetadata``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_iot.types.boolean2
+    import capo_iot.types.creation_date
+    import capo_iot.types.deprecation_date
+
+
+class ThingTypeMetadata(TypedDict, closed=True):
+    deprecated: "capo_iot.types.boolean2.Boolean2"
+    """<p>Whether the thing type is deprecated. If <b>true</b>, no new things could be associated with this type.</p>"""
+    deprecation_date: NotRequired["capo_iot.types.deprecation_date.DeprecationDate"]
+    """<p>The date and time when the thing type was deprecated.</p>"""
+    creation_date: NotRequired["capo_iot.types.creation_date.CreationDate"]
+    """<p>The date and time when the thing type was created.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ThingTypeMetadata) -> dict:
+    out: dict = {}
+    out["deprecated"] = value.get("deprecated", False)
+    if "deprecation_date" in value:
+        import capo_iot.types.deprecation_date
+
+        out["deprecationDate"] = capo_iot.types.deprecation_date.serialize_json(
+            value["deprecation_date"]
+        )
+    if "creation_date" in value:
+        import capo_iot.types.creation_date
+
+        out["creationDate"] = capo_iot.types.creation_date.serialize_json(
+            value["creation_date"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ThingTypeMetadata:
+    out: ThingTypeMetadata = {}  # type: ignore[typeddict-item]
+    if "deprecated" in data:
+        out["deprecated"] = data["deprecated"]
+    else:
+        out["deprecated"] = False
+    if "deprecationDate" in data:
+        import capo_iot.types.deprecation_date
+
+        out["deprecation_date"] = capo_iot.types.deprecation_date.deserialize_json(
+            data["deprecationDate"]
+        )
+    if "creationDate" in data:
+        import capo_iot.types.creation_date
+
+        out["creation_date"] = capo_iot.types.creation_date.deserialize_json(
+            data["creationDate"]
+        )
+    return out

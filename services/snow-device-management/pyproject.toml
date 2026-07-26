@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-snow-device-management"
+name = "capo-snow-device-management"
 version = "0.1.0"
 description = "Python SDK for Snow Device Management."
 readme = "README.md"

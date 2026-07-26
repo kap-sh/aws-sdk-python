@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhub#ListDiscoveredResourcesResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_migration_hub.types.discovered_resource_list
+    import capo_migration_hub.types.token
+
+
+class ListDiscoveredResourcesResult(TypedDict, closed=True):
+    next_token: NotRequired["capo_migration_hub.types.token.Token"]
+    """<p>If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from.</p>"""
+    discovered_resource_list: NotRequired[
+        "capo_migration_hub.types.discovered_resource_list.DiscoveredResourceList"
+    ]
+    """<p>Returned list of discovered resources associated with the given MigrationTask.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ListDiscoveredResourcesResult) -> dict:
+    out: dict = {}
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "discovered_resource_list" in value:
+        import capo_migration_hub.types.discovered_resource_list
+
+        out["DiscoveredResourceList"] = (
+            capo_migration_hub.types.discovered_resource_list.serialize_aws_json_1_1(
+                value["discovered_resource_list"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ListDiscoveredResourcesResult:
+    out: ListDiscoveredResourcesResult = {}  # type: ignore[typeddict-item]
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "DiscoveredResourceList" in data:
+        import capo_migration_hub.types.discovered_resource_list
+
+        out["discovered_resource_list"] = (
+            capo_migration_hub.types.discovered_resource_list.deserialize_aws_json_1_1(
+                data["DiscoveredResourceList"]
+            )
+        )
+    return out

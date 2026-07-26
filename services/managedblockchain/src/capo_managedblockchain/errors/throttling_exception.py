@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.managedblockchain#ThrottlingException``."""
+
+from typing_extensions import TypedDict
+
+from capo_managedblockchain.errors import ServiceError
+
+
+class ThrottlingException_(TypedDict, closed=True):
+    pass
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ThrottlingException_) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ThrottlingException_:
+    out: ThrottlingException_ = {}  # type: ignore[typeddict-item]
+    return out
+
+
+class ThrottlingException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.managedblockchain#ThrottlingException``."""
+
+    code: str | None = "ThrottlingException"
+
+    def __init__(self, data: ThrottlingException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ThrottlingException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_json(cls, data: dict) -> "ThrottlingException":
+        return cls(deserialize_json(data))

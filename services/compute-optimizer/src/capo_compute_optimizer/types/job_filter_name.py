@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.computeoptimizer#JobFilterName``."""
+
+from typing import Literal, TypeAlias, cast
+
+JobFilterName: TypeAlias = Literal[
+    "ResourceType",
+    "JobStatus",
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: JobFilterName) -> str:
+    return value
+
+
+def deserialize_aws_json_1_0(data: str) -> JobFilterName:
+    return cast(JobFilterName, data)

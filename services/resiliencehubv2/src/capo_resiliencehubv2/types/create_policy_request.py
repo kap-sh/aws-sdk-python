@@ -1,0 +1,138 @@
+"""Generated from Smithy shape ``com.amazonaws.resiliencehubv2#CreatePolicyRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_resiliencehubv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_resiliencehubv2.types.availability_slo
+    import capo_resiliencehubv2.types.client_token
+    import capo_resiliencehubv2.types.data_recovery_targets
+    import capo_resiliencehubv2.types.entity_name
+    import capo_resiliencehubv2.types.kms_key_id
+    import capo_resiliencehubv2.types.long_description
+    import capo_resiliencehubv2.types.multi_az_targets
+    import capo_resiliencehubv2.types.multi_region_targets
+    import capo_resiliencehubv2.types.tag_map
+
+
+class CreatePolicyRequest(TypedDict, closed=True):
+    name: "capo_resiliencehubv2.types.entity_name.EntityName"
+    description: NotRequired[
+        "capo_resiliencehubv2.types.long_description.LongDescription"
+    ]
+    availability_slo: NotRequired[
+        "capo_resiliencehubv2.types.availability_slo.AvailabilitySlo"
+    ]
+    """<p>The availability SLO for the resilience policy.</p>"""
+    multi_az: NotRequired["capo_resiliencehubv2.types.multi_az_targets.MultiAzTargets"]
+    """<p>The multi-AZ disaster recovery targets for the resilience policy.</p>"""
+    multi_region: NotRequired[
+        "capo_resiliencehubv2.types.multi_region_targets.MultiRegionTargets"
+    ]
+    """<p>The multi-Region disaster recovery targets for the resilience policy.</p>"""
+    data_recovery: NotRequired[
+        "capo_resiliencehubv2.types.data_recovery_targets.DataRecoveryTargets"
+    ]
+    """<p>The data recovery targets for the resilience policy.</p>"""
+    kms_key_id: NotRequired["capo_resiliencehubv2.types.kms_key_id.KmsKeyId"]
+    tags: NotRequired["capo_resiliencehubv2.types.tag_map.TagMap"]
+    client_token: NotRequired["capo_resiliencehubv2.types.client_token.ClientToken"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreatePolicyRequest) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    if "description" in value:
+        out["description"] = value["description"]
+    if "availability_slo" in value:
+        import capo_resiliencehubv2.types.availability_slo
+
+        out["availabilitySlo"] = (
+            capo_resiliencehubv2.types.availability_slo.serialize_json(
+                value["availability_slo"]
+            )
+        )
+    if "multi_az" in value:
+        import capo_resiliencehubv2.types.multi_az_targets
+
+        out["multiAz"] = capo_resiliencehubv2.types.multi_az_targets.serialize_json(
+            value["multi_az"]
+        )
+    if "multi_region" in value:
+        import capo_resiliencehubv2.types.multi_region_targets
+
+        out["multiRegion"] = (
+            capo_resiliencehubv2.types.multi_region_targets.serialize_json(
+                value["multi_region"]
+            )
+        )
+    if "data_recovery" in value:
+        import capo_resiliencehubv2.types.data_recovery_targets
+
+        out["dataRecovery"] = (
+            capo_resiliencehubv2.types.data_recovery_targets.serialize_json(
+                value["data_recovery"]
+            )
+        )
+    if "kms_key_id" in value:
+        out["kmsKeyId"] = value["kms_key_id"]
+    if "tags" in value:
+        import capo_resiliencehubv2.types.tag_map
+
+        out["tags"] = capo_resiliencehubv2.types.tag_map.serialize_json(value["tags"])
+    if "client_token" in value:
+        out["clientToken"] = value["client_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> CreatePolicyRequest:
+    out: CreatePolicyRequest = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("CreatePolicyRequest.name required")
+    if "description" in data:
+        out["description"] = data["description"]
+    if "availabilitySlo" in data:
+        import capo_resiliencehubv2.types.availability_slo
+
+        out["availability_slo"] = (
+            capo_resiliencehubv2.types.availability_slo.deserialize_json(
+                data["availabilitySlo"]
+            )
+        )
+    if "multiAz" in data:
+        import capo_resiliencehubv2.types.multi_az_targets
+
+        out["multi_az"] = capo_resiliencehubv2.types.multi_az_targets.deserialize_json(
+            data["multiAz"]
+        )
+    if "multiRegion" in data:
+        import capo_resiliencehubv2.types.multi_region_targets
+
+        out["multi_region"] = (
+            capo_resiliencehubv2.types.multi_region_targets.deserialize_json(
+                data["multiRegion"]
+            )
+        )
+    if "dataRecovery" in data:
+        import capo_resiliencehubv2.types.data_recovery_targets
+
+        out["data_recovery"] = (
+            capo_resiliencehubv2.types.data_recovery_targets.deserialize_json(
+                data["dataRecovery"]
+            )
+        )
+    if "kmsKeyId" in data:
+        out["kms_key_id"] = data["kmsKeyId"]
+    if "tags" in data:
+        import capo_resiliencehubv2.types.tag_map
+
+        out["tags"] = capo_resiliencehubv2.types.tag_map.deserialize_json(data["tags"])
+    if "clientToken" in data:
+        out["client_token"] = data["clientToken"]
+    return out

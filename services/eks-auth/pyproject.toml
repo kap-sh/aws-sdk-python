@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-eks-auth"
+name = "capo-eks-auth"
 version = "0.1.0"
 description = "Python SDK for EKS Auth."
 readme = "README.md"

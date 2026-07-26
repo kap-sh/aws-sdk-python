@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-resiliencehubv2"
+name = "capo-resiliencehubv2"
 version = "0.1.0"
 description = "Python SDK for Resiliencehubv2."
 readme = "README.md"

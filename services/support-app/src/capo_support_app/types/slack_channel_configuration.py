@@ -1,0 +1,91 @@
+"""Generated from Smithy shape ``com.amazonaws.supportapp#SlackChannelConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_support_app.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_support_app.types.boolean_value
+    import capo_support_app.types.channel_id
+    import capo_support_app.types.channel_name
+    import capo_support_app.types.notification_severity_level
+    import capo_support_app.types.role_arn
+    import capo_support_app.types.team_id
+
+
+class SlackChannelConfiguration(TypedDict, closed=True):
+    team_id: "capo_support_app.types.team_id.teamId"
+    """<p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>"""
+    channel_id: "capo_support_app.types.channel_id.channelId"
+    """<p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>"""
+    channel_name: NotRequired["capo_support_app.types.channel_name.channelName"]
+    """<p>The name of the Slack channel that you configured with the Amazon Web Services Support App for your Amazon Web Services account.</p>"""
+    notify_on_create_or_reopen_case: NotRequired[
+        "capo_support_app.types.boolean_value.booleanValue"
+    ]
+    """<p>Whether you want to get notified when a support case is created or reopened.</p>"""
+    notify_on_add_correspondence_to_case: NotRequired[
+        "capo_support_app.types.boolean_value.booleanValue"
+    ]
+    """<p>Whether you want to get notified when a support case has a new correspondence.</p>"""
+    notify_on_resolve_case: NotRequired[
+        "capo_support_app.types.boolean_value.booleanValue"
+    ]
+    """<p>Whether you want to get notified when a support case is resolved.</p>"""
+    notify_on_case_severity: NotRequired[
+        "capo_support_app.types.notification_severity_level.NotificationSeverityLevel"
+    ]
+    """<p>The case severity for a support case that you want to receive notifications.</p>"""
+    channel_role_arn: NotRequired["capo_support_app.types.role_arn.roleArn"]
+    r"""<p>The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html\">Managing access to the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SlackChannelConfiguration) -> dict:
+    out: dict = {}
+    out["teamId"] = value["team_id"]
+    out["channelId"] = value["channel_id"]
+    if "channel_name" in value:
+        out["channelName"] = value["channel_name"]
+    if "notify_on_create_or_reopen_case" in value:
+        out["notifyOnCreateOrReopenCase"] = value["notify_on_create_or_reopen_case"]
+    if "notify_on_add_correspondence_to_case" in value:
+        out["notifyOnAddCorrespondenceToCase"] = value[
+            "notify_on_add_correspondence_to_case"
+        ]
+    if "notify_on_resolve_case" in value:
+        out["notifyOnResolveCase"] = value["notify_on_resolve_case"]
+    if "notify_on_case_severity" in value:
+        out["notifyOnCaseSeverity"] = value["notify_on_case_severity"]
+    if "channel_role_arn" in value:
+        out["channelRoleArn"] = value["channel_role_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> SlackChannelConfiguration:
+    out: SlackChannelConfiguration = {}  # type: ignore[typeddict-item]
+    if "teamId" in data:
+        out["team_id"] = data["teamId"]
+    else:
+        raise DeserializationError("SlackChannelConfiguration.team_id required")
+    if "channelId" in data:
+        out["channel_id"] = data["channelId"]
+    else:
+        raise DeserializationError("SlackChannelConfiguration.channel_id required")
+    if "channelName" in data:
+        out["channel_name"] = data["channelName"]
+    if "notifyOnCreateOrReopenCase" in data:
+        out["notify_on_create_or_reopen_case"] = data["notifyOnCreateOrReopenCase"]
+    if "notifyOnAddCorrespondenceToCase" in data:
+        out["notify_on_add_correspondence_to_case"] = data[
+            "notifyOnAddCorrespondenceToCase"
+        ]
+    if "notifyOnResolveCase" in data:
+        out["notify_on_resolve_case"] = data["notifyOnResolveCase"]
+    if "notifyOnCaseSeverity" in data:
+        out["notify_on_case_severity"] = data["notifyOnCaseSeverity"]
+    if "channelRoleArn" in data:
+        out["channel_role_arn"] = data["channelRoleArn"]
+    return out

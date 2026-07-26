@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-translate"
+name = "capo-translate"
 version = "0.1.0"
 description = "Python SDK for Translate."
 readme = "README.md"

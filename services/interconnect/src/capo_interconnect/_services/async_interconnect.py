@@ -1,0 +1,528 @@
+"""Generated from Smithy shape ``com.amazonaws.interconnect#Interconnect``."""
+
+import warnings
+from collections.abc import AsyncIterator
+from typing import TYPE_CHECKING, Any, Iterable, Optional
+
+from typing_extensions import Self, TypedDict
+from zapros import AsyncBaseHandler, AsyncClient
+
+import capo_interconnect._auth._signers
+import capo_interconnect._auth._sigv4
+from capo_interconnect._auth._identity import Credentials
+from capo_interconnect._auth._providers import (
+    CredentialsProvider,
+    IdentityProvider,
+    StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
+)
+from capo_interconnect._auth._zapros_handler import AuthMiddleware
+from capo_interconnect._pagination import resolve_path as _resolve_path
+from capo_interconnect._resources.interconnect.connection_resource import (
+    AsyncConnectionResource,
+)
+from capo_interconnect._resources.interconnect.environment_resource import (
+    AsyncEnvironmentResource,
+)
+from capo_interconnect._services._aws_config import aaws_config
+from capo_interconnect._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import capo_interconnect.types.accept_connection_proposal_request
+    import capo_interconnect.types.accept_connection_proposal_response
+    import capo_interconnect.types.activation_key
+    import capo_interconnect.types.amazon_resource_name
+    import capo_interconnect.types.attach_point
+    import capo_interconnect.types.attach_point_descriptor
+    import capo_interconnect.types.connection_description
+    import capo_interconnect.types.describe_connection_proposal_request
+    import capo_interconnect.types.describe_connection_proposal_response
+    import capo_interconnect.types.environment_id
+    import capo_interconnect.types.list_attach_points_request
+    import capo_interconnect.types.list_attach_points_response
+    import capo_interconnect.types.list_tags_for_resource_request
+    import capo_interconnect.types.list_tags_for_resource_response
+    import capo_interconnect.types.max_results
+    import capo_interconnect.types.next_token
+    import capo_interconnect.types.tag_key_list
+    import capo_interconnect.types.tag_map
+    import capo_interconnect.types.tag_resource_request
+    import capo_interconnect.types.tag_resource_response
+    import capo_interconnect.types.untag_resource_request
+    import capo_interconnect.types.untag_resource_response
+
+
+class AsyncInterconnectClientConfig(TypedDict, total=False, closed=True):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int | None
+    use_fips: bool | None
+    endpoint: str | None
+    region: str | None
+    credentials_provider: IdentityProvider[Credentials] | None
+
+
+class AsyncInterconnectClient:
+    """A client for the ``Interconnect`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
+        self._config = AsyncInterconnectClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": retry_max_attempts,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": resolved_credentials_provider,
+            }
+        )
+
+        # resources
+        self.connection_resource = AsyncConnectionResource(self)
+        self.environment_resource = AsyncEnvironmentResource(self)
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncInterconnectClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncInterconnectClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aaws_config(),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts", self._config.get("retry_max_attempts")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def accept_connection_proposal(
+        self,
+        attach_point: "capo_interconnect.types.attach_point.AttachPoint",
+        activation_key: "capo_interconnect.types.activation_key.ActivationKey",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+        description: Optional[
+            "capo_interconnect.types.connection_description.ConnectionDescription"
+        ] = None,
+        tags: Optional["capo_interconnect.types.tag_map.TagMap"] = None,
+        client_token: Optional[str] = None,
+    ) -> "capo_interconnect.types.accept_connection_proposal_response.AcceptConnectionProposalResponse":
+        """<p>Accepts a connection proposal which was generated at a supported partner's portal.</p> <p>The proposal contains the Environment and bandwidth that were chosen on the partner's portal and cannot be modified.</p> <p>Upon accepting the proposal a connection will be made between the AWS network as accessed via the selected Attach Point and the network previously selected network on the partner's portal.</p>
+
+        Args:
+            attach_point: <p>The Attach Point to which the connection should be associated.</p>
+            activation_key: <p>An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.</p> <p>The details of this request can be described using with <a>DescribeConnectionProposal</a>. </p>
+            description: <p>A description to distinguish this <a>Connection</a>.</p>
+            tags: <p>The tags to associate with the resulting <a>Connection</a>.</p>
+            client_token: <p>Idempotency token used for the request.</p>
+
+        Raises:
+            capo_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            capo_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            capo_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            capo_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            capo_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            capo_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            capo_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Accept Connection Proposal
+
+            >>> await client.accept_connection_proposal(activation_key='<Activation Key Data>', attach_point={'directConnectGateway': '90392BE3-219C-47FD-BBA5-03DF76D2542A'})
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_interconnect.types.accept_connection_proposal_request.AcceptConnectionProposalRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_interconnect.types.accept_connection_proposal_response.AcceptConnectionProposalResponse"
+        ]:
+            import capo_interconnect._operations.interconnect.accept_connection_proposal
+
+            (
+                output,
+                http_response,
+            ) = await capo_interconnect._operations.interconnect.accept_connection_proposal.async_accept_connection_proposal(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_interconnect.types.accept_connection_proposal_request.AcceptConnectionProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["attach_point"] = attach_point
+        input_["activation_key"] = activation_key
+        if description is not None:
+            input_["description"] = description
+        if tags is not None:
+            input_["tags"] = tags
+        if client_token is not None:
+            input_["client_token"] = client_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def describe_connection_proposal(
+        self,
+        activation_key: "capo_interconnect.types.activation_key.ActivationKey",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+    ) -> "capo_interconnect.types.describe_connection_proposal_response.DescribeConnectionProposalResponse":
+        """<p>Describes the details of a connection proposal generated at a partner's portal.</p>
+
+        Args:
+            activation_key: <p>An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.</p>
+
+        Raises:
+            capo_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            capo_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            capo_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            capo_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            capo_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            capo_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            capo_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Describe Connection Proposal
+
+            >>> await client.describe_connection_proposal(activation_key='<Activation Key Data>')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_interconnect.types.describe_connection_proposal_request.DescribeConnectionProposalRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_interconnect.types.describe_connection_proposal_response.DescribeConnectionProposalResponse"
+        ]:
+            import capo_interconnect._operations.interconnect.describe_connection_proposal
+
+            (
+                output,
+                http_response,
+            ) = await capo_interconnect._operations.interconnect.describe_connection_proposal.async_describe_connection_proposal(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_interconnect.types.describe_connection_proposal_request.DescribeConnectionProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["activation_key"] = activation_key
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_attach_points(
+        self,
+        environment_id: "capo_interconnect.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+        max_results: Optional["capo_interconnect.types.max_results.MaxResults"] = None,
+        next_token: Optional["capo_interconnect.types.next_token.NextToken"] = None,
+    ) -> "capo_interconnect.types.list_attach_points_response.ListAttachPointsResponse":
+        """<p>Lists all Attach Points the caller has access to that are valid for the specified <a>Environment</a>.</p>
+
+        Args:
+            environment_id: <p>The identifier of the <a>Environment</a> for which to list valid Attach Points.</p>
+            max_results: <p>The max number of list results in a single paginated response.</p>
+            next_token: <p>A pagination token from a previous paginated response indicating you wish to get the next page.</p>
+
+        Raises:
+            capo_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            capo_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            capo_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            capo_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            capo_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            capo_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            capo_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            List Attach Points
+
+            >>> await client.list_attach_points(environment_id='mce-aws-acme-1')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_interconnect.types.list_attach_points_request.ListAttachPointsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_interconnect.types.list_attach_points_response.ListAttachPointsResponse"
+        ]:
+            import capo_interconnect._operations.interconnect.list_attach_points
+
+            (
+                output,
+                http_response,
+            ) = await capo_interconnect._operations.interconnect.list_attach_points.async_list_attach_points(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_interconnect.types.list_attach_points_request.ListAttachPointsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def iter_list_attach_points(
+        self,
+        environment_id: "capo_interconnect.types.environment_id.EnvironmentId",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+        max_results: Optional["capo_interconnect.types.max_results.MaxResults"] = None,
+        next_token: Optional["capo_interconnect.types.next_token.NextToken"] = None,
+    ) -> "AsyncIterator[capo_interconnect.types.attach_point_descriptor.AttachPointDescriptor]":
+        _token = next_token
+        while True:
+            _response = await self.list_attach_points(
+                environment_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+            )
+            _page = _resolve_path(_response, ("attach_points",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
+    async def list_tags_for_resource(
+        self,
+        arn: "capo_interconnect.types.amazon_resource_name.AmazonResourceName",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+    ) -> "capo_interconnect.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>List all current tags on the specified resource. Currently this supports <a>Connection</a> resources. </p>
+
+        Args:
+            arn: <p>The resource ARN for which to list tags. </p>
+
+        Raises:
+            capo_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            capo_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            capo_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            capo_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            capo_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            capo_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            capo_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            List Tags
+
+            >>> await client.list_tags_for_resource(arn='arn:aws:interconnect:us-east-1:000000000000:connection/mcc-abc12345')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_interconnect.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_interconnect.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import capo_interconnect._operations.interconnect.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_interconnect._operations.interconnect.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_interconnect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        arn: "capo_interconnect.types.amazon_resource_name.AmazonResourceName",
+        tags: "capo_interconnect.types.tag_map.TagMap",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+    ) -> "capo_interconnect.types.tag_resource_response.TagResourceResponse":
+        """<p>Add new tags to the specified resource.</p>
+
+        Args:
+            arn: <p>The ARN of the resource that should receive the new tags.</p>
+            tags: <p>A map of tags to apply to the specified resource.</p>
+
+        Raises:
+            capo_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            capo_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            capo_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            capo_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            capo_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            capo_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            capo_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Apply Tags
+
+            >>> await client.tag_resource(arn='arn:aws:interconnect:us-east-1:000000000000:connection/mcc-abc12345', tags={'TagKey1': 'TagValue1', 'TagKey2': 'TagValue2'})
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_interconnect.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_interconnect.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import capo_interconnect._operations.interconnect.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_interconnect._operations.interconnect.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_interconnect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        arn: "capo_interconnect.types.amazon_resource_name.AmazonResourceName",
+        tag_keys: "capo_interconnect.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[AsyncInterconnectClientConfig] = None,
+    ) -> "capo_interconnect.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes tags from the specified resource.</p>
+
+        Args:
+            arn: <p>The ARN of the resource from which the specified tags should be removed.</p>
+            tag_keys: <p>The list of tag keys that should be removed from the resource.</p>
+
+        Raises:
+            capo_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            capo_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            capo_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            capo_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            capo_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            capo_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            capo_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            capo_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Remove Tags
+
+            >>> await client.untag_resource(arn='arn:aws:interconnect:us-east-1:000000000000:connection/mcc-abc12345', tag_keys=['TagKey1', 'TagKey2'])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_interconnect.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_interconnect.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import capo_interconnect._operations.interconnect.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_interconnect._operations.interconnect.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_interconnect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

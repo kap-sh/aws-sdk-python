@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-networkflowmonitor
+pip install capo-networkflowmonitor
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_networkflowmonitor import AsyncNetworkFlowMonitorClient
+from capo_networkflowmonitor import AsyncNetworkFlowMonitorClient
 
 
 async def main():
@@ -24,8 +24,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_networkflowmonitor import AsyncNetworkFlowMonitorClient
-from aws_sdk_networkflowmonitor.error import AccessDeniedException
+from capo_networkflowmonitor import AsyncNetworkFlowMonitorClient
+from capo_networkflowmonitor.error import AccessDeniedException
 
 
 async def main():
@@ -44,7 +44,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_networkflowmonitor import AsyncNetworkFlowMonitorClient
+from capo_networkflowmonitor import AsyncNetworkFlowMonitorClient
 
 
 async def main():

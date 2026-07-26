@@ -1,0 +1,172 @@
+"""Generated from Smithy shape ``com.amazonaws.georoutes#OptimizeWaypoints``."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+
+import zapros
+from typing_extensions import Never
+
+import capo_geo_routes._auth._signers
+import capo_geo_routes._auth._sigv4
+import capo_geo_routes.errors.access_denied_exception
+import capo_geo_routes.errors.internal_server_exception
+import capo_geo_routes.errors.throttling_exception
+import capo_geo_routes.errors.validation_exception
+import capo_geo_routes.types.optimize_waypoints_request
+import capo_geo_routes.types.optimize_waypoints_response
+import capo_geo_routes.types.position
+import capo_geo_routes.types.waypoint_optimization_avoidance_options
+import capo_geo_routes.types.waypoint_optimization_clustering_options
+import capo_geo_routes.types.waypoint_optimization_connection_list
+import capo_geo_routes.types.waypoint_optimization_destination_options
+import capo_geo_routes.types.waypoint_optimization_driver_options
+import capo_geo_routes.types.waypoint_optimization_exclusion_options
+import capo_geo_routes.types.waypoint_optimization_impeding_waypoint_list
+import capo_geo_routes.types.waypoint_optimization_optimized_waypoint_list
+import capo_geo_routes.types.waypoint_optimization_origin_options
+import capo_geo_routes.types.waypoint_optimization_sequencing_objective
+import capo_geo_routes.types.waypoint_optimization_time_breakdown
+import capo_geo_routes.types.waypoint_optimization_traffic_options
+import capo_geo_routes.types.waypoint_optimization_travel_mode
+import capo_geo_routes.types.waypoint_optimization_travel_mode_options
+import capo_geo_routes.types.waypoint_optimization_waypoint_list
+from capo_geo_routes._protocol.errors import parse_error_metadata_json
+from capo_geo_routes._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_geo_routes._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_geo_routes.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    data = json.loads(response.read())
+    code, message = parse_error_metadata_json(response, data)
+    match code:
+        case "AccessDeniedException":
+            raise capo_geo_routes.errors.access_denied_exception.AccessDeniedException.from_json(
+                data
+            )
+        case "InternalServerException":
+            raise capo_geo_routes.errors.internal_server_exception.InternalServerException.from_json(
+                data
+            )
+        case "ThrottlingException":
+            raise capo_geo_routes.errors.throttling_exception.ThrottlingException.from_json(
+                data
+            )
+        case "ValidationException":
+            raise capo_geo_routes.errors.validation_exception.ValidationException.from_json(
+                data
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse:
+    out: capo_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse = (
+        capo_geo_routes.types.optimize_waypoints_response.deserialize_json(
+            json.loads(response.read())
+        )
+    )
+    out["pricing_bucket"] = str(response.headers["x-amz-geo-pricing-bucket"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse:
+    out: capo_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse = (
+        capo_geo_routes.types.optimize_waypoints_response.deserialize_json(
+            json.loads(await response.aread())
+        )
+    )
+    out["pricing_bucket"] = str(response.headers["x-amz-geo-pricing-bucket"])
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_geo_routes._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_geo_routes._auth._sigv4.build_sigv4_auth_scheme(
+                "geo-routes", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_geo_routes._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+            Region=options.region,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + "/v2/optimize-waypoints"
+    params: dict[str, str] = {}
+    if "key" in input_:
+        params["key"] = str(input_["key"])
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    body: bytes | None = json.dumps(
+        capo_geo_routes.types.optimize_waypoints_request.serialize_json(input_)
+    ).encode()
+    headers["content-type"] = "application/json"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def optimize_waypoints(
+    options: OperationOptions,
+    input_: capo_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest,
+) -> tuple[
+    capo_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse,
+    zapros.Response,
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_optimize_waypoints(
+    options: AsyncOperationOptions,
+    input_: capo_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest,
+) -> tuple[
+    capo_geo_routes.types.optimize_waypoints_response.OptimizeWaypointsResponse,
+    zapros.Response,
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

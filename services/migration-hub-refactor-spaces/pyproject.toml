@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-migration-hub-refactor-spaces"
+name = "capo-migration-hub-refactor-spaces"
 version = "0.1.0"
 description = "Python SDK for Migration Hub Refactor Spaces."
 readme = "README.md"

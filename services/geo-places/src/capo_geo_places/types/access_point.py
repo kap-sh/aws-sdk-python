@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.geoplaces#AccessPoint``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_geo_places.types.position
+
+
+class AccessPoint(TypedDict, closed=True):
+    position: NotRequired["capo_geo_places.types.position.Position"]
+    """<p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AccessPoint) -> dict:
+    out: dict = {}
+    if "position" in value:
+        import capo_geo_places.types.position
+
+        out["Position"] = capo_geo_places.types.position.serialize_json(
+            value["position"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AccessPoint:
+    out: AccessPoint = {}  # type: ignore[typeddict-item]
+    if "Position" in data:
+        import capo_geo_places.types.position
+
+        out["position"] = capo_geo_places.types.position.deserialize_json(
+            data["Position"]
+        )
+    return out

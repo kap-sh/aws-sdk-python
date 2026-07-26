@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-elastic-beanstalk"
+name = "capo-elastic-beanstalk"
 version = "0.1.0"
 description = "Python SDK for Elastic Beanstalk."
 readme = "README.md"

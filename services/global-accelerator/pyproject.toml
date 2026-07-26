@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-global-accelerator"
+name = "capo-global-accelerator"
 version = "0.1.0"
 description = "Python SDK for Global Accelerator."
 readme = "README.md"

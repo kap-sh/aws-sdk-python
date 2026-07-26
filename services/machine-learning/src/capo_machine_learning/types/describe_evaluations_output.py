@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.machinelearning#DescribeEvaluationsOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_machine_learning.types.evaluations
+    import capo_machine_learning.types.string_type
+
+
+class DescribeEvaluationsOutput(TypedDict, closed=True):
+    results: NotRequired["capo_machine_learning.types.evaluations.Evaluations"]
+    """<p>A list of <code>Evaluation</code> that meet the search criteria. </p>"""
+    next_token: NotRequired["capo_machine_learning.types.string_type.StringType"]
+    """<p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeEvaluationsOutput) -> dict:
+    out: dict = {}
+    if "results" in value:
+        import capo_machine_learning.types.evaluations
+
+        out["Results"] = capo_machine_learning.types.evaluations.serialize_aws_json_1_1(
+            value["results"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeEvaluationsOutput:
+    out: DescribeEvaluationsOutput = {}  # type: ignore[typeddict-item]
+    if "Results" in data:
+        import capo_machine_learning.types.evaluations
+
+        out["results"] = (
+            capo_machine_learning.types.evaluations.deserialize_aws_json_1_1(
+                data["Results"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

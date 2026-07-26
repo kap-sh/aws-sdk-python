@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-workspaces-instances"
+name = "capo-workspaces-instances"
 version = "0.1.0"
 description = "Python SDK for Workspaces Instances."
 readme = "README.md"

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-odb"
+name = "capo-odb"
 version = "0.1.0"
 description = "Python SDK for ODB."
 readme = "README.md"

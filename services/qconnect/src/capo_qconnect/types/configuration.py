@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.qconnect#Configuration``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_qconnect.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_qconnect.types.connect_configuration
+
+
+class _Configuration_connectConfiguration(TypedDict, closed=True):
+    connectConfiguration: (
+        "capo_qconnect.types.connect_configuration.ConnectConfiguration"
+    )
+
+
+Configuration: TypeAlias = _Configuration_connectConfiguration
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Configuration) -> dict:
+    if "connectConfiguration" in value:
+        import capo_qconnect.types.connect_configuration
+
+        return {
+            "connectConfiguration": capo_qconnect.types.connect_configuration.serialize_json(
+                value["connectConfiguration"]
+            )
+        }
+    else:
+        raise SerializationError("Configuration: no variant present")
+
+
+def deserialize_json(data: dict) -> Configuration:
+    if "connectConfiguration" in data:
+        import capo_qconnect.types.connect_configuration
+
+        return {
+            "connectConfiguration": capo_qconnect.types.connect_configuration.deserialize_json(
+                data["connectConfiguration"]
+            )
+        }
+    else:
+        raise DeserializationError("Configuration: no recognized variant key")

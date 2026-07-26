@@ -1,0 +1,21 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudformation#SetTypeDefaultVersionOutput``."""
+
+from typing_extensions import TypedDict
+
+from capo_cloudformation._protocol.xml import Element
+
+
+class SetTypeDefaultVersionOutput(TypedDict, closed=True):
+    pass
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: SetTypeDefaultVersionOutput, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    pass
+
+
+def deserialize_query(el: Element) -> SetTypeDefaultVersionOutput:
+    out: SetTypeDefaultVersionOutput = {}  # type: ignore[typeddict-item]
+    return out

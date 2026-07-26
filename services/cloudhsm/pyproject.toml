@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cloudhsm"
+name = "capo-cloudhsm"
 version = "0.1.0"
 description = "Python SDK for Cloudhsm."
 readme = "README.md"

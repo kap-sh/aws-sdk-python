@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-arc-zonal-shift
+pip install capo-arc-zonal-shift
 ```

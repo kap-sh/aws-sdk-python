@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.appstream#DescribeAppBlocksRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_appstream.types.arn_list
+    import capo_appstream.types.integer
+    import capo_appstream.types.string
+
+
+class DescribeAppBlocksRequest(TypedDict, closed=True):
+    arns: NotRequired["capo_appstream.types.arn_list.ArnList"]
+    """<p>The ARNs of the app blocks.</p>"""
+    next_token: NotRequired["capo_appstream.types.string.String"]
+    """<p>The pagination token used to retrieve the next page of results for this operation.</p>"""
+    max_results: NotRequired["capo_appstream.types.integer.Integer"]
+    """<p>The maximum size of each page of results.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeAppBlocksRequest) -> dict:
+    out: dict = {}
+    if "arns" in value:
+        import capo_appstream.types.arn_list
+
+        out["Arns"] = capo_appstream.types.arn_list.serialize_aws_json_1_1(
+            value["arns"]
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    if "max_results" in value:
+        out["MaxResults"] = value["max_results"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeAppBlocksRequest:
+    out: DescribeAppBlocksRequest = {}  # type: ignore[typeddict-item]
+    if "Arns" in data:
+        import capo_appstream.types.arn_list
+
+        out["arns"] = capo_appstream.types.arn_list.deserialize_aws_json_1_1(
+            data["Arns"]
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    return out

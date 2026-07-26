@@ -1,0 +1,5 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#StorageDays``."""
+
+from typing import TypeAlias
+
+StorageDays: TypeAlias = int

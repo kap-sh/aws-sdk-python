@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.transcribe#GetMedicalTranscriptionJobResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_transcribe.types.medical_transcription_job
+
+
+class GetMedicalTranscriptionJobResponse(TypedDict, closed=True):
+    medical_transcription_job: NotRequired[
+        "capo_transcribe.types.medical_transcription_job.MedicalTranscriptionJob"
+    ]
+    """<p>Provides detailed information about the specified medical transcription job, including job status and, if applicable, failure reason.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetMedicalTranscriptionJobResponse) -> dict:
+    out: dict = {}
+    if "medical_transcription_job" in value:
+        import capo_transcribe.types.medical_transcription_job
+
+        out["MedicalTranscriptionJob"] = (
+            capo_transcribe.types.medical_transcription_job.serialize_aws_json_1_1(
+                value["medical_transcription_job"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetMedicalTranscriptionJobResponse:
+    out: GetMedicalTranscriptionJobResponse = {}  # type: ignore[typeddict-item]
+    if "MedicalTranscriptionJob" in data:
+        import capo_transcribe.types.medical_transcription_job
+
+        out["medical_transcription_job"] = (
+            capo_transcribe.types.medical_transcription_job.deserialize_aws_json_1_1(
+                data["MedicalTranscriptionJob"]
+            )
+        )
+    return out

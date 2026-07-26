@@ -1,0 +1,91 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ImportVolumeTaskDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ec2._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_ec2.types.disk_image_description
+    import capo_ec2.types.disk_image_volume_description
+    import capo_ec2.types.long
+    import capo_ec2.types.string
+
+
+class ImportVolumeTaskDetails(TypedDict, closed=True):
+    availability_zone: NotRequired["capo_ec2.types.string.String"]
+    """<p>The Availability Zone where the resulting volume will reside.</p>"""
+    availability_zone_id: NotRequired["capo_ec2.types.string.String"]
+    """<p>The ID of the Availability Zone where the resulting volume will reside.</p>"""
+    bytes_converted: NotRequired["capo_ec2.types.long.Long"]
+    """<p>The number of bytes converted so far.</p>"""
+    description: NotRequired["capo_ec2.types.string.String"]
+    """<p>The description you provided when starting the import volume task.</p>"""
+    image: NotRequired["capo_ec2.types.disk_image_description.DiskImageDescription"]
+    """<p>The image.</p>"""
+    volume: NotRequired[
+        "capo_ec2.types.disk_image_volume_description.DiskImageVolumeDescription"
+    ]
+    """<p>The volume.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ImportVolumeTaskDetails, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    if "availability_zone" in value:
+        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+    if "availability_zone_id" in value:
+        pairs.append(
+            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "bytes_converted" in value:
+        pairs.append((f"{prefix}.BytesConverted", str(value["bytes_converted"])))
+    if "description" in value:
+        pairs.append((f"{prefix}.Description", str(value["description"])))
+    if "image" in value:
+        import capo_ec2.types.disk_image_description
+
+        capo_ec2.types.disk_image_description.serialize_ec2_query(
+            value["image"], pairs, f"{prefix}.Image"
+        )
+    if "volume" in value:
+        import capo_ec2.types.disk_image_volume_description
+
+        capo_ec2.types.disk_image_volume_description.serialize_ec2_query(
+            value["volume"], pairs, f"{prefix}.Volume"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ImportVolumeTaskDetails:
+    out: ImportVolumeTaskDetails = {}  # type: ignore[typeddict-item]
+    child_availability_zone = el.find("AvailabilityZone")
+    if child_availability_zone is not None:
+        out["availability_zone"] = str(child_availability_zone.text or "")
+    child_availability_zone_id = el.find("AvailabilityZoneId")
+    if child_availability_zone_id is not None:
+        out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_bytes_converted = el.find("BytesConverted")
+    if child_bytes_converted is not None:
+        out["bytes_converted"] = int(child_bytes_converted.text or "")
+    child_description = el.find("Description")
+    if child_description is not None:
+        out["description"] = str(child_description.text or "")
+    child_image = el.find("Image")
+    if child_image is not None:
+        import capo_ec2.types.disk_image_description
+
+        out["image"] = capo_ec2.types.disk_image_description.deserialize_ec2_query(
+            child_image
+        )
+    child_volume = el.find("Volume")
+    if child_volume is not None:
+        import capo_ec2.types.disk_image_volume_description
+
+        out["volume"] = (
+            capo_ec2.types.disk_image_volume_description.deserialize_ec2_query(
+                child_volume
+            )
+        )
+    return out

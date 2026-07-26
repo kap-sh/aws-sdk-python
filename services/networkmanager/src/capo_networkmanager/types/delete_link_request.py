@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.networkmanager#DeleteLinkRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_networkmanager.types.global_network_id
+    import capo_networkmanager.types.link_id
+
+
+class DeleteLinkRequest(TypedDict, closed=True):
+    global_network_id: "capo_networkmanager.types.global_network_id.GlobalNetworkId"
+    """<p>The ID of the global network.</p>"""
+    link_id: "capo_networkmanager.types.link_id.LinkId"
+    """<p>The ID of the link.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteLinkRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteLinkRequest:
+    out: DeleteLinkRequest = {}  # type: ignore[typeddict-item]
+    return out

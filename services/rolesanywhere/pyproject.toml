@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-rolesanywhere"
+name = "capo-rolesanywhere"
 version = "0.1.0"
 description = "Python SDK for Rolesanywhere."
 readme = "README.md"

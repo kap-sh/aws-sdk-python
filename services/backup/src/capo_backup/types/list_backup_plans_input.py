@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#ListBackupPlansInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_backup.types.boolean
+    import capo_backup.types.max_results
+    import capo_backup.types.string
+
+
+class ListBackupPlansInput(TypedDict, closed=True):
+    next_token: NotRequired["capo_backup.types.string.string"]
+    """<p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>"""
+    max_results: NotRequired["capo_backup.types.max_results.MaxResults"]
+    """<p>The maximum number of items to be returned.</p>"""
+    include_deleted: NotRequired["capo_backup.types.boolean.Boolean"]
+    """<p>A Boolean value with a default value of <code>FALSE</code> that returns deleted backup plans when set to <code>TRUE</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListBackupPlansInput) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListBackupPlansInput:
+    out: ListBackupPlansInput = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-securityagent"
+name = "capo-securityagent"
 version = "0.1.0"
 description = "Python SDK for Securityagent."
 readme = "README.md"

@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.appsync#UpdateApiKeyResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_appsync.types.api_key
+
+
+class UpdateApiKeyResponse(TypedDict, closed=True):
+    api_key: NotRequired["capo_appsync.types.api_key.ApiKey"]
+    """<p>The API key.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateApiKeyResponse) -> dict:
+    out: dict = {}
+    if "api_key" in value:
+        import capo_appsync.types.api_key
+
+        out["apiKey"] = capo_appsync.types.api_key.serialize_json(value["api_key"])
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateApiKeyResponse:
+    out: UpdateApiKeyResponse = {}  # type: ignore[typeddict-item]
+    if "apiKey" in data:
+        import capo_appsync.types.api_key
+
+        out["api_key"] = capo_appsync.types.api_key.deserialize_json(data["apiKey"])
+    return out

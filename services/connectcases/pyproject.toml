@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-connectcases"
+name = "capo-connectcases"
 version = "0.1.0"
 description = "Python SDK for Connectcases."
 readme = "README.md"

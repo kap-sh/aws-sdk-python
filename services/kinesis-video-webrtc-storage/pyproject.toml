@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-kinesis-video-webrtc-storage"
+name = "capo-kinesis-video-webrtc-storage"
 version = "0.1.0"
 description = "Python SDK for Kinesis Video Webrtc Storage."
 readme = "README.md"

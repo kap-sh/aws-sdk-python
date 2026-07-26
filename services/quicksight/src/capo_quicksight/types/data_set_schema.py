@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#DataSetSchema``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.column_schema_list
+
+
+class DataSetSchema(TypedDict, closed=True):
+    column_schema_list: NotRequired[
+        "capo_quicksight.types.column_schema_list.ColumnSchemaList"
+    ]
+    """<p>A structure containing the list of column schemas.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DataSetSchema) -> dict:
+    out: dict = {}
+    if "column_schema_list" in value:
+        import capo_quicksight.types.column_schema_list
+
+        out["ColumnSchemaList"] = (
+            capo_quicksight.types.column_schema_list.serialize_json(
+                value["column_schema_list"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DataSetSchema:
+    out: DataSetSchema = {}  # type: ignore[typeddict-item]
+    if "ColumnSchemaList" in data:
+        import capo_quicksight.types.column_schema_list
+
+        out["column_schema_list"] = (
+            capo_quicksight.types.column_schema_list.deserialize_json(
+                data["ColumnSchemaList"]
+            )
+        )
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-controltower"
+name = "capo-controltower"
 version = "0.1.0"
 description = "Python SDK for Controltower."
 readme = "README.md"

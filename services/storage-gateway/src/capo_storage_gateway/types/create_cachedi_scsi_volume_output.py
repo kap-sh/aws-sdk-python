@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.storagegateway#CreateCachediSCSIVolumeOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_storage_gateway.types.target_arn
+    import capo_storage_gateway.types.volume_arn
+
+
+class CreateCachediSCSIVolumeOutput(TypedDict, closed=True):
+    volume_arn: NotRequired["capo_storage_gateway.types.volume_arn.VolumeARN"]
+    """<p>The Amazon Resource Name (ARN) of the configured volume.</p>"""
+    target_arn: NotRequired["capo_storage_gateway.types.target_arn.TargetARN"]
+    """<p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CreateCachediSCSIVolumeOutput) -> dict:
+    out: dict = {}
+    if "volume_arn" in value:
+        out["VolumeARN"] = value["volume_arn"]
+    if "target_arn" in value:
+        out["TargetARN"] = value["target_arn"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CreateCachediSCSIVolumeOutput:
+    out: CreateCachediSCSIVolumeOutput = {}  # type: ignore[typeddict-item]
+    if "VolumeARN" in data:
+        out["volume_arn"] = data["VolumeARN"]
+    if "TargetARN" in data:
+        out["target_arn"] = data["TargetARN"]
+    return out

@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-securityagent
+pip install capo-securityagent
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_securityagent import AsyncSecurityAgentClient
+from capo_securityagent import AsyncSecurityAgentClient
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_securityagent import AsyncSecurityAgentClient
+from capo_securityagent import AsyncSecurityAgentClient
 
 
 async def main():
@@ -39,8 +39,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_securityagent import AsyncSecurityAgentClient
-from aws_sdk_securityagent.error import AccessDeniedException
+from capo_securityagent import AsyncSecurityAgentClient
+from capo_securityagent.error import AccessDeniedException
 
 
 async def main():
@@ -59,7 +59,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_securityagent import AsyncSecurityAgentClient
+from capo_securityagent import AsyncSecurityAgentClient
 
 
 async def main():

@@ -1,0 +1,294 @@
+"""Generated from Smithy shape ``com.amazonaws.medialive#EncoderSettings``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_medialive.types.__list_of_audio_description
+    import capo_medialive.types.__list_of_caption_description
+    import capo_medialive.types.__list_of_output_group
+    import capo_medialive.types.__list_of_video_description
+    import capo_medialive.types.avail_blanking
+    import capo_medialive.types.avail_configuration
+    import capo_medialive.types.blackout_slate
+    import capo_medialive.types.color_correction_settings
+    import capo_medialive.types.feature_activations
+    import capo_medialive.types.global_configuration
+    import capo_medialive.types.motion_graphics_configuration
+    import capo_medialive.types.nielsen_configuration
+    import capo_medialive.types.thumbnail_configuration
+    import capo_medialive.types.timecode_config
+
+
+class EncoderSettings(TypedDict, closed=True):
+    audio_descriptions: NotRequired[
+        "capo_medialive.types.__list_of_audio_description.__listOfAudioDescription"
+    ]
+    avail_blanking: NotRequired["capo_medialive.types.avail_blanking.AvailBlanking"]
+    """Settings for ad avail blanking."""
+    avail_configuration: NotRequired[
+        "capo_medialive.types.avail_configuration.AvailConfiguration"
+    ]
+    """Event-wide configuration settings for ad avail insertion."""
+    blackout_slate: NotRequired["capo_medialive.types.blackout_slate.BlackoutSlate"]
+    """Settings for blackout slate."""
+    caption_descriptions: NotRequired[
+        "capo_medialive.types.__list_of_caption_description.__listOfCaptionDescription"
+    ]
+    """Settings for caption decriptions"""
+    feature_activations: NotRequired[
+        "capo_medialive.types.feature_activations.FeatureActivations"
+    ]
+    """Feature Activations"""
+    global_configuration: NotRequired[
+        "capo_medialive.types.global_configuration.GlobalConfiguration"
+    ]
+    """Configuration settings that apply to the event as a whole."""
+    motion_graphics_configuration: NotRequired[
+        "capo_medialive.types.motion_graphics_configuration.MotionGraphicsConfiguration"
+    ]
+    """Settings for motion graphics."""
+    nielsen_configuration: NotRequired[
+        "capo_medialive.types.nielsen_configuration.NielsenConfiguration"
+    ]
+    """Nielsen configuration settings."""
+    output_groups: NotRequired[
+        "capo_medialive.types.__list_of_output_group.__listOfOutputGroup"
+    ]
+    timecode_config: NotRequired["capo_medialive.types.timecode_config.TimecodeConfig"]
+    """Contains settings used to acquire and adjust timecode information from inputs."""
+    video_descriptions: NotRequired[
+        "capo_medialive.types.__list_of_video_description.__listOfVideoDescription"
+    ]
+    thumbnail_configuration: NotRequired[
+        "capo_medialive.types.thumbnail_configuration.ThumbnailConfiguration"
+    ]
+    """Thumbnail configuration settings."""
+    color_correction_settings: NotRequired[
+        "capo_medialive.types.color_correction_settings.ColorCorrectionSettings"
+    ]
+    """Color Correction Settings"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: EncoderSettings) -> dict:
+    out: dict = {}
+    if "audio_descriptions" in value:
+        import capo_medialive.types.__list_of_audio_description
+
+        out["audioDescriptions"] = (
+            capo_medialive.types.__list_of_audio_description.serialize_json(
+                value["audio_descriptions"]
+            )
+        )
+    if "avail_blanking" in value:
+        import capo_medialive.types.avail_blanking
+
+        out["availBlanking"] = capo_medialive.types.avail_blanking.serialize_json(
+            value["avail_blanking"]
+        )
+    if "avail_configuration" in value:
+        import capo_medialive.types.avail_configuration
+
+        out["availConfiguration"] = (
+            capo_medialive.types.avail_configuration.serialize_json(
+                value["avail_configuration"]
+            )
+        )
+    if "blackout_slate" in value:
+        import capo_medialive.types.blackout_slate
+
+        out["blackoutSlate"] = capo_medialive.types.blackout_slate.serialize_json(
+            value["blackout_slate"]
+        )
+    if "caption_descriptions" in value:
+        import capo_medialive.types.__list_of_caption_description
+
+        out["captionDescriptions"] = (
+            capo_medialive.types.__list_of_caption_description.serialize_json(
+                value["caption_descriptions"]
+            )
+        )
+    if "feature_activations" in value:
+        import capo_medialive.types.feature_activations
+
+        out["featureActivations"] = (
+            capo_medialive.types.feature_activations.serialize_json(
+                value["feature_activations"]
+            )
+        )
+    if "global_configuration" in value:
+        import capo_medialive.types.global_configuration
+
+        out["globalConfiguration"] = (
+            capo_medialive.types.global_configuration.serialize_json(
+                value["global_configuration"]
+            )
+        )
+    if "motion_graphics_configuration" in value:
+        import capo_medialive.types.motion_graphics_configuration
+
+        out["motionGraphicsConfiguration"] = (
+            capo_medialive.types.motion_graphics_configuration.serialize_json(
+                value["motion_graphics_configuration"]
+            )
+        )
+    if "nielsen_configuration" in value:
+        import capo_medialive.types.nielsen_configuration
+
+        out["nielsenConfiguration"] = (
+            capo_medialive.types.nielsen_configuration.serialize_json(
+                value["nielsen_configuration"]
+            )
+        )
+    if "output_groups" in value:
+        import capo_medialive.types.__list_of_output_group
+
+        out["outputGroups"] = (
+            capo_medialive.types.__list_of_output_group.serialize_json(
+                value["output_groups"]
+            )
+        )
+    if "timecode_config" in value:
+        import capo_medialive.types.timecode_config
+
+        out["timecodeConfig"] = capo_medialive.types.timecode_config.serialize_json(
+            value["timecode_config"]
+        )
+    if "video_descriptions" in value:
+        import capo_medialive.types.__list_of_video_description
+
+        out["videoDescriptions"] = (
+            capo_medialive.types.__list_of_video_description.serialize_json(
+                value["video_descriptions"]
+            )
+        )
+    if "thumbnail_configuration" in value:
+        import capo_medialive.types.thumbnail_configuration
+
+        out["thumbnailConfiguration"] = (
+            capo_medialive.types.thumbnail_configuration.serialize_json(
+                value["thumbnail_configuration"]
+            )
+        )
+    if "color_correction_settings" in value:
+        import capo_medialive.types.color_correction_settings
+
+        out["colorCorrectionSettings"] = (
+            capo_medialive.types.color_correction_settings.serialize_json(
+                value["color_correction_settings"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> EncoderSettings:
+    out: EncoderSettings = {}  # type: ignore[typeddict-item]
+    if "audioDescriptions" in data:
+        import capo_medialive.types.__list_of_audio_description
+
+        out["audio_descriptions"] = (
+            capo_medialive.types.__list_of_audio_description.deserialize_json(
+                data["audioDescriptions"]
+            )
+        )
+    if "availBlanking" in data:
+        import capo_medialive.types.avail_blanking
+
+        out["avail_blanking"] = capo_medialive.types.avail_blanking.deserialize_json(
+            data["availBlanking"]
+        )
+    if "availConfiguration" in data:
+        import capo_medialive.types.avail_configuration
+
+        out["avail_configuration"] = (
+            capo_medialive.types.avail_configuration.deserialize_json(
+                data["availConfiguration"]
+            )
+        )
+    if "blackoutSlate" in data:
+        import capo_medialive.types.blackout_slate
+
+        out["blackout_slate"] = capo_medialive.types.blackout_slate.deserialize_json(
+            data["blackoutSlate"]
+        )
+    if "captionDescriptions" in data:
+        import capo_medialive.types.__list_of_caption_description
+
+        out["caption_descriptions"] = (
+            capo_medialive.types.__list_of_caption_description.deserialize_json(
+                data["captionDescriptions"]
+            )
+        )
+    if "featureActivations" in data:
+        import capo_medialive.types.feature_activations
+
+        out["feature_activations"] = (
+            capo_medialive.types.feature_activations.deserialize_json(
+                data["featureActivations"]
+            )
+        )
+    if "globalConfiguration" in data:
+        import capo_medialive.types.global_configuration
+
+        out["global_configuration"] = (
+            capo_medialive.types.global_configuration.deserialize_json(
+                data["globalConfiguration"]
+            )
+        )
+    if "motionGraphicsConfiguration" in data:
+        import capo_medialive.types.motion_graphics_configuration
+
+        out["motion_graphics_configuration"] = (
+            capo_medialive.types.motion_graphics_configuration.deserialize_json(
+                data["motionGraphicsConfiguration"]
+            )
+        )
+    if "nielsenConfiguration" in data:
+        import capo_medialive.types.nielsen_configuration
+
+        out["nielsen_configuration"] = (
+            capo_medialive.types.nielsen_configuration.deserialize_json(
+                data["nielsenConfiguration"]
+            )
+        )
+    if "outputGroups" in data:
+        import capo_medialive.types.__list_of_output_group
+
+        out["output_groups"] = (
+            capo_medialive.types.__list_of_output_group.deserialize_json(
+                data["outputGroups"]
+            )
+        )
+    if "timecodeConfig" in data:
+        import capo_medialive.types.timecode_config
+
+        out["timecode_config"] = capo_medialive.types.timecode_config.deserialize_json(
+            data["timecodeConfig"]
+        )
+    if "videoDescriptions" in data:
+        import capo_medialive.types.__list_of_video_description
+
+        out["video_descriptions"] = (
+            capo_medialive.types.__list_of_video_description.deserialize_json(
+                data["videoDescriptions"]
+            )
+        )
+    if "thumbnailConfiguration" in data:
+        import capo_medialive.types.thumbnail_configuration
+
+        out["thumbnail_configuration"] = (
+            capo_medialive.types.thumbnail_configuration.deserialize_json(
+                data["thumbnailConfiguration"]
+            )
+        )
+    if "colorCorrectionSettings" in data:
+        import capo_medialive.types.color_correction_settings
+
+        out["color_correction_settings"] = (
+            capo_medialive.types.color_correction_settings.deserialize_json(
+                data["colorCorrectionSettings"]
+            )
+        )
+    return out

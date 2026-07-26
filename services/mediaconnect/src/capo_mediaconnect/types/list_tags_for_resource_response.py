@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconnect#ListTagsForResourceResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_mediaconnect.types.__map_of_string
+
+
+class ListTagsForResourceResponse(TypedDict, closed=True):
+    tags: NotRequired["capo_mediaconnect.types.__map_of_string.__mapOfString"]
+    """<p> A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListTagsForResourceResponse) -> dict:
+    out: dict = {}
+    if "tags" in value:
+        import capo_mediaconnect.types.__map_of_string
+
+        out["tags"] = capo_mediaconnect.types.__map_of_string.serialize_json(
+            value["tags"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ListTagsForResourceResponse:
+    out: ListTagsForResourceResponse = {}  # type: ignore[typeddict-item]
+    if "tags" in data:
+        import capo_mediaconnect.types.__map_of_string
+
+        out["tags"] = capo_mediaconnect.types.__map_of_string.deserialize_json(
+            data["tags"]
+        )
+    return out

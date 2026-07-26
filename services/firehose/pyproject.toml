@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-firehose"
+name = "capo-firehose"
 version = "0.1.0"
 description = "Python SDK for Firehose."
 readme = "README.md"

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#ListTieringConfigurationsOutput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_backup.types.string
+    import capo_backup.types.tiering_configurations_list
+
+
+class ListTieringConfigurationsOutput(TypedDict, closed=True):
+    tiering_configurations: NotRequired[
+        "capo_backup.types.tiering_configurations_list.TieringConfigurationsList"
+    ]
+    """<p>An array of tiering configurations returned by the <code>ListTieringConfigurations</code> call.</p>"""
+    next_token: NotRequired["capo_backup.types.string.string"]
+    """<p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListTieringConfigurationsOutput) -> dict:
+    out: dict = {}
+    if "tiering_configurations" in value:
+        import capo_backup.types.tiering_configurations_list
+
+        out["TieringConfigurations"] = (
+            capo_backup.types.tiering_configurations_list.serialize_json(
+                value["tiering_configurations"]
+            )
+        )
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListTieringConfigurationsOutput:
+    out: ListTieringConfigurationsOutput = {}  # type: ignore[typeddict-item]
+    if "TieringConfigurations" in data:
+        import capo_backup.types.tiering_configurations_list
+
+        out["tiering_configurations"] = (
+            capo_backup.types.tiering_configurations_list.deserialize_json(
+                data["TieringConfigurations"]
+            )
+        )
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

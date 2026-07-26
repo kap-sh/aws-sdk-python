@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#JobConfigSchemaVersionSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.job_schema_version
+
+
+class JobConfigSchemaVersionSummary(TypedDict, closed=True):
+    job_config_schema_version: NotRequired[
+        "capo_sagemaker.types.job_schema_version.JobSchemaVersion"
+    ]
+    """<p>The version of the job configuration schema.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: JobConfigSchemaVersionSummary) -> dict:
+    out: dict = {}
+    if "job_config_schema_version" in value:
+        out["JobConfigSchemaVersion"] = value["job_config_schema_version"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> JobConfigSchemaVersionSummary:
+    out: JobConfigSchemaVersionSummary = {}  # type: ignore[typeddict-item]
+    if "JobConfigSchemaVersion" in data:
+        out["job_config_schema_version"] = data["JobConfigSchemaVersion"]
+    return out

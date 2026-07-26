@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.notifications#SourceEventMetadataSummary``."""
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_notifications.errors import DeserializationError
+
+
+class SourceEventMetadataSummary(TypedDict, closed=True):
+    event_origin_region: NotRequired["str"]
+    """<p>The Region where the notification originated.</p> <p>Unavailable for aggregated notifications.</p>"""
+    source: "str"
+    r"""<p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level\">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+    event_type: "str"
+    r"""<p>The event type to match.</p> <p>Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance State-change Notification and Amazon CloudWatch Alarm State Change. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level\">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: SourceEventMetadataSummary) -> dict:
+    out: dict = {}
+    if "event_origin_region" in value:
+        out["eventOriginRegion"] = value["event_origin_region"]
+    out["source"] = value["source"]
+    out["eventType"] = value["event_type"]
+    return out
+
+
+def deserialize_json(data: dict) -> SourceEventMetadataSummary:
+    out: SourceEventMetadataSummary = {}  # type: ignore[typeddict-item]
+    if "eventOriginRegion" in data:
+        out["event_origin_region"] = data["eventOriginRegion"]
+    if "source" in data:
+        out["source"] = data["source"]
+    else:
+        raise DeserializationError("SourceEventMetadataSummary.source required")
+    if "eventType" in data:
+        out["event_type"] = data["eventType"]
+    else:
+        raise DeserializationError("SourceEventMetadataSummary.event_type required")
+    return out

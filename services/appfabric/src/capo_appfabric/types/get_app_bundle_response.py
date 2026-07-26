@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.appfabric#GetAppBundleResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_appfabric.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_appfabric.types.app_bundle
+
+
+class GetAppBundleResponse(TypedDict, closed=True):
+    app_bundle: "capo_appfabric.types.app_bundle.AppBundle"
+    """<p>Contains information about an app bundle.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetAppBundleResponse) -> dict:
+    out: dict = {}
+    import capo_appfabric.types.app_bundle
+
+    out["appBundle"] = capo_appfabric.types.app_bundle.serialize_json(
+        value["app_bundle"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> GetAppBundleResponse:
+    out: GetAppBundleResponse = {}  # type: ignore[typeddict-item]
+    if "appBundle" in data:
+        import capo_appfabric.types.app_bundle
+
+        out["app_bundle"] = capo_appfabric.types.app_bundle.deserialize_json(
+            data["appBundle"]
+        )
+    else:
+        raise DeserializationError("GetAppBundleResponse.app_bundle required")
+    return out

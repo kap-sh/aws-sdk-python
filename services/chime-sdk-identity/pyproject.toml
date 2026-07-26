@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-chime-sdk-identity"
+name = "capo-chime-sdk-identity"
 version = "0.1.0"
 description = "Python SDK for Chime SDK Identity."
 readme = "README.md"

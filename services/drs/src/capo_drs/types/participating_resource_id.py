@@ -1,0 +1,32 @@
+"""Generated from Smithy shape ``com.amazonaws.drs#ParticipatingResourceID``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_drs.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_drs.types.source_network_id
+
+
+class _ParticipatingResourceID_sourceNetworkID(TypedDict, closed=True):
+    sourceNetworkID: "capo_drs.types.source_network_id.SourceNetworkID"
+
+
+ParticipatingResourceID: TypeAlias = _ParticipatingResourceID_sourceNetworkID
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ParticipatingResourceID) -> dict:
+    if "sourceNetworkID" in value:
+        return {"sourceNetworkID": value["sourceNetworkID"]}
+    else:
+        raise SerializationError("ParticipatingResourceID: no variant present")
+
+
+def deserialize_json(data: dict) -> ParticipatingResourceID:
+    if "sourceNetworkID" in data:
+        return {"sourceNetworkID": data["sourceNetworkID"]}
+    else:
+        raise DeserializationError("ParticipatingResourceID: no recognized variant key")

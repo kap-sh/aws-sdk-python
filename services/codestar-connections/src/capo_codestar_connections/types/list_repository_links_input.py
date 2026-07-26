@@ -1,0 +1,38 @@
+"""Generated from Smithy shape ``com.amazonaws.codestarconnections#ListRepositoryLinksInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_codestar_connections.types.max_results
+    import capo_codestar_connections.types.sharp_next_token
+
+
+class ListRepositoryLinksInput(TypedDict, closed=True):
+    max_results: "capo_codestar_connections.types.max_results.MaxResults"
+    """<p> A non-zero, non-negative integer used to limit the number of returned results.</p>"""
+    next_token: NotRequired[
+        "capo_codestar_connections.types.sharp_next_token.SharpNextToken"
+    ]
+    """<p> An enumeration token that, when provided in a request, returns the next batch of the results.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ListRepositoryLinksInput) -> dict:
+    out: dict = {}
+    out["MaxResults"] = value.get("max_results", 0)
+    if "next_token" in value:
+        out["NextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ListRepositoryLinksInput:
+    out: ListRepositoryLinksInput = {}  # type: ignore[typeddict-item]
+    if "MaxResults" in data:
+        out["max_results"] = data["MaxResults"]
+    else:
+        out["max_results"] = 0
+    if "NextToken" in data:
+        out["next_token"] = data["NextToken"]
+    return out

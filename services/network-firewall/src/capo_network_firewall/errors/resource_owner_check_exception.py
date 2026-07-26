@@ -1,0 +1,48 @@
+"""Generated from Smithy shape ``com.amazonaws.networkfirewall#ResourceOwnerCheckException``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_network_firewall.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_network_firewall.types.error_message
+
+
+class ResourceOwnerCheckException_(TypedDict, closed=True):
+    message: NotRequired["capo_network_firewall.types.error_message.ErrorMessage"]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ResourceOwnerCheckException_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ResourceOwnerCheckException_:
+    out: ResourceOwnerCheckException_ = {}  # type: ignore[typeddict-item]
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out
+
+
+class ResourceOwnerCheckException(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.networkfirewall#ResourceOwnerCheckException``."""
+
+    code: str | None = "ResourceOwnerCheckException"
+
+    def __init__(self, data: ResourceOwnerCheckException_):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ResourceOwnerCheckException",
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "ResourceOwnerCheckException":
+        return cls(deserialize_aws_json_1_0(data))

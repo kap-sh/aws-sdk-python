@@ -1,0 +1,46 @@
+"""Generated from Smithy shape ``com.amazonaws.odb#ServiceNetworkEndpoint``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_odb.types.vpc_endpoint_type
+
+
+class ServiceNetworkEndpoint(TypedDict, closed=True):
+    vpc_endpoint_id: NotRequired["str"]
+    """<p>The identifier of the VPC endpoint.</p>"""
+    vpc_endpoint_type: NotRequired["capo_odb.types.vpc_endpoint_type.VpcEndpointType"]
+    """<p>The type of the VPC endpoint.</p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ServiceNetworkEndpoint) -> dict:
+    out: dict = {}
+    if "vpc_endpoint_id" in value:
+        out["vpcEndpointId"] = value["vpc_endpoint_id"]
+    if "vpc_endpoint_type" in value:
+        import capo_odb.types.vpc_endpoint_type
+
+        out["vpcEndpointType"] = (
+            capo_odb.types.vpc_endpoint_type.serialize_aws_json_1_0(
+                value["vpc_endpoint_type"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ServiceNetworkEndpoint:
+    out: ServiceNetworkEndpoint = {}  # type: ignore[typeddict-item]
+    if "vpcEndpointId" in data:
+        out["vpc_endpoint_id"] = data["vpcEndpointId"]
+    if "vpcEndpointType" in data:
+        import capo_odb.types.vpc_endpoint_type
+
+        out["vpc_endpoint_type"] = (
+            capo_odb.types.vpc_endpoint_type.deserialize_aws_json_1_0(
+                data["vpcEndpointType"]
+            )
+        )
+    return out

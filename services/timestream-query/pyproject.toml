@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-timestream-query"
+name = "capo-timestream-query"
 version = "0.1.0"
 description = "Python SDK for Timestream Query."
 readme = "README.md"

@@ -1,0 +1,172 @@
+"""Generated from Smithy shape ``com.amazonaws.vpclattice#ServiceNetworkResourceAssociationSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_vpc_lattice.types.account_id
+    import capo_vpc_lattice.types.boolean
+    import capo_vpc_lattice.types.dns_entry
+    import capo_vpc_lattice.types.resource_configuration_arn
+    import capo_vpc_lattice.types.resource_configuration_id
+    import capo_vpc_lattice.types.resource_configuration_name
+    import capo_vpc_lattice.types.service_network_arn_without_regex
+    import capo_vpc_lattice.types.service_network_identifier_without_regex
+    import capo_vpc_lattice.types.service_network_name_without_regex
+    import capo_vpc_lattice.types.service_network_resource_association_arn
+    import capo_vpc_lattice.types.service_network_resource_association_id
+    import capo_vpc_lattice.types.service_network_resource_association_status
+    import capo_vpc_lattice.types.timestamp
+
+
+class ServiceNetworkResourceAssociationSummary(TypedDict, closed=True):
+    id: NotRequired[
+        "capo_vpc_lattice.types.service_network_resource_association_id.ServiceNetworkResourceAssociationId"
+    ]
+    """<p>The ID of the association between the service network and resource configuration.</p>"""
+    arn: NotRequired[
+        "capo_vpc_lattice.types.service_network_resource_association_arn.ServiceNetworkResourceAssociationArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the association.</p>"""
+    status: NotRequired[
+        "capo_vpc_lattice.types.service_network_resource_association_status.ServiceNetworkResourceAssociationStatus"
+    ]
+    """<p>The status of the service network’s association with the resource configuration. If the deletion fails, try to delete again. </p>"""
+    created_by: NotRequired["capo_vpc_lattice.types.account_id.AccountId"]
+    """<p>The account that created the association.</p>"""
+    created_at: NotRequired["capo_vpc_lattice.types.timestamp.Timestamp"]
+    """<p>The date and time that the association was created, in ISO-8601 format.</p>"""
+    resource_configuration_id: NotRequired[
+        "capo_vpc_lattice.types.resource_configuration_id.ResourceConfigurationId"
+    ]
+    """<p>The ID of the resource configuration associated with the service network.</p>"""
+    resource_configuration_arn: NotRequired[
+        "capo_vpc_lattice.types.resource_configuration_arn.ResourceConfigurationArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the association.</p>"""
+    resource_configuration_name: NotRequired[
+        "capo_vpc_lattice.types.resource_configuration_name.ResourceConfigurationName"
+    ]
+    """<p>The name of the resource configuration associated with the service network.</p>"""
+    service_network_id: NotRequired[
+        "capo_vpc_lattice.types.service_network_identifier_without_regex.ServiceNetworkIdentifierWithoutRegex"
+    ]
+    """<p>The ID of the service network associated with the resource configuration.</p>"""
+    service_network_arn: NotRequired[
+        "capo_vpc_lattice.types.service_network_arn_without_regex.ServiceNetworkArnWithoutRegex"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the service network associated with the resource configuration.</p>"""
+    service_network_name: NotRequired[
+        "capo_vpc_lattice.types.service_network_name_without_regex.ServiceNetworkNameWithoutRegex"
+    ]
+    """<p>The name of the service network associated with the resource configuration.</p>"""
+    dns_entry: NotRequired["capo_vpc_lattice.types.dns_entry.DnsEntry"]
+    """<p>The DNS entry for the service.</p>"""
+    private_dns_entry: NotRequired["capo_vpc_lattice.types.dns_entry.DnsEntry"]
+    """<p>The private DNS entry for the service.</p>"""
+    is_managed_association: NotRequired["capo_vpc_lattice.types.boolean.Boolean"]
+    """<p>Specifies whether the association is managed by Amazon.</p>"""
+    failure_code: NotRequired["str"]
+    """<p>The failure code.</p>"""
+    private_dns_enabled: NotRequired["capo_vpc_lattice.types.boolean.Boolean"]
+    """<p> Indicates if private DNS is enabled for the service network resource association. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ServiceNetworkResourceAssociationSummary) -> dict:
+    out: dict = {}
+    if "id" in value:
+        out["id"] = value["id"]
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "status" in value:
+        out["status"] = value["status"]
+    if "created_by" in value:
+        out["createdBy"] = value["created_by"]
+    if "created_at" in value:
+        import capo_vpc_lattice.types.timestamp
+
+        out["createdAt"] = capo_vpc_lattice.types.timestamp.serialize_json(
+            value["created_at"]
+        )
+    if "resource_configuration_id" in value:
+        out["resourceConfigurationId"] = value["resource_configuration_id"]
+    if "resource_configuration_arn" in value:
+        out["resourceConfigurationArn"] = value["resource_configuration_arn"]
+    if "resource_configuration_name" in value:
+        out["resourceConfigurationName"] = value["resource_configuration_name"]
+    if "service_network_id" in value:
+        out["serviceNetworkId"] = value["service_network_id"]
+    if "service_network_arn" in value:
+        out["serviceNetworkArn"] = value["service_network_arn"]
+    if "service_network_name" in value:
+        out["serviceNetworkName"] = value["service_network_name"]
+    if "dns_entry" in value:
+        import capo_vpc_lattice.types.dns_entry
+
+        out["dnsEntry"] = capo_vpc_lattice.types.dns_entry.serialize_json(
+            value["dns_entry"]
+        )
+    if "private_dns_entry" in value:
+        import capo_vpc_lattice.types.dns_entry
+
+        out["privateDnsEntry"] = capo_vpc_lattice.types.dns_entry.serialize_json(
+            value["private_dns_entry"]
+        )
+    if "is_managed_association" in value:
+        out["isManagedAssociation"] = value["is_managed_association"]
+    if "failure_code" in value:
+        out["failureCode"] = value["failure_code"]
+    if "private_dns_enabled" in value:
+        out["privateDnsEnabled"] = value["private_dns_enabled"]
+    return out
+
+
+def deserialize_json(data: dict) -> ServiceNetworkResourceAssociationSummary:
+    out: ServiceNetworkResourceAssociationSummary = {}  # type: ignore[typeddict-item]
+    if "id" in data:
+        out["id"] = data["id"]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "status" in data:
+        out["status"] = data["status"]
+    if "createdBy" in data:
+        out["created_by"] = data["createdBy"]
+    if "createdAt" in data:
+        import capo_vpc_lattice.types.timestamp
+
+        out["created_at"] = capo_vpc_lattice.types.timestamp.deserialize_json(
+            data["createdAt"]
+        )
+    if "resourceConfigurationId" in data:
+        out["resource_configuration_id"] = data["resourceConfigurationId"]
+    if "resourceConfigurationArn" in data:
+        out["resource_configuration_arn"] = data["resourceConfigurationArn"]
+    if "resourceConfigurationName" in data:
+        out["resource_configuration_name"] = data["resourceConfigurationName"]
+    if "serviceNetworkId" in data:
+        out["service_network_id"] = data["serviceNetworkId"]
+    if "serviceNetworkArn" in data:
+        out["service_network_arn"] = data["serviceNetworkArn"]
+    if "serviceNetworkName" in data:
+        out["service_network_name"] = data["serviceNetworkName"]
+    if "dnsEntry" in data:
+        import capo_vpc_lattice.types.dns_entry
+
+        out["dns_entry"] = capo_vpc_lattice.types.dns_entry.deserialize_json(
+            data["dnsEntry"]
+        )
+    if "privateDnsEntry" in data:
+        import capo_vpc_lattice.types.dns_entry
+
+        out["private_dns_entry"] = capo_vpc_lattice.types.dns_entry.deserialize_json(
+            data["privateDnsEntry"]
+        )
+    if "isManagedAssociation" in data:
+        out["is_managed_association"] = data["isManagedAssociation"]
+    if "failureCode" in data:
+        out["failure_code"] = data["failureCode"]
+    if "privateDnsEnabled" in data:
+        out["private_dns_enabled"] = data["privateDnsEnabled"]
+    return out

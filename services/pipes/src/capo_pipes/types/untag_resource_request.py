@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.pipes#UntagResourceRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_pipes.types.pipe_arn
+    import capo_pipes.types.tag_key_list
+
+
+class UntagResourceRequest(TypedDict, closed=True):
+    resource_arn: "capo_pipes.types.pipe_arn.PipeArn"
+    """<p>The ARN of the pipe.</p>"""
+    tag_keys: "capo_pipes.types.tag_key_list.TagKeyList"
+    """<p>The list of tag keys to remove from the pipe.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UntagResourceRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> UntagResourceRequest:
+    out: UntagResourceRequest = {}  # type: ignore[typeddict-item]
+    return out

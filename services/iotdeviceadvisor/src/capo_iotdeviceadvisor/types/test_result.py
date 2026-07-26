@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#TestResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_iotdeviceadvisor.types.group_result_list
+
+
+class TestResult(TypedDict, closed=True):
+    groups: NotRequired["capo_iotdeviceadvisor.types.group_result_list.GroupResultList"]
+    """<p>Show each group of test results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: TestResult) -> dict:
+    out: dict = {}
+    if "groups" in value:
+        import capo_iotdeviceadvisor.types.group_result_list
+
+        out["groups"] = capo_iotdeviceadvisor.types.group_result_list.serialize_json(
+            value["groups"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> TestResult:
+    out: TestResult = {}  # type: ignore[typeddict-item]
+    if "groups" in data:
+        import capo_iotdeviceadvisor.types.group_result_list
+
+        out["groups"] = capo_iotdeviceadvisor.types.group_result_list.deserialize_json(
+            data["groups"]
+        )
+    return out

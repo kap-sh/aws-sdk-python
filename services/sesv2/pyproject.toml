@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-sesv2"
+name = "capo-sesv2"
 version = "0.1.0"
 description = "Python SDK for Sesv2."
 readme = "README.md"

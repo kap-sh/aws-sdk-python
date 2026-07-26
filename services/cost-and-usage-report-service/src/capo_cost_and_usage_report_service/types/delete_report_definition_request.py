@@ -1,0 +1,31 @@
+"""Generated from Smithy shape ``com.amazonaws.costandusagereportservice#DeleteReportDefinitionRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_cost_and_usage_report_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_cost_and_usage_report_service.types.report_name
+
+
+class DeleteReportDefinitionRequest(TypedDict, closed=True):
+    report_name: "capo_cost_and_usage_report_service.types.report_name.ReportName"
+    """<p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DeleteReportDefinitionRequest) -> dict:
+    out: dict = {}
+    out["ReportName"] = value["report_name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DeleteReportDefinitionRequest:
+    out: DeleteReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+    if "ReportName" in data:
+        out["report_name"] = data["ReportName"]
+    else:
+        raise DeserializationError("DeleteReportDefinitionRequest.report_name required")
+    return out

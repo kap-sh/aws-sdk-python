@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-codepipeline"
+name = "capo-codepipeline"
 version = "0.1.0"
 description = "Python SDK for Codepipeline."
 readme = "README.md"

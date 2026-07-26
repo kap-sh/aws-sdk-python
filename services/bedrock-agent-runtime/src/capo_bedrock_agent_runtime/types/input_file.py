@@ -1,0 +1,64 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InputFile``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agent_runtime.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent_runtime.types.file_source
+    import capo_bedrock_agent_runtime.types.file_use_case
+
+
+class InputFile(TypedDict, closed=True):
+    name: "str"
+    """<p>The name of the source file.</p>"""
+    source: "capo_bedrock_agent_runtime.types.file_source.FileSource"
+    """<p>Specifies where the files are located.</p>"""
+    use_case: "capo_bedrock_agent_runtime.types.file_use_case.FileUseCase"
+    """<p>Specifies how the source files will be used by the code interpreter.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: InputFile) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    import capo_bedrock_agent_runtime.types.file_source
+
+    out["source"] = capo_bedrock_agent_runtime.types.file_source.serialize_json(
+        value["source"]
+    )
+    import capo_bedrock_agent_runtime.types.file_use_case
+
+    out["useCase"] = capo_bedrock_agent_runtime.types.file_use_case.serialize_json(
+        value["use_case"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> InputFile:
+    out: InputFile = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("InputFile.name required")
+    if "source" in data:
+        import capo_bedrock_agent_runtime.types.file_source
+
+        out["source"] = capo_bedrock_agent_runtime.types.file_source.deserialize_json(
+            data["source"]
+        )
+    else:
+        raise DeserializationError("InputFile.source required")
+    if "useCase" in data:
+        import capo_bedrock_agent_runtime.types.file_use_case
+
+        out["use_case"] = (
+            capo_bedrock_agent_runtime.types.file_use_case.deserialize_json(
+                data["useCase"]
+            )
+        )
+    else:
+        raise DeserializationError("InputFile.use_case required")
+    return out

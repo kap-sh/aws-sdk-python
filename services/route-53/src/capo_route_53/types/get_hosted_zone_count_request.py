@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.route53#GetHostedZoneCountRequest``."""
+
+from typing_extensions import TypedDict
+
+from capo_route_53._protocol.xml import Element, SubElement
+
+
+class GetHostedZoneCountRequest(TypedDict, closed=True):
+    pass
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: GetHostedZoneCountRequest, parent: Element, tag: str) -> None:
+    SubElement(parent, tag)
+
+
+def deserialize_xml(el: Element) -> GetHostedZoneCountRequest:
+    out: GetHostedZoneCountRequest = {}  # type: ignore[typeddict-item]
+    return out

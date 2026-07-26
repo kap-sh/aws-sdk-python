@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-backup"
+name = "capo-backup"
 version = "0.1.0"
 description = "Python SDK for Backup."
 readme = "README.md"

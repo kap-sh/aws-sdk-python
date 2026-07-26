@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningImpossibleFinding``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
+    import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
+
+
+class GuardrailAutomatedReasoningImpossibleFinding(TypedDict, closed=True):
+    translation: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_translation.GuardrailAutomatedReasoningTranslation"
+    ]
+    """<p>The logical translation of the input that this finding evaluates.</p>"""
+    contradicting_rules: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list.GuardrailAutomatedReasoningRuleList"
+    ]
+    """<p>The automated reasoning policy rules that contradict the claims and/or premises in the input.</p>"""
+    logic_warning: NotRequired[
+        "capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning.GuardrailAutomatedReasoningLogicWarning"
+    ]
+    """<p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GuardrailAutomatedReasoningImpossibleFinding) -> dict:
+    out: dict = {}
+    if "translation" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
+
+        out["translation"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_translation.serialize_json(
+                value["translation"]
+            )
+        )
+    if "contradicting_rules" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
+
+        out["contradictingRules"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list.serialize_json(
+                value["contradicting_rules"]
+            )
+        )
+    if "logic_warning" in value:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
+
+        out["logicWarning"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning.serialize_json(
+                value["logic_warning"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GuardrailAutomatedReasoningImpossibleFinding:
+    out: GuardrailAutomatedReasoningImpossibleFinding = {}  # type: ignore[typeddict-item]
+    if "translation" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
+
+        out["translation"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_translation.deserialize_json(
+                data["translation"]
+            )
+        )
+    if "contradictingRules" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
+
+        out["contradicting_rules"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list.deserialize_json(
+                data["contradictingRules"]
+            )
+        )
+    if "logicWarning" in data:
+        import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
+
+        out["logic_warning"] = (
+            capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning.deserialize_json(
+                data["logicWarning"]
+            )
+        )
+    return out

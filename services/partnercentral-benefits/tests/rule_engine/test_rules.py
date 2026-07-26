@@ -1,6 +1,6 @@
 import pytest
-from aws_sdk_partnercentral_benefits._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_partnercentral_benefits._rule_engine._endpoint_runtime import EndpointError
+from capo_partnercentral_benefits._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_partnercentral_benefits._rule_engine._endpoint_runtime import EndpointError
 import re
 import zapros
 

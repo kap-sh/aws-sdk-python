@@ -1,0 +1,80 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#UpdateProtectConfigurationResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_pinpoint_sms_voice_v2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import capo_pinpoint_sms_voice_v2.types.protect_configuration_arn
+    import capo_pinpoint_sms_voice_v2.types.protect_configuration_id
+
+
+class UpdateProtectConfigurationResult(TypedDict, closed=True):
+    protect_configuration_arn: "capo_pinpoint_sms_voice_v2.types.protect_configuration_arn.ProtectConfigurationArn"
+    """<p>The Amazon Resource Name (ARN) of the protect configuration.</p>"""
+    protect_configuration_id: "capo_pinpoint_sms_voice_v2.types.protect_configuration_id.ProtectConfigurationId"
+    """<p>The unique identifier for the protect configuration.</p>"""
+    created_timestamp: "datetime.datetime"
+    r"""<p>The time when the protect configuration was created, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
+    account_default: "bool"
+    """<p>This is true if the protect configuration is set as your account default protect configuration.</p>"""
+    deletion_protection_enabled: "bool"
+    """<p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: UpdateProtectConfigurationResult) -> dict:
+    out: dict = {}
+    out["ProtectConfigurationArn"] = value["protect_configuration_arn"]
+    out["ProtectConfigurationId"] = value["protect_configuration_id"]
+    import capo_pinpoint_sms_voice_v2.types._prelude.timestamp
+
+    out["CreatedTimestamp"] = (
+        capo_pinpoint_sms_voice_v2.types._prelude.timestamp.serialize_aws_json_1_0(
+            value["created_timestamp"]
+        )
+    )
+    out["AccountDefault"] = value.get("account_default", False)
+    out["DeletionProtectionEnabled"] = value.get("deletion_protection_enabled", False)
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> UpdateProtectConfigurationResult:
+    out: UpdateProtectConfigurationResult = {}  # type: ignore[typeddict-item]
+    if "ProtectConfigurationArn" in data:
+        out["protect_configuration_arn"] = data["ProtectConfigurationArn"]
+    else:
+        raise DeserializationError(
+            "UpdateProtectConfigurationResult.protect_configuration_arn required"
+        )
+    if "ProtectConfigurationId" in data:
+        out["protect_configuration_id"] = data["ProtectConfigurationId"]
+    else:
+        raise DeserializationError(
+            "UpdateProtectConfigurationResult.protect_configuration_id required"
+        )
+    if "CreatedTimestamp" in data:
+        import capo_pinpoint_sms_voice_v2.types._prelude.timestamp
+
+        out["created_timestamp"] = (
+            capo_pinpoint_sms_voice_v2.types._prelude.timestamp.deserialize_aws_json_1_0(
+                data["CreatedTimestamp"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "UpdateProtectConfigurationResult.created_timestamp required"
+        )
+    if "AccountDefault" in data:
+        out["account_default"] = data["AccountDefault"]
+    else:
+        out["account_default"] = False
+    if "DeletionProtectionEnabled" in data:
+        out["deletion_protection_enabled"] = data["DeletionProtectionEnabled"]
+    else:
+        out["deletion_protection_enabled"] = False
+    return out

@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.backup#AggregatedScanResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_backup.types.boolean
+    import capo_backup.types.scan_findings
+    import capo_backup.types.timestamp
+
+
+class AggregatedScanResult(TypedDict, closed=True):
+    failed_scan: NotRequired["capo_backup.types.boolean.Boolean"]
+    """<p>A Boolean value indicating whether any of the aggregated scans failed.</p>"""
+    findings: NotRequired["capo_backup.types.scan_findings.ScanFindings"]
+    """<p>An array of findings discovered across all aggregated scans.</p>"""
+    last_computed: NotRequired["capo_backup.types.timestamp.timestamp"]
+    """<p>The timestamp when the aggregated scan result was last computed, in Unix format and Coordinated Universal Time (UTC).</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AggregatedScanResult) -> dict:
+    out: dict = {}
+    if "failed_scan" in value:
+        out["FailedScan"] = value["failed_scan"]
+    if "findings" in value:
+        import capo_backup.types.scan_findings
+
+        out["Findings"] = capo_backup.types.scan_findings.serialize_json(
+            value["findings"]
+        )
+    if "last_computed" in value:
+        import capo_backup.types.timestamp
+
+        out["LastComputed"] = capo_backup.types.timestamp.serialize_json(
+            value["last_computed"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AggregatedScanResult:
+    out: AggregatedScanResult = {}  # type: ignore[typeddict-item]
+    if "FailedScan" in data:
+        out["failed_scan"] = data["FailedScan"]
+    if "Findings" in data:
+        import capo_backup.types.scan_findings
+
+        out["findings"] = capo_backup.types.scan_findings.deserialize_json(
+            data["Findings"]
+        )
+    if "LastComputed" in data:
+        import capo_backup.types.timestamp
+
+        out["last_computed"] = capo_backup.types.timestamp.deserialize_json(
+            data["LastComputed"]
+        )
+    return out

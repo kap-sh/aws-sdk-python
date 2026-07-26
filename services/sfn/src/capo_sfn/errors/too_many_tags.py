@@ -1,0 +1,51 @@
+"""Generated from Smithy shape ``com.amazonaws.sfn#TooManyTags``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_sfn.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_sfn.types.arn
+    import capo_sfn.types.error_message
+
+
+class TooManyTags_(TypedDict, closed=True):
+    message: NotRequired["capo_sfn.types.error_message.ErrorMessage"]
+    resource_name: NotRequired["capo_sfn.types.arn.Arn"]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: TooManyTags_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    if "resource_name" in value:
+        out["resourceName"] = value["resource_name"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> TooManyTags_:
+    out: TooManyTags_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    if "resourceName" in data:
+        out["resource_name"] = data["resourceName"]
+    return out
+
+
+class TooManyTags(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.sfn#TooManyTags``."""
+
+    code: str | None = "TooManyTags"
+
+    def __init__(self, data: TooManyTags_):
+        super().__init__(
+            "client", is_throttling_error=False, is_retryable=False, code="TooManyTags"
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(cls, data: dict) -> "TooManyTags":
+        return cls(deserialize_aws_json_1_0(data))

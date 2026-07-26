@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-artifact
+pip install capo-artifact
 ```

@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-marketplace-reporting
+pip install capo-marketplace-reporting
 ```

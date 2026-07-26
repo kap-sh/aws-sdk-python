@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#ResourceList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_inspector2.types.resource
+
+ResourceList: TypeAlias = list["capo_inspector2.types.resource.Resource"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ResourceList) -> list:
+    import capo_inspector2.types.resource
+
+    out: list = []
+    for item in value:
+        out.append(capo_inspector2.types.resource.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> ResourceList:
+    import capo_inspector2.types.resource
+
+    out: ResourceList = []
+    for item in data:
+        out.append(capo_inspector2.types.resource.deserialize_json(item))
+    return out

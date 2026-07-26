@@ -1,0 +1,59 @@
+"""Generated from Smithy shape ``com.amazonaws.deadline#StepRequiredCapabilities``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_deadline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_deadline.types.step_amount_capabilities
+    import capo_deadline.types.step_attribute_capabilities
+
+
+class StepRequiredCapabilities(TypedDict, closed=True):
+    attributes: (
+        "capo_deadline.types.step_attribute_capabilities.StepAttributeCapabilities"
+    )
+    """<p>The capability attributes that the step requires.</p>"""
+    amounts: "capo_deadline.types.step_amount_capabilities.StepAmountCapabilities"
+    """<p>The capability amounts that the step requires.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StepRequiredCapabilities) -> dict:
+    out: dict = {}
+    import capo_deadline.types.step_attribute_capabilities
+
+    out["attributes"] = capo_deadline.types.step_attribute_capabilities.serialize_json(
+        value["attributes"]
+    )
+    import capo_deadline.types.step_amount_capabilities
+
+    out["amounts"] = capo_deadline.types.step_amount_capabilities.serialize_json(
+        value["amounts"]
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> StepRequiredCapabilities:
+    out: StepRequiredCapabilities = {}  # type: ignore[typeddict-item]
+    if "attributes" in data:
+        import capo_deadline.types.step_attribute_capabilities
+
+        out["attributes"] = (
+            capo_deadline.types.step_attribute_capabilities.deserialize_json(
+                data["attributes"]
+            )
+        )
+    else:
+        raise DeserializationError("StepRequiredCapabilities.attributes required")
+    if "amounts" in data:
+        import capo_deadline.types.step_amount_capabilities
+
+        out["amounts"] = capo_deadline.types.step_amount_capabilities.deserialize_json(
+            data["amounts"]
+        )
+    else:
+        raise DeserializationError("StepRequiredCapabilities.amounts required")
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-synthetics"
+name = "capo-synthetics"
 version = "0.1.0"
 description = "Python SDK for Synthetics."
 readme = "README.md"

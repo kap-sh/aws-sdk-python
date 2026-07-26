@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-dsql"
+name = "capo-dsql"
 version = "0.1.0"
 description = "Python SDK for Dsql."
 readme = "README.md"

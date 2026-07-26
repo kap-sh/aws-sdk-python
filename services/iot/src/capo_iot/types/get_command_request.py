@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.iot#GetCommandRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_iot.types.command_id
+
+
+class GetCommandRequest(TypedDict, closed=True):
+    command_id: "capo_iot.types.command_id.CommandId"
+    """<p>The unique identifier of the command for which you want to retrieve information.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetCommandRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetCommandRequest:
+    out: GetCommandRequest = {}  # type: ignore[typeddict-item]
+    return out

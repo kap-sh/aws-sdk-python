@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.resourcegroups#ResourceArnList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_resource_groups.types.resource_arn
+
+ResourceArnList: TypeAlias = list["capo_resource_groups.types.resource_arn.ResourceArn"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ResourceArnList) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> ResourceArnList:
+    return list(data)

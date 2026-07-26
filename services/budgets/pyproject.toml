@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-budgets"
+name = "capo-budgets"
 version = "0.1.0"
 description = "Python SDK for Budgets."
 readme = "README.md"

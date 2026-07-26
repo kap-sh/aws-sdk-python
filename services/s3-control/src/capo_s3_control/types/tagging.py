@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.s3control#Tagging``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_s3_control._protocol.xml import Element, SubElement
+from capo_s3_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_s3_control.types.s3_tag_set
+
+
+class Tagging(TypedDict, closed=True):
+    tag_set: "capo_s3_control.types.s3_tag_set.S3TagSet"
+    """<p>A collection for a set of tags.</p>"""
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: Tagging, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    import capo_s3_control.types.s3_tag_set
+
+    capo_s3_control.types.s3_tag_set.serialize_xml(value["tag_set"], el, "TagSet")
+
+
+def deserialize_xml(el: Element) -> Tagging:
+    out: Tagging = {}  # type: ignore[typeddict-item]
+    child_tag_set = el.find("TagSet")
+    if child_tag_set is not None:
+        import capo_s3_control.types.s3_tag_set
+
+        out["tag_set"] = capo_s3_control.types.s3_tag_set.deserialize_xml(child_tag_set)
+    else:
+        raise DeserializationError("Tagging.tag_set required")
+    return out

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessContentBlockStopEvent``."""
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
+from capo_bedrock_agentcore.errors import DeserializationError
+
+
+class HarnessContentBlockStopEvent(TypedDict, closed=True):
+    content_block_index: "int"
+    """<p>The index of the content block that ended.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: HarnessContentBlockStopEvent) -> dict:
+    out: dict = {}
+    out["contentBlockIndex"] = value["content_block_index"]
+    return out
+
+
+def deserialize_json(data: dict) -> HarnessContentBlockStopEvent:
+    out: HarnessContentBlockStopEvent = {}  # type: ignore[typeddict-item]
+    if "contentBlockIndex" in data:
+        out["content_block_index"] = data["contentBlockIndex"]
+    else:
+        raise DeserializationError(
+            "HarnessContentBlockStopEvent.content_block_index required"
+        )
+    return out
+
+
+def serialize_event_json(value: HarnessContentBlockStopEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "contentBlockStop"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> HarnessContentBlockStopEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: HarnessContentBlockStopEvent = {}  # type: ignore[typeddict-item]
+    return out

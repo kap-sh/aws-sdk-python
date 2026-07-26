@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#DescribePhoneNumberRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_connect.types.phone_number_id
+
+
+class DescribePhoneNumberRequest(TypedDict, closed=True):
+    phone_number_id: "capo_connect.types.phone_number_id.PhoneNumberId"
+    """<p>A unique identifier for the phone number.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribePhoneNumberRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DescribePhoneNumberRequest:
+    out: DescribePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+    return out

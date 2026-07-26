@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.inspector2#ListDelegatedAdminAccountsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_inspector2.types.delegated_admin_account_list
+    import capo_inspector2.types.next_token
+
+
+class ListDelegatedAdminAccountsResponse(TypedDict, closed=True):
+    delegated_admin_accounts: NotRequired[
+        "capo_inspector2.types.delegated_admin_account_list.DelegatedAdminAccountList"
+    ]
+    """<p>Details of the Amazon Inspector delegated administrator of your organization.</p>"""
+    next_token: NotRequired["capo_inspector2.types.next_token.NextToken"]
+    """<p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListDelegatedAdminAccountsResponse) -> dict:
+    out: dict = {}
+    if "delegated_admin_accounts" in value:
+        import capo_inspector2.types.delegated_admin_account_list
+
+        out["delegatedAdminAccounts"] = (
+            capo_inspector2.types.delegated_admin_account_list.serialize_json(
+                value["delegated_admin_accounts"]
+            )
+        )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListDelegatedAdminAccountsResponse:
+    out: ListDelegatedAdminAccountsResponse = {}  # type: ignore[typeddict-item]
+    if "delegatedAdminAccounts" in data:
+        import capo_inspector2.types.delegated_admin_account_list
+
+        out["delegated_admin_accounts"] = (
+            capo_inspector2.types.delegated_admin_account_list.deserialize_json(
+                data["delegatedAdminAccounts"]
+            )
+        )
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

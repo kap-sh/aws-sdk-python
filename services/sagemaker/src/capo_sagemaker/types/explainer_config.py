@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#ExplainerConfig``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.clarify_explainer_config
+
+
+class ExplainerConfig(TypedDict, closed=True):
+    clarify_explainer_config: NotRequired[
+        "capo_sagemaker.types.clarify_explainer_config.ClarifyExplainerConfig"
+    ]
+    """<p>A member of <code>ExplainerConfig</code> that contains configuration parameters for the SageMaker Clarify explainer.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExplainerConfig) -> dict:
+    out: dict = {}
+    if "clarify_explainer_config" in value:
+        import capo_sagemaker.types.clarify_explainer_config
+
+        out["ClarifyExplainerConfig"] = (
+            capo_sagemaker.types.clarify_explainer_config.serialize_aws_json_1_1(
+                value["clarify_explainer_config"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExplainerConfig:
+    out: ExplainerConfig = {}  # type: ignore[typeddict-item]
+    if "ClarifyExplainerConfig" in data:
+        import capo_sagemaker.types.clarify_explainer_config
+
+        out["clarify_explainer_config"] = (
+            capo_sagemaker.types.clarify_explainer_config.deserialize_aws_json_1_1(
+                data["ClarifyExplainerConfig"]
+            )
+        )
+    return out

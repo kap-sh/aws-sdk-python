@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialHeatmapColorScale``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.geospatial_heatmap_data_color_list
+
+
+class GeospatialHeatmapColorScale(TypedDict, closed=True):
+    colors: NotRequired[
+        "capo_quicksight.types.geospatial_heatmap_data_color_list.GeospatialHeatmapDataColorList"
+    ]
+    """<p>The list of colors to be used in heatmap point style.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GeospatialHeatmapColorScale) -> dict:
+    out: dict = {}
+    if "colors" in value:
+        import capo_quicksight.types.geospatial_heatmap_data_color_list
+
+        out["Colors"] = (
+            capo_quicksight.types.geospatial_heatmap_data_color_list.serialize_json(
+                value["colors"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GeospatialHeatmapColorScale:
+    out: GeospatialHeatmapColorScale = {}  # type: ignore[typeddict-item]
+    if "Colors" in data:
+        import capo_quicksight.types.geospatial_heatmap_data_color_list
+
+        out["colors"] = (
+            capo_quicksight.types.geospatial_heatmap_data_color_list.deserialize_json(
+                data["Colors"]
+            )
+        )
+    return out

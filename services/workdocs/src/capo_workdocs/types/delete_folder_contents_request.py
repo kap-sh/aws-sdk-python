@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.workdocs#DeleteFolderContentsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_workdocs.types.authentication_header_type
+    import capo_workdocs.types.resource_id_type
+
+
+class DeleteFolderContentsRequest(TypedDict, closed=True):
+    authentication_token: NotRequired[
+        "capo_workdocs.types.authentication_header_type.AuthenticationHeaderType"
+    ]
+    """<p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>"""
+    folder_id: "capo_workdocs.types.resource_id_type.ResourceIdType"
+    """<p>The ID of the folder.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteFolderContentsRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteFolderContentsRequest:
+    out: DeleteFolderContentsRequest = {}  # type: ignore[typeddict-item]
+    return out

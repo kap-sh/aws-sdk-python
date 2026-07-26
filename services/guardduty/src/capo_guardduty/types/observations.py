@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.guardduty#Observations``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_guardduty.types.observation_texts
+
+
+class Observations(TypedDict, closed=True):
+    text: NotRequired["capo_guardduty.types.observation_texts.ObservationTexts"]
+    """<p>The text that was unusual.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: Observations) -> dict:
+    out: dict = {}
+    if "text" in value:
+        import capo_guardduty.types.observation_texts
+
+        out["text"] = capo_guardduty.types.observation_texts.serialize_json(
+            value["text"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> Observations:
+    out: Observations = {}  # type: ignore[typeddict-item]
+    if "text" in data:
+        import capo_guardduty.types.observation_texts
+
+        out["text"] = capo_guardduty.types.observation_texts.deserialize_json(
+            data["text"]
+        )
+    return out

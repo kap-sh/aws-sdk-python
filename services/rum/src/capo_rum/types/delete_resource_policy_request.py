@@ -1,0 +1,29 @@
+"""Generated from Smithy shape ``com.amazonaws.rum#DeleteResourcePolicyRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_rum.types.app_monitor_name
+    import capo_rum.types.policy_revision_id
+
+
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
+    name: "capo_rum.types.app_monitor_name.AppMonitorName"
+    """<p>The app monitor that you want to remove the resource policy from.</p>"""
+    policy_revision_id: NotRequired[
+        "capo_rum.types.policy_revision_id.PolicyRevisionId"
+    ]
+    """<p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an <code>InvalidPolicyRevisionIdException</code> error.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteResourcePolicyRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteResourcePolicyRequest:
+    out: DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+    return out

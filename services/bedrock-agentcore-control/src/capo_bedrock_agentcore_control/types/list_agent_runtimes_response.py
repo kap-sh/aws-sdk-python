@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListAgentRuntimesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_bedrock_agentcore_control.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agentcore_control.types.agent_runtimes
+    import capo_bedrock_agentcore_control.types.next_token
+
+
+class ListAgentRuntimesResponse(TypedDict, closed=True):
+    agent_runtimes: "capo_bedrock_agentcore_control.types.agent_runtimes.AgentRuntimes"
+    """<p>The list of AgentCore Runtime resources.</p>"""
+    next_token: NotRequired["capo_bedrock_agentcore_control.types.next_token.NextToken"]
+    """<p>A token to retrieve the next page of results.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListAgentRuntimesResponse) -> dict:
+    out: dict = {}
+    import capo_bedrock_agentcore_control.types.agent_runtimes
+
+    out["agentRuntimes"] = (
+        capo_bedrock_agentcore_control.types.agent_runtimes.serialize_json(
+            value["agent_runtimes"]
+        )
+    )
+    if "next_token" in value:
+        out["nextToken"] = value["next_token"]
+    return out
+
+
+def deserialize_json(data: dict) -> ListAgentRuntimesResponse:
+    out: ListAgentRuntimesResponse = {}  # type: ignore[typeddict-item]
+    if "agentRuntimes" in data:
+        import capo_bedrock_agentcore_control.types.agent_runtimes
+
+        out["agent_runtimes"] = (
+            capo_bedrock_agentcore_control.types.agent_runtimes.deserialize_json(
+                data["agentRuntimes"]
+            )
+        )
+    else:
+        raise DeserializationError("ListAgentRuntimesResponse.agent_runtimes required")
+    if "nextToken" in data:
+        out["next_token"] = data["nextToken"]
+    return out

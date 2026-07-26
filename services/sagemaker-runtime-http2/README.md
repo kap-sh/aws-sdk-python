@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-sagemaker-runtime-http2
+pip install capo-sagemaker-runtime-http2
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
+from capo_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations accept a streaming request body. Pass an async iterator of `bytes` chunks, or the whole body as `bytes`, for the streaming parameter.
 
 ```python
-from aws_sdk_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
+from capo_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
 
 
 async def main():
@@ -46,8 +46,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
-from aws_sdk_sagemaker_runtime_http2.error import InputValidationError
+from capo_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
+from capo_sagemaker_runtime_http2.error import InputValidationError
 
 
 async def main():
@@ -66,7 +66,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
+from capo_sagemaker_runtime_http2 import AsyncSageMakerRuntimeHTTP2Client
 
 
 async def main():

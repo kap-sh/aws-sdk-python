@@ -1,0 +1,89 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationJobSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.ai_entity_name
+    import capo_sagemaker.types.ai_recommendation_job_arn
+    import capo_sagemaker.types.ai_recommendation_job_status
+    import capo_sagemaker.types.timestamp
+
+
+class AIRecommendationJobSummary(TypedDict, closed=True):
+    ai_recommendation_job_name: NotRequired[
+        "capo_sagemaker.types.ai_entity_name.AIEntityName"
+    ]
+    """<p>The name of the recommendation job.</p>"""
+    ai_recommendation_job_arn: NotRequired[
+        "capo_sagemaker.types.ai_recommendation_job_arn.AIRecommendationJobArn"
+    ]
+    """<p>The Amazon Resource Name (ARN) of the recommendation job.</p>"""
+    ai_recommendation_job_status: NotRequired[
+        "capo_sagemaker.types.ai_recommendation_job_status.AIRecommendationJobStatus"
+    ]
+    """<p>The status of the recommendation job.</p>"""
+    creation_time: NotRequired["capo_sagemaker.types.timestamp.Timestamp"]
+    """<p>A timestamp that indicates when the recommendation job was created.</p>"""
+    end_time: NotRequired["capo_sagemaker.types.timestamp.Timestamp"]
+    """<p>A timestamp that indicates when the recommendation job completed.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: AIRecommendationJobSummary) -> dict:
+    out: dict = {}
+    if "ai_recommendation_job_name" in value:
+        out["AIRecommendationJobName"] = value["ai_recommendation_job_name"]
+    if "ai_recommendation_job_arn" in value:
+        out["AIRecommendationJobArn"] = value["ai_recommendation_job_arn"]
+    if "ai_recommendation_job_status" in value:
+        import capo_sagemaker.types.ai_recommendation_job_status
+
+        out["AIRecommendationJobStatus"] = (
+            capo_sagemaker.types.ai_recommendation_job_status.serialize_aws_json_1_1(
+                value["ai_recommendation_job_status"]
+            )
+        )
+    if "creation_time" in value:
+        import capo_sagemaker.types.timestamp
+
+        out["CreationTime"] = capo_sagemaker.types.timestamp.serialize_aws_json_1_1(
+            value["creation_time"]
+        )
+    if "end_time" in value:
+        import capo_sagemaker.types.timestamp
+
+        out["EndTime"] = capo_sagemaker.types.timestamp.serialize_aws_json_1_1(
+            value["end_time"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> AIRecommendationJobSummary:
+    out: AIRecommendationJobSummary = {}  # type: ignore[typeddict-item]
+    if "AIRecommendationJobName" in data:
+        out["ai_recommendation_job_name"] = data["AIRecommendationJobName"]
+    if "AIRecommendationJobArn" in data:
+        out["ai_recommendation_job_arn"] = data["AIRecommendationJobArn"]
+    if "AIRecommendationJobStatus" in data:
+        import capo_sagemaker.types.ai_recommendation_job_status
+
+        out["ai_recommendation_job_status"] = (
+            capo_sagemaker.types.ai_recommendation_job_status.deserialize_aws_json_1_1(
+                data["AIRecommendationJobStatus"]
+            )
+        )
+    if "CreationTime" in data:
+        import capo_sagemaker.types.timestamp
+
+        out["creation_time"] = capo_sagemaker.types.timestamp.deserialize_aws_json_1_1(
+            data["CreationTime"]
+        )
+    if "EndTime" in data:
+        import capo_sagemaker.types.timestamp
+
+        out["end_time"] = capo_sagemaker.types.timestamp.deserialize_aws_json_1_1(
+            data["EndTime"]
+        )
+    return out

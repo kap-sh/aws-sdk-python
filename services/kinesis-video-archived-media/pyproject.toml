@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-kinesis-video-archived-media"
+name = "capo-kinesis-video-archived-media"
 version = "0.1.0"
 description = "Python SDK for Kinesis Video Archived Media."
 readme = "README.md"

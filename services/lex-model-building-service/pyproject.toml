@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-lex-model-building-service"
+name = "capo-lex-model-building-service"
 version = "0.1.0"
 description = "Python SDK for Lex Model Building Service."
 readme = "README.md"

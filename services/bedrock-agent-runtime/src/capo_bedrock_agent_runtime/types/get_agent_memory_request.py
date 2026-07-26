@@ -1,0 +1,39 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetAgentMemoryRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent_runtime.types.agent_alias_id
+    import capo_bedrock_agent_runtime.types.agent_id
+    import capo_bedrock_agent_runtime.types.max_results
+    import capo_bedrock_agent_runtime.types.memory_id
+    import capo_bedrock_agent_runtime.types.memory_type
+    import capo_bedrock_agent_runtime.types.next_token
+
+
+class GetAgentMemoryRequest(TypedDict, closed=True):
+    next_token: NotRequired["capo_bedrock_agent_runtime.types.next_token.NextToken"]
+    """<p>If the total number of results is greater than the maxItems value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>"""
+    max_items: NotRequired["capo_bedrock_agent_runtime.types.max_results.MaxResults"]
+    """<p>The maximum number of items to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>"""
+    agent_id: "capo_bedrock_agent_runtime.types.agent_id.AgentId"
+    """<p>The unique identifier of the agent to which the alias belongs.</p>"""
+    agent_alias_id: "capo_bedrock_agent_runtime.types.agent_alias_id.AgentAliasId"
+    """<p>The unique identifier of an alias of an agent.</p>"""
+    memory_type: "capo_bedrock_agent_runtime.types.memory_type.MemoryType"
+    """<p>The type of memory.</p>"""
+    memory_id: "capo_bedrock_agent_runtime.types.memory_id.MemoryId"
+    """<p>The unique identifier of the memory. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetAgentMemoryRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetAgentMemoryRequest:
+    out: GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+    return out

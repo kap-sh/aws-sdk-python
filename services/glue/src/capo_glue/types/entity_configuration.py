@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.glue#EntityConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_glue.types.field_definition_map
+    import capo_glue.types.source_configuration
+
+
+class EntityConfiguration(TypedDict, closed=True):
+    source_configuration: NotRequired[
+        "capo_glue.types.source_configuration.SourceConfiguration"
+    ]
+    """<p>The source configuration that defines how to make requests to access this entity's data through the REST API.</p>"""
+    schema: NotRequired["capo_glue.types.field_definition_map.FieldDefinitionMap"]
+    """<p>The schema definition for this entity, including field names, types, and other metadata that describes the structure of the data.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: EntityConfiguration) -> dict:
+    out: dict = {}
+    if "source_configuration" in value:
+        import capo_glue.types.source_configuration
+
+        out["SourceConfiguration"] = (
+            capo_glue.types.source_configuration.serialize_aws_json_1_1(
+                value["source_configuration"]
+            )
+        )
+    if "schema" in value:
+        import capo_glue.types.field_definition_map
+
+        out["Schema"] = capo_glue.types.field_definition_map.serialize_aws_json_1_1(
+            value["schema"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> EntityConfiguration:
+    out: EntityConfiguration = {}  # type: ignore[typeddict-item]
+    if "SourceConfiguration" in data:
+        import capo_glue.types.source_configuration
+
+        out["source_configuration"] = (
+            capo_glue.types.source_configuration.deserialize_aws_json_1_1(
+                data["SourceConfiguration"]
+            )
+        )
+    if "Schema" in data:
+        import capo_glue.types.field_definition_map
+
+        out["schema"] = capo_glue.types.field_definition_map.deserialize_aws_json_1_1(
+            data["Schema"]
+        )
+    return out

@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#DescribeDeliveryChannelsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_config_service.types.delivery_channel_list
+
+
+class DescribeDeliveryChannelsResponse(TypedDict, closed=True):
+    delivery_channels: NotRequired[
+        "capo_config_service.types.delivery_channel_list.DeliveryChannelList"
+    ]
+    """<p>A list that contains the descriptions of the specified delivery channel.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeDeliveryChannelsResponse) -> dict:
+    out: dict = {}
+    if "delivery_channels" in value:
+        import capo_config_service.types.delivery_channel_list
+
+        out["DeliveryChannels"] = (
+            capo_config_service.types.delivery_channel_list.serialize_aws_json_1_1(
+                value["delivery_channels"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeDeliveryChannelsResponse:
+    out: DescribeDeliveryChannelsResponse = {}  # type: ignore[typeddict-item]
+    if "DeliveryChannels" in data:
+        import capo_config_service.types.delivery_channel_list
+
+        out["delivery_channels"] = (
+            capo_config_service.types.delivery_channel_list.deserialize_aws_json_1_1(
+                data["DeliveryChannels"]
+            )
+        )
+    return out

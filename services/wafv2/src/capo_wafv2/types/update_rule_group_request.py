@@ -1,0 +1,116 @@
+"""Generated from Smithy shape ``com.amazonaws.wafv2#UpdateRuleGroupRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_wafv2.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_wafv2.types.custom_response_bodies
+    import capo_wafv2.types.entity_description
+    import capo_wafv2.types.entity_id
+    import capo_wafv2.types.entity_name
+    import capo_wafv2.types.lock_token
+    import capo_wafv2.types.rules
+    import capo_wafv2.types.scope
+    import capo_wafv2.types.visibility_config
+
+
+class UpdateRuleGroupRequest(TypedDict, closed=True):
+    name: "capo_wafv2.types.entity_name.EntityName"
+    """<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>"""
+    scope: "capo_wafv2.types.scope.Scope"
+    """<p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>"""
+    id: "capo_wafv2.types.entity_id.EntityId"
+    """<p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"""
+    description: NotRequired["capo_wafv2.types.entity_description.EntityDescription"]
+    """<p>A description of the rule group that helps with identification. </p>"""
+    rules: NotRequired["capo_wafv2.types.rules.Rules"]
+    """<p>The <a>Rule</a> statements used to identify the web requests that you want to manage. Each rule includes one top-level statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them. </p>"""
+    visibility_config: "capo_wafv2.types.visibility_config.VisibilityConfig"
+    """<p>Defines and enables Amazon CloudWatch metrics and web request sample collection. </p>"""
+    lock_token: "capo_wafv2.types.lock_token.LockToken"
+    """<p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>"""
+    custom_response_bodies: NotRequired[
+        "capo_wafv2.types.custom_response_bodies.CustomResponseBodies"
+    ]
+    r"""<p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p> <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </p> <p>For information about the limits on count and size for custom request and response settings, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: UpdateRuleGroupRequest) -> dict:
+    out: dict = {}
+    out["Name"] = value["name"]
+    import capo_wafv2.types.scope
+
+    out["Scope"] = capo_wafv2.types.scope.serialize_aws_json_1_1(value["scope"])
+    out["Id"] = value["id"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "rules" in value:
+        import capo_wafv2.types.rules
+
+        out["Rules"] = capo_wafv2.types.rules.serialize_aws_json_1_1(value["rules"])
+    import capo_wafv2.types.visibility_config
+
+    out["VisibilityConfig"] = capo_wafv2.types.visibility_config.serialize_aws_json_1_1(
+        value["visibility_config"]
+    )
+    out["LockToken"] = value["lock_token"]
+    if "custom_response_bodies" in value:
+        import capo_wafv2.types.custom_response_bodies
+
+        out["CustomResponseBodies"] = (
+            capo_wafv2.types.custom_response_bodies.serialize_aws_json_1_1(
+                value["custom_response_bodies"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> UpdateRuleGroupRequest:
+    out: UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    else:
+        raise DeserializationError("UpdateRuleGroupRequest.name required")
+    if "Scope" in data:
+        import capo_wafv2.types.scope
+
+        out["scope"] = capo_wafv2.types.scope.deserialize_aws_json_1_1(data["Scope"])
+    else:
+        raise DeserializationError("UpdateRuleGroupRequest.scope required")
+    if "Id" in data:
+        out["id"] = data["Id"]
+    else:
+        raise DeserializationError("UpdateRuleGroupRequest.id required")
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "Rules" in data:
+        import capo_wafv2.types.rules
+
+        out["rules"] = capo_wafv2.types.rules.deserialize_aws_json_1_1(data["Rules"])
+    if "VisibilityConfig" in data:
+        import capo_wafv2.types.visibility_config
+
+        out["visibility_config"] = (
+            capo_wafv2.types.visibility_config.deserialize_aws_json_1_1(
+                data["VisibilityConfig"]
+            )
+        )
+    else:
+        raise DeserializationError("UpdateRuleGroupRequest.visibility_config required")
+    if "LockToken" in data:
+        out["lock_token"] = data["LockToken"]
+    else:
+        raise DeserializationError("UpdateRuleGroupRequest.lock_token required")
+    if "CustomResponseBodies" in data:
+        import capo_wafv2.types.custom_response_bodies
+
+        out["custom_response_bodies"] = (
+            capo_wafv2.types.custom_response_bodies.deserialize_aws_json_1_1(
+                data["CustomResponseBodies"]
+            )
+        )
+    return out

@@ -1,0 +1,26 @@
+"""Generated from Smithy shape ``com.amazonaws.novaact#GetWorkflowDefinitionRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_nova_act.types.workflow_definition_name
+
+
+class GetWorkflowDefinitionRequest(TypedDict, closed=True):
+    workflow_definition_name: (
+        "capo_nova_act.types.workflow_definition_name.WorkflowDefinitionName"
+    )
+    """<p>The name of the workflow definition to retrieve.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetWorkflowDefinitionRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetWorkflowDefinitionRequest:
+    out: GetWorkflowDefinitionRequest = {}  # type: ignore[typeddict-item]
+    return out

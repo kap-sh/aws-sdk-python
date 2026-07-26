@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#DescribeSchedulingPoliciesResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_batch.types.scheduling_policy_detail_list
+
+
+class DescribeSchedulingPoliciesResponse(TypedDict, closed=True):
+    scheduling_policies: NotRequired[
+        "capo_batch.types.scheduling_policy_detail_list.SchedulingPolicyDetailList"
+    ]
+    """<p>The list of scheduling policies.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DescribeSchedulingPoliciesResponse) -> dict:
+    out: dict = {}
+    if "scheduling_policies" in value:
+        import capo_batch.types.scheduling_policy_detail_list
+
+        out["schedulingPolicies"] = (
+            capo_batch.types.scheduling_policy_detail_list.serialize_json(
+                value["scheduling_policies"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DescribeSchedulingPoliciesResponse:
+    out: DescribeSchedulingPoliciesResponse = {}  # type: ignore[typeddict-item]
+    if "schedulingPolicies" in data:
+        import capo_batch.types.scheduling_policy_detail_list
+
+        out["scheduling_policies"] = (
+            capo_batch.types.scheduling_policy_detail_list.deserialize_json(
+                data["schedulingPolicies"]
+            )
+        )
+    return out

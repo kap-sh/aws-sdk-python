@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#GetApnsVoipSandboxChannelResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_pinpoint.types.apns_voip_sandbox_channel_response
+
+
+class GetApnsVoipSandboxChannelResponse(TypedDict, closed=True):
+    apns_voip_sandbox_channel_response: NotRequired[
+        "capo_pinpoint.types.apns_voip_sandbox_channel_response.APNSVoipSandboxChannelResponse"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetApnsVoipSandboxChannelResponse) -> dict:
+    out: dict = {}
+    if "apns_voip_sandbox_channel_response" in value:
+        import capo_pinpoint.types.apns_voip_sandbox_channel_response
+
+        out["APNSVoipSandboxChannelResponse"] = (
+            capo_pinpoint.types.apns_voip_sandbox_channel_response.serialize_json(
+                value["apns_voip_sandbox_channel_response"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetApnsVoipSandboxChannelResponse:
+    out: GetApnsVoipSandboxChannelResponse = {}  # type: ignore[typeddict-item]
+    if "APNSVoipSandboxChannelResponse" in data:
+        import capo_pinpoint.types.apns_voip_sandbox_channel_response
+
+        out["apns_voip_sandbox_channel_response"] = (
+            capo_pinpoint.types.apns_voip_sandbox_channel_response.deserialize_json(
+                data["APNSVoipSandboxChannelResponse"]
+            )
+        )
+    return out

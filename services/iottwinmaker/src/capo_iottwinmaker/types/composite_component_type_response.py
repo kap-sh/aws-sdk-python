@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.iottwinmaker#CompositeComponentTypeResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_iottwinmaker.types.boolean
+    import capo_iottwinmaker.types.component_type_id
+
+
+class CompositeComponentTypeResponse(TypedDict, closed=True):
+    component_type_id: NotRequired[
+        "capo_iottwinmaker.types.component_type_id.ComponentTypeId"
+    ]
+    """<p>This is the <code>componentTypeId</code> that this <code>compositeComponentType</code> refers to.</p>"""
+    is_inherited: NotRequired["capo_iottwinmaker.types.boolean.Boolean"]
+    """<p>This boolean indicates whether this <code>compositeComponentType</code> is inherited from its parent.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CompositeComponentTypeResponse) -> dict:
+    out: dict = {}
+    if "component_type_id" in value:
+        out["componentTypeId"] = value["component_type_id"]
+    if "is_inherited" in value:
+        out["isInherited"] = value["is_inherited"]
+    return out
+
+
+def deserialize_json(data: dict) -> CompositeComponentTypeResponse:
+    out: CompositeComponentTypeResponse = {}  # type: ignore[typeddict-item]
+    if "componentTypeId" in data:
+        out["component_type_id"] = data["componentTypeId"]
+    if "isInherited" in data:
+        out["is_inherited"] = data["isInherited"]
+    return out

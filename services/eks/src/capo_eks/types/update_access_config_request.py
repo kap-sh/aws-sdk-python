@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.eks#UpdateAccessConfigRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_eks.types.authentication_mode
+
+
+class UpdateAccessConfigRequest(TypedDict, closed=True):
+    authentication_mode: NotRequired[
+        "capo_eks.types.authentication_mode.AuthenticationMode"
+    ]
+    """<p>The desired authentication mode for the cluster.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateAccessConfigRequest) -> dict:
+    out: dict = {}
+    if "authentication_mode" in value:
+        import capo_eks.types.authentication_mode
+
+        out["authenticationMode"] = capo_eks.types.authentication_mode.serialize_json(
+            value["authentication_mode"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateAccessConfigRequest:
+    out: UpdateAccessConfigRequest = {}  # type: ignore[typeddict-item]
+    if "authenticationMode" in data:
+        import capo_eks.types.authentication_mode
+
+        out["authentication_mode"] = (
+            capo_eks.types.authentication_mode.deserialize_json(
+                data["authenticationMode"]
+            )
+        )
+    return out

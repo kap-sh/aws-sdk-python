@@ -1,0 +1,98 @@
+"""Generated from Smithy shape ``com.amazonaws.pcs#QueueSummary``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_pcs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import datetime
+
+    import capo_pcs.types.queue_name
+    import capo_pcs.types.queue_status
+
+
+class QueueSummary(TypedDict, closed=True):
+    name: "capo_pcs.types.queue_name.QueueName"
+    """<p>The name that identifies the queue.</p>"""
+    id: "str"
+    """<p>The generated unique ID of the queue.</p>"""
+    arn: "str"
+    """<p>The unique Amazon Resource Name (ARN) of the queue.</p>"""
+    cluster_id: "str"
+    """<p>The ID of the cluster of the queue.</p>"""
+    created_at: "datetime.datetime"
+    """<p>The date and time the resource was created.</p>"""
+    modified_at: "datetime.datetime"
+    """<p>The date and time the resource was modified.</p>"""
+    status: "capo_pcs.types.queue_status.QueueStatus"
+    r"""<p>The provisioning status of the queue.</p> <note> <p> The provisioning status doesn't indicate the overall health of the queue.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href=\"https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html\">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>"""
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: QueueSummary) -> dict:
+    out: dict = {}
+    out["name"] = value["name"]
+    out["id"] = value["id"]
+    out["arn"] = value["arn"]
+    out["clusterId"] = value["cluster_id"]
+    import capo_pcs.types._prelude.timestamp
+
+    out["createdAt"] = capo_pcs.types._prelude.timestamp.serialize_aws_json_1_0(
+        value["created_at"]
+    )
+    import capo_pcs.types._prelude.timestamp
+
+    out["modifiedAt"] = capo_pcs.types._prelude.timestamp.serialize_aws_json_1_0(
+        value["modified_at"]
+    )
+    import capo_pcs.types.queue_status
+
+    out["status"] = capo_pcs.types.queue_status.serialize_aws_json_1_0(value["status"])
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> QueueSummary:
+    out: QueueSummary = {}  # type: ignore[typeddict-item]
+    if "name" in data:
+        out["name"] = data["name"]
+    else:
+        raise DeserializationError("QueueSummary.name required")
+    if "id" in data:
+        out["id"] = data["id"]
+    else:
+        raise DeserializationError("QueueSummary.id required")
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    else:
+        raise DeserializationError("QueueSummary.arn required")
+    if "clusterId" in data:
+        out["cluster_id"] = data["clusterId"]
+    else:
+        raise DeserializationError("QueueSummary.cluster_id required")
+    if "createdAt" in data:
+        import capo_pcs.types._prelude.timestamp
+
+        out["created_at"] = capo_pcs.types._prelude.timestamp.deserialize_aws_json_1_0(
+            data["createdAt"]
+        )
+    else:
+        raise DeserializationError("QueueSummary.created_at required")
+    if "modifiedAt" in data:
+        import capo_pcs.types._prelude.timestamp
+
+        out["modified_at"] = capo_pcs.types._prelude.timestamp.deserialize_aws_json_1_0(
+            data["modifiedAt"]
+        )
+    else:
+        raise DeserializationError("QueueSummary.modified_at required")
+    if "status" in data:
+        import capo_pcs.types.queue_status
+
+        out["status"] = capo_pcs.types.queue_status.deserialize_aws_json_1_0(
+            data["status"]
+        )
+    else:
+        raise DeserializationError("QueueSummary.status required")
+    return out

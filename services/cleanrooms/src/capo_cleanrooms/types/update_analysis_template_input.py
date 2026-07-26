@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateAnalysisTemplateInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_cleanrooms.types.analysis_template_identifier
+    import capo_cleanrooms.types.membership_identifier
+    import capo_cleanrooms.types.resource_description
+
+
+class UpdateAnalysisTemplateInput(TypedDict, closed=True):
+    membership_identifier: (
+        "capo_cleanrooms.types.membership_identifier.MembershipIdentifier"
+    )
+    """<p>The identifier for a membership resource.</p>"""
+    analysis_template_identifier: (
+        "capo_cleanrooms.types.analysis_template_identifier.AnalysisTemplateIdentifier"
+    )
+    """<p>The identifier for the analysis template resource.</p>"""
+    description: NotRequired[
+        "capo_cleanrooms.types.resource_description.ResourceDescription"
+    ]
+    """<p>A new description for the analysis template.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateAnalysisTemplateInput) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["description"] = value["description"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateAnalysisTemplateInput:
+    out: UpdateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+    if "description" in data:
+        out["description"] = data["description"]
+    return out

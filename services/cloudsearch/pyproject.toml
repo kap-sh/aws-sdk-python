@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cloudsearch"
+name = "capo-cloudsearch"
 version = "0.1.0"
 description = "Python SDK for Cloudsearch."
 readme = "README.md"

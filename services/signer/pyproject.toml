@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-signer"
+name = "capo-signer"
 version = "0.1.0"
 description = "Python SDK for Signer."
 readme = "README.md"

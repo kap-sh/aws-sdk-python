@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-keyspaces"
+name = "capo-keyspaces"
 version = "0.1.0"
 description = "Python SDK for Keyspaces."
 readme = "README.md"

@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-pip install aws-sdk-cognito-identity-provider
+pip install capo-cognito-identity-provider
 ```
 
 ## Usage
 
 ```python
-from aws_sdk_cognito_identity_provider import AsyncCognitoIdentityProviderClient
+from capo_cognito_identity_provider import AsyncCognitoIdentityProviderClient
 
 
 async def main():
@@ -24,7 +24,7 @@ async def main():
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_cognito_identity_provider import AsyncCognitoIdentityProviderClient
+from capo_cognito_identity_provider import AsyncCognitoIdentityProviderClient
 
 
 async def main():
@@ -39,8 +39,8 @@ async def main():
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_cognito_identity_provider import AsyncCognitoIdentityProviderClient
-from aws_sdk_cognito_identity_provider.error import InternalErrorException
+from capo_cognito_identity_provider import AsyncCognitoIdentityProviderClient
+from capo_cognito_identity_provider.error import InternalErrorException
 
 
 async def main():
@@ -59,7 +59,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_cognito_identity_provider import AsyncCognitoIdentityProviderClient
+from capo_cognito_identity_provider import AsyncCognitoIdentityProviderClient
 
 
 async def main():

@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyUpdateRuleAnnotation``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_bedrock.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.automated_reasoning_policy_definition_rule_expression
+    import capo_bedrock.types.automated_reasoning_policy_definition_rule_id
+
+
+class AutomatedReasoningPolicyUpdateRuleAnnotation(TypedDict, closed=True):
+    rule_id: "capo_bedrock.types.automated_reasoning_policy_definition_rule_id.AutomatedReasoningPolicyDefinitionRuleId"
+    """<p>The unique identifier of the rule to update.</p>"""
+    expression: "capo_bedrock.types.automated_reasoning_policy_definition_rule_expression.AutomatedReasoningPolicyDefinitionRuleExpression"
+    """<p>The new formal logical expression for the rule, replacing the previous expression.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AutomatedReasoningPolicyUpdateRuleAnnotation) -> dict:
+    out: dict = {}
+    out["ruleId"] = value["rule_id"]
+    out["expression"] = value["expression"]
+    return out
+
+
+def deserialize_json(data: dict) -> AutomatedReasoningPolicyUpdateRuleAnnotation:
+    out: AutomatedReasoningPolicyUpdateRuleAnnotation = {}  # type: ignore[typeddict-item]
+    if "ruleId" in data:
+        out["rule_id"] = data["ruleId"]
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyUpdateRuleAnnotation.rule_id required"
+        )
+    if "expression" in data:
+        out["expression"] = data["expression"]
+    else:
+        raise DeserializationError(
+            "AutomatedReasoningPolicyUpdateRuleAnnotation.expression required"
+        )
+    return out

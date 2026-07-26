@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-internetmonitor"
+name = "capo-internetmonitor"
 version = "0.1.0"
 description = "Python SDK for Internetmonitor."
 readme = "README.md"

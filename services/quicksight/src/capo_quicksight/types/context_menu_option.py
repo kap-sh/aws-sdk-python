@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#ContextMenuOption``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.dashboard_behavior
+
+
+class ContextMenuOption(TypedDict, closed=True):
+    availability_status: NotRequired[
+        "capo_quicksight.types.dashboard_behavior.DashboardBehavior"
+    ]
+    """<p>The availability status of the context menu options. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the context menu.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ContextMenuOption) -> dict:
+    out: dict = {}
+    if "availability_status" in value:
+        import capo_quicksight.types.dashboard_behavior
+
+        out["AvailabilityStatus"] = (
+            capo_quicksight.types.dashboard_behavior.serialize_json(
+                value["availability_status"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ContextMenuOption:
+    out: ContextMenuOption = {}  # type: ignore[typeddict-item]
+    if "AvailabilityStatus" in data:
+        import capo_quicksight.types.dashboard_behavior
+
+        out["availability_status"] = (
+            capo_quicksight.types.dashboard_behavior.deserialize_json(
+                data["AvailabilityStatus"]
+            )
+        )
+    return out

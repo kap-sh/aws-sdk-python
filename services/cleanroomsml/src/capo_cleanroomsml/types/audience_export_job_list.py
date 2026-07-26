@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.cleanroomsml#AudienceExportJobList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_cleanroomsml.types.audience_export_job_summary
+
+AudienceExportJobList: TypeAlias = list[
+    "capo_cleanroomsml.types.audience_export_job_summary.AudienceExportJobSummary"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AudienceExportJobList) -> list:
+    import capo_cleanroomsml.types.audience_export_job_summary
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_cleanroomsml.types.audience_export_job_summary.serialize_json(item)
+        )
+    return out
+
+
+def deserialize_json(data: list) -> AudienceExportJobList:
+    import capo_cleanroomsml.types.audience_export_job_summary
+
+    out: AudienceExportJobList = []
+    for item in data:
+        out.append(
+            capo_cleanroomsml.types.audience_export_job_summary.deserialize_json(item)
+        )
+    return out

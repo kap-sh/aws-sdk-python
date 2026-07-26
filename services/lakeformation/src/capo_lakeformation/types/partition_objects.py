@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.lakeformation#PartitionObjects``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lakeformation.types.partition_values_list
+    import capo_lakeformation.types.table_object_list
+
+
+class PartitionObjects(TypedDict, closed=True):
+    partition_values: NotRequired[
+        "capo_lakeformation.types.partition_values_list.PartitionValuesList"
+    ]
+    """<p>A list of partition values.</p>"""
+    objects: NotRequired["capo_lakeformation.types.table_object_list.TableObjectList"]
+    """<p>A list of table objects</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PartitionObjects) -> dict:
+    out: dict = {}
+    if "partition_values" in value:
+        import capo_lakeformation.types.partition_values_list
+
+        out["PartitionValues"] = (
+            capo_lakeformation.types.partition_values_list.serialize_json(
+                value["partition_values"]
+            )
+        )
+    if "objects" in value:
+        import capo_lakeformation.types.table_object_list
+
+        out["Objects"] = capo_lakeformation.types.table_object_list.serialize_json(
+            value["objects"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> PartitionObjects:
+    out: PartitionObjects = {}  # type: ignore[typeddict-item]
+    if "PartitionValues" in data:
+        import capo_lakeformation.types.partition_values_list
+
+        out["partition_values"] = (
+            capo_lakeformation.types.partition_values_list.deserialize_json(
+                data["PartitionValues"]
+            )
+        )
+    if "Objects" in data:
+        import capo_lakeformation.types.table_object_list
+
+        out["objects"] = capo_lakeformation.types.table_object_list.deserialize_json(
+            data["Objects"]
+        )
+    return out

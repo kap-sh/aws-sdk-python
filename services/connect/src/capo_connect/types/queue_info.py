@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#QueueInfo``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_connect.types.queue_id
+    import capo_connect.types.timestamp
+
+
+class QueueInfo(TypedDict, closed=True):
+    id: NotRequired["capo_connect.types.queue_id.QueueId"]
+    """<p>The unique identifier for the queue.</p>"""
+    enqueue_timestamp: NotRequired["capo_connect.types.timestamp.Timestamp"]
+    """<p>The timestamp when the contact was added to the queue.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: QueueInfo) -> dict:
+    out: dict = {}
+    if "id" in value:
+        out["Id"] = value["id"]
+    if "enqueue_timestamp" in value:
+        import capo_connect.types.timestamp
+
+        out["EnqueueTimestamp"] = capo_connect.types.timestamp.serialize_json(
+            value["enqueue_timestamp"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> QueueInfo:
+    out: QueueInfo = {}  # type: ignore[typeddict-item]
+    if "Id" in data:
+        out["id"] = data["Id"]
+    if "EnqueueTimestamp" in data:
+        import capo_connect.types.timestamp
+
+        out["enqueue_timestamp"] = capo_connect.types.timestamp.deserialize_json(
+            data["EnqueueTimestamp"]
+        )
+    return out

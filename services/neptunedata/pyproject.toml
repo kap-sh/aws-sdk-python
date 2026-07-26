@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-neptunedata"
+name = "capo-neptunedata"
 version = "0.1.0"
 description = "Python SDK for Neptunedata."
 readme = "README.md"

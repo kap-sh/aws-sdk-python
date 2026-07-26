@@ -1,0 +1,15 @@
+"""Generated from Smithy shape ``com.amazonaws.ssm#LastSuccessfulResourceDataSyncTime``."""
+
+import datetime
+from typing import TypeAlias
+
+LastSuccessfulResourceDataSyncTime: TypeAlias = datetime.datetime
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: LastSuccessfulResourceDataSyncTime) -> float:
+    return value.timestamp()
+
+
+def deserialize_aws_json_1_1(data: float) -> LastSuccessfulResourceDataSyncTime:
+    return datetime.datetime.fromtimestamp(float(data), tz=datetime.timezone.utc)

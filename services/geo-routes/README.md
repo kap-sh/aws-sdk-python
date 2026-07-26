@@ -3,5 +3,5 @@
 ## Installation
 
 ```
-pip install aws-sdk-geo-routes
+pip install capo-geo-routes
 ```

@@ -1,0 +1,84 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#ToolChoice``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agent.errors import DeserializationError, SerializationError
+
+if TYPE_CHECKING:
+    import capo_bedrock_agent.types.any_tool_choice
+    import capo_bedrock_agent.types.auto_tool_choice
+    import capo_bedrock_agent.types.specific_tool_choice
+
+
+class _ToolChoice_auto(TypedDict, closed=True):
+    auto: "capo_bedrock_agent.types.auto_tool_choice.AutoToolChoice"
+
+
+class _ToolChoice_any(TypedDict, closed=True):
+    any: "capo_bedrock_agent.types.any_tool_choice.AnyToolChoice"
+
+
+class _ToolChoice_tool(TypedDict, closed=True):
+    tool: "capo_bedrock_agent.types.specific_tool_choice.SpecificToolChoice"
+
+
+ToolChoice: TypeAlias = _ToolChoice_auto | _ToolChoice_any | _ToolChoice_tool
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ToolChoice) -> dict:
+    if "auto" in value:
+        import capo_bedrock_agent.types.auto_tool_choice
+
+        return {
+            "auto": capo_bedrock_agent.types.auto_tool_choice.serialize_json(
+                value["auto"]
+            )
+        }
+    elif "any" in value:
+        import capo_bedrock_agent.types.any_tool_choice
+
+        return {
+            "any": capo_bedrock_agent.types.any_tool_choice.serialize_json(value["any"])
+        }
+    elif "tool" in value:
+        import capo_bedrock_agent.types.specific_tool_choice
+
+        return {
+            "tool": capo_bedrock_agent.types.specific_tool_choice.serialize_json(
+                value["tool"]
+            )
+        }
+    else:
+        raise SerializationError("ToolChoice: no variant present")
+
+
+def deserialize_json(data: dict) -> ToolChoice:
+    if "auto" in data:
+        import capo_bedrock_agent.types.auto_tool_choice
+
+        return {
+            "auto": capo_bedrock_agent.types.auto_tool_choice.deserialize_json(
+                data["auto"]
+            )
+        }
+    elif "any" in data:
+        import capo_bedrock_agent.types.any_tool_choice
+
+        return {
+            "any": capo_bedrock_agent.types.any_tool_choice.deserialize_json(
+                data["any"]
+            )
+        }
+    elif "tool" in data:
+        import capo_bedrock_agent.types.specific_tool_choice
+
+        return {
+            "tool": capo_bedrock_agent.types.specific_tool_choice.deserialize_json(
+                data["tool"]
+            )
+        }
+    else:
+        raise DeserializationError("ToolChoice: no recognized variant key")

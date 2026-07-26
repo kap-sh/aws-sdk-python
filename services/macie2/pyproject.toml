@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-macie2"
+name = "capo-macie2"
 version = "0.1.0"
 description = "Python SDK for Macie2."
 readme = "README.md"

@@ -1,0 +1,53 @@
+"""Generated from Smithy shape ``com.amazonaws.sesv2#BatchGetMetricDataResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sesv2.types.metric_data_error_list
+    import capo_sesv2.types.metric_data_result_list
+
+
+class BatchGetMetricDataResponse(TypedDict, closed=True):
+    results: NotRequired[
+        "capo_sesv2.types.metric_data_result_list.MetricDataResultList"
+    ]
+    """<p>A list of successfully retrieved <code>MetricDataResult</code>.</p>"""
+    errors: NotRequired["capo_sesv2.types.metric_data_error_list.MetricDataErrorList"]
+    """<p>A list of <code>MetricDataError</code> encountered while processing your metric data batch request.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: BatchGetMetricDataResponse) -> dict:
+    out: dict = {}
+    if "results" in value:
+        import capo_sesv2.types.metric_data_result_list
+
+        out["Results"] = capo_sesv2.types.metric_data_result_list.serialize_json(
+            value["results"]
+        )
+    if "errors" in value:
+        import capo_sesv2.types.metric_data_error_list
+
+        out["Errors"] = capo_sesv2.types.metric_data_error_list.serialize_json(
+            value["errors"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> BatchGetMetricDataResponse:
+    out: BatchGetMetricDataResponse = {}  # type: ignore[typeddict-item]
+    if "Results" in data:
+        import capo_sesv2.types.metric_data_result_list
+
+        out["results"] = capo_sesv2.types.metric_data_result_list.deserialize_json(
+            data["Results"]
+        )
+    if "Errors" in data:
+        import capo_sesv2.types.metric_data_error_list
+
+        out["errors"] = capo_sesv2.types.metric_data_error_list.deserialize_json(
+            data["Errors"]
+        )
+    return out

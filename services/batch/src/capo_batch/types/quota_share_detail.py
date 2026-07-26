@@ -1,0 +1,131 @@
+"""Generated from Smithy shape ``com.amazonaws.batch#QuotaShareDetail``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_batch.types.quota_share_capacity_limits
+    import capo_batch.types.quota_share_preemption_configuration
+    import capo_batch.types.quota_share_resource_sharing_configuration
+    import capo_batch.types.quota_share_state
+    import capo_batch.types.quota_share_status
+    import capo_batch.types.string
+
+
+class QuotaShareDetail(TypedDict, closed=True):
+    quota_share_name: NotRequired["capo_batch.types.string.String"]
+    """<p>The name of the quota share.</p>"""
+    quota_share_arn: NotRequired["capo_batch.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the quota share.</p>"""
+    job_queue_arn: NotRequired["capo_batch.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of the job queue associated with the quota share.</p>"""
+    capacity_limits: NotRequired[
+        "capo_batch.types.quota_share_capacity_limits.QuotaShareCapacityLimits"
+    ]
+    """<p>A list that specifies the quantity and type of compute capacity allocated to the quota share.</p>"""
+    resource_sharing_configuration: NotRequired[
+        "capo_batch.types.quota_share_resource_sharing_configuration.QuotaShareResourceSharingConfiguration"
+    ]
+    """<p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>"""
+    preemption_configuration: NotRequired[
+        "capo_batch.types.quota_share_preemption_configuration.QuotaSharePreemptionConfiguration"
+    ]
+    """<p>Specifies the preemption behavior for jobs in a quota share.</p>"""
+    state: NotRequired["capo_batch.types.quota_share_state.QuotaShareState"]
+    """<p>The state of the quota share.</p>"""
+    status: NotRequired["capo_batch.types.quota_share_status.QuotaShareStatus"]
+    """<p>The current status of the quota share.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: QuotaShareDetail) -> dict:
+    out: dict = {}
+    if "quota_share_name" in value:
+        out["quotaShareName"] = value["quota_share_name"]
+    if "quota_share_arn" in value:
+        out["quotaShareArn"] = value["quota_share_arn"]
+    if "job_queue_arn" in value:
+        out["jobQueueArn"] = value["job_queue_arn"]
+    if "capacity_limits" in value:
+        import capo_batch.types.quota_share_capacity_limits
+
+        out["capacityLimits"] = (
+            capo_batch.types.quota_share_capacity_limits.serialize_json(
+                value["capacity_limits"]
+            )
+        )
+    if "resource_sharing_configuration" in value:
+        import capo_batch.types.quota_share_resource_sharing_configuration
+
+        out["resourceSharingConfiguration"] = (
+            capo_batch.types.quota_share_resource_sharing_configuration.serialize_json(
+                value["resource_sharing_configuration"]
+            )
+        )
+    if "preemption_configuration" in value:
+        import capo_batch.types.quota_share_preemption_configuration
+
+        out["preemptionConfiguration"] = (
+            capo_batch.types.quota_share_preemption_configuration.serialize_json(
+                value["preemption_configuration"]
+            )
+        )
+    if "state" in value:
+        import capo_batch.types.quota_share_state
+
+        out["state"] = capo_batch.types.quota_share_state.serialize_json(value["state"])
+    if "status" in value:
+        import capo_batch.types.quota_share_status
+
+        out["status"] = capo_batch.types.quota_share_status.serialize_json(
+            value["status"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> QuotaShareDetail:
+    out: QuotaShareDetail = {}  # type: ignore[typeddict-item]
+    if "quotaShareName" in data:
+        out["quota_share_name"] = data["quotaShareName"]
+    if "quotaShareArn" in data:
+        out["quota_share_arn"] = data["quotaShareArn"]
+    if "jobQueueArn" in data:
+        out["job_queue_arn"] = data["jobQueueArn"]
+    if "capacityLimits" in data:
+        import capo_batch.types.quota_share_capacity_limits
+
+        out["capacity_limits"] = (
+            capo_batch.types.quota_share_capacity_limits.deserialize_json(
+                data["capacityLimits"]
+            )
+        )
+    if "resourceSharingConfiguration" in data:
+        import capo_batch.types.quota_share_resource_sharing_configuration
+
+        out["resource_sharing_configuration"] = (
+            capo_batch.types.quota_share_resource_sharing_configuration.deserialize_json(
+                data["resourceSharingConfiguration"]
+            )
+        )
+    if "preemptionConfiguration" in data:
+        import capo_batch.types.quota_share_preemption_configuration
+
+        out["preemption_configuration"] = (
+            capo_batch.types.quota_share_preemption_configuration.deserialize_json(
+                data["preemptionConfiguration"]
+            )
+        )
+    if "state" in data:
+        import capo_batch.types.quota_share_state
+
+        out["state"] = capo_batch.types.quota_share_state.deserialize_json(
+            data["state"]
+        )
+    if "status" in data:
+        import capo_batch.types.quota_share_status
+
+        out["status"] = capo_batch.types.quota_share_status.deserialize_json(
+            data["status"]
+        )
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-transcribe"
+name = "capo-transcribe"
 version = "0.1.0"
 description = "Python SDK for Transcribe."
 readme = "README.md"

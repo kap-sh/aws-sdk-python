@@ -1,0 +1,184 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockruntime#ResponseStream``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_runtime._iter import AnyIterator
+from capo_bedrock_runtime._protocol.eventstream import Message
+
+if TYPE_CHECKING:
+    import capo_bedrock_runtime.errors.internal_server_exception
+    import capo_bedrock_runtime.errors.model_stream_error_exception
+    import capo_bedrock_runtime.errors.model_timeout_exception
+    import capo_bedrock_runtime.errors.service_unavailable_exception
+    import capo_bedrock_runtime.errors.throttling_exception
+    import capo_bedrock_runtime.errors.validation_exception
+    import capo_bedrock_runtime.types.payload_part
+
+
+class _ResponseStream_chunk(TypedDict, closed=True):
+    chunk: "capo_bedrock_runtime.types.payload_part.PayloadPart"
+
+
+class _ResponseStream_internalServerException(TypedDict, closed=True):
+    internalServerException: (
+        "capo_bedrock_runtime.errors.internal_server_exception.InternalServerException_"
+    )
+
+
+class _ResponseStream_modelStreamErrorException(TypedDict, closed=True):
+    modelStreamErrorException: "capo_bedrock_runtime.errors.model_stream_error_exception.ModelStreamErrorException_"
+
+
+class _ResponseStream_validationException(TypedDict, closed=True):
+    validationException: (
+        "capo_bedrock_runtime.errors.validation_exception.ValidationException_"
+    )
+
+
+class _ResponseStream_throttlingException(TypedDict, closed=True):
+    throttlingException: (
+        "capo_bedrock_runtime.errors.throttling_exception.ThrottlingException_"
+    )
+
+
+class _ResponseStream_modelTimeoutException(TypedDict, closed=True):
+    modelTimeoutException: (
+        "capo_bedrock_runtime.errors.model_timeout_exception.ModelTimeoutException_"
+    )
+
+
+class _ResponseStream_serviceUnavailableException(TypedDict, closed=True):
+    serviceUnavailableException: "capo_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException_"
+
+
+_ResponseStream: TypeAlias = (
+    _ResponseStream_chunk
+    | _ResponseStream_internalServerException
+    | _ResponseStream_modelStreamErrorException
+    | _ResponseStream_validationException
+    | _ResponseStream_throttlingException
+    | _ResponseStream_modelTimeoutException
+    | _ResponseStream_serviceUnavailableException
+)
+ResponseStream: TypeAlias = AnyIterator[_ResponseStream]
+
+
+def serialize_event_json(value: _ResponseStream) -> bytes:
+    match value:
+        case {"chunk": payload}:
+            import capo_bedrock_runtime.types.payload_part
+
+            return capo_bedrock_runtime.types.payload_part.serialize_event_json(payload)
+        case {"internalServerException": payload}:
+            import capo_bedrock_runtime.errors.internal_server_exception
+
+            return capo_bedrock_runtime.errors.internal_server_exception.serialize_event_json(
+                payload
+            )
+        case {"modelStreamErrorException": payload}:
+            import capo_bedrock_runtime.errors.model_stream_error_exception
+
+            return capo_bedrock_runtime.errors.model_stream_error_exception.serialize_event_json(
+                payload
+            )
+        case {"validationException": payload}:
+            import capo_bedrock_runtime.errors.validation_exception
+
+            return (
+                capo_bedrock_runtime.errors.validation_exception.serialize_event_json(
+                    payload
+                )
+            )
+        case {"throttlingException": payload}:
+            import capo_bedrock_runtime.errors.throttling_exception
+
+            return (
+                capo_bedrock_runtime.errors.throttling_exception.serialize_event_json(
+                    payload
+                )
+            )
+        case {"modelTimeoutException": payload}:
+            import capo_bedrock_runtime.errors.model_timeout_exception
+
+            return capo_bedrock_runtime.errors.model_timeout_exception.serialize_event_json(
+                payload
+            )
+        case {"serviceUnavailableException": payload}:
+            import capo_bedrock_runtime.errors.service_unavailable_exception
+
+            return capo_bedrock_runtime.errors.service_unavailable_exception.serialize_event_json(
+                payload
+            )
+        case _:
+            raise ValueError(f"ResponseStream: unrecognized variant {value!r}")
+
+
+def deserialize_event_json(message: Message) -> _ResponseStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "internalServerException":
+                import capo_bedrock_runtime.errors.internal_server_exception
+
+                raise capo_bedrock_runtime.errors.internal_server_exception.InternalServerException(
+                    capo_bedrock_runtime.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "modelStreamErrorException":
+                import capo_bedrock_runtime.errors.model_stream_error_exception
+
+                raise capo_bedrock_runtime.errors.model_stream_error_exception.ModelStreamErrorException(
+                    capo_bedrock_runtime.errors.model_stream_error_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "validationException":
+                import capo_bedrock_runtime.errors.validation_exception
+
+                raise capo_bedrock_runtime.errors.validation_exception.ValidationException(
+                    capo_bedrock_runtime.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "throttlingException":
+                import capo_bedrock_runtime.errors.throttling_exception
+
+                raise capo_bedrock_runtime.errors.throttling_exception.ThrottlingException(
+                    capo_bedrock_runtime.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "modelTimeoutException":
+                import capo_bedrock_runtime.errors.model_timeout_exception
+
+                raise capo_bedrock_runtime.errors.model_timeout_exception.ModelTimeoutException(
+                    capo_bedrock_runtime.errors.model_timeout_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "serviceUnavailableException":
+                import capo_bedrock_runtime.errors.service_unavailable_exception
+
+                raise capo_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException(
+                    capo_bedrock_runtime.errors.service_unavailable_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(f"ResponseStream: unrecognized error-type {error_type!r}")
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "chunk":
+            import capo_bedrock_runtime.types.payload_part
+
+            return {
+                "chunk": capo_bedrock_runtime.types.payload_part.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(f"ResponseStream: unrecognized event-type {event_type!r}")

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-observabilityadmin"
+name = "capo-observabilityadmin"
 version = "0.1.0"
 description = "Python SDK for Observabilityadmin."
 readme = "README.md"

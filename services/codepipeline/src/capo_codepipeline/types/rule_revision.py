@@ -1,0 +1,57 @@
+"""Generated from Smithy shape ``com.amazonaws.codepipeline#RuleRevision``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_codepipeline.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_codepipeline.types.revision
+    import capo_codepipeline.types.revision_change_identifier
+    import capo_codepipeline.types.timestamp
+
+
+class RuleRevision(TypedDict, closed=True):
+    revision_id: "capo_codepipeline.types.revision.Revision"
+    """<p>The system-generated unique ID that identifies the revision number of the rule.</p>"""
+    revision_change_id: (
+        "capo_codepipeline.types.revision_change_identifier.RevisionChangeIdentifier"
+    )
+    """<p>The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).</p>"""
+    created: "capo_codepipeline.types.timestamp.Timestamp"
+    """<p>The date and time when the most recent version of the rule was created, in timestamp format.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RuleRevision) -> dict:
+    out: dict = {}
+    out["revisionId"] = value["revision_id"]
+    out["revisionChangeId"] = value["revision_change_id"]
+    import capo_codepipeline.types.timestamp
+
+    out["created"] = capo_codepipeline.types.timestamp.serialize_aws_json_1_1(
+        value["created"]
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RuleRevision:
+    out: RuleRevision = {}  # type: ignore[typeddict-item]
+    if "revisionId" in data:
+        out["revision_id"] = data["revisionId"]
+    else:
+        raise DeserializationError("RuleRevision.revision_id required")
+    if "revisionChangeId" in data:
+        out["revision_change_id"] = data["revisionChangeId"]
+    else:
+        raise DeserializationError("RuleRevision.revision_change_id required")
+    if "created" in data:
+        import capo_codepipeline.types.timestamp
+
+        out["created"] = capo_codepipeline.types.timestamp.deserialize_aws_json_1_1(
+            data["created"]
+        )
+    else:
+        raise DeserializationError("RuleRevision.created required")
+    return out

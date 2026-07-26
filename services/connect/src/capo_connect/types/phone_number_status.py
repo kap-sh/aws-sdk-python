@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.connect#PhoneNumberStatus``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_connect.types.phone_number_workflow_message
+    import capo_connect.types.phone_number_workflow_status
+
+
+class PhoneNumberStatus(TypedDict, closed=True):
+    status: NotRequired[
+        "capo_connect.types.phone_number_workflow_status.PhoneNumberWorkflowStatus"
+    ]
+    """<p>The status.</p>"""
+    message: NotRequired[
+        "capo_connect.types.phone_number_workflow_message.PhoneNumberWorkflowMessage"
+    ]
+    """<p>The status message.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: PhoneNumberStatus) -> dict:
+    out: dict = {}
+    if "status" in value:
+        import capo_connect.types.phone_number_workflow_status
+
+        out["Status"] = capo_connect.types.phone_number_workflow_status.serialize_json(
+            value["status"]
+        )
+    if "message" in value:
+        out["Message"] = value["message"]
+    return out
+
+
+def deserialize_json(data: dict) -> PhoneNumberStatus:
+    out: PhoneNumberStatus = {}  # type: ignore[typeddict-item]
+    if "Status" in data:
+        import capo_connect.types.phone_number_workflow_status
+
+        out["status"] = (
+            capo_connect.types.phone_number_workflow_status.deserialize_json(
+                data["Status"]
+            )
+        )
+    if "Message" in data:
+        out["message"] = data["Message"]
+    return out

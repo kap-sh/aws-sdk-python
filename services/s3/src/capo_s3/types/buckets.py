@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.s3#Buckets``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+from capo_s3._protocol.xml import Element, SubElement
+
+if TYPE_CHECKING:
+    import capo_s3.types.bucket
+
+Buckets: TypeAlias = list["capo_s3.types.bucket.Bucket"]
+
+
+# --- restXml ser/de ---
+def serialize_xml(value: Buckets, parent: Element, tag: str) -> None:
+    el = SubElement(parent, tag)
+    for item in value:
+        import capo_s3.types.bucket
+
+        capo_s3.types.bucket.serialize_xml(item, el, "Bucket")
+
+
+def deserialize_xml(el: Element) -> Buckets:
+    import capo_s3.types.bucket
+
+    out: Buckets = []
+    for child in el.findall("Bucket"):
+        out.append(capo_s3.types.bucket.deserialize_xml(child))
+    return out
+
+
+def serialize_xml_flat(value: Buckets, parent: Element, tag: str) -> None:
+    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    for item in value:
+        import capo_s3.types.bucket
+
+        capo_s3.types.bucket.serialize_xml(item, parent, tag)
+
+
+def deserialize_xml_flat(parent: Element, tag: str) -> Buckets:
+    import capo_s3.types.bucket
+
+    out: Buckets = []
+    for child in parent.findall(tag):
+        out.append(capo_s3.types.bucket.deserialize_xml(child))
+    return out

@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetDomainNameRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_apigatewayv2.types.__string
+
+
+class GetDomainNameRequest(TypedDict, closed=True):
+    domain_name: "capo_apigatewayv2.types.__string.__string"
+    """<p>The domain name.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetDomainNameRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> GetDomainNameRequest:
+    out: GetDomainNameRequest = {}  # type: ignore[typeddict-item]
+    return out

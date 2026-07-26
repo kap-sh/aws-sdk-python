@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.wafregional#GetRateBasedRuleResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_waf_regional.types.rate_based_rule
+
+
+class GetRateBasedRuleResponse(TypedDict, closed=True):
+    rule: NotRequired["capo_waf_regional.types.rate_based_rule.RateBasedRule"]
+    """<p>Information about the <a>RateBasedRule</a> that you specified in the <code>GetRateBasedRule</code> request.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetRateBasedRuleResponse) -> dict:
+    out: dict = {}
+    if "rule" in value:
+        import capo_waf_regional.types.rate_based_rule
+
+        out["Rule"] = capo_waf_regional.types.rate_based_rule.serialize_aws_json_1_1(
+            value["rule"]
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetRateBasedRuleResponse:
+    out: GetRateBasedRuleResponse = {}  # type: ignore[typeddict-item]
+    if "Rule" in data:
+        import capo_waf_regional.types.rate_based_rule
+
+        out["rule"] = capo_waf_regional.types.rate_based_rule.deserialize_aws_json_1_1(
+            data["Rule"]
+        )
+    return out

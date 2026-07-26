@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrock#GetModelInvocationLoggingConfigurationResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_bedrock.types.logging_config
+
+
+class GetModelInvocationLoggingConfigurationResponse(TypedDict, closed=True):
+    logging_config: NotRequired["capo_bedrock.types.logging_config.LoggingConfig"]
+    """<p>The current configuration values.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: GetModelInvocationLoggingConfigurationResponse) -> dict:
+    out: dict = {}
+    if "logging_config" in value:
+        import capo_bedrock.types.logging_config
+
+        out["loggingConfig"] = capo_bedrock.types.logging_config.serialize_json(
+            value["logging_config"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> GetModelInvocationLoggingConfigurationResponse:
+    out: GetModelInvocationLoggingConfigurationResponse = {}  # type: ignore[typeddict-item]
+    if "loggingConfig" in data:
+        import capo_bedrock.types.logging_config
+
+        out["logging_config"] = capo_bedrock.types.logging_config.deserialize_json(
+            data["loggingConfig"]
+        )
+    return out

@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-customer-profiles"
+name = "capo-customer-profiles"
 version = "0.1.0"
 description = "Python SDK for Customer Profiles."
 readme = "README.md"

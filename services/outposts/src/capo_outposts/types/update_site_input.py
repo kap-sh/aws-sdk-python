@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.outposts#UpdateSiteInput``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_outposts.types.site_description
+    import capo_outposts.types.site_id
+    import capo_outposts.types.site_name
+    import capo_outposts.types.site_notes
+
+
+class UpdateSiteInput(TypedDict, closed=True):
+    site_id: "capo_outposts.types.site_id.SiteId"
+    """<p> The ID or the Amazon Resource Name (ARN) of the site. </p>"""
+    name: NotRequired["capo_outposts.types.site_name.SiteName"]
+    description: NotRequired["capo_outposts.types.site_description.SiteDescription"]
+    notes: NotRequired["capo_outposts.types.site_notes.SiteNotes"]
+    """<p>Notes about a site.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateSiteInput) -> dict:
+    out: dict = {}
+    if "name" in value:
+        out["Name"] = value["name"]
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "notes" in value:
+        out["Notes"] = value["notes"]
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateSiteInput:
+    out: UpdateSiteInput = {}  # type: ignore[typeddict-item]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "Notes" in data:
+        out["notes"] = data["Notes"]
+    return out

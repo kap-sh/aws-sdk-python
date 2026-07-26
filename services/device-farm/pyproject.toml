@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-device-farm"
+name = "capo-device-farm"
 version = "0.1.0"
 description = "Python SDK for Device Farm."
 readme = "README.md"

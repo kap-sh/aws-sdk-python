@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-iotthingsgraph"
+name = "capo-iotthingsgraph"
 version = "0.1.0"
 description = "Python SDK for Iotthingsgraph."
 readme = "README.md"

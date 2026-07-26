@@ -1,0 +1,33 @@
+"""Generated from Smithy shape ``com.amazonaws.memorydb#MultiRegionParametersList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_memorydb.types.multi_region_parameter
+
+MultiRegionParametersList: TypeAlias = list[
+    "capo_memorydb.types.multi_region_parameter.MultiRegionParameter"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: MultiRegionParametersList) -> list:
+    import capo_memorydb.types.multi_region_parameter
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_memorydb.types.multi_region_parameter.serialize_aws_json_1_1(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> MultiRegionParametersList:
+    import capo_memorydb.types.multi_region_parameter
+
+    out: MultiRegionParametersList = []
+    for item in data:
+        out.append(
+            capo_memorydb.types.multi_region_parameter.deserialize_aws_json_1_1(item)
+        )
+    return out

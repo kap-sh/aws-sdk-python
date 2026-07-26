@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-sagemaker"
+name = "capo-sagemaker"
 version = "0.1.0"
 description = "Python SDK for Sagemaker."
 readme = "README.md"

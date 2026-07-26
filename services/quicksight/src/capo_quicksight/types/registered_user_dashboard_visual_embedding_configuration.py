@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredUserDashboardVisualEmbeddingConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_quicksight.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.dashboard_visual_id
+
+
+class RegisteredUserDashboardVisualEmbeddingConfiguration(TypedDict, closed=True):
+    initial_dashboard_visual_id: (
+        "capo_quicksight.types.dashboard_visual_id.DashboardVisualId"
+    )
+    """<p>The visual ID for the visual that you want the user to embed. This ID is included in the output URL. When the URL in response is accessed, Amazon Quick Sight renders this visual.</p> <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RegisteredUserDashboardVisualEmbeddingConfiguration) -> dict:
+    out: dict = {}
+    import capo_quicksight.types.dashboard_visual_id
+
+    out["InitialDashboardVisualId"] = (
+        capo_quicksight.types.dashboard_visual_id.serialize_json(
+            value["initial_dashboard_visual_id"]
+        )
+    )
+    return out
+
+
+def deserialize_json(data: dict) -> RegisteredUserDashboardVisualEmbeddingConfiguration:
+    out: RegisteredUserDashboardVisualEmbeddingConfiguration = {}  # type: ignore[typeddict-item]
+    if "InitialDashboardVisualId" in data:
+        import capo_quicksight.types.dashboard_visual_id
+
+        out["initial_dashboard_visual_id"] = (
+            capo_quicksight.types.dashboard_visual_id.deserialize_json(
+                data["InitialDashboardVisualId"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "RegisteredUserDashboardVisualEmbeddingConfiguration.initial_dashboard_visual_id required"
+        )
+    return out

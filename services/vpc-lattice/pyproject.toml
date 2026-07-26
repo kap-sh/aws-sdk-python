@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-vpc-lattice"
+name = "capo-vpc-lattice"
 version = "0.1.0"
 description = "Python SDK for VPC Lattice."
 readme = "README.md"

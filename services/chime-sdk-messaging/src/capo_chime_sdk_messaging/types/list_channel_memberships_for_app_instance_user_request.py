@@ -1,0 +1,34 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ListChannelMembershipsForAppInstanceUserRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_chime_sdk_messaging.types.chime_arn
+    import capo_chime_sdk_messaging.types.max_results
+    import capo_chime_sdk_messaging.types.next_token
+
+
+class ListChannelMembershipsForAppInstanceUserRequest(TypedDict, closed=True):
+    app_instance_user_arn: NotRequired[
+        "capo_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    ]
+    """<p>The ARN of the user or bot.</p>"""
+    max_results: NotRequired["capo_chime_sdk_messaging.types.max_results.MaxResults"]
+    """<p>The maximum number of users that you want returned.</p>"""
+    next_token: NotRequired["capo_chime_sdk_messaging.types.next_token.NextToken"]
+    """<p>The token returned from previous API requests until the number of channel memberships is reached.</p>"""
+    chime_bearer: "capo_chime_sdk_messaging.types.chime_arn.ChimeArn"
+    """<p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ListChannelMembershipsForAppInstanceUserRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> ListChannelMembershipsForAppInstanceUserRequest:
+    out: ListChannelMembershipsForAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+    return out

@@ -1,0 +1,308 @@
+"""Generated from Smithy shape ``com.amazonaws.partnercentralchannel#PartnerCentralChannel``."""
+
+import warnings
+from typing import TYPE_CHECKING, Any, Iterable, Optional
+
+from typing_extensions import Self, TypedDict
+from zapros import AsyncBaseHandler, AsyncClient
+
+import capo_partnercentral_channel._auth._signers
+import capo_partnercentral_channel._auth._sigv4
+from capo_partnercentral_channel._auth._identity import Credentials
+from capo_partnercentral_channel._auth._providers import (
+    CredentialsProvider,
+    IdentityProvider,
+    StaticAwsCredentialsProvider,
+    default_aws_credentials_chain,
+)
+from capo_partnercentral_channel._auth._zapros_handler import AuthMiddleware
+from capo_partnercentral_channel._resources.partner_central_channel.channel_handshake_resource import (
+    AsyncChannelHandshakeResource,
+)
+from capo_partnercentral_channel._resources.partner_central_channel.program_management_account_resource import (
+    AsyncProgramManagementAccountResource,
+)
+from capo_partnercentral_channel._resources.partner_central_channel.relationship_resource import (
+    AsyncRelationshipResource,
+)
+from capo_partnercentral_channel._services._aws_config import aaws_config
+from capo_partnercentral_channel._services._pipeline import (
+    AsyncInterceptor,
+    AsyncOperationOptions,
+    AsyncOperationRequest,
+    AsyncOperationResponse,
+    aexecute_pipeline,
+    aretry,
+)
+
+if TYPE_CHECKING:
+    import capo_partnercentral_channel.types.list_tags_for_resource_request
+    import capo_partnercentral_channel.types.list_tags_for_resource_response
+    import capo_partnercentral_channel.types.tag_key_list
+    import capo_partnercentral_channel.types.tag_list
+    import capo_partnercentral_channel.types.tag_resource_request
+    import capo_partnercentral_channel.types.tag_resource_response
+    import capo_partnercentral_channel.types.taggable_arn
+    import capo_partnercentral_channel.types.untag_resource_request
+    import capo_partnercentral_channel.types.untag_resource_response
+
+
+class AsyncPartnerCentralChannelClientConfig(TypedDict, total=False, closed=True):
+    operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
+    retry_max_attempts: int | None
+    use_fips: bool | None
+    endpoint: str | None
+    region: str | None
+    credentials_provider: IdentityProvider[Credentials] | None
+
+
+class AsyncPartnerCentralChannelClient:
+    """A client for the ``PartnerCentralChannel`` service.
+
+    Args:
+        http_handler: HTTP handler for sending requests. If not provided, creates a default handler.
+        operation_interceptors: Interceptors that wrap every operation call. If not provided, defaults to an empty list.
+        retry_max_attempts: Maximum number of times to retry a failed operation. Defaults to 3.
+        use_fips: The value of the ``AWS::UseFIPS`` endpoint parameter.
+        endpoint: The value of the ``SDK::Endpoint`` endpoint parameter.
+        region: The value of the ``AWS::Region`` endpoint parameter.
+        credentials: AWS credentials for request signing.
+        credentials_provider: Provider that resolves AWS credentials. Takes precedence over ``credentials``.
+    """
+
+    def __init__(
+        self,
+        http_handler: AsyncBaseHandler | None = None,
+        operation_interceptors: Iterable[AsyncInterceptor[Any, Any]] | None = None,
+        retry_max_attempts: int | None = None,
+        use_fips: bool | None = None,
+        endpoint: str | None = None,
+        region: str | None = None,
+        credentials: Credentials | None = None,
+        credentials_provider: CredentialsProvider | None = None,
+    ):
+        self._client = AsyncClient(http_handler).wrap_with_middleware(
+            lambda next: AuthMiddleware(next)
+        )
+        if credentials is not None and credentials_provider is not None:
+            warnings.warn(
+                "Both credentials and credentials_provider given; provider takes precedence"
+            )
+        resolved_credentials_provider: IdentityProvider[Credentials] | None = (
+            credentials_provider
+        )
+        if resolved_credentials_provider is None and credentials is not None:
+            resolved_credentials_provider = StaticAwsCredentialsProvider(credentials)
+        if resolved_credentials_provider is None and credentials is None:
+            resolved_credentials_provider = default_aws_credentials_chain(
+                AsyncClient(http_handler)
+            )
+        self._config = AsyncPartnerCentralChannelClientConfig(
+            {
+                "operation_interceptors": operation_interceptors or [],
+                "retry_max_attempts": retry_max_attempts,
+                "use_fips": use_fips,
+                "endpoint": endpoint,
+                "region": region,
+                "credentials_provider": resolved_credentials_provider,
+            }
+        )
+
+        # resources
+        self.channel_handshake_resource = AsyncChannelHandshakeResource(self)
+        self.program_management_account_resource = (
+            AsyncProgramManagementAccountResource(self)
+        )
+        self.relationship_resource = AsyncRelationshipResource(self)
+
+    def operation_options(
+        self, config_overrides: Optional[AsyncPartnerCentralChannelClientConfig] = None
+    ) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
+        overrides: AsyncPartnerCentralChannelClientConfig = config_overrides or {}
+        interceptors_: list[AsyncInterceptor[Any, Any]] = [
+            *overrides.get(
+                "operation_interceptors", self._config.get("operation_interceptors", [])
+            ),
+            aaws_config(),
+            aretry(),
+        ]
+        options_: AsyncOperationOptions = AsyncOperationOptions(
+            client=self._client,
+            retry_max_attempts=overrides.get(
+                "retry_max_attempts", self._config.get("retry_max_attempts")
+            ),
+            use_fips=overrides.get("use_fips", self._config.get("use_fips")),
+            endpoint=overrides.get("endpoint", self._config.get("endpoint")),
+            region=overrides.get("region", self._config.get("region")),
+            credentials_provider=overrides.get(
+                "credentials_provider", self._config.get("credentials_provider")
+            ),
+        )
+        return interceptors_, options_
+
+    async def list_tags_for_resource(
+        self,
+        resource_arn: "capo_partnercentral_channel.types.taggable_arn.TaggableArn",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralChannelClientConfig] = None,
+    ) -> "capo_partnercentral_channel.types.list_tags_for_resource_response.ListTagsForResourceResponse":
+        """<p>Lists tags associated with a specific resource.</p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+
+        Raises:
+            capo_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            capo_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            capo_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            capo_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            capo_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            capo_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Example for ListTagsForResource
+
+            >>> await client.list_tags_for_resource(resource_arn='arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-u8ic702rtzng8')
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_partnercentral_channel.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_partnercentral_channel.types.list_tags_for_resource_response.ListTagsForResourceResponse"
+        ]:
+            import capo_partnercentral_channel._operations.partner_central_channel.list_tags_for_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_partnercentral_channel._operations.partner_central_channel.list_tags_for_resource.async_list_tags_for_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_partnercentral_channel.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def tag_resource(
+        self,
+        resource_arn: "capo_partnercentral_channel.types.taggable_arn.TaggableArn",
+        tags: "capo_partnercentral_channel.types.tag_list.TagList",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralChannelClientConfig] = None,
+    ) -> "capo_partnercentral_channel.types.tag_resource_response.TagResourceResponse":
+        """<p>Adds or updates tags for a specified resource.</p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+            tags: <p>Key-value pairs to associate with the resource.</p>
+
+        Raises:
+            capo_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            capo_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            capo_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            capo_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            capo_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            capo_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            capo_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Example for TagResource
+
+            >>> await client.tag_resource(resource_arn='arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-u8ic702rtzng8/relationship/rs-l9o4fj3b5zb91', tags=[{'key': 'ExampleKey', 'value': 'ExampleValue'}])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_partnercentral_channel.types.tag_resource_request.TagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_partnercentral_channel.types.tag_resource_response.TagResourceResponse"
+        ]:
+            import capo_partnercentral_channel._operations.partner_central_channel.tag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_partnercentral_channel._operations.partner_central_channel.tag_resource.async_tag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_partnercentral_channel.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def untag_resource(
+        self,
+        resource_arn: "capo_partnercentral_channel.types.taggable_arn.TaggableArn",
+        tag_keys: "capo_partnercentral_channel.types.tag_key_list.TagKeyList",
+        *,
+        config_overrides: Optional[AsyncPartnerCentralChannelClientConfig] = None,
+    ) -> "capo_partnercentral_channel.types.untag_resource_response.UntagResourceResponse":
+        """<p>Removes tags from a specified resource.</p>
+
+        Args:
+            resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+            tag_keys: <p>The keys of the tags to remove from the resource.</p>
+
+        Raises:
+            capo_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            capo_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            capo_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            capo_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            capo_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            capo_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            capo_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            Example for UntagResource
+
+            >>> await client.untag_resource(resource_arn='arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/channel-handshake/ch-4fj3bd2o3vb91', tag_keys=['ExampleKey'])
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_partnercentral_channel.types.untag_resource_request.UntagResourceRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_partnercentral_channel.types.untag_resource_response.UntagResourceResponse"
+        ]:
+            import capo_partnercentral_channel._operations.partner_central_channel.untag_resource
+
+            (
+                output,
+                http_response,
+            ) = await capo_partnercentral_channel._operations.partner_central_channel.untag_resource.async_untag_resource(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_partnercentral_channel.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any):
+        await self._client.aclose()

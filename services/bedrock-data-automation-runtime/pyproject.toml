@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-bedrock-data-automation-runtime"
+name = "capo-bedrock-data-automation-runtime"
 version = "0.1.0"
 description = "Python SDK for Bedrock Data Automation Runtime."
 readme = "README.md"

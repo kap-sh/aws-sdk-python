@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.servicecatalog#ProductViewFilters``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_service_catalog.types.product_view_filter_by
+    import capo_service_catalog.types.product_view_filter_values
+
+ProductViewFilters: TypeAlias = dict[
+    "capo_service_catalog.types.product_view_filter_by.ProductViewFilterBy",
+    "capo_service_catalog.types.product_view_filter_values.ProductViewFilterValues",
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(input_to_serialize: ProductViewFilters) -> dict:
+    out: dict = {}
+    for key, value in input_to_serialize.items():
+        import capo_service_catalog.types.product_view_filter_by
+        import capo_service_catalog.types.product_view_filter_values
+
+        out[
+            capo_service_catalog.types.product_view_filter_by.serialize_aws_json_1_1(
+                key
+            )
+        ] = capo_service_catalog.types.product_view_filter_values.serialize_aws_json_1_1(
+            value
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ProductViewFilters:
+    out: ProductViewFilters = {}
+    for key, value in data.items():
+        import capo_service_catalog.types.product_view_filter_by
+        import capo_service_catalog.types.product_view_filter_values
+
+        out[
+            capo_service_catalog.types.product_view_filter_by.deserialize_aws_json_1_1(
+                key
+            )
+        ] = capo_service_catalog.types.product_view_filter_values.deserialize_aws_json_1_1(
+            value
+        )
+    return out

@@ -1,0 +1,40 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#ExecutionControls``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_config_service.types.ssm_controls
+
+
+class ExecutionControls(TypedDict, closed=True):
+    ssm_controls: NotRequired["capo_config_service.types.ssm_controls.SsmControls"]
+    """<p>A SsmControls object.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExecutionControls) -> dict:
+    out: dict = {}
+    if "ssm_controls" in value:
+        import capo_config_service.types.ssm_controls
+
+        out["SsmControls"] = (
+            capo_config_service.types.ssm_controls.serialize_aws_json_1_1(
+                value["ssm_controls"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> ExecutionControls:
+    out: ExecutionControls = {}  # type: ignore[typeddict-item]
+    if "SsmControls" in data:
+        import capo_config_service.types.ssm_controls
+
+        out["ssm_controls"] = (
+            capo_config_service.types.ssm_controls.deserialize_aws_json_1_1(
+                data["SsmControls"]
+            )
+        )
+    return out

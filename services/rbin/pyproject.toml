@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-rbin"
+name = "capo-rbin"
 version = "0.1.0"
 description = "Python SDK for Rbin."
 readme = "README.md"

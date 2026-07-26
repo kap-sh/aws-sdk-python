@@ -1,0 +1,63 @@
+"""Generated from Smithy shape ``com.amazonaws.sagemaker#CaptureContentTypeHeader``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_sagemaker.types.csv_content_types
+    import capo_sagemaker.types.json_content_types
+
+
+class CaptureContentTypeHeader(TypedDict, closed=True):
+    csv_content_types: NotRequired[
+        "capo_sagemaker.types.csv_content_types.CsvContentTypes"
+    ]
+    """<p>The list of all content type headers that Amazon SageMaker AI will treat as CSV and capture accordingly.</p>"""
+    json_content_types: NotRequired[
+        "capo_sagemaker.types.json_content_types.JsonContentTypes"
+    ]
+    """<p>The list of all content type headers that SageMaker AI will treat as JSON and capture accordingly.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: CaptureContentTypeHeader) -> dict:
+    out: dict = {}
+    if "csv_content_types" in value:
+        import capo_sagemaker.types.csv_content_types
+
+        out["CsvContentTypes"] = (
+            capo_sagemaker.types.csv_content_types.serialize_aws_json_1_1(
+                value["csv_content_types"]
+            )
+        )
+    if "json_content_types" in value:
+        import capo_sagemaker.types.json_content_types
+
+        out["JsonContentTypes"] = (
+            capo_sagemaker.types.json_content_types.serialize_aws_json_1_1(
+                value["json_content_types"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> CaptureContentTypeHeader:
+    out: CaptureContentTypeHeader = {}  # type: ignore[typeddict-item]
+    if "CsvContentTypes" in data:
+        import capo_sagemaker.types.csv_content_types
+
+        out["csv_content_types"] = (
+            capo_sagemaker.types.csv_content_types.deserialize_aws_json_1_1(
+                data["CsvContentTypes"]
+            )
+        )
+    if "JsonContentTypes" in data:
+        import capo_sagemaker.types.json_content_types
+
+        out["json_content_types"] = (
+            capo_sagemaker.types.json_content_types.deserialize_aws_json_1_1(
+                data["JsonContentTypes"]
+            )
+        )
+    return out

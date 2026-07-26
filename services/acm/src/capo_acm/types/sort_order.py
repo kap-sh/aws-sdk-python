@@ -1,0 +1,17 @@
+"""Generated from Smithy shape ``com.amazonaws.acm#SortOrder``."""
+
+from typing import Literal, TypeAlias, cast
+
+SortOrder: TypeAlias = Literal[
+    "ASCENDING",
+    "DESCENDING",
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SortOrder) -> str:
+    return value
+
+
+def deserialize_aws_json_1_1(data: str) -> SortOrder:
+    return cast(SortOrder, data)

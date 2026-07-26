@@ -1,0 +1,27 @@
+"""Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#ToolsList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_migrationhuborchestrator.types.tool
+
+ToolsList: TypeAlias = list["capo_migrationhuborchestrator.types.tool.Tool"]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ToolsList) -> list:
+    import capo_migrationhuborchestrator.types.tool
+
+    out: list = []
+    for item in value:
+        out.append(capo_migrationhuborchestrator.types.tool.serialize_json(item))
+    return out
+
+
+def deserialize_json(data: list) -> ToolsList:
+    import capo_migrationhuborchestrator.types.tool
+
+    out: ToolsList = []
+    for item in data:
+        out.append(capo_migrationhuborchestrator.types.tool.deserialize_json(item))
+    return out

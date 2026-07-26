@@ -1,0 +1,214 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleCloudFormationOverridePropertyConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.asset_bundle_export_job_analysis_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_dashboard_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_data_set_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_data_source_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_folder_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_refresh_schedule_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_resource_id_override_configuration
+    import capo_quicksight.types.asset_bundle_export_job_theme_override_properties_list
+    import capo_quicksight.types.asset_bundle_export_job_vpc_connection_override_properties_list
+
+
+class AssetBundleCloudFormationOverridePropertyConfiguration(TypedDict, closed=True):
+    resource_id_override_configuration: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_resource_id_override_configuration.AssetBundleExportJobResourceIdOverrideConfiguration"
+    ]
+    """<p>An optional list of structures that control how resource IDs are parameterized in the returned CloudFormation template.</p>"""
+    vpc_connections: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_vpc_connection_override_properties_list.AssetBundleExportJobVPCConnectionOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>VPCConnection</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    refresh_schedules: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_refresh_schedule_override_properties_list.AssetBundleExportJobRefreshScheduleOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>RefreshSchedule</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    data_sources: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_data_source_override_properties_list.AssetBundleExportJobDataSourceOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>DataSource</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    data_sets: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_data_set_override_properties_list.AssetBundleExportJobDataSetOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>DataSet</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    themes: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_theme_override_properties_list.AssetBundleExportJobThemeOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>Theme</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    analyses: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_analysis_override_properties_list.AssetBundleExportJobAnalysisOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>Analysis</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    dashboards: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_dashboard_override_properties_list.AssetBundleExportJobDashboardOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that control how <code>Dashboard</code> resources are parameterized in the returned CloudFormation template.</p>"""
+    folders: NotRequired[
+        "capo_quicksight.types.asset_bundle_export_job_folder_override_properties_list.AssetBundleExportJobFolderOverridePropertiesList"
+    ]
+    """<p>An optional list of structures that controls how <code>Folder</code> resources are parameterized in the returned CloudFormation template.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(
+    value: AssetBundleCloudFormationOverridePropertyConfiguration,
+) -> dict:
+    out: dict = {}
+    if "resource_id_override_configuration" in value:
+        import capo_quicksight.types.asset_bundle_export_job_resource_id_override_configuration
+
+        out["ResourceIdOverrideConfiguration"] = (
+            capo_quicksight.types.asset_bundle_export_job_resource_id_override_configuration.serialize_json(
+                value["resource_id_override_configuration"]
+            )
+        )
+    if "vpc_connections" in value:
+        import capo_quicksight.types.asset_bundle_export_job_vpc_connection_override_properties_list
+
+        out["VPCConnections"] = (
+            capo_quicksight.types.asset_bundle_export_job_vpc_connection_override_properties_list.serialize_json(
+                value["vpc_connections"]
+            )
+        )
+    if "refresh_schedules" in value:
+        import capo_quicksight.types.asset_bundle_export_job_refresh_schedule_override_properties_list
+
+        out["RefreshSchedules"] = (
+            capo_quicksight.types.asset_bundle_export_job_refresh_schedule_override_properties_list.serialize_json(
+                value["refresh_schedules"]
+            )
+        )
+    if "data_sources" in value:
+        import capo_quicksight.types.asset_bundle_export_job_data_source_override_properties_list
+
+        out["DataSources"] = (
+            capo_quicksight.types.asset_bundle_export_job_data_source_override_properties_list.serialize_json(
+                value["data_sources"]
+            )
+        )
+    if "data_sets" in value:
+        import capo_quicksight.types.asset_bundle_export_job_data_set_override_properties_list
+
+        out["DataSets"] = (
+            capo_quicksight.types.asset_bundle_export_job_data_set_override_properties_list.serialize_json(
+                value["data_sets"]
+            )
+        )
+    if "themes" in value:
+        import capo_quicksight.types.asset_bundle_export_job_theme_override_properties_list
+
+        out["Themes"] = (
+            capo_quicksight.types.asset_bundle_export_job_theme_override_properties_list.serialize_json(
+                value["themes"]
+            )
+        )
+    if "analyses" in value:
+        import capo_quicksight.types.asset_bundle_export_job_analysis_override_properties_list
+
+        out["Analyses"] = (
+            capo_quicksight.types.asset_bundle_export_job_analysis_override_properties_list.serialize_json(
+                value["analyses"]
+            )
+        )
+    if "dashboards" in value:
+        import capo_quicksight.types.asset_bundle_export_job_dashboard_override_properties_list
+
+        out["Dashboards"] = (
+            capo_quicksight.types.asset_bundle_export_job_dashboard_override_properties_list.serialize_json(
+                value["dashboards"]
+            )
+        )
+    if "folders" in value:
+        import capo_quicksight.types.asset_bundle_export_job_folder_override_properties_list
+
+        out["Folders"] = (
+            capo_quicksight.types.asset_bundle_export_job_folder_override_properties_list.serialize_json(
+                value["folders"]
+            )
+        )
+    return out
+
+
+def deserialize_json(
+    data: dict,
+) -> AssetBundleCloudFormationOverridePropertyConfiguration:
+    out: AssetBundleCloudFormationOverridePropertyConfiguration = {}  # type: ignore[typeddict-item]
+    if "ResourceIdOverrideConfiguration" in data:
+        import capo_quicksight.types.asset_bundle_export_job_resource_id_override_configuration
+
+        out["resource_id_override_configuration"] = (
+            capo_quicksight.types.asset_bundle_export_job_resource_id_override_configuration.deserialize_json(
+                data["ResourceIdOverrideConfiguration"]
+            )
+        )
+    if "VPCConnections" in data:
+        import capo_quicksight.types.asset_bundle_export_job_vpc_connection_override_properties_list
+
+        out["vpc_connections"] = (
+            capo_quicksight.types.asset_bundle_export_job_vpc_connection_override_properties_list.deserialize_json(
+                data["VPCConnections"]
+            )
+        )
+    if "RefreshSchedules" in data:
+        import capo_quicksight.types.asset_bundle_export_job_refresh_schedule_override_properties_list
+
+        out["refresh_schedules"] = (
+            capo_quicksight.types.asset_bundle_export_job_refresh_schedule_override_properties_list.deserialize_json(
+                data["RefreshSchedules"]
+            )
+        )
+    if "DataSources" in data:
+        import capo_quicksight.types.asset_bundle_export_job_data_source_override_properties_list
+
+        out["data_sources"] = (
+            capo_quicksight.types.asset_bundle_export_job_data_source_override_properties_list.deserialize_json(
+                data["DataSources"]
+            )
+        )
+    if "DataSets" in data:
+        import capo_quicksight.types.asset_bundle_export_job_data_set_override_properties_list
+
+        out["data_sets"] = (
+            capo_quicksight.types.asset_bundle_export_job_data_set_override_properties_list.deserialize_json(
+                data["DataSets"]
+            )
+        )
+    if "Themes" in data:
+        import capo_quicksight.types.asset_bundle_export_job_theme_override_properties_list
+
+        out["themes"] = (
+            capo_quicksight.types.asset_bundle_export_job_theme_override_properties_list.deserialize_json(
+                data["Themes"]
+            )
+        )
+    if "Analyses" in data:
+        import capo_quicksight.types.asset_bundle_export_job_analysis_override_properties_list
+
+        out["analyses"] = (
+            capo_quicksight.types.asset_bundle_export_job_analysis_override_properties_list.deserialize_json(
+                data["Analyses"]
+            )
+        )
+    if "Dashboards" in data:
+        import capo_quicksight.types.asset_bundle_export_job_dashboard_override_properties_list
+
+        out["dashboards"] = (
+            capo_quicksight.types.asset_bundle_export_job_dashboard_override_properties_list.deserialize_json(
+                data["Dashboards"]
+            )
+        )
+    if "Folders" in data:
+        import capo_quicksight.types.asset_bundle_export_job_folder_override_properties_list
+
+        out["folders"] = (
+            capo_quicksight.types.asset_bundle_export_job_folder_override_properties_list.deserialize_json(
+                data["Folders"]
+            )
+        )
+    return out

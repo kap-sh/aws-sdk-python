@@ -1,0 +1,118 @@
+"""Generated from Smithy shape ``com.amazonaws.workspaces#SelfservicePermissions``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_workspaces.types.reconnect_enum
+
+
+class SelfservicePermissions(TypedDict, closed=True):
+    restart_workspace: NotRequired["capo_workspaces.types.reconnect_enum.ReconnectEnum"]
+    """<p>Specifies whether users can restart their WorkSpace.</p>"""
+    increase_volume_size: NotRequired[
+        "capo_workspaces.types.reconnect_enum.ReconnectEnum"
+    ]
+    """<p>Specifies whether users can increase the volume size of the drives on their WorkSpace.</p>"""
+    change_compute_type: NotRequired[
+        "capo_workspaces.types.reconnect_enum.ReconnectEnum"
+    ]
+    """<p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>"""
+    switch_running_mode: NotRequired[
+        "capo_workspaces.types.reconnect_enum.ReconnectEnum"
+    ]
+    """<p>Specifies whether users can switch the running mode of their WorkSpace.</p>"""
+    rebuild_workspace: NotRequired["capo_workspaces.types.reconnect_enum.ReconnectEnum"]
+    """<p>Specifies whether users can rebuild the operating system of a WorkSpace to its original state.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: SelfservicePermissions) -> dict:
+    out: dict = {}
+    if "restart_workspace" in value:
+        import capo_workspaces.types.reconnect_enum
+
+        out["RestartWorkspace"] = (
+            capo_workspaces.types.reconnect_enum.serialize_aws_json_1_1(
+                value["restart_workspace"]
+            )
+        )
+    if "increase_volume_size" in value:
+        import capo_workspaces.types.reconnect_enum
+
+        out["IncreaseVolumeSize"] = (
+            capo_workspaces.types.reconnect_enum.serialize_aws_json_1_1(
+                value["increase_volume_size"]
+            )
+        )
+    if "change_compute_type" in value:
+        import capo_workspaces.types.reconnect_enum
+
+        out["ChangeComputeType"] = (
+            capo_workspaces.types.reconnect_enum.serialize_aws_json_1_1(
+                value["change_compute_type"]
+            )
+        )
+    if "switch_running_mode" in value:
+        import capo_workspaces.types.reconnect_enum
+
+        out["SwitchRunningMode"] = (
+            capo_workspaces.types.reconnect_enum.serialize_aws_json_1_1(
+                value["switch_running_mode"]
+            )
+        )
+    if "rebuild_workspace" in value:
+        import capo_workspaces.types.reconnect_enum
+
+        out["RebuildWorkspace"] = (
+            capo_workspaces.types.reconnect_enum.serialize_aws_json_1_1(
+                value["rebuild_workspace"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> SelfservicePermissions:
+    out: SelfservicePermissions = {}  # type: ignore[typeddict-item]
+    if "RestartWorkspace" in data:
+        import capo_workspaces.types.reconnect_enum
+
+        out["restart_workspace"] = (
+            capo_workspaces.types.reconnect_enum.deserialize_aws_json_1_1(
+                data["RestartWorkspace"]
+            )
+        )
+    if "IncreaseVolumeSize" in data:
+        import capo_workspaces.types.reconnect_enum
+
+        out["increase_volume_size"] = (
+            capo_workspaces.types.reconnect_enum.deserialize_aws_json_1_1(
+                data["IncreaseVolumeSize"]
+            )
+        )
+    if "ChangeComputeType" in data:
+        import capo_workspaces.types.reconnect_enum
+
+        out["change_compute_type"] = (
+            capo_workspaces.types.reconnect_enum.deserialize_aws_json_1_1(
+                data["ChangeComputeType"]
+            )
+        )
+    if "SwitchRunningMode" in data:
+        import capo_workspaces.types.reconnect_enum
+
+        out["switch_running_mode"] = (
+            capo_workspaces.types.reconnect_enum.deserialize_aws_json_1_1(
+                data["SwitchRunningMode"]
+            )
+        )
+    if "RebuildWorkspace" in data:
+        import capo_workspaces.types.reconnect_enum
+
+        out["rebuild_workspace"] = (
+            capo_workspaces.types.reconnect_enum.deserialize_aws_json_1_1(
+                data["RebuildWorkspace"]
+            )
+        )
+    return out

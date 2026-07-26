@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-voice-id"
+name = "capo-voice-id"
 version = "0.1.0"
 description = "Python SDK for Voice Id."
 readme = "README.md"

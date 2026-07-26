@@ -1,0 +1,178 @@
+"""Generated from Smithy shape ``com.amazonaws.elasticache#ModifyUserGroup``."""
+
+from __future__ import annotations
+
+from typing import Any
+from urllib.parse import urlencode
+
+import zapros
+from typing_extensions import Never
+
+import capo_elasticache._auth._signers
+import capo_elasticache._auth._sigv4
+import capo_elasticache.errors.default_user_required
+import capo_elasticache.errors.duplicate_user_name_fault
+import capo_elasticache.errors.invalid_parameter_combination_exception
+import capo_elasticache.errors.invalid_parameter_value_exception
+import capo_elasticache.errors.invalid_user_group_state_fault
+import capo_elasticache.errors.service_linked_role_not_found_fault
+import capo_elasticache.errors.user_group_not_found_fault
+import capo_elasticache.errors.user_not_found_fault
+import capo_elasticache.types.modify_user_group_message
+import capo_elasticache.types.ug_replication_group_id_list
+import capo_elasticache.types.ug_serverless_cache_id_list
+import capo_elasticache.types.user_group
+import capo_elasticache.types.user_group_pending_changes
+import capo_elasticache.types.user_id_list
+import capo_elasticache.types.user_id_list_input
+from capo_elasticache._protocol.errors import parse_error_metadata
+from capo_elasticache._protocol.xml import fromstring
+from capo_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_elasticache._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_elasticache.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    root = fromstring(response.read())
+    code, message = parse_error_metadata(root)
+    match code:
+        case "DefaultUserRequired":
+            raise capo_elasticache.errors.default_user_required.DefaultUserRequired.from_query(
+                root
+            )
+        case "DuplicateUserNameFault":
+            raise capo_elasticache.errors.duplicate_user_name_fault.DuplicateUserNameFault.from_query(
+                root
+            )
+        case "InvalidParameterCombinationException":
+            raise capo_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_query(
+                root
+            )
+        case "InvalidParameterValueException":
+            raise capo_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
+                root
+            )
+        case "InvalidUserGroupStateFault":
+            raise capo_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault.from_query(
+                root
+            )
+        case "ServiceLinkedRoleNotFoundFault":
+            raise capo_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault.from_query(
+                root
+            )
+        case "UserGroupNotFoundFault":
+            raise capo_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault.from_query(
+                root
+            )
+        case "UserNotFoundFault":
+            raise capo_elasticache.errors.user_not_found_fault.UserNotFoundFault.from_query(
+                root
+            )
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_elasticache.types.user_group.UserGroup:
+    root = fromstring(response.read())
+    result = root.find("ModifyUserGroupResult")
+    out: capo_elasticache.types.user_group.UserGroup = (
+        capo_elasticache.types.user_group.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_elasticache.types.user_group.UserGroup:
+    root = fromstring(await response.aread())
+    result = root.find("ModifyUserGroupResult")
+    out: capo_elasticache.types.user_group.UserGroup = (
+        capo_elasticache.types.user_group.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_elasticache._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_elasticache._auth._sigv4.build_sigv4_auth_scheme(
+                "elasticache", options.region
+            )
+        )
+        if sigv4_config is not None:
+            return capo_elasticache._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_elasticache.types.modify_user_group_message.ModifyUserGroupMessage,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Region=options.region,
+            UseDualStack=options.use_dual_stack,
+            UseFIPS=options.use_fips,
+            Endpoint=options.endpoint,
+        )
+    )  # noqa: F841
+    url = endpoint.url.rstrip("/") + ""
+    params: dict[str, str] = {}
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    pairs: list[tuple[str, str]] = []
+    pairs.append(("Action", "ModifyUserGroup"))
+    pairs.append(("Version", "2015-02-02"))
+    capo_elasticache.types.modify_user_group_message.serialize_query(input_, pairs, "")
+    body: bytes | None = urlencode(pairs).encode()
+    headers["content-type"] = "application/x-www-form-urlencoded"
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    normalized_url.search_params.update(params)
+    return zapros.Request(
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def modify_user_group(
+    options: OperationOptions,
+    input_: capo_elasticache.types.modify_user_group_message.ModifyUserGroupMessage,
+) -> tuple[capo_elasticache.types.user_group.UserGroup, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_modify_user_group(
+    options: AsyncOperationOptions,
+    input_: capo_elasticache.types.modify_user_group_message.ModifyUserGroupMessage,
+) -> tuple[capo_elasticache.types.user_group.UserGroup, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

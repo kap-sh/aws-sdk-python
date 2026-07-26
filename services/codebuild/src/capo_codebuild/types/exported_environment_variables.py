@@ -1,0 +1,37 @@
+"""Generated from Smithy shape ``com.amazonaws.codebuild#ExportedEnvironmentVariables``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_codebuild.types.exported_environment_variable
+
+ExportedEnvironmentVariables: TypeAlias = list[
+    "capo_codebuild.types.exported_environment_variable.ExportedEnvironmentVariable"
+]
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: ExportedEnvironmentVariables) -> list:
+    import capo_codebuild.types.exported_environment_variable
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_codebuild.types.exported_environment_variable.serialize_aws_json_1_1(
+                item
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: list) -> ExportedEnvironmentVariables:
+    import capo_codebuild.types.exported_environment_variable
+
+    out: ExportedEnvironmentVariables = []
+    for item in data:
+        out.append(
+            capo_codebuild.types.exported_environment_variable.deserialize_aws_json_1_1(
+                item
+            )
+        )
+    return out

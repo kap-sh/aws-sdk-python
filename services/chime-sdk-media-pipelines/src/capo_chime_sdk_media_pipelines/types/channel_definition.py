@@ -1,0 +1,50 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ChannelDefinition``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_chime_sdk_media_pipelines.types.channel_id
+    import capo_chime_sdk_media_pipelines.types.participant_role
+
+
+class ChannelDefinition(TypedDict, closed=True):
+    channel_id: "capo_chime_sdk_media_pipelines.types.channel_id.ChannelId"
+    """<p>The channel ID.</p>"""
+    participant_role: NotRequired[
+        "capo_chime_sdk_media_pipelines.types.participant_role.ParticipantRole"
+    ]
+    """<p>Specifies whether the audio in a channel belongs to the <code>AGENT</code> or <code>CUSTOMER</code>.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ChannelDefinition) -> dict:
+    out: dict = {}
+    out["ChannelId"] = value.get("channel_id", 0)
+    if "participant_role" in value:
+        import capo_chime_sdk_media_pipelines.types.participant_role
+
+        out["ParticipantRole"] = (
+            capo_chime_sdk_media_pipelines.types.participant_role.serialize_json(
+                value["participant_role"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> ChannelDefinition:
+    out: ChannelDefinition = {}  # type: ignore[typeddict-item]
+    if "ChannelId" in data:
+        out["channel_id"] = data["ChannelId"]
+    else:
+        out["channel_id"] = 0
+    if "ParticipantRole" in data:
+        import capo_chime_sdk_media_pipelines.types.participant_role
+
+        out["participant_role"] = (
+            capo_chime_sdk_media_pipelines.types.participant_role.deserialize_json(
+                data["ParticipantRole"]
+            )
+        )
+    return out

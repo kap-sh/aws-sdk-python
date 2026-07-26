@@ -1,0 +1,47 @@
+"""Generated from Smithy shape ``com.amazonaws.kafka#UpdateConfigurationResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_kafka.types.__string
+    import capo_kafka.types.configuration_revision
+
+
+class UpdateConfigurationResponse(TypedDict, closed=True):
+    arn: NotRequired["capo_kafka.types.__string.__string"]
+    """<p>The Amazon Resource Name (ARN) of the configuration.</p>"""
+    latest_revision: NotRequired[
+        "capo_kafka.types.configuration_revision.ConfigurationRevision"
+    ]
+    """<p>Latest revision of the configuration.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateConfigurationResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["arn"] = value["arn"]
+    if "latest_revision" in value:
+        import capo_kafka.types.configuration_revision
+
+        out["latestRevision"] = capo_kafka.types.configuration_revision.serialize_json(
+            value["latest_revision"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateConfigurationResponse:
+    out: UpdateConfigurationResponse = {}  # type: ignore[typeddict-item]
+    if "arn" in data:
+        out["arn"] = data["arn"]
+    if "latestRevision" in data:
+        import capo_kafka.types.configuration_revision
+
+        out["latest_revision"] = (
+            capo_kafka.types.configuration_revision.deserialize_json(
+                data["latestRevision"]
+            )
+        )
+    return out

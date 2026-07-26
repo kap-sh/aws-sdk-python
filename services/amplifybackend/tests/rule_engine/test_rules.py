@@ -1,6 +1,6 @@
 import pytest
-from aws_sdk_amplifybackend._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_amplifybackend._rule_engine._endpoint_runtime import EndpointError
+from capo_amplifybackend._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_amplifybackend._rule_engine._endpoint_runtime import EndpointError
 import re
 import zapros
 

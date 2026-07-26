@@ -1,0 +1,41 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#UpdateApplicationSettingsResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_pinpoint.types.application_settings_resource
+
+
+class UpdateApplicationSettingsResponse(TypedDict, closed=True):
+    application_settings_resource: NotRequired[
+        "capo_pinpoint.types.application_settings_resource.ApplicationSettingsResource"
+    ]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: UpdateApplicationSettingsResponse) -> dict:
+    out: dict = {}
+    if "application_settings_resource" in value:
+        import capo_pinpoint.types.application_settings_resource
+
+        out["ApplicationSettingsResource"] = (
+            capo_pinpoint.types.application_settings_resource.serialize_json(
+                value["application_settings_resource"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> UpdateApplicationSettingsResponse:
+    out: UpdateApplicationSettingsResponse = {}  # type: ignore[typeddict-item]
+    if "ApplicationSettingsResource" in data:
+        import capo_pinpoint.types.application_settings_resource
+
+        out["application_settings_resource"] = (
+            capo_pinpoint.types.application_settings_resource.deserialize_json(
+                data["ApplicationSettingsResource"]
+            )
+        )
+    return out

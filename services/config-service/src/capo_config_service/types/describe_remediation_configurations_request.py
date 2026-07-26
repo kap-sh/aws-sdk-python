@@ -1,0 +1,45 @@
+"""Generated from Smithy shape ``com.amazonaws.configservice#DescribeRemediationConfigurationsRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_config_service.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_config_service.types.config_rule_names
+
+
+class DescribeRemediationConfigurationsRequest(TypedDict, closed=True):
+    config_rule_names: "capo_config_service.types.config_rule_names.ConfigRuleNames"
+    """<p>A list of Config rule names of remediation configurations for which you want details. </p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: DescribeRemediationConfigurationsRequest) -> dict:
+    out: dict = {}
+    import capo_config_service.types.config_rule_names
+
+    out["ConfigRuleNames"] = (
+        capo_config_service.types.config_rule_names.serialize_aws_json_1_1(
+            value["config_rule_names"]
+        )
+    )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> DescribeRemediationConfigurationsRequest:
+    out: DescribeRemediationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+    if "ConfigRuleNames" in data:
+        import capo_config_service.types.config_rule_names
+
+        out["config_rule_names"] = (
+            capo_config_service.types.config_rule_names.deserialize_aws_json_1_1(
+                data["ConfigRuleNames"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "DescribeRemediationConfigurationsRequest.config_rule_names required"
+        )
+    return out

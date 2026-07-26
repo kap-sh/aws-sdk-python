@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-cloudtrail"
+name = "capo-cloudtrail"
 version = "0.1.0"
 description = "Python SDK for Cloudtrail."
 readme = "README.md"

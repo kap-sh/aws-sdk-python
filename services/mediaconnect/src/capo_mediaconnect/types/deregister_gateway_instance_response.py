@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.mediaconnect#DeregisterGatewayInstanceResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_mediaconnect.types.instance_state
+
+
+class DeregisterGatewayInstanceResponse(TypedDict, closed=True):
+    gateway_instance_arn: NotRequired["str"]
+    """<p> The ARN of the instance.</p>"""
+    instance_state: NotRequired["capo_mediaconnect.types.instance_state.InstanceState"]
+    """<p> The status of the instance.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeregisterGatewayInstanceResponse) -> dict:
+    out: dict = {}
+    if "gateway_instance_arn" in value:
+        out["gatewayInstanceArn"] = value["gateway_instance_arn"]
+    if "instance_state" in value:
+        import capo_mediaconnect.types.instance_state
+
+        out["instanceState"] = capo_mediaconnect.types.instance_state.serialize_json(
+            value["instance_state"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DeregisterGatewayInstanceResponse:
+    out: DeregisterGatewayInstanceResponse = {}  # type: ignore[typeddict-item]
+    if "gatewayInstanceArn" in data:
+        out["gateway_instance_arn"] = data["gatewayInstanceArn"]
+    if "instanceState" in data:
+        import capo_mediaconnect.types.instance_state
+
+        out["instance_state"] = capo_mediaconnect.types.instance_state.deserialize_json(
+            data["instanceState"]
+        )
+    return out

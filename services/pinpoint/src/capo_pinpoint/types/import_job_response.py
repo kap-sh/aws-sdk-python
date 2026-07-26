@@ -1,0 +1,128 @@
+"""Generated from Smithy shape ``com.amazonaws.pinpoint#ImportJobResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_pinpoint.types.__integer
+    import capo_pinpoint.types.__string
+    import capo_pinpoint.types.import_job_resource
+    import capo_pinpoint.types.job_status
+    import capo_pinpoint.types.list_of__string
+
+
+class ImportJobResponse(TypedDict, closed=True):
+    application_id: NotRequired["capo_pinpoint.types.__string.__string"]
+    """<p>The unique identifier for the application that's associated with the import job.</p>"""
+    completed_pieces: NotRequired["capo_pinpoint.types.__integer.__integer"]
+    """<p>The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.</p>"""
+    completion_date: NotRequired["capo_pinpoint.types.__string.__string"]
+    """<p>The date, in ISO 8601 format, when the import job was completed.</p>"""
+    creation_date: NotRequired["capo_pinpoint.types.__string.__string"]
+    """<p>The date, in ISO 8601 format, when the import job was created.</p>"""
+    definition: NotRequired["capo_pinpoint.types.import_job_resource.ImportJobResource"]
+    """<p>The resource settings that apply to the import job.</p>"""
+    failed_pieces: NotRequired["capo_pinpoint.types.__integer.__integer"]
+    """<p>The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.</p>"""
+    failures: NotRequired["capo_pinpoint.types.list_of__string.ListOf__string"]
+    """<p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.</p>"""
+    id: NotRequired["capo_pinpoint.types.__string.__string"]
+    """<p>The unique identifier for the import job.</p>"""
+    job_status: NotRequired["capo_pinpoint.types.job_status.JobStatus"]
+    """<p>The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>"""
+    total_failures: NotRequired["capo_pinpoint.types.__integer.__integer"]
+    """<p>The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.</p>"""
+    total_pieces: NotRequired["capo_pinpoint.types.__integer.__integer"]
+    """<p>The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.</p>"""
+    total_processed: NotRequired["capo_pinpoint.types.__integer.__integer"]
+    """<p>The total number of endpoint definitions that were processed by the import job.</p>"""
+    type: NotRequired["capo_pinpoint.types.__string.__string"]
+    """<p>The job type. This value is IMPORT for import jobs.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ImportJobResponse) -> dict:
+    out: dict = {}
+    if "application_id" in value:
+        out["ApplicationId"] = value["application_id"]
+    if "completed_pieces" in value:
+        out["CompletedPieces"] = value["completed_pieces"]
+    if "completion_date" in value:
+        out["CompletionDate"] = value["completion_date"]
+    if "creation_date" in value:
+        out["CreationDate"] = value["creation_date"]
+    if "definition" in value:
+        import capo_pinpoint.types.import_job_resource
+
+        out["Definition"] = capo_pinpoint.types.import_job_resource.serialize_json(
+            value["definition"]
+        )
+    if "failed_pieces" in value:
+        out["FailedPieces"] = value["failed_pieces"]
+    if "failures" in value:
+        import capo_pinpoint.types.list_of__string
+
+        out["Failures"] = capo_pinpoint.types.list_of__string.serialize_json(
+            value["failures"]
+        )
+    if "id" in value:
+        out["Id"] = value["id"]
+    if "job_status" in value:
+        import capo_pinpoint.types.job_status
+
+        out["JobStatus"] = capo_pinpoint.types.job_status.serialize_json(
+            value["job_status"]
+        )
+    if "total_failures" in value:
+        out["TotalFailures"] = value["total_failures"]
+    if "total_pieces" in value:
+        out["TotalPieces"] = value["total_pieces"]
+    if "total_processed" in value:
+        out["TotalProcessed"] = value["total_processed"]
+    if "type" in value:
+        out["Type"] = value["type"]
+    return out
+
+
+def deserialize_json(data: dict) -> ImportJobResponse:
+    out: ImportJobResponse = {}  # type: ignore[typeddict-item]
+    if "ApplicationId" in data:
+        out["application_id"] = data["ApplicationId"]
+    if "CompletedPieces" in data:
+        out["completed_pieces"] = data["CompletedPieces"]
+    if "CompletionDate" in data:
+        out["completion_date"] = data["CompletionDate"]
+    if "CreationDate" in data:
+        out["creation_date"] = data["CreationDate"]
+    if "Definition" in data:
+        import capo_pinpoint.types.import_job_resource
+
+        out["definition"] = capo_pinpoint.types.import_job_resource.deserialize_json(
+            data["Definition"]
+        )
+    if "FailedPieces" in data:
+        out["failed_pieces"] = data["FailedPieces"]
+    if "Failures" in data:
+        import capo_pinpoint.types.list_of__string
+
+        out["failures"] = capo_pinpoint.types.list_of__string.deserialize_json(
+            data["Failures"]
+        )
+    if "Id" in data:
+        out["id"] = data["Id"]
+    if "JobStatus" in data:
+        import capo_pinpoint.types.job_status
+
+        out["job_status"] = capo_pinpoint.types.job_status.deserialize_json(
+            data["JobStatus"]
+        )
+    if "TotalFailures" in data:
+        out["total_failures"] = data["TotalFailures"]
+    if "TotalPieces" in data:
+        out["total_pieces"] = data["TotalPieces"]
+    if "TotalProcessed" in data:
+        out["total_processed"] = data["TotalProcessed"]
+    if "Type" in data:
+        out["type"] = data["Type"]
+    return out

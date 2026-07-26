@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.secretsmanager#RestoreSecretResponse``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_secrets_manager.types.secret_arn_type
+    import capo_secrets_manager.types.secret_name_type
+
+
+class RestoreSecretResponse(TypedDict, closed=True):
+    arn: NotRequired["capo_secrets_manager.types.secret_arn_type.SecretARNType"]
+    """<p>The ARN of the secret that was restored.</p>"""
+    name: NotRequired["capo_secrets_manager.types.secret_name_type.SecretNameType"]
+    """<p>The name of the secret that was restored.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: RestoreSecretResponse) -> dict:
+    out: dict = {}
+    if "arn" in value:
+        out["ARN"] = value["arn"]
+    if "name" in value:
+        out["Name"] = value["name"]
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> RestoreSecretResponse:
+    out: RestoreSecretResponse = {}  # type: ignore[typeddict-item]
+    if "ARN" in data:
+        out["arn"] = data["ARN"]
+    if "Name" in data:
+        out["name"] = data["Name"]
+    return out

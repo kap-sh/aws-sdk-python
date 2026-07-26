@@ -1,0 +1,19 @@
+"""Generated from Smithy shape ``com.amazonaws.mgn#ReplicationServersSecurityGroupsIDs``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_mgn.types.security_group_id
+
+ReplicationServersSecurityGroupsIDs: TypeAlias = list[
+    "capo_mgn.types.security_group_id.SecurityGroupID"
+]
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: ReplicationServersSecurityGroupsIDs) -> list:
+    return list(value)
+
+
+def deserialize_json(data: list) -> ReplicationServersSecurityGroupsIDs:
+    return list(data)

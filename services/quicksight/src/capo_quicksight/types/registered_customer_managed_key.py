@@ -1,0 +1,36 @@
+"""Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredCustomerManagedKey``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_quicksight.types.boolean
+    import capo_quicksight.types.string
+
+
+class RegisteredCustomerManagedKey(TypedDict, closed=True):
+    key_arn: NotRequired["capo_quicksight.types.string.String"]
+    """<p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>"""
+    default_key: "capo_quicksight.types.boolean.Boolean"
+    """<p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RegisteredCustomerManagedKey) -> dict:
+    out: dict = {}
+    if "key_arn" in value:
+        out["KeyArn"] = value["key_arn"]
+    out["DefaultKey"] = value.get("default_key", False)
+    return out
+
+
+def deserialize_json(data: dict) -> RegisteredCustomerManagedKey:
+    out: RegisteredCustomerManagedKey = {}  # type: ignore[typeddict-item]
+    if "KeyArn" in data:
+        out["key_arn"] = data["KeyArn"]
+    if "DefaultKey" in data:
+        out["default_key"] = data["DefaultKey"]
+    else:
+        out["default_key"] = False
+    return out

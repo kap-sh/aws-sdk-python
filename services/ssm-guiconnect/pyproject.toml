@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-ssm-guiconnect"
+name = "capo-ssm-guiconnect"
 version = "0.1.0"
 description = "Python SDK for SSM Guiconnect."
 readme = "README.md"

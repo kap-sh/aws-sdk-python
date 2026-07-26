@@ -1,0 +1,58 @@
+"""Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAcl``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_qbusiness.types.document_acl_membership
+
+
+class DocumentAcl(TypedDict, closed=True):
+    allowlist: NotRequired[
+        "capo_qbusiness.types.document_acl_membership.DocumentAclMembership"
+    ]
+    """<p>The allowlist conditions for the document. Users or groups matching these conditions are granted access to the document.</p>"""
+    deny_list: NotRequired[
+        "capo_qbusiness.types.document_acl_membership.DocumentAclMembership"
+    ]
+    """<p>The denylist conditions for the document. Users or groups matching these conditions are denied access to the document, overriding allowlist permissions.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DocumentAcl) -> dict:
+    out: dict = {}
+    if "allowlist" in value:
+        import capo_qbusiness.types.document_acl_membership
+
+        out["allowlist"] = capo_qbusiness.types.document_acl_membership.serialize_json(
+            value["allowlist"]
+        )
+    if "deny_list" in value:
+        import capo_qbusiness.types.document_acl_membership
+
+        out["denyList"] = capo_qbusiness.types.document_acl_membership.serialize_json(
+            value["deny_list"]
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> DocumentAcl:
+    out: DocumentAcl = {}  # type: ignore[typeddict-item]
+    if "allowlist" in data:
+        import capo_qbusiness.types.document_acl_membership
+
+        out["allowlist"] = (
+            capo_qbusiness.types.document_acl_membership.deserialize_json(
+                data["allowlist"]
+            )
+        )
+    if "denyList" in data:
+        import capo_qbusiness.types.document_acl_membership
+
+        out["deny_list"] = (
+            capo_qbusiness.types.document_acl_membership.deserialize_json(
+                data["denyList"]
+            )
+        )
+    return out

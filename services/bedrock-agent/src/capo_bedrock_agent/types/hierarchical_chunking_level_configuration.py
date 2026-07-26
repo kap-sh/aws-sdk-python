@@ -1,0 +1,28 @@
+"""Generated from Smithy shape ``com.amazonaws.bedrockagent#HierarchicalChunkingLevelConfiguration``."""
+
+from typing_extensions import TypedDict
+
+from capo_bedrock_agent.errors import DeserializationError
+
+
+class HierarchicalChunkingLevelConfiguration(TypedDict, closed=True):
+    max_tokens: "int"
+    """<p>The maximum number of tokens that a chunk can contain in this layer.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: HierarchicalChunkingLevelConfiguration) -> dict:
+    out: dict = {}
+    out["maxTokens"] = value["max_tokens"]
+    return out
+
+
+def deserialize_json(data: dict) -> HierarchicalChunkingLevelConfiguration:
+    out: HierarchicalChunkingLevelConfiguration = {}  # type: ignore[typeddict-item]
+    if "maxTokens" in data:
+        out["max_tokens"] = data["maxTokens"]
+    else:
+        raise DeserializationError(
+            "HierarchicalChunkingLevelConfiguration.max_tokens required"
+        )
+    return out

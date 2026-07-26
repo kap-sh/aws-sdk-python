@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.schemas#CreateRegistryRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_schemas.types.__string
+    import capo_schemas.types.__string_min0_max256
+    import capo_schemas.types.tags
+
+
+class CreateRegistryRequest(TypedDict, closed=True):
+    description: NotRequired[
+        "capo_schemas.types.__string_min0_max256.__stringMin0Max256"
+    ]
+    """<p>A description of the registry to be created.</p>"""
+    registry_name: "capo_schemas.types.__string.__string"
+    """<p>The name of the registry.</p>"""
+    tags: NotRequired["capo_schemas.types.tags.Tags"]
+    """<p>Tags to associate with the registry.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: CreateRegistryRequest) -> dict:
+    out: dict = {}
+    if "description" in value:
+        out["Description"] = value["description"]
+    if "tags" in value:
+        import capo_schemas.types.tags
+
+        out["tags"] = capo_schemas.types.tags.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> CreateRegistryRequest:
+    out: CreateRegistryRequest = {}  # type: ignore[typeddict-item]
+    if "Description" in data:
+        out["description"] = data["Description"]
+    if "tags" in data:
+        import capo_schemas.types.tags
+
+        out["tags"] = capo_schemas.types.tags.deserialize_json(data["tags"])
+    return out

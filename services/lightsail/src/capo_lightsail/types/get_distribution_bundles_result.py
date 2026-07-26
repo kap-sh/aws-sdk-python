@@ -1,0 +1,42 @@
+"""Generated from Smithy shape ``com.amazonaws.lightsail#GetDistributionBundlesResult``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_lightsail.types.distribution_bundle_list
+
+
+class GetDistributionBundlesResult(TypedDict, closed=True):
+    bundles: NotRequired[
+        "capo_lightsail.types.distribution_bundle_list.DistributionBundleList"
+    ]
+    """<p>An object that describes a distribution bundle.</p>"""
+
+
+# --- awsJson1_1 ser/de ---
+def serialize_aws_json_1_1(value: GetDistributionBundlesResult) -> dict:
+    out: dict = {}
+    if "bundles" in value:
+        import capo_lightsail.types.distribution_bundle_list
+
+        out["bundles"] = (
+            capo_lightsail.types.distribution_bundle_list.serialize_aws_json_1_1(
+                value["bundles"]
+            )
+        )
+    return out
+
+
+def deserialize_aws_json_1_1(data: dict) -> GetDistributionBundlesResult:
+    out: GetDistributionBundlesResult = {}  # type: ignore[typeddict-item]
+    if "bundles" in data:
+        import capo_lightsail.types.distribution_bundle_list
+
+        out["bundles"] = (
+            capo_lightsail.types.distribution_bundle_list.deserialize_aws_json_1_1(
+                data["bundles"]
+            )
+        )
+    return out

@@ -1,0 +1,49 @@
+"""Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpnConnectionOptionsDetails``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_securityhub.types.aws_ec2_vpn_connection_options_tunnel_options_list
+    import capo_securityhub.types.boolean
+
+
+class AwsEc2VpnConnectionOptionsDetails(TypedDict, closed=True):
+    static_routes_only: NotRequired["capo_securityhub.types.boolean.Boolean"]
+    """<p>Whether the VPN connection uses static routes only.</p>"""
+    tunnel_options: NotRequired[
+        "capo_securityhub.types.aws_ec2_vpn_connection_options_tunnel_options_list.AwsEc2VpnConnectionOptionsTunnelOptionsList"
+    ]
+    """<p>The VPN tunnel options.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: AwsEc2VpnConnectionOptionsDetails) -> dict:
+    out: dict = {}
+    if "static_routes_only" in value:
+        out["StaticRoutesOnly"] = value["static_routes_only"]
+    if "tunnel_options" in value:
+        import capo_securityhub.types.aws_ec2_vpn_connection_options_tunnel_options_list
+
+        out["TunnelOptions"] = (
+            capo_securityhub.types.aws_ec2_vpn_connection_options_tunnel_options_list.serialize_json(
+                value["tunnel_options"]
+            )
+        )
+    return out
+
+
+def deserialize_json(data: dict) -> AwsEc2VpnConnectionOptionsDetails:
+    out: AwsEc2VpnConnectionOptionsDetails = {}  # type: ignore[typeddict-item]
+    if "StaticRoutesOnly" in data:
+        out["static_routes_only"] = data["StaticRoutesOnly"]
+    if "TunnelOptions" in data:
+        import capo_securityhub.types.aws_ec2_vpn_connection_options_tunnel_options_list
+
+        out["tunnel_options"] = (
+            capo_securityhub.types.aws_ec2_vpn_connection_options_tunnel_options_list.deserialize_json(
+                data["TunnelOptions"]
+            )
+        )
+    return out

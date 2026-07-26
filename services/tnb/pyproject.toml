@@ -1,5 +1,5 @@
 [project]
-name = "aws-sdk-tnb"
+name = "capo-tnb"
 version = "0.1.0"
 description = "Python SDK for TNB."
 readme = "README.md"

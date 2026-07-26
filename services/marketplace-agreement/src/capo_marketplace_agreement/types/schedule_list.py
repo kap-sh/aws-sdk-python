@@ -1,0 +1,35 @@
+"""Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ScheduleList``."""
+
+from typing import TYPE_CHECKING, TypeAlias
+
+if TYPE_CHECKING:
+    import capo_marketplace_agreement.types.schedule_item
+
+ScheduleList: TypeAlias = list[
+    "capo_marketplace_agreement.types.schedule_item.ScheduleItem"
+]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ScheduleList) -> list:
+    import capo_marketplace_agreement.types.schedule_item
+
+    out: list = []
+    for item in value:
+        out.append(
+            capo_marketplace_agreement.types.schedule_item.serialize_aws_json_1_0(item)
+        )
+    return out
+
+
+def deserialize_aws_json_1_0(data: list) -> ScheduleList:
+    import capo_marketplace_agreement.types.schedule_item
+
+    out: ScheduleList = []
+    for item in data:
+        out.append(
+            capo_marketplace_agreement.types.schedule_item.deserialize_aws_json_1_0(
+                item
+            )
+        )
+    return out

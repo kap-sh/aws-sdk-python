@@ -1,0 +1,24 @@
+"""Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteDomainVerificationRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+if TYPE_CHECKING:
+    import capo_vpc_lattice.types.domain_verification_identifier
+
+
+class DeleteDomainVerificationRequest(TypedDict, closed=True):
+    domain_verification_identifier: "capo_vpc_lattice.types.domain_verification_identifier.DomainVerificationIdentifier"
+    """<p> The ID of the domain verification to delete. </p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: DeleteDomainVerificationRequest) -> dict:
+    out: dict = {}
+    return out
+
+
+def deserialize_json(data: dict) -> DeleteDomainVerificationRequest:
+    out: DeleteDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+    return out

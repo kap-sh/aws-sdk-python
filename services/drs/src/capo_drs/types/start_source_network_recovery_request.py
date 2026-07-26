@@ -1,0 +1,62 @@
+"""Generated from Smithy shape ``com.amazonaws.drs#StartSourceNetworkRecoveryRequest``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_drs.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_drs.types.start_source_network_recovery_request_network_entries
+    import capo_drs.types.tags_map
+
+
+class StartSourceNetworkRecoveryRequest(TypedDict, closed=True):
+    source_networks: "capo_drs.types.start_source_network_recovery_request_network_entries.StartSourceNetworkRecoveryRequestNetworkEntries"
+    """<p>The Source Networks that we want to start a Recovery Job for.</p>"""
+    deploy_as_new: NotRequired["bool"]
+    """<p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>"""
+    tags: NotRequired["capo_drs.types.tags_map.TagsMap"]
+    """<p>The tags to be associated with the Source Network recovery Job.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: StartSourceNetworkRecoveryRequest) -> dict:
+    out: dict = {}
+    import capo_drs.types.start_source_network_recovery_request_network_entries
+
+    out["sourceNetworks"] = (
+        capo_drs.types.start_source_network_recovery_request_network_entries.serialize_json(
+            value["source_networks"]
+        )
+    )
+    if "deploy_as_new" in value:
+        out["deployAsNew"] = value["deploy_as_new"]
+    if "tags" in value:
+        import capo_drs.types.tags_map
+
+        out["tags"] = capo_drs.types.tags_map.serialize_json(value["tags"])
+    return out
+
+
+def deserialize_json(data: dict) -> StartSourceNetworkRecoveryRequest:
+    out: StartSourceNetworkRecoveryRequest = {}  # type: ignore[typeddict-item]
+    if "sourceNetworks" in data:
+        import capo_drs.types.start_source_network_recovery_request_network_entries
+
+        out["source_networks"] = (
+            capo_drs.types.start_source_network_recovery_request_network_entries.deserialize_json(
+                data["sourceNetworks"]
+            )
+        )
+    else:
+        raise DeserializationError(
+            "StartSourceNetworkRecoveryRequest.source_networks required"
+        )
+    if "deployAsNew" in data:
+        out["deploy_as_new"] = data["deployAsNew"]
+    if "tags" in data:
+        import capo_drs.types.tags_map
+
+        out["tags"] = capo_drs.types.tags_map.deserialize_json(data["tags"])
+    return out

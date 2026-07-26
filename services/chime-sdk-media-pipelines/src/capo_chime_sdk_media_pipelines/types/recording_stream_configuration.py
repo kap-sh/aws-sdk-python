@@ -1,0 +1,30 @@
+"""Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#RecordingStreamConfiguration``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+if TYPE_CHECKING:
+    import capo_chime_sdk_media_pipelines.types.kinesis_video_stream_arn
+
+
+class RecordingStreamConfiguration(TypedDict, closed=True):
+    stream_arn: NotRequired[
+        "capo_chime_sdk_media_pipelines.types.kinesis_video_stream_arn.KinesisVideoStreamArn"
+    ]
+    """<p>The ARN of the recording stream.</p>"""
+
+
+# --- restJson1 ser/de ---
+def serialize_json(value: RecordingStreamConfiguration) -> dict:
+    out: dict = {}
+    if "stream_arn" in value:
+        out["StreamArn"] = value["stream_arn"]
+    return out
+
+
+def deserialize_json(data: dict) -> RecordingStreamConfiguration:
+    out: RecordingStreamConfiguration = {}  # type: ignore[typeddict-item]
+    if "StreamArn" in data:
+        out["stream_arn"] = data["StreamArn"]
+    return out
