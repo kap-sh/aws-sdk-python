@@ -3,25 +3,73 @@ name: Publish to PyPI
 on:
   workflow_dispatch:
     inputs:
-      service:
-        description: Service to publish
+      services:
+        description: Space-separated services to publish
         required: true
         type: string
 
 permissions:
   contents: read
-  id-token: write
+
+env:
+  BATCH_SIZE: 10
 
 jobs:
-  publish:
+  discover:
     runs-on: ubuntu-latest
+    outputs:
+      batches: ${{ steps.set.outputs.batches }}
+    steps:
+      - name: Build service batches
+        id: set
+        env:
+          SERVICES: ${{ inputs.services }}
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, os
+          services = sorted(set(os.environ["SERVICES"].split()))
+          if not services:
+              raise SystemExit("no services given")
+          size = int(os.environ["BATCH_SIZE"])
+          batches = [
+              " ".join(services[i:i + size])
+              for i in range(0, len(services), size)
+          ]
+          print("batches=" + json.dumps(batches))
+          EOF
+
+  publish:
+    needs: discover
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      contents: read
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        batch: ${{ fromJson(needs.discover.outputs.batches) }}
     steps:
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: services/${{ inputs.service }}
-          sparse-checkout-cone-mode: false
+          sparse-checkout: .github
+
+      - name: Check out batch services
+        env:
+          BATCH: ${{ matrix.batch }}
+        run: printf 'services/%s\n' $BATCH | xargs git sparse-checkout set
 
       - uses: astral-sh/setup-uv@v5
 
-      - name: Build and publish
-        run: cd services/${{ inputs.service }} && uv build && uv publish --trusted-publishing always
+      - name: Build and publish batch
+        env:
+          BATCH: ${{ matrix.batch }}
+        run: |
+          set -euo pipefail
+          for service in $BATCH; do
+            echo "::group::$service"
+            (cd "services/$service" \
+              && uv build \
+              && uv publish --trusted-publishing always --check-url https://pypi.org/simple/)
+            echo "::endgroup::"
+          done

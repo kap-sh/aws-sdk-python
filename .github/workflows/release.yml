@@ -7,6 +7,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   release:
@@ -35,3 +36,37 @@ jobs:
           commit: "chore: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Non-empty only on the push that merges the version PR: that push is what
+      # rewrites the root changelog. aggregate_changelog.py always prepends a
+      # fresh dated section, so the first section is exactly this release.
+      - name: Detect released services
+        id: changed
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          # github.event.before is the all-zero SHA for a new branch or force push.
+          base=$(git rev-parse --verify --quiet "$BEFORE^{commit}" || echo "HEAD^")
+          if git diff --quiet "$base" HEAD -- CHANGELOG.md; then
+            echo "services=" >> "$GITHUB_OUTPUT"
+            echo "Root changelog unchanged; nothing to publish."
+            exit 0
+          fi
+          python3 - >> "$GITHUB_OUTPUT" <<'EOF'
+          import re
+          import sys
+          from pathlib import Path
+          sections = Path("CHANGELOG.md").read_text().split("\n## ")
+          top = sections[1] if len(sections) > 1 else ""
+          services = sorted(set(re.findall(r"\]\(services/([^/]+)/CHANGELOG\.md\)", top)))
+          print(f"Released services ({len(services)}): {' '.join(services)}", file=sys.stderr)
+          print("services=" + " ".join(services))
+          EOF
+
+      - name: Dispatch publish workflow
+        if: steps.changed.outputs.services != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SERVICES: ${{ steps.changed.outputs.services }}
+        run: gh workflow run publish.yml -f services="$SERVICES"
