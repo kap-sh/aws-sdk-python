@@ -1,7 +1,7 @@
 
-# aws-sdk-python
+# capo (caporegime)
 
-Modern AWS SDK for Python — async-native, fully typed, and generated from official Smithy models.
+Community-driven AWS SDK for Python
 
 ## Features
 
@@ -21,16 +21,31 @@ Modern AWS SDK for Python — async-native, fully typed, and generated from offi
 
 ## Installation
 
-This repository ships standalone packages for each service.
-
-For now, we don't have all the packages published to PyPi, we'll do that once we figure out the best way to distribute them without violating https://aws.amazon.com/trademark-guidelines/, and under which namespace we should publish them. For now, you can install the packages directly from GitHub:
+Every service is a standalone package, so you only install the ones you actually use. Packages are published under the `capo-` prefix:
 
 ```bash
-uv add git+https://github.com/kap-sh/aws-sdk-python#subdirectory=services/s3
-# or any other services, for example:
-uv add git+https://github.com/kap-sh/aws-sdk-python#subdirectory=services/ec2
-uv add git+https://github.com/kap-sh/aws-sdk-python#subdirectory=services/dynamodb
+uv add capo-ec2                        # Amazon EC2 (also covers Amazon VPC)
+uv add capo-s3                         # Amazon S3
+uv add capo-iam                        # AWS IAM
+uv add capo-rds                        # Amazon RDS
+uv add capo-lambda                     # AWS Lambda
+uv add capo-cloudwatch                 # Amazon CloudWatch
+uv add capo-elastic-load-balancing     # Elastic Load Balancing (ELB)
+uv add capo-route-53                   # Amazon Route 53
+uv add capo-cloudfront                 # Amazon CloudFront
 ```
+
+Note that Amazon VPC has no separate package — its API is part of EC2, so `capo-ec2` covers it.
+
+### Services not yet on PyPI
+
+Not every service is on PyPI yet. We publish incrementally because of PyPI's limits on new projects and total upload size. If the service you need isn't published, install it straight from the repository:
+
+```bash
+uv add git+https://github.com/kap-sh/capo#subdirectory=services/glacier
+```
+
+Replace `glacier` with the directory name of the service under [`services/`](services/), and please [open an issue](https://github.com/kap-sh/capo/issues) so we can prioritize publishing it.
 
 
 
@@ -39,7 +54,7 @@ uv add git+https://github.com/kap-sh/aws-sdk-python#subdirectory=services/dynamo
 All the services have both async and sync client. The async client is simply prefixed with `Async` (e.g. `AsyncS3Client`).
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 async def main():
     async with AsyncS3Client() as s3:
@@ -50,7 +65,7 @@ async def main():
 Sync usage is the same, just without the `Async` prefix and without `await`:
 
 ```python
-from aws_sdk_s3 import S3Client
+from capo_s3 import S3Client
 
 with S3Client() as s3:
     response = s3.create_bucket("capo")
@@ -62,7 +77,7 @@ with S3Client() as s3:
 No matter how nested the input types are, you don't need to import any additional classes. All input and output types are fully typed via [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict).
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 async with AsyncS3Client() as s3_client:
     response = await s3_client.create_bucket(
@@ -84,8 +99,8 @@ The output types are also TypeDicts, we do this to make the input/output types i
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
-from aws_sdk_s3.error import NoSuchUpload
+from capo_s3 import AsyncS3Client
+from capo_s3.errors import NoSuchUpload
 
 
 async with AsyncS3Client() as s3:
@@ -105,7 +120,7 @@ All the service errors that an operation can raise are documented in that operat
 If the operation's input is a streaming blob, you can pass any `AsyncIterator[bytes]` or just a `bytes` object.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 s3_client = AsyncS3Client()
 
@@ -115,7 +130,7 @@ response = await s3_client.put_object("bucket_name", "key", body=b"some binary d
 Or, if you don't want to load the entire blob into memory, you can pass an `AsyncIterator[bytes]`:
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 async def async_iterator():
     yield b"capo"
@@ -130,7 +145,7 @@ Note that the stream can be any iterator of bytes; it need not be the file's con
 The output as mentioned before also can be a stream, in such case, the operation will return a context manager that yield the response, ensuring that the resource is properly closed after the response is consumed.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 s3_client = AsyncS3Client()
 
@@ -142,7 +157,7 @@ async with s3_client.get_object("bucket_name", "key") as response:
 The event streaming operations are similar, but instead of using `AsyncIterator[bytes]`, they use `AsyncIterator[Event]`, where `Event` is a TypedDict that represents the event type.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 s3_client = AsyncS3Client()
 
@@ -169,7 +184,7 @@ async def main():
 Waiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a `wait_until_` prefixed method.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async with AsyncS3Client() as s3:
@@ -182,7 +197,7 @@ async with AsyncS3Client() as s3:
 Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async with AsyncS3Client() as s3:
@@ -196,7 +211,7 @@ async with AsyncS3Client() as s3:
 Some operations support presigning, which generates a URL that can be used without credentials. Use the `presigned_` prefixed method on the client to get a presigned URL.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -207,7 +222,7 @@ async def main():
 ```
 
 > **Note**
-> Smithy models don't indicate which operations support presigning, so presigned methods are added by maintainers rather than the code generator. If you notice an operation that should support presigning but has no `presigned_` method, please [open an issue](https://github.com/kap-sh/aws-sdk-python/issues).
+> Smithy models don't indicate which operations support presigning, so presigned methods are added by maintainers rather than the code generator. If you notice an operation that should support presigning but has no `presigned_` method, please [open an issue](https://github.com/kap-sh/capo/issues).
 
 ## Interceptors
 
@@ -217,7 +232,7 @@ Interceptors let you hook into the operation lifecycle. An operation interceptor
 import asyncio
 from typing import Any, Awaitable, Callable
 
-from aws_sdk_s3 import AsyncOperationRequest, AsyncOperationResponse, AsyncS3Client
+from capo_s3 import AsyncOperationRequest, AsyncOperationResponse, AsyncS3Client
 
 
 async def debug_interceptor(
@@ -251,7 +266,7 @@ import asyncio
 
 from zapros import AsyncStdNetworkHandler, CacheMiddleware
 
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
@@ -272,7 +287,7 @@ The SDK retries failed operations automatically. Retry behaviour follows the Smi
 The number of attempts defaults to 3 and can be changed at the client level via `retry_max_attempts`, or per call via `config_overrides`.
 
 ```python
-from aws_sdk_s3 import AsyncS3Client
+from capo_s3 import AsyncS3Client
 
 
 async def main():
