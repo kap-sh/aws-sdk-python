@@ -11,3 +11,6 @@ wheels/
 
 # Node
 node_modules/
+
+# Docs
+site/

@@ -1,7 +1,7 @@
 
 # capo (caporegime)
 
-Community-driven AWS SDK for Python
+Community-driven AWS SDK for Python. Manage AWS services like a [capo](https://en.wikipedia.org/wiki/Caporegime).
 
 ## Features
 
@@ -45,7 +45,7 @@ Not every service is on PyPI yet. We publish incrementally because of PyPI's lim
 uv add git+https://github.com/kap-sh/capo#subdirectory=services/glacier
 ```
 
-Replace `glacier` with the directory name of the service under [`services/`](services/), and please [open an issue](https://github.com/kap-sh/capo/issues) so we can prioritize publishing it.
+Replace `glacier` with the directory name of the service under [`services/`](https://github.com/kap-sh/capo/tree/main/services), and please [open an issue](https://github.com/kap-sh/capo/issues) so we can prioritize publishing it.
 
 
 
