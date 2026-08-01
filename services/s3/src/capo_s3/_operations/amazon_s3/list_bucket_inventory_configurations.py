@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.types.inventory_configuration_list
 import capo_s3.types.list_bucket_inventory_configurations_output
 import capo_s3.types.list_bucket_inventory_configurations_request

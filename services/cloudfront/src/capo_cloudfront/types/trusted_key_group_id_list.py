@@ -25,7 +25,7 @@ def deserialize_xml(el: Element) -> TrustedKeyGroupIdList:
 
 
 def serialize_xml_flat(value: TrustedKeyGroupIdList, parent: Element, tag: str) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         SubElement(parent, tag).text = str(item)
 

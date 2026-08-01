@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.errors.object_already_in_active_tier_error
 import capo_s3.types.checksum_algorithm
 import capo_s3.types.request_charged

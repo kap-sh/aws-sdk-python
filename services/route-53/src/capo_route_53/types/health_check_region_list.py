@@ -31,7 +31,7 @@ def deserialize_xml(el: Element) -> HealthCheckRegionList:
 
 
 def serialize_xml_flat(value: HealthCheckRegionList, parent: Element, tag: str) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         import capo_route_53.types.health_check_region
 

@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.types.get_object_lock_configuration_output
 import capo_s3.types.get_object_lock_configuration_request
 import capo_s3.types.object_lock_configuration

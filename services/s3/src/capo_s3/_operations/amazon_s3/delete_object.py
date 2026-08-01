@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.types.delete_object_output
 import capo_s3.types.delete_object_request
 import capo_s3.types.if_match_last_modified_time

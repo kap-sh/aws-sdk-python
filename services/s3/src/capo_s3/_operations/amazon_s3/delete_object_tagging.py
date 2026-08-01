@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.types.delete_object_tagging_output
 import capo_s3.types.delete_object_tagging_request
 from capo_s3._protocol.errors import parse_error_metadata

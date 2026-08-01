@@ -39,7 +39,7 @@ def deserialize_xml(el: Element) -> LambdaFunctionAssociationList:
 def serialize_xml_flat(
     value: LambdaFunctionAssociationList, parent: Element, tag: str
 ) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         import capo_cloudfront.types.lambda_function_association
 

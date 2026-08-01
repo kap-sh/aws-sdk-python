@@ -31,7 +31,7 @@ def deserialize_xml(el: Element) -> CollectionSummaries:
 
 
 def serialize_xml_flat(value: CollectionSummaries, parent: Element, tag: str) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         import capo_route_53.types.collection_summary
 

@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.types.checksum_algorithm
 import capo_s3.types.inventory_table_configuration_updates
 import capo_s3.types.update_bucket_metadata_inventory_table_configuration_request

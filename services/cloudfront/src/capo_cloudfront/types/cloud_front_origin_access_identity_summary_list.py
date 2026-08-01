@@ -41,7 +41,7 @@ def deserialize_xml(el: Element) -> CloudFrontOriginAccessIdentitySummaryList:
 def serialize_xml_flat(
     value: CloudFrontOriginAccessIdentitySummaryList, parent: Element, tag: str
 ) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         import capo_cloudfront.types.cloud_front_origin_access_identity_summary
 

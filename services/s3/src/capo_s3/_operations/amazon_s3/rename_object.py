@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.errors.idempotency_parameter_mismatch
 import capo_s3.types.if_modified_since
 import capo_s3.types.if_unmodified_since

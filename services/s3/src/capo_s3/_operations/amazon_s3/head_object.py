@@ -12,6 +12,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
 import capo_s3.errors.not_found
 import capo_s3.types.archive_status
 import capo_s3.types.checksum_mode

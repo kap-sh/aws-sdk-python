@@ -29,7 +29,7 @@ def deserialize_xml(el: Element) -> MultipartUploadList:
 
 
 def serialize_xml_flat(value: MultipartUploadList, parent: Element, tag: str) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         import capo_s3.types.multipart_upload
 
