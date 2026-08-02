@@ -13,7 +13,7 @@ from capo_sts._auth._identity import (
     Credentials,
     Identity,
 )
-from capo_sts._services._aws_config import _load_profile
+from capo_sts._services._aws_config import _load_profile, active_profile
 
 
 class IdentityNotFound(Exception):
@@ -123,12 +123,10 @@ class EnvCredentialsProvider(CredentialsProvider):
 class ProfileCredentialsProvider(CredentialsProvider):
     """Read ~/.aws/credentials and ~/.aws/config for the active profile."""
 
-    def __init__(self, credentials_file: Path | None = None) -> None:
-        self._profile = (
-            os.environ.get("AWS_PROFILE")
-            or os.environ.get("AWS_DEFAULT_PROFILE")
-            or "default"
-        )
+    def __init__(
+        self, credentials_file: Path | None = None, profile: str | None = None
+    ) -> None:
+        self._profile = profile or active_profile()
         self._cred_file = credentials_file or Path(
             os.environ.get("AWS_SHARED_CREDENTIALS_FILE")
             or Path.home() / ".aws" / "credentials"
@@ -150,7 +148,7 @@ class ProfileCredentialsProvider(CredentialsProvider):
 
     def _load_section(self) -> dict[str, str]:
         # config-file profile reuses the loader from _services/_aws_config
-        merged, _ = _load_profile()
+        merged, _ = _load_profile(self._profile)
         if self._cred_file.is_file():
             cfg = configparser.ConfigParser(interpolation=None)
             cfg.read(self._cred_file)

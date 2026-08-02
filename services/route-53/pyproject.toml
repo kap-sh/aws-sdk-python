@@ -23,6 +23,14 @@ dependencies = [
     "zapros>=0.13.0",
 ]
 
+[project.optional-dependencies]
+# IAM Identity Center (SSO), assume-role and web-identity credentials providers
+sso = [
+    "capo-sso>=0.2.0",
+    "capo-sso-oidc>=0.2.0",
+    "capo-sts>=0.2.0",
+]
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
