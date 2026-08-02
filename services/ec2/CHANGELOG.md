@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.6.0
+
+### Minor Changes
+
+- 12d8ade: fix ec2 query serialization
+
 ## 0.5.0
 
 ### Minor Changes

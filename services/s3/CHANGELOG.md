@@ -1,5 +1,12 @@
 # aws-sdk-s3
 
+## 0.7.0
+
+### Minor Changes
+
+- 80d1393: regenerate services
+- 2784007: add IAM Identity Center (SSO), assume-role and web-identity support to the default credentials chain
+
 ## 0.6.0
 
 ### Minor Changes
