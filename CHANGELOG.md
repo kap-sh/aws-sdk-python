@@ -1,5 +1,16 @@
 # AWS SDK for Python - Releases
 
+## 2026-08-02
+
+- [aws-sdk-cloudfront v0.3.0](services/cloudfront/CHANGELOG.md)
+- [aws-sdk-cloudwatch v0.3.0](services/cloudwatch/CHANGELOG.md)
+- [aws-sdk-ec2 v0.6.0](services/ec2/CHANGELOG.md)
+- [aws-sdk-elastic-load-balancing v0.3.0](services/elastic-load-balancing/CHANGELOG.md)
+- [aws-sdk-iam v0.6.0](services/iam/CHANGELOG.md)
+- [aws-sdk-rds v0.3.0](services/rds/CHANGELOG.md)
+- [aws-sdk-route-53 v0.3.0](services/route-53/CHANGELOG.md)
+- [aws-sdk-s3 v0.7.0](services/s3/CHANGELOG.md)
+
 ## 2026-07-26
 
 - [aws-sdk-accessanalyzer v0.2.0](services/accessanalyzer/CHANGELOG.md)
