@@ -30,17 +30,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_event_id" in value:
-        pairs.append((f"{prefix}.InstanceEventId", str(value["instance_event_id"])))
+        pairs.append((f"{key_prefix}InstanceEventId", str(value["instance_event_id"])))
     if "not_before" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["not_before"], pairs, f"{prefix}.NotBefore"
+            value["not_before"], pairs, f"{key_prefix}NotBefore"
         )
 
 

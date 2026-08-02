@@ -30,18 +30,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     pairs.append(
         (
-            f"{prefix}.ServiceSpecificCredentialId",
+            f"{key_prefix}ServiceSpecificCredentialId",
             str(value["service_specific_credential_id"]),
         )
     )
     import capo_iam.types.status_type
 
     capo_iam.types.status_type.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
 
 

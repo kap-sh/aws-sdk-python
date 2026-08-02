@@ -37,30 +37,31 @@ class VerifiedAccessLogs(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VerifiedAccessLogs, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3" in value:
         import capo_ec2.types.verified_access_log_s3_destination
 
         capo_ec2.types.verified_access_log_s3_destination.serialize_ec2_query(
-            value["s3"], pairs, f"{prefix}.S3"
+            value["s3"], pairs, f"{key_prefix}S3"
         )
     if "cloud_watch_logs" in value:
         import capo_ec2.types.verified_access_log_cloud_watch_logs_destination
 
         capo_ec2.types.verified_access_log_cloud_watch_logs_destination.serialize_ec2_query(
-            value["cloud_watch_logs"], pairs, f"{prefix}.CloudWatchLogs"
+            value["cloud_watch_logs"], pairs, f"{key_prefix}CloudWatchLogs"
         )
     if "kinesis_data_firehose" in value:
         import capo_ec2.types.verified_access_log_kinesis_data_firehose_destination
 
         capo_ec2.types.verified_access_log_kinesis_data_firehose_destination.serialize_ec2_query(
-            value["kinesis_data_firehose"], pairs, f"{prefix}.KinesisDataFirehose"
+            value["kinesis_data_firehose"], pairs, f"{key_prefix}KinesisDataFirehose"
         )
     if "log_version" in value:
-        pairs.append((f"{prefix}.LogVersion", str(value["log_version"])))
+        pairs.append((f"{key_prefix}LogVersion", str(value["log_version"])))
     if "include_trust_context" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeTrustContext",
+                f"{key_prefix}IncludeTrustContext",
                 "true" if value["include_trust_context"] else "false",
             )
         )

@@ -24,13 +24,16 @@ class RouteServerBgpOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServerBgpOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "peer_asn" in value:
-        pairs.append((f"{prefix}.PeerAsn", str(value["peer_asn"])))
+        pairs.append((f"{key_prefix}PeerAsn", str(value["peer_asn"])))
     if "peer_liveness_detection" in value:
         import capo_ec2.types.route_server_peer_liveness_mode
 
         capo_ec2.types.route_server_peer_liveness_mode.serialize_ec2_query(
-            value["peer_liveness_detection"], pairs, f"{prefix}.PeerLivenessDetection"
+            value["peer_liveness_detection"],
+            pairs,
+            f"{key_prefix}PeerLivenessDetection",
         )
 
 

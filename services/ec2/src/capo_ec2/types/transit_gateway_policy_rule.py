@@ -32,25 +32,26 @@ class TransitGatewayPolicyRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayPolicyRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_cidr_block" in value:
-        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+        pairs.append((f"{key_prefix}SourceCidrBlock", str(value["source_cidr_block"])))
     if "source_port_range" in value:
-        pairs.append((f"{prefix}.SourcePortRange", str(value["source_port_range"])))
+        pairs.append((f"{key_prefix}SourcePortRange", str(value["source_port_range"])))
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "destination_port_range" in value:
         pairs.append(
-            (f"{prefix}.DestinationPortRange", str(value["destination_port_range"]))
+            (f"{key_prefix}DestinationPortRange", str(value["destination_port_range"]))
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "meta_data" in value:
         import capo_ec2.types.transit_gateway_policy_rule_meta_data
 
         capo_ec2.types.transit_gateway_policy_rule_meta_data.serialize_ec2_query(
-            value["meta_data"], pairs, f"{prefix}.MetaData"
+            value["meta_data"], pairs, f"{key_prefix}MetaData"
         )
 
 

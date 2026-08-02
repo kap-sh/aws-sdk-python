@@ -21,11 +21,12 @@ class GetContextKeysForPolicyResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetContextKeysForPolicyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "context_key_names" in value:
         import capo_iam.types.context_key_names_result_list_type
 
         capo_iam.types.context_key_names_result_list_type.serialize_query(
-            value["context_key_names"], pairs, f"{prefix}.ContextKeyNames"
+            value["context_key_names"], pairs, f"{key_prefix}ContextKeyNames"
         )
 
 

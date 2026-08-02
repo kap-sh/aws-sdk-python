@@ -34,22 +34,25 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "issuer" in value:
-        pairs.append((f"{prefix}.Issuer", str(value["issuer"])))
+        pairs.append((f"{key_prefix}Issuer", str(value["issuer"])))
     if "authorization_endpoint" in value:
         pairs.append(
-            (f"{prefix}.AuthorizationEndpoint", str(value["authorization_endpoint"]))
+            (f"{key_prefix}AuthorizationEndpoint", str(value["authorization_endpoint"]))
         )
     if "token_endpoint" in value:
-        pairs.append((f"{prefix}.TokenEndpoint", str(value["token_endpoint"])))
+        pairs.append((f"{key_prefix}TokenEndpoint", str(value["token_endpoint"])))
     if "user_info_endpoint" in value:
-        pairs.append((f"{prefix}.UserInfoEndpoint", str(value["user_info_endpoint"])))
+        pairs.append(
+            (f"{key_prefix}UserInfoEndpoint", str(value["user_info_endpoint"]))
+        )
     if "client_id" in value:
-        pairs.append((f"{prefix}.ClientId", str(value["client_id"])))
+        pairs.append((f"{key_prefix}ClientId", str(value["client_id"])))
     if "client_secret" in value:
-        pairs.append((f"{prefix}.ClientSecret", str(value["client_secret"])))
+        pairs.append((f"{key_prefix}ClientSecret", str(value["client_secret"])))
     if "scope" in value:
-        pairs.append((f"{prefix}.Scope", str(value["scope"])))
+        pairs.append((f"{key_prefix}Scope", str(value["scope"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessTrustProviderOidcOptions:

@@ -40,32 +40,33 @@ class ModifyInstancePlacementRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyInstancePlacementRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "partition_number" in value:
-        pairs.append((f"{prefix}.PartitionNumber", str(value["partition_number"])))
+        pairs.append((f"{key_prefix}PartitionNumber", str(value["partition_number"])))
     if "host_resource_group_arn" in value:
         pairs.append(
-            (f"{prefix}.HostResourceGroupArn", str(value["host_resource_group_arn"]))
+            (f"{key_prefix}HostResourceGroupArn", str(value["host_resource_group_arn"]))
         )
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "tenancy" in value:
         import capo_ec2.types.host_tenancy
 
         capo_ec2.types.host_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "affinity" in value:
         import capo_ec2.types.affinity
 
         capo_ec2.types.affinity.serialize_ec2_query(
-            value["affinity"], pairs, f"{prefix}.Affinity"
+            value["affinity"], pairs, f"{key_prefix}Affinity"
         )
     if "host_id" in value:
-        pairs.append((f"{prefix}.HostId", str(value["host_id"])))
+        pairs.append((f"{key_prefix}HostId", str(value["host_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyInstancePlacementRequest:

@@ -30,15 +30,16 @@ class ReleaseIpamPoolAllocationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReleaseIpamPoolAllocationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "ipam_pool_allocation_id" in value:
         pairs.append(
-            (f"{prefix}.IpamPoolAllocationId", str(value["ipam_pool_allocation_id"]))
+            (f"{key_prefix}IpamPoolAllocationId", str(value["ipam_pool_allocation_id"]))
         )
 
 

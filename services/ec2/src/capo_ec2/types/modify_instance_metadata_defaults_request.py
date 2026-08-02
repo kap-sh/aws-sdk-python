@@ -46,16 +46,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "http_tokens" in value:
         import capo_ec2.types.metadata_default_http_tokens_state
 
         capo_ec2.types.metadata_default_http_tokens_state.serialize_ec2_query(
-            value["http_tokens"], pairs, f"{prefix}.HttpTokens"
+            value["http_tokens"], pairs, f"{key_prefix}HttpTokens"
         )
     if "http_put_response_hop_limit" in value:
         pairs.append(
             (
-                f"{prefix}.HttpPutResponseHopLimit",
+                f"{key_prefix}HttpPutResponseHopLimit",
                 str(value["http_put_response_hop_limit"]),
             )
         )
@@ -63,21 +64,21 @@ def serialize_ec2_query(
         import capo_ec2.types.default_instance_metadata_endpoint_state
 
         capo_ec2.types.default_instance_metadata_endpoint_state.serialize_ec2_query(
-            value["http_endpoint"], pairs, f"{prefix}.HttpEndpoint"
+            value["http_endpoint"], pairs, f"{key_prefix}HttpEndpoint"
         )
     if "instance_metadata_tags" in value:
         import capo_ec2.types.default_instance_metadata_tags_state
 
         capo_ec2.types.default_instance_metadata_tags_state.serialize_ec2_query(
-            value["instance_metadata_tags"], pairs, f"{prefix}.InstanceMetadataTags"
+            value["instance_metadata_tags"], pairs, f"{key_prefix}InstanceMetadataTags"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "http_tokens_enforced" in value:
         import capo_ec2.types.default_http_tokens_enforced_state
 
         capo_ec2.types.default_http_tokens_enforced_state.serialize_ec2_query(
-            value["http_tokens_enforced"], pairs, f"{prefix}.HttpTokensEnforced"
+            value["http_tokens_enforced"], pairs, f"{key_prefix}HttpTokensEnforced"
         )
 
 

@@ -42,37 +42,38 @@ class CopyVolumesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CopyVolumesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_volume_id" in value:
-        pairs.append((f"{prefix}.SourceVolumeId", str(value["source_volume_id"])))
+        pairs.append((f"{key_prefix}SourceVolumeId", str(value["source_volume_id"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
     if "volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["volume_type"], pairs, f"{prefix}.VolumeType"
+            value["volume_type"], pairs, f"{key_prefix}VolumeType"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "multi_attach_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.MultiAttachEnabled",
+                f"{key_prefix}MultiAttachEnabled",
                 "true" if value["multi_attach_enabled"] else "false",
             )
         )
     if "throughput" in value:
-        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+        pairs.append((f"{key_prefix}Throughput", str(value["throughput"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CopyVolumesRequest:

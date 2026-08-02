@@ -21,10 +21,11 @@ class AddPrefixListEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AddPrefixListEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_ec2_query(el: Element) -> AddPrefixListEntry:

@@ -25,9 +25,12 @@ class RejectDelegationRequestRequest(TypedDict, closed=True):
 def serialize_query(
     value: RejectDelegationRequestRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DelegationRequestId", str(value["delegation_request_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append(
+        (f"{key_prefix}DelegationRequestId", str(value["delegation_request_id"]))
+    )
     if "notes" in value:
-        pairs.append((f"{prefix}.Notes", str(value["notes"])))
+        pairs.append((f"{key_prefix}Notes", str(value["notes"])))
 
 
 def deserialize_query(el: Element) -> RejectDelegationRequestRequest:

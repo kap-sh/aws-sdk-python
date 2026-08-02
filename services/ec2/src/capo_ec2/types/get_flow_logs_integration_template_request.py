@@ -32,14 +32,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "flow_log_id" in value:
-        pairs.append((f"{prefix}.FlowLogId", str(value["flow_log_id"])))
+        pairs.append((f"{key_prefix}FlowLogId", str(value["flow_log_id"])))
     if "config_delivery_s3_destination_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ConfigDeliveryS3DestinationArn",
+                f"{key_prefix}ConfigDeliveryS3DestinationArn",
                 str(value["config_delivery_s3_destination_arn"]),
             )
         )
@@ -47,7 +48,7 @@ def serialize_ec2_query(
         import capo_ec2.types.integrate_services
 
         capo_ec2.types.integrate_services.serialize_ec2_query(
-            value["integrate_services"], pairs, f"{prefix}.IntegrateServices"
+            value["integrate_services"], pairs, f"{key_prefix}IntegrateServices"
         )
 
 

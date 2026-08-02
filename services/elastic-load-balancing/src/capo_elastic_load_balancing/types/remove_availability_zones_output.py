@@ -21,11 +21,12 @@ class RemoveAvailabilityZonesOutput(TypedDict, closed=True):
 def serialize_query(
     value: RemoveAvailabilityZonesOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_elastic_load_balancing.types.availability_zones
 
         capo_elastic_load_balancing.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
 
 

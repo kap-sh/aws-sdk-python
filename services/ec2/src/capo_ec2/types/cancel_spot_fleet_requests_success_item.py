@@ -28,13 +28,14 @@ class CancelSpotFleetRequestsSuccessItem(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelSpotFleetRequestsSuccessItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "current_spot_fleet_request_state" in value:
         import capo_ec2.types.batch_state
 
         capo_ec2.types.batch_state.serialize_ec2_query(
             value["current_spot_fleet_request_state"],
             pairs,
-            f"{prefix}.CurrentSpotFleetRequestState",
+            f"{key_prefix}CurrentSpotFleetRequestState",
         )
     if "previous_spot_fleet_request_state" in value:
         import capo_ec2.types.batch_state
@@ -42,11 +43,11 @@ def serialize_ec2_query(
         capo_ec2.types.batch_state.serialize_ec2_query(
             value["previous_spot_fleet_request_state"],
             pairs,
-            f"{prefix}.PreviousSpotFleetRequestState",
+            f"{key_prefix}PreviousSpotFleetRequestState",
         )
     if "spot_fleet_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotFleetRequestId", str(value["spot_fleet_request_id"]))
+            (f"{key_prefix}SpotFleetRequestId", str(value["spot_fleet_request_id"]))
         )
 
 

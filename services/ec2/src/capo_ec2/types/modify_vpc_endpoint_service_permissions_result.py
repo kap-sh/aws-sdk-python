@@ -26,14 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "added_principals" in value:
         import capo_ec2.types.added_principal_set
 
         capo_ec2.types.added_principal_set.serialize_ec2_query(
-            value["added_principals"], pairs, f"{prefix}.AddedPrincipalSet"
+            value["added_principals"], pairs, f"{key_prefix}AddedPrincipalSet"
         )
     if "return_value" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return_value"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Return", "true" if value["return_value"] else "false")
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointServicePermissionsResult:

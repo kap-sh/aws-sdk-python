@@ -40,30 +40,34 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "availability_zone_group" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneGroup", str(value["availability_zone_group"]))
+            (
+                f"{key_prefix}AvailabilityZoneGroup",
+                str(value["availability_zone_group"]),
+            )
         )
     if "vpc" in value:
-        pairs.append((f"{prefix}.Vpc", "true" if value["vpc"] else "false"))
+        pairs.append((f"{key_prefix}Vpc", "true" if value["vpc"] else "false"))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeOrderableDBInstanceOptionsMessage:

@@ -27,16 +27,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.deletion_task_status_type
 
     capo_iam.types.deletion_task_status_type.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
     if "reason" in value:
         import capo_iam.types.deletion_task_failure_reason_type
 
         capo_iam.types.deletion_task_failure_reason_type.serialize_query(
-            value["reason"], pairs, f"{prefix}.Reason"
+            value["reason"], pairs, f"{key_prefix}Reason"
         )
 
 

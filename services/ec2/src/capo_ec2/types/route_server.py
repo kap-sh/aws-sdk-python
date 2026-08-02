@@ -42,41 +42,45 @@ class RouteServer(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_id" in value:
-        pairs.append((f"{prefix}.RouteServerId", str(value["route_server_id"])))
+        pairs.append((f"{key_prefix}RouteServerId", str(value["route_server_id"])))
     if "amazon_side_asn" in value:
-        pairs.append((f"{prefix}.AmazonSideAsn", str(value["amazon_side_asn"])))
+        pairs.append((f"{key_prefix}AmazonSideAsn", str(value["amazon_side_asn"])))
     if "state" in value:
         import capo_ec2.types.route_server_state
 
         capo_ec2.types.route_server_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "persist_routes_state" in value:
         import capo_ec2.types.route_server_persist_routes_state
 
         capo_ec2.types.route_server_persist_routes_state.serialize_ec2_query(
-            value["persist_routes_state"], pairs, f"{prefix}.PersistRoutesState"
+            value["persist_routes_state"], pairs, f"{key_prefix}PersistRoutesState"
         )
     if "persist_routes_duration" in value:
         pairs.append(
-            (f"{prefix}.PersistRoutesDuration", str(value["persist_routes_duration"]))
+            (
+                f"{key_prefix}PersistRoutesDuration",
+                str(value["persist_routes_duration"]),
+            )
         )
     if "sns_notifications_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.SnsNotificationsEnabled",
+                f"{key_prefix}SnsNotificationsEnabled",
                 "true" if value["sns_notifications_enabled"] else "false",
             )
         )
     if "sns_topic_arn" in value:
-        pairs.append((f"{prefix}.SnsTopicArn", str(value["sns_topic_arn"])))
+        pairs.append((f"{key_prefix}SnsTopicArn", str(value["sns_topic_arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> RouteServer:

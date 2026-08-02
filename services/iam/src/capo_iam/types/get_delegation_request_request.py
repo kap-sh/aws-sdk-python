@@ -25,10 +25,13 @@ class GetDelegationRequestRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetDelegationRequestRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DelegationRequestId", str(value["delegation_request_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append(
+        (f"{key_prefix}DelegationRequestId", str(value["delegation_request_id"]))
+    )
     pairs.append(
         (
-            f"{prefix}.DelegationPermissionCheck",
+            f"{key_prefix}DelegationPermissionCheck",
             "true" if value.get("delegation_permission_check", False) else "false",
         )
     )

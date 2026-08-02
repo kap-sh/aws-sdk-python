@@ -24,15 +24,19 @@ class CancelledSpotInstanceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelledSpotInstanceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "spot_instance_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotInstanceRequestId", str(value["spot_instance_request_id"]))
+            (
+                f"{key_prefix}SpotInstanceRequestId",
+                str(value["spot_instance_request_id"]),
+            )
         )
     if "state" in value:
         import capo_ec2.types.cancel_spot_instance_request_state
 
         capo_ec2.types.cancel_spot_instance_request_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

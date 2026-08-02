@@ -19,9 +19,10 @@ class PermissionsBoundaryDecisionDetail(TypedDict, closed=True):
 def serialize_query(
     value: PermissionsBoundaryDecisionDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.AllowedByPermissionsBoundary",
+            f"{key_prefix}AllowedByPermissionsBoundary",
             "true" if value.get("allowed_by_permissions_boundary", False) else "false",
         )
     )

@@ -47,33 +47,34 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.job_status_type
 
     capo_iam.types.job_status_type.serialize_query(
-        value["job_status"], pairs, f"{prefix}.JobStatus"
+        value["job_status"], pairs, f"{key_prefix}JobStatus"
     )
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["job_creation_date"], pairs, f"{prefix}.JobCreationDate"
+        value["job_creation_date"], pairs, f"{key_prefix}JobCreationDate"
     )
     if "job_completion_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["job_completion_date"], pairs, f"{prefix}.JobCompletionDate"
+            value["job_completion_date"], pairs, f"{key_prefix}JobCompletionDate"
         )
     if "number_of_services_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfServicesAccessible",
+                f"{key_prefix}NumberOfServicesAccessible",
                 str(value["number_of_services_accessible"]),
             )
         )
     if "number_of_services_not_accessed" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfServicesNotAccessed",
+                f"{key_prefix}NumberOfServicesNotAccessed",
                 str(value["number_of_services_not_accessed"]),
             )
         )
@@ -81,21 +82,21 @@ def serialize_query(
         import capo_iam.types.access_details
 
         capo_iam.types.access_details.serialize_query(
-            value["access_details"], pairs, f"{prefix}.AccessDetails"
+            value["access_details"], pairs, f"{key_prefix}AccessDetails"
         )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "error_details" in value:
         import capo_iam.types.error_details
 
         capo_iam.types.error_details.serialize_query(
-            value["error_details"], pairs, f"{prefix}.ErrorDetails"
+            value["error_details"], pairs, f"{key_prefix}ErrorDetails"
         )
 
 

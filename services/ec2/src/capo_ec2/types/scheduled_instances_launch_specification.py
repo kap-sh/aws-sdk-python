@@ -71,60 +71,61 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "block_device_mappings" in value:
         import capo_ec2.types.scheduled_instances_block_device_mapping_set
 
         capo_ec2.types.scheduled_instances_block_device_mapping_set.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
         )
     if "ebs_optimized" in value:
         pairs.append(
-            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+            (f"{key_prefix}EbsOptimized", "true" if value["ebs_optimized"] else "false")
         )
     if "iam_instance_profile" in value:
         import capo_ec2.types.scheduled_instances_iam_instance_profile
 
         capo_ec2.types.scheduled_instances_iam_instance_profile.serialize_ec2_query(
-            value["iam_instance_profile"], pairs, f"{prefix}.IamInstanceProfile"
+            value["iam_instance_profile"], pairs, f"{key_prefix}IamInstanceProfile"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "kernel_id" in value:
-        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+        pairs.append((f"{key_prefix}KernelId", str(value["kernel_id"])))
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "monitoring" in value:
         import capo_ec2.types.scheduled_instances_monitoring
 
         capo_ec2.types.scheduled_instances_monitoring.serialize_ec2_query(
-            value["monitoring"], pairs, f"{prefix}.Monitoring"
+            value["monitoring"], pairs, f"{key_prefix}Monitoring"
         )
     if "network_interfaces" in value:
         import capo_ec2.types.scheduled_instances_network_interface_set
 
         capo_ec2.types.scheduled_instances_network_interface_set.serialize_ec2_query(
-            value["network_interfaces"], pairs, f"{prefix}.NetworkInterfaces"
+            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterfaces"
         )
     if "placement" in value:
         import capo_ec2.types.scheduled_instances_placement
 
         capo_ec2.types.scheduled_instances_placement.serialize_ec2_query(
-            value["placement"], pairs, f"{prefix}.Placement"
+            value["placement"], pairs, f"{key_prefix}Placement"
         )
     if "ramdisk_id" in value:
-        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+        pairs.append((f"{key_prefix}RamdiskId", str(value["ramdisk_id"])))
     if "security_group_ids" in value:
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         capo_ec2.types.scheduled_instances_security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "user_data" in value:
-        pairs.append((f"{prefix}.UserData", str(value["user_data"])))
+        pairs.append((f"{key_prefix}UserData", str(value["user_data"])))
 
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:

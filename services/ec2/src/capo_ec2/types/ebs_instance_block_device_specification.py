@@ -24,12 +24,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )

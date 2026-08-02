@@ -34,17 +34,18 @@ class CreatePolicyRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreatePolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
-    pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
+    pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

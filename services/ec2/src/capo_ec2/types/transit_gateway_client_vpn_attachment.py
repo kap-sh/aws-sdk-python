@@ -41,29 +41,34 @@ class TransitGatewayClientVpnAttachment(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayClientVpnAttachment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "client_vpn_owner_id" in value:
-        pairs.append((f"{prefix}.ClientVpnOwnerId", str(value["client_vpn_owner_id"])))
+        pairs.append(
+            (f"{key_prefix}ClientVpnOwnerId", str(value["client_vpn_owner_id"]))
+        )
     if "state" in value:
         import capo_ec2.types.transit_gateway_attachment_status_type
 
         capo_ec2.types.transit_gateway_attachment_status_type.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "creation_time" in value:
-        pairs.append((f"{prefix}.CreationTime", str(value["creation_time"])))
+        pairs.append((f"{key_prefix}CreationTime", str(value["creation_time"])))
 
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayClientVpnAttachment:

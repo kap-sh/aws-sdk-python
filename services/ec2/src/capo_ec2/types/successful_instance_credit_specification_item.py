@@ -21,8 +21,9 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> SuccessfulInstanceCreditSpecificationItem:

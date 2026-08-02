@@ -34,23 +34,24 @@ class CreateSecondaryNetworkRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateSecondaryNetworkRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipv4_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv4CidrBlock", str(value["ipv4_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv4CidrBlock", str(value["ipv4_cidr_block"])))
     if "network_type" in value:
         import capo_ec2.types.secondary_network_type
 
         capo_ec2.types.secondary_network_type.serialize_ec2_query(
-            value["network_type"], pairs, f"{prefix}.NetworkType"
+            value["network_type"], pairs, f"{key_prefix}NetworkType"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

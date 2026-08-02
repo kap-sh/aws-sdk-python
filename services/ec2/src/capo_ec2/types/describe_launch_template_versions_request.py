@@ -51,42 +51,45 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "launch_template_id" in value:
-        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+        pairs.append(
+            (f"{key_prefix}LaunchTemplateId", str(value["launch_template_id"]))
+        )
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "versions" in value:
         import capo_ec2.types.version_string_list
 
         capo_ec2.types.version_string_list.serialize_ec2_query(
-            value["versions"], pairs, f"{prefix}.Versions"
+            value["versions"], pairs, f"{key_prefix}Versions"
         )
     if "min_version" in value:
-        pairs.append((f"{prefix}.MinVersion", str(value["min_version"])))
+        pairs.append((f"{key_prefix}MinVersion", str(value["min_version"])))
     if "max_version" in value:
-        pairs.append((f"{prefix}.MaxVersion", str(value["max_version"])))
+        pairs.append((f"{key_prefix}MaxVersion", str(value["max_version"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "resolve_alias" in value:
         pairs.append(
-            (f"{prefix}.ResolveAlias", "true" if value["resolve_alias"] else "false")
+            (f"{key_prefix}ResolveAlias", "true" if value["resolve_alias"] else "false")
         )
     if "include_managed_resources" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeManagedResources",
+                f"{key_prefix}IncludeManagedResources",
                 "true" if value["include_managed_resources"] else "false",
             )
         )

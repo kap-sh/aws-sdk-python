@@ -48,32 +48,33 @@ class ModifyManagedPrefixListRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyManagedPrefixListRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "current_version" in value:
-        pairs.append((f"{prefix}.CurrentVersion", str(value["current_version"])))
+        pairs.append((f"{key_prefix}CurrentVersion", str(value["current_version"])))
     if "prefix_list_name" in value:
-        pairs.append((f"{prefix}.PrefixListName", str(value["prefix_list_name"])))
+        pairs.append((f"{key_prefix}PrefixListName", str(value["prefix_list_name"])))
     if "add_entries" in value:
         import capo_ec2.types.add_prefix_list_entries
 
         capo_ec2.types.add_prefix_list_entries.serialize_ec2_query(
-            value["add_entries"], pairs, f"{prefix}.AddEntries"
+            value["add_entries"], pairs, f"{key_prefix}AddEntries"
         )
     if "remove_entries" in value:
         import capo_ec2.types.remove_prefix_list_entries
 
         capo_ec2.types.remove_prefix_list_entries.serialize_ec2_query(
-            value["remove_entries"], pairs, f"{prefix}.RemoveEntries"
+            value["remove_entries"], pairs, f"{key_prefix}RemoveEntries"
         )
     if "max_entries" in value:
-        pairs.append((f"{prefix}.MaxEntries", str(value["max_entries"])))
+        pairs.append((f"{key_prefix}MaxEntries", str(value["max_entries"])))
     if "ipam_prefix_list_resolver_sync_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverSyncEnabled",
+                f"{key_prefix}IpamPrefixListResolverSyncEnabled",
                 "true" if value["ipam_prefix_list_resolver_sync_enabled"] else "false",
             )
         )

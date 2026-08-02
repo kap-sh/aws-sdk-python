@@ -19,8 +19,9 @@ class ElasticGpuSpecificationResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ElasticGpuSpecificationResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
 
 
 def deserialize_ec2_query(el: Element) -> ElasticGpuSpecificationResponse:

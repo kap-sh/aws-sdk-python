@@ -25,12 +25,13 @@ class ModifyAddressAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyAddressAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "domain_name" in value:
-        pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+        pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyAddressAttributeRequest:

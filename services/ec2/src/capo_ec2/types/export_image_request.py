@@ -42,33 +42,34 @@ class ExportImageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExportImageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "disk_image_format" in value:
         import capo_ec2.types.disk_image_format
 
         capo_ec2.types.disk_image_format.serialize_ec2_query(
-            value["disk_image_format"], pairs, f"{prefix}.DiskImageFormat"
+            value["disk_image_format"], pairs, f"{key_prefix}DiskImageFormat"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "s3_export_location" in value:
         import capo_ec2.types.export_task_s3_location_request
 
         capo_ec2.types.export_task_s3_location_request.serialize_ec2_query(
-            value["s3_export_location"], pairs, f"{prefix}.S3ExportLocation"
+            value["s3_export_location"], pairs, f"{key_prefix}S3ExportLocation"
         )
     if "role_name" in value:
-        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+        pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

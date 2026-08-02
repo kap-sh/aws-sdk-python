@@ -63,18 +63,23 @@ class VpnConnection(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnConnection, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "category" in value:
-        pairs.append((f"{prefix}.Category", str(value["category"])))
+        pairs.append((f"{key_prefix}Category", str(value["category"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "vpn_concentrator_id" in value:
-        pairs.append((f"{prefix}.VpnConcentratorId", str(value["vpn_concentrator_id"])))
+        pairs.append(
+            (f"{key_prefix}VpnConcentratorId", str(value["vpn_concentrator_id"]))
+        )
     if "core_network_arn" in value:
-        pairs.append((f"{prefix}.CoreNetworkArn", str(value["core_network_arn"])))
+        pairs.append((f"{key_prefix}CoreNetworkArn", str(value["core_network_arn"])))
     if "core_network_attachment_arn" in value:
         pairs.append(
             (
-                f"{prefix}.CoreNetworkAttachmentArn",
+                f"{key_prefix}CoreNetworkAttachmentArn",
                 str(value["core_network_attachment_arn"]),
             )
         )
@@ -84,46 +89,46 @@ def serialize_ec2_query(
         capo_ec2.types.gateway_association_state.serialize_ec2_query(
             value["gateway_association_state"],
             pairs,
-            f"{prefix}.GatewayAssociationState",
+            f"{key_prefix}GatewayAssociationState",
         )
     if "options" in value:
         import capo_ec2.types.vpn_connection_options
 
         capo_ec2.types.vpn_connection_options.serialize_ec2_query(
-            value["options"], pairs, f"{prefix}.Options"
+            value["options"], pairs, f"{key_prefix}Options"
         )
     if "routes" in value:
         import capo_ec2.types.vpn_static_route_list
 
         capo_ec2.types.vpn_static_route_list.serialize_ec2_query(
-            value["routes"], pairs, f"{prefix}.Routes"
+            value["routes"], pairs, f"{key_prefix}Routes"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vgw_telemetry" in value:
         import capo_ec2.types.vgw_telemetry_list
 
         capo_ec2.types.vgw_telemetry_list.serialize_ec2_query(
-            value["vgw_telemetry"], pairs, f"{prefix}.VgwTelemetry"
+            value["vgw_telemetry"], pairs, f"{key_prefix}VgwTelemetry"
         )
     if "pre_shared_key_arn" in value:
-        pairs.append((f"{prefix}.PreSharedKeyArn", str(value["pre_shared_key_arn"])))
+        pairs.append((f"{key_prefix}PreSharedKeyArn", str(value["pre_shared_key_arn"])))
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "state" in value:
         import capo_ec2.types.vpn_state
 
         capo_ec2.types.vpn_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "customer_gateway_configuration" in value:
         pairs.append(
             (
-                f"{prefix}.CustomerGatewayConfiguration",
+                f"{key_prefix}CustomerGatewayConfiguration",
                 str(value["customer_gateway_configuration"]),
             )
         )
@@ -131,12 +136,14 @@ def serialize_ec2_query(
         import capo_ec2.types.gateway_type
 
         capo_ec2.types.gateway_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "customer_gateway_id" in value:
-        pairs.append((f"{prefix}.CustomerGatewayId", str(value["customer_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CustomerGatewayId", str(value["customer_gateway_id"]))
+        )
     if "vpn_gateway_id" in value:
-        pairs.append((f"{prefix}.VpnGatewayId", str(value["vpn_gateway_id"])))
+        pairs.append((f"{key_prefix}VpnGatewayId", str(value["vpn_gateway_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> VpnConnection:

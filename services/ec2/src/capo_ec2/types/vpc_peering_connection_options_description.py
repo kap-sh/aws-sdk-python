@@ -29,17 +29,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allow_dns_resolution_from_remote_vpc" in value:
         pairs.append(
             (
-                f"{prefix}.AllowDnsResolutionFromRemoteVpc",
+                f"{key_prefix}AllowDnsResolutionFromRemoteVpc",
                 "true" if value["allow_dns_resolution_from_remote_vpc"] else "false",
             )
         )
     if "allow_egress_from_local_classic_link_to_remote_vpc" in value:
         pairs.append(
             (
-                f"{prefix}.AllowEgressFromLocalClassicLinkToRemoteVpc",
+                f"{key_prefix}AllowEgressFromLocalClassicLinkToRemoteVpc",
                 "true"
                 if value["allow_egress_from_local_classic_link_to_remote_vpc"]
                 else "false",
@@ -48,7 +49,7 @@ def serialize_ec2_query(
     if "allow_egress_from_local_vpc_to_remote_classic_link" in value:
         pairs.append(
             (
-                f"{prefix}.AllowEgressFromLocalVpcToRemoteClassicLink",
+                f"{key_prefix}AllowEgressFromLocalVpcToRemoteClassicLink",
                 "true"
                 if value["allow_egress_from_local_vpc_to_remote_classic_link"]
                 else "false",

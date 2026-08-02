@@ -25,23 +25,24 @@ class DimensionCondition(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DimensionCondition, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dimension" in value:
         import capo_ec2.types.filter_by_dimension
 
         capo_ec2.types.filter_by_dimension.serialize_ec2_query(
-            value["dimension"], pairs, f"{prefix}.Dimension"
+            value["dimension"], pairs, f"{key_prefix}Dimension"
         )
     if "comparison" in value:
         import capo_ec2.types.comparison
 
         capo_ec2.types.comparison.serialize_ec2_query(
-            value["comparison"], pairs, f"{prefix}.Comparison"
+            value["comparison"], pairs, f"{key_prefix}Comparison"
         )
     if "values" in value:
         import capo_ec2.types.condition_value_list
 
         capo_ec2.types.condition_value_list.serialize_ec2_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

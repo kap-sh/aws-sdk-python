@@ -37,33 +37,36 @@ class DBProxyTarget(TypedDict, closed=True):
 def serialize_query(
     value: DBProxyTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_arn" in value:
-        pairs.append((f"{prefix}.TargetArn", str(value["target_arn"])))
+        pairs.append((f"{key_prefix}TargetArn", str(value["target_arn"])))
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "tracked_cluster_id" in value:
-        pairs.append((f"{prefix}.TrackedClusterId", str(value["tracked_cluster_id"])))
+        pairs.append(
+            (f"{key_prefix}TrackedClusterId", str(value["tracked_cluster_id"]))
+        )
     if "rds_resource_id" in value:
-        pairs.append((f"{prefix}.RdsResourceId", str(value["rds_resource_id"])))
+        pairs.append((f"{key_prefix}RdsResourceId", str(value["rds_resource_id"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "type" in value:
         import capo_rds.types.target_type
 
         capo_rds.types.target_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "role" in value:
         import capo_rds.types.target_role
 
         capo_rds.types.target_role.serialize_query(
-            value["role"], pairs, f"{prefix}.Role"
+            value["role"], pairs, f"{key_prefix}Role"
         )
     if "target_health" in value:
         import capo_rds.types.target_health
 
         capo_rds.types.target_health.serialize_query(
-            value["target_health"], pairs, f"{prefix}.TargetHealth"
+            value["target_health"], pairs, f"{key_prefix}TargetHealth"
         )
 
 

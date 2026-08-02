@@ -19,11 +19,12 @@ class CreatePlacementGroupResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreatePlacementGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "placement_group" in value:
         import capo_ec2.types.placement_group
 
         capo_ec2.types.placement_group.serialize_ec2_query(
-            value["placement_group"], pairs, f"{prefix}.PlacementGroup"
+            value["placement_group"], pairs, f"{key_prefix}PlacementGroup"
         )
 
 

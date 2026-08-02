@@ -36,33 +36,34 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_v2_platform_version" in value:
         pairs.append(
             (
-                f"{prefix}.ServerlessV2PlatformVersion",
+                f"{key_prefix}ServerlessV2PlatformVersion",
                 str(value["serverless_v2_platform_version"]),
             )
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "default_only" in value:
         pairs.append(
-            (f"{prefix}.DefaultOnly", "true" if value["default_only"] else "false")
+            (f"{key_prefix}DefaultOnly", "true" if value["default_only"] else "false")
         )
     if "include_all" in value:
         pairs.append(
-            (f"{prefix}.IncludeAll", "true" if value["include_all"] else "false")
+            (f"{key_prefix}IncludeAll", "true" if value["include_all"] else "false")
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeServerlessV2PlatformVersionsMessage:

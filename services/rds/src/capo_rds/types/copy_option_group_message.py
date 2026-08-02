@@ -25,31 +25,34 @@ class CopyOptionGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopyOptionGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_option_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceOptionGroupIdentifier",
+                f"{key_prefix}SourceOptionGroupIdentifier",
                 str(value["source_option_group_identifier"]),
             )
         )
     if "target_option_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetOptionGroupIdentifier",
+                f"{key_prefix}TargetOptionGroupIdentifier",
                 str(value["target_option_group_identifier"]),
             )
         )
     if "target_option_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.TargetOptionGroupDescription",
+                f"{key_prefix}TargetOptionGroupDescription",
                 str(value["target_option_group_description"]),
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CopyOptionGroupMessage:

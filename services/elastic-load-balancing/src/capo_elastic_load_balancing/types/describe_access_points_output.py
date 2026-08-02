@@ -24,16 +24,17 @@ class DescribeAccessPointsOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAccessPointsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_descriptions" in value:
         import capo_elastic_load_balancing.types.load_balancer_descriptions
 
         capo_elastic_load_balancing.types.load_balancer_descriptions.serialize_query(
             value["load_balancer_descriptions"],
             pairs,
-            f"{prefix}.LoadBalancerDescriptions",
+            f"{key_prefix}LoadBalancerDescriptions",
         )
     if "next_marker" in value:
-        pairs.append((f"{prefix}.NextMarker", str(value["next_marker"])))
+        pairs.append((f"{key_prefix}NextMarker", str(value["next_marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeAccessPointsOutput:

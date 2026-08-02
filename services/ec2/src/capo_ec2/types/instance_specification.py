@@ -29,12 +29,13 @@ class InstanceSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "exclude_boot_volume" in value:
         pairs.append(
             (
-                f"{prefix}.ExcludeBootVolume",
+                f"{key_prefix}ExcludeBootVolume",
                 "true" if value["exclude_boot_volume"] else "false",
             )
         )
@@ -42,7 +43,7 @@ def serialize_ec2_query(
         import capo_ec2.types.volume_id_string_list
 
         capo_ec2.types.volume_id_string_list.serialize_ec2_query(
-            value["exclude_data_volume_ids"], pairs, f"{prefix}.ExcludeDataVolumeIds"
+            value["exclude_data_volume_ids"], pairs, f"{key_prefix}ExcludeDataVolumeIds"
         )
 
 

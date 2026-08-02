@@ -36,22 +36,25 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "storage" in value:
         import capo_rds.types.valid_storage_options_list
 
         capo_rds.types.valid_storage_options_list.serialize_query(
-            value["storage"], pairs, f"{prefix}.Storage"
+            value["storage"], pairs, f"{key_prefix}Storage"
         )
     if "valid_processor_features" in value:
         import capo_rds.types.available_processor_feature_list
 
         capo_rds.types.available_processor_feature_list.serialize_query(
-            value["valid_processor_features"], pairs, f"{prefix}.ValidProcessorFeatures"
+            value["valid_processor_features"],
+            pairs,
+            f"{key_prefix}ValidProcessorFeatures",
         )
     if "supports_dedicated_log_volume" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsDedicatedLogVolume",
+                f"{key_prefix}SupportsDedicatedLogVolume",
                 "true" if value["supports_dedicated_log_volume"] else "false",
             )
         )
@@ -59,7 +62,7 @@ def serialize_query(
         import capo_rds.types.valid_additional_storage_options
 
         capo_rds.types.valid_additional_storage_options.serialize_query(
-            value["additional_storage"], pairs, f"{prefix}.AdditionalStorage"
+            value["additional_storage"], pairs, f"{key_prefix}AdditionalStorage"
         )
 
 

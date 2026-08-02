@@ -28,19 +28,23 @@ class ActiveInstance(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ActiveInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "spot_instance_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotInstanceRequestId", str(value["spot_instance_request_id"]))
+            (
+                f"{key_prefix}SpotInstanceRequestId",
+                str(value["spot_instance_request_id"]),
+            )
         )
     if "instance_health" in value:
         import capo_ec2.types.instance_health_status
 
         capo_ec2.types.instance_health_status.serialize_ec2_query(
-            value["instance_health"], pairs, f"{prefix}.InstanceHealth"
+            value["instance_health"], pairs, f"{key_prefix}InstanceHealth"
         )
 
 

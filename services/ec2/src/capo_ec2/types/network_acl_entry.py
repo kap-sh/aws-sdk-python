@@ -38,34 +38,35 @@ class NetworkAclEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkAclEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "egress" in value:
-        pairs.append((f"{prefix}.Egress", "true" if value["egress"] else "false"))
+        pairs.append((f"{key_prefix}Egress", "true" if value["egress"] else "false"))
     if "icmp_type_code" in value:
         import capo_ec2.types.icmp_type_code
 
         capo_ec2.types.icmp_type_code.serialize_ec2_query(
-            value["icmp_type_code"], pairs, f"{prefix}.IcmpTypeCode"
+            value["icmp_type_code"], pairs, f"{key_prefix}IcmpTypeCode"
         )
     if "ipv6_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
     if "port_range" in value:
         import capo_ec2.types.port_range
 
         capo_ec2.types.port_range.serialize_ec2_query(
-            value["port_range"], pairs, f"{prefix}.PortRange"
+            value["port_range"], pairs, f"{key_prefix}PortRange"
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "rule_action" in value:
         import capo_ec2.types.rule_action
 
         capo_ec2.types.rule_action.serialize_ec2_query(
-            value["rule_action"], pairs, f"{prefix}.RuleAction"
+            value["rule_action"], pairs, f"{key_prefix}RuleAction"
         )
     if "rule_number" in value:
-        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+        pairs.append((f"{key_prefix}RuleNumber", str(value["rule_number"])))
 
 
 def deserialize_ec2_query(el: Element) -> NetworkAclEntry:

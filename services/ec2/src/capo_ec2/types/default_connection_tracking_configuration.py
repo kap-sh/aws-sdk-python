@@ -33,19 +33,22 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_tcp_established_timeout" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultTcpEstablishedTimeout",
+                f"{key_prefix}DefaultTcpEstablishedTimeout",
                 str(value["default_tcp_established_timeout"]),
             )
         )
     if "default_udp_timeout" in value:
-        pairs.append((f"{prefix}.DefaultUdpTimeout", str(value["default_udp_timeout"])))
+        pairs.append(
+            (f"{key_prefix}DefaultUdpTimeout", str(value["default_udp_timeout"]))
+        )
     if "default_udp_stream_timeout" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultUdpStreamTimeout",
+                f"{key_prefix}DefaultUdpStreamTimeout",
                 str(value["default_udp_stream_timeout"]),
             )
         )

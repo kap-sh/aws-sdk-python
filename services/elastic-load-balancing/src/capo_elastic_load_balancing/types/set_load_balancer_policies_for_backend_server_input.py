@@ -30,12 +30,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
-    pairs.append((f"{prefix}.InstancePort", str(value["instance_port"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"])))
+    pairs.append((f"{key_prefix}InstancePort", str(value["instance_port"])))
     import capo_elastic_load_balancing.types.policy_names
 
     capo_elastic_load_balancing.types.policy_names.serialize_query(
-        value["policy_names"], pairs, f"{prefix}.PolicyNames"
+        value["policy_names"], pairs, f"{key_prefix}PolicyNames"
     )
 
 

@@ -68,17 +68,20 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_provider_type" in value:
         import capo_ec2.types.trust_provider_type
 
         capo_ec2.types.trust_provider_type.serialize_ec2_query(
-            value["trust_provider_type"], pairs, f"{prefix}.TrustProviderType"
+            value["trust_provider_type"], pairs, f"{key_prefix}TrustProviderType"
         )
     if "user_trust_provider_type" in value:
         import capo_ec2.types.user_trust_provider_type
 
         capo_ec2.types.user_trust_provider_type.serialize_ec2_query(
-            value["user_trust_provider_type"], pairs, f"{prefix}.UserTrustProviderType"
+            value["user_trust_provider_type"],
+            pairs,
+            f"{key_prefix}UserTrustProviderType",
         )
     if "device_trust_provider_type" in value:
         import capo_ec2.types.device_trust_provider_type
@@ -86,41 +89,41 @@ def serialize_ec2_query(
         capo_ec2.types.device_trust_provider_type.serialize_ec2_query(
             value["device_trust_provider_type"],
             pairs,
-            f"{prefix}.DeviceTrustProviderType",
+            f"{key_prefix}DeviceTrustProviderType",
         )
     if "oidc_options" in value:
         import capo_ec2.types.create_verified_access_trust_provider_oidc_options
 
         capo_ec2.types.create_verified_access_trust_provider_oidc_options.serialize_ec2_query(
-            value["oidc_options"], pairs, f"{prefix}.OidcOptions"
+            value["oidc_options"], pairs, f"{key_prefix}OidcOptions"
         )
     if "device_options" in value:
         import capo_ec2.types.create_verified_access_trust_provider_device_options
 
         capo_ec2.types.create_verified_access_trust_provider_device_options.serialize_ec2_query(
-            value["device_options"], pairs, f"{prefix}.DeviceOptions"
+            value["device_options"], pairs, f"{key_prefix}DeviceOptions"
         )
     if "policy_reference_name" in value:
         pairs.append(
-            (f"{prefix}.PolicyReferenceName", str(value["policy_reference_name"]))
+            (f"{key_prefix}PolicyReferenceName", str(value["policy_reference_name"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "sse_specification" in value:
         import capo_ec2.types.verified_access_sse_specification_request
 
         capo_ec2.types.verified_access_sse_specification_request.serialize_ec2_query(
-            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+            value["sse_specification"], pairs, f"{key_prefix}SseSpecification"
         )
     if "native_application_oidc_options" in value:
         import capo_ec2.types.create_verified_access_native_application_oidc_options
@@ -128,7 +131,7 @@ def serialize_ec2_query(
         capo_ec2.types.create_verified_access_native_application_oidc_options.serialize_ec2_query(
             value["native_application_oidc_options"],
             pairs,
-            f"{prefix}.NativeApplicationOidcOptions",
+            f"{key_prefix}NativeApplicationOidcOptions",
         )
 
 

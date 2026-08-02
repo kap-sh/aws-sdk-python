@@ -26,17 +26,18 @@ class DisableFastSnapshotRestoresResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisableFastSnapshotRestoresResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful" in value:
         import capo_ec2.types.disable_fast_snapshot_restore_success_set
 
         capo_ec2.types.disable_fast_snapshot_restore_success_set.serialize_ec2_query(
-            value["successful"], pairs, f"{prefix}.Successful"
+            value["successful"], pairs, f"{key_prefix}Successful"
         )
     if "unsuccessful" in value:
         import capo_ec2.types.disable_fast_snapshot_restore_error_set
 
         capo_ec2.types.disable_fast_snapshot_restore_error_set.serialize_ec2_query(
-            value["unsuccessful"], pairs, f"{prefix}.Unsuccessful"
+            value["unsuccessful"], pairs, f"{key_prefix}Unsuccessful"
         )
 
 

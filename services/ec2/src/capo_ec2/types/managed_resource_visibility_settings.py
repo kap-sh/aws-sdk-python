@@ -21,11 +21,12 @@ class ManagedResourceVisibilitySettings(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ManagedResourceVisibilitySettings, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_visibility" in value:
         import capo_ec2.types.managed_resource_default_visibility
 
         capo_ec2.types.managed_resource_default_visibility.serialize_ec2_query(
-            value["default_visibility"], pairs, f"{prefix}.DefaultVisibility"
+            value["default_visibility"], pairs, f"{key_prefix}DefaultVisibility"
         )
 
 

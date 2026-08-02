@@ -34,26 +34,27 @@ class DescribeDBLogFilesMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBLogFilesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "filename_contains" in value:
-        pairs.append((f"{prefix}.FilenameContains", str(value["filename_contains"])))
+        pairs.append((f"{key_prefix}FilenameContains", str(value["filename_contains"])))
     if "file_last_written" in value:
-        pairs.append((f"{prefix}.FileLastWritten", str(value["file_last_written"])))
+        pairs.append((f"{key_prefix}FileLastWritten", str(value["file_last_written"])))
     if "file_size" in value:
-        pairs.append((f"{prefix}.FileSize", str(value["file_size"])))
+        pairs.append((f"{key_prefix}FileSize", str(value["file_size"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBLogFilesMessage:

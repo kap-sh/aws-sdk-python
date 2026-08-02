@@ -43,40 +43,43 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "volume_size" in value:
-        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+        pairs.append((f"{key_prefix}VolumeSize", str(value["volume_size"])))
     if "volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["volume_type"], pairs, f"{prefix}.VolumeType"
+            value["volume_type"], pairs, f"{key_prefix}VolumeType"
         )
     if "throughput" in value:
-        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+        pairs.append((f"{key_prefix}Throughput", str(value["throughput"])))
     if "volume_initialization_rate" in value:
         pairs.append(
             (
-                f"{prefix}.VolumeInitializationRate",
+                f"{key_prefix}VolumeInitializationRate",
                 str(value["volume_initialization_rate"]),
             )
         )
     if "ebs_card_index" in value:
-        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+        pairs.append((f"{key_prefix}EbsCardIndex", str(value["ebs_card_index"])))
 
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateEbsBlockDeviceRequest:

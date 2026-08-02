@@ -21,11 +21,12 @@ class NitroTpmInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NitroTpmInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "supported_versions" in value:
         import capo_ec2.types.nitro_tpm_supported_versions_list
 
         capo_ec2.types.nitro_tpm_supported_versions_list.serialize_ec2_query(
-            value["supported_versions"], pairs, f"{prefix}.SupportedVersions"
+            value["supported_versions"], pairs, f"{key_prefix}SupportedVersions"
         )
 
 

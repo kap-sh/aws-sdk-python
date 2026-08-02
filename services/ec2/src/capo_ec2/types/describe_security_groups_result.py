@@ -22,13 +22,14 @@ class DescribeSecurityGroupsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSecurityGroupsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "security_groups" in value:
         import capo_ec2.types.security_group_list
 
         capo_ec2.types.security_group_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroupInfo"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroupInfo"
         )
 
 

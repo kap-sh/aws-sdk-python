@@ -22,15 +22,16 @@ class ClassicLinkDnsSupport(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClassicLinkDnsSupport, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "classic_link_dns_supported" in value:
         pairs.append(
             (
-                f"{prefix}.ClassicLinkDnsSupported",
+                f"{key_prefix}ClassicLinkDnsSupported",
                 "true" if value["classic_link_dns_supported"] else "false",
             )
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> ClassicLinkDnsSupport:

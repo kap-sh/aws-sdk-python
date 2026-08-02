@@ -25,16 +25,17 @@ class DescribeElasticGpusResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeElasticGpusResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "elastic_gpu_set" in value:
         import capo_ec2.types.elastic_gpu_set
 
         capo_ec2.types.elastic_gpu_set.serialize_ec2_query(
-            value["elastic_gpu_set"], pairs, f"{prefix}.ElasticGpuSet"
+            value["elastic_gpu_set"], pairs, f"{key_prefix}ElasticGpuSet"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeElasticGpusResult:

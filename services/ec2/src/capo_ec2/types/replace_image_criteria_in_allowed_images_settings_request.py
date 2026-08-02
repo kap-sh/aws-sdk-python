@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_criteria" in value:
         import capo_ec2.types.image_criterion_request_list
 
         capo_ec2.types.image_criterion_request_list.serialize_ec2_query(
-            value["image_criteria"], pairs, f"{prefix}.ImageCriteria"
+            value["image_criteria"], pairs, f"{key_prefix}ImageCriteria"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(

@@ -29,10 +29,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.EntityPath", str(value["entity_path"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EntityPath", str(value["entity_path"])))
     if "organizations_policy_id" in value:
         pairs.append(
-            (f"{prefix}.OrganizationsPolicyId", str(value["organizations_policy_id"]))
+            (
+                f"{key_prefix}OrganizationsPolicyId",
+                str(value["organizations_policy_id"]),
+            )
         )
 
 

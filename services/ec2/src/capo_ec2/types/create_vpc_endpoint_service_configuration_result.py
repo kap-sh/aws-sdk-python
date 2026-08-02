@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_configuration" in value:
         import capo_ec2.types.service_configuration
 
         capo_ec2.types.service_configuration.serialize_ec2_query(
-            value["service_configuration"], pairs, f"{prefix}.ServiceConfiguration"
+            value["service_configuration"], pairs, f"{key_prefix}ServiceConfiguration"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateVpcEndpointServiceConfigurationResult:

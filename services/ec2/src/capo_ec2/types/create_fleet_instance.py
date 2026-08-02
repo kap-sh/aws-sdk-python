@@ -33,37 +33,38 @@ class CreateFleetInstance(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateFleetInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_and_overrides" in value:
         import capo_ec2.types.launch_template_and_overrides_response
 
         capo_ec2.types.launch_template_and_overrides_response.serialize_ec2_query(
             value["launch_template_and_overrides"],
             pairs,
-            f"{prefix}.LaunchTemplateAndOverrides",
+            f"{key_prefix}LaunchTemplateAndOverrides",
         )
     if "lifecycle" in value:
         import capo_ec2.types.instance_lifecycle
 
         capo_ec2.types.instance_lifecycle.serialize_ec2_query(
-            value["lifecycle"], pairs, f"{prefix}.Lifecycle"
+            value["lifecycle"], pairs, f"{key_prefix}Lifecycle"
         )
     if "instance_ids" in value:
         import capo_ec2.types.instance_ids_set
 
         capo_ec2.types.instance_ids_set.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{prefix}.InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
         )
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "platform" in value:
         import capo_ec2.types.platform_values
 
         capo_ec2.types.platform_values.serialize_ec2_query(
-            value["platform"], pairs, f"{prefix}.Platform"
+            value["platform"], pairs, f"{key_prefix}Platform"
         )
 
 

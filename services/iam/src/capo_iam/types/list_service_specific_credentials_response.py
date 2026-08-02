@@ -29,19 +29,20 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_specific_credentials" in value:
         import capo_iam.types.service_specific_credentials_list_type
 
         capo_iam.types.service_specific_credentials_list_type.serialize_query(
             value["service_specific_credentials"],
             pairs,
-            f"{prefix}.ServiceSpecificCredentials",
+            f"{key_prefix}ServiceSpecificCredentials",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )

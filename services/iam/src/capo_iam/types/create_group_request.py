@@ -23,9 +23,10 @@ class CreateGroupRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateGroupRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
-    pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
+    pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
 
 
 def deserialize_query(el: Element) -> CreateGroupRequest:

@@ -40,29 +40,30 @@ class SnapshotDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SnapshotDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "device_name" in value:
-        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+        pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "disk_image_size" in value:
-        pairs.append((f"{prefix}.DiskImageSize", str(value["disk_image_size"])))
+        pairs.append((f"{key_prefix}DiskImageSize", str(value["disk_image_size"])))
     if "format" in value:
-        pairs.append((f"{prefix}.Format", str(value["format"])))
+        pairs.append((f"{key_prefix}Format", str(value["format"])))
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "url" in value:
-        pairs.append((f"{prefix}.Url", str(value["url"])))
+        pairs.append((f"{key_prefix}Url", str(value["url"])))
     if "user_bucket" in value:
         import capo_ec2.types.user_bucket_details
 
         capo_ec2.types.user_bucket_details.serialize_ec2_query(
-            value["user_bucket"], pairs, f"{prefix}.UserBucket"
+            value["user_bucket"], pairs, f"{key_prefix}UserBucket"
         )
 
 

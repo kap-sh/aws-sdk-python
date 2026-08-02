@@ -24,14 +24,15 @@ class AssociateTrunkInterfaceResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateTrunkInterfaceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "interface_association" in value:
         import capo_ec2.types.trunk_interface_association
 
         capo_ec2.types.trunk_interface_association.serialize_ec2_query(
-            value["interface_association"], pairs, f"{prefix}.InterfaceAssociation"
+            value["interface_association"], pairs, f"{key_prefix}InterfaceAssociation"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> AssociateTrunkInterfaceResult:

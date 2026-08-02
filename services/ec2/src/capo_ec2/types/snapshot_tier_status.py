@@ -57,39 +57,40 @@ class SnapshotTierStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SnapshotTierStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "status" in value:
         import capo_ec2.types.snapshot_state
 
         capo_ec2.types.snapshot_state.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "storage_tier" in value:
         import capo_ec2.types.storage_tier
 
         capo_ec2.types.storage_tier.serialize_ec2_query(
-            value["storage_tier"], pairs, f"{prefix}.StorageTier"
+            value["storage_tier"], pairs, f"{key_prefix}StorageTier"
         )
     if "last_tiering_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["last_tiering_start_time"], pairs, f"{prefix}.LastTieringStartTime"
+            value["last_tiering_start_time"], pairs, f"{key_prefix}LastTieringStartTime"
         )
     if "last_tiering_progress" in value:
         pairs.append(
-            (f"{prefix}.LastTieringProgress", str(value["last_tiering_progress"]))
+            (f"{key_prefix}LastTieringProgress", str(value["last_tiering_progress"]))
         )
     if "last_tiering_operation_status" in value:
         import capo_ec2.types.tiering_operation_status
@@ -97,12 +98,12 @@ def serialize_ec2_query(
         capo_ec2.types.tiering_operation_status.serialize_ec2_query(
             value["last_tiering_operation_status"],
             pairs,
-            f"{prefix}.LastTieringOperationStatus",
+            f"{key_prefix}LastTieringOperationStatus",
         )
     if "last_tiering_operation_status_detail" in value:
         pairs.append(
             (
-                f"{prefix}.LastTieringOperationStatusDetail",
+                f"{key_prefix}LastTieringOperationStatusDetail",
                 str(value["last_tiering_operation_status_detail"]),
             )
         )
@@ -110,13 +111,13 @@ def serialize_ec2_query(
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["archival_complete_time"], pairs, f"{prefix}.ArchivalCompleteTime"
+            value["archival_complete_time"], pairs, f"{key_prefix}ArchivalCompleteTime"
         )
     if "restore_expiry_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["restore_expiry_time"], pairs, f"{prefix}.RestoreExpiryTime"
+            value["restore_expiry_time"], pairs, f"{key_prefix}RestoreExpiryTime"
         )
 
 

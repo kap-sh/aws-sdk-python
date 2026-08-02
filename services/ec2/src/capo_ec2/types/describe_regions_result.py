@@ -19,11 +19,12 @@ class DescribeRegionsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeRegionsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "regions" in value:
         import capo_ec2.types.region_list
 
         capo_ec2.types.region_list.serialize_ec2_query(
-            value["regions"], pairs, f"{prefix}.RegionInfo"
+            value["regions"], pairs, f"{key_prefix}RegionInfo"
         )
 
 

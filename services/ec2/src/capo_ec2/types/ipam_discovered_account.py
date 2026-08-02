@@ -37,15 +37,16 @@ class IpamDiscoveredAccount(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamDiscoveredAccount, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_id" in value:
-        pairs.append((f"{prefix}.AccountId", str(value["account_id"])))
+        pairs.append((f"{key_prefix}AccountId", str(value["account_id"])))
     if "discovery_region" in value:
-        pairs.append((f"{prefix}.DiscoveryRegion", str(value["discovery_region"])))
+        pairs.append((f"{key_prefix}DiscoveryRegion", str(value["discovery_region"])))
     if "failure_reason" in value:
         import capo_ec2.types.ipam_discovery_failure_reason
 
         capo_ec2.types.ipam_discovery_failure_reason.serialize_ec2_query(
-            value["failure_reason"], pairs, f"{prefix}.FailureReason"
+            value["failure_reason"], pairs, f"{key_prefix}FailureReason"
         )
     if "last_attempted_discovery_time" in value:
         import capo_ec2.types.millisecond_date_time
@@ -53,7 +54,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["last_attempted_discovery_time"],
             pairs,
-            f"{prefix}.LastAttemptedDiscoveryTime",
+            f"{key_prefix}LastAttemptedDiscoveryTime",
         )
     if "last_successful_discovery_time" in value:
         import capo_ec2.types.millisecond_date_time
@@ -61,11 +62,11 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["last_successful_discovery_time"],
             pairs,
-            f"{prefix}.LastSuccessfulDiscoveryTime",
+            f"{key_prefix}LastSuccessfulDiscoveryTime",
         )
     if "organizational_unit_id" in value:
         pairs.append(
-            (f"{prefix}.OrganizationalUnitId", str(value["organizational_unit_id"]))
+            (f"{key_prefix}OrganizationalUnitId", str(value["organizational_unit_id"]))
         )
 
 

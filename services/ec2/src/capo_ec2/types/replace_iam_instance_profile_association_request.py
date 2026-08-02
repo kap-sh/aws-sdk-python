@@ -28,14 +28,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "iam_instance_profile" in value:
         import capo_ec2.types.iam_instance_profile_specification
 
         capo_ec2.types.iam_instance_profile_specification.serialize_ec2_query(
-            value["iam_instance_profile"], pairs, f"{prefix}.IamInstanceProfile"
+            value["iam_instance_profile"], pairs, f"{key_prefix}IamInstanceProfile"
         )
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> ReplaceIamInstanceProfileAssociationRequest:

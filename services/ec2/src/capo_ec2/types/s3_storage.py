@@ -31,21 +31,25 @@ class S3Storage(TypedDict, closed=True):
 def serialize_ec2_query(
     value: S3Storage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "aws_access_key_id" in value:
-        pairs.append((f"{prefix}.AWSAccessKeyId", str(value["aws_access_key_id"])))
+        pairs.append((f"{key_prefix}AWSAccessKeyId", str(value["aws_access_key_id"])))
     if "bucket" in value:
-        pairs.append((f"{prefix}.Bucket", str(value["bucket"])))
+        pairs.append((f"{key_prefix}Bucket", str(value["bucket"])))
     if "prefix" in value:
-        pairs.append((f"{prefix}.Prefix", str(value["prefix"])))
+        pairs.append((f"{key_prefix}Prefix", str(value["prefix"])))
     if "upload_policy" in value:
         import capo_ec2.types.blob
 
         capo_ec2.types.blob.serialize_ec2_query(
-            value["upload_policy"], pairs, f"{prefix}.UploadPolicy"
+            value["upload_policy"], pairs, f"{key_prefix}UploadPolicy"
         )
     if "upload_policy_signature" in value:
         pairs.append(
-            (f"{prefix}.UploadPolicySignature", str(value["upload_policy_signature"]))
+            (
+                f"{key_prefix}UploadPolicySignature",
+                str(value["upload_policy_signature"]),
+            )
         )
 
 

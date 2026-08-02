@@ -37,34 +37,37 @@ class SecondaryInterfaceAttachment(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecondaryInterfaceAttachment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attachment_id" in value:
-        pairs.append((f"{prefix}.AttachmentId", str(value["attachment_id"])))
+        pairs.append((f"{key_prefix}AttachmentId", str(value["attachment_id"])))
     if "attach_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["attach_time"], pairs, f"{prefix}.AttachTime"
+            value["attach_time"], pairs, f"{key_prefix}AttachTime"
         )
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "device_index" in value:
-        pairs.append((f"{prefix}.DeviceIndex", str(value["device_index"])))
+        pairs.append((f"{key_prefix}DeviceIndex", str(value["device_index"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_owner_id" in value:
-        pairs.append((f"{prefix}.InstanceOwnerId", str(value["instance_owner_id"])))
+        pairs.append((f"{key_prefix}InstanceOwnerId", str(value["instance_owner_id"])))
     if "network_card_index" in value:
-        pairs.append((f"{prefix}.NetworkCardIndex", str(value["network_card_index"])))
+        pairs.append(
+            (f"{key_prefix}NetworkCardIndex", str(value["network_card_index"]))
+        )
     if "status" in value:
         import capo_ec2.types.attachment_status
 
         capo_ec2.types.attachment_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

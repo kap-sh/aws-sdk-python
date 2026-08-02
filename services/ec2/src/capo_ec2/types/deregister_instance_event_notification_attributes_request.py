@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_tag_attribute" in value:
         import capo_ec2.types.deregister_instance_tag_attribute_request
 
         capo_ec2.types.deregister_instance_tag_attribute_request.serialize_ec2_query(
-            value["instance_tag_attribute"], pairs, f"{prefix}.InstanceTagAttribute"
+            value["instance_tag_attribute"], pairs, f"{key_prefix}InstanceTagAttribute"
         )
 
 

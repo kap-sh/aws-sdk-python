@@ -28,21 +28,22 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.list_policy_granting_service_access_response_list_type
 
     capo_iam.types.list_policy_granting_service_access_response_list_type.serialize_query(
         value["policies_granting_service_access"],
         pairs,
-        f"{prefix}.PoliciesGrantingServiceAccess",
+        f"{key_prefix}PoliciesGrantingServiceAccess",
     )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListPoliciesGrantingServiceAccessResponse:

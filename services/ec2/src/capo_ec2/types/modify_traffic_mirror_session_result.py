@@ -21,11 +21,12 @@ class ModifyTrafficMirrorSessionResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyTrafficMirrorSessionResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_session" in value:
         import capo_ec2.types.traffic_mirror_session
 
         capo_ec2.types.traffic_mirror_session.serialize_ec2_query(
-            value["traffic_mirror_session"], pairs, f"{prefix}.TrafficMirrorSession"
+            value["traffic_mirror_session"], pairs, f"{key_prefix}TrafficMirrorSession"
         )
 
 

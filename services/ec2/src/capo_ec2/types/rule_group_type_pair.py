@@ -22,10 +22,11 @@ class RuleGroupTypePair(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RuleGroupTypePair, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_group_arn" in value:
-        pairs.append((f"{prefix}.RuleGroupArn", str(value["rule_group_arn"])))
+        pairs.append((f"{key_prefix}RuleGroupArn", str(value["rule_group_arn"])))
     if "rule_group_type" in value:
-        pairs.append((f"{prefix}.RuleGroupType", str(value["rule_group_type"])))
+        pairs.append((f"{key_prefix}RuleGroupType", str(value["rule_group_type"])))
 
 
 def deserialize_ec2_query(el: Element) -> RuleGroupTypePair:

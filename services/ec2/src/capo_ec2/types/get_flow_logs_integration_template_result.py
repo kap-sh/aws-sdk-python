@@ -21,8 +21,9 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "result" in value:
-        pairs.append((f"{prefix}.Result", str(value["result"])))
+        pairs.append((f"{key_prefix}Result", str(value["result"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetFlowLogsIntegrationTemplateResult:

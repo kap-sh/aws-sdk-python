@@ -44,17 +44,18 @@ class SpotOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_strategy" in value:
         import capo_ec2.types.spot_allocation_strategy
 
         capo_ec2.types.spot_allocation_strategy.serialize_ec2_query(
-            value["allocation_strategy"], pairs, f"{prefix}.AllocationStrategy"
+            value["allocation_strategy"], pairs, f"{key_prefix}AllocationStrategy"
         )
     if "maintenance_strategies" in value:
         import capo_ec2.types.fleet_spot_maintenance_strategies
 
         capo_ec2.types.fleet_spot_maintenance_strategies.serialize_ec2_query(
-            value["maintenance_strategies"], pairs, f"{prefix}.MaintenanceStrategies"
+            value["maintenance_strategies"], pairs, f"{key_prefix}MaintenanceStrategies"
         )
     if "instance_interruption_behavior" in value:
         import capo_ec2.types.spot_instance_interruption_behavior
@@ -62,33 +63,35 @@ def serialize_ec2_query(
         capo_ec2.types.spot_instance_interruption_behavior.serialize_ec2_query(
             value["instance_interruption_behavior"],
             pairs,
-            f"{prefix}.InstanceInterruptionBehavior",
+            f"{key_prefix}InstanceInterruptionBehavior",
         )
     if "instance_pools_to_use_count" in value:
         pairs.append(
             (
-                f"{prefix}.InstancePoolsToUseCount",
+                f"{key_prefix}InstancePoolsToUseCount",
                 str(value["instance_pools_to_use_count"]),
             )
         )
     if "single_instance_type" in value:
         pairs.append(
             (
-                f"{prefix}.SingleInstanceType",
+                f"{key_prefix}SingleInstanceType",
                 "true" if value["single_instance_type"] else "false",
             )
         )
     if "single_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.SingleAvailabilityZone",
+                f"{key_prefix}SingleAvailabilityZone",
                 "true" if value["single_availability_zone"] else "false",
             )
         )
     if "min_target_capacity" in value:
-        pairs.append((f"{prefix}.MinTargetCapacity", str(value["min_target_capacity"])))
+        pairs.append(
+            (f"{key_prefix}MinTargetCapacity", str(value["min_target_capacity"]))
+        )
     if "max_total_price" in value:
-        pairs.append((f"{prefix}.MaxTotalPrice", str(value["max_total_price"])))
+        pairs.append((f"{key_prefix}MaxTotalPrice", str(value["max_total_price"])))
 
 
 def deserialize_ec2_query(el: Element) -> SpotOptions:

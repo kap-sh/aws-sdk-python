@@ -40,38 +40,39 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attachment" in value:
         import capo_ec2.types.network_interface_attachment
 
         capo_ec2.types.network_interface_attachment.serialize_ec2_query(
-            value["attachment"], pairs, f"{prefix}.Attachment"
+            value["attachment"], pairs, f"{key_prefix}Attachment"
         )
     if "description" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["description"], pairs, f"{prefix}.Description"
+            value["description"], pairs, f"{key_prefix}Description"
         )
     if "groups" in value:
         import capo_ec2.types.group_identifier_list
 
         capo_ec2.types.group_identifier_list.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.GroupSet"
+            value["groups"], pairs, f"{key_prefix}GroupSet"
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "source_dest_check" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["source_dest_check"], pairs, f"{prefix}.SourceDestCheck"
+            value["source_dest_check"], pairs, f"{key_prefix}SourceDestCheck"
         )
     if "associate_public_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.AssociatePublicIpAddress",
+                f"{key_prefix}AssociatePublicIpAddress",
                 "true" if value["associate_public_ip_address"] else "false",
             )
         )

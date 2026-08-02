@@ -25,20 +25,21 @@ class DescribeVpcEndpointServicesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpcEndpointServicesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_names" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["service_names"], pairs, f"{prefix}.ServiceNameSet"
+            value["service_names"], pairs, f"{key_prefix}ServiceNameSet"
         )
     if "service_details" in value:
         import capo_ec2.types.service_detail_set
 
         capo_ec2.types.service_detail_set.serialize_ec2_query(
-            value["service_details"], pairs, f"{prefix}.ServiceDetailSet"
+            value["service_details"], pairs, f"{key_prefix}ServiceDetailSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcEndpointServicesResult:

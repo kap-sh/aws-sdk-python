@@ -36,35 +36,36 @@ class PacketHeaderStatement(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PacketHeaderStatement, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_addresses" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["source_addresses"], pairs, f"{prefix}.SourceAddressSet"
+            value["source_addresses"], pairs, f"{key_prefix}SourceAddressSet"
         )
     if "destination_addresses" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["destination_addresses"], pairs, f"{prefix}.DestinationAddressSet"
+            value["destination_addresses"], pairs, f"{key_prefix}DestinationAddressSet"
         )
     if "source_ports" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["source_ports"], pairs, f"{prefix}.SourcePortSet"
+            value["source_ports"], pairs, f"{key_prefix}SourcePortSet"
         )
     if "destination_ports" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["destination_ports"], pairs, f"{prefix}.DestinationPortSet"
+            value["destination_ports"], pairs, f"{key_prefix}DestinationPortSet"
         )
     if "source_prefix_lists" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["source_prefix_lists"], pairs, f"{prefix}.SourcePrefixListSet"
+            value["source_prefix_lists"], pairs, f"{key_prefix}SourcePrefixListSet"
         )
     if "destination_prefix_lists" in value:
         import capo_ec2.types.value_string_list
@@ -72,13 +73,13 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["destination_prefix_lists"],
             pairs,
-            f"{prefix}.DestinationPrefixListSet",
+            f"{key_prefix}DestinationPrefixListSet",
         )
     if "protocols" in value:
         import capo_ec2.types.protocol_list
 
         capo_ec2.types.protocol_list.serialize_ec2_query(
-            value["protocols"], pairs, f"{prefix}.ProtocolSet"
+            value["protocols"], pairs, f"{key_prefix}ProtocolSet"
         )
 
 

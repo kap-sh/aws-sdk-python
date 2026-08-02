@@ -60,14 +60,15 @@ class LocalGatewayRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LocalGatewayRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "local_gateway_virtual_interface_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceGroupId",
+                f"{key_prefix}LocalGatewayVirtualInterfaceGroupId",
                 str(value["local_gateway_virtual_interface_group_id"]),
             )
         )
@@ -75,42 +76,42 @@ def serialize_ec2_query(
         import capo_ec2.types.local_gateway_route_type
 
         capo_ec2.types.local_gateway_route_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "state" in value:
         import capo_ec2.types.local_gateway_route_state
 
         capo_ec2.types.local_gateway_route_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "local_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableId",
+                f"{key_prefix}LocalGatewayRouteTableId",
                 str(value["local_gateway_route_table_id"]),
             )
         )
     if "local_gateway_route_table_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableArn",
+                f"{key_prefix}LocalGatewayRouteTableArn",
                 str(value["local_gateway_route_table_arn"]),
             )
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "coip_pool_id" in value:
-        pairs.append((f"{prefix}.CoipPoolId", str(value["coip_pool_id"])))
+        pairs.append((f"{key_prefix}CoipPoolId", str(value["coip_pool_id"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "destination_prefix_list_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationPrefixListId",
+                f"{key_prefix}DestinationPrefixListId",
                 str(value["destination_prefix_list_id"]),
             )
         )

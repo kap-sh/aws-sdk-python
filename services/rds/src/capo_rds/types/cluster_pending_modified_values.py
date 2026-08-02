@@ -53,54 +53,58 @@ class ClusterPendingModifiedValues(TypedDict, closed=True):
 def serialize_query(
     value: ClusterPendingModifiedValues, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pending_cloudwatch_logs_exports" in value:
         import capo_rds.types.pending_cloudwatch_logs_exports
 
         capo_rds.types.pending_cloudwatch_logs_exports.serialize_query(
             value["pending_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.PendingCloudwatchLogsExports",
+            f"{key_prefix}PendingCloudwatchLogsExports",
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "iam_database_authentication_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IAMDatabaseAuthenticationEnabled",
+                f"{key_prefix}IAMDatabaseAuthenticationEnabled",
                 "true" if value["iam_database_authentication_enabled"] else "false",
             )
         )
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "rds_custom_cluster_configuration" in value:
         import capo_rds.types.rds_custom_cluster_configuration
 
         capo_rds.types.rds_custom_cluster_configuration.serialize_query(
             value["rds_custom_cluster_configuration"],
             pairs,
-            f"{prefix}.RdsCustomClusterConfiguration",
+            f"{key_prefix}RdsCustomClusterConfiguration",
         )
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "certificate_details" in value:
         import capo_rds.types.certificate_details
 
         capo_rds.types.certificate_details.serialize_query(
-            value["certificate_details"], pairs, f"{prefix}.CertificateDetails"
+            value["certificate_details"], pairs, f"{key_prefix}CertificateDetails"
         )
 
 

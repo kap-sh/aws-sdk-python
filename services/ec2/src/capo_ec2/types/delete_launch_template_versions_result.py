@@ -26,13 +26,14 @@ class DeleteLaunchTemplateVersionsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteLaunchTemplateVersionsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successfully_deleted_launch_template_versions" in value:
         import capo_ec2.types.delete_launch_template_versions_response_success_set
 
         capo_ec2.types.delete_launch_template_versions_response_success_set.serialize_ec2_query(
             value["successfully_deleted_launch_template_versions"],
             pairs,
-            f"{prefix}.SuccessfullyDeletedLaunchTemplateVersionSet",
+            f"{key_prefix}SuccessfullyDeletedLaunchTemplateVersionSet",
         )
     if "unsuccessfully_deleted_launch_template_versions" in value:
         import capo_ec2.types.delete_launch_template_versions_response_error_set
@@ -40,7 +41,7 @@ def serialize_ec2_query(
         capo_ec2.types.delete_launch_template_versions_response_error_set.serialize_ec2_query(
             value["unsuccessfully_deleted_launch_template_versions"],
             pairs,
-            f"{prefix}.UnsuccessfullyDeletedLaunchTemplateVersionSet",
+            f"{key_prefix}UnsuccessfullyDeletedLaunchTemplateVersionSet",
         )
 
 

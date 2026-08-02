@@ -21,11 +21,12 @@ class FleetSpotMaintenanceStrategies(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FleetSpotMaintenanceStrategies, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_rebalance" in value:
         import capo_ec2.types.fleet_spot_capacity_rebalance
 
         capo_ec2.types.fleet_spot_capacity_rebalance.serialize_ec2_query(
-            value["capacity_rebalance"], pairs, f"{prefix}.CapacityRebalance"
+            value["capacity_rebalance"], pairs, f"{key_prefix}CapacityRebalance"
         )
 
 

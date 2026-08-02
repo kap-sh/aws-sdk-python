@@ -31,23 +31,28 @@ class GetDelegationRequestResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetDelegationRequestResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delegation_request" in value:
         import capo_iam.types.delegation_request
 
         capo_iam.types.delegation_request.serialize_query(
-            value["delegation_request"], pairs, f"{prefix}.DelegationRequest"
+            value["delegation_request"], pairs, f"{key_prefix}DelegationRequest"
         )
     if "permission_check_status" in value:
         import capo_iam.types.permission_check_status_type
 
         capo_iam.types.permission_check_status_type.serialize_query(
-            value["permission_check_status"], pairs, f"{prefix}.PermissionCheckStatus"
+            value["permission_check_status"],
+            pairs,
+            f"{key_prefix}PermissionCheckStatus",
         )
     if "permission_check_result" in value:
         import capo_iam.types.permission_check_result_type
 
         capo_iam.types.permission_check_result_type.serialize_query(
-            value["permission_check_result"], pairs, f"{prefix}.PermissionCheckResult"
+            value["permission_check_result"],
+            pairs,
+            f"{key_prefix}PermissionCheckResult",
         )
 
 

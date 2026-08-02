@@ -129,41 +129,42 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmHistoryItem:
 def serialize_query(
     value: AlarmHistoryItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "alarm_contributor_id" in value:
         pairs.append(
-            (f"{prefix}.AlarmContributorId", str(value["alarm_contributor_id"]))
+            (f"{key_prefix}AlarmContributorId", str(value["alarm_contributor_id"]))
         )
     if "alarm_type" in value:
         import capo_cloudwatch.types.alarm_type
 
         capo_cloudwatch.types.alarm_type.serialize_query(
-            value["alarm_type"], pairs, f"{prefix}.AlarmType"
+            value["alarm_type"], pairs, f"{key_prefix}AlarmType"
         )
     if "timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "history_item_type" in value:
         import capo_cloudwatch.types.history_item_type
 
         capo_cloudwatch.types.history_item_type.serialize_query(
-            value["history_item_type"], pairs, f"{prefix}.HistoryItemType"
+            value["history_item_type"], pairs, f"{key_prefix}HistoryItemType"
         )
     if "history_summary" in value:
-        pairs.append((f"{prefix}.HistorySummary", str(value["history_summary"])))
+        pairs.append((f"{key_prefix}HistorySummary", str(value["history_summary"])))
     if "history_data" in value:
-        pairs.append((f"{prefix}.HistoryData", str(value["history_data"])))
+        pairs.append((f"{key_prefix}HistoryData", str(value["history_data"])))
     if "alarm_contributor_attributes" in value:
         import capo_cloudwatch.types.contributor_attributes
 
         capo_cloudwatch.types.contributor_attributes.serialize_query(
             value["alarm_contributor_attributes"],
             pairs,
-            f"{prefix}.AlarmContributorAttributes",
+            f"{key_prefix}AlarmContributorAttributes",
         )
 
 

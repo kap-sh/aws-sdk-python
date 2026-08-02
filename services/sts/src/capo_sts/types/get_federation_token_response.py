@@ -27,20 +27,23 @@ class GetFederationTokenResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetFederationTokenResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "credentials" in value:
         import capo_sts.types.credentials
 
         capo_sts.types.credentials.serialize_query(
-            value["credentials"], pairs, f"{prefix}.Credentials"
+            value["credentials"], pairs, f"{key_prefix}Credentials"
         )
     if "federated_user" in value:
         import capo_sts.types.federated_user
 
         capo_sts.types.federated_user.serialize_query(
-            value["federated_user"], pairs, f"{prefix}.FederatedUser"
+            value["federated_user"], pairs, f"{key_prefix}FederatedUser"
         )
     if "packed_policy_size" in value:
-        pairs.append((f"{prefix}.PackedPolicySize", str(value["packed_policy_size"])))
+        pairs.append(
+            (f"{key_prefix}PackedPolicySize", str(value["packed_policy_size"]))
+        )
 
 
 def deserialize_query(el: Element) -> GetFederationTokenResponse:

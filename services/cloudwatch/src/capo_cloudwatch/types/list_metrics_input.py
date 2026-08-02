@@ -102,33 +102,34 @@ def deserialize_aws_json_1_0(data: dict) -> ListMetricsInput:
 def serialize_query(
     value: ListMetricsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "dimensions" in value:
         import capo_cloudwatch.types.dimension_filters
 
         capo_cloudwatch.types.dimension_filters.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "recently_active" in value:
         import capo_cloudwatch.types.recently_active
 
         capo_cloudwatch.types.recently_active.serialize_query(
-            value["recently_active"], pairs, f"{prefix}.RecentlyActive"
+            value["recently_active"], pairs, f"{key_prefix}RecentlyActive"
         )
     if "include_linked_accounts" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeLinkedAccounts",
+                f"{key_prefix}IncludeLinkedAccounts",
                 "true" if value["include_linked_accounts"] else "false",
             )
         )
     if "owning_account" in value:
-        pairs.append((f"{prefix}.OwningAccount", str(value["owning_account"])))
+        pairs.append((f"{key_prefix}OwningAccount", str(value["owning_account"])))
 
 
 def deserialize_query(el: Element) -> ListMetricsInput:

@@ -22,13 +22,14 @@ class NewDhcpConfiguration(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NewDhcpConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key" in value:
-        pairs.append((f"{prefix}.Key", str(value["key"])))
+        pairs.append((f"{key_prefix}Key", str(value["key"])))
     if "values" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

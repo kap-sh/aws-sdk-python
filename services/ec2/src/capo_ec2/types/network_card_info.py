@@ -61,52 +61,55 @@ class NetworkCardInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkCardInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_card_index" in value:
-        pairs.append((f"{prefix}.NetworkCardIndex", str(value["network_card_index"])))
+        pairs.append(
+            (f"{key_prefix}NetworkCardIndex", str(value["network_card_index"]))
+        )
     if "network_performance" in value:
         pairs.append(
-            (f"{prefix}.NetworkPerformance", str(value["network_performance"]))
+            (f"{key_prefix}NetworkPerformance", str(value["network_performance"]))
         )
     if "maximum_network_interfaces" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumNetworkInterfaces",
+                f"{key_prefix}MaximumNetworkInterfaces",
                 str(value["maximum_network_interfaces"]),
             )
         )
     if "additional_flexible_network_interfaces" in value:
         pairs.append(
             (
-                f"{prefix}.AdditionalFlexibleNetworkInterfaces",
+                f"{key_prefix}AdditionalFlexibleNetworkInterfaces",
                 str(value["additional_flexible_network_interfaces"]),
             )
         )
     if "baseline_bandwidth_in_gbps" in value:
         pairs.append(
             (
-                f"{prefix}.BaselineBandwidthInGbps",
+                f"{key_prefix}BaselineBandwidthInGbps",
                 str(value["baseline_bandwidth_in_gbps"]),
             )
         )
     if "peak_bandwidth_in_gbps" in value:
         pairs.append(
-            (f"{prefix}.PeakBandwidthInGbps", str(value["peak_bandwidth_in_gbps"]))
+            (f"{key_prefix}PeakBandwidthInGbps", str(value["peak_bandwidth_in_gbps"]))
         )
     if "default_ena_queue_count_per_interface" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultEnaQueueCountPerInterface",
+                f"{key_prefix}DefaultEnaQueueCountPerInterface",
                 str(value["default_ena_queue_count_per_interface"]),
             )
         )
     if "maximum_ena_queue_count" in value:
         pairs.append(
-            (f"{prefix}.MaximumEnaQueueCount", str(value["maximum_ena_queue_count"]))
+            (f"{key_prefix}MaximumEnaQueueCount", str(value["maximum_ena_queue_count"]))
         )
     if "maximum_ena_queue_count_per_interface" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumEnaQueueCountPerInterface",
+                f"{key_prefix}MaximumEnaQueueCountPerInterface",
                 str(value["maximum_ena_queue_count_per_interface"]),
             )
         )

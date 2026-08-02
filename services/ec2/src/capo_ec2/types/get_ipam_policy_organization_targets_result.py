@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "organization_targets" in value:
         import capo_ec2.types.ipam_policy_organization_target_set
 
         capo_ec2.types.ipam_policy_organization_target_set.serialize_ec2_query(
-            value["organization_targets"], pairs, f"{prefix}.OrganizationTargetSet"
+            value["organization_targets"], pairs, f"{key_prefix}OrganizationTargetSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetIpamPolicyOrganizationTargetsResult:

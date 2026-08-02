@@ -30,26 +30,27 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterSnapshotIdentifier",
+                f"{key_prefix}DBClusterSnapshotIdentifier",
                 str(value["db_cluster_snapshot_identifier"]),
             )
         )
     if "attribute_name" in value:
-        pairs.append((f"{prefix}.AttributeName", str(value["attribute_name"])))
+        pairs.append((f"{key_prefix}AttributeName", str(value["attribute_name"])))
     if "values_to_add" in value:
         import capo_rds.types.attribute_value_list
 
         capo_rds.types.attribute_value_list.serialize_query(
-            value["values_to_add"], pairs, f"{prefix}.ValuesToAdd"
+            value["values_to_add"], pairs, f"{key_prefix}ValuesToAdd"
         )
     if "values_to_remove" in value:
         import capo_rds.types.attribute_value_list
 
         capo_rds.types.attribute_value_list.serialize_query(
-            value["values_to_remove"], pairs, f"{prefix}.ValuesToRemove"
+            value["values_to_remove"], pairs, f"{key_prefix}ValuesToRemove"
         )
 
 

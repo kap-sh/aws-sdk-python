@@ -33,20 +33,21 @@ class DescribeDBProxyTargetsRequest(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBProxyTargetsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "target_group_name" in value:
-        pairs.append((f"{prefix}.TargetGroupName", str(value["target_group_name"])))
+        pairs.append((f"{key_prefix}TargetGroupName", str(value["target_group_name"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBProxyTargetsRequest:

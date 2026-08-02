@@ -33,27 +33,28 @@ class ImportInstanceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportInstanceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "launch_specification" in value:
         import capo_ec2.types.import_instance_launch_specification
 
         capo_ec2.types.import_instance_launch_specification.serialize_ec2_query(
-            value["launch_specification"], pairs, f"{prefix}.LaunchSpecification"
+            value["launch_specification"], pairs, f"{key_prefix}LaunchSpecification"
         )
     if "disk_images" in value:
         import capo_ec2.types.disk_image_list
 
         capo_ec2.types.disk_image_list.serialize_ec2_query(
-            value["disk_images"], pairs, f"{prefix}.DiskImage"
+            value["disk_images"], pairs, f"{key_prefix}DiskImage"
         )
     if "platform" in value:
         import capo_ec2.types.platform_values
 
         capo_ec2.types.platform_values.serialize_ec2_query(
-            value["platform"], pairs, f"{prefix}.Platform"
+            value["platform"], pairs, f"{key_prefix}Platform"
         )
 
 

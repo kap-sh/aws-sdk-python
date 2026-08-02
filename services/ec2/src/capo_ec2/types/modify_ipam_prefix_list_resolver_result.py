@@ -21,13 +21,14 @@ class ModifyIpamPrefixListResolverResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamPrefixListResolverResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_prefix_list_resolver" in value:
         import capo_ec2.types.ipam_prefix_list_resolver
 
         capo_ec2.types.ipam_prefix_list_resolver.serialize_ec2_query(
             value["ipam_prefix_list_resolver"],
             pairs,
-            f"{prefix}.IpamPrefixListResolver",
+            f"{key_prefix}IpamPrefixListResolver",
         )
 
 

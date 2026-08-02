@@ -22,14 +22,15 @@ class MetricValue(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MetricValue, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric" in value:
         import capo_ec2.types.metric
 
         capo_ec2.types.metric.serialize_ec2_query(
-            value["metric"], pairs, f"{prefix}.Metric"
+            value["metric"], pairs, f"{key_prefix}Metric"
         )
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
 
 
 def deserialize_ec2_query(el: Element) -> MetricValue:

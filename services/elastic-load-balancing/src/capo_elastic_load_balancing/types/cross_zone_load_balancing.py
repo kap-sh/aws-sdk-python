@@ -19,8 +19,9 @@ class CrossZoneLoadBalancing(TypedDict, closed=True):
 def serialize_query(
     value: CrossZoneLoadBalancing, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.Enabled", "true" if value.get("enabled", False) else "false")
+        (f"{key_prefix}Enabled", "true" if value.get("enabled", False) else "false")
     )
 
 

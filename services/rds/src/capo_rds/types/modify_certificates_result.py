@@ -18,11 +18,12 @@ class ModifyCertificatesResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyCertificatesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate" in value:
         import capo_rds.types.certificate
 
         capo_rds.types.certificate.serialize_query(
-            value["certificate"], pairs, f"{prefix}.Certificate"
+            value["certificate"], pairs, f"{key_prefix}Certificate"
         )
 
 

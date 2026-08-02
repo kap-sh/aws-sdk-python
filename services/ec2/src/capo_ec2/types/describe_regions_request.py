@@ -29,23 +29,24 @@ class DescribeRegionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeRegionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region_names" in value:
         import capo_ec2.types.region_name_string_list
 
         capo_ec2.types.region_name_string_list.serialize_ec2_query(
-            value["region_names"], pairs, f"{prefix}.RegionNames"
+            value["region_names"], pairs, f"{key_prefix}RegionNames"
         )
     if "all_regions" in value:
         pairs.append(
-            (f"{prefix}.AllRegions", "true" if value["all_regions"] else "false")
+            (f"{key_prefix}AllRegions", "true" if value["all_regions"] else "false")
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
 
 

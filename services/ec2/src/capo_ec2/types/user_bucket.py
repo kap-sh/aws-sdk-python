@@ -21,10 +21,11 @@ class UserBucket(TypedDict, closed=True):
 def serialize_ec2_query(
     value: UserBucket, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3_bucket" in value:
-        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+        pairs.append((f"{key_prefix}S3Bucket", str(value["s3_bucket"])))
     if "s3_key" in value:
-        pairs.append((f"{prefix}.S3Key", str(value["s3_key"])))
+        pairs.append((f"{key_prefix}S3Key", str(value["s3_key"])))
 
 
 def deserialize_ec2_query(el: Element) -> UserBucket:

@@ -24,16 +24,17 @@ class GetConsoleOutputResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetConsoleOutputResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "timestamp" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "output" in value:
-        pairs.append((f"{prefix}.Output", str(value["output"])))
+        pairs.append((f"{key_prefix}Output", str(value["output"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetConsoleOutputResult:

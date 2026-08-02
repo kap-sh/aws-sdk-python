@@ -47,17 +47,18 @@ class TransitGatewayPeeringAttachment(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayPeeringAttachment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "accepter_transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.AccepterTransitGatewayAttachmentId",
+                f"{key_prefix}AccepterTransitGatewayAttachmentId",
                 str(value["accepter_transit_gateway_attachment_id"]),
             )
         )
@@ -65,43 +66,43 @@ def serialize_ec2_query(
         import capo_ec2.types.peering_tgw_info
 
         capo_ec2.types.peering_tgw_info.serialize_ec2_query(
-            value["requester_tgw_info"], pairs, f"{prefix}.RequesterTgwInfo"
+            value["requester_tgw_info"], pairs, f"{key_prefix}RequesterTgwInfo"
         )
     if "accepter_tgw_info" in value:
         import capo_ec2.types.peering_tgw_info
 
         capo_ec2.types.peering_tgw_info.serialize_ec2_query(
-            value["accepter_tgw_info"], pairs, f"{prefix}.AccepterTgwInfo"
+            value["accepter_tgw_info"], pairs, f"{key_prefix}AccepterTgwInfo"
         )
     if "options" in value:
         import capo_ec2.types.transit_gateway_peering_attachment_options
 
         capo_ec2.types.transit_gateway_peering_attachment_options.serialize_ec2_query(
-            value["options"], pairs, f"{prefix}.Options"
+            value["options"], pairs, f"{key_prefix}Options"
         )
     if "status" in value:
         import capo_ec2.types.peering_attachment_status
 
         capo_ec2.types.peering_attachment_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "state" in value:
         import capo_ec2.types.transit_gateway_attachment_state
 
         capo_ec2.types.transit_gateway_attachment_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "creation_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

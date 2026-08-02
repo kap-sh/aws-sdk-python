@@ -32,17 +32,18 @@ class ModifyCustomDBEngineVersionMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyCustomDBEngineVersionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "status" in value:
         import capo_rds.types.custom_engine_version_status
 
         capo_rds.types.custom_engine_version_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

@@ -21,11 +21,14 @@ class ReferenceDetails(TypedDict, closed=True):
 def serialize_query(
     value: ReferenceDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scalar_reference_details" in value:
         import capo_rds.types.scalar_reference_details
 
         capo_rds.types.scalar_reference_details.serialize_query(
-            value["scalar_reference_details"], pairs, f"{prefix}.ScalarReferenceDetails"
+            value["scalar_reference_details"],
+            pairs,
+            f"{key_prefix}ScalarReferenceDetails",
         )
 
 

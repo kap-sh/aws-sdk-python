@@ -33,26 +33,27 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "db_instance_automated_backups_arn" in value:
         pairs.append(
             (
-                f"{prefix}.DBInstanceAutomatedBackupsArn",
+                f"{key_prefix}DBInstanceAutomatedBackupsArn",
                 str(value["db_instance_automated_backups_arn"]),
             )
         )

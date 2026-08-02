@@ -29,9 +29,10 @@ class AssignPrivateIpAddressesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssignPrivateIpAddressesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "assigned_private_ip_addresses" in value:
         import capo_ec2.types.assigned_private_ip_address_list
@@ -39,13 +40,13 @@ def serialize_ec2_query(
         capo_ec2.types.assigned_private_ip_address_list.serialize_ec2_query(
             value["assigned_private_ip_addresses"],
             pairs,
-            f"{prefix}.AssignedPrivateIpAddressesSet",
+            f"{key_prefix}AssignedPrivateIpAddressesSet",
         )
     if "assigned_ipv4_prefixes" in value:
         import capo_ec2.types.ipv4_prefixes_list
 
         capo_ec2.types.ipv4_prefixes_list.serialize_ec2_query(
-            value["assigned_ipv4_prefixes"], pairs, f"{prefix}.AssignedIpv4PrefixSet"
+            value["assigned_ipv4_prefixes"], pairs, f"{key_prefix}AssignedIpv4PrefixSet"
         )
 
 

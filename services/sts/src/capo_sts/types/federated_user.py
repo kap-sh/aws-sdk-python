@@ -23,8 +23,9 @@ class FederatedUser(TypedDict, closed=True):
 def serialize_query(
     value: FederatedUser, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.FederatedUserId", str(value["federated_user_id"])))
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}FederatedUserId", str(value["federated_user_id"])))
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> FederatedUser:

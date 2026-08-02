@@ -21,11 +21,12 @@ class IntegrateServices(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IntegrateServices, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "athena_integrations" in value:
         import capo_ec2.types.athena_integrations_set
 
         capo_ec2.types.athena_integrations_set.serialize_ec2_query(
-            value["athena_integrations"], pairs, f"{prefix}.AthenaIntegrations"
+            value["athena_integrations"], pairs, f"{key_prefix}AthenaIntegrations"
         )
 
 

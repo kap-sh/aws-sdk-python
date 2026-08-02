@@ -21,10 +21,11 @@ class SupportedRegionDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SupportedRegionDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "service_state" in value:
-        pairs.append((f"{prefix}.ServiceState", str(value["service_state"])))
+        pairs.append((f"{key_prefix}ServiceState", str(value["service_state"])))
 
 
 def deserialize_ec2_query(el: Element) -> SupportedRegionDetail:

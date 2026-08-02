@@ -24,10 +24,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
 
 
 def deserialize_ec2_query(

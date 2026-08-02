@@ -32,28 +32,31 @@ class Event(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Event, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_identifier" in value:
-        pairs.append((f"{prefix}.SourceIdentifier", str(value["source_identifier"])))
+        pairs.append((f"{key_prefix}SourceIdentifier", str(value["source_identifier"])))
     if "source_type" in value:
         import capo_rds.types.source_type
 
         capo_rds.types.source_type.serialize_query(
-            value["source_type"], pairs, f"{prefix}.SourceType"
+            value["source_type"], pairs, f"{key_prefix}SourceType"
         )
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "event_categories" in value:
         import capo_rds.types.event_categories_list
 
         capo_rds.types.event_categories_list.serialize_query(
-            value["event_categories"], pairs, f"{prefix}.EventCategories"
+            value["event_categories"], pairs, f"{key_prefix}EventCategories"
         )
     if "date" in value:
         import capo_rds.types.t_stamp
 
-        capo_rds.types.t_stamp.serialize_query(value["date"], pairs, f"{prefix}.Date")
+        capo_rds.types.t_stamp.serialize_query(
+            value["date"], pairs, f"{key_prefix}Date"
+        )
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
 
 
 def deserialize_query(el: Element) -> Event:

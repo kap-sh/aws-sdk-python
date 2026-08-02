@@ -28,23 +28,24 @@ class AccessScopePathRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AccessScopePathRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source" in value:
         import capo_ec2.types.path_statement_request
 
         capo_ec2.types.path_statement_request.serialize_ec2_query(
-            value["source"], pairs, f"{prefix}.Source"
+            value["source"], pairs, f"{key_prefix}Source"
         )
     if "destination" in value:
         import capo_ec2.types.path_statement_request
 
         capo_ec2.types.path_statement_request.serialize_ec2_query(
-            value["destination"], pairs, f"{prefix}.Destination"
+            value["destination"], pairs, f"{key_prefix}Destination"
         )
     if "through_resources" in value:
         import capo_ec2.types.through_resources_statement_request_list
 
         capo_ec2.types.through_resources_statement_request_list.serialize_ec2_query(
-            value["through_resources"], pairs, f"{prefix}.ThroughResources"
+            value["through_resources"], pairs, f"{key_prefix}ThroughResources"
         )
 
 

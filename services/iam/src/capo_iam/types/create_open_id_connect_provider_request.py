@@ -31,24 +31,25 @@ class CreateOpenIDConnectProviderRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateOpenIDConnectProviderRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Url", str(value["url"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Url", str(value["url"])))
     if "client_id_list" in value:
         import capo_iam.types.client_id_list_type
 
         capo_iam.types.client_id_list_type.serialize_query(
-            value["client_id_list"], pairs, f"{prefix}.ClientIDList"
+            value["client_id_list"], pairs, f"{key_prefix}ClientIDList"
         )
     if "thumbprint_list" in value:
         import capo_iam.types.thumbprint_list_type
 
         capo_iam.types.thumbprint_list_type.serialize_query(
-            value["thumbprint_list"], pairs, f"{prefix}.ThumbprintList"
+            value["thumbprint_list"], pairs, f"{key_prefix}ThumbprintList"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

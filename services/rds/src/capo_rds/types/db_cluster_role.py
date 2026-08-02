@@ -23,12 +23,13 @@ class DBClusterRole(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterRole, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "feature_name" in value:
-        pairs.append((f"{prefix}.FeatureName", str(value["feature_name"])))
+        pairs.append((f"{key_prefix}FeatureName", str(value["feature_name"])))
 
 
 def deserialize_query(el: Element) -> DBClusterRole:

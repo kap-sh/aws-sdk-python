@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "deregistered_multicast_group_sources" in value:
         import capo_ec2.types.transit_gateway_multicast_deregistered_group_sources
 
         capo_ec2.types.transit_gateway_multicast_deregistered_group_sources.serialize_ec2_query(
             value["deregistered_multicast_group_sources"],
             pairs,
-            f"{prefix}.DeregisteredMulticastGroupSources",
+            f"{key_prefix}DeregisteredMulticastGroupSources",
         )
 
 

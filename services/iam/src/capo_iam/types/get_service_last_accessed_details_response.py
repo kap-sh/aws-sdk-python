@@ -44,45 +44,46 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.job_status_type
 
     capo_iam.types.job_status_type.serialize_query(
-        value["job_status"], pairs, f"{prefix}.JobStatus"
+        value["job_status"], pairs, f"{key_prefix}JobStatus"
     )
     if "job_type" in value:
         import capo_iam.types.access_advisor_usage_granularity_type
 
         capo_iam.types.access_advisor_usage_granularity_type.serialize_query(
-            value["job_type"], pairs, f"{prefix}.JobType"
+            value["job_type"], pairs, f"{key_prefix}JobType"
         )
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["job_creation_date"], pairs, f"{prefix}.JobCreationDate"
+        value["job_creation_date"], pairs, f"{key_prefix}JobCreationDate"
     )
     import capo_iam.types.services_last_accessed
 
     capo_iam.types.services_last_accessed.serialize_query(
-        value["services_last_accessed"], pairs, f"{prefix}.ServicesLastAccessed"
+        value["services_last_accessed"], pairs, f"{key_prefix}ServicesLastAccessed"
     )
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["job_completion_date"], pairs, f"{prefix}.JobCompletionDate"
+        value["job_completion_date"], pairs, f"{key_prefix}JobCompletionDate"
     )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "error" in value:
         import capo_iam.types.error_details
 
         capo_iam.types.error_details.serialize_query(
-            value["error"], pairs, f"{prefix}.Error"
+            value["error"], pairs, f"{key_prefix}Error"
         )
 
 

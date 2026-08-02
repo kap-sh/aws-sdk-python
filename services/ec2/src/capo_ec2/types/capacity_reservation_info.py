@@ -34,19 +34,20 @@ class CapacityReservationInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "tenancy" in value:
         import capo_ec2.types.capacity_reservation_tenancy
 
         capo_ec2.types.capacity_reservation_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

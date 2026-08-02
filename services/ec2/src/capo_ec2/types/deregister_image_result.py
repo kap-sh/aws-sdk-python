@@ -26,13 +26,16 @@ DeregisterImageResult = TypedDict(
 def serialize_ec2_query(
     value: DeregisterImageResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
     if "delete_snapshot_results" in value:
         import capo_ec2.types.delete_snapshot_result_set
 
         capo_ec2.types.delete_snapshot_result_set.serialize_ec2_query(
-            value["delete_snapshot_results"], pairs, f"{prefix}.DeleteSnapshotResultSet"
+            value["delete_snapshot_results"],
+            pairs,
+            f"{key_prefix}DeleteSnapshotResultSet",
         )
 
 

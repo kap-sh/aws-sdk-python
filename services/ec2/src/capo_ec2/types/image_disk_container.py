@@ -32,21 +32,22 @@ class ImageDiskContainer(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageDiskContainer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "device_name" in value:
-        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+        pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "format" in value:
-        pairs.append((f"{prefix}.Format", str(value["format"])))
+        pairs.append((f"{key_prefix}Format", str(value["format"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "url" in value:
-        pairs.append((f"{prefix}.Url", str(value["url"])))
+        pairs.append((f"{key_prefix}Url", str(value["url"])))
     if "user_bucket" in value:
         import capo_ec2.types.user_bucket
 
         capo_ec2.types.user_bucket.serialize_ec2_query(
-            value["user_bucket"], pairs, f"{prefix}.UserBucket"
+            value["user_bucket"], pairs, f"{key_prefix}UserBucket"
         )
 
 

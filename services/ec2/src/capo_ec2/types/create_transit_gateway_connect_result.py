@@ -21,11 +21,14 @@ class CreateTransitGatewayConnectResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateTransitGatewayConnectResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_connect" in value:
         import capo_ec2.types.transit_gateway_connect
 
         capo_ec2.types.transit_gateway_connect.serialize_ec2_query(
-            value["transit_gateway_connect"], pairs, f"{prefix}.TransitGatewayConnect"
+            value["transit_gateway_connect"],
+            pairs,
+            f"{key_prefix}TransitGatewayConnect",
         )
 
 

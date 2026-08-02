@@ -19,11 +19,12 @@ class ModifyAddressAttributeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyAddressAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "address" in value:
         import capo_ec2.types.address_attribute
 
         capo_ec2.types.address_attribute.serialize_ec2_query(
-            value["address"], pairs, f"{prefix}.Address"
+            value["address"], pairs, f"{key_prefix}Address"
         )
 
 

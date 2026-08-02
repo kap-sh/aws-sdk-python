@@ -24,10 +24,11 @@ class NeuronDeviceCoreInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NeuronDeviceCoreInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "version" in value:
-        pairs.append((f"{prefix}.Version", str(value["version"])))
+        pairs.append((f"{key_prefix}Version", str(value["version"])))
 
 
 def deserialize_ec2_query(el: Element) -> NeuronDeviceCoreInfo:

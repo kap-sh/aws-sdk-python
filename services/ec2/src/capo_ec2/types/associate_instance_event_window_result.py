@@ -21,11 +21,12 @@ class AssociateInstanceEventWindowResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateInstanceEventWindowResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_event_window" in value:
         import capo_ec2.types.instance_event_window
 
         capo_ec2.types.instance_event_window.serialize_ec2_query(
-            value["instance_event_window"], pairs, f"{prefix}.InstanceEventWindow"
+            value["instance_event_window"], pairs, f"{key_prefix}InstanceEventWindow"
         )
 
 

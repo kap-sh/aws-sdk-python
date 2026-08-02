@@ -37,32 +37,35 @@ class NetworkAcl(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkAcl, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "associations" in value:
         import capo_ec2.types.network_acl_association_list
 
         capo_ec2.types.network_acl_association_list.serialize_ec2_query(
-            value["associations"], pairs, f"{prefix}.AssociationSet"
+            value["associations"], pairs, f"{key_prefix}AssociationSet"
         )
     if "entries" in value:
         import capo_ec2.types.network_acl_entry_list
 
         capo_ec2.types.network_acl_entry_list.serialize_ec2_query(
-            value["entries"], pairs, f"{prefix}.EntrySet"
+            value["entries"], pairs, f"{key_prefix}EntrySet"
         )
     if "is_default" in value:
-        pairs.append((f"{prefix}.Default", "true" if value["is_default"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Default", "true" if value["is_default"] else "false")
+        )
     if "network_acl_id" in value:
-        pairs.append((f"{prefix}.NetworkAclId", str(value["network_acl_id"])))
+        pairs.append((f"{key_prefix}NetworkAclId", str(value["network_acl_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> NetworkAcl:

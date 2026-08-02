@@ -36,28 +36,31 @@ class CustomerGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CustomerGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate_arn" in value:
-        pairs.append((f"{prefix}.CertificateArn", str(value["certificate_arn"])))
+        pairs.append((f"{key_prefix}CertificateArn", str(value["certificate_arn"])))
     if "device_name" in value:
-        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+        pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "bgp_asn_extended" in value:
-        pairs.append((f"{prefix}.BgpAsnExtended", str(value["bgp_asn_extended"])))
+        pairs.append((f"{key_prefix}BgpAsnExtended", str(value["bgp_asn_extended"])))
     if "customer_gateway_id" in value:
-        pairs.append((f"{prefix}.CustomerGatewayId", str(value["customer_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CustomerGatewayId", str(value["customer_gateway_id"]))
+        )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "ip_address" in value:
-        pairs.append((f"{prefix}.IpAddress", str(value["ip_address"])))
+        pairs.append((f"{key_prefix}IpAddress", str(value["ip_address"])))
     if "bgp_asn" in value:
-        pairs.append((f"{prefix}.BgpAsn", str(value["bgp_asn"])))
+        pairs.append((f"{key_prefix}BgpAsn", str(value["bgp_asn"])))
 
 
 def deserialize_ec2_query(el: Element) -> CustomerGateway:

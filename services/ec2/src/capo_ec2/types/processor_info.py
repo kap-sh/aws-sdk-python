@@ -36,16 +36,19 @@ class ProcessorInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProcessorInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "supported_architectures" in value:
         import capo_ec2.types.architecture_type_list
 
         capo_ec2.types.architecture_type_list.serialize_ec2_query(
-            value["supported_architectures"], pairs, f"{prefix}.SupportedArchitectures"
+            value["supported_architectures"],
+            pairs,
+            f"{key_prefix}SupportedArchitectures",
         )
     if "sustained_clock_speed_in_ghz" in value:
         pairs.append(
             (
-                f"{prefix}.SustainedClockSpeedInGhz",
+                f"{key_prefix}SustainedClockSpeedInGhz",
                 str(value["sustained_clock_speed_in_ghz"]),
             )
         )
@@ -53,10 +56,10 @@ def serialize_ec2_query(
         import capo_ec2.types.supported_additional_processor_feature_list
 
         capo_ec2.types.supported_additional_processor_feature_list.serialize_ec2_query(
-            value["supported_features"], pairs, f"{prefix}.SupportedFeatures"
+            value["supported_features"], pairs, f"{key_prefix}SupportedFeatures"
         )
     if "manufacturer" in value:
-        pairs.append((f"{prefix}.Manufacturer", str(value["manufacturer"])))
+        pairs.append((f"{key_prefix}Manufacturer", str(value["manufacturer"])))
 
 
 def deserialize_ec2_query(el: Element) -> ProcessorInfo:

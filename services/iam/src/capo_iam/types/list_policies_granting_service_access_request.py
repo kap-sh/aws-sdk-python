@@ -30,13 +30,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     import capo_iam.types.service_namespace_list_type
 
     capo_iam.types.service_namespace_list_type.serialize_query(
-        value["service_namespaces"], pairs, f"{prefix}.ServiceNamespaces"
+        value["service_namespaces"], pairs, f"{key_prefix}ServiceNamespaces"
     )
 
 

@@ -51,52 +51,53 @@ class IpamResourceDiscovery(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamResourceDiscovery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "ipam_resource_discovery_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryId",
+                f"{key_prefix}IpamResourceDiscoveryId",
                 str(value["ipam_resource_discovery_id"]),
             )
         )
     if "ipam_resource_discovery_arn" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryArn",
+                f"{key_prefix}IpamResourceDiscoveryArn",
                 str(value["ipam_resource_discovery_arn"]),
             )
         )
     if "ipam_resource_discovery_region" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryRegion",
+                f"{key_prefix}IpamResourceDiscoveryRegion",
                 str(value["ipam_resource_discovery_region"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "operating_regions" in value:
         import capo_ec2.types.ipam_operating_region_set
 
         capo_ec2.types.ipam_operating_region_set.serialize_ec2_query(
-            value["operating_regions"], pairs, f"{prefix}.OperatingRegionSet"
+            value["operating_regions"], pairs, f"{key_prefix}OperatingRegionSet"
         )
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "state" in value:
         import capo_ec2.types.ipam_resource_discovery_state
 
         capo_ec2.types.ipam_resource_discovery_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "organizational_unit_exclusions" in value:
         import capo_ec2.types.ipam_organizational_unit_exclusion_set
@@ -104,7 +105,7 @@ def serialize_ec2_query(
         capo_ec2.types.ipam_organizational_unit_exclusion_set.serialize_ec2_query(
             value["organizational_unit_exclusions"],
             pairs,
-            f"{prefix}.OrganizationalUnitExclusionSet",
+            f"{key_prefix}OrganizationalUnitExclusionSet",
         )
 
 

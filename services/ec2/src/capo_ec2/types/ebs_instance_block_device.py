@@ -38,16 +38,17 @@ class EbsInstanceBlockDevice(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EbsInstanceBlockDevice, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attach_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["attach_time"], pairs, f"{prefix}.AttachTime"
+            value["attach_time"], pairs, f"{key_prefix}AttachTime"
         )
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
@@ -55,24 +56,24 @@ def serialize_ec2_query(
         import capo_ec2.types.attachment_status
 
         capo_ec2.types.attachment_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "associated_resource" in value:
         pairs.append(
-            (f"{prefix}.AssociatedResource", str(value["associated_resource"]))
+            (f"{key_prefix}AssociatedResource", str(value["associated_resource"]))
         )
     if "volume_owner_id" in value:
-        pairs.append((f"{prefix}.VolumeOwnerId", str(value["volume_owner_id"])))
+        pairs.append((f"{key_prefix}VolumeOwnerId", str(value["volume_owner_id"])))
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "ebs_card_index" in value:
-        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+        pairs.append((f"{key_prefix}EbsCardIndex", str(value["ebs_card_index"])))
 
 
 def deserialize_ec2_query(el: Element) -> EbsInstanceBlockDevice:

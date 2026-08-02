@@ -78,64 +78,69 @@ class CreateRouteRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateRouteRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_prefix_list_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationPrefixListId",
+                f"{key_prefix}DestinationPrefixListId",
                 str(value["destination_prefix_list_id"]),
             )
         )
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
     if "carrier_gateway_id" in value:
-        pairs.append((f"{prefix}.CarrierGatewayId", str(value["carrier_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CarrierGatewayId", str(value["carrier_gateway_id"]))
+        )
     if "core_network_arn" in value:
-        pairs.append((f"{prefix}.CoreNetworkArn", str(value["core_network_arn"])))
+        pairs.append((f"{key_prefix}CoreNetworkArn", str(value["core_network_arn"])))
     if "odb_network_arn" in value:
-        pairs.append((f"{prefix}.OdbNetworkArn", str(value["odb_network_arn"])))
+        pairs.append((f"{key_prefix}OdbNetworkArn", str(value["odb_network_arn"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "gateway_id" in value:
-        pairs.append((f"{prefix}.GatewayId", str(value["gateway_id"])))
+        pairs.append((f"{key_prefix}GatewayId", str(value["gateway_id"])))
     if "destination_ipv6_cidr_block" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationIpv6CidrBlock",
+                f"{key_prefix}DestinationIpv6CidrBlock",
                 str(value["destination_ipv6_cidr_block"]),
             )
         )
     if "egress_only_internet_gateway_id" in value:
         pairs.append(
             (
-                f"{prefix}.EgressOnlyInternetGatewayId",
+                f"{key_prefix}EgressOnlyInternetGatewayId",
                 str(value["egress_only_internet_gateway_id"]),
             )
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateRouteRequest:

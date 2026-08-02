@@ -46,15 +46,16 @@ class VpcBlockPublicAccessOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcBlockPublicAccessOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "aws_account_id" in value:
-        pairs.append((f"{prefix}.AwsAccountId", str(value["aws_account_id"])))
+        pairs.append((f"{key_prefix}AwsAccountId", str(value["aws_account_id"])))
     if "aws_region" in value:
-        pairs.append((f"{prefix}.AwsRegion", str(value["aws_region"])))
+        pairs.append((f"{key_prefix}AwsRegion", str(value["aws_region"])))
     if "state" in value:
         import capo_ec2.types.vpc_block_public_access_state
 
         capo_ec2.types.vpc_block_public_access_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "internet_gateway_block_mode" in value:
         import capo_ec2.types.internet_gateway_block_mode
@@ -62,27 +63,27 @@ def serialize_ec2_query(
         capo_ec2.types.internet_gateway_block_mode.serialize_ec2_query(
             value["internet_gateway_block_mode"],
             pairs,
-            f"{prefix}.InternetGatewayBlockMode",
+            f"{key_prefix}InternetGatewayBlockMode",
         )
     if "reason" in value:
-        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+        pairs.append((f"{key_prefix}Reason", str(value["reason"])))
     if "last_update_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["last_update_timestamp"], pairs, f"{prefix}.LastUpdateTimestamp"
+            value["last_update_timestamp"], pairs, f"{key_prefix}LastUpdateTimestamp"
         )
     if "managed_by" in value:
         import capo_ec2.types.managed_by
 
         capo_ec2.types.managed_by.serialize_ec2_query(
-            value["managed_by"], pairs, f"{prefix}.ManagedBy"
+            value["managed_by"], pairs, f"{key_prefix}ManagedBy"
         )
     if "exclusions_allowed" in value:
         import capo_ec2.types.vpc_block_public_access_exclusions_allowed
 
         capo_ec2.types.vpc_block_public_access_exclusions_allowed.serialize_ec2_query(
-            value["exclusions_allowed"], pairs, f"{prefix}.ExclusionsAllowed"
+            value["exclusions_allowed"], pairs, f"{key_prefix}ExclusionsAllowed"
         )
 
 

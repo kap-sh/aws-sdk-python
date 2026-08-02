@@ -51,35 +51,36 @@ class VolumeStatusItem(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeStatusItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "actions" in value:
         import capo_ec2.types.volume_status_actions_list
 
         capo_ec2.types.volume_status_actions_list.serialize_ec2_query(
-            value["actions"], pairs, f"{prefix}.ActionsSet"
+            value["actions"], pairs, f"{key_prefix}ActionsSet"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "events" in value:
         import capo_ec2.types.volume_status_events_list
 
         capo_ec2.types.volume_status_events_list.serialize_ec2_query(
-            value["events"], pairs, f"{prefix}.EventsSet"
+            value["events"], pairs, f"{key_prefix}EventsSet"
         )
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "volume_status" in value:
         import capo_ec2.types.volume_status_info
 
         capo_ec2.types.volume_status_info.serialize_ec2_query(
-            value["volume_status"], pairs, f"{prefix}.VolumeStatus"
+            value["volume_status"], pairs, f"{key_prefix}VolumeStatus"
         )
     if "attachment_statuses" in value:
         import capo_ec2.types.volume_status_attachment_status_list
 
         capo_ec2.types.volume_status_attachment_status_list.serialize_ec2_query(
-            value["attachment_statuses"], pairs, f"{prefix}.AttachmentStatuses"
+            value["attachment_statuses"], pairs, f"{key_prefix}AttachmentStatuses"
         )
     if "initialization_status_details" in value:
         import capo_ec2.types.initialization_status_details
@@ -87,17 +88,17 @@ def serialize_ec2_query(
         capo_ec2.types.initialization_status_details.serialize_ec2_query(
             value["initialization_status_details"],
             pairs,
-            f"{prefix}.InitializationStatusDetails",
+            f"{key_prefix}InitializationStatusDetails",
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
 
 

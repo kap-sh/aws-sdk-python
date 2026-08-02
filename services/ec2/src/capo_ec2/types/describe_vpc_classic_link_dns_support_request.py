@@ -31,16 +31,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_ids" in value:
         import capo_ec2.types.vpc_classic_link_id_list
 
         capo_ec2.types.vpc_classic_link_id_list.serialize_ec2_query(
-            value["vpc_ids"], pairs, f"{prefix}.VpcIds"
+            value["vpc_ids"], pairs, f"{key_prefix}VpcIds"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcClassicLinkDnsSupportRequest:

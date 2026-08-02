@@ -33,23 +33,26 @@ class CarrierGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CarrierGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "carrier_gateway_id" in value:
-        pairs.append((f"{prefix}.CarrierGatewayId", str(value["carrier_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CarrierGatewayId", str(value["carrier_gateway_id"]))
+        )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "state" in value:
         import capo_ec2.types.carrier_gateway_state
 
         capo_ec2.types.carrier_gateway_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

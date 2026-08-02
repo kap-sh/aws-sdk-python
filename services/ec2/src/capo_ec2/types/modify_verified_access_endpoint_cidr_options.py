@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "port_ranges" in value:
         import capo_ec2.types.modify_verified_access_endpoint_port_range_list
 
         capo_ec2.types.modify_verified_access_endpoint_port_range_list.serialize_ec2_query(
-            value["port_ranges"], pairs, f"{prefix}.PortRanges"
+            value["port_ranges"], pairs, f"{key_prefix}PortRanges"
         )
 
 

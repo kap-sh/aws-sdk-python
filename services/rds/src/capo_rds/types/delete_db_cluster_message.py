@@ -29,28 +29,29 @@ class DeleteDBClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteDBClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "skip_final_snapshot" in value:
         pairs.append(
             (
-                f"{prefix}.SkipFinalSnapshot",
+                f"{key_prefix}SkipFinalSnapshot",
                 "true" if value["skip_final_snapshot"] else "false",
             )
         )
     if "final_db_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.FinalDBSnapshotIdentifier",
+                f"{key_prefix}FinalDBSnapshotIdentifier",
                 str(value["final_db_snapshot_identifier"]),
             )
         )
     if "delete_automated_backups" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteAutomatedBackups",
+                f"{key_prefix}DeleteAutomatedBackups",
                 "true" if value["delete_automated_backups"] else "false",
             )
         )

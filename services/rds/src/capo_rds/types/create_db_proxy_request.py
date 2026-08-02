@@ -59,59 +59,64 @@ class CreateDBProxyRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBProxyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "engine_family" in value:
         import capo_rds.types.engine_family
 
         capo_rds.types.engine_family.serialize_query(
-            value["engine_family"], pairs, f"{prefix}.EngineFamily"
+            value["engine_family"], pairs, f"{key_prefix}EngineFamily"
         )
     if "default_auth_scheme" in value:
         import capo_rds.types.default_auth_scheme
 
         capo_rds.types.default_auth_scheme.serialize_query(
-            value["default_auth_scheme"], pairs, f"{prefix}.DefaultAuthScheme"
+            value["default_auth_scheme"], pairs, f"{key_prefix}DefaultAuthScheme"
         )
     if "auth" in value:
         import capo_rds.types.user_auth_config_list
 
         capo_rds.types.user_auth_config_list.serialize_query(
-            value["auth"], pairs, f"{prefix}.Auth"
+            value["auth"], pairs, f"{key_prefix}Auth"
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
     if "vpc_subnet_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_subnet_ids"], pairs, f"{prefix}.VpcSubnetIds"
+            value["vpc_subnet_ids"], pairs, f"{key_prefix}VpcSubnetIds"
         )
     if "vpc_security_group_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "require_tls" in value:
         pairs.append(
-            (f"{prefix}.RequireTLS", "true" if value["require_tls"] else "false")
+            (f"{key_prefix}RequireTLS", "true" if value["require_tls"] else "false")
         )
     if "idle_client_timeout" in value:
-        pairs.append((f"{prefix}.IdleClientTimeout", str(value["idle_client_timeout"])))
+        pairs.append(
+            (f"{key_prefix}IdleClientTimeout", str(value["idle_client_timeout"]))
+        )
     if "debug_logging" in value:
         pairs.append(
-            (f"{prefix}.DebugLogging", "true" if value["debug_logging"] else "false")
+            (f"{key_prefix}DebugLogging", "true" if value["debug_logging"] else "false")
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "endpoint_network_type" in value:
         import capo_rds.types.endpoint_network_type
 
         capo_rds.types.endpoint_network_type.serialize_query(
-            value["endpoint_network_type"], pairs, f"{prefix}.EndpointNetworkType"
+            value["endpoint_network_type"], pairs, f"{key_prefix}EndpointNetworkType"
         )
     if "target_connection_network_type" in value:
         import capo_rds.types.target_connection_network_type
@@ -119,7 +124,7 @@ def serialize_query(
         capo_rds.types.target_connection_network_type.serialize_query(
             value["target_connection_network_type"],
             pairs,
-            f"{prefix}.TargetConnectionNetworkType",
+            f"{key_prefix}TargetConnectionNetworkType",
         )
 
 

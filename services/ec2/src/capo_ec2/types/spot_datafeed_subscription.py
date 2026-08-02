@@ -33,23 +33,24 @@ class SpotDatafeedSubscription(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotDatafeedSubscription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bucket" in value:
-        pairs.append((f"{prefix}.Bucket", str(value["bucket"])))
+        pairs.append((f"{key_prefix}Bucket", str(value["bucket"])))
     if "fault" in value:
         import capo_ec2.types.spot_instance_state_fault
 
         capo_ec2.types.spot_instance_state_fault.serialize_ec2_query(
-            value["fault"], pairs, f"{prefix}.Fault"
+            value["fault"], pairs, f"{key_prefix}Fault"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "prefix" in value:
-        pairs.append((f"{prefix}.Prefix", str(value["prefix"])))
+        pairs.append((f"{key_prefix}Prefix", str(value["prefix"])))
     if "state" in value:
         import capo_ec2.types.datafeed_subscription_state
 
         capo_ec2.types.datafeed_subscription_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

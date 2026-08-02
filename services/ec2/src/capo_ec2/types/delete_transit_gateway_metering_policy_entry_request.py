@@ -29,17 +29,20 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_metering_policy_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMeteringPolicyId",
+                f"{key_prefix}TransitGatewayMeteringPolicyId",
                 str(value["transit_gateway_metering_policy_id"]),
             )
         )
     if "policy_rule_number" in value:
-        pairs.append((f"{prefix}.PolicyRuleNumber", str(value["policy_rule_number"])))
+        pairs.append(
+            (f"{key_prefix}PolicyRuleNumber", str(value["policy_rule_number"]))
+        )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(

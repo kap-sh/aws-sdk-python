@@ -26,15 +26,16 @@ class LoginProfile(TypedDict, closed=True):
 def serialize_query(
     value: LoginProfile, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["create_date"], pairs, f"{prefix}.CreateDate"
+        value["create_date"], pairs, f"{key_prefix}CreateDate"
     )
     pairs.append(
         (
-            f"{prefix}.PasswordResetRequired",
+            f"{key_prefix}PasswordResetRequired",
             "true" if value.get("password_reset_required", False) else "false",
         )
     )

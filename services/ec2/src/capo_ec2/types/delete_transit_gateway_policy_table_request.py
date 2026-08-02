@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_policy_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayPolicyTableId",
+                f"{key_prefix}TransitGatewayPolicyTableId",
                 str(value["transit_gateway_policy_table_id"]),
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteTransitGatewayPolicyTableRequest:

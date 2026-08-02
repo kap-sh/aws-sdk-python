@@ -24,13 +24,14 @@ class ProvisionPublicIpv4PoolCidrResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProvisionPublicIpv4PoolCidrResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pool_id" in value:
-        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
     if "pool_address_range" in value:
         import capo_ec2.types.public_ipv4_pool_range
 
         capo_ec2.types.public_ipv4_pool_range.serialize_ec2_query(
-            value["pool_address_range"], pairs, f"{prefix}.PoolAddressRange"
+            value["pool_address_range"], pairs, f"{key_prefix}PoolAddressRange"
         )
 
 

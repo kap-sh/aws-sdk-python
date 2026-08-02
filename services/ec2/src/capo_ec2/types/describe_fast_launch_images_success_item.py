@@ -52,47 +52,51 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "resource_type" in value:
         import capo_ec2.types.fast_launch_resource_type
 
         capo_ec2.types.fast_launch_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "snapshot_configuration" in value:
         import capo_ec2.types.fast_launch_snapshot_configuration_response
 
         capo_ec2.types.fast_launch_snapshot_configuration_response.serialize_ec2_query(
-            value["snapshot_configuration"], pairs, f"{prefix}.SnapshotConfiguration"
+            value["snapshot_configuration"], pairs, f"{key_prefix}SnapshotConfiguration"
         )
     if "launch_template" in value:
         import capo_ec2.types.fast_launch_launch_template_specification_response
 
         capo_ec2.types.fast_launch_launch_template_specification_response.serialize_ec2_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "max_parallel_launches" in value:
         pairs.append(
-            (f"{prefix}.MaxParallelLaunches", str(value["max_parallel_launches"]))
+            (f"{key_prefix}MaxParallelLaunches", str(value["max_parallel_launches"]))
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "state" in value:
         import capo_ec2.types.fast_launch_state_code
 
         capo_ec2.types.fast_launch_state_code.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_transition_reason" in value:
         pairs.append(
-            (f"{prefix}.StateTransitionReason", str(value["state_transition_reason"]))
+            (
+                f"{key_prefix}StateTransitionReason",
+                str(value["state_transition_reason"]),
+            )
         )
     if "state_transition_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["state_transition_time"], pairs, f"{prefix}.StateTransitionTime"
+            value["state_transition_time"], pairs, f"{key_prefix}StateTransitionTime"
         )
 
 

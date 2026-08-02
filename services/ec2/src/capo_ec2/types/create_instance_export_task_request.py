@@ -37,27 +37,28 @@ class CreateInstanceExportTaskRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateInstanceExportTaskRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "target_environment" in value:
         import capo_ec2.types.export_environment
 
         capo_ec2.types.export_environment.serialize_ec2_query(
-            value["target_environment"], pairs, f"{prefix}.TargetEnvironment"
+            value["target_environment"], pairs, f"{key_prefix}TargetEnvironment"
         )
     if "export_to_s3_task" in value:
         import capo_ec2.types.export_to_s3_task_specification
 
         capo_ec2.types.export_to_s3_task_specification.serialize_ec2_query(
-            value["export_to_s3_task"], pairs, f"{prefix}.ExportToS3"
+            value["export_to_s3_task"], pairs, f"{key_prefix}ExportToS3"
         )
 
 

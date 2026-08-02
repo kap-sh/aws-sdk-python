@@ -37,35 +37,36 @@ class ExportTask(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExportTask, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "export_task_id" in value:
-        pairs.append((f"{prefix}.ExportTaskId", str(value["export_task_id"])))
+        pairs.append((f"{key_prefix}ExportTaskId", str(value["export_task_id"])))
     if "export_to_s3_task" in value:
         import capo_ec2.types.export_to_s3_task
 
         capo_ec2.types.export_to_s3_task.serialize_ec2_query(
-            value["export_to_s3_task"], pairs, f"{prefix}.ExportToS3"
+            value["export_to_s3_task"], pairs, f"{key_prefix}ExportToS3"
         )
     if "instance_export_details" in value:
         import capo_ec2.types.instance_export_details
 
         capo_ec2.types.instance_export_details.serialize_ec2_query(
-            value["instance_export_details"], pairs, f"{prefix}.InstanceExport"
+            value["instance_export_details"], pairs, f"{key_prefix}InstanceExport"
         )
     if "state" in value:
         import capo_ec2.types.export_task_state
 
         capo_ec2.types.export_task_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

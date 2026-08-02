@@ -33,23 +33,24 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "architecture_types" in value:
         import capo_ec2.types.architecture_type_set
 
         capo_ec2.types.architecture_type_set.serialize_ec2_query(
-            value["architecture_types"], pairs, f"{prefix}.ArchitectureTypes"
+            value["architecture_types"], pairs, f"{key_prefix}ArchitectureTypes"
         )
     if "virtualization_types" in value:
         import capo_ec2.types.virtualization_type_set
 
         capo_ec2.types.virtualization_type_set.serialize_ec2_query(
-            value["virtualization_types"], pairs, f"{prefix}.VirtualizationTypes"
+            value["virtualization_types"], pairs, f"{key_prefix}VirtualizationTypes"
         )
     if "instance_requirements" in value:
         import capo_ec2.types.instance_requirements_request
 
         capo_ec2.types.instance_requirements_request.serialize_ec2_query(
-            value["instance_requirements"], pairs, f"{prefix}.InstanceRequirements"
+            value["instance_requirements"], pairs, f"{key_prefix}InstanceRequirements"
         )
 
 

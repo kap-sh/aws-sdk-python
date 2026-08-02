@@ -26,12 +26,13 @@ class MFADevice(TypedDict, closed=True):
 def serialize_query(
     value: MFADevice, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["enable_date"], pairs, f"{prefix}.EnableDate"
+        value["enable_date"], pairs, f"{key_prefix}EnableDate"
     )
 
 

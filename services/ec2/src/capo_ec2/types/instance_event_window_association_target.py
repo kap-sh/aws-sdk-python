@@ -29,23 +29,24 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_ids" in value:
         import capo_ec2.types.instance_id_list
 
         capo_ec2.types.instance_id_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{prefix}.InstanceIdSet"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceIdSet"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "dedicated_host_ids" in value:
         import capo_ec2.types.dedicated_host_id_list
 
         capo_ec2.types.dedicated_host_id_list.serialize_ec2_query(
-            value["dedicated_host_ids"], pairs, f"{prefix}.DedicatedHostIdSet"
+            value["dedicated_host_ids"], pairs, f"{key_prefix}DedicatedHostIdSet"
         )
 
 

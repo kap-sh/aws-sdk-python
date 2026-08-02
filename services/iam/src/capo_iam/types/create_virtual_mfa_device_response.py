@@ -20,10 +20,11 @@ class CreateVirtualMFADeviceResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateVirtualMFADeviceResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.virtual_mfa_device
 
     capo_iam.types.virtual_mfa_device.serialize_query(
-        value["virtual_mfa_device"], pairs, f"{prefix}.VirtualMFADevice"
+        value["virtual_mfa_device"], pairs, f"{key_prefix}VirtualMFADevice"
     )
 
 

@@ -21,13 +21,14 @@ class ListOpenIDConnectProvidersResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListOpenIDConnectProvidersResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "open_id_connect_provider_list" in value:
         import capo_iam.types.open_id_connect_provider_list_type
 
         capo_iam.types.open_id_connect_provider_list_type.serialize_query(
             value["open_id_connect_provider_list"],
             pairs,
-            f"{prefix}.OpenIDConnectProviderList",
+            f"{key_prefix}OpenIDConnectProviderList",
         )
 
 

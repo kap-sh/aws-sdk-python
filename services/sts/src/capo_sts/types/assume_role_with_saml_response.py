@@ -47,32 +47,35 @@ class AssumeRoleWithSAMLResponse(TypedDict, closed=True):
 def serialize_query(
     value: AssumeRoleWithSAMLResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "credentials" in value:
         import capo_sts.types.credentials
 
         capo_sts.types.credentials.serialize_query(
-            value["credentials"], pairs, f"{prefix}.Credentials"
+            value["credentials"], pairs, f"{key_prefix}Credentials"
         )
     if "assumed_role_user" in value:
         import capo_sts.types.assumed_role_user
 
         capo_sts.types.assumed_role_user.serialize_query(
-            value["assumed_role_user"], pairs, f"{prefix}.AssumedRoleUser"
+            value["assumed_role_user"], pairs, f"{key_prefix}AssumedRoleUser"
         )
     if "packed_policy_size" in value:
-        pairs.append((f"{prefix}.PackedPolicySize", str(value["packed_policy_size"])))
+        pairs.append(
+            (f"{key_prefix}PackedPolicySize", str(value["packed_policy_size"]))
+        )
     if "subject" in value:
-        pairs.append((f"{prefix}.Subject", str(value["subject"])))
+        pairs.append((f"{key_prefix}Subject", str(value["subject"])))
     if "subject_type" in value:
-        pairs.append((f"{prefix}.SubjectType", str(value["subject_type"])))
+        pairs.append((f"{key_prefix}SubjectType", str(value["subject_type"])))
     if "issuer" in value:
-        pairs.append((f"{prefix}.Issuer", str(value["issuer"])))
+        pairs.append((f"{key_prefix}Issuer", str(value["issuer"])))
     if "audience" in value:
-        pairs.append((f"{prefix}.Audience", str(value["audience"])))
+        pairs.append((f"{key_prefix}Audience", str(value["audience"])))
     if "name_qualifier" in value:
-        pairs.append((f"{prefix}.NameQualifier", str(value["name_qualifier"])))
+        pairs.append((f"{key_prefix}NameQualifier", str(value["name_qualifier"])))
     if "source_identity" in value:
-        pairs.append((f"{prefix}.SourceIdentity", str(value["source_identity"])))
+        pairs.append((f"{key_prefix}SourceIdentity", str(value["source_identity"])))
 
 
 def deserialize_query(el: Element) -> AssumeRoleWithSAMLResponse:

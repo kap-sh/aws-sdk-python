@@ -25,10 +25,11 @@ class VpcClassicLink(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcClassicLink, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "classic_link_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ClassicLinkEnabled",
+                f"{key_prefix}ClassicLinkEnabled",
                 "true" if value["classic_link_enabled"] else "false",
             )
         )
@@ -36,10 +37,10 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> VpcClassicLink:

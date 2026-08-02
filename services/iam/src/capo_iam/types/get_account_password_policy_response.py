@@ -20,10 +20,11 @@ class GetAccountPasswordPolicyResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetAccountPasswordPolicyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.password_policy
 
     capo_iam.types.password_policy.serialize_query(
-        value["password_policy"], pairs, f"{prefix}.PasswordPolicy"
+        value["password_policy"], pairs, f"{key_prefix}PasswordPolicy"
     )
 
 

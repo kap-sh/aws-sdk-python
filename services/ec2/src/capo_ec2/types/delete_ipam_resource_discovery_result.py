@@ -21,11 +21,14 @@ class DeleteIpamResourceDiscoveryResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteIpamResourceDiscoveryResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_resource_discovery" in value:
         import capo_ec2.types.ipam_resource_discovery
 
         capo_ec2.types.ipam_resource_discovery.serialize_ec2_query(
-            value["ipam_resource_discovery"], pairs, f"{prefix}.IpamResourceDiscovery"
+            value["ipam_resource_discovery"],
+            pairs,
+            f"{key_prefix}IpamResourceDiscovery",
         )
 
 

@@ -37,22 +37,25 @@ class AccessDetail(TypedDict, closed=True):
 def serialize_query(
     value: AccessDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
-    pairs.append((f"{prefix}.ServiceNamespace", str(value["service_namespace"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
+    pairs.append((f"{key_prefix}ServiceNamespace", str(value["service_namespace"])))
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "entity_path" in value:
-        pairs.append((f"{prefix}.EntityPath", str(value["entity_path"])))
+        pairs.append((f"{key_prefix}EntityPath", str(value["entity_path"])))
     if "last_authenticated_time" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["last_authenticated_time"], pairs, f"{prefix}.LastAuthenticatedTime"
+            value["last_authenticated_time"],
+            pairs,
+            f"{key_prefix}LastAuthenticatedTime",
         )
     if "total_authenticated_entities" in value:
         pairs.append(
             (
-                f"{prefix}.TotalAuthenticatedEntities",
+                f"{key_prefix}TotalAuthenticatedEntities",
                 str(value["total_authenticated_entities"]),
             )
         )

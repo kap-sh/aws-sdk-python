@@ -56,15 +56,16 @@ def deserialize_aws_json_1_0(data: dict) -> DashboardInvalidInputError_:
 def serialize_query(
     value: DashboardInvalidInputError_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message" in value:
-        pairs.append((f"{prefix}.message", str(value["message"])))
+        pairs.append((f"{key_prefix}message", str(value["message"])))
     if "dashboard_validation_messages" in value:
         import capo_cloudwatch.types.dashboard_validation_messages
 
         capo_cloudwatch.types.dashboard_validation_messages.serialize_query(
             value["dashboard_validation_messages"],
             pairs,
-            f"{prefix}.dashboardValidationMessages",
+            f"{key_prefix}dashboardValidationMessages",
         )
 
 

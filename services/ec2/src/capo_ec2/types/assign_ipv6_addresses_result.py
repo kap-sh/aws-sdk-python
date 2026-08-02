@@ -27,21 +27,24 @@ class AssignIpv6AddressesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssignIpv6AddressesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "assigned_ipv6_addresses" in value:
         import capo_ec2.types.ipv6_address_list
 
         capo_ec2.types.ipv6_address_list.serialize_ec2_query(
-            value["assigned_ipv6_addresses"], pairs, f"{prefix}.AssignedIpv6Addresses"
+            value["assigned_ipv6_addresses"],
+            pairs,
+            f"{key_prefix}AssignedIpv6Addresses",
         )
     if "assigned_ipv6_prefixes" in value:
         import capo_ec2.types.ip_prefix_list
 
         capo_ec2.types.ip_prefix_list.serialize_ec2_query(
-            value["assigned_ipv6_prefixes"], pairs, f"{prefix}.AssignedIpv6PrefixSet"
+            value["assigned_ipv6_prefixes"], pairs, f"{key_prefix}AssignedIpv6PrefixSet"
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
 
 

@@ -38,28 +38,29 @@ class EnableFastLaunchRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableFastLaunchRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "snapshot_configuration" in value:
         import capo_ec2.types.fast_launch_snapshot_configuration_request
 
         capo_ec2.types.fast_launch_snapshot_configuration_request.serialize_ec2_query(
-            value["snapshot_configuration"], pairs, f"{prefix}.SnapshotConfiguration"
+            value["snapshot_configuration"], pairs, f"{key_prefix}SnapshotConfiguration"
         )
     if "launch_template" in value:
         import capo_ec2.types.fast_launch_launch_template_specification_request
 
         capo_ec2.types.fast_launch_launch_template_specification_request.serialize_ec2_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "max_parallel_launches" in value:
         pairs.append(
-            (f"{prefix}.MaxParallelLaunches", str(value["max_parallel_launches"]))
+            (f"{key_prefix}MaxParallelLaunches", str(value["max_parallel_launches"]))
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> EnableFastLaunchRequest:

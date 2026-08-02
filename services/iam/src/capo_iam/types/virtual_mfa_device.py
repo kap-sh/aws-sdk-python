@@ -34,34 +34,35 @@ class VirtualMFADevice(TypedDict, closed=True):
 def serialize_query(
     value: VirtualMFADevice, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     if "base32_string_seed" in value:
         import capo_iam.types.bootstrap_datum
 
         capo_iam.types.bootstrap_datum.serialize_query(
-            value["base32_string_seed"], pairs, f"{prefix}.Base32StringSeed"
+            value["base32_string_seed"], pairs, f"{key_prefix}Base32StringSeed"
         )
     if "qr_code_png" in value:
         import capo_iam.types.bootstrap_datum
 
         capo_iam.types.bootstrap_datum.serialize_query(
-            value["qr_code_png"], pairs, f"{prefix}.QRCodePNG"
+            value["qr_code_png"], pairs, f"{key_prefix}QRCodePNG"
         )
     if "user" in value:
         import capo_iam.types.user
 
-        capo_iam.types.user.serialize_query(value["user"], pairs, f"{prefix}.User")
+        capo_iam.types.user.serialize_query(value["user"], pairs, f"{key_prefix}User")
     if "enable_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["enable_date"], pairs, f"{prefix}.EnableDate"
+            value["enable_date"], pairs, f"{key_prefix}EnableDate"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

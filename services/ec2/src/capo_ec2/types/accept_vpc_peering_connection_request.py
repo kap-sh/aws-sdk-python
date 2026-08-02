@@ -24,12 +24,13 @@ class AcceptVpcPeeringConnectionRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AcceptVpcPeeringConnectionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )

@@ -33,17 +33,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "igmpv2_support" in value:
         import capo_ec2.types.igmpv2_support_value
 
         capo_ec2.types.igmpv2_support_value.serialize_ec2_query(
-            value["igmpv2_support"], pairs, f"{prefix}.Igmpv2Support"
+            value["igmpv2_support"], pairs, f"{key_prefix}Igmpv2Support"
         )
     if "static_sources_support" in value:
         import capo_ec2.types.static_sources_support_value
 
         capo_ec2.types.static_sources_support_value.serialize_ec2_query(
-            value["static_sources_support"], pairs, f"{prefix}.StaticSourcesSupport"
+            value["static_sources_support"], pairs, f"{key_prefix}StaticSourcesSupport"
         )
     if "auto_accept_shared_associations" in value:
         import capo_ec2.types.auto_accept_shared_associations_value
@@ -51,7 +52,7 @@ def serialize_ec2_query(
         capo_ec2.types.auto_accept_shared_associations_value.serialize_ec2_query(
             value["auto_accept_shared_associations"],
             pairs,
-            f"{prefix}.AutoAcceptSharedAssociations",
+            f"{key_prefix}AutoAcceptSharedAssociations",
         )
 
 

@@ -22,13 +22,14 @@ class RuleOption(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RuleOption, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "keyword" in value:
-        pairs.append((f"{prefix}.Keyword", str(value["keyword"])))
+        pairs.append((f"{key_prefix}Keyword", str(value["keyword"])))
     if "settings" in value:
         import capo_ec2.types.string_list
 
         capo_ec2.types.string_list.serialize_ec2_query(
-            value["settings"], pairs, f"{prefix}.SettingSet"
+            value["settings"], pairs, f"{key_prefix}SettingSet"
         )
 
 

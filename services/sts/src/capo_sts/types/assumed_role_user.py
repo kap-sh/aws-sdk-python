@@ -23,8 +23,9 @@ class AssumedRoleUser(TypedDict, closed=True):
 def serialize_query(
     value: AssumedRoleUser, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.AssumedRoleId", str(value["assumed_role_id"])))
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}AssumedRoleId", str(value["assumed_role_id"])))
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> AssumedRoleUser:

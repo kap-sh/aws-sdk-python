@@ -150,23 +150,24 @@ class InstanceTypeInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceTypeInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "current_generation" in value:
         pairs.append(
             (
-                f"{prefix}.CurrentGeneration",
+                f"{key_prefix}CurrentGeneration",
                 "true" if value["current_generation"] else "false",
             )
         )
     if "free_tier_eligible" in value:
         pairs.append(
             (
-                f"{prefix}.FreeTierEligible",
+                f"{key_prefix}FreeTierEligible",
                 "true" if value["free_tier_eligible"] else "false",
             )
         )
@@ -174,7 +175,9 @@ def serialize_ec2_query(
         import capo_ec2.types.usage_class_type_list
 
         capo_ec2.types.usage_class_type_list.serialize_ec2_query(
-            value["supported_usage_classes"], pairs, f"{prefix}.SupportedUsageClasses"
+            value["supported_usage_classes"],
+            pairs,
+            f"{key_prefix}SupportedUsageClasses",
         )
     if "supported_root_device_types" in value:
         import capo_ec2.types.root_device_type_list
@@ -182,7 +185,7 @@ def serialize_ec2_query(
         capo_ec2.types.root_device_type_list.serialize_ec2_query(
             value["supported_root_device_types"],
             pairs,
-            f"{prefix}.SupportedRootDeviceTypes",
+            f"{key_prefix}SupportedRootDeviceTypes",
         )
     if "supported_virtualization_types" in value:
         import capo_ec2.types.virtualization_type_list
@@ -190,40 +193,40 @@ def serialize_ec2_query(
         capo_ec2.types.virtualization_type_list.serialize_ec2_query(
             value["supported_virtualization_types"],
             pairs,
-            f"{prefix}.SupportedVirtualizationTypes",
+            f"{key_prefix}SupportedVirtualizationTypes",
         )
     if "bare_metal" in value:
         pairs.append(
-            (f"{prefix}.BareMetal", "true" if value["bare_metal"] else "false")
+            (f"{key_prefix}BareMetal", "true" if value["bare_metal"] else "false")
         )
     if "hypervisor" in value:
         import capo_ec2.types.instance_type_hypervisor
 
         capo_ec2.types.instance_type_hypervisor.serialize_ec2_query(
-            value["hypervisor"], pairs, f"{prefix}.Hypervisor"
+            value["hypervisor"], pairs, f"{key_prefix}Hypervisor"
         )
     if "processor_info" in value:
         import capo_ec2.types.processor_info
 
         capo_ec2.types.processor_info.serialize_ec2_query(
-            value["processor_info"], pairs, f"{prefix}.ProcessorInfo"
+            value["processor_info"], pairs, f"{key_prefix}ProcessorInfo"
         )
     if "v_cpu_info" in value:
         import capo_ec2.types.v_cpu_info
 
         capo_ec2.types.v_cpu_info.serialize_ec2_query(
-            value["v_cpu_info"], pairs, f"{prefix}.VCpuInfo"
+            value["v_cpu_info"], pairs, f"{key_prefix}VCpuInfo"
         )
     if "memory_info" in value:
         import capo_ec2.types.memory_info
 
         capo_ec2.types.memory_info.serialize_ec2_query(
-            value["memory_info"], pairs, f"{prefix}.MemoryInfo"
+            value["memory_info"], pairs, f"{key_prefix}MemoryInfo"
         )
     if "instance_storage_supported" in value:
         pairs.append(
             (
-                f"{prefix}.InstanceStorageSupported",
+                f"{key_prefix}InstanceStorageSupported",
                 "true" if value["instance_storage_supported"] else "false",
             )
         )
@@ -231,37 +234,37 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_storage_info
 
         capo_ec2.types.instance_storage_info.serialize_ec2_query(
-            value["instance_storage_info"], pairs, f"{prefix}.InstanceStorageInfo"
+            value["instance_storage_info"], pairs, f"{key_prefix}InstanceStorageInfo"
         )
     if "ebs_info" in value:
         import capo_ec2.types.ebs_info
 
         capo_ec2.types.ebs_info.serialize_ec2_query(
-            value["ebs_info"], pairs, f"{prefix}.EbsInfo"
+            value["ebs_info"], pairs, f"{key_prefix}EbsInfo"
         )
     if "network_info" in value:
         import capo_ec2.types.network_info
 
         capo_ec2.types.network_info.serialize_ec2_query(
-            value["network_info"], pairs, f"{prefix}.NetworkInfo"
+            value["network_info"], pairs, f"{key_prefix}NetworkInfo"
         )
     if "gpu_info" in value:
         import capo_ec2.types.gpu_info
 
         capo_ec2.types.gpu_info.serialize_ec2_query(
-            value["gpu_info"], pairs, f"{prefix}.GpuInfo"
+            value["gpu_info"], pairs, f"{key_prefix}GpuInfo"
         )
     if "fpga_info" in value:
         import capo_ec2.types.fpga_info
 
         capo_ec2.types.fpga_info.serialize_ec2_query(
-            value["fpga_info"], pairs, f"{prefix}.FpgaInfo"
+            value["fpga_info"], pairs, f"{key_prefix}FpgaInfo"
         )
     if "placement_group_info" in value:
         import capo_ec2.types.placement_group_info
 
         capo_ec2.types.placement_group_info.serialize_ec2_query(
-            value["placement_group_info"], pairs, f"{prefix}.PlacementGroupInfo"
+            value["placement_group_info"], pairs, f"{key_prefix}PlacementGroupInfo"
         )
     if "inference_accelerator_info" in value:
         import capo_ec2.types.inference_accelerator_info
@@ -269,33 +272,33 @@ def serialize_ec2_query(
         capo_ec2.types.inference_accelerator_info.serialize_ec2_query(
             value["inference_accelerator_info"],
             pairs,
-            f"{prefix}.InferenceAcceleratorInfo",
+            f"{key_prefix}InferenceAcceleratorInfo",
         )
     if "hibernation_supported" in value:
         pairs.append(
             (
-                f"{prefix}.HibernationSupported",
+                f"{key_prefix}HibernationSupported",
                 "true" if value["hibernation_supported"] else "false",
             )
         )
     if "burstable_performance_supported" in value:
         pairs.append(
             (
-                f"{prefix}.BurstablePerformanceSupported",
+                f"{key_prefix}BurstablePerformanceSupported",
                 "true" if value["burstable_performance_supported"] else "false",
             )
         )
     if "dedicated_hosts_supported" in value:
         pairs.append(
             (
-                f"{prefix}.DedicatedHostsSupported",
+                f"{key_prefix}DedicatedHostsSupported",
                 "true" if value["dedicated_hosts_supported"] else "false",
             )
         )
     if "auto_recovery_supported" in value:
         pairs.append(
             (
-                f"{prefix}.AutoRecoverySupported",
+                f"{key_prefix}AutoRecoverySupported",
                 "true" if value["auto_recovery_supported"] else "false",
             )
         )
@@ -303,54 +306,56 @@ def serialize_ec2_query(
         import capo_ec2.types.boot_mode_type_list
 
         capo_ec2.types.boot_mode_type_list.serialize_ec2_query(
-            value["supported_boot_modes"], pairs, f"{prefix}.SupportedBootModes"
+            value["supported_boot_modes"], pairs, f"{key_prefix}SupportedBootModes"
         )
     if "nitro_enclaves_support" in value:
         import capo_ec2.types.nitro_enclaves_support
 
         capo_ec2.types.nitro_enclaves_support.serialize_ec2_query(
-            value["nitro_enclaves_support"], pairs, f"{prefix}.NitroEnclavesSupport"
+            value["nitro_enclaves_support"], pairs, f"{key_prefix}NitroEnclavesSupport"
         )
     if "nitro_tpm_support" in value:
         import capo_ec2.types.nitro_tpm_support
 
         capo_ec2.types.nitro_tpm_support.serialize_ec2_query(
-            value["nitro_tpm_support"], pairs, f"{prefix}.NitroTpmSupport"
+            value["nitro_tpm_support"], pairs, f"{key_prefix}NitroTpmSupport"
         )
     if "nitro_tpm_info" in value:
         import capo_ec2.types.nitro_tpm_info
 
         capo_ec2.types.nitro_tpm_info.serialize_ec2_query(
-            value["nitro_tpm_info"], pairs, f"{prefix}.NitroTpmInfo"
+            value["nitro_tpm_info"], pairs, f"{key_prefix}NitroTpmInfo"
         )
     if "media_accelerator_info" in value:
         import capo_ec2.types.media_accelerator_info
 
         capo_ec2.types.media_accelerator_info.serialize_ec2_query(
-            value["media_accelerator_info"], pairs, f"{prefix}.MediaAcceleratorInfo"
+            value["media_accelerator_info"], pairs, f"{key_prefix}MediaAcceleratorInfo"
         )
     if "neuron_info" in value:
         import capo_ec2.types.neuron_info
 
         capo_ec2.types.neuron_info.serialize_ec2_query(
-            value["neuron_info"], pairs, f"{prefix}.NeuronInfo"
+            value["neuron_info"], pairs, f"{key_prefix}NeuronInfo"
         )
     if "phc_support" in value:
         import capo_ec2.types.phc_support
 
         capo_ec2.types.phc_support.serialize_ec2_query(
-            value["phc_support"], pairs, f"{prefix}.PhcSupport"
+            value["phc_support"], pairs, f"{key_prefix}PhcSupport"
         )
     if "reboot_migration_support" in value:
         import capo_ec2.types.reboot_migration_support
 
         capo_ec2.types.reboot_migration_support.serialize_ec2_query(
-            value["reboot_migration_support"], pairs, f"{prefix}.RebootMigrationSupport"
+            value["reboot_migration_support"],
+            pairs,
+            f"{key_prefix}RebootMigrationSupport",
         )
     if "supported_in_region" in value:
         pairs.append(
             (
-                f"{prefix}.SupportedInRegion",
+                f"{key_prefix}SupportedInRegion",
                 "true" if value["supported_in_region"] else "false",
             )
         )

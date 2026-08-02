@@ -43,35 +43,41 @@ class ModifyCapacityReservationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyCapacityReservationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "end_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "end_date_type" in value:
         import capo_ec2.types.end_date_type
 
         capo_ec2.types.end_date_type.serialize_ec2_query(
-            value["end_date_type"], pairs, f"{prefix}.EndDateType"
+            value["end_date_type"], pairs, f"{key_prefix}EndDateType"
         )
     if "accept" in value:
-        pairs.append((f"{prefix}.Accept", "true" if value["accept"] else "false"))
+        pairs.append((f"{key_prefix}Accept", "true" if value["accept"] else "false"))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "additional_info" in value:
-        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+        pairs.append((f"{key_prefix}AdditionalInfo", str(value["additional_info"])))
     if "instance_match_criteria" in value:
         import capo_ec2.types.instance_match_criteria
 
         capo_ec2.types.instance_match_criteria.serialize_ec2_query(
-            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+            value["instance_match_criteria"],
+            pairs,
+            f"{key_prefix}InstanceMatchCriteria",
         )
 
 

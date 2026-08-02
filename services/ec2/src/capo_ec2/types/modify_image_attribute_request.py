@@ -63,68 +63,71 @@ class ModifyImageAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyImageAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute" in value:
-        pairs.append((f"{prefix}.Attribute", str(value["attribute"])))
+        pairs.append((f"{key_prefix}Attribute", str(value["attribute"])))
     if "description" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["description"], pairs, f"{prefix}.Description"
+            value["description"], pairs, f"{key_prefix}Description"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "launch_permission" in value:
         import capo_ec2.types.launch_permission_modifications
 
         capo_ec2.types.launch_permission_modifications.serialize_ec2_query(
-            value["launch_permission"], pairs, f"{prefix}.LaunchPermission"
+            value["launch_permission"], pairs, f"{key_prefix}LaunchPermission"
         )
     if "operation_type" in value:
         import capo_ec2.types.operation_type
 
         capo_ec2.types.operation_type.serialize_ec2_query(
-            value["operation_type"], pairs, f"{prefix}.OperationType"
+            value["operation_type"], pairs, f"{key_prefix}OperationType"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_string_list
 
         capo_ec2.types.product_code_string_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "user_groups" in value:
         import capo_ec2.types.user_group_string_list
 
         capo_ec2.types.user_group_string_list.serialize_ec2_query(
-            value["user_groups"], pairs, f"{prefix}.UserGroups"
+            value["user_groups"], pairs, f"{key_prefix}UserGroups"
         )
     if "user_ids" in value:
         import capo_ec2.types.user_id_string_list
 
         capo_ec2.types.user_id_string_list.serialize_ec2_query(
-            value["user_ids"], pairs, f"{prefix}.UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserIds"
         )
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
     if "organization_arns" in value:
         import capo_ec2.types.organization_arn_string_list
 
         capo_ec2.types.organization_arn_string_list.serialize_ec2_query(
-            value["organization_arns"], pairs, f"{prefix}.OrganizationArns"
+            value["organization_arns"], pairs, f"{key_prefix}OrganizationArns"
         )
     if "organizational_unit_arns" in value:
         import capo_ec2.types.organizational_unit_arn_string_list
 
         capo_ec2.types.organizational_unit_arn_string_list.serialize_ec2_query(
-            value["organizational_unit_arns"], pairs, f"{prefix}.OrganizationalUnitArns"
+            value["organizational_unit_arns"],
+            pairs,
+            f"{key_prefix}OrganizationalUnitArns",
         )
     if "imds_support" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["imds_support"], pairs, f"{prefix}.ImdsSupport"
+            value["imds_support"], pairs, f"{key_prefix}ImdsSupport"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyImageAttributeRequest:

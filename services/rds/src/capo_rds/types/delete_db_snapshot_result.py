@@ -18,11 +18,12 @@ class DeleteDBSnapshotResult(TypedDict, closed=True):
 def serialize_query(
     value: DeleteDBSnapshotResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_snapshot" in value:
         import capo_rds.types.db_snapshot
 
         capo_rds.types.db_snapshot.serialize_query(
-            value["db_snapshot"], pairs, f"{prefix}.DBSnapshot"
+            value["db_snapshot"], pairs, f"{key_prefix}DBSnapshot"
         )
 
 

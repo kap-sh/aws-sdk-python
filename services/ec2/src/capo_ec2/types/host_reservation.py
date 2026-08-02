@@ -56,61 +56,64 @@ class HostReservation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: HostReservation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "end" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end"], pairs, f"{prefix}.End"
+            value["end"], pairs, f"{key_prefix}End"
         )
     if "host_id_set" in value:
         import capo_ec2.types.response_host_id_set
 
         capo_ec2.types.response_host_id_set.serialize_ec2_query(
-            value["host_id_set"], pairs, f"{prefix}.HostIdSet"
+            value["host_id_set"], pairs, f"{key_prefix}HostIdSet"
         )
     if "host_reservation_id" in value:
-        pairs.append((f"{prefix}.HostReservationId", str(value["host_reservation_id"])))
+        pairs.append(
+            (f"{key_prefix}HostReservationId", str(value["host_reservation_id"]))
+        )
     if "hourly_price" in value:
-        pairs.append((f"{prefix}.HourlyPrice", str(value["hourly_price"])))
+        pairs.append((f"{key_prefix}HourlyPrice", str(value["hourly_price"])))
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
     if "offering_id" in value:
-        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+        pairs.append((f"{key_prefix}OfferingId", str(value["offering_id"])))
     if "payment_option" in value:
         import capo_ec2.types.payment_option
 
         capo_ec2.types.payment_option.serialize_ec2_query(
-            value["payment_option"], pairs, f"{prefix}.PaymentOption"
+            value["payment_option"], pairs, f"{key_prefix}PaymentOption"
         )
     if "start" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start"], pairs, f"{prefix}.Start"
+            value["start"], pairs, f"{key_prefix}Start"
         )
     if "state" in value:
         import capo_ec2.types.reservation_state
 
         capo_ec2.types.reservation_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "upfront_price" in value:
-        pairs.append((f"{prefix}.UpfrontPrice", str(value["upfront_price"])))
+        pairs.append((f"{key_prefix}UpfrontPrice", str(value["upfront_price"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

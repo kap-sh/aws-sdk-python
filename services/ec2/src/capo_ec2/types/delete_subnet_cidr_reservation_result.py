@@ -21,13 +21,14 @@ class DeleteSubnetCidrReservationResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteSubnetCidrReservationResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "deleted_subnet_cidr_reservation" in value:
         import capo_ec2.types.subnet_cidr_reservation
 
         capo_ec2.types.subnet_cidr_reservation.serialize_ec2_query(
             value["deleted_subnet_cidr_reservation"],
             pairs,
-            f"{prefix}.DeletedSubnetCidrReservation",
+            f"{key_prefix}DeletedSubnetCidrReservation",
         )
 
 

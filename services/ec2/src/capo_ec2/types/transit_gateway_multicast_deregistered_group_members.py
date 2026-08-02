@@ -28,10 +28,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_multicast_domain_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMulticastDomainId",
+                f"{key_prefix}TransitGatewayMulticastDomainId",
                 str(value["transit_gateway_multicast_domain_id"]),
             )
         )
@@ -41,10 +42,10 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["deregistered_network_interface_ids"],
             pairs,
-            f"{prefix}.DeregisteredNetworkInterfaceIds",
+            f"{key_prefix}DeregisteredNetworkInterfaceIds",
         )
     if "group_ip_address" in value:
-        pairs.append((f"{prefix}.GroupIpAddress", str(value["group_ip_address"])))
+        pairs.append((f"{key_prefix}GroupIpAddress", str(value["group_ip_address"])))
 
 
 def deserialize_ec2_query(

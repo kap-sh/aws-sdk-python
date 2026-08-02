@@ -29,13 +29,14 @@ class Credentials(TypedDict, closed=True):
 def serialize_query(
     value: Credentials, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.AccessKeyId", str(value["access_key_id"])))
-    pairs.append((f"{prefix}.SecretAccessKey", str(value["secret_access_key"])))
-    pairs.append((f"{prefix}.SessionToken", str(value["session_token"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}AccessKeyId", str(value["access_key_id"])))
+    pairs.append((f"{key_prefix}SecretAccessKey", str(value["secret_access_key"])))
+    pairs.append((f"{key_prefix}SessionToken", str(value["session_token"])))
     import capo_sts.types.date_type
 
     capo_sts.types.date_type.serialize_query(
-        value["expiration"], pairs, f"{prefix}.Expiration"
+        value["expiration"], pairs, f"{key_prefix}Expiration"
     )
 
 

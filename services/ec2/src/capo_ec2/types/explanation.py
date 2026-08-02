@@ -180,104 +180,105 @@ class Explanation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Explanation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "acl" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["acl"], pairs, f"{prefix}.Acl"
+            value["acl"], pairs, f"{key_prefix}Acl"
         )
     if "acl_rule" in value:
         import capo_ec2.types.analysis_acl_rule
 
         capo_ec2.types.analysis_acl_rule.serialize_ec2_query(
-            value["acl_rule"], pairs, f"{prefix}.AclRule"
+            value["acl_rule"], pairs, f"{key_prefix}AclRule"
         )
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "addresses" in value:
         import capo_ec2.types.ip_address_list
 
         capo_ec2.types.ip_address_list.serialize_ec2_query(
-            value["addresses"], pairs, f"{prefix}.AddressSet"
+            value["addresses"], pairs, f"{key_prefix}AddressSet"
         )
     if "attached_to" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["attached_to"], pairs, f"{prefix}.AttachedTo"
+            value["attached_to"], pairs, f"{key_prefix}AttachedTo"
         )
     if "availability_zones" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZoneSet"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZoneSet"
         )
     if "availability_zone_ids" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIdSet"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIdSet"
         )
     if "cidrs" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["cidrs"], pairs, f"{prefix}.CidrSet"
+            value["cidrs"], pairs, f"{key_prefix}CidrSet"
         )
     if "component" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["component"], pairs, f"{prefix}.Component"
+            value["component"], pairs, f"{key_prefix}Component"
         )
     if "customer_gateway" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["customer_gateway"], pairs, f"{prefix}.CustomerGateway"
+            value["customer_gateway"], pairs, f"{key_prefix}CustomerGateway"
         )
     if "destination" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["destination"], pairs, f"{prefix}.Destination"
+            value["destination"], pairs, f"{key_prefix}Destination"
         )
     if "destination_vpc" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["destination_vpc"], pairs, f"{prefix}.DestinationVpc"
+            value["destination_vpc"], pairs, f"{key_prefix}DestinationVpc"
         )
     if "direction" in value:
-        pairs.append((f"{prefix}.Direction", str(value["direction"])))
+        pairs.append((f"{key_prefix}Direction", str(value["direction"])))
     if "explanation_code" in value:
-        pairs.append((f"{prefix}.ExplanationCode", str(value["explanation_code"])))
+        pairs.append((f"{key_prefix}ExplanationCode", str(value["explanation_code"])))
     if "ingress_route_table" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["ingress_route_table"], pairs, f"{prefix}.IngressRouteTable"
+            value["ingress_route_table"], pairs, f"{key_prefix}IngressRouteTable"
         )
     if "internet_gateway" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["internet_gateway"], pairs, f"{prefix}.InternetGateway"
+            value["internet_gateway"], pairs, f"{key_prefix}InternetGateway"
         )
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "classic_load_balancer_listener" in value:
         import capo_ec2.types.analysis_load_balancer_listener
 
         capo_ec2.types.analysis_load_balancer_listener.serialize_ec2_query(
             value["classic_load_balancer_listener"],
             pairs,
-            f"{prefix}.ClassicLoadBalancerListener",
+            f"{key_prefix}ClassicLoadBalancerListener",
         )
     if "load_balancer_listener_port" in value:
         pairs.append(
             (
-                f"{prefix}.LoadBalancerListenerPort",
+                f"{key_prefix}LoadBalancerListenerPort",
                 str(value["load_balancer_listener_port"]),
             )
         )
@@ -285,7 +286,7 @@ def serialize_ec2_query(
         import capo_ec2.types.analysis_load_balancer_target
 
         capo_ec2.types.analysis_load_balancer_target.serialize_ec2_query(
-            value["load_balancer_target"], pairs, f"{prefix}.LoadBalancerTarget"
+            value["load_balancer_target"], pairs, f"{key_prefix}LoadBalancerTarget"
         )
     if "load_balancer_target_group" in value:
         import capo_ec2.types.analysis_component
@@ -293,7 +294,7 @@ def serialize_ec2_query(
         capo_ec2.types.analysis_component.serialize_ec2_query(
             value["load_balancer_target_group"],
             pairs,
-            f"{prefix}.LoadBalancerTargetGroup",
+            f"{key_prefix}LoadBalancerTargetGroup",
         )
     if "load_balancer_target_groups" in value:
         import capo_ec2.types.analysis_component_list
@@ -301,12 +302,12 @@ def serialize_ec2_query(
         capo_ec2.types.analysis_component_list.serialize_ec2_query(
             value["load_balancer_target_groups"],
             pairs,
-            f"{prefix}.LoadBalancerTargetGroupSet",
+            f"{key_prefix}LoadBalancerTargetGroupSet",
         )
     if "load_balancer_target_port" in value:
         pairs.append(
             (
-                f"{prefix}.LoadBalancerTargetPort",
+                f"{key_prefix}LoadBalancerTargetPort",
                 str(value["load_balancer_target_port"]),
             )
         )
@@ -316,129 +317,129 @@ def serialize_ec2_query(
         capo_ec2.types.analysis_component.serialize_ec2_query(
             value["elastic_load_balancer_listener"],
             pairs,
-            f"{prefix}.ElasticLoadBalancerListener",
+            f"{key_prefix}ElasticLoadBalancerListener",
         )
     if "missing_component" in value:
-        pairs.append((f"{prefix}.MissingComponent", str(value["missing_component"])))
+        pairs.append((f"{key_prefix}MissingComponent", str(value["missing_component"])))
     if "nat_gateway" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["nat_gateway"], pairs, f"{prefix}.NatGateway"
+            value["nat_gateway"], pairs, f"{key_prefix}NatGateway"
         )
     if "network_interface" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["network_interface"], pairs, f"{prefix}.NetworkInterface"
+            value["network_interface"], pairs, f"{key_prefix}NetworkInterface"
         )
     if "packet_field" in value:
-        pairs.append((f"{prefix}.PacketField", str(value["packet_field"])))
+        pairs.append((f"{key_prefix}PacketField", str(value["packet_field"])))
     if "vpc_peering_connection" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpc_peering_connection"], pairs, f"{prefix}.VpcPeeringConnection"
+            value["vpc_peering_connection"], pairs, f"{key_prefix}VpcPeeringConnection"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "port_ranges" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["port_ranges"], pairs, f"{prefix}.PortRangeSet"
+            value["port_ranges"], pairs, f"{key_prefix}PortRangeSet"
         )
     if "prefix_list" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["prefix_list"], pairs, f"{prefix}.PrefixList"
+            value["prefix_list"], pairs, f"{key_prefix}PrefixList"
         )
     if "protocols" in value:
         import capo_ec2.types.string_list
 
         capo_ec2.types.string_list.serialize_ec2_query(
-            value["protocols"], pairs, f"{prefix}.ProtocolSet"
+            value["protocols"], pairs, f"{key_prefix}ProtocolSet"
         )
     if "route_table_route" in value:
         import capo_ec2.types.analysis_route_table_route
 
         capo_ec2.types.analysis_route_table_route.serialize_ec2_query(
-            value["route_table_route"], pairs, f"{prefix}.RouteTableRoute"
+            value["route_table_route"], pairs, f"{key_prefix}RouteTableRoute"
         )
     if "route_table" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["route_table"], pairs, f"{prefix}.RouteTable"
+            value["route_table"], pairs, f"{key_prefix}RouteTable"
         )
     if "security_group" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["security_group"], pairs, f"{prefix}.SecurityGroup"
+            value["security_group"], pairs, f"{key_prefix}SecurityGroup"
         )
     if "security_group_rule" in value:
         import capo_ec2.types.analysis_security_group_rule
 
         capo_ec2.types.analysis_security_group_rule.serialize_ec2_query(
-            value["security_group_rule"], pairs, f"{prefix}.SecurityGroupRule"
+            value["security_group_rule"], pairs, f"{key_prefix}SecurityGroupRule"
         )
     if "security_groups" in value:
         import capo_ec2.types.analysis_component_list
 
         capo_ec2.types.analysis_component_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroupSet"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroupSet"
         )
     if "source_vpc" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["source_vpc"], pairs, f"{prefix}.SourceVpc"
+            value["source_vpc"], pairs, f"{key_prefix}SourceVpc"
         )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "subnet" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["subnet"], pairs, f"{prefix}.Subnet"
+            value["subnet"], pairs, f"{key_prefix}Subnet"
         )
     if "subnet_route_table" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["subnet_route_table"], pairs, f"{prefix}.SubnetRouteTable"
+            value["subnet_route_table"], pairs, f"{key_prefix}SubnetRouteTable"
         )
     if "vpc" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpc"], pairs, f"{prefix}.Vpc"
+            value["vpc"], pairs, f"{key_prefix}Vpc"
         )
     if "vpc_endpoint" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpc_endpoint"], pairs, f"{prefix}.VpcEndpoint"
+            value["vpc_endpoint"], pairs, f"{key_prefix}VpcEndpoint"
         )
     if "vpn_connection" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpn_connection"], pairs, f"{prefix}.VpnConnection"
+            value["vpn_connection"], pairs, f"{key_prefix}VpnConnection"
         )
     if "vpn_gateway" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpn_gateway"], pairs, f"{prefix}.VpnGateway"
+            value["vpn_gateway"], pairs, f"{key_prefix}VpnGateway"
         )
     if "transit_gateway" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["transit_gateway"], pairs, f"{prefix}.TransitGateway"
+            value["transit_gateway"], pairs, f"{key_prefix}TransitGateway"
         )
     if "transit_gateway_route_table" in value:
         import capo_ec2.types.analysis_component
@@ -446,7 +447,7 @@ def serialize_ec2_query(
         capo_ec2.types.analysis_component.serialize_ec2_query(
             value["transit_gateway_route_table"],
             pairs,
-            f"{prefix}.TransitGatewayRouteTable",
+            f"{key_prefix}TransitGatewayRouteTable",
         )
     if "transit_gateway_route_table_route" in value:
         import capo_ec2.types.transit_gateway_route_table_route
@@ -454,7 +455,7 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_route_table_route.serialize_ec2_query(
             value["transit_gateway_route_table_route"],
             pairs,
-            f"{prefix}.TransitGatewayRouteTableRoute",
+            f"{key_prefix}TransitGatewayRouteTableRoute",
         )
     if "transit_gateway_attachment" in value:
         import capo_ec2.types.analysis_component
@@ -462,23 +463,25 @@ def serialize_ec2_query(
         capo_ec2.types.analysis_component.serialize_ec2_query(
             value["transit_gateway_attachment"],
             pairs,
-            f"{prefix}.TransitGatewayAttachment",
+            f"{key_prefix}TransitGatewayAttachment",
         )
     if "component_account" in value:
-        pairs.append((f"{prefix}.ComponentAccount", str(value["component_account"])))
+        pairs.append((f"{key_prefix}ComponentAccount", str(value["component_account"])))
     if "component_region" in value:
-        pairs.append((f"{prefix}.ComponentRegion", str(value["component_region"])))
+        pairs.append((f"{key_prefix}ComponentRegion", str(value["component_region"])))
     if "firewall_stateless_rule" in value:
         import capo_ec2.types.firewall_stateless_rule
 
         capo_ec2.types.firewall_stateless_rule.serialize_ec2_query(
-            value["firewall_stateless_rule"], pairs, f"{prefix}.FirewallStatelessRule"
+            value["firewall_stateless_rule"],
+            pairs,
+            f"{key_prefix}FirewallStatelessRule",
         )
     if "firewall_stateful_rule" in value:
         import capo_ec2.types.firewall_stateful_rule
 
         capo_ec2.types.firewall_stateful_rule.serialize_ec2_query(
-            value["firewall_stateful_rule"], pairs, f"{prefix}.FirewallStatefulRule"
+            value["firewall_stateful_rule"], pairs, f"{key_prefix}FirewallStatefulRule"
         )
 
 

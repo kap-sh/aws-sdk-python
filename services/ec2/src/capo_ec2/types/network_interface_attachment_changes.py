@@ -29,21 +29,22 @@ class NetworkInterfaceAttachmentChanges(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInterfaceAttachmentChanges, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_ena_queue_count" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultEnaQueueCount",
+                f"{key_prefix}DefaultEnaQueueCount",
                 "true" if value["default_ena_queue_count"] else "false",
             )
         )
     if "ena_queue_count" in value:
-        pairs.append((f"{prefix}.EnaQueueCount", str(value["ena_queue_count"])))
+        pairs.append((f"{key_prefix}EnaQueueCount", str(value["ena_queue_count"])))
     if "attachment_id" in value:
-        pairs.append((f"{prefix}.AttachmentId", str(value["attachment_id"])))
+        pairs.append((f"{key_prefix}AttachmentId", str(value["attachment_id"])))
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )

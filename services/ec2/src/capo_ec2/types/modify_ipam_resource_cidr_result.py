@@ -21,11 +21,12 @@ class ModifyIpamResourceCidrResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamResourceCidrResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_resource_cidr" in value:
         import capo_ec2.types.ipam_resource_cidr
 
         capo_ec2.types.ipam_resource_cidr.serialize_ec2_query(
-            value["ipam_resource_cidr"], pairs, f"{prefix}.IpamResourceCidr"
+            value["ipam_resource_cidr"], pairs, f"{key_prefix}IpamResourceCidr"
         )
 
 

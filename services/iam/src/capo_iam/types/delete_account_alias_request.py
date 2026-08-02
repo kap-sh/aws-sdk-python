@@ -20,7 +20,8 @@ class DeleteAccountAliasRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteAccountAliasRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.AccountAlias", str(value["account_alias"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}AccountAlias", str(value["account_alias"])))
 
 
 def deserialize_query(el: Element) -> DeleteAccountAliasRequest:

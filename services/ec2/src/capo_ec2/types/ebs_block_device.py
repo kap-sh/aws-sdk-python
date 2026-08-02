@@ -47,48 +47,51 @@ class EbsBlockDevice(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EbsBlockDevice, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "volume_size" in value:
-        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+        pairs.append((f"{key_prefix}VolumeSize", str(value["volume_size"])))
     if "volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["volume_type"], pairs, f"{prefix}.VolumeType"
+            value["volume_type"], pairs, f"{key_prefix}VolumeType"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "throughput" in value:
-        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+        pairs.append((f"{key_prefix}Throughput", str(value["throughput"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "volume_initialization_rate" in value:
         pairs.append(
             (
-                f"{prefix}.VolumeInitializationRate",
+                f"{key_prefix}VolumeInitializationRate",
                 str(value["volume_initialization_rate"]),
             )
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "ebs_card_index" in value:
-        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+        pairs.append((f"{key_prefix}EbsCardIndex", str(value["ebs_card_index"])))
 
 
 def deserialize_ec2_query(el: Element) -> EbsBlockDevice:

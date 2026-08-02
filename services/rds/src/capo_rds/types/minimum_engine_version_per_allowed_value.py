@@ -23,11 +23,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allowed_value" in value:
-        pairs.append((f"{prefix}.AllowedValue", str(value["allowed_value"])))
+        pairs.append((f"{key_prefix}AllowedValue", str(value["allowed_value"])))
     if "minimum_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MinimumEngineVersion", str(value["minimum_engine_version"]))
+            (f"{key_prefix}MinimumEngineVersion", str(value["minimum_engine_version"]))
         )
 
 

@@ -80,46 +80,52 @@ class PendingModifiedValues(TypedDict, closed=True):
 def serialize_query(
     value: PendingModifiedValues, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "storage_throughput" in value:
-        pairs.append((f"{prefix}.StorageThroughput", str(value["storage_throughput"])))
+        pairs.append(
+            (f"{key_prefix}StorageThroughput", str(value["storage_throughput"]))
+        )
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "ca_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.CACertificateIdentifier",
+                f"{key_prefix}CACertificateIdentifier",
                 str(value["ca_certificate_identifier"]),
             )
         )
     if "db_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSubnetGroupName", str(value["db_subnet_group_name"]))
+            (f"{key_prefix}DBSubnetGroupName", str(value["db_subnet_group_name"]))
         )
     if "pending_cloudwatch_logs_exports" in value:
         import capo_rds.types.pending_cloudwatch_logs_exports
@@ -127,19 +133,19 @@ def serialize_query(
         capo_rds.types.pending_cloudwatch_logs_exports.serialize_query(
             value["pending_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.PendingCloudwatchLogsExports",
+            f"{key_prefix}PendingCloudwatchLogsExports",
         )
     if "processor_features" in value:
         import capo_rds.types.processor_feature_list
 
         capo_rds.types.processor_feature_list.serialize_query(
-            value["processor_features"], pairs, f"{prefix}.ProcessorFeatures"
+            value["processor_features"], pairs, f"{key_prefix}ProcessorFeatures"
         )
     if "automation_mode" in value:
         import capo_rds.types.automation_mode
 
         capo_rds.types.automation_mode.serialize_query(
-            value["automation_mode"], pairs, f"{prefix}.AutomationMode"
+            value["automation_mode"], pairs, f"{key_prefix}AutomationMode"
         )
     if "resume_full_automation_mode_time" in value:
         import capo_rds.types.t_stamp
@@ -147,35 +153,35 @@ def serialize_query(
         capo_rds.types.t_stamp.serialize_query(
             value["resume_full_automation_mode_time"],
             pairs,
-            f"{prefix}.ResumeFullAutomationModeTime",
+            f"{key_prefix}ResumeFullAutomationModeTime",
         )
     if "multi_tenant" in value:
         pairs.append(
-            (f"{prefix}.MultiTenant", "true" if value["multi_tenant"] else "false")
+            (f"{key_prefix}MultiTenant", "true" if value["multi_tenant"] else "false")
         )
     if "iam_database_authentication_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IAMDatabaseAuthenticationEnabled",
+                f"{key_prefix}IAMDatabaseAuthenticationEnabled",
                 "true" if value["iam_database_authentication_enabled"] else "false",
             )
         )
     if "dedicated_log_volume" in value:
         pairs.append(
             (
-                f"{prefix}.DedicatedLogVolume",
+                f"{key_prefix}DedicatedLogVolume",
                 "true" if value["dedicated_log_volume"] else "false",
             )
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "additional_storage_volumes" in value:
         import capo_rds.types.additional_storage_volumes_list
 
         capo_rds.types.additional_storage_volumes_list.serialize_query(
             value["additional_storage_volumes"],
             pairs,
-            f"{prefix}.AdditionalStorageVolumes",
+            f"{key_prefix}AdditionalStorageVolumes",
         )
 
 

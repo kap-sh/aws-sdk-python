@@ -24,12 +24,13 @@ class DisableFastLaunchRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisableFastLaunchRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "force" in value:
-        pairs.append((f"{prefix}.Force", "true" if value["force"] else "false"))
+        pairs.append((f"{key_prefix}Force", "true" if value["force"] else "false"))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DisableFastLaunchRequest:

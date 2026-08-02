@@ -54,47 +54,48 @@ class ServiceLinkVirtualInterface(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ServiceLinkVirtualInterface, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_link_virtual_interface_id" in value:
         pairs.append(
             (
-                f"{prefix}.ServiceLinkVirtualInterfaceId",
+                f"{key_prefix}ServiceLinkVirtualInterfaceId",
                 str(value["service_link_virtual_interface_id"]),
             )
         )
     if "service_link_virtual_interface_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ServiceLinkVirtualInterfaceArn",
+                f"{key_prefix}ServiceLinkVirtualInterfaceArn",
                 str(value["service_link_virtual_interface_arn"]),
             )
         )
     if "outpost_id" in value:
-        pairs.append((f"{prefix}.OutpostId", str(value["outpost_id"])))
+        pairs.append((f"{key_prefix}OutpostId", str(value["outpost_id"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "local_address" in value:
-        pairs.append((f"{prefix}.LocalAddress", str(value["local_address"])))
+        pairs.append((f"{key_prefix}LocalAddress", str(value["local_address"])))
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "peer_bgp_asn" in value:
-        pairs.append((f"{prefix}.PeerBgpAsn", str(value["peer_bgp_asn"])))
+        pairs.append((f"{key_prefix}PeerBgpAsn", str(value["peer_bgp_asn"])))
     if "vlan" in value:
-        pairs.append((f"{prefix}.Vlan", str(value["vlan"])))
+        pairs.append((f"{key_prefix}Vlan", str(value["vlan"])))
     if "outpost_lag_id" in value:
-        pairs.append((f"{prefix}.OutpostLagId", str(value["outpost_lag_id"])))
+        pairs.append((f"{key_prefix}OutpostLagId", str(value["outpost_lag_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "configuration_state" in value:
         import capo_ec2.types.service_link_virtual_interface_configuration_state
 
         capo_ec2.types.service_link_virtual_interface_configuration_state.serialize_ec2_query(
-            value["configuration_state"], pairs, f"{prefix}.ConfigurationState"
+            value["configuration_state"], pairs, f"{key_prefix}ConfigurationState"
         )
 
 

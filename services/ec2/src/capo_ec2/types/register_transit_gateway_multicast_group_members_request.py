@@ -34,23 +34,24 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_multicast_domain_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMulticastDomainId",
+                f"{key_prefix}TransitGatewayMulticastDomainId",
                 str(value["transit_gateway_multicast_domain_id"]),
             )
         )
     if "group_ip_address" in value:
-        pairs.append((f"{prefix}.GroupIpAddress", str(value["group_ip_address"])))
+        pairs.append((f"{key_prefix}GroupIpAddress", str(value["group_ip_address"])))
     if "network_interface_ids" in value:
         import capo_ec2.types.transit_gateway_network_interface_id_list
 
         capo_ec2.types.transit_gateway_network_interface_id_list.serialize_ec2_query(
-            value["network_interface_ids"], pairs, f"{prefix}.NetworkInterfaceIds"
+            value["network_interface_ids"], pairs, f"{key_prefix}NetworkInterfaceIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(

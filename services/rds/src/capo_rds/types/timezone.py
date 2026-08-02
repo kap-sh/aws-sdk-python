@@ -17,8 +17,9 @@ class Timezone(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Timezone, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timezone_name" in value:
-        pairs.append((f"{prefix}.TimezoneName", str(value["timezone_name"])))
+        pairs.append((f"{key_prefix}TimezoneName", str(value["timezone_name"])))
 
 
 def deserialize_query(el: Element) -> Timezone:

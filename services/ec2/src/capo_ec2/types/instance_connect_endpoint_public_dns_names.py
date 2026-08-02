@@ -27,17 +27,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv4" in value:
         import capo_ec2.types.instance_connect_endpoint_dns_names
 
         capo_ec2.types.instance_connect_endpoint_dns_names.serialize_ec2_query(
-            value["ipv4"], pairs, f"{prefix}.Ipv4"
+            value["ipv4"], pairs, f"{key_prefix}Ipv4"
         )
     if "dualstack" in value:
         import capo_ec2.types.instance_connect_endpoint_dns_names
 
         capo_ec2.types.instance_connect_endpoint_dns_names.serialize_ec2_query(
-            value["dualstack"], pairs, f"{prefix}.Dualstack"
+            value["dualstack"], pairs, f"{key_prefix}Dualstack"
         )
 
 

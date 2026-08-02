@@ -23,8 +23,9 @@ class UpdateAssumeRolePolicyRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateAssumeRolePolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
-    pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
+    pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
 
 
 def deserialize_query(el: Element) -> UpdateAssumeRolePolicyRequest:

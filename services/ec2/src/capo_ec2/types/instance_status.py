@@ -53,51 +53,52 @@ class InstanceStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "events" in value:
         import capo_ec2.types.instance_status_event_list
 
         capo_ec2.types.instance_status_event_list.serialize_ec2_query(
-            value["events"], pairs, f"{prefix}.EventsSet"
+            value["events"], pairs, f"{key_prefix}EventsSet"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_state" in value:
         import capo_ec2.types.instance_state
 
         capo_ec2.types.instance_state.serialize_ec2_query(
-            value["instance_state"], pairs, f"{prefix}.InstanceState"
+            value["instance_state"], pairs, f"{key_prefix}InstanceState"
         )
     if "instance_status" in value:
         import capo_ec2.types.instance_status_summary
 
         capo_ec2.types.instance_status_summary.serialize_ec2_query(
-            value["instance_status"], pairs, f"{prefix}.InstanceStatus"
+            value["instance_status"], pairs, f"{key_prefix}InstanceStatus"
         )
     if "system_status" in value:
         import capo_ec2.types.instance_status_summary
 
         capo_ec2.types.instance_status_summary.serialize_ec2_query(
-            value["system_status"], pairs, f"{prefix}.SystemStatus"
+            value["system_status"], pairs, f"{key_prefix}SystemStatus"
         )
     if "attached_ebs_status" in value:
         import capo_ec2.types.ebs_status_summary
 
         capo_ec2.types.ebs_status_summary.serialize_ec2_query(
-            value["attached_ebs_status"], pairs, f"{prefix}.AttachedEbsStatus"
+            value["attached_ebs_status"], pairs, f"{key_prefix}AttachedEbsStatus"
         )
 
 

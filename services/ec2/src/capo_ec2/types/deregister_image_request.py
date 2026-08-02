@@ -24,17 +24,18 @@ class DeregisterImageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeregisterImageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "delete_associated_snapshots" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteAssociatedSnapshots",
+                f"{key_prefix}DeleteAssociatedSnapshots",
                 "true" if value["delete_associated_snapshots"] else "false",
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DeregisterImageRequest:

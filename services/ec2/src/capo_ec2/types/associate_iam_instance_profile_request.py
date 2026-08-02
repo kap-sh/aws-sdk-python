@@ -24,14 +24,15 @@ class AssociateIamInstanceProfileRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateIamInstanceProfileRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "iam_instance_profile" in value:
         import capo_ec2.types.iam_instance_profile_specification
 
         capo_ec2.types.iam_instance_profile_specification.serialize_ec2_query(
-            value["iam_instance_profile"], pairs, f"{prefix}.IamInstanceProfile"
+            value["iam_instance_profile"], pairs, f"{key_prefix}IamInstanceProfile"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> AssociateIamInstanceProfileRequest:

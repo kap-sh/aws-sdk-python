@@ -31,16 +31,17 @@ class EntityInfo(TypedDict, closed=True):
 def serialize_query(
     value: EntityInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
-    pairs.append((f"{prefix}.Name", str(value["name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
     import capo_iam.types.policy_owner_entity_type
 
     capo_iam.types.policy_owner_entity_type.serialize_query(
-        value["type"], pairs, f"{prefix}.Type"
+        value["type"], pairs, f"{key_prefix}Type"
     )
-    pairs.append((f"{prefix}.Id", str(value["id"])))
+    pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
 
 
 def deserialize_query(el: Element) -> EntityInfo:

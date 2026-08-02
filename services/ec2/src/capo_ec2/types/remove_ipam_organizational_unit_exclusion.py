@@ -21,10 +21,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "organizations_entity_path" in value:
         pairs.append(
             (
-                f"{prefix}.OrganizationsEntityPath",
+                f"{key_prefix}OrganizationsEntityPath",
                 str(value["organizations_entity_path"]),
             )
         )

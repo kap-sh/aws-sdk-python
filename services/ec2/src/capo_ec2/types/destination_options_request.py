@@ -26,23 +26,24 @@ class DestinationOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DestinationOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "file_format" in value:
         import capo_ec2.types.destination_file_format
 
         capo_ec2.types.destination_file_format.serialize_ec2_query(
-            value["file_format"], pairs, f"{prefix}.FileFormat"
+            value["file_format"], pairs, f"{key_prefix}FileFormat"
         )
     if "hive_compatible_partitions" in value:
         pairs.append(
             (
-                f"{prefix}.HiveCompatiblePartitions",
+                f"{key_prefix}HiveCompatiblePartitions",
                 "true" if value["hive_compatible_partitions"] else "false",
             )
         )
     if "per_hour_partition" in value:
         pairs.append(
             (
-                f"{prefix}.PerHourPartition",
+                f"{key_prefix}PerHourPartition",
                 "true" if value["per_hour_partition"] else "false",
             )
         )

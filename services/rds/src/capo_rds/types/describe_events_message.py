@@ -42,44 +42,45 @@ class DescribeEventsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEventsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_identifier" in value:
-        pairs.append((f"{prefix}.SourceIdentifier", str(value["source_identifier"])))
+        pairs.append((f"{key_prefix}SourceIdentifier", str(value["source_identifier"])))
     if "source_type" in value:
         import capo_rds.types.source_type
 
         capo_rds.types.source_type.serialize_query(
-            value["source_type"], pairs, f"{prefix}.SourceType"
+            value["source_type"], pairs, f"{key_prefix}SourceType"
         )
     if "start_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "event_categories" in value:
         import capo_rds.types.event_categories_list
 
         capo_rds.types.event_categories_list.serialize_query(
-            value["event_categories"], pairs, f"{prefix}.EventCategories"
+            value["event_categories"], pairs, f"{key_prefix}EventCategories"
         )
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeEventsMessage:

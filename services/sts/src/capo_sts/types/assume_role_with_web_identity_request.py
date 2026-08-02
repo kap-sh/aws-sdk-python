@@ -44,21 +44,22 @@ class AssumeRoleWithWebIdentityRequest(TypedDict, closed=True):
 def serialize_query(
     value: AssumeRoleWithWebIdentityRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
-    pairs.append((f"{prefix}.RoleSessionName", str(value["role_session_name"])))
-    pairs.append((f"{prefix}.WebIdentityToken", str(value["web_identity_token"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
+    pairs.append((f"{key_prefix}RoleSessionName", str(value["role_session_name"])))
+    pairs.append((f"{key_prefix}WebIdentityToken", str(value["web_identity_token"])))
     if "provider_id" in value:
-        pairs.append((f"{prefix}.ProviderId", str(value["provider_id"])))
+        pairs.append((f"{key_prefix}ProviderId", str(value["provider_id"])))
     if "policy_arns" in value:
         import capo_sts.types.policy_descriptor_list_type
 
         capo_sts.types.policy_descriptor_list_type.serialize_query(
-            value["policy_arns"], pairs, f"{prefix}.PolicyArns"
+            value["policy_arns"], pairs, f"{key_prefix}PolicyArns"
         )
     if "policy" in value:
-        pairs.append((f"{prefix}.Policy", str(value["policy"])))
+        pairs.append((f"{key_prefix}Policy", str(value["policy"])))
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
 
 
 def deserialize_query(el: Element) -> AssumeRoleWithWebIdentityRequest:

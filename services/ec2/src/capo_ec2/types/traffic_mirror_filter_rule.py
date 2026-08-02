@@ -52,58 +52,62 @@ class TrafficMirrorFilterRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TrafficMirrorFilterRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_filter_rule_id" in value:
         pairs.append(
             (
-                f"{prefix}.TrafficMirrorFilterRuleId",
+                f"{key_prefix}TrafficMirrorFilterRuleId",
                 str(value["traffic_mirror_filter_rule_id"]),
             )
         )
     if "traffic_mirror_filter_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+            (
+                f"{key_prefix}TrafficMirrorFilterId",
+                str(value["traffic_mirror_filter_id"]),
+            )
         )
     if "traffic_direction" in value:
         import capo_ec2.types.traffic_direction
 
         capo_ec2.types.traffic_direction.serialize_ec2_query(
-            value["traffic_direction"], pairs, f"{prefix}.TrafficDirection"
+            value["traffic_direction"], pairs, f"{key_prefix}TrafficDirection"
         )
     if "rule_number" in value:
-        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+        pairs.append((f"{key_prefix}RuleNumber", str(value["rule_number"])))
     if "rule_action" in value:
         import capo_ec2.types.traffic_mirror_rule_action
 
         capo_ec2.types.traffic_mirror_rule_action.serialize_ec2_query(
-            value["rule_action"], pairs, f"{prefix}.RuleAction"
+            value["rule_action"], pairs, f"{key_prefix}RuleAction"
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "destination_port_range" in value:
         import capo_ec2.types.traffic_mirror_port_range
 
         capo_ec2.types.traffic_mirror_port_range.serialize_ec2_query(
-            value["destination_port_range"], pairs, f"{prefix}.DestinationPortRange"
+            value["destination_port_range"], pairs, f"{key_prefix}DestinationPortRange"
         )
     if "source_port_range" in value:
         import capo_ec2.types.traffic_mirror_port_range
 
         capo_ec2.types.traffic_mirror_port_range.serialize_ec2_query(
-            value["source_port_range"], pairs, f"{prefix}.SourcePortRange"
+            value["source_port_range"], pairs, f"{key_prefix}SourcePortRange"
         )
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "source_cidr_block" in value:
-        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+        pairs.append((f"{key_prefix}SourceCidrBlock", str(value["source_cidr_block"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

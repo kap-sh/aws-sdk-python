@@ -42,21 +42,22 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

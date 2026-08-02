@@ -21,11 +21,12 @@ class DeleteVpcEncryptionControlResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteVpcEncryptionControlResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_encryption_control" in value:
         import capo_ec2.types.vpc_encryption_control
 
         capo_ec2.types.vpc_encryption_control.serialize_ec2_query(
-            value["vpc_encryption_control"], pairs, f"{prefix}.VpcEncryptionControl"
+            value["vpc_encryption_control"], pairs, f"{key_prefix}VpcEncryptionControl"
         )
 
 

@@ -27,12 +27,15 @@ class DeleteSecondarySubnetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteSecondarySubnetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "secondary_subnet_id" in value:
-        pairs.append((f"{prefix}.SecondarySubnetId", str(value["secondary_subnet_id"])))
+        pairs.append(
+            (f"{key_prefix}SecondarySubnetId", str(value["secondary_subnet_id"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> DeleteSecondarySubnetRequest:

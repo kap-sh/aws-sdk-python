@@ -266,10 +266,11 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
 def serialize_query(
     value: CompositeAlarm, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "actions_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsEnabled",
+                f"{key_prefix}ActionsEnabled",
                 "true" if value["actions_enabled"] else "false",
             )
         )
@@ -277,53 +278,55 @@ def serialize_query(
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
-            value["alarm_actions"], pairs, f"{prefix}.AlarmActions"
+            value["alarm_actions"], pairs, f"{key_prefix}AlarmActions"
         )
     if "alarm_arn" in value:
-        pairs.append((f"{prefix}.AlarmArn", str(value["alarm_arn"])))
+        pairs.append((f"{key_prefix}AlarmArn", str(value["alarm_arn"])))
     if "alarm_configuration_updated_timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
             value["alarm_configuration_updated_timestamp"],
             pairs,
-            f"{prefix}.AlarmConfigurationUpdatedTimestamp",
+            f"{key_prefix}AlarmConfigurationUpdatedTimestamp",
         )
     if "alarm_description" in value:
-        pairs.append((f"{prefix}.AlarmDescription", str(value["alarm_description"])))
+        pairs.append((f"{key_prefix}AlarmDescription", str(value["alarm_description"])))
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "alarm_rule" in value:
-        pairs.append((f"{prefix}.AlarmRule", str(value["alarm_rule"])))
+        pairs.append((f"{key_prefix}AlarmRule", str(value["alarm_rule"])))
     if "insufficient_data_actions" in value:
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
             value["insufficient_data_actions"],
             pairs,
-            f"{prefix}.InsufficientDataActions",
+            f"{key_prefix}InsufficientDataActions",
         )
     if "ok_actions" in value:
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
-            value["ok_actions"], pairs, f"{prefix}.OKActions"
+            value["ok_actions"], pairs, f"{key_prefix}OKActions"
         )
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
     if "state_reason_data" in value:
-        pairs.append((f"{prefix}.StateReasonData", str(value["state_reason_data"])))
+        pairs.append((f"{key_prefix}StateReasonData", str(value["state_reason_data"])))
     if "state_updated_timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["state_updated_timestamp"], pairs, f"{prefix}.StateUpdatedTimestamp"
+            value["state_updated_timestamp"],
+            pairs,
+            f"{key_prefix}StateUpdatedTimestamp",
         )
     if "state_value" in value:
         import capo_cloudwatch.types.state_value
 
         capo_cloudwatch.types.state_value.serialize_query(
-            value["state_value"], pairs, f"{prefix}.StateValue"
+            value["state_value"], pairs, f"{key_prefix}StateValue"
         )
     if "state_transitioned_timestamp" in value:
         import capo_cloudwatch.types.timestamp
@@ -331,34 +334,36 @@ def serialize_query(
         capo_cloudwatch.types.timestamp.serialize_query(
             value["state_transitioned_timestamp"],
             pairs,
-            f"{prefix}.StateTransitionedTimestamp",
+            f"{key_prefix}StateTransitionedTimestamp",
         )
     if "actions_suppressed_by" in value:
         import capo_cloudwatch.types.actions_suppressed_by
 
         capo_cloudwatch.types.actions_suppressed_by.serialize_query(
-            value["actions_suppressed_by"], pairs, f"{prefix}.ActionsSuppressedBy"
+            value["actions_suppressed_by"], pairs, f"{key_prefix}ActionsSuppressedBy"
         )
     if "actions_suppressed_reason" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsSuppressedReason",
+                f"{key_prefix}ActionsSuppressedReason",
                 str(value["actions_suppressed_reason"]),
             )
         )
     if "actions_suppressor" in value:
-        pairs.append((f"{prefix}.ActionsSuppressor", str(value["actions_suppressor"])))
+        pairs.append(
+            (f"{key_prefix}ActionsSuppressor", str(value["actions_suppressor"]))
+        )
     if "actions_suppressor_wait_period" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsSuppressorWaitPeriod",
+                f"{key_prefix}ActionsSuppressorWaitPeriod",
                 str(value["actions_suppressor_wait_period"]),
             )
         )
     if "actions_suppressor_extension_period" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsSuppressorExtensionPeriod",
+                f"{key_prefix}ActionsSuppressorExtensionPeriod",
                 str(value["actions_suppressor_extension_period"]),
             )
         )

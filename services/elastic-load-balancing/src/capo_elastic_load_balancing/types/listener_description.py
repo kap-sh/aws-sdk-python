@@ -24,17 +24,18 @@ class ListenerDescription(TypedDict, closed=True):
 def serialize_query(
     value: ListenerDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener" in value:
         import capo_elastic_load_balancing.types.listener
 
         capo_elastic_load_balancing.types.listener.serialize_query(
-            value["listener"], pairs, f"{prefix}.Listener"
+            value["listener"], pairs, f"{key_prefix}Listener"
         )
     if "policy_names" in value:
         import capo_elastic_load_balancing.types.policy_names
 
         capo_elastic_load_balancing.types.policy_names.serialize_query(
-            value["policy_names"], pairs, f"{prefix}.PolicyNames"
+            value["policy_names"], pairs, f"{key_prefix}PolicyNames"
         )
 
 

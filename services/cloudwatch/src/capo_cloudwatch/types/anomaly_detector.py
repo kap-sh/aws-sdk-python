@@ -170,35 +170,36 @@ def deserialize_aws_json_1_0(data: dict) -> AnomalyDetector:
 def serialize_query(
     value: AnomalyDetector, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "stat" in value:
-        pairs.append((f"{prefix}.Stat", str(value["stat"])))
+        pairs.append((f"{key_prefix}Stat", str(value["stat"])))
     if "configuration" in value:
         import capo_cloudwatch.types.anomaly_detector_configuration
 
         capo_cloudwatch.types.anomaly_detector_configuration.serialize_query(
-            value["configuration"], pairs, f"{prefix}.Configuration"
+            value["configuration"], pairs, f"{key_prefix}Configuration"
         )
     if "state_value" in value:
         import capo_cloudwatch.types.anomaly_detector_state_value
 
         capo_cloudwatch.types.anomaly_detector_state_value.serialize_query(
-            value["state_value"], pairs, f"{prefix}.StateValue"
+            value["state_value"], pairs, f"{key_prefix}StateValue"
         )
     if "metric_characteristics" in value:
         import capo_cloudwatch.types.metric_characteristics
 
         capo_cloudwatch.types.metric_characteristics.serialize_query(
-            value["metric_characteristics"], pairs, f"{prefix}.MetricCharacteristics"
+            value["metric_characteristics"], pairs, f"{key_prefix}MetricCharacteristics"
         )
     if "single_metric_anomaly_detector" in value:
         import capo_cloudwatch.types.single_metric_anomaly_detector
@@ -206,7 +207,7 @@ def serialize_query(
         capo_cloudwatch.types.single_metric_anomaly_detector.serialize_query(
             value["single_metric_anomaly_detector"],
             pairs,
-            f"{prefix}.SingleMetricAnomalyDetector",
+            f"{key_prefix}SingleMetricAnomalyDetector",
         )
     if "metric_math_anomaly_detector" in value:
         import capo_cloudwatch.types.metric_math_anomaly_detector
@@ -214,7 +215,7 @@ def serialize_query(
         capo_cloudwatch.types.metric_math_anomaly_detector.serialize_query(
             value["metric_math_anomaly_detector"],
             pairs,
-            f"{prefix}.MetricMathAnomalyDetector",
+            f"{key_prefix}MetricMathAnomalyDetector",
         )
 
 

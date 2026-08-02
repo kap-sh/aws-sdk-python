@@ -23,14 +23,15 @@ class ModifyDBSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
+            (f"{key_prefix}DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
         )
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
 
 
 def deserialize_query(el: Element) -> ModifyDBSnapshotMessage:

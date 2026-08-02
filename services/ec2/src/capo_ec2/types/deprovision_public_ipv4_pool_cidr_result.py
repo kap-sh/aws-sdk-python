@@ -26,13 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pool_id" in value:
-        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
     if "deprovisioned_addresses" in value:
         import capo_ec2.types.deprovisioned_address_set
 
         capo_ec2.types.deprovisioned_address_set.serialize_ec2_query(
-            value["deprovisioned_addresses"], pairs, f"{prefix}.DeprovisionedAddressSet"
+            value["deprovisioned_addresses"],
+            pairs,
+            f"{key_prefix}DeprovisionedAddressSet",
         )
 
 

@@ -37,22 +37,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "filter" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filter"], pairs, f"{prefix}.Filter"
+            value["filter"], pairs, f"{key_prefix}Filter"
         )
     if "max_duration" in value:
-        pairs.append((f"{prefix}.MaxDuration", str(value["max_duration"])))
+        pairs.append((f"{key_prefix}MaxDuration", str(value["max_duration"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "min_duration" in value:
-        pairs.append((f"{prefix}.MinDuration", str(value["min_duration"])))
+        pairs.append((f"{key_prefix}MinDuration", str(value["min_duration"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "offering_id" in value:
-        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+        pairs.append((f"{key_prefix}OfferingId", str(value["offering_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeHostReservationOfferingsRequest:

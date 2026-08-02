@@ -38,28 +38,32 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_endpoint_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessEndpointId",
+                f"{key_prefix}VerifiedAccessEndpointId",
                 str(value["verified_access_endpoint_id"]),
             )
         )
     if "policy_enabled" in value:
         pairs.append(
-            (f"{prefix}.PolicyEnabled", "true" if value["policy_enabled"] else "false")
+            (
+                f"{key_prefix}PolicyEnabled",
+                "true" if value["policy_enabled"] else "false",
+            )
         )
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "sse_specification" in value:
         import capo_ec2.types.verified_access_sse_specification_request
 
         capo_ec2.types.verified_access_sse_specification_request.serialize_ec2_query(
-            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+            value["sse_specification"], pairs, f"{key_prefix}SseSpecification"
         )
 
 

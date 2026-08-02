@@ -31,21 +31,22 @@ class CpuOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CpuOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "core_count" in value:
-        pairs.append((f"{prefix}.CoreCount", str(value["core_count"])))
+        pairs.append((f"{key_prefix}CoreCount", str(value["core_count"])))
     if "threads_per_core" in value:
-        pairs.append((f"{prefix}.ThreadsPerCore", str(value["threads_per_core"])))
+        pairs.append((f"{key_prefix}ThreadsPerCore", str(value["threads_per_core"])))
     if "amd_sev_snp" in value:
         import capo_ec2.types.amd_sev_snp_specification
 
         capo_ec2.types.amd_sev_snp_specification.serialize_ec2_query(
-            value["amd_sev_snp"], pairs, f"{prefix}.AmdSevSnp"
+            value["amd_sev_snp"], pairs, f"{key_prefix}AmdSevSnp"
         )
     if "nested_virtualization" in value:
         import capo_ec2.types.nested_virtualization_specification
 
         capo_ec2.types.nested_virtualization_specification.serialize_ec2_query(
-            value["nested_virtualization"], pairs, f"{prefix}.NestedVirtualization"
+            value["nested_virtualization"], pairs, f"{key_prefix}NestedVirtualization"
         )
 
 

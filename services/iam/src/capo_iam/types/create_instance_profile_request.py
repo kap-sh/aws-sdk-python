@@ -28,14 +28,17 @@ class CreateInstanceProfileRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateInstanceProfileRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.InstanceProfileName", str(value["instance_profile_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append(
+        (f"{key_prefix}InstanceProfileName", str(value["instance_profile_name"]))
+    )
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

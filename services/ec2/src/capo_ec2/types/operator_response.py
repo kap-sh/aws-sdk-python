@@ -24,14 +24,15 @@ class OperatorResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: OperatorResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "managed" in value:
-        pairs.append((f"{prefix}.Managed", "true" if value["managed"] else "false"))
+        pairs.append((f"{key_prefix}Managed", "true" if value["managed"] else "false"))
     if "principal" in value:
-        pairs.append((f"{prefix}.Principal", str(value["principal"])))
+        pairs.append((f"{key_prefix}Principal", str(value["principal"])))
     if "hidden_by_default" in value:
         pairs.append(
             (
-                f"{prefix}.HiddenByDefault",
+                f"{key_prefix}HiddenByDefault",
                 "true" if value["hidden_by_default"] else "false",
             )
         )

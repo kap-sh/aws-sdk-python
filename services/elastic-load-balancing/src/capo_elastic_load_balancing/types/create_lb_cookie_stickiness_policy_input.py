@@ -32,11 +32,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"])))
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "cookie_expiration_period" in value:
         pairs.append(
-            (f"{prefix}.CookieExpirationPeriod", str(value["cookie_expiration_period"]))
+            (
+                f"{key_prefix}CookieExpirationPeriod",
+                str(value["cookie_expiration_period"]),
+            )
         )
 
 

@@ -30,14 +30,15 @@ class InstanceState(TypedDict, closed=True):
 def serialize_query(
     value: InstanceState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "reason_code" in value:
-        pairs.append((f"{prefix}.ReasonCode", str(value["reason_code"])))
+        pairs.append((f"{key_prefix}ReasonCode", str(value["reason_code"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> InstanceState:

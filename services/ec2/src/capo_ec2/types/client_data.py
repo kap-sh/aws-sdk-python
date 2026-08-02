@@ -27,21 +27,22 @@ class ClientData(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClientData, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "comment" in value:
-        pairs.append((f"{prefix}.Comment", str(value["comment"])))
+        pairs.append((f"{key_prefix}Comment", str(value["comment"])))
     if "upload_end" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["upload_end"], pairs, f"{prefix}.UploadEnd"
+            value["upload_end"], pairs, f"{key_prefix}UploadEnd"
         )
     if "upload_size" in value:
-        pairs.append((f"{prefix}.UploadSize", str(value["upload_size"])))
+        pairs.append((f"{key_prefix}UploadSize", str(value["upload_size"])))
     if "upload_start" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["upload_start"], pairs, f"{prefix}.UploadStart"
+            value["upload_start"], pairs, f"{key_prefix}UploadStart"
         )
 
 

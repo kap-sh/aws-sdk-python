@@ -24,10 +24,11 @@ DisassociateTrunkInterfaceResult = TypedDict(
 def serialize_ec2_query(
     value: DisassociateTrunkInterfaceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DisassociateTrunkInterfaceResult:

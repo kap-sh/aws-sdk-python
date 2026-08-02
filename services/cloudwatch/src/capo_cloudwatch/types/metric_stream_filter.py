@@ -55,13 +55,14 @@ def deserialize_aws_json_1_0(data: dict) -> MetricStreamFilter:
 def serialize_query(
     value: MetricStreamFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_names" in value:
         import capo_cloudwatch.types.metric_stream_filter_metric_names
 
         capo_cloudwatch.types.metric_stream_filter_metric_names.serialize_query(
-            value["metric_names"], pairs, f"{prefix}.MetricNames"
+            value["metric_names"], pairs, f"{key_prefix}MetricNames"
         )
 
 

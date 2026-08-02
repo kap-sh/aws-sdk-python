@@ -46,51 +46,56 @@ class AnalysisRouteTableRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisRouteTableRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr" in value:
-        pairs.append((f"{prefix}.DestinationCidr", str(value["destination_cidr"])))
+        pairs.append((f"{key_prefix}DestinationCidr", str(value["destination_cidr"])))
     if "destination_prefix_list_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationPrefixListId",
+                f"{key_prefix}DestinationPrefixListId",
                 str(value["destination_prefix_list_id"]),
             )
         )
     if "egress_only_internet_gateway_id" in value:
         pairs.append(
             (
-                f"{prefix}.EgressOnlyInternetGatewayId",
+                f"{key_prefix}EgressOnlyInternetGatewayId",
                 str(value["egress_only_internet_gateway_id"]),
             )
         )
     if "gateway_id" in value:
-        pairs.append((f"{prefix}.GatewayId", str(value["gateway_id"])))
+        pairs.append((f"{key_prefix}GatewayId", str(value["gateway_id"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "origin" in value:
-        pairs.append((f"{prefix}.Origin", str(value["origin"])))
+        pairs.append((f"{key_prefix}Origin", str(value["origin"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "carrier_gateway_id" in value:
-        pairs.append((f"{prefix}.CarrierGatewayId", str(value["carrier_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CarrierGatewayId", str(value["carrier_gateway_id"]))
+        )
     if "core_network_arn" in value:
-        pairs.append((f"{prefix}.CoreNetworkArn", str(value["core_network_arn"])))
+        pairs.append((f"{key_prefix}CoreNetworkArn", str(value["core_network_arn"])))
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> AnalysisRouteTableRoute:

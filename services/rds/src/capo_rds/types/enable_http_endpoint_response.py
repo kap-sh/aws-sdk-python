@@ -22,12 +22,13 @@ class EnableHttpEndpointResponse(TypedDict, closed=True):
 def serialize_query(
     value: EnableHttpEndpointResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     if "http_endpoint_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.HttpEndpointEnabled",
+                f"{key_prefix}HttpEndpointEnabled",
                 "true" if value["http_endpoint_enabled"] else "false",
             )
         )

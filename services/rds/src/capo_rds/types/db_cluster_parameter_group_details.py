@@ -22,14 +22,15 @@ class DBClusterParameterGroupDetails(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterParameterGroupDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameters" in value:
         import capo_rds.types.parameters_list
 
         capo_rds.types.parameters_list.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DBClusterParameterGroupDetails:

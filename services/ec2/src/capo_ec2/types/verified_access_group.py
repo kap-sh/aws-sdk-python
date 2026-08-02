@@ -41,45 +41,49 @@ class VerifiedAccessGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VerifiedAccessGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_group_id" in value:
         pairs.append(
-            (f"{prefix}.VerifiedAccessGroupId", str(value["verified_access_group_id"]))
+            (
+                f"{key_prefix}VerifiedAccessGroupId",
+                str(value["verified_access_group_id"]),
+            )
         )
     if "verified_access_instance_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessInstanceId",
+                f"{key_prefix}VerifiedAccessInstanceId",
                 str(value["verified_access_instance_id"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "owner" in value:
-        pairs.append((f"{prefix}.Owner", str(value["owner"])))
+        pairs.append((f"{key_prefix}Owner", str(value["owner"])))
     if "verified_access_group_arn" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessGroupArn",
+                f"{key_prefix}VerifiedAccessGroupArn",
                 str(value["verified_access_group_arn"]),
             )
         )
     if "creation_time" in value:
-        pairs.append((f"{prefix}.CreationTime", str(value["creation_time"])))
+        pairs.append((f"{key_prefix}CreationTime", str(value["creation_time"])))
     if "last_updated_time" in value:
-        pairs.append((f"{prefix}.LastUpdatedTime", str(value["last_updated_time"])))
+        pairs.append((f"{key_prefix}LastUpdatedTime", str(value["last_updated_time"])))
     if "deletion_time" in value:
-        pairs.append((f"{prefix}.DeletionTime", str(value["deletion_time"])))
+        pairs.append((f"{key_prefix}DeletionTime", str(value["deletion_time"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "sse_specification" in value:
         import capo_ec2.types.verified_access_sse_specification_response
 
         capo_ec2.types.verified_access_sse_specification_response.serialize_ec2_query(
-            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+            value["sse_specification"], pairs, f"{key_prefix}SseSpecification"
         )
 
 

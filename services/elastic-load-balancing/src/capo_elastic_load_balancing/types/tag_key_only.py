@@ -19,8 +19,9 @@ class TagKeyOnly(TypedDict, closed=True):
 def serialize_query(
     value: TagKeyOnly, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key" in value:
-        pairs.append((f"{prefix}.Key", str(value["key"])))
+        pairs.append((f"{key_prefix}Key", str(value["key"])))
 
 
 def deserialize_query(el: Element) -> TagKeyOnly:

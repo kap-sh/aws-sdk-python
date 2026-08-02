@@ -26,18 +26,19 @@ class CreateClientVpnEndpointResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateClientVpnEndpointResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "status" in value:
         import capo_ec2.types.client_vpn_endpoint_status
 
         capo_ec2.types.client_vpn_endpoint_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DnsName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DnsName", str(value["dns_name"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateClientVpnEndpointResult:

@@ -42,30 +42,31 @@ class CreateRoleRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateRoleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
-    pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
+    pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     pairs.append(
         (
-            f"{prefix}.AssumeRolePolicyDocument",
+            f"{key_prefix}AssumeRolePolicyDocument",
             str(value["assume_role_policy_document"]),
         )
     )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "max_session_duration" in value:
         pairs.append(
-            (f"{prefix}.MaxSessionDuration", str(value["max_session_duration"]))
+            (f"{key_prefix}MaxSessionDuration", str(value["max_session_duration"]))
         )
     if "permissions_boundary" in value:
         pairs.append(
-            (f"{prefix}.PermissionsBoundary", str(value["permissions_boundary"]))
+            (f"{key_prefix}PermissionsBoundary", str(value["permissions_boundary"]))
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

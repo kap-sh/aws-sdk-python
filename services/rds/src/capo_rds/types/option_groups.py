@@ -24,14 +24,15 @@ class OptionGroups(TypedDict, closed=True):
 def serialize_query(
     value: OptionGroups, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_groups_list" in value:
         import capo_rds.types.option_groups_list
 
         capo_rds.types.option_groups_list.serialize_query(
-            value["option_groups_list"], pairs, f"{prefix}.OptionGroupsList"
+            value["option_groups_list"], pairs, f"{key_prefix}OptionGroupsList"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> OptionGroups:

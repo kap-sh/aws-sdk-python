@@ -24,14 +24,15 @@ class ListImagesInRecycleBinResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ListImagesInRecycleBinResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "images" in value:
         import capo_ec2.types.image_recycle_bin_info_list
 
         capo_ec2.types.image_recycle_bin_info_list.serialize_ec2_query(
-            value["images"], pairs, f"{prefix}.ImageSet"
+            value["images"], pairs, f"{key_prefix}ImageSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> ListImagesInRecycleBinResult:

@@ -101,25 +101,26 @@ class NetworkInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_performance" in value:
         pairs.append(
-            (f"{prefix}.NetworkPerformance", str(value["network_performance"]))
+            (f"{key_prefix}NetworkPerformance", str(value["network_performance"]))
         )
     if "maximum_network_interfaces" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumNetworkInterfaces",
+                f"{key_prefix}MaximumNetworkInterfaces",
                 str(value["maximum_network_interfaces"]),
             )
         )
     if "maximum_network_cards" in value:
         pairs.append(
-            (f"{prefix}.MaximumNetworkCards", str(value["maximum_network_cards"]))
+            (f"{key_prefix}MaximumNetworkCards", str(value["maximum_network_cards"]))
         )
     if "default_network_card_index" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultNetworkCardIndex",
+                f"{key_prefix}DefaultNetworkCardIndex",
                 str(value["default_network_card_index"]),
             )
         )
@@ -127,53 +128,56 @@ def serialize_ec2_query(
         import capo_ec2.types.network_card_info_list
 
         capo_ec2.types.network_card_info_list.serialize_ec2_query(
-            value["network_cards"], pairs, f"{prefix}.NetworkCards"
+            value["network_cards"], pairs, f"{key_prefix}NetworkCards"
         )
     if "ipv4_addresses_per_interface" in value:
         pairs.append(
             (
-                f"{prefix}.Ipv4AddressesPerInterface",
+                f"{key_prefix}Ipv4AddressesPerInterface",
                 str(value["ipv4_addresses_per_interface"]),
             )
         )
     if "ipv6_addresses_per_interface" in value:
         pairs.append(
             (
-                f"{prefix}.Ipv6AddressesPerInterface",
+                f"{key_prefix}Ipv6AddressesPerInterface",
                 str(value["ipv6_addresses_per_interface"]),
             )
         )
     if "ipv6_supported" in value:
         pairs.append(
-            (f"{prefix}.Ipv6Supported", "true" if value["ipv6_supported"] else "false")
+            (
+                f"{key_prefix}Ipv6Supported",
+                "true" if value["ipv6_supported"] else "false",
+            )
         )
     if "ena_support" in value:
         import capo_ec2.types.ena_support
 
         capo_ec2.types.ena_support.serialize_ec2_query(
-            value["ena_support"], pairs, f"{prefix}.EnaSupport"
+            value["ena_support"], pairs, f"{key_prefix}EnaSupport"
         )
     if "efa_supported" in value:
         pairs.append(
-            (f"{prefix}.EfaSupported", "true" if value["efa_supported"] else "false")
+            (f"{key_prefix}EfaSupported", "true" if value["efa_supported"] else "false")
         )
     if "efa_info" in value:
         import capo_ec2.types.efa_info
 
         capo_ec2.types.efa_info.serialize_ec2_query(
-            value["efa_info"], pairs, f"{prefix}.EfaInfo"
+            value["efa_info"], pairs, f"{key_prefix}EfaInfo"
         )
     if "encryption_in_transit_supported" in value:
         pairs.append(
             (
-                f"{prefix}.EncryptionInTransitSupported",
+                f"{key_prefix}EncryptionInTransitSupported",
                 "true" if value["encryption_in_transit_supported"] else "false",
             )
         )
     if "ena_srd_supported" in value:
         pairs.append(
             (
-                f"{prefix}.EnaSrdSupported",
+                f"{key_prefix}EnaSrdSupported",
                 "true" if value["ena_srd_supported"] else "false",
             )
         )
@@ -181,7 +185,7 @@ def serialize_ec2_query(
         import capo_ec2.types.bandwidth_weighting_type_list
 
         capo_ec2.types.bandwidth_weighting_type_list.serialize_ec2_query(
-            value["bandwidth_weightings"], pairs, f"{prefix}.BandwidthWeightings"
+            value["bandwidth_weightings"], pairs, f"{key_prefix}BandwidthWeightings"
         )
     if "flexible_ena_queues_support" in value:
         import capo_ec2.types.flexible_ena_queues_support
@@ -189,7 +193,7 @@ def serialize_ec2_query(
         capo_ec2.types.flexible_ena_queues_support.serialize_ec2_query(
             value["flexible_ena_queues_support"],
             pairs,
-            f"{prefix}.FlexibleEnaQueuesSupport",
+            f"{key_prefix}FlexibleEnaQueuesSupport",
         )
     if "connection_tracking_configuration" in value:
         import capo_ec2.types.default_connection_tracking_configuration
@@ -197,26 +201,26 @@ def serialize_ec2_query(
         capo_ec2.types.default_connection_tracking_configuration.serialize_ec2_query(
             value["connection_tracking_configuration"],
             pairs,
-            f"{prefix}.ConnectionTrackingConfiguration",
+            f"{key_prefix}ConnectionTrackingConfiguration",
         )
     if "secondary_network_supported" in value:
         pairs.append(
             (
-                f"{prefix}.SecondaryNetworkSupported",
+                f"{key_prefix}SecondaryNetworkSupported",
                 "true" if value["secondary_network_supported"] else "false",
             )
         )
     if "maximum_secondary_network_interfaces" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumSecondaryNetworkInterfaces",
+                f"{key_prefix}MaximumSecondaryNetworkInterfaces",
                 str(value["maximum_secondary_network_interfaces"]),
             )
         )
     if "ipv4_addresses_per_secondary_interface" in value:
         pairs.append(
             (
-                f"{prefix}.Ipv4AddressesPerSecondaryInterface",
+                f"{key_prefix}Ipv4AddressesPerSecondaryInterface",
                 str(value["ipv4_addresses_per_secondary_interface"]),
             )
         )

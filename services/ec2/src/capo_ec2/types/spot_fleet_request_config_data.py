@@ -104,11 +104,12 @@ class SpotFleetRequestConfigData(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotFleetRequestConfigData, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_strategy" in value:
         import capo_ec2.types.allocation_strategy
 
         capo_ec2.types.allocation_strategy.serialize_ec2_query(
-            value["allocation_strategy"], pairs, f"{prefix}.AllocationStrategy"
+            value["allocation_strategy"], pairs, f"{key_prefix}AllocationStrategy"
         )
     if "on_demand_allocation_strategy" in value:
         import capo_ec2.types.on_demand_allocation_strategy
@@ -116,7 +117,7 @@ def serialize_ec2_query(
         capo_ec2.types.on_demand_allocation_strategy.serialize_ec2_query(
             value["on_demand_allocation_strategy"],
             pairs,
-            f"{prefix}.OnDemandAllocationStrategy",
+            f"{key_prefix}OnDemandAllocationStrategy",
         )
     if "spot_maintenance_strategies" in value:
         import capo_ec2.types.spot_maintenance_strategies
@@ -124,64 +125,71 @@ def serialize_ec2_query(
         capo_ec2.types.spot_maintenance_strategies.serialize_ec2_query(
             value["spot_maintenance_strategies"],
             pairs,
-            f"{prefix}.SpotMaintenanceStrategies",
+            f"{key_prefix}SpotMaintenanceStrategies",
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "excess_capacity_termination_policy" in value:
         import capo_ec2.types.excess_capacity_termination_policy
 
         capo_ec2.types.excess_capacity_termination_policy.serialize_ec2_query(
             value["excess_capacity_termination_policy"],
             pairs,
-            f"{prefix}.ExcessCapacityTerminationPolicy",
+            f"{key_prefix}ExcessCapacityTerminationPolicy",
         )
     if "fulfilled_capacity" in value:
-        pairs.append((f"{prefix}.FulfilledCapacity", str(value["fulfilled_capacity"])))
+        pairs.append(
+            (f"{key_prefix}FulfilledCapacity", str(value["fulfilled_capacity"]))
+        )
     if "on_demand_fulfilled_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandFulfilledCapacity",
+                f"{key_prefix}OnDemandFulfilledCapacity",
                 str(value["on_demand_fulfilled_capacity"]),
             )
         )
     if "iam_fleet_role" in value:
-        pairs.append((f"{prefix}.IamFleetRole", str(value["iam_fleet_role"])))
+        pairs.append((f"{key_prefix}IamFleetRole", str(value["iam_fleet_role"])))
     if "launch_specifications" in value:
         import capo_ec2.types.launch_specs_list
 
         capo_ec2.types.launch_specs_list.serialize_ec2_query(
-            value["launch_specifications"], pairs, f"{prefix}.LaunchSpecifications"
+            value["launch_specifications"], pairs, f"{key_prefix}LaunchSpecifications"
         )
     if "launch_template_configs" in value:
         import capo_ec2.types.launch_template_config_list
 
         capo_ec2.types.launch_template_config_list.serialize_ec2_query(
-            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+            value["launch_template_configs"],
+            pairs,
+            f"{key_prefix}LaunchTemplateConfigs",
         )
     if "spot_price" in value:
-        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+        pairs.append((f"{key_prefix}SpotPrice", str(value["spot_price"])))
     if "target_capacity" in value:
-        pairs.append((f"{prefix}.TargetCapacity", str(value["target_capacity"])))
+        pairs.append((f"{key_prefix}TargetCapacity", str(value["target_capacity"])))
     if "on_demand_target_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandTargetCapacity",
+                f"{key_prefix}OnDemandTargetCapacity",
                 str(value["on_demand_target_capacity"]),
             )
         )
     if "on_demand_max_total_price" in value:
         pairs.append(
-            (f"{prefix}.OnDemandMaxTotalPrice", str(value["on_demand_max_total_price"]))
+            (
+                f"{key_prefix}OnDemandMaxTotalPrice",
+                str(value["on_demand_max_total_price"]),
+            )
         )
     if "spot_max_total_price" in value:
         pairs.append(
-            (f"{prefix}.SpotMaxTotalPrice", str(value["spot_max_total_price"]))
+            (f"{key_prefix}SpotMaxTotalPrice", str(value["spot_max_total_price"]))
         )
     if "terminate_instances_with_expiration" in value:
         pairs.append(
             (
-                f"{prefix}.TerminateInstancesWithExpiration",
+                f"{key_prefix}TerminateInstancesWithExpiration",
                 "true" if value["terminate_instances_with_expiration"] else "false",
             )
         )
@@ -189,24 +197,24 @@ def serialize_ec2_query(
         import capo_ec2.types.fleet_type
 
         capo_ec2.types.fleet_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "valid_from" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+            value["valid_from"], pairs, f"{key_prefix}ValidFrom"
         )
     if "valid_until" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+            value["valid_until"], pairs, f"{key_prefix}ValidUntil"
         )
     if "replace_unhealthy_instances" in value:
         pairs.append(
             (
-                f"{prefix}.ReplaceUnhealthyInstances",
+                f"{key_prefix}ReplaceUnhealthyInstances",
                 "true" if value["replace_unhealthy_instances"] else "false",
             )
         )
@@ -216,36 +224,36 @@ def serialize_ec2_query(
         capo_ec2.types.instance_interruption_behavior.serialize_ec2_query(
             value["instance_interruption_behavior"],
             pairs,
-            f"{prefix}.InstanceInterruptionBehavior",
+            f"{key_prefix}InstanceInterruptionBehavior",
         )
     if "load_balancers_config" in value:
         import capo_ec2.types.load_balancers_config
 
         capo_ec2.types.load_balancers_config.serialize_ec2_query(
-            value["load_balancers_config"], pairs, f"{prefix}.LoadBalancersConfig"
+            value["load_balancers_config"], pairs, f"{key_prefix}LoadBalancersConfig"
         )
     if "instance_pools_to_use_count" in value:
         pairs.append(
             (
-                f"{prefix}.InstancePoolsToUseCount",
+                f"{key_prefix}InstancePoolsToUseCount",
                 str(value["instance_pools_to_use_count"]),
             )
         )
     if "context" in value:
-        pairs.append((f"{prefix}.Context", str(value["context"])))
+        pairs.append((f"{key_prefix}Context", str(value["context"])))
     if "target_capacity_unit_type" in value:
         import capo_ec2.types.target_capacity_unit_type
 
         capo_ec2.types.target_capacity_unit_type.serialize_ec2_query(
             value["target_capacity_unit_type"],
             pairs,
-            f"{prefix}.TargetCapacityUnitType",
+            f"{key_prefix}TargetCapacityUnitType",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

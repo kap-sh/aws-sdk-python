@@ -40,27 +40,30 @@ class VerifiedAccessEndpointRdsOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VerifiedAccessEndpointRdsOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "protocol" in value:
         import capo_ec2.types.verified_access_endpoint_protocol
 
         capo_ec2.types.verified_access_endpoint_protocol.serialize_ec2_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "rds_db_instance_arn" in value:
-        pairs.append((f"{prefix}.RdsDbInstanceArn", str(value["rds_db_instance_arn"])))
+        pairs.append(
+            (f"{key_prefix}RdsDbInstanceArn", str(value["rds_db_instance_arn"]))
+        )
     if "rds_db_cluster_arn" in value:
-        pairs.append((f"{prefix}.RdsDbClusterArn", str(value["rds_db_cluster_arn"])))
+        pairs.append((f"{key_prefix}RdsDbClusterArn", str(value["rds_db_cluster_arn"])))
     if "rds_db_proxy_arn" in value:
-        pairs.append((f"{prefix}.RdsDbProxyArn", str(value["rds_db_proxy_arn"])))
+        pairs.append((f"{key_prefix}RdsDbProxyArn", str(value["rds_db_proxy_arn"])))
     if "rds_endpoint" in value:
-        pairs.append((f"{prefix}.RdsEndpoint", str(value["rds_endpoint"])))
+        pairs.append((f"{key_prefix}RdsEndpoint", str(value["rds_endpoint"])))
     if "subnet_ids" in value:
         import capo_ec2.types.verified_access_endpoint_subnet_id_list
 
         capo_ec2.types.verified_access_endpoint_subnet_id_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIdSet"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIdSet"
         )
 
 

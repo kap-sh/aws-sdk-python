@@ -29,17 +29,20 @@ class TransitGatewayPolicyTableEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayPolicyTableEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_rule_number" in value:
-        pairs.append((f"{prefix}.PolicyRuleNumber", str(value["policy_rule_number"])))
+        pairs.append(
+            (f"{key_prefix}PolicyRuleNumber", str(value["policy_rule_number"]))
+        )
     if "policy_rule" in value:
         import capo_ec2.types.transit_gateway_policy_rule
 
         capo_ec2.types.transit_gateway_policy_rule.serialize_ec2_query(
-            value["policy_rule"], pairs, f"{prefix}.PolicyRule"
+            value["policy_rule"], pairs, f"{key_prefix}PolicyRule"
         )
     if "target_route_table_id" in value:
         pairs.append(
-            (f"{prefix}.TargetRouteTableId", str(value["target_route_table_id"]))
+            (f"{key_prefix}TargetRouteTableId", str(value["target_route_table_id"]))
         )
 
 

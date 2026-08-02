@@ -28,13 +28,14 @@ class ListServerCertificateTagsRequest(TypedDict, closed=True):
 def serialize_query(
     value: ListServerCertificateTagsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
 
 
 def deserialize_query(el: Element) -> ListServerCertificateTagsRequest:

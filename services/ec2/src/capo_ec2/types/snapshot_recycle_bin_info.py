@@ -32,24 +32,25 @@ class SnapshotRecycleBinInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SnapshotRecycleBinInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "recycle_bin_enter_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["recycle_bin_enter_time"], pairs, f"{prefix}.RecycleBinEnterTime"
+            value["recycle_bin_enter_time"], pairs, f"{key_prefix}RecycleBinEnterTime"
         )
     if "recycle_bin_exit_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["recycle_bin_exit_time"], pairs, f"{prefix}.RecycleBinExitTime"
+            value["recycle_bin_exit_time"], pairs, f"{key_prefix}RecycleBinExitTime"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> SnapshotRecycleBinInfo:

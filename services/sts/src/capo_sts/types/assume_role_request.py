@@ -63,43 +63,44 @@ class AssumeRoleRequest(TypedDict, closed=True):
 def serialize_query(
     value: AssumeRoleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
-    pairs.append((f"{prefix}.RoleSessionName", str(value["role_session_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
+    pairs.append((f"{key_prefix}RoleSessionName", str(value["role_session_name"])))
     if "policy_arns" in value:
         import capo_sts.types.policy_descriptor_list_type
 
         capo_sts.types.policy_descriptor_list_type.serialize_query(
-            value["policy_arns"], pairs, f"{prefix}.PolicyArns"
+            value["policy_arns"], pairs, f"{key_prefix}PolicyArns"
         )
     if "policy" in value:
-        pairs.append((f"{prefix}.Policy", str(value["policy"])))
+        pairs.append((f"{key_prefix}Policy", str(value["policy"])))
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
     if "tags" in value:
         import capo_sts.types.tag_list_type
 
         capo_sts.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "transitive_tag_keys" in value:
         import capo_sts.types.tag_key_list_type
 
         capo_sts.types.tag_key_list_type.serialize_query(
-            value["transitive_tag_keys"], pairs, f"{prefix}.TransitiveTagKeys"
+            value["transitive_tag_keys"], pairs, f"{key_prefix}TransitiveTagKeys"
         )
     if "external_id" in value:
-        pairs.append((f"{prefix}.ExternalId", str(value["external_id"])))
+        pairs.append((f"{key_prefix}ExternalId", str(value["external_id"])))
     if "serial_number" in value:
-        pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+        pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     if "token_code" in value:
-        pairs.append((f"{prefix}.TokenCode", str(value["token_code"])))
+        pairs.append((f"{key_prefix}TokenCode", str(value["token_code"])))
     if "source_identity" in value:
-        pairs.append((f"{prefix}.SourceIdentity", str(value["source_identity"])))
+        pairs.append((f"{key_prefix}SourceIdentity", str(value["source_identity"])))
     if "provided_contexts" in value:
         import capo_sts.types.provided_contexts_list_type
 
         capo_sts.types.provided_contexts_list_type.serialize_query(
-            value["provided_contexts"], pairs, f"{prefix}.ProvidedContexts"
+            value["provided_contexts"], pairs, f"{key_prefix}ProvidedContexts"
         )
 
 

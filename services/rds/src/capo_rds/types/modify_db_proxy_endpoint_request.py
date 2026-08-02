@@ -28,14 +28,15 @@ class ModifyDBProxyEndpointRequest(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBProxyEndpointRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_endpoint_name" in value:
         pairs.append(
-            (f"{prefix}.DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
+            (f"{key_prefix}DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
         )
     if "new_db_proxy_endpoint_name" in value:
         pairs.append(
             (
-                f"{prefix}.NewDBProxyEndpointName",
+                f"{key_prefix}NewDBProxyEndpointName",
                 str(value["new_db_proxy_endpoint_name"]),
             )
         )
@@ -43,7 +44,7 @@ def serialize_query(
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
 
 

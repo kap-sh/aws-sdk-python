@@ -30,25 +30,26 @@ class DBClusterBacktrack(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterBacktrack, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "backtrack_identifier" in value:
         pairs.append(
-            (f"{prefix}.BacktrackIdentifier", str(value["backtrack_identifier"]))
+            (f"{key_prefix}BacktrackIdentifier", str(value["backtrack_identifier"]))
         )
     if "backtrack_to" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["backtrack_to"], pairs, f"{prefix}.BacktrackTo"
+            value["backtrack_to"], pairs, f"{key_prefix}BacktrackTo"
         )
     if "backtracked_from" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["backtracked_from"], pairs, f"{prefix}.BacktrackedFrom"
+            value["backtracked_from"], pairs, f"{key_prefix}BacktrackedFrom"
         )
     if "backtrack_request_creation_time" in value:
         import capo_rds.types.t_stamp
@@ -56,10 +57,10 @@ def serialize_query(
         capo_rds.types.t_stamp.serialize_query(
             value["backtrack_request_creation_time"],
             pairs,
-            f"{prefix}.BacktrackRequestCreationTime",
+            f"{key_prefix}BacktrackRequestCreationTime",
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> DBClusterBacktrack:

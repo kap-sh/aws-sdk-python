@@ -22,10 +22,13 @@ class AttachNetworkInterfaceResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AttachNetworkInterfaceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attachment_id" in value:
-        pairs.append((f"{prefix}.AttachmentId", str(value["attachment_id"])))
+        pairs.append((f"{key_prefix}AttachmentId", str(value["attachment_id"])))
     if "network_card_index" in value:
-        pairs.append((f"{prefix}.NetworkCardIndex", str(value["network_card_index"])))
+        pairs.append(
+            (f"{key_prefix}NetworkCardIndex", str(value["network_card_index"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> AttachNetworkInterfaceResult:

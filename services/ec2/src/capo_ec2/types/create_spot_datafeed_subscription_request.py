@@ -26,12 +26,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "bucket" in value:
-        pairs.append((f"{prefix}.Bucket", str(value["bucket"])))
+        pairs.append((f"{key_prefix}Bucket", str(value["bucket"])))
     if "prefix" in value:
-        pairs.append((f"{prefix}.Prefix", str(value["prefix"])))
+        pairs.append((f"{key_prefix}Prefix", str(value["prefix"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateSpotDatafeedSubscriptionRequest:

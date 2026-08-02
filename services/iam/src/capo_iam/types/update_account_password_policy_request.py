@@ -45,52 +45,56 @@ class UpdateAccountPasswordPolicyRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateAccountPasswordPolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "minimum_password_length" in value:
         pairs.append(
-            (f"{prefix}.MinimumPasswordLength", str(value["minimum_password_length"]))
+            (
+                f"{key_prefix}MinimumPasswordLength",
+                str(value["minimum_password_length"]),
+            )
         )
     pairs.append(
         (
-            f"{prefix}.RequireSymbols",
+            f"{key_prefix}RequireSymbols",
             "true" if value.get("require_symbols", False) else "false",
         )
     )
     pairs.append(
         (
-            f"{prefix}.RequireNumbers",
+            f"{key_prefix}RequireNumbers",
             "true" if value.get("require_numbers", False) else "false",
         )
     )
     pairs.append(
         (
-            f"{prefix}.RequireUppercaseCharacters",
+            f"{key_prefix}RequireUppercaseCharacters",
             "true" if value.get("require_uppercase_characters", False) else "false",
         )
     )
     pairs.append(
         (
-            f"{prefix}.RequireLowercaseCharacters",
+            f"{key_prefix}RequireLowercaseCharacters",
             "true" if value.get("require_lowercase_characters", False) else "false",
         )
     )
     pairs.append(
         (
-            f"{prefix}.AllowUsersToChangePassword",
+            f"{key_prefix}AllowUsersToChangePassword",
             "true" if value.get("allow_users_to_change_password", False) else "false",
         )
     )
     if "max_password_age" in value:
-        pairs.append((f"{prefix}.MaxPasswordAge", str(value["max_password_age"])))
+        pairs.append((f"{key_prefix}MaxPasswordAge", str(value["max_password_age"])))
     if "password_reuse_prevention" in value:
         pairs.append(
             (
-                f"{prefix}.PasswordReusePrevention",
+                f"{key_prefix}PasswordReusePrevention",
                 str(value["password_reuse_prevention"]),
             )
         )
     if "hard_expiry" in value:
         pairs.append(
-            (f"{prefix}.HardExpiry", "true" if value["hard_expiry"] else "false")
+            (f"{key_prefix}HardExpiry", "true" if value["hard_expiry"] else "false")
         )
 
 

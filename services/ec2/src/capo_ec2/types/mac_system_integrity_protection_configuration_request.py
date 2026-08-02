@@ -47,47 +47,48 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "apple_internal" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["apple_internal"], pairs, f"{prefix}.AppleInternal"
+            value["apple_internal"], pairs, f"{key_prefix}AppleInternal"
         )
     if "base_system" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["base_system"], pairs, f"{prefix}.BaseSystem"
+            value["base_system"], pairs, f"{key_prefix}BaseSystem"
         )
     if "debugging_restrictions" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["debugging_restrictions"], pairs, f"{prefix}.DebuggingRestrictions"
+            value["debugging_restrictions"], pairs, f"{key_prefix}DebuggingRestrictions"
         )
     if "d_trace_restrictions" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["d_trace_restrictions"], pairs, f"{prefix}.DTraceRestrictions"
+            value["d_trace_restrictions"], pairs, f"{key_prefix}DTraceRestrictions"
         )
     if "filesystem_protections" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["filesystem_protections"], pairs, f"{prefix}.FilesystemProtections"
+            value["filesystem_protections"], pairs, f"{key_prefix}FilesystemProtections"
         )
     if "kext_signing" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["kext_signing"], pairs, f"{prefix}.KextSigning"
+            value["kext_signing"], pairs, f"{key_prefix}KextSigning"
         )
     if "nvram_protections" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
-            value["nvram_protections"], pairs, f"{prefix}.NvramProtections"
+            value["nvram_protections"], pairs, f"{key_prefix}NvramProtections"
         )
 
 

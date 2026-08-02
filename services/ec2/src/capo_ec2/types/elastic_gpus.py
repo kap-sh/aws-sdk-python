@@ -36,31 +36,32 @@ class ElasticGpus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ElasticGpus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "elastic_gpu_id" in value:
-        pairs.append((f"{prefix}.ElasticGpuId", str(value["elastic_gpu_id"])))
+        pairs.append((f"{key_prefix}ElasticGpuId", str(value["elastic_gpu_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "elastic_gpu_type" in value:
-        pairs.append((f"{prefix}.ElasticGpuType", str(value["elastic_gpu_type"])))
+        pairs.append((f"{key_prefix}ElasticGpuType", str(value["elastic_gpu_type"])))
     if "elastic_gpu_health" in value:
         import capo_ec2.types.elastic_gpu_health
 
         capo_ec2.types.elastic_gpu_health.serialize_ec2_query(
-            value["elastic_gpu_health"], pairs, f"{prefix}.ElasticGpuHealth"
+            value["elastic_gpu_health"], pairs, f"{key_prefix}ElasticGpuHealth"
         )
     if "elastic_gpu_state" in value:
         import capo_ec2.types.elastic_gpu_state
 
         capo_ec2.types.elastic_gpu_state.serialize_ec2_query(
-            value["elastic_gpu_state"], pairs, f"{prefix}.ElasticGpuState"
+            value["elastic_gpu_state"], pairs, f"{key_prefix}ElasticGpuState"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -26,13 +26,14 @@ class DeleteFleetsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteFleetsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful_fleet_deletions" in value:
         import capo_ec2.types.delete_fleet_success_set
 
         capo_ec2.types.delete_fleet_success_set.serialize_ec2_query(
             value["successful_fleet_deletions"],
             pairs,
-            f"{prefix}.SuccessfulFleetDeletionSet",
+            f"{key_prefix}SuccessfulFleetDeletionSet",
         )
     if "unsuccessful_fleet_deletions" in value:
         import capo_ec2.types.delete_fleet_error_set
@@ -40,7 +41,7 @@ def serialize_ec2_query(
         capo_ec2.types.delete_fleet_error_set.serialize_ec2_query(
             value["unsuccessful_fleet_deletions"],
             pairs,
-            f"{prefix}.UnsuccessfulFleetDeletionSet",
+            f"{key_prefix}UnsuccessfulFleetDeletionSet",
         )
 
 

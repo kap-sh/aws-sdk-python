@@ -30,18 +30,21 @@ class DiskImageDescription(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DiskImageDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "checksum" in value:
-        pairs.append((f"{prefix}.Checksum", str(value["checksum"])))
+        pairs.append((f"{key_prefix}Checksum", str(value["checksum"])))
     if "format" in value:
         import capo_ec2.types.disk_image_format
 
         capo_ec2.types.disk_image_format.serialize_ec2_query(
-            value["format"], pairs, f"{prefix}.Format"
+            value["format"], pairs, f"{key_prefix}Format"
         )
     if "import_manifest_url" in value:
-        pairs.append((f"{prefix}.ImportManifestUrl", str(value["import_manifest_url"])))
+        pairs.append(
+            (f"{key_prefix}ImportManifestUrl", str(value["import_manifest_url"]))
+        )
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
 
 
 def deserialize_ec2_query(el: Element) -> DiskImageDescription:

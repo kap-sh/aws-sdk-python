@@ -24,16 +24,17 @@ class AvailableCapacity(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AvailableCapacity, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "available_instance_capacity" in value:
         import capo_ec2.types.available_instance_capacity_list
 
         capo_ec2.types.available_instance_capacity_list.serialize_ec2_query(
             value["available_instance_capacity"],
             pairs,
-            f"{prefix}.AvailableInstanceCapacity",
+            f"{key_prefix}AvailableInstanceCapacity",
         )
     if "available_v_cpus" in value:
-        pairs.append((f"{prefix}.AvailableVCpus", str(value["available_v_cpus"])))
+        pairs.append((f"{key_prefix}AvailableVCpus", str(value["available_v_cpus"])))
 
 
 def deserialize_ec2_query(el: Element) -> AvailableCapacity:

@@ -21,13 +21,14 @@ class MetricQuery(TypedDict, closed=True):
 def serialize_query(
     value: MetricQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "performance_insights_metric_query" in value:
         import capo_rds.types.performance_insights_metric_query
 
         capo_rds.types.performance_insights_metric_query.serialize_query(
             value["performance_insights_metric_query"],
             pairs,
-            f"{prefix}.PerformanceInsightsMetricQuery",
+            f"{key_prefix}PerformanceInsightsMetricQuery",
         )
 
 

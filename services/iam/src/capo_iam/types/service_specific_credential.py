@@ -52,42 +52,50 @@ class ServiceSpecificCredential(TypedDict, closed=True):
 def serialize_query(
     value: ServiceSpecificCredential, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["create_date"], pairs, f"{prefix}.CreateDate"
+        value["create_date"], pairs, f"{key_prefix}CreateDate"
     )
     if "expiration_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["expiration_date"], pairs, f"{prefix}.ExpirationDate"
+            value["expiration_date"], pairs, f"{key_prefix}ExpirationDate"
         )
-    pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
-    pairs.append((f"{prefix}.ServiceUserName", str(value.get("service_user_name", ""))))
-    pairs.append((f"{prefix}.ServicePassword", str(value.get("service_password", ""))))
+    pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
+    pairs.append(
+        (f"{key_prefix}ServiceUserName", str(value.get("service_user_name", "")))
+    )
+    pairs.append(
+        (f"{key_prefix}ServicePassword", str(value.get("service_password", "")))
+    )
     if "service_credential_alias" in value:
         pairs.append(
-            (f"{prefix}.ServiceCredentialAlias", str(value["service_credential_alias"]))
+            (
+                f"{key_prefix}ServiceCredentialAlias",
+                str(value["service_credential_alias"]),
+            )
         )
     if "service_credential_secret" in value:
         pairs.append(
             (
-                f"{prefix}.ServiceCredentialSecret",
+                f"{key_prefix}ServiceCredentialSecret",
                 str(value["service_credential_secret"]),
             )
         )
     pairs.append(
         (
-            f"{prefix}.ServiceSpecificCredentialId",
+            f"{key_prefix}ServiceSpecificCredentialId",
             str(value["service_specific_credential_id"]),
         )
     )
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     import capo_iam.types.status_type
 
     capo_iam.types.status_type.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
 
 

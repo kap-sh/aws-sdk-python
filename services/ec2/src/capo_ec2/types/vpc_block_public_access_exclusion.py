@@ -53,49 +53,50 @@ class VpcBlockPublicAccessExclusion(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcBlockPublicAccessExclusion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "exclusion_id" in value:
-        pairs.append((f"{prefix}.ExclusionId", str(value["exclusion_id"])))
+        pairs.append((f"{key_prefix}ExclusionId", str(value["exclusion_id"])))
     if "internet_gateway_exclusion_mode" in value:
         import capo_ec2.types.internet_gateway_exclusion_mode
 
         capo_ec2.types.internet_gateway_exclusion_mode.serialize_ec2_query(
             value["internet_gateway_exclusion_mode"],
             pairs,
-            f"{prefix}.InternetGatewayExclusionMode",
+            f"{key_prefix}InternetGatewayExclusionMode",
         )
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     if "state" in value:
         import capo_ec2.types.vpc_block_public_access_exclusion_state
 
         capo_ec2.types.vpc_block_public_access_exclusion_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "reason" in value:
-        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+        pairs.append((f"{key_prefix}Reason", str(value["reason"])))
     if "creation_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["creation_timestamp"], pairs, f"{prefix}.CreationTimestamp"
+            value["creation_timestamp"], pairs, f"{key_prefix}CreationTimestamp"
         )
     if "last_update_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["last_update_timestamp"], pairs, f"{prefix}.LastUpdateTimestamp"
+            value["last_update_timestamp"], pairs, f"{key_prefix}LastUpdateTimestamp"
         )
     if "deletion_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["deletion_timestamp"], pairs, f"{prefix}.DeletionTimestamp"
+            value["deletion_timestamp"], pairs, f"{key_prefix}DeletionTimestamp"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

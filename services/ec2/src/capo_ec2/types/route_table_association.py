@@ -35,28 +35,29 @@ class RouteTableAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteTableAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "main" in value:
-        pairs.append((f"{prefix}.Main", "true" if value["main"] else "false"))
+        pairs.append((f"{key_prefix}Main", "true" if value["main"] else "false"))
     if "route_table_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.RouteTableAssociationId",
+                f"{key_prefix}RouteTableAssociationId",
                 str(value["route_table_association_id"]),
             )
         )
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "gateway_id" in value:
-        pairs.append((f"{prefix}.GatewayId", str(value["gateway_id"])))
+        pairs.append((f"{key_prefix}GatewayId", str(value["gateway_id"])))
     if "public_ipv4_pool" in value:
-        pairs.append((f"{prefix}.PublicIpv4Pool", str(value["public_ipv4_pool"])))
+        pairs.append((f"{key_prefix}PublicIpv4Pool", str(value["public_ipv4_pool"])))
     if "association_state" in value:
         import capo_ec2.types.route_table_association_state
 
         capo_ec2.types.route_table_association_state.serialize_ec2_query(
-            value["association_state"], pairs, f"{prefix}.AssociationState"
+            value["association_state"], pairs, f"{key_prefix}AssociationState"
         )
 
 

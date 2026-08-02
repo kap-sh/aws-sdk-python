@@ -35,31 +35,32 @@ class GetOpenIDConnectProviderResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetOpenIDConnectProviderResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "url" in value:
-        pairs.append((f"{prefix}.Url", str(value["url"])))
+        pairs.append((f"{key_prefix}Url", str(value["url"])))
     if "client_id_list" in value:
         import capo_iam.types.client_id_list_type
 
         capo_iam.types.client_id_list_type.serialize_query(
-            value["client_id_list"], pairs, f"{prefix}.ClientIDList"
+            value["client_id_list"], pairs, f"{key_prefix}ClientIDList"
         )
     if "thumbprint_list" in value:
         import capo_iam.types.thumbprint_list_type
 
         capo_iam.types.thumbprint_list_type.serialize_query(
-            value["thumbprint_list"], pairs, f"{prefix}.ThumbprintList"
+            value["thumbprint_list"], pairs, f"{key_prefix}ThumbprintList"
         )
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

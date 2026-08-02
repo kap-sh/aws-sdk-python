@@ -22,13 +22,14 @@ class DescribeSnapshotsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSnapshotsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "snapshots" in value:
         import capo_ec2.types.snapshot_list
 
         capo_ec2.types.snapshot_list.serialize_ec2_query(
-            value["snapshots"], pairs, f"{prefix}.SnapshotSet"
+            value["snapshots"], pairs, f"{key_prefix}SnapshotSet"
         )
 
 

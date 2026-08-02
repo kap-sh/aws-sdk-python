@@ -32,19 +32,20 @@ class SigningCertificate(TypedDict, closed=True):
 def serialize_query(
     value: SigningCertificate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.CertificateId", str(value["certificate_id"])))
-    pairs.append((f"{prefix}.CertificateBody", str(value["certificate_body"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}CertificateId", str(value["certificate_id"])))
+    pairs.append((f"{key_prefix}CertificateBody", str(value["certificate_body"])))
     import capo_iam.types.status_type
 
     capo_iam.types.status_type.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
     if "upload_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["upload_date"], pairs, f"{prefix}.UploadDate"
+            value["upload_date"], pairs, f"{key_prefix}UploadDate"
         )
 
 

@@ -29,14 +29,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "source_dest_check" in value:
-        pairs.append((f"{prefix}.SourceDestCheck", str(value["source_dest_check"])))
+        pairs.append((f"{key_prefix}SourceDestCheck", str(value["source_dest_check"])))
 
 
 def deserialize_ec2_query(el: Element) -> ResetNetworkInterfaceAttributeRequest:

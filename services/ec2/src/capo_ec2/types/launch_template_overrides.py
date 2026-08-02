@@ -42,31 +42,32 @@ class LaunchTemplateOverrides(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LaunchTemplateOverrides, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "spot_price" in value:
-        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+        pairs.append((f"{key_prefix}SpotPrice", str(value["spot_price"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "weighted_capacity" in value:
-        pairs.append((f"{prefix}.WeightedCapacity", str(value["weighted_capacity"])))
+        pairs.append((f"{key_prefix}WeightedCapacity", str(value["weighted_capacity"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
     if "instance_requirements" in value:
         import capo_ec2.types.instance_requirements
 
         capo_ec2.types.instance_requirements.serialize_ec2_query(
-            value["instance_requirements"], pairs, f"{prefix}.InstanceRequirements"
+            value["instance_requirements"], pairs, f"{key_prefix}InstanceRequirements"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

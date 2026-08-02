@@ -25,12 +25,15 @@ class TagServerCertificateRequest(TypedDict, closed=True):
 def serialize_query(
     value: TagServerCertificateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
     import capo_iam.types.tag_list_type
 
-    capo_iam.types.tag_list_type.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+    capo_iam.types.tag_list_type.serialize_query(
+        value["tags"], pairs, f"{key_prefix}Tags"
+    )
 
 
 def deserialize_query(el: Element) -> TagServerCertificateRequest:

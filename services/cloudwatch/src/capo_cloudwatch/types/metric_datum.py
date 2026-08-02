@@ -144,48 +144,51 @@ def deserialize_aws_json_1_0(data: dict) -> MetricDatum:
 def serialize_query(
     value: MetricDatum, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
     if "statistic_values" in value:
         import capo_cloudwatch.types.statistic_set
 
         capo_cloudwatch.types.statistic_set.serialize_query(
-            value["statistic_values"], pairs, f"{prefix}.StatisticValues"
+            value["statistic_values"], pairs, f"{key_prefix}StatisticValues"
         )
     if "values" in value:
         import capo_cloudwatch.types.values
 
         capo_cloudwatch.types.values.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
     if "counts" in value:
         import capo_cloudwatch.types.counts
 
         capo_cloudwatch.types.counts.serialize_query(
-            value["counts"], pairs, f"{prefix}.Counts"
+            value["counts"], pairs, f"{key_prefix}Counts"
         )
     if "unit" in value:
         import capo_cloudwatch.types.standard_unit
 
         capo_cloudwatch.types.standard_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
     if "storage_resolution" in value:
-        pairs.append((f"{prefix}.StorageResolution", str(value["storage_resolution"])))
+        pairs.append(
+            (f"{key_prefix}StorageResolution", str(value["storage_resolution"]))
+        )
 
 
 def deserialize_query(el: Element) -> MetricDatum:

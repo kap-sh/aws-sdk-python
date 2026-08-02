@@ -23,8 +23,9 @@ class SetDefaultPolicyVersionRequest(TypedDict, closed=True):
 def serialize_query(
     value: SetDefaultPolicyVersionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicyArn", str(value["policy_arn"])))
-    pairs.append((f"{prefix}.VersionId", str(value["version_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyArn", str(value["policy_arn"])))
+    pairs.append((f"{key_prefix}VersionId", str(value["version_id"])))
 
 
 def deserialize_query(el: Element) -> SetDefaultPolicyVersionRequest:

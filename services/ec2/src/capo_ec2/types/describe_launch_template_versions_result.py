@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_versions" in value:
         import capo_ec2.types.launch_template_version_set
 
         capo_ec2.types.launch_template_version_set.serialize_ec2_query(
             value["launch_template_versions"],
             pairs,
-            f"{prefix}.LaunchTemplateVersionSet",
+            f"{key_prefix}LaunchTemplateVersionSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplateVersionsResult:

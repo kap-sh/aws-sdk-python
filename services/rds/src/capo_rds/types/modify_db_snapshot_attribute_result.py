@@ -20,13 +20,14 @@ class ModifyDBSnapshotAttributeResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBSnapshotAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_snapshot_attributes_result" in value:
         import capo_rds.types.db_snapshot_attributes_result
 
         capo_rds.types.db_snapshot_attributes_result.serialize_query(
             value["db_snapshot_attributes_result"],
             pairs,
-            f"{prefix}.DBSnapshotAttributesResult",
+            f"{key_prefix}DBSnapshotAttributesResult",
         )
 
 

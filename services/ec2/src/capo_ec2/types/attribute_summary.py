@@ -31,21 +31,24 @@ class AttributeSummary(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AttributeSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute_name" in value:
-        pairs.append((f"{prefix}.AttributeName", str(value["attribute_name"])))
+        pairs.append((f"{key_prefix}AttributeName", str(value["attribute_name"])))
     if "most_frequent_value" in value:
-        pairs.append((f"{prefix}.MostFrequentValue", str(value["most_frequent_value"])))
+        pairs.append(
+            (f"{key_prefix}MostFrequentValue", str(value["most_frequent_value"]))
+        )
     if "number_of_matched_accounts" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfMatchedAccounts",
+                f"{key_prefix}NumberOfMatchedAccounts",
                 str(value["number_of_matched_accounts"]),
             )
         )
     if "number_of_unmatched_accounts" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfUnmatchedAccounts",
+                f"{key_prefix}NumberOfUnmatchedAccounts",
                 str(value["number_of_unmatched_accounts"]),
             )
         )
@@ -53,7 +56,7 @@ def serialize_ec2_query(
         import capo_ec2.types.regional_summary_list
 
         capo_ec2.types.regional_summary_list.serialize_ec2_query(
-            value["regional_summaries"], pairs, f"{prefix}.RegionalSummarySet"
+            value["regional_summaries"], pairs, f"{key_prefix}RegionalSummarySet"
         )
 
 

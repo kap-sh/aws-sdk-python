@@ -46,33 +46,34 @@ class AdditionalDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AdditionalDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "additional_detail_type" in value:
         pairs.append(
-            (f"{prefix}.AdditionalDetailType", str(value["additional_detail_type"]))
+            (f"{key_prefix}AdditionalDetailType", str(value["additional_detail_type"]))
         )
     if "component" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["component"], pairs, f"{prefix}.Component"
+            value["component"], pairs, f"{key_prefix}Component"
         )
     if "vpc_endpoint_service" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpc_endpoint_service"], pairs, f"{prefix}.VpcEndpointService"
+            value["vpc_endpoint_service"], pairs, f"{key_prefix}VpcEndpointService"
         )
     if "rule_options" in value:
         import capo_ec2.types.rule_option_list
 
         capo_ec2.types.rule_option_list.serialize_ec2_query(
-            value["rule_options"], pairs, f"{prefix}.RuleOptionSet"
+            value["rule_options"], pairs, f"{key_prefix}RuleOptionSet"
         )
     if "rule_group_type_pairs" in value:
         import capo_ec2.types.rule_group_type_pair_list
 
         capo_ec2.types.rule_group_type_pair_list.serialize_ec2_query(
-            value["rule_group_type_pairs"], pairs, f"{prefix}.RuleGroupTypePairSet"
+            value["rule_group_type_pairs"], pairs, f"{key_prefix}RuleGroupTypePairSet"
         )
     if "rule_group_rule_options_pairs" in value:
         import capo_ec2.types.rule_group_rule_options_pair_list
@@ -80,15 +81,15 @@ def serialize_ec2_query(
         capo_ec2.types.rule_group_rule_options_pair_list.serialize_ec2_query(
             value["rule_group_rule_options_pairs"],
             pairs,
-            f"{prefix}.RuleGroupRuleOptionsPairSet",
+            f"{key_prefix}RuleGroupRuleOptionsPairSet",
         )
     if "service_name" in value:
-        pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+        pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
     if "load_balancers" in value:
         import capo_ec2.types.analysis_component_list
 
         capo_ec2.types.analysis_component_list.serialize_ec2_query(
-            value["load_balancers"], pairs, f"{prefix}.LoadBalancerSet"
+            value["load_balancers"], pairs, f"{key_prefix}LoadBalancerSet"
         )
 
 

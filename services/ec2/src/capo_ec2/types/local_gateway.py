@@ -29,19 +29,20 @@ class LocalGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LocalGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -48,30 +48,33 @@ class LaunchTemplateVersion(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LaunchTemplateVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_id" in value:
-        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+        pairs.append(
+            (f"{key_prefix}LaunchTemplateId", str(value["launch_template_id"]))
+        )
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "version_number" in value:
-        pairs.append((f"{prefix}.VersionNumber", str(value["version_number"])))
+        pairs.append((f"{key_prefix}VersionNumber", str(value["version_number"])))
     if "version_description" in value:
         pairs.append(
-            (f"{prefix}.VersionDescription", str(value["version_description"]))
+            (f"{key_prefix}VersionDescription", str(value["version_description"]))
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "created_by" in value:
-        pairs.append((f"{prefix}.CreatedBy", str(value["created_by"])))
+        pairs.append((f"{key_prefix}CreatedBy", str(value["created_by"])))
     if "default_version" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultVersion",
+                f"{key_prefix}DefaultVersion",
                 "true" if value["default_version"] else "false",
             )
         )
@@ -79,13 +82,13 @@ def serialize_ec2_query(
         import capo_ec2.types.response_launch_template_data
 
         capo_ec2.types.response_launch_template_data.serialize_ec2_query(
-            value["launch_template_data"], pairs, f"{prefix}.LaunchTemplateData"
+            value["launch_template_data"], pairs, f"{key_prefix}LaunchTemplateData"
         )
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
 
 

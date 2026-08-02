@@ -24,10 +24,11 @@ class ValidAdditionalStorageOptions(TypedDict, closed=True):
 def serialize_query(
     value: ValidAdditionalStorageOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "supports_additional_storage_volumes" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsAdditionalStorageVolumes",
+                f"{key_prefix}SupportsAdditionalStorageVolumes",
                 "true" if value["supports_additional_storage_volumes"] else "false",
             )
         )
@@ -35,7 +36,7 @@ def serialize_query(
         import capo_rds.types.valid_volume_options_list
 
         capo_rds.types.valid_volume_options_list.serialize_query(
-            value["volumes"], pairs, f"{prefix}.Volumes"
+            value["volumes"], pairs, f"{key_prefix}Volumes"
         )
 
 

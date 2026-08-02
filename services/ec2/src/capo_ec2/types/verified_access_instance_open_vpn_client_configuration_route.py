@@ -21,8 +21,9 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
 
 
 def deserialize_ec2_query(

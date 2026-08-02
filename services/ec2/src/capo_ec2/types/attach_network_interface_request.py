@@ -39,26 +39,29 @@ class AttachNetworkInterfaceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AttachNetworkInterfaceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_card_index" in value:
-        pairs.append((f"{prefix}.NetworkCardIndex", str(value["network_card_index"])))
+        pairs.append(
+            (f"{key_prefix}NetworkCardIndex", str(value["network_card_index"]))
+        )
     if "ena_srd_specification" in value:
         import capo_ec2.types.ena_srd_specification
 
         capo_ec2.types.ena_srd_specification.serialize_ec2_query(
-            value["ena_srd_specification"], pairs, f"{prefix}.EnaSrdSpecification"
+            value["ena_srd_specification"], pairs, f"{key_prefix}EnaSrdSpecification"
         )
     if "ena_queue_count" in value:
-        pairs.append((f"{prefix}.EnaQueueCount", str(value["ena_queue_count"])))
+        pairs.append((f"{key_prefix}EnaQueueCount", str(value["ena_queue_count"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "device_index" in value:
-        pairs.append((f"{prefix}.DeviceIndex", str(value["device_index"])))
+        pairs.append((f"{key_prefix}DeviceIndex", str(value["device_index"])))
 
 
 def deserialize_ec2_query(el: Element) -> AttachNetworkInterfaceRequest:

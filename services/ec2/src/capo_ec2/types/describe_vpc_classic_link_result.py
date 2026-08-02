@@ -19,11 +19,12 @@ class DescribeVpcClassicLinkResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpcClassicLinkResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpcs" in value:
         import capo_ec2.types.vpc_classic_link_list
 
         capo_ec2.types.vpc_classic_link_list.serialize_ec2_query(
-            value["vpcs"], pairs, f"{prefix}.VpcSet"
+            value["vpcs"], pairs, f"{key_prefix}VpcSet"
         )
 
 

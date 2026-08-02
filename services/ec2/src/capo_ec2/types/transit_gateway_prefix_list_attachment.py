@@ -29,10 +29,11 @@ class TransitGatewayPrefixListAttachment(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayPrefixListAttachment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
@@ -40,10 +41,10 @@ def serialize_ec2_query(
         import capo_ec2.types.transit_gateway_attachment_resource_type
 
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPrefixListAttachment:

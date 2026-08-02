@@ -25,14 +25,15 @@ class CoipAddressUsage(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CoipAddressUsage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "aws_account_id" in value:
-        pairs.append((f"{prefix}.AwsAccountId", str(value["aws_account_id"])))
+        pairs.append((f"{key_prefix}AwsAccountId", str(value["aws_account_id"])))
     if "aws_service" in value:
-        pairs.append((f"{prefix}.AwsService", str(value["aws_service"])))
+        pairs.append((f"{key_prefix}AwsService", str(value["aws_service"])))
     if "co_ip" in value:
-        pairs.append((f"{prefix}.CoIp", str(value["co_ip"])))
+        pairs.append((f"{key_prefix}CoIp", str(value["co_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> CoipAddressUsage:

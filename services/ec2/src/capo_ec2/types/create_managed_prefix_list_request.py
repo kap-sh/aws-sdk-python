@@ -37,28 +37,29 @@ class CreateManagedPrefixListRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateManagedPrefixListRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "prefix_list_name" in value:
-        pairs.append((f"{prefix}.PrefixListName", str(value["prefix_list_name"])))
+        pairs.append((f"{key_prefix}PrefixListName", str(value["prefix_list_name"])))
     if "entries" in value:
         import capo_ec2.types.add_prefix_list_entries
 
         capo_ec2.types.add_prefix_list_entries.serialize_ec2_query(
-            value["entries"], pairs, f"{prefix}.Entries"
+            value["entries"], pairs, f"{key_prefix}Entries"
         )
     if "max_entries" in value:
-        pairs.append((f"{prefix}.MaxEntries", str(value["max_entries"])))
+        pairs.append((f"{key_prefix}MaxEntries", str(value["max_entries"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "address_family" in value:
-        pairs.append((f"{prefix}.AddressFamily", str(value["address_family"])))
+        pairs.append((f"{key_prefix}AddressFamily", str(value["address_family"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateManagedPrefixListRequest:

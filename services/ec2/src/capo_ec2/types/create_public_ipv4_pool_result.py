@@ -19,8 +19,9 @@ class CreatePublicIpv4PoolResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreatePublicIpv4PoolResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pool_id" in value:
-        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreatePublicIpv4PoolResult:

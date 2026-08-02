@@ -53,29 +53,32 @@ class VpcEndpointConnection(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcEndpointConnection, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_id" in value:
-        pairs.append((f"{prefix}.ServiceId", str(value["service_id"])))
+        pairs.append((f"{key_prefix}ServiceId", str(value["service_id"])))
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "vpc_endpoint_owner" in value:
-        pairs.append((f"{prefix}.VpcEndpointOwner", str(value["vpc_endpoint_owner"])))
+        pairs.append(
+            (f"{key_prefix}VpcEndpointOwner", str(value["vpc_endpoint_owner"]))
+        )
     if "vpc_endpoint_state" in value:
         import capo_ec2.types.state
 
         capo_ec2.types.state.serialize_ec2_query(
-            value["vpc_endpoint_state"], pairs, f"{prefix}.VpcEndpointState"
+            value["vpc_endpoint_state"], pairs, f"{key_prefix}VpcEndpointState"
         )
     if "creation_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["creation_timestamp"], pairs, f"{prefix}.CreationTimestamp"
+            value["creation_timestamp"], pairs, f"{key_prefix}CreationTimestamp"
         )
     if "dns_entries" in value:
         import capo_ec2.types.dns_entry_set
 
         capo_ec2.types.dns_entry_set.serialize_ec2_query(
-            value["dns_entries"], pairs, f"{prefix}.DnsEntrySet"
+            value["dns_entries"], pairs, f"{key_prefix}DnsEntrySet"
         )
     if "network_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -83,7 +86,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["network_load_balancer_arns"],
             pairs,
-            f"{prefix}.NetworkLoadBalancerArnSet",
+            f"{key_prefix}NetworkLoadBalancerArnSet",
         )
     if "gateway_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -91,18 +94,18 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["gateway_load_balancer_arns"],
             pairs,
-            f"{prefix}.GatewayLoadBalancerArnSet",
+            f"{key_prefix}GatewayLoadBalancerArnSet",
         )
     if "ip_address_type" in value:
         import capo_ec2.types.ip_address_type
 
         capo_ec2.types.ip_address_type.serialize_ec2_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "vpc_endpoint_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcEndpointConnectionId",
+                f"{key_prefix}VpcEndpointConnectionId",
                 str(value["vpc_endpoint_connection_id"]),
             )
         )
@@ -110,10 +113,12 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_endpoint_region" in value:
-        pairs.append((f"{prefix}.VpcEndpointRegion", str(value["vpc_endpoint_region"])))
+        pairs.append(
+            (f"{key_prefix}VpcEndpointRegion", str(value["vpc_endpoint_region"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> VpcEndpointConnection:

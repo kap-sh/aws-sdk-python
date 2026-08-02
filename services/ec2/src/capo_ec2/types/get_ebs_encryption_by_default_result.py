@@ -22,10 +22,11 @@ class GetEbsEncryptionByDefaultResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetEbsEncryptionByDefaultResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ebs_encryption_by_default" in value:
         pairs.append(
             (
-                f"{prefix}.EbsEncryptionByDefault",
+                f"{key_prefix}EbsEncryptionByDefault",
                 "true" if value["ebs_encryption_by_default"] else "false",
             )
         )
@@ -33,7 +34,7 @@ def serialize_ec2_query(
         import capo_ec2.types.sse_type
 
         capo_ec2.types.sse_type.serialize_ec2_query(
-            value["sse_type"], pairs, f"{prefix}.SseType"
+            value["sse_type"], pairs, f"{key_prefix}SseType"
         )
 
 

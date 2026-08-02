@@ -85,43 +85,49 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_group_id" in value:
         pairs.append(
-            (f"{prefix}.VerifiedAccessGroupId", str(value["verified_access_group_id"]))
+            (
+                f"{key_prefix}VerifiedAccessGroupId",
+                str(value["verified_access_group_id"]),
+            )
         )
     if "endpoint_type" in value:
         import capo_ec2.types.verified_access_endpoint_type
 
         capo_ec2.types.verified_access_endpoint_type.serialize_ec2_query(
-            value["endpoint_type"], pairs, f"{prefix}.EndpointType"
+            value["endpoint_type"], pairs, f"{key_prefix}EndpointType"
         )
     if "attachment_type" in value:
         import capo_ec2.types.verified_access_endpoint_attachment_type
 
         capo_ec2.types.verified_access_endpoint_attachment_type.serialize_ec2_query(
-            value["attachment_type"], pairs, f"{prefix}.AttachmentType"
+            value["attachment_type"], pairs, f"{key_prefix}AttachmentType"
         )
     if "domain_certificate_arn" in value:
         pairs.append(
-            (f"{prefix}.DomainCertificateArn", str(value["domain_certificate_arn"]))
+            (f"{key_prefix}DomainCertificateArn", str(value["domain_certificate_arn"]))
         )
     if "application_domain" in value:
-        pairs.append((f"{prefix}.ApplicationDomain", str(value["application_domain"])))
+        pairs.append(
+            (f"{key_prefix}ApplicationDomain", str(value["application_domain"]))
+        )
     if "endpoint_domain_prefix" in value:
         pairs.append(
-            (f"{prefix}.EndpointDomainPrefix", str(value["endpoint_domain_prefix"]))
+            (f"{key_prefix}EndpointDomainPrefix", str(value["endpoint_domain_prefix"]))
         )
     if "security_group_ids" in value:
         import capo_ec2.types.security_group_id_list
 
         capo_ec2.types.security_group_id_list.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "load_balancer_options" in value:
         import capo_ec2.types.create_verified_access_endpoint_load_balancer_options
 
         capo_ec2.types.create_verified_access_endpoint_load_balancer_options.serialize_ec2_query(
-            value["load_balancer_options"], pairs, f"{prefix}.LoadBalancerOptions"
+            value["load_balancer_options"], pairs, f"{key_prefix}LoadBalancerOptions"
         )
     if "network_interface_options" in value:
         import capo_ec2.types.create_verified_access_endpoint_eni_options
@@ -129,39 +135,39 @@ def serialize_ec2_query(
         capo_ec2.types.create_verified_access_endpoint_eni_options.serialize_ec2_query(
             value["network_interface_options"],
             pairs,
-            f"{prefix}.NetworkInterfaceOptions",
+            f"{key_prefix}NetworkInterfaceOptions",
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "sse_specification" in value:
         import capo_ec2.types.verified_access_sse_specification_request
 
         capo_ec2.types.verified_access_sse_specification_request.serialize_ec2_query(
-            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+            value["sse_specification"], pairs, f"{key_prefix}SseSpecification"
         )
     if "rds_options" in value:
         import capo_ec2.types.create_verified_access_endpoint_rds_options
 
         capo_ec2.types.create_verified_access_endpoint_rds_options.serialize_ec2_query(
-            value["rds_options"], pairs, f"{prefix}.RdsOptions"
+            value["rds_options"], pairs, f"{key_prefix}RdsOptions"
         )
     if "cidr_options" in value:
         import capo_ec2.types.create_verified_access_endpoint_cidr_options
 
         capo_ec2.types.create_verified_access_endpoint_cidr_options.serialize_ec2_query(
-            value["cidr_options"], pairs, f"{prefix}.CidrOptions"
+            value["cidr_options"], pairs, f"{key_prefix}CidrOptions"
         )
 
 

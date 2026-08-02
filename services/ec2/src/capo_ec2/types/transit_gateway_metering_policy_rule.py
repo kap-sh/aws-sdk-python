@@ -45,10 +45,11 @@ class TransitGatewayMeteringPolicyRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayMeteringPolicyRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.SourceTransitGatewayAttachmentId",
+                f"{key_prefix}SourceTransitGatewayAttachmentId",
                 str(value["source_transit_gateway_attachment_id"]),
             )
         )
@@ -58,16 +59,16 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
             value["source_transit_gateway_attachment_type"],
             pairs,
-            f"{prefix}.SourceTransitGatewayAttachmentType",
+            f"{key_prefix}SourceTransitGatewayAttachmentType",
         )
     if "source_cidr_block" in value:
-        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+        pairs.append((f"{key_prefix}SourceCidrBlock", str(value["source_cidr_block"])))
     if "source_port_range" in value:
-        pairs.append((f"{prefix}.SourcePortRange", str(value["source_port_range"])))
+        pairs.append((f"{key_prefix}SourcePortRange", str(value["source_port_range"])))
     if "destination_transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationTransitGatewayAttachmentId",
+                f"{key_prefix}DestinationTransitGatewayAttachmentId",
                 str(value["destination_transit_gateway_attachment_id"]),
             )
         )
@@ -77,18 +78,18 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
             value["destination_transit_gateway_attachment_type"],
             pairs,
-            f"{prefix}.DestinationTransitGatewayAttachmentType",
+            f"{key_prefix}DestinationTransitGatewayAttachmentType",
         )
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "destination_port_range" in value:
         pairs.append(
-            (f"{prefix}.DestinationPortRange", str(value["destination_port_range"]))
+            (f"{key_prefix}DestinationPortRange", str(value["destination_port_range"]))
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
 
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicyRule:

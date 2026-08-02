@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_recovery" in value:
         import capo_ec2.types.launch_template_auto_recovery_state
 
         capo_ec2.types.launch_template_auto_recovery_state.serialize_ec2_query(
-            value["auto_recovery"], pairs, f"{prefix}.AutoRecovery"
+            value["auto_recovery"], pairs, f"{key_prefix}AutoRecovery"
         )
 
 

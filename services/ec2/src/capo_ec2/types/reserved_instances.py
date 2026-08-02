@@ -73,95 +73,96 @@ class ReservedInstances(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReservedInstances, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
     if "instance_tenancy" in value:
         import capo_ec2.types.tenancy
 
         capo_ec2.types.tenancy.serialize_ec2_query(
-            value["instance_tenancy"], pairs, f"{prefix}.InstanceTenancy"
+            value["instance_tenancy"], pairs, f"{key_prefix}InstanceTenancy"
         )
     if "offering_class" in value:
         import capo_ec2.types.offering_class_type
 
         capo_ec2.types.offering_class_type.serialize_ec2_query(
-            value["offering_class"], pairs, f"{prefix}.OfferingClass"
+            value["offering_class"], pairs, f"{key_prefix}OfferingClass"
         )
     if "offering_type" in value:
         import capo_ec2.types.offering_type_values
 
         capo_ec2.types.offering_type_values.serialize_ec2_query(
-            value["offering_type"], pairs, f"{prefix}.OfferingType"
+            value["offering_type"], pairs, f"{key_prefix}OfferingType"
         )
     if "recurring_charges" in value:
         import capo_ec2.types.recurring_charges_list
 
         capo_ec2.types.recurring_charges_list.serialize_ec2_query(
-            value["recurring_charges"], pairs, f"{prefix}.RecurringCharges"
+            value["recurring_charges"], pairs, f"{key_prefix}RecurringCharges"
         )
     if "scope" in value:
         import capo_ec2.types.scope
 
         capo_ec2.types.scope.serialize_ec2_query(
-            value["scope"], pairs, f"{prefix}.Scope"
+            value["scope"], pairs, f"{key_prefix}Scope"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "reserved_instances_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedInstancesId", str(value["reserved_instances_id"]))
+            (f"{key_prefix}ReservedInstancesId", str(value["reserved_instances_id"]))
         )
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "start" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start"], pairs, f"{prefix}.Start"
+            value["start"], pairs, f"{key_prefix}Start"
         )
     if "end" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end"], pairs, f"{prefix}.End"
+            value["end"], pairs, f"{key_prefix}End"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "usage_price" in value:
-        pairs.append((f"{prefix}.UsagePrice", str(value["usage_price"])))
+        pairs.append((f"{key_prefix}UsagePrice", str(value["usage_price"])))
     if "fixed_price" in value:
-        pairs.append((f"{prefix}.FixedPrice", str(value["fixed_price"])))
+        pairs.append((f"{key_prefix}FixedPrice", str(value["fixed_price"])))
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "product_description" in value:
         import capo_ec2.types.ri_product_description
 
         capo_ec2.types.ri_product_description.serialize_ec2_query(
-            value["product_description"], pairs, f"{prefix}.ProductDescription"
+            value["product_description"], pairs, f"{key_prefix}ProductDescription"
         )
     if "state" in value:
         import capo_ec2.types.reserved_instance_state
 
         capo_ec2.types.reserved_instance_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

@@ -21,10 +21,11 @@ class ExportTaskS3LocationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExportTaskS3LocationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3_bucket" in value:
-        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+        pairs.append((f"{key_prefix}S3Bucket", str(value["s3_bucket"])))
     if "s3_prefix" in value:
-        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+        pairs.append((f"{key_prefix}S3Prefix", str(value["s3_prefix"])))
 
 
 def deserialize_ec2_query(el: Element) -> ExportTaskS3LocationRequest:

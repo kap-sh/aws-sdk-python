@@ -133,122 +133,132 @@ class OrderableDBInstanceOption(TypedDict, closed=True):
 def serialize_query(
     value: OrderableDBInstanceOption, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "availability_zone_group" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneGroup", str(value["availability_zone_group"]))
+            (
+                f"{key_prefix}AvailabilityZoneGroup",
+                str(value["availability_zone_group"]),
+            )
         )
     if "availability_zones" in value:
         import capo_rds.types.availability_zone_list
 
         capo_rds.types.availability_zone_list.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "multi_az_capable" in value:
         pairs.append(
             (
-                f"{prefix}.MultiAZCapable",
+                f"{key_prefix}MultiAZCapable",
                 "true" if value["multi_az_capable"] else "false",
             )
         )
     if "read_replica_capable" in value:
         pairs.append(
             (
-                f"{prefix}.ReadReplicaCapable",
+                f"{key_prefix}ReadReplicaCapable",
                 "true" if value["read_replica_capable"] else "false",
             )
         )
     if "vpc" in value:
-        pairs.append((f"{prefix}.Vpc", "true" if value["vpc"] else "false"))
+        pairs.append((f"{key_prefix}Vpc", "true" if value["vpc"] else "false"))
     if "supports_storage_encryption" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsStorageEncryption",
+                f"{key_prefix}SupportsStorageEncryption",
                 "true" if value["supports_storage_encryption"] else "false",
             )
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "supports_iops" in value:
         pairs.append(
-            (f"{prefix}.SupportsIops", "true" if value["supports_iops"] else "false")
+            (f"{key_prefix}SupportsIops", "true" if value["supports_iops"] else "false")
         )
     if "supports_storage_throughput" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsStorageThroughput",
+                f"{key_prefix}SupportsStorageThroughput",
                 "true" if value["supports_storage_throughput"] else "false",
             )
         )
     if "supports_enhanced_monitoring" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsEnhancedMonitoring",
+                f"{key_prefix}SupportsEnhancedMonitoring",
                 "true" if value["supports_enhanced_monitoring"] else "false",
             )
         )
     if "supports_iam_database_authentication" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsIAMDatabaseAuthentication",
+                f"{key_prefix}SupportsIAMDatabaseAuthentication",
                 "true" if value["supports_iam_database_authentication"] else "false",
             )
         )
     if "supports_performance_insights" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsPerformanceInsights",
+                f"{key_prefix}SupportsPerformanceInsights",
                 "true" if value["supports_performance_insights"] else "false",
             )
         )
     if "min_storage_size" in value:
-        pairs.append((f"{prefix}.MinStorageSize", str(value["min_storage_size"])))
+        pairs.append((f"{key_prefix}MinStorageSize", str(value["min_storage_size"])))
     if "max_storage_size" in value:
-        pairs.append((f"{prefix}.MaxStorageSize", str(value["max_storage_size"])))
+        pairs.append((f"{key_prefix}MaxStorageSize", str(value["max_storage_size"])))
     if "min_iops_per_db_instance" in value:
         pairs.append(
-            (f"{prefix}.MinIopsPerDbInstance", str(value["min_iops_per_db_instance"]))
+            (
+                f"{key_prefix}MinIopsPerDbInstance",
+                str(value["min_iops_per_db_instance"]),
+            )
         )
     if "max_iops_per_db_instance" in value:
         pairs.append(
-            (f"{prefix}.MaxIopsPerDbInstance", str(value["max_iops_per_db_instance"]))
+            (
+                f"{key_prefix}MaxIopsPerDbInstance",
+                str(value["max_iops_per_db_instance"]),
+            )
         )
     if "min_iops_per_gib" in value:
-        pairs.append((f"{prefix}.MinIopsPerGib", str(value["min_iops_per_gib"])))
+        pairs.append((f"{key_prefix}MinIopsPerGib", str(value["min_iops_per_gib"])))
     if "max_iops_per_gib" in value:
-        pairs.append((f"{prefix}.MaxIopsPerGib", str(value["max_iops_per_gib"])))
+        pairs.append((f"{key_prefix}MaxIopsPerGib", str(value["max_iops_per_gib"])))
     if "min_storage_throughput_per_db_instance" in value:
         pairs.append(
             (
-                f"{prefix}.MinStorageThroughputPerDbInstance",
+                f"{key_prefix}MinStorageThroughputPerDbInstance",
                 str(value["min_storage_throughput_per_db_instance"]),
             )
         )
     if "max_storage_throughput_per_db_instance" in value:
         pairs.append(
             (
-                f"{prefix}.MaxStorageThroughputPerDbInstance",
+                f"{key_prefix}MaxStorageThroughputPerDbInstance",
                 str(value["max_storage_throughput_per_db_instance"]),
             )
         )
     if "min_storage_throughput_per_iops" in value:
         pairs.append(
             (
-                f"{prefix}.MinStorageThroughputPerIops",
+                f"{key_prefix}MinStorageThroughputPerIops",
                 str(value["min_storage_throughput_per_iops"]),
             )
         )
     if "max_storage_throughput_per_iops" in value:
         pairs.append(
             (
-                f"{prefix}.MaxStorageThroughputPerIops",
+                f"{key_prefix}MaxStorageThroughputPerIops",
                 str(value["max_storage_throughput_per_iops"]),
             )
         )
@@ -258,32 +268,32 @@ def serialize_query(
         capo_rds.types.available_processor_feature_list.serialize_query(
             value["available_processor_features"],
             pairs,
-            f"{prefix}.AvailableProcessorFeatures",
+            f"{key_prefix}AvailableProcessorFeatures",
         )
     if "supported_engine_modes" in value:
         import capo_rds.types.engine_mode_list
 
         capo_rds.types.engine_mode_list.serialize_query(
-            value["supported_engine_modes"], pairs, f"{prefix}.SupportedEngineModes"
+            value["supported_engine_modes"], pairs, f"{key_prefix}SupportedEngineModes"
         )
     if "supports_storage_autoscaling" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsStorageAutoscaling",
+                f"{key_prefix}SupportsStorageAutoscaling",
                 "true" if value["supports_storage_autoscaling"] else "false",
             )
         )
     if "supports_kerberos_authentication" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsKerberosAuthentication",
+                f"{key_prefix}SupportsKerberosAuthentication",
                 "true" if value["supports_kerberos_authentication"] else "false",
             )
         )
     if "outpost_capable" in value:
         pairs.append(
             (
-                f"{prefix}.OutpostCapable",
+                f"{key_prefix}OutpostCapable",
                 "true" if value["outpost_capable"] else "false",
             )
         )
@@ -293,12 +303,12 @@ def serialize_query(
         capo_rds.types.activity_stream_mode_list.serialize_query(
             value["supported_activity_stream_modes"],
             pairs,
-            f"{prefix}.SupportedActivityStreamModes",
+            f"{key_prefix}SupportedActivityStreamModes",
         )
     if "supports_global_databases" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsGlobalDatabases",
+                f"{key_prefix}SupportsGlobalDatabases",
                 "true" if value["supports_global_databases"] else "false",
             )
         )
@@ -306,33 +316,35 @@ def serialize_query(
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["supported_network_types"], pairs, f"{prefix}.SupportedNetworkTypes"
+            value["supported_network_types"],
+            pairs,
+            f"{key_prefix}SupportedNetworkTypes",
         )
     if "supports_clusters" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsClusters",
+                f"{key_prefix}SupportsClusters",
                 "true" if value["supports_clusters"] else "false",
             )
         )
     if "supports_dedicated_log_volume" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsDedicatedLogVolume",
+                f"{key_prefix}SupportsDedicatedLogVolume",
                 "true" if value["supports_dedicated_log_volume"] else "false",
             )
         )
     if "supports_additional_storage_volumes" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsAdditionalStorageVolumes",
+                f"{key_prefix}SupportsAdditionalStorageVolumes",
                 "true" if value["supports_additional_storage_volumes"] else "false",
             )
         )
     if "supports_http_endpoint" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsHttpEndpoint",
+                f"{key_prefix}SupportsHttpEndpoint",
                 "true" if value["supports_http_endpoint"] else "false",
             )
         )
@@ -342,7 +354,7 @@ def serialize_query(
         capo_rds.types.available_additional_storage_volumes_option_list.serialize_query(
             value["available_additional_storage_volumes_options"],
             pairs,
-            f"{prefix}.AvailableAdditionalStorageVolumesOptions",
+            f"{key_prefix}AvailableAdditionalStorageVolumesOptions",
         )
 
 

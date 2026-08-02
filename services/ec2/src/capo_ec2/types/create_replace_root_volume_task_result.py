@@ -21,11 +21,14 @@ class CreateReplaceRootVolumeTaskResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateReplaceRootVolumeTaskResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replace_root_volume_task" in value:
         import capo_ec2.types.replace_root_volume_task
 
         capo_ec2.types.replace_root_volume_task.serialize_ec2_query(
-            value["replace_root_volume_task"], pairs, f"{prefix}.ReplaceRootVolumeTask"
+            value["replace_root_volume_task"],
+            pairs,
+            f"{key_prefix}ReplaceRootVolumeTask",
         )
 
 

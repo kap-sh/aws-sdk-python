@@ -38,12 +38,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
@@ -51,13 +54,13 @@ def serialize_ec2_query(
         import capo_ec2.types.client_vpn_availability_zone_set
 
         capo_ec2.types.client_vpn_availability_zone_set.serialize_ec2_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZoneSet"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZoneSet"
         )
     if "availability_zone_ids" in value:
         import capo_ec2.types.client_vpn_availability_zone_id_set
 
         capo_ec2.types.client_vpn_availability_zone_id_set.serialize_ec2_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIdSet"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIdSet"
         )
 
 

@@ -21,13 +21,14 @@ class DeleteInstanceEventWindowResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteInstanceEventWindowResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_event_window_state" in value:
         import capo_ec2.types.instance_event_window_state_change
 
         capo_ec2.types.instance_event_window_state_change.serialize_ec2_query(
             value["instance_event_window_state"],
             pairs,
-            f"{prefix}.InstanceEventWindowState",
+            f"{key_prefix}InstanceEventWindowState",
         )
 
 

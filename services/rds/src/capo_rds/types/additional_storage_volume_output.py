@@ -35,24 +35,27 @@ class AdditionalStorageVolumeOutput(TypedDict, closed=True):
 def serialize_query(
     value: AdditionalStorageVolumeOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_name" in value:
-        pairs.append((f"{prefix}.VolumeName", str(value["volume_name"])))
+        pairs.append((f"{key_prefix}VolumeName", str(value["volume_name"])))
     if "storage_volume_status" in value:
         pairs.append(
-            (f"{prefix}.StorageVolumeStatus", str(value["storage_volume_status"]))
+            (f"{key_prefix}StorageVolumeStatus", str(value["storage_volume_status"]))
         )
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.IOPS", str(value["iops"])))
+        pairs.append((f"{key_prefix}IOPS", str(value["iops"])))
     if "max_allocated_storage" in value:
         pairs.append(
-            (f"{prefix}.MaxAllocatedStorage", str(value["max_allocated_storage"]))
+            (f"{key_prefix}MaxAllocatedStorage", str(value["max_allocated_storage"]))
         )
     if "storage_throughput" in value:
-        pairs.append((f"{prefix}.StorageThroughput", str(value["storage_throughput"])))
+        pairs.append(
+            (f"{key_prefix}StorageThroughput", str(value["storage_throughput"]))
+        )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
 
 
 def deserialize_query(el: Element) -> AdditionalStorageVolumeOutput:

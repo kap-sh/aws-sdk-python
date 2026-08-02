@@ -71,105 +71,108 @@ class InstanceAttribute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "block_device_mappings" in value:
         import capo_ec2.types.instance_block_device_mapping_list
 
         capo_ec2.types.instance_block_device_mapping_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMapping"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
     if "disable_api_termination" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["disable_api_termination"], pairs, f"{prefix}.DisableApiTermination"
+            value["disable_api_termination"],
+            pairs,
+            f"{key_prefix}DisableApiTermination",
         )
     if "ena_support" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["ena_support"], pairs, f"{prefix}.EnaSupport"
+            value["ena_support"], pairs, f"{key_prefix}EnaSupport"
         )
     if "enclave_options" in value:
         import capo_ec2.types.enclave_options
 
         capo_ec2.types.enclave_options.serialize_ec2_query(
-            value["enclave_options"], pairs, f"{prefix}.EnclaveOptions"
+            value["enclave_options"], pairs, f"{key_prefix}EnclaveOptions"
         )
     if "ebs_optimized" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["ebs_optimized"], pairs, f"{prefix}.EbsOptimized"
+            value["ebs_optimized"], pairs, f"{key_prefix}EbsOptimized"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_initiated_shutdown_behavior" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
             value["instance_initiated_shutdown_behavior"],
             pairs,
-            f"{prefix}.InstanceInitiatedShutdownBehavior",
+            f"{key_prefix}InstanceInitiatedShutdownBehavior",
         )
     if "instance_type" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "kernel_id" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["kernel_id"], pairs, f"{prefix}.Kernel"
+            value["kernel_id"], pairs, f"{key_prefix}Kernel"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "ramdisk_id" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["ramdisk_id"], pairs, f"{prefix}.Ramdisk"
+            value["ramdisk_id"], pairs, f"{key_prefix}Ramdisk"
         )
     if "root_device_name" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["root_device_name"], pairs, f"{prefix}.RootDeviceName"
+            value["root_device_name"], pairs, f"{key_prefix}RootDeviceName"
         )
     if "source_dest_check" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["source_dest_check"], pairs, f"{prefix}.SourceDestCheck"
+            value["source_dest_check"], pairs, f"{key_prefix}SourceDestCheck"
         )
     if "sriov_net_support" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["sriov_net_support"], pairs, f"{prefix}.SriovNetSupport"
+            value["sriov_net_support"], pairs, f"{key_prefix}SriovNetSupport"
         )
     if "user_data" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["user_data"], pairs, f"{prefix}.UserData"
+            value["user_data"], pairs, f"{key_prefix}UserData"
         )
     if "disable_api_stop" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["disable_api_stop"], pairs, f"{prefix}.DisableApiStop"
+            value["disable_api_stop"], pairs, f"{key_prefix}DisableApiStop"
         )
     if "groups" in value:
         import capo_ec2.types.group_identifier_list
 
         capo_ec2.types.group_identifier_list.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.GroupSet"
+            value["groups"], pairs, f"{key_prefix}GroupSet"
         )
 
 

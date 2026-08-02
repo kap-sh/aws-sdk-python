@@ -41,16 +41,17 @@ class PolicyAttributeTypeDescription(TypedDict, closed=True):
 def serialize_query(
     value: PolicyAttributeTypeDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute_name" in value:
-        pairs.append((f"{prefix}.AttributeName", str(value["attribute_name"])))
+        pairs.append((f"{key_prefix}AttributeName", str(value["attribute_name"])))
     if "attribute_type" in value:
-        pairs.append((f"{prefix}.AttributeType", str(value["attribute_type"])))
+        pairs.append((f"{key_prefix}AttributeType", str(value["attribute_type"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "cardinality" in value:
-        pairs.append((f"{prefix}.Cardinality", str(value["cardinality"])))
+        pairs.append((f"{key_prefix}Cardinality", str(value["cardinality"])))
 
 
 def deserialize_query(el: Element) -> PolicyAttributeTypeDescription:

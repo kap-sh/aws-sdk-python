@@ -56,43 +56,44 @@ class CreateNetworkInsightsPathRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateNetworkInsightsPathRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_ip" in value:
-        pairs.append((f"{prefix}.SourceIp", str(value["source_ip"])))
+        pairs.append((f"{key_prefix}SourceIp", str(value["source_ip"])))
     if "destination_ip" in value:
-        pairs.append((f"{prefix}.DestinationIp", str(value["destination_ip"])))
+        pairs.append((f"{key_prefix}DestinationIp", str(value["destination_ip"])))
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "destination" in value:
-        pairs.append((f"{prefix}.Destination", str(value["destination"])))
+        pairs.append((f"{key_prefix}Destination", str(value["destination"])))
     if "protocol" in value:
         import capo_ec2.types.protocol
 
         capo_ec2.types.protocol.serialize_ec2_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "destination_port" in value:
-        pairs.append((f"{prefix}.DestinationPort", str(value["destination_port"])))
+        pairs.append((f"{key_prefix}DestinationPort", str(value["destination_port"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "filter_at_source" in value:
         import capo_ec2.types.path_request_filter
 
         capo_ec2.types.path_request_filter.serialize_ec2_query(
-            value["filter_at_source"], pairs, f"{prefix}.FilterAtSource"
+            value["filter_at_source"], pairs, f"{key_prefix}FilterAtSource"
         )
     if "filter_at_destination" in value:
         import capo_ec2.types.path_request_filter
 
         capo_ec2.types.path_request_filter.serialize_ec2_query(
-            value["filter_at_destination"], pairs, f"{prefix}.FilterAtDestination"
+            value["filter_at_destination"], pairs, f"{key_prefix}FilterAtDestination"
         )
 
 

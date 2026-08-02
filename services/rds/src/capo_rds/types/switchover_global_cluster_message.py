@@ -26,17 +26,18 @@ class SwitchoverGlobalClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: SwitchoverGlobalClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterIdentifier",
+                f"{key_prefix}GlobalClusterIdentifier",
                 str(value["global_cluster_identifier"]),
             )
         )
     if "target_db_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDbClusterIdentifier",
+                f"{key_prefix}TargetDbClusterIdentifier",
                 str(value["target_db_cluster_identifier"]),
             )
         )

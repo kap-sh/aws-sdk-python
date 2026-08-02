@@ -41,39 +41,40 @@ class TargetNetwork(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TargetNetwork, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "target_network_id" in value:
-        pairs.append((f"{prefix}.TargetNetworkId", str(value["target_network_id"])))
+        pairs.append((f"{key_prefix}TargetNetworkId", str(value["target_network_id"])))
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "status" in value:
         import capo_ec2.types.association_status
 
         capo_ec2.types.association_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "security_groups" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "availability_zones" in value:
         import capo_ec2.types.client_vpn_availability_zone_set
 
         capo_ec2.types.client_vpn_availability_zone_set.serialize_ec2_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZoneSet"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZoneSet"
         )
     if "availability_zone_ids" in value:
         import capo_ec2.types.client_vpn_availability_zone_id_set
 
         capo_ec2.types.client_vpn_availability_zone_id_set.serialize_ec2_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIdSet"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIdSet"
         )
 
 

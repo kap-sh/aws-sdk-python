@@ -24,15 +24,19 @@ class FpgaInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FpgaInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "fpgas" in value:
         import capo_ec2.types.fpga_device_info_list
 
         capo_ec2.types.fpga_device_info_list.serialize_ec2_query(
-            value["fpgas"], pairs, f"{prefix}.Fpgas"
+            value["fpgas"], pairs, f"{key_prefix}Fpgas"
         )
     if "total_fpga_memory_in_mi_b" in value:
         pairs.append(
-            (f"{prefix}.TotalFpgaMemoryInMiB", str(value["total_fpga_memory_in_mi_b"]))
+            (
+                f"{key_prefix}TotalFpgaMemoryInMiB",
+                str(value["total_fpga_memory_in_mi_b"]),
+            )
         )
 
 

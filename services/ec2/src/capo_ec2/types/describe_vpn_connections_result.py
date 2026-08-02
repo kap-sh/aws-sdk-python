@@ -19,11 +19,12 @@ class DescribeVpnConnectionsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpnConnectionsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connections" in value:
         import capo_ec2.types.vpn_connection_list
 
         capo_ec2.types.vpn_connection_list.serialize_ec2_query(
-            value["vpn_connections"], pairs, f"{prefix}.VpnConnectionSet"
+            value["vpn_connections"], pairs, f"{key_prefix}VpnConnectionSet"
         )
 
 

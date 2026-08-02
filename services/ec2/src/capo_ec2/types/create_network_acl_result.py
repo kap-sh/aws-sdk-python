@@ -22,14 +22,15 @@ class CreateNetworkAclResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateNetworkAclResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_acl" in value:
         import capo_ec2.types.network_acl
 
         capo_ec2.types.network_acl.serialize_ec2_query(
-            value["network_acl"], pairs, f"{prefix}.NetworkAcl"
+            value["network_acl"], pairs, f"{key_prefix}NetworkAcl"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkAclResult:

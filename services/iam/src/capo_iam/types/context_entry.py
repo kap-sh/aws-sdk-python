@@ -31,19 +31,20 @@ class ContextEntry(TypedDict, closed=True):
 def serialize_query(
     value: ContextEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "context_key_name" in value:
-        pairs.append((f"{prefix}.ContextKeyName", str(value["context_key_name"])))
+        pairs.append((f"{key_prefix}ContextKeyName", str(value["context_key_name"])))
     if "context_key_values" in value:
         import capo_iam.types.context_key_value_list_type
 
         capo_iam.types.context_key_value_list_type.serialize_query(
-            value["context_key_values"], pairs, f"{prefix}.ContextKeyValues"
+            value["context_key_values"], pairs, f"{key_prefix}ContextKeyValues"
         )
     if "context_key_type" in value:
         import capo_iam.types.context_key_type_enum
 
         capo_iam.types.context_key_type_enum.serialize_query(
-            value["context_key_type"], pairs, f"{prefix}.ContextKeyType"
+            value["context_key_type"], pairs, f"{key_prefix}ContextKeyType"
         )
 
 

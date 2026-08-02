@@ -40,26 +40,30 @@ class CreateRouteServerRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateRouteServerRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "amazon_side_asn" in value:
-        pairs.append((f"{prefix}.AmazonSideAsn", str(value["amazon_side_asn"])))
+        pairs.append((f"{key_prefix}AmazonSideAsn", str(value["amazon_side_asn"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "persist_routes" in value:
         import capo_ec2.types.route_server_persist_routes_action
 
         capo_ec2.types.route_server_persist_routes_action.serialize_ec2_query(
-            value["persist_routes"], pairs, f"{prefix}.PersistRoutes"
+            value["persist_routes"], pairs, f"{key_prefix}PersistRoutes"
         )
     if "persist_routes_duration" in value:
         pairs.append(
-            (f"{prefix}.PersistRoutesDuration", str(value["persist_routes_duration"]))
+            (
+                f"{key_prefix}PersistRoutesDuration",
+                str(value["persist_routes_duration"]),
+            )
         )
     if "sns_notifications_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.SnsNotificationsEnabled",
+                f"{key_prefix}SnsNotificationsEnabled",
                 "true" if value["sns_notifications_enabled"] else "false",
             )
         )
@@ -67,7 +71,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

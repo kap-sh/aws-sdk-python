@@ -48,30 +48,35 @@ class RevokedSecurityGroupRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RevokedSecurityGroupRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "security_group_rule_id" in value:
         pairs.append(
-            (f"{prefix}.SecurityGroupRuleId", str(value["security_group_rule_id"]))
+            (f"{key_prefix}SecurityGroupRuleId", str(value["security_group_rule_id"]))
         )
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "is_egress" in value:
-        pairs.append((f"{prefix}.IsEgress", "true" if value["is_egress"] else "false"))
+        pairs.append(
+            (f"{key_prefix}IsEgress", "true" if value["is_egress"] else "false")
+        )
     if "ip_protocol" in value:
-        pairs.append((f"{prefix}.IpProtocol", str(value["ip_protocol"])))
+        pairs.append((f"{key_prefix}IpProtocol", str(value["ip_protocol"])))
     if "from_port" in value:
-        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+        pairs.append((f"{key_prefix}FromPort", str(value["from_port"])))
     if "to_port" in value:
-        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+        pairs.append((f"{key_prefix}ToPort", str(value["to_port"])))
     if "cidr_ipv4" in value:
-        pairs.append((f"{prefix}.CidrIpv4", str(value["cidr_ipv4"])))
+        pairs.append((f"{key_prefix}CidrIpv4", str(value["cidr_ipv4"])))
     if "cidr_ipv6" in value:
-        pairs.append((f"{prefix}.CidrIpv6", str(value["cidr_ipv6"])))
+        pairs.append((f"{key_prefix}CidrIpv6", str(value["cidr_ipv6"])))
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "referenced_group_id" in value:
-        pairs.append((f"{prefix}.ReferencedGroupId", str(value["referenced_group_id"])))
+        pairs.append(
+            (f"{key_prefix}ReferencedGroupId", str(value["referenced_group_id"]))
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_ec2_query(el: Element) -> RevokedSecurityGroupRule:

@@ -32,23 +32,24 @@ class DeleteLocalGatewayRouteRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteLocalGatewayRouteRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "local_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableId",
+                f"{key_prefix}LocalGatewayRouteTableId",
                 str(value["local_gateway_route_table_id"]),
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "destination_prefix_list_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationPrefixListId",
+                f"{key_prefix}DestinationPrefixListId",
                 str(value["destination_prefix_list_id"]),
             )
         )

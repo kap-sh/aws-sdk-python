@@ -95,27 +95,30 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmMuteRuleSummary:
 def serialize_query(
     value: AlarmMuteRuleSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_mute_rule_arn" in value:
-        pairs.append((f"{prefix}.AlarmMuteRuleArn", str(value["alarm_mute_rule_arn"])))
+        pairs.append(
+            (f"{key_prefix}AlarmMuteRuleArn", str(value["alarm_mute_rule_arn"]))
+        )
     if "expire_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["expire_date"], pairs, f"{prefix}.ExpireDate"
+            value["expire_date"], pairs, f"{key_prefix}ExpireDate"
         )
     if "status" in value:
         import capo_cloudwatch.types.alarm_mute_rule_status
 
         capo_cloudwatch.types.alarm_mute_rule_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "mute_type" in value:
-        pairs.append((f"{prefix}.MuteType", str(value["mute_type"])))
+        pairs.append((f"{key_prefix}MuteType", str(value["mute_type"])))
     if "last_updated_timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["last_updated_timestamp"], pairs, f"{prefix}.LastUpdatedTimestamp"
+            value["last_updated_timestamp"], pairs, f"{key_prefix}LastUpdatedTimestamp"
         )
 
 

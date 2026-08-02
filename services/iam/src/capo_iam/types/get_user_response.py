@@ -20,9 +20,10 @@ class GetUserResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetUserResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.user
 
-    capo_iam.types.user.serialize_query(value["user"], pairs, f"{prefix}.User")
+    capo_iam.types.user.serialize_query(value["user"], pairs, f"{key_prefix}User")
 
 
 def deserialize_query(el: Element) -> GetUserResponse:

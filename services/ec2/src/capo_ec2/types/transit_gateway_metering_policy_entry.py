@@ -41,37 +41,40 @@ class TransitGatewayMeteringPolicyEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayMeteringPolicyEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_rule_number" in value:
-        pairs.append((f"{prefix}.PolicyRuleNumber", str(value["policy_rule_number"])))
+        pairs.append(
+            (f"{key_prefix}PolicyRuleNumber", str(value["policy_rule_number"]))
+        )
     if "metered_account" in value:
         import capo_ec2.types.transit_gateway_metering_payer_type
 
         capo_ec2.types.transit_gateway_metering_payer_type.serialize_ec2_query(
-            value["metered_account"], pairs, f"{prefix}.MeteredAccount"
+            value["metered_account"], pairs, f"{key_prefix}MeteredAccount"
         )
     if "state" in value:
         import capo_ec2.types.transit_gateway_metering_policy_entry_state
 
         capo_ec2.types.transit_gateway_metering_policy_entry_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "updated_at" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["updated_at"], pairs, f"{prefix}.UpdatedAt"
+            value["updated_at"], pairs, f"{key_prefix}UpdatedAt"
         )
     if "update_effective_at" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["update_effective_at"], pairs, f"{prefix}.UpdateEffectiveAt"
+            value["update_effective_at"], pairs, f"{key_prefix}UpdateEffectiveAt"
         )
     if "metering_policy_rule" in value:
         import capo_ec2.types.transit_gateway_metering_policy_rule
 
         capo_ec2.types.transit_gateway_metering_policy_rule.serialize_ec2_query(
-            value["metering_policy_rule"], pairs, f"{prefix}.MeteringPolicyRule"
+            value["metering_policy_rule"], pairs, f"{key_prefix}MeteringPolicyRule"
         )
 
 

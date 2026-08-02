@@ -37,36 +37,37 @@ class ModifyTenantDatabaseMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyTenantDatabaseMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "tenant_db_name" in value:
-        pairs.append((f"{prefix}.TenantDBName", str(value["tenant_db_name"])))
+        pairs.append((f"{key_prefix}TenantDBName", str(value["tenant_db_name"])))
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "new_tenant_db_name" in value:
-        pairs.append((f"{prefix}.NewTenantDBName", str(value["new_tenant_db_name"])))
+        pairs.append((f"{key_prefix}NewTenantDBName", str(value["new_tenant_db_name"])))
     if "manage_master_user_password" in value:
         pairs.append(
             (
-                f"{prefix}.ManageMasterUserPassword",
+                f"{key_prefix}ManageMasterUserPassword",
                 "true" if value["manage_master_user_password"] else "false",
             )
         )
     if "rotate_master_user_password" in value:
         pairs.append(
             (
-                f"{prefix}.RotateMasterUserPassword",
+                f"{key_prefix}RotateMasterUserPassword",
                 "true" if value["rotate_master_user_password"] else "false",
             )
         )
     if "master_user_secret_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.MasterUserSecretKmsKeyId",
+                f"{key_prefix}MasterUserSecretKmsKeyId",
                 str(value["master_user_secret_kms_key_id"]),
             )
         )

@@ -24,14 +24,15 @@ class DescribeSnapshotTierStatusResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSnapshotTierStatusResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_tier_statuses" in value:
         import capo_ec2.types.snapshot_tier_status_set
 
         capo_ec2.types.snapshot_tier_status_set.serialize_ec2_query(
-            value["snapshot_tier_statuses"], pairs, f"{prefix}.SnapshotTierStatusSet"
+            value["snapshot_tier_statuses"], pairs, f"{key_prefix}SnapshotTierStatusSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeSnapshotTierStatusResult:

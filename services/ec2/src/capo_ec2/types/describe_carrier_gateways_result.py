@@ -24,14 +24,15 @@ class DescribeCarrierGatewaysResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeCarrierGatewaysResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "carrier_gateways" in value:
         import capo_ec2.types.carrier_gateway_set
 
         capo_ec2.types.carrier_gateway_set.serialize_ec2_query(
-            value["carrier_gateways"], pairs, f"{prefix}.CarrierGatewaySet"
+            value["carrier_gateways"], pairs, f"{key_prefix}CarrierGatewaySet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeCarrierGatewaysResult:

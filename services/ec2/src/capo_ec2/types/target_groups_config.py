@@ -19,11 +19,12 @@ class TargetGroupsConfig(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TargetGroupsConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_groups" in value:
         import capo_ec2.types.target_groups
 
         capo_ec2.types.target_groups.serialize_ec2_query(
-            value["target_groups"], pairs, f"{prefix}.TargetGroups"
+            value["target_groups"], pairs, f"{key_prefix}TargetGroups"
         )
 
 

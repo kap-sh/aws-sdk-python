@@ -50,47 +50,51 @@ class EbsInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EbsInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ebs_optimized_support" in value:
         import capo_ec2.types.ebs_optimized_support
 
         capo_ec2.types.ebs_optimized_support.serialize_ec2_query(
-            value["ebs_optimized_support"], pairs, f"{prefix}.EbsOptimizedSupport"
+            value["ebs_optimized_support"], pairs, f"{key_prefix}EbsOptimizedSupport"
         )
     if "encryption_support" in value:
         import capo_ec2.types.ebs_encryption_support
 
         capo_ec2.types.ebs_encryption_support.serialize_ec2_query(
-            value["encryption_support"], pairs, f"{prefix}.EncryptionSupport"
+            value["encryption_support"], pairs, f"{key_prefix}EncryptionSupport"
         )
     if "ebs_optimized_info" in value:
         import capo_ec2.types.ebs_optimized_info
 
         capo_ec2.types.ebs_optimized_info.serialize_ec2_query(
-            value["ebs_optimized_info"], pairs, f"{prefix}.EbsOptimizedInfo"
+            value["ebs_optimized_info"], pairs, f"{key_prefix}EbsOptimizedInfo"
         )
     if "nvme_support" in value:
         import capo_ec2.types.ebs_nvme_support
 
         capo_ec2.types.ebs_nvme_support.serialize_ec2_query(
-            value["nvme_support"], pairs, f"{prefix}.NvmeSupport"
+            value["nvme_support"], pairs, f"{key_prefix}NvmeSupport"
         )
     if "maximum_ebs_attachments" in value:
         pairs.append(
-            (f"{prefix}.MaximumEbsAttachments", str(value["maximum_ebs_attachments"]))
+            (
+                f"{key_prefix}MaximumEbsAttachments",
+                str(value["maximum_ebs_attachments"]),
+            )
         )
     if "attachment_limit_type" in value:
         import capo_ec2.types.attachment_limit_type
 
         capo_ec2.types.attachment_limit_type.serialize_ec2_query(
-            value["attachment_limit_type"], pairs, f"{prefix}.AttachmentLimitType"
+            value["attachment_limit_type"], pairs, f"{key_prefix}AttachmentLimitType"
         )
     if "maximum_ebs_cards" in value:
-        pairs.append((f"{prefix}.MaximumEbsCards", str(value["maximum_ebs_cards"])))
+        pairs.append((f"{key_prefix}MaximumEbsCards", str(value["maximum_ebs_cards"])))
     if "ebs_cards" in value:
         import capo_ec2.types.ebs_card_info_list
 
         capo_ec2.types.ebs_card_info_list.serialize_ec2_query(
-            value["ebs_cards"], pairs, f"{prefix}.EbsCardSet"
+            value["ebs_cards"], pairs, f"{key_prefix}EbsCardSet"
         )
 
 

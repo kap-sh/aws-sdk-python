@@ -19,11 +19,12 @@ class DescribeAddressesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeAddressesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "addresses" in value:
         import capo_ec2.types.address_list
 
         capo_ec2.types.address_list.serialize_ec2_query(
-            value["addresses"], pairs, f"{prefix}.AddressesSet"
+            value["addresses"], pairs, f"{key_prefix}AddressesSet"
         )
 
 

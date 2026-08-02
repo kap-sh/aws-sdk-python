@@ -58,57 +58,58 @@ class BlueGreenDeployment(TypedDict, closed=True):
 def serialize_query(
     value: BlueGreenDeployment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "blue_green_deployment_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.BlueGreenDeploymentIdentifier",
+                f"{key_prefix}BlueGreenDeploymentIdentifier",
                 str(value["blue_green_deployment_identifier"]),
             )
         )
     if "blue_green_deployment_name" in value:
         pairs.append(
             (
-                f"{prefix}.BlueGreenDeploymentName",
+                f"{key_prefix}BlueGreenDeploymentName",
                 str(value["blue_green_deployment_name"]),
             )
         )
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "target" in value:
-        pairs.append((f"{prefix}.Target", str(value["target"])))
+        pairs.append((f"{key_prefix}Target", str(value["target"])))
     if "switchover_details" in value:
         import capo_rds.types.switchover_detail_list
 
         capo_rds.types.switchover_detail_list.serialize_query(
-            value["switchover_details"], pairs, f"{prefix}.SwitchoverDetails"
+            value["switchover_details"], pairs, f"{key_prefix}SwitchoverDetails"
         )
     if "tasks" in value:
         import capo_rds.types.blue_green_deployment_task_list
 
         capo_rds.types.blue_green_deployment_task_list.serialize_query(
-            value["tasks"], pairs, f"{prefix}.Tasks"
+            value["tasks"], pairs, f"{key_prefix}Tasks"
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "status_details" in value:
-        pairs.append((f"{prefix}.StatusDetails", str(value["status_details"])))
+        pairs.append((f"{key_prefix}StatusDetails", str(value["status_details"])))
     if "create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "delete_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["delete_time"], pairs, f"{prefix}.DeleteTime"
+            value["delete_time"], pairs, f"{key_prefix}DeleteTime"
         )
     if "tag_list" in value:
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
 
 

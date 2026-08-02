@@ -30,20 +30,21 @@ class RestoreSnapshotTierResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RestoreSnapshotTierResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "restore_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["restore_start_time"], pairs, f"{prefix}.RestoreStartTime"
+            value["restore_start_time"], pairs, f"{key_prefix}RestoreStartTime"
         )
     if "restore_duration" in value:
-        pairs.append((f"{prefix}.RestoreDuration", str(value["restore_duration"])))
+        pairs.append((f"{key_prefix}RestoreDuration", str(value["restore_duration"])))
     if "is_permanent_restore" in value:
         pairs.append(
             (
-                f"{prefix}.IsPermanentRestore",
+                f"{key_prefix}IsPermanentRestore",
                 "true" if value["is_permanent_restore"] else "false",
             )
         )

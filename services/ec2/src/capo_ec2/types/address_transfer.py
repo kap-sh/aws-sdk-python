@@ -37,19 +37,22 @@ class AddressTransfer(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AddressTransfer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "transfer_account_id" in value:
-        pairs.append((f"{prefix}.TransferAccountId", str(value["transfer_account_id"])))
+        pairs.append(
+            (f"{key_prefix}TransferAccountId", str(value["transfer_account_id"]))
+        )
     if "transfer_offer_expiration_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["transfer_offer_expiration_timestamp"],
             pairs,
-            f"{prefix}.TransferOfferExpirationTimestamp",
+            f"{key_prefix}TransferOfferExpirationTimestamp",
         )
     if "transfer_offer_accepted_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
@@ -57,13 +60,15 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["transfer_offer_accepted_timestamp"],
             pairs,
-            f"{prefix}.TransferOfferAcceptedTimestamp",
+            f"{key_prefix}TransferOfferAcceptedTimestamp",
         )
     if "address_transfer_status" in value:
         import capo_ec2.types.address_transfer_status
 
         capo_ec2.types.address_transfer_status.serialize_ec2_query(
-            value["address_transfer_status"], pairs, f"{prefix}.AddressTransferStatus"
+            value["address_transfer_status"],
+            pairs,
+            f"{key_prefix}AddressTransferStatus",
         )
 
 

@@ -41,34 +41,38 @@ class AllocateAddressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AllocateAddressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "domain" in value:
         import capo_ec2.types.domain_type
 
         capo_ec2.types.domain_type.serialize_ec2_query(
-            value["domain"], pairs, f"{prefix}.Domain"
+            value["domain"], pairs, f"{key_prefix}Domain"
         )
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "public_ipv4_pool" in value:
-        pairs.append((f"{prefix}.PublicIpv4Pool", str(value["public_ipv4_pool"])))
+        pairs.append((f"{key_prefix}PublicIpv4Pool", str(value["public_ipv4_pool"])))
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "customer_owned_ipv4_pool" in value:
         pairs.append(
-            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+            (
+                f"{key_prefix}CustomerOwnedIpv4Pool",
+                str(value["customer_owned_ipv4_pool"]),
+            )
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> AllocateAddressRequest:

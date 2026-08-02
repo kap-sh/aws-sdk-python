@@ -143,47 +143,48 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStatisticsInput:
 def serialize_query(
     value: GetMetricStatisticsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "start_time" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "statistics" in value:
         import capo_cloudwatch.types.statistics
 
         capo_cloudwatch.types.statistics.serialize_query(
-            value["statistics"], pairs, f"{prefix}.Statistics"
+            value["statistics"], pairs, f"{key_prefix}Statistics"
         )
     if "extended_statistics" in value:
         import capo_cloudwatch.types.extended_statistics
 
         capo_cloudwatch.types.extended_statistics.serialize_query(
-            value["extended_statistics"], pairs, f"{prefix}.ExtendedStatistics"
+            value["extended_statistics"], pairs, f"{key_prefix}ExtendedStatistics"
         )
     if "unit" in value:
         import capo_cloudwatch.types.standard_unit
 
         capo_cloudwatch.types.standard_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
 
 

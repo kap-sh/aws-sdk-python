@@ -27,14 +27,15 @@ class DeleteNetworkAclEntryRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteNetworkAclEntryRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "network_acl_id" in value:
-        pairs.append((f"{prefix}.NetworkAclId", str(value["network_acl_id"])))
+        pairs.append((f"{key_prefix}NetworkAclId", str(value["network_acl_id"])))
     if "rule_number" in value:
-        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+        pairs.append((f"{key_prefix}RuleNumber", str(value["rule_number"])))
     if "egress" in value:
-        pairs.append((f"{prefix}.Egress", "true" if value["egress"] else "false"))
+        pairs.append((f"{key_prefix}Egress", "true" if value["egress"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteNetworkAclEntryRequest:

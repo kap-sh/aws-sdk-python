@@ -29,20 +29,21 @@ class CreateDhcpOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateDhcpOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dhcp_configurations" in value:
         import capo_ec2.types.new_dhcp_configuration_list
 
         capo_ec2.types.new_dhcp_configuration_list.serialize_ec2_query(
-            value["dhcp_configurations"], pairs, f"{prefix}.DhcpConfiguration"
+            value["dhcp_configurations"], pairs, f"{key_prefix}DhcpConfiguration"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateDhcpOptionsRequest:

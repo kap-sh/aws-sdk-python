@@ -26,22 +26,23 @@ class MetricPoint(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MetricPoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_ec2_query(el: Element) -> MetricPoint:

@@ -25,11 +25,12 @@ class UpdateGroupRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateGroupRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "new_path" in value:
-        pairs.append((f"{prefix}.NewPath", str(value["new_path"])))
+        pairs.append((f"{key_prefix}NewPath", str(value["new_path"])))
     if "new_group_name" in value:
-        pairs.append((f"{prefix}.NewGroupName", str(value["new_group_name"])))
+        pairs.append((f"{key_prefix}NewGroupName", str(value["new_group_name"])))
 
 
 def deserialize_query(el: Element) -> UpdateGroupRequest:

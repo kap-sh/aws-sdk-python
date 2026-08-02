@@ -34,27 +34,28 @@ class AccessScopeAnalysisFinding(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AccessScopeAnalysisFinding, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_access_scope_analysis_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeAnalysisId",
+                f"{key_prefix}NetworkInsightsAccessScopeAnalysisId",
                 str(value["network_insights_access_scope_analysis_id"]),
             )
         )
     if "network_insights_access_scope_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeId",
+                f"{key_prefix}NetworkInsightsAccessScopeId",
                 str(value["network_insights_access_scope_id"]),
             )
         )
     if "finding_id" in value:
-        pairs.append((f"{prefix}.FindingId", str(value["finding_id"])))
+        pairs.append((f"{key_prefix}FindingId", str(value["finding_id"])))
     if "finding_components" in value:
         import capo_ec2.types.path_component_list
 
         capo_ec2.types.path_component_list.serialize_ec2_query(
-            value["finding_components"], pairs, f"{prefix}.FindingComponentSet"
+            value["finding_components"], pairs, f"{key_prefix}FindingComponentSet"
         )
 
 

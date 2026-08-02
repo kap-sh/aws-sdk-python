@@ -36,8 +36,9 @@ def deserialize_aws_json_1_0(data: dict) -> ListTagsForResourceInput:
 def serialize_query(
     value: ListTagsForResourceInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceARN", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceARN", str(value["resource_arn"])))
 
 
 def deserialize_query(el: Element) -> ListTagsForResourceInput:

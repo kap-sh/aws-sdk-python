@@ -20,10 +20,11 @@ class CreateAccessKeyResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateAccessKeyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.access_key
 
     capo_iam.types.access_key.serialize_query(
-        value["access_key"], pairs, f"{prefix}.AccessKey"
+        value["access_key"], pairs, f"{key_prefix}AccessKey"
     )
 
 

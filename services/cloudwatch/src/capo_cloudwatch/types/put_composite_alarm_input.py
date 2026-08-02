@@ -155,10 +155,11 @@ def deserialize_aws_json_1_0(data: dict) -> PutCompositeAlarmInput:
 def serialize_query(
     value: PutCompositeAlarmInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "actions_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsEnabled",
+                f"{key_prefix}ActionsEnabled",
                 "true" if value["actions_enabled"] else "false",
             )
         )
@@ -166,47 +167,49 @@ def serialize_query(
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
-            value["alarm_actions"], pairs, f"{prefix}.AlarmActions"
+            value["alarm_actions"], pairs, f"{key_prefix}AlarmActions"
         )
     if "alarm_description" in value:
-        pairs.append((f"{prefix}.AlarmDescription", str(value["alarm_description"])))
+        pairs.append((f"{key_prefix}AlarmDescription", str(value["alarm_description"])))
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "alarm_rule" in value:
-        pairs.append((f"{prefix}.AlarmRule", str(value["alarm_rule"])))
+        pairs.append((f"{key_prefix}AlarmRule", str(value["alarm_rule"])))
     if "insufficient_data_actions" in value:
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
             value["insufficient_data_actions"],
             pairs,
-            f"{prefix}.InsufficientDataActions",
+            f"{key_prefix}InsufficientDataActions",
         )
     if "ok_actions" in value:
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
-            value["ok_actions"], pairs, f"{prefix}.OKActions"
+            value["ok_actions"], pairs, f"{key_prefix}OKActions"
         )
     if "tags" in value:
         import capo_cloudwatch.types.tag_list
 
         capo_cloudwatch.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "actions_suppressor" in value:
-        pairs.append((f"{prefix}.ActionsSuppressor", str(value["actions_suppressor"])))
+        pairs.append(
+            (f"{key_prefix}ActionsSuppressor", str(value["actions_suppressor"]))
+        )
     if "actions_suppressor_wait_period" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsSuppressorWaitPeriod",
+                f"{key_prefix}ActionsSuppressorWaitPeriod",
                 str(value["actions_suppressor_wait_period"]),
             )
         )
     if "actions_suppressor_extension_period" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsSuppressorExtensionPeriod",
+                f"{key_prefix}ActionsSuppressorExtensionPeriod",
                 str(value["actions_suppressor_extension_period"]),
             )
         )

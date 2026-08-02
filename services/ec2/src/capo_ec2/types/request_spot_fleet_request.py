@@ -24,15 +24,16 @@ class RequestSpotFleetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RequestSpotFleetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "spot_fleet_request_config" in value:
         import capo_ec2.types.spot_fleet_request_config_data
 
         capo_ec2.types.spot_fleet_request_config_data.serialize_ec2_query(
             value["spot_fleet_request_config"],
             pairs,
-            f"{prefix}.SpotFleetRequestConfig",
+            f"{key_prefix}SpotFleetRequestConfig",
         )
 
 

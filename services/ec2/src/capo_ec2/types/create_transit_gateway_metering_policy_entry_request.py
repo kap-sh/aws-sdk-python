@@ -63,19 +63,22 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_metering_policy_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMeteringPolicyId",
+                f"{key_prefix}TransitGatewayMeteringPolicyId",
                 str(value["transit_gateway_metering_policy_id"]),
             )
         )
     if "policy_rule_number" in value:
-        pairs.append((f"{prefix}.PolicyRuleNumber", str(value["policy_rule_number"])))
+        pairs.append(
+            (f"{key_prefix}PolicyRuleNumber", str(value["policy_rule_number"]))
+        )
     if "source_transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.SourceTransitGatewayAttachmentId",
+                f"{key_prefix}SourceTransitGatewayAttachmentId",
                 str(value["source_transit_gateway_attachment_id"]),
             )
         )
@@ -85,16 +88,16 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
             value["source_transit_gateway_attachment_type"],
             pairs,
-            f"{prefix}.SourceTransitGatewayAttachmentType",
+            f"{key_prefix}SourceTransitGatewayAttachmentType",
         )
     if "source_cidr_block" in value:
-        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+        pairs.append((f"{key_prefix}SourceCidrBlock", str(value["source_cidr_block"])))
     if "source_port_range" in value:
-        pairs.append((f"{prefix}.SourcePortRange", str(value["source_port_range"])))
+        pairs.append((f"{key_prefix}SourcePortRange", str(value["source_port_range"])))
     if "destination_transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationTransitGatewayAttachmentId",
+                f"{key_prefix}DestinationTransitGatewayAttachmentId",
                 str(value["destination_transit_gateway_attachment_id"]),
             )
         )
@@ -104,26 +107,26 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
             value["destination_transit_gateway_attachment_type"],
             pairs,
-            f"{prefix}.DestinationTransitGatewayAttachmentType",
+            f"{key_prefix}DestinationTransitGatewayAttachmentType",
         )
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "destination_port_range" in value:
         pairs.append(
-            (f"{prefix}.DestinationPortRange", str(value["destination_port_range"]))
+            (f"{key_prefix}DestinationPortRange", str(value["destination_port_range"]))
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "metered_account" in value:
         import capo_ec2.types.transit_gateway_metering_payer_type
 
         capo_ec2.types.transit_gateway_metering_payer_type.serialize_ec2_query(
-            value["metered_account"], pairs, f"{prefix}.MeteredAccount"
+            value["metered_account"], pairs, f"{key_prefix}MeteredAccount"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(

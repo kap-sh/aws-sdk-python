@@ -60,74 +60,79 @@ class Route(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Route, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "destination_ipv6_cidr_block" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationIpv6CidrBlock",
+                f"{key_prefix}DestinationIpv6CidrBlock",
                 str(value["destination_ipv6_cidr_block"]),
             )
         )
     if "destination_prefix_list_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationPrefixListId",
+                f"{key_prefix}DestinationPrefixListId",
                 str(value["destination_prefix_list_id"]),
             )
         )
     if "egress_only_internet_gateway_id" in value:
         pairs.append(
             (
-                f"{prefix}.EgressOnlyInternetGatewayId",
+                f"{key_prefix}EgressOnlyInternetGatewayId",
                 str(value["egress_only_internet_gateway_id"]),
             )
         )
     if "gateway_id" in value:
-        pairs.append((f"{prefix}.GatewayId", str(value["gateway_id"])))
+        pairs.append((f"{key_prefix}GatewayId", str(value["gateway_id"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_owner_id" in value:
-        pairs.append((f"{prefix}.InstanceOwnerId", str(value["instance_owner_id"])))
+        pairs.append((f"{key_prefix}InstanceOwnerId", str(value["instance_owner_id"])))
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
     if "carrier_gateway_id" in value:
-        pairs.append((f"{prefix}.CarrierGatewayId", str(value["carrier_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CarrierGatewayId", str(value["carrier_gateway_id"]))
+        )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "origin" in value:
         import capo_ec2.types.route_origin
 
         capo_ec2.types.route_origin.serialize_ec2_query(
-            value["origin"], pairs, f"{prefix}.Origin"
+            value["origin"], pairs, f"{key_prefix}Origin"
         )
     if "state" in value:
         import capo_ec2.types.route_state
 
         capo_ec2.types.route_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )
     if "core_network_arn" in value:
-        pairs.append((f"{prefix}.CoreNetworkArn", str(value["core_network_arn"])))
+        pairs.append((f"{key_prefix}CoreNetworkArn", str(value["core_network_arn"])))
     if "odb_network_arn" in value:
-        pairs.append((f"{prefix}.OdbNetworkArn", str(value["odb_network_arn"])))
+        pairs.append((f"{key_prefix}OdbNetworkArn", str(value["odb_network_arn"])))
     if "ip_address" in value:
-        pairs.append((f"{prefix}.IpAddress", str(value["ip_address"])))
+        pairs.append((f"{key_prefix}IpAddress", str(value["ip_address"])))
 
 
 def deserialize_ec2_query(el: Element) -> Route:

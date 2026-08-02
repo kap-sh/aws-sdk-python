@@ -24,17 +24,21 @@ class AttachedPermissionsBoundary(TypedDict, closed=True):
 def serialize_query(
     value: AttachedPermissionsBoundary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "permissions_boundary_type" in value:
         import capo_iam.types.permissions_boundary_attachment_type
 
         capo_iam.types.permissions_boundary_attachment_type.serialize_query(
             value["permissions_boundary_type"],
             pairs,
-            f"{prefix}.PermissionsBoundaryType",
+            f"{key_prefix}PermissionsBoundaryType",
         )
     if "permissions_boundary_arn" in value:
         pairs.append(
-            (f"{prefix}.PermissionsBoundaryArn", str(value["permissions_boundary_arn"]))
+            (
+                f"{key_prefix}PermissionsBoundaryArn",
+                str(value["permissions_boundary_arn"]),
+            )
         )
 
 

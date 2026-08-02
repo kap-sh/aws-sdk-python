@@ -35,26 +35,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_prefix_list_resolver_target_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverTargetId",
+                f"{key_prefix}IpamPrefixListResolverTargetId",
                 str(value["ipam_prefix_list_resolver_target_id"]),
             )
         )
     if "desired_version" in value:
-        pairs.append((f"{prefix}.DesiredVersion", str(value["desired_version"])))
+        pairs.append((f"{key_prefix}DesiredVersion", str(value["desired_version"])))
     if "track_latest_version" in value:
         pairs.append(
             (
-                f"{prefix}.TrackLatestVersion",
+                f"{key_prefix}TrackLatestVersion",
                 "true" if value["track_latest_version"] else "false",
             )
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyIpamPrefixListResolverTargetRequest:

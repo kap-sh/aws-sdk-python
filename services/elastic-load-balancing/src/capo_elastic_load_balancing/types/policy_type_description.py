@@ -31,17 +31,18 @@ class PolicyTypeDescription(TypedDict, closed=True):
 def serialize_query(
     value: PolicyTypeDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_type_name" in value:
-        pairs.append((f"{prefix}.PolicyTypeName", str(value["policy_type_name"])))
+        pairs.append((f"{key_prefix}PolicyTypeName", str(value["policy_type_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "policy_attribute_type_descriptions" in value:
         import capo_elastic_load_balancing.types.policy_attribute_type_descriptions
 
         capo_elastic_load_balancing.types.policy_attribute_type_descriptions.serialize_query(
             value["policy_attribute_type_descriptions"],
             pairs,
-            f"{prefix}.PolicyAttributeTypeDescriptions",
+            f"{key_prefix}PolicyAttributeTypeDescriptions",
         )
 
 

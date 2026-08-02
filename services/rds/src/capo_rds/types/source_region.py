@@ -28,16 +28,17 @@ class SourceRegion(TypedDict, closed=True):
 def serialize_query(
     value: SourceRegion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region_name" in value:
-        pairs.append((f"{prefix}.RegionName", str(value["region_name"])))
+        pairs.append((f"{key_prefix}RegionName", str(value["region_name"])))
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "supports_db_instance_automated_backups_replication" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsDBInstanceAutomatedBackupsReplication",
+                f"{key_prefix}SupportsDBInstanceAutomatedBackupsReplication",
                 "true"
                 if value["supports_db_instance_automated_backups_replication"]
                 else "false",

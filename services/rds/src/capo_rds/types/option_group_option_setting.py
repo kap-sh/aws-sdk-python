@@ -37,25 +37,26 @@ class OptionGroupOptionSetting(TypedDict, closed=True):
 def serialize_query(
     value: OptionGroupOptionSetting, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "setting_name" in value:
-        pairs.append((f"{prefix}.SettingName", str(value["setting_name"])))
+        pairs.append((f"{key_prefix}SettingName", str(value["setting_name"])))
     if "setting_description" in value:
         pairs.append(
-            (f"{prefix}.SettingDescription", str(value["setting_description"]))
+            (f"{key_prefix}SettingDescription", str(value["setting_description"]))
         )
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "apply_type" in value:
-        pairs.append((f"{prefix}.ApplyType", str(value["apply_type"])))
+        pairs.append((f"{key_prefix}ApplyType", str(value["apply_type"])))
     if "allowed_values" in value:
-        pairs.append((f"{prefix}.AllowedValues", str(value["allowed_values"])))
+        pairs.append((f"{key_prefix}AllowedValues", str(value["allowed_values"])))
     if "is_modifiable" in value:
         pairs.append(
-            (f"{prefix}.IsModifiable", "true" if value["is_modifiable"] else "false")
+            (f"{key_prefix}IsModifiable", "true" if value["is_modifiable"] else "false")
         )
     if "is_required" in value:
         pairs.append(
-            (f"{prefix}.IsRequired", "true" if value["is_required"] else "false")
+            (f"{key_prefix}IsRequired", "true" if value["is_required"] else "false")
         )
     if "minimum_engine_version_per_allowed_value" in value:
         import capo_rds.types.minimum_engine_version_per_allowed_value_list
@@ -63,7 +64,7 @@ def serialize_query(
         capo_rds.types.minimum_engine_version_per_allowed_value_list.serialize_query(
             value["minimum_engine_version_per_allowed_value"],
             pairs,
-            f"{prefix}.MinimumEngineVersionPerAllowedValue",
+            f"{key_prefix}MinimumEngineVersionPerAllowedValue",
         )
 
 

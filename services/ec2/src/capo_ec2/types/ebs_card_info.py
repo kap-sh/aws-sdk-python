@@ -45,40 +45,41 @@ class EbsCardInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EbsCardInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ebs_card_index" in value:
-        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+        pairs.append((f"{key_prefix}EbsCardIndex", str(value["ebs_card_index"])))
     if "baseline_bandwidth_in_mbps" in value:
         pairs.append(
             (
-                f"{prefix}.BaselineBandwidthInMbps",
+                f"{key_prefix}BaselineBandwidthInMbps",
                 str(value["baseline_bandwidth_in_mbps"]),
             )
         )
     if "baseline_throughput_in_m_bps" in value:
         pairs.append(
             (
-                f"{prefix}.BaselineThroughputInMBps",
+                f"{key_prefix}BaselineThroughputInMBps",
                 str(value["baseline_throughput_in_m_bps"]),
             )
         )
     if "baseline_iops" in value:
-        pairs.append((f"{prefix}.BaselineIops", str(value["baseline_iops"])))
+        pairs.append((f"{key_prefix}BaselineIops", str(value["baseline_iops"])))
     if "maximum_bandwidth_in_mbps" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumBandwidthInMbps",
+                f"{key_prefix}MaximumBandwidthInMbps",
                 str(value["maximum_bandwidth_in_mbps"]),
             )
         )
     if "maximum_throughput_in_m_bps" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumThroughputInMBps",
+                f"{key_prefix}MaximumThroughputInMBps",
                 str(value["maximum_throughput_in_m_bps"]),
             )
         )
     if "maximum_iops" in value:
-        pairs.append((f"{prefix}.MaximumIops", str(value["maximum_iops"])))
+        pairs.append((f"{key_prefix}MaximumIops", str(value["maximum_iops"])))
 
 
 def deserialize_ec2_query(el: Element) -> EbsCardInfo:

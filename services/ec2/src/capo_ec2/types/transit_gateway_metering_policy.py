@@ -44,40 +44,43 @@ class TransitGatewayMeteringPolicy(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayMeteringPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_metering_policy_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMeteringPolicyId",
+                f"{key_prefix}TransitGatewayMeteringPolicyId",
                 str(value["transit_gateway_metering_policy_id"]),
             )
         )
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "middlebox_attachment_ids" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["middlebox_attachment_ids"],
             pairs,
-            f"{prefix}.MiddleboxAttachmentIdSet",
+            f"{key_prefix}MiddleboxAttachmentIdSet",
         )
     if "state" in value:
         import capo_ec2.types.transit_gateway_metering_policy_state
 
         capo_ec2.types.transit_gateway_metering_policy_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "update_effective_at" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["update_effective_at"], pairs, f"{prefix}.UpdateEffectiveAt"
+            value["update_effective_at"], pairs, f"{key_prefix}UpdateEffectiveAt"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

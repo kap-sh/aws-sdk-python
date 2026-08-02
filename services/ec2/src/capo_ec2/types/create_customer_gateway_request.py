@@ -42,32 +42,33 @@ class CreateCustomerGatewayRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateCustomerGatewayRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bgp_asn" in value:
-        pairs.append((f"{prefix}.BgpAsn", str(value["bgp_asn"])))
+        pairs.append((f"{key_prefix}BgpAsn", str(value["bgp_asn"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "certificate_arn" in value:
-        pairs.append((f"{prefix}.CertificateArn", str(value["certificate_arn"])))
+        pairs.append((f"{key_prefix}CertificateArn", str(value["certificate_arn"])))
     if "type" in value:
         import capo_ec2.types.gateway_type
 
         capo_ec2.types.gateway_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "device_name" in value:
-        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+        pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "ip_address" in value:
-        pairs.append((f"{prefix}.IpAddress", str(value["ip_address"])))
+        pairs.append((f"{key_prefix}IpAddress", str(value["ip_address"])))
     if "bgp_asn_extended" in value:
-        pairs.append((f"{prefix}.BgpAsnExtended", str(value["bgp_asn_extended"])))
+        pairs.append((f"{key_prefix}BgpAsnExtended", str(value["bgp_asn_extended"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateCustomerGatewayRequest:

@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bandwidth_weighting" in value:
         import capo_ec2.types.instance_bandwidth_weighting
 
         capo_ec2.types.instance_bandwidth_weighting.serialize_ec2_query(
-            value["bandwidth_weighting"], pairs, f"{prefix}.BandwidthWeighting"
+            value["bandwidth_weighting"], pairs, f"{key_prefix}BandwidthWeighting"
         )
 
 

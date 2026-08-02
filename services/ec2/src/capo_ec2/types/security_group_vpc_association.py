@@ -34,22 +34,23 @@ class SecurityGroupVpcAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecurityGroupVpcAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "vpc_owner_id" in value:
-        pairs.append((f"{prefix}.VpcOwnerId", str(value["vpc_owner_id"])))
+        pairs.append((f"{key_prefix}VpcOwnerId", str(value["vpc_owner_id"])))
     if "state" in value:
         import capo_ec2.types.security_group_vpc_association_state
 
         capo_ec2.types.security_group_vpc_association_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
     if "group_owner_id" in value:
-        pairs.append((f"{prefix}.GroupOwnerId", str(value["group_owner_id"])))
+        pairs.append((f"{key_prefix}GroupOwnerId", str(value["group_owner_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> SecurityGroupVpcAssociation:

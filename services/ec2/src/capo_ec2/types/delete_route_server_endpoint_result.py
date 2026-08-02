@@ -21,11 +21,12 @@ class DeleteRouteServerEndpointResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteRouteServerEndpointResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_endpoint" in value:
         import capo_ec2.types.route_server_endpoint
 
         capo_ec2.types.route_server_endpoint.serialize_ec2_query(
-            value["route_server_endpoint"], pairs, f"{prefix}.RouteServerEndpoint"
+            value["route_server_endpoint"], pairs, f"{key_prefix}RouteServerEndpoint"
         )
 
 

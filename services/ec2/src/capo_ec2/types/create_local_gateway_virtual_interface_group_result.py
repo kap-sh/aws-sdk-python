@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_virtual_interface_group" in value:
         import capo_ec2.types.local_gateway_virtual_interface_group
 
         capo_ec2.types.local_gateway_virtual_interface_group.serialize_ec2_query(
             value["local_gateway_virtual_interface_group"],
             pairs,
-            f"{prefix}.LocalGatewayVirtualInterfaceGroup",
+            f"{key_prefix}LocalGatewayVirtualInterfaceGroup",
         )
 
 

@@ -168,162 +168,175 @@ class RestoreDBInstanceFromS3Message(TypedDict, closed=True):
 def serialize_query(
     value: RestoreDBInstanceFromS3Message, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_name" in value:
-        pairs.append((f"{prefix}.DBName", str(value["db_name"])))
+        pairs.append((f"{key_prefix}DBName", str(value["db_name"])))
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "db_security_groups" in value:
         import capo_rds.types.db_security_group_name_list
 
         capo_rds.types.db_security_group_name_list.serialize_query(
-            value["db_security_groups"], pairs, f"{prefix}.DBSecurityGroups"
+            value["db_security_groups"], pairs, f"{key_prefix}DBSecurityGroups"
         )
     if "vpc_security_group_ids" in value:
         import capo_rds.types.vpc_security_group_id_list
 
         capo_rds.types.vpc_security_group_id_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "db_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSubnetGroupName", str(value["db_subnet_group_name"]))
+            (f"{key_prefix}DBSubnetGroupName", str(value["db_subnet_group_name"]))
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
     if "db_parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBParameterGroupName", str(value["db_parameter_group_name"]))
+            (f"{key_prefix}DBParameterGroupName", str(value["db_parameter_group_name"]))
         )
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "preferred_backup_window" in value:
         pairs.append(
-            (f"{prefix}.PreferredBackupWindow", str(value["preferred_backup_window"]))
+            (
+                f"{key_prefix}PreferredBackupWindow",
+                str(value["preferred_backup_window"]),
+            )
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "auto_minor_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AutoMinorVersionUpgrade",
+                f"{key_prefix}AutoMinorVersionUpgrade",
                 "true" if value["auto_minor_version_upgrade"] else "false",
             )
         )
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "storage_throughput" in value:
-        pairs.append((f"{prefix}.StorageThroughput", str(value["storage_throughput"])))
+        pairs.append(
+            (f"{key_prefix}StorageThroughput", str(value["storage_throughput"]))
+        )
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "copy_tags_to_snapshot" in value:
         pairs.append(
             (
-                f"{prefix}.CopyTagsToSnapshot",
+                f"{key_prefix}CopyTagsToSnapshot",
                 "true" if value["copy_tags_to_snapshot"] else "false",
             )
         )
     if "monitoring_interval" in value:
         pairs.append(
-            (f"{prefix}.MonitoringInterval", str(value["monitoring_interval"]))
+            (f"{key_prefix}MonitoringInterval", str(value["monitoring_interval"]))
         )
     if "monitoring_role_arn" in value:
-        pairs.append((f"{prefix}.MonitoringRoleArn", str(value["monitoring_role_arn"])))
+        pairs.append(
+            (f"{key_prefix}MonitoringRoleArn", str(value["monitoring_role_arn"]))
+        )
     if "enable_iam_database_authentication" in value:
         pairs.append(
             (
-                f"{prefix}.EnableIAMDatabaseAuthentication",
+                f"{key_prefix}EnableIAMDatabaseAuthentication",
                 "true" if value["enable_iam_database_authentication"] else "false",
             )
         )
     if "source_engine" in value:
-        pairs.append((f"{prefix}.SourceEngine", str(value["source_engine"])))
+        pairs.append((f"{key_prefix}SourceEngine", str(value["source_engine"])))
     if "source_engine_version" in value:
         pairs.append(
-            (f"{prefix}.SourceEngineVersion", str(value["source_engine_version"]))
+            (f"{key_prefix}SourceEngineVersion", str(value["source_engine_version"]))
         )
     if "s3_bucket_name" in value:
-        pairs.append((f"{prefix}.S3BucketName", str(value["s3_bucket_name"])))
+        pairs.append((f"{key_prefix}S3BucketName", str(value["s3_bucket_name"])))
     if "s3_prefix" in value:
-        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+        pairs.append((f"{key_prefix}S3Prefix", str(value["s3_prefix"])))
     if "s3_ingestion_role_arn" in value:
         pairs.append(
-            (f"{prefix}.S3IngestionRoleArn", str(value["s3_ingestion_role_arn"]))
+            (f"{key_prefix}S3IngestionRoleArn", str(value["s3_ingestion_role_arn"]))
         )
     if "database_insights_mode" in value:
         import capo_rds.types.database_insights_mode
 
         capo_rds.types.database_insights_mode.serialize_query(
-            value["database_insights_mode"], pairs, f"{prefix}.DatabaseInsightsMode"
+            value["database_insights_mode"], pairs, f"{key_prefix}DatabaseInsightsMode"
         )
     if "enable_performance_insights" in value:
         pairs.append(
             (
-                f"{prefix}.EnablePerformanceInsights",
+                f"{key_prefix}EnablePerformanceInsights",
                 "true" if value["enable_performance_insights"] else "false",
             )
         )
     if "performance_insights_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.PerformanceInsightsKMSKeyId",
+                f"{key_prefix}PerformanceInsightsKMSKeyId",
                 str(value["performance_insights_kms_key_id"]),
             )
         )
     if "performance_insights_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.PerformanceInsightsRetentionPeriod",
+                f"{key_prefix}PerformanceInsightsRetentionPeriod",
                 str(value["performance_insights_retention_period"]),
             )
         )
@@ -333,65 +346,68 @@ def serialize_query(
         capo_rds.types.log_type_list.serialize_query(
             value["enable_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.EnableCloudwatchLogsExports",
+            f"{key_prefix}EnableCloudwatchLogsExports",
         )
     if "processor_features" in value:
         import capo_rds.types.processor_feature_list
 
         capo_rds.types.processor_feature_list.serialize_query(
-            value["processor_features"], pairs, f"{prefix}.ProcessorFeatures"
+            value["processor_features"], pairs, f"{key_prefix}ProcessorFeatures"
         )
     if "use_default_processor_features" in value:
         pairs.append(
             (
-                f"{prefix}.UseDefaultProcessorFeatures",
+                f"{key_prefix}UseDefaultProcessorFeatures",
                 "true" if value["use_default_processor_features"] else "false",
             )
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
     if "max_allocated_storage" in value:
         pairs.append(
-            (f"{prefix}.MaxAllocatedStorage", str(value["max_allocated_storage"]))
+            (f"{key_prefix}MaxAllocatedStorage", str(value["max_allocated_storage"]))
         )
     if "network_type" in value:
-        pairs.append((f"{prefix}.NetworkType", str(value["network_type"])))
+        pairs.append((f"{key_prefix}NetworkType", str(value["network_type"])))
     if "manage_master_user_password" in value:
         pairs.append(
             (
-                f"{prefix}.ManageMasterUserPassword",
+                f"{key_prefix}ManageMasterUserPassword",
                 "true" if value["manage_master_user_password"] else "false",
             )
         )
     if "master_user_secret_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.MasterUserSecretKmsKeyId",
+                f"{key_prefix}MasterUserSecretKmsKeyId",
                 str(value["master_user_secret_kms_key_id"]),
             )
         )
     if "dedicated_log_volume" in value:
         pairs.append(
             (
-                f"{prefix}.DedicatedLogVolume",
+                f"{key_prefix}DedicatedLogVolume",
                 "true" if value["dedicated_log_volume"] else "false",
             )
         )
     if "ca_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.CACertificateIdentifier",
+                f"{key_prefix}CACertificateIdentifier",
                 str(value["ca_certificate_identifier"]),
             )
         )
     if "engine_lifecycle_support" in value:
         pairs.append(
-            (f"{prefix}.EngineLifecycleSupport", str(value["engine_lifecycle_support"]))
+            (
+                f"{key_prefix}EngineLifecycleSupport",
+                str(value["engine_lifecycle_support"]),
+            )
         )
     if "additional_storage_volumes" in value:
         import capo_rds.types.additional_storage_volumes_list
@@ -399,13 +415,13 @@ def serialize_query(
         capo_rds.types.additional_storage_volumes_list.serialize_query(
             value["additional_storage_volumes"],
             pairs,
-            f"{prefix}.AdditionalStorageVolumes",
+            f"{key_prefix}AdditionalStorageVolumes",
         )
     if "tag_specifications" in value:
         import capo_rds.types.tag_specification_list
 
         capo_rds.types.tag_specification_list.serialize_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

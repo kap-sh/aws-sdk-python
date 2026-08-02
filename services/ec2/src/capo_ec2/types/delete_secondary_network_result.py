@@ -22,14 +22,15 @@ class DeleteSecondaryNetworkResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteSecondaryNetworkResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "secondary_network" in value:
         import capo_ec2.types.secondary_network
 
         capo_ec2.types.secondary_network.serialize_ec2_query(
-            value["secondary_network"], pairs, f"{prefix}.SecondaryNetwork"
+            value["secondary_network"], pairs, f"{key_prefix}SecondaryNetwork"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteSecondaryNetworkResult:

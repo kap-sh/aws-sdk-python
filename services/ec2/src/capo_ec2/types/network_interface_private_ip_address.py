@@ -29,18 +29,21 @@ class NetworkInterfacePrivateIpAddress(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInterfacePrivateIpAddress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association" in value:
         import capo_ec2.types.network_interface_association
 
         capo_ec2.types.network_interface_association.serialize_ec2_query(
-            value["association"], pairs, f"{prefix}.Association"
+            value["association"], pairs, f"{key_prefix}Association"
         )
     if "primary" in value:
-        pairs.append((f"{prefix}.Primary", "true" if value["primary"] else "false"))
+        pairs.append((f"{key_prefix}Primary", "true" if value["primary"] else "false"))
     if "private_dns_name" in value:
-        pairs.append((f"{prefix}.PrivateDnsName", str(value["private_dns_name"])))
+        pairs.append((f"{key_prefix}PrivateDnsName", str(value["private_dns_name"])))
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> NetworkInterfacePrivateIpAddress:

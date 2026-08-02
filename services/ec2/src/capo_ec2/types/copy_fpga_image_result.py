@@ -19,8 +19,9 @@ class CopyFpgaImageResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CopyFpgaImageResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "fpga_image_id" in value:
-        pairs.append((f"{prefix}.FpgaImageId", str(value["fpga_image_id"])))
+        pairs.append((f"{key_prefix}FpgaImageId", str(value["fpga_image_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> CopyFpgaImageResult:

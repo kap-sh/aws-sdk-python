@@ -22,13 +22,14 @@ class Filter(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Filter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "values" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

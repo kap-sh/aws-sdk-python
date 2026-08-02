@@ -36,34 +36,37 @@ class PublicIpv4Pool(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PublicIpv4Pool, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pool_id" in value:
-        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "pool_address_ranges" in value:
         import capo_ec2.types.public_ipv4_pool_range_set
 
         capo_ec2.types.public_ipv4_pool_range_set.serialize_ec2_query(
-            value["pool_address_ranges"], pairs, f"{prefix}.PoolAddressRangeSet"
+            value["pool_address_ranges"], pairs, f"{key_prefix}PoolAddressRangeSet"
         )
     if "total_address_count" in value:
-        pairs.append((f"{prefix}.TotalAddressCount", str(value["total_address_count"])))
+        pairs.append(
+            (f"{key_prefix}TotalAddressCount", str(value["total_address_count"]))
+        )
     if "total_available_address_count" in value:
         pairs.append(
             (
-                f"{prefix}.TotalAvailableAddressCount",
+                f"{key_prefix}TotalAvailableAddressCount",
                 str(value["total_available_address_count"]),
             )
         )
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

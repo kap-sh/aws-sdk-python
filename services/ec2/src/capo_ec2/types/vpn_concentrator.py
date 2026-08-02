@@ -30,26 +30,31 @@ class VpnConcentrator(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnConcentrator, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_concentrator_id" in value:
-        pairs.append((f"{prefix}.VpnConcentratorId", str(value["vpn_concentrator_id"])))
+        pairs.append(
+            (f"{key_prefix}VpnConcentratorId", str(value["vpn_concentrator_id"]))
+        )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

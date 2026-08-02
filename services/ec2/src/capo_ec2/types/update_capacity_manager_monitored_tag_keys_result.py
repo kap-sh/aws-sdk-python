@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_manager_tag_keys" in value:
         import capo_ec2.types.capacity_manager_monitored_tag_key_list
 
         capo_ec2.types.capacity_manager_monitored_tag_key_list.serialize_ec2_query(
             value["capacity_manager_tag_keys"],
             pairs,
-            f"{prefix}.CapacityManagerTagKeySet",
+            f"{key_prefix}CapacityManagerTagKeySet",
         )
 
 

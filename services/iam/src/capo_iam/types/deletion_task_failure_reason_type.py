@@ -24,13 +24,14 @@ class DeletionTaskFailureReasonType(TypedDict, closed=True):
 def serialize_query(
     value: DeletionTaskFailureReasonType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reason" in value:
-        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+        pairs.append((f"{key_prefix}Reason", str(value["reason"])))
     if "role_usage_list" in value:
         import capo_iam.types.role_usage_list_type
 
         capo_iam.types.role_usage_list_type.serialize_query(
-            value["role_usage_list"], pairs, f"{prefix}.RoleUsageList"
+            value["role_usage_list"], pairs, f"{key_prefix}RoleUsageList"
         )
 
 

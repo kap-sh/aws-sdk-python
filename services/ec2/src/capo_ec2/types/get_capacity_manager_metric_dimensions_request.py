@@ -43,42 +43,43 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_by" in value:
         import capo_ec2.types.group_by_set
 
         capo_ec2.types.group_by_set.serialize_ec2_query(
-            value["group_by"], pairs, f"{prefix}.GroupBy"
+            value["group_by"], pairs, f"{key_prefix}GroupBy"
         )
     if "filter_by" in value:
         import capo_ec2.types.capacity_manager_condition_set
 
         capo_ec2.types.capacity_manager_condition_set.serialize_ec2_query(
-            value["filter_by"], pairs, f"{prefix}.FilterBy"
+            value["filter_by"], pairs, f"{key_prefix}FilterBy"
         )
     if "start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "metric_names" in value:
         import capo_ec2.types.metric_set
 
         capo_ec2.types.metric_set.serialize_ec2_query(
-            value["metric_names"], pairs, f"{prefix}.MetricNames"
+            value["metric_names"], pairs, f"{key_prefix}MetricNames"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDimensionsRequest:

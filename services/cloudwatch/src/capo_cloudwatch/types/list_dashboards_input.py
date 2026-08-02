@@ -43,12 +43,13 @@ def deserialize_aws_json_1_0(data: dict) -> ListDashboardsInput:
 def serialize_query(
     value: ListDashboardsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dashboard_name_prefix" in value:
         pairs.append(
-            (f"{prefix}.DashboardNamePrefix", str(value["dashboard_name_prefix"]))
+            (f"{key_prefix}DashboardNamePrefix", str(value["dashboard_name_prefix"]))
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListDashboardsInput:

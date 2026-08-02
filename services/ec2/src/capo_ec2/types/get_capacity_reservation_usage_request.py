@@ -32,16 +32,20 @@ class GetCapacityReservationUsageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetCapacityReservationUsageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> GetCapacityReservationUsageRequest:

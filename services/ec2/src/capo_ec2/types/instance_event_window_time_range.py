@@ -26,22 +26,23 @@ class InstanceEventWindowTimeRange(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceEventWindowTimeRange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "start_week_day" in value:
         import capo_ec2.types.week_day
 
         capo_ec2.types.week_day.serialize_ec2_query(
-            value["start_week_day"], pairs, f"{prefix}.StartWeekDay"
+            value["start_week_day"], pairs, f"{key_prefix}StartWeekDay"
         )
     if "start_hour" in value:
-        pairs.append((f"{prefix}.StartHour", str(value["start_hour"])))
+        pairs.append((f"{key_prefix}StartHour", str(value["start_hour"])))
     if "end_week_day" in value:
         import capo_ec2.types.week_day
 
         capo_ec2.types.week_day.serialize_ec2_query(
-            value["end_week_day"], pairs, f"{prefix}.EndWeekDay"
+            value["end_week_day"], pairs, f"{key_prefix}EndWeekDay"
         )
     if "end_hour" in value:
-        pairs.append((f"{prefix}.EndHour", str(value["end_hour"])))
+        pairs.append((f"{key_prefix}EndHour", str(value["end_hour"])))
 
 
 def deserialize_ec2_query(el: Element) -> InstanceEventWindowTimeRange:

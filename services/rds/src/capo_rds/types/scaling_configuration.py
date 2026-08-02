@@ -35,23 +35,27 @@ class ScalingConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: ScalingConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "min_capacity" in value:
-        pairs.append((f"{prefix}.MinCapacity", str(value["min_capacity"])))
+        pairs.append((f"{key_prefix}MinCapacity", str(value["min_capacity"])))
     if "max_capacity" in value:
-        pairs.append((f"{prefix}.MaxCapacity", str(value["max_capacity"])))
+        pairs.append((f"{key_prefix}MaxCapacity", str(value["max_capacity"])))
     if "auto_pause" in value:
         pairs.append(
-            (f"{prefix}.AutoPause", "true" if value["auto_pause"] else "false")
+            (f"{key_prefix}AutoPause", "true" if value["auto_pause"] else "false")
         )
     if "seconds_until_auto_pause" in value:
         pairs.append(
-            (f"{prefix}.SecondsUntilAutoPause", str(value["seconds_until_auto_pause"]))
+            (
+                f"{key_prefix}SecondsUntilAutoPause",
+                str(value["seconds_until_auto_pause"]),
+            )
         )
     if "timeout_action" in value:
-        pairs.append((f"{prefix}.TimeoutAction", str(value["timeout_action"])))
+        pairs.append((f"{key_prefix}TimeoutAction", str(value["timeout_action"])))
     if "seconds_before_timeout" in value:
         pairs.append(
-            (f"{prefix}.SecondsBeforeTimeout", str(value["seconds_before_timeout"]))
+            (f"{key_prefix}SecondsBeforeTimeout", str(value["seconds_before_timeout"]))
         )
 
 

@@ -25,20 +25,21 @@ class GetEnabledIpamPolicyResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetEnabledIpamPolicyResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_policy_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPolicyEnabled",
+                f"{key_prefix}IpamPolicyEnabled",
                 "true" if value["ipam_policy_enabled"] else "false",
             )
         )
     if "ipam_policy_id" in value:
-        pairs.append((f"{prefix}.IpamPolicyId", str(value["ipam_policy_id"])))
+        pairs.append((f"{key_prefix}IpamPolicyId", str(value["ipam_policy_id"])))
     if "managed_by" in value:
         import capo_ec2.types.ipam_policy_managed_by
 
         capo_ec2.types.ipam_policy_managed_by.serialize_ec2_query(
-            value["managed_by"], pairs, f"{prefix}.ManagedBy"
+            value["managed_by"], pairs, f"{key_prefix}ManagedBy"
         )
 
 

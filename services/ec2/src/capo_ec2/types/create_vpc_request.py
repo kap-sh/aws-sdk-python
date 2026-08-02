@@ -54,24 +54,29 @@ class CreateVpcRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateVpcRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "ipv6_pool" in value:
-        pairs.append((f"{prefix}.Ipv6Pool", str(value["ipv6_pool"])))
+        pairs.append((f"{key_prefix}Ipv6Pool", str(value["ipv6_pool"])))
     if "ipv6_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
     if "ipv4_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
     if "ipv4_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv4NetmaskLength", str(value["ipv4_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv4NetmaskLength", str(value["ipv4_netmask_length"]))
+        )
     if "ipv6_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
     if "ipv6_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv6NetmaskLength", str(value["ipv6_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6NetmaskLength", str(value["ipv6_netmask_length"]))
+        )
     if "ipv6_cidr_block_network_border_group" in value:
         pairs.append(
             (
-                f"{prefix}.Ipv6CidrBlockNetworkBorderGroup",
+                f"{key_prefix}Ipv6CidrBlockNetworkBorderGroup",
                 str(value["ipv6_cidr_block_network_border_group"]),
             )
         )
@@ -79,26 +84,26 @@ def serialize_ec2_query(
         import capo_ec2.types.vpc_encryption_control_configuration
 
         capo_ec2.types.vpc_encryption_control_configuration.serialize_ec2_query(
-            value["vpc_encryption_control"], pairs, f"{prefix}.VpcEncryptionControl"
+            value["vpc_encryption_control"], pairs, f"{key_prefix}VpcEncryptionControl"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_tenancy" in value:
         import capo_ec2.types.tenancy
 
         capo_ec2.types.tenancy.serialize_ec2_query(
-            value["instance_tenancy"], pairs, f"{prefix}.InstanceTenancy"
+            value["instance_tenancy"], pairs, f"{key_prefix}InstanceTenancy"
         )
     if "amazon_provided_ipv6_cidr_block" in value:
         pairs.append(
             (
-                f"{prefix}.AmazonProvidedIpv6CidrBlock",
+                f"{key_prefix}AmazonProvidedIpv6CidrBlock",
                 "true" if value["amazon_provided_ipv6_cidr_block"] else "false",
             )
         )

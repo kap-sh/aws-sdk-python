@@ -45,39 +45,40 @@ class ReplaceRootVolumeTask(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReplaceRootVolumeTask, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replace_root_volume_task_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReplaceRootVolumeTaskId",
+                f"{key_prefix}ReplaceRootVolumeTaskId",
                 str(value["replace_root_volume_task_id"]),
             )
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "task_state" in value:
         import capo_ec2.types.replace_root_volume_task_state
 
         capo_ec2.types.replace_root_volume_task_state.serialize_ec2_query(
-            value["task_state"], pairs, f"{prefix}.TaskState"
+            value["task_state"], pairs, f"{key_prefix}TaskState"
         )
     if "start_time" in value:
-        pairs.append((f"{prefix}.StartTime", str(value["start_time"])))
+        pairs.append((f"{key_prefix}StartTime", str(value["start_time"])))
     if "complete_time" in value:
-        pairs.append((f"{prefix}.CompleteTime", str(value["complete_time"])))
+        pairs.append((f"{key_prefix}CompleteTime", str(value["complete_time"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "delete_replaced_root_volume" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteReplacedRootVolume",
+                f"{key_prefix}DeleteReplacedRootVolume",
                 "true" if value["delete_replaced_root_volume"] else "false",
             )
         )

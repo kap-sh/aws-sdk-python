@@ -19,8 +19,9 @@ class VolumeDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
 
 
 def deserialize_ec2_query(el: Element) -> VolumeDetail:

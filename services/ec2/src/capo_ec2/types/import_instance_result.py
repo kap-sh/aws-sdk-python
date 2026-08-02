@@ -19,11 +19,12 @@ class ImportInstanceResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportInstanceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "conversion_task" in value:
         import capo_ec2.types.conversion_task
 
         capo_ec2.types.conversion_task.serialize_ec2_query(
-            value["conversion_task"], pairs, f"{prefix}.ConversionTask"
+            value["conversion_task"], pairs, f"{key_prefix}ConversionTask"
         )
 
 

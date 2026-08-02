@@ -26,11 +26,12 @@ class ListMFADeviceTagsRequest(TypedDict, closed=True):
 def serialize_query(
     value: ListMFADeviceTagsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
 
 
 def deserialize_query(el: Element) -> ListMFADeviceTagsRequest:

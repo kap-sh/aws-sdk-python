@@ -37,30 +37,31 @@ class ClientVpnRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClientVpnRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "destination_cidr" in value:
-        pairs.append((f"{prefix}.DestinationCidr", str(value["destination_cidr"])))
+        pairs.append((f"{key_prefix}DestinationCidr", str(value["destination_cidr"])))
     if "target_subnet" in value:
-        pairs.append((f"{prefix}.TargetSubnet", str(value["target_subnet"])))
+        pairs.append((f"{key_prefix}TargetSubnet", str(value["target_subnet"])))
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "origin" in value:
-        pairs.append((f"{prefix}.Origin", str(value["origin"])))
+        pairs.append((f"{key_prefix}Origin", str(value["origin"])))
     if "status" in value:
         import capo_ec2.types.client_vpn_route_status
 
         capo_ec2.types.client_vpn_route_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )

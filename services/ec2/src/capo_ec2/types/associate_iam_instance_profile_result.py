@@ -21,13 +21,14 @@ class AssociateIamInstanceProfileResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateIamInstanceProfileResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "iam_instance_profile_association" in value:
         import capo_ec2.types.iam_instance_profile_association
 
         capo_ec2.types.iam_instance_profile_association.serialize_ec2_query(
             value["iam_instance_profile_association"],
             pairs,
-            f"{prefix}.IamInstanceProfileAssociation",
+            f"{key_prefix}IamInstanceProfileAssociation",
         )
 
 

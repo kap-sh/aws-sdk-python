@@ -21,12 +21,13 @@ class VpcSecurityGroupMembership(TypedDict, closed=True):
 def serialize_query(
     value: VpcSecurityGroupMembership, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_security_group_id" in value:
         pairs.append(
-            (f"{prefix}.VpcSecurityGroupId", str(value["vpc_security_group_id"]))
+            (f"{key_prefix}VpcSecurityGroupId", str(value["vpc_security_group_id"]))
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> VpcSecurityGroupMembership:

@@ -26,15 +26,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "serverless_v2_platform_versions" in value:
         import capo_rds.types.serverless_v2_platform_version_list
 
         capo_rds.types.serverless_v2_platform_version_list.serialize_query(
             value["serverless_v2_platform_versions"],
             pairs,
-            f"{prefix}.ServerlessV2PlatformVersions",
+            f"{key_prefix}ServerlessV2PlatformVersions",
         )
 
 

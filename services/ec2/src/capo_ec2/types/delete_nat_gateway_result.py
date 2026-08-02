@@ -19,8 +19,9 @@ class DeleteNatGatewayResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteNatGatewayResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteNatGatewayResult:

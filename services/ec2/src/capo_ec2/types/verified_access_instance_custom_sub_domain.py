@@ -24,13 +24,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "sub_domain" in value:
-        pairs.append((f"{prefix}.SubDomain", str(value["sub_domain"])))
+        pairs.append((f"{key_prefix}SubDomain", str(value["sub_domain"])))
     if "nameservers" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["nameservers"], pairs, f"{prefix}.NameserverSet"
+            value["nameservers"], pairs, f"{key_prefix}NameserverSet"
         )
 
 

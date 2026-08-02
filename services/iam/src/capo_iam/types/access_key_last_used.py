@@ -25,14 +25,15 @@ class AccessKeyLastUsed(TypedDict, closed=True):
 def serialize_query(
     value: AccessKeyLastUsed, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "last_used_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["last_used_date"], pairs, f"{prefix}.LastUsedDate"
+            value["last_used_date"], pairs, f"{key_prefix}LastUsedDate"
         )
-    pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
-    pairs.append((f"{prefix}.Region", str(value["region"])))
+    pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
+    pairs.append((f"{key_prefix}Region", str(value["region"])))
 
 
 def deserialize_query(el: Element) -> AccessKeyLastUsed:

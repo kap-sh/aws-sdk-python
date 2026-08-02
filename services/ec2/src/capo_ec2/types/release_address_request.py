@@ -27,16 +27,17 @@ class ReleaseAddressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReleaseAddressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ReleaseAddressRequest:

@@ -62,49 +62,54 @@ class CreateNatGatewayRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateNatGatewayRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_mode" in value:
         import capo_ec2.types.availability_mode
 
         capo_ec2.types.availability_mode.serialize_ec2_query(
-            value["availability_mode"], pairs, f"{prefix}.AvailabilityMode"
+            value["availability_mode"], pairs, f"{key_prefix}AvailabilityMode"
         )
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "availability_zone_addresses" in value:
         import capo_ec2.types.availability_zone_addresses
 
         capo_ec2.types.availability_zone_addresses.serialize_ec2_query(
             value["availability_zone_addresses"],
             pairs,
-            f"{prefix}.AvailabilityZoneAddresses",
+            f"{key_prefix}AvailabilityZoneAddresses",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "connectivity_type" in value:
         import capo_ec2.types.connectivity_type
 
         capo_ec2.types.connectivity_type.serialize_ec2_query(
-            value["connectivity_type"], pairs, f"{prefix}.ConnectivityType"
+            value["connectivity_type"], pairs, f"{key_prefix}ConnectivityType"
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "secondary_allocation_ids" in value:
         import capo_ec2.types.allocation_id_list
 
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
-            value["secondary_allocation_ids"], pairs, f"{prefix}.SecondaryAllocationIds"
+            value["secondary_allocation_ids"],
+            pairs,
+            f"{key_prefix}SecondaryAllocationIds",
         )
     if "secondary_private_ip_addresses" in value:
         import capo_ec2.types.ip_list
@@ -112,12 +117,12 @@ def serialize_ec2_query(
         capo_ec2.types.ip_list.serialize_ec2_query(
             value["secondary_private_ip_addresses"],
             pairs,
-            f"{prefix}.SecondaryPrivateIpAddresses",
+            f"{key_prefix}SecondaryPrivateIpAddresses",
         )
     if "secondary_private_ip_address_count" in value:
         pairs.append(
             (
-                f"{prefix}.SecondaryPrivateIpAddressCount",
+                f"{key_prefix}SecondaryPrivateIpAddressCount",
                 str(value["secondary_private_ip_address_count"]),
             )
         )

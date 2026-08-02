@@ -19,11 +19,12 @@ class ServiceTypeDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ServiceTypeDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_type" in value:
         import capo_ec2.types.service_type
 
         capo_ec2.types.service_type.serialize_ec2_query(
-            value["service_type"], pairs, f"{prefix}.ServiceType"
+            value["service_type"], pairs, f"{key_prefix}ServiceType"
         )
 
 

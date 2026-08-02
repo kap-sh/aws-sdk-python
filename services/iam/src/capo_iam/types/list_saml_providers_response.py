@@ -21,11 +21,12 @@ class ListSAMLProvidersResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListSAMLProvidersResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "saml_provider_list" in value:
         import capo_iam.types.saml_provider_list_type
 
         capo_iam.types.saml_provider_list_type.serialize_query(
-            value["saml_provider_list"], pairs, f"{prefix}.SAMLProviderList"
+            value["saml_provider_list"], pairs, f"{key_prefix}SAMLProviderList"
         )
 
 

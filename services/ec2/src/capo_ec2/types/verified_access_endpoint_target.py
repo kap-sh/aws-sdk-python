@@ -28,24 +28,25 @@ class VerifiedAccessEndpointTarget(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VerifiedAccessEndpointTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_endpoint_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessEndpointId",
+                f"{key_prefix}VerifiedAccessEndpointId",
                 str(value["verified_access_endpoint_id"]),
             )
         )
     if "verified_access_endpoint_target_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessEndpointTargetIpAddress",
+                f"{key_prefix}VerifiedAccessEndpointTargetIpAddress",
                 str(value["verified_access_endpoint_target_ip_address"]),
             )
         )
     if "verified_access_endpoint_target_dns" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessEndpointTargetDns",
+                f"{key_prefix}VerifiedAccessEndpointTargetDns",
                 str(value["verified_access_endpoint_target_dns"]),
             )
         )

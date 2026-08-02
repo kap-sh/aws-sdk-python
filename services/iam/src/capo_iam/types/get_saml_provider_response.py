@@ -42,29 +42,32 @@ class GetSAMLProviderResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetSAMLProviderResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "saml_provider_uuid" in value:
-        pairs.append((f"{prefix}.SAMLProviderUUID", str(value["saml_provider_uuid"])))
+        pairs.append(
+            (f"{key_prefix}SAMLProviderUUID", str(value["saml_provider_uuid"]))
+        )
     if "saml_metadata_document" in value:
         pairs.append(
-            (f"{prefix}.SAMLMetadataDocument", str(value["saml_metadata_document"]))
+            (f"{key_prefix}SAMLMetadataDocument", str(value["saml_metadata_document"]))
         )
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "valid_until" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+            value["valid_until"], pairs, f"{key_prefix}ValidUntil"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "assertion_encryption_mode" in value:
         import capo_iam.types.assertion_encryption_mode_type
@@ -72,13 +75,13 @@ def serialize_query(
         capo_iam.types.assertion_encryption_mode_type.serialize_query(
             value["assertion_encryption_mode"],
             pairs,
-            f"{prefix}.AssertionEncryptionMode",
+            f"{key_prefix}AssertionEncryptionMode",
         )
     if "private_key_list" in value:
         import capo_iam.types.private_key_list
 
         capo_iam.types.private_key_list.serialize_query(
-            value["private_key_list"], pairs, f"{prefix}.PrivateKeyList"
+            value["private_key_list"], pairs, f"{key_prefix}PrivateKeyList"
         )
 
 

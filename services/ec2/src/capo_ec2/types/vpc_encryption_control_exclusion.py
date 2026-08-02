@@ -24,14 +24,15 @@ class VpcEncryptionControlExclusion(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcEncryptionControlExclusion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion_state
 
         capo_ec2.types.vpc_encryption_control_exclusion_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
 
 
 def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusion:

@@ -23,12 +23,13 @@ class CancelImportTaskResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelImportTaskResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "import_task_id" in value:
-        pairs.append((f"{prefix}.ImportTaskId", str(value["import_task_id"])))
+        pairs.append((f"{key_prefix}ImportTaskId", str(value["import_task_id"])))
     if "previous_state" in value:
-        pairs.append((f"{prefix}.PreviousState", str(value["previous_state"])))
+        pairs.append((f"{key_prefix}PreviousState", str(value["previous_state"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
 
 
 def deserialize_ec2_query(el: Element) -> CancelImportTaskResult:

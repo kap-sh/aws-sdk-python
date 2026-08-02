@@ -38,23 +38,26 @@ class UpdateSAMLProviderRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateSAMLProviderRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "saml_metadata_document" in value:
         pairs.append(
-            (f"{prefix}.SAMLMetadataDocument", str(value["saml_metadata_document"]))
+            (f"{key_prefix}SAMLMetadataDocument", str(value["saml_metadata_document"]))
         )
-    pairs.append((f"{prefix}.SAMLProviderArn", str(value["saml_provider_arn"])))
+    pairs.append((f"{key_prefix}SAMLProviderArn", str(value["saml_provider_arn"])))
     if "assertion_encryption_mode" in value:
         import capo_iam.types.assertion_encryption_mode_type
 
         capo_iam.types.assertion_encryption_mode_type.serialize_query(
             value["assertion_encryption_mode"],
             pairs,
-            f"{prefix}.AssertionEncryptionMode",
+            f"{key_prefix}AssertionEncryptionMode",
         )
     if "add_private_key" in value:
-        pairs.append((f"{prefix}.AddPrivateKey", str(value["add_private_key"])))
+        pairs.append((f"{key_prefix}AddPrivateKey", str(value["add_private_key"])))
     if "remove_private_key" in value:
-        pairs.append((f"{prefix}.RemovePrivateKey", str(value["remove_private_key"])))
+        pairs.append(
+            (f"{key_prefix}RemovePrivateKey", str(value["remove_private_key"]))
+        )
 
 
 def deserialize_query(el: Element) -> UpdateSAMLProviderRequest:

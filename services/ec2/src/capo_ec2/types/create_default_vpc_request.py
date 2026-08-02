@@ -19,8 +19,9 @@ class CreateDefaultVpcRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateDefaultVpcRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateDefaultVpcRequest:

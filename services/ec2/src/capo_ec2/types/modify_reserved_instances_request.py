@@ -29,19 +29,20 @@ class ModifyReservedInstancesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyReservedInstancesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_instances_ids" in value:
         import capo_ec2.types.reserved_instances_id_string_list
 
         capo_ec2.types.reserved_instances_id_string_list.serialize_ec2_query(
-            value["reserved_instances_ids"], pairs, f"{prefix}.ReservedInstancesIds"
+            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesIds"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "target_configurations" in value:
         import capo_ec2.types.reserved_instances_configuration_list
 
         capo_ec2.types.reserved_instances_configuration_list.serialize_ec2_query(
-            value["target_configurations"], pairs, f"{prefix}.TargetConfigurations"
+            value["target_configurations"], pairs, f"{key_prefix}TargetConfigurations"
         )
 
 

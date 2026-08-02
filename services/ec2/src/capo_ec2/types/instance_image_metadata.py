@@ -44,49 +44,50 @@ class InstanceImageMetadata(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceImageMetadata, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "launch_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["launch_time"], pairs, f"{prefix}.LaunchTime"
+            value["launch_time"], pairs, f"{key_prefix}LaunchTime"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "zone_id" in value:
-        pairs.append((f"{prefix}.ZoneId", str(value["zone_id"])))
+        pairs.append((f"{key_prefix}ZoneId", str(value["zone_id"])))
     if "state" in value:
         import capo_ec2.types.instance_state
 
         capo_ec2.types.instance_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.InstanceState"
+            value["state"], pairs, f"{key_prefix}InstanceState"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.InstanceOwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}InstanceOwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "image_metadata" in value:
         import capo_ec2.types.image_metadata
 
         capo_ec2.types.image_metadata.serialize_ec2_query(
-            value["image_metadata"], pairs, f"{prefix}.ImageMetadata"
+            value["image_metadata"], pairs, f"{key_prefix}ImageMetadata"
         )
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
 
 

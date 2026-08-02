@@ -31,25 +31,26 @@ class Statement(TypedDict, closed=True):
 def serialize_query(
     value: Statement, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_policy_id" in value:
-        pairs.append((f"{prefix}.SourcePolicyId", str(value["source_policy_id"])))
+        pairs.append((f"{key_prefix}SourcePolicyId", str(value["source_policy_id"])))
     if "source_policy_type" in value:
         import capo_iam.types.policy_source_type
 
         capo_iam.types.policy_source_type.serialize_query(
-            value["source_policy_type"], pairs, f"{prefix}.SourcePolicyType"
+            value["source_policy_type"], pairs, f"{key_prefix}SourcePolicyType"
         )
     if "start_position" in value:
         import capo_iam.types.position
 
         capo_iam.types.position.serialize_query(
-            value["start_position"], pairs, f"{prefix}.StartPosition"
+            value["start_position"], pairs, f"{key_prefix}StartPosition"
         )
     if "end_position" in value:
         import capo_iam.types.position
 
         capo_iam.types.position.serialize_query(
-            value["end_position"], pairs, f"{prefix}.EndPosition"
+            value["end_position"], pairs, f"{key_prefix}EndPosition"
         )
 
 

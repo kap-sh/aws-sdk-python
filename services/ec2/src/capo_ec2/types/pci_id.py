@@ -25,14 +25,17 @@ class PciId(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PciId, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "device_id" in value:
-        pairs.append((f"{prefix}.DeviceId", str(value["device_id"])))
+        pairs.append((f"{key_prefix}DeviceId", str(value["device_id"])))
     if "vendor_id" in value:
-        pairs.append((f"{prefix}.VendorId", str(value["vendor_id"])))
+        pairs.append((f"{key_prefix}VendorId", str(value["vendor_id"])))
     if "subsystem_id" in value:
-        pairs.append((f"{prefix}.SubsystemId", str(value["subsystem_id"])))
+        pairs.append((f"{key_prefix}SubsystemId", str(value["subsystem_id"])))
     if "subsystem_vendor_id" in value:
-        pairs.append((f"{prefix}.SubsystemVendorId", str(value["subsystem_vendor_id"])))
+        pairs.append(
+            (f"{key_prefix}SubsystemVendorId", str(value["subsystem_vendor_id"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> PciId:

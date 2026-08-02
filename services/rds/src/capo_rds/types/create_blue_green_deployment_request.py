@@ -68,60 +68,71 @@ class CreateBlueGreenDeploymentRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateBlueGreenDeploymentRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "blue_green_deployment_name" in value:
         pairs.append(
             (
-                f"{prefix}.BlueGreenDeploymentName",
+                f"{key_prefix}BlueGreenDeploymentName",
                 str(value["blue_green_deployment_name"]),
             )
         )
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "target_engine_version" in value:
         pairs.append(
-            (f"{prefix}.TargetEngineVersion", str(value["target_engine_version"]))
+            (f"{key_prefix}TargetEngineVersion", str(value["target_engine_version"]))
         )
     if "target_db_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBParameterGroupName",
+                f"{key_prefix}TargetDBParameterGroupName",
                 str(value["target_db_parameter_group_name"]),
             )
         )
     if "target_db_cluster_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBClusterParameterGroupName",
+                f"{key_prefix}TargetDBClusterParameterGroupName",
                 str(value["target_db_cluster_parameter_group_name"]),
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "target_db_instance_class" in value:
         pairs.append(
-            (f"{prefix}.TargetDBInstanceClass", str(value["target_db_instance_class"]))
+            (
+                f"{key_prefix}TargetDBInstanceClass",
+                str(value["target_db_instance_class"]),
+            )
         )
     if "upgrade_target_storage_config" in value:
         pairs.append(
             (
-                f"{prefix}.UpgradeTargetStorageConfig",
+                f"{key_prefix}UpgradeTargetStorageConfig",
                 "true" if value["upgrade_target_storage_config"] else "false",
             )
         )
     if "target_iops" in value:
-        pairs.append((f"{prefix}.TargetIops", str(value["target_iops"])))
+        pairs.append((f"{key_prefix}TargetIops", str(value["target_iops"])))
     if "target_storage_type" in value:
-        pairs.append((f"{prefix}.TargetStorageType", str(value["target_storage_type"])))
+        pairs.append(
+            (f"{key_prefix}TargetStorageType", str(value["target_storage_type"]))
+        )
     if "target_allocated_storage" in value:
         pairs.append(
-            (f"{prefix}.TargetAllocatedStorage", str(value["target_allocated_storage"]))
+            (
+                f"{key_prefix}TargetAllocatedStorage",
+                str(value["target_allocated_storage"]),
+            )
         )
     if "target_storage_throughput" in value:
         pairs.append(
             (
-                f"{prefix}.TargetStorageThroughput",
+                f"{key_prefix}TargetStorageThroughput",
                 str(value["target_storage_throughput"]),
             )
         )

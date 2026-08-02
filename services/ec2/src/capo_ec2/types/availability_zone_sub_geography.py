@@ -19,8 +19,9 @@ class AvailabilityZoneSubGeography(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AvailabilityZoneSubGeography, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
 
 
 def deserialize_ec2_query(el: Element) -> AvailabilityZoneSubGeography:

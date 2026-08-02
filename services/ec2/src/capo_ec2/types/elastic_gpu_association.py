@@ -26,26 +26,27 @@ class ElasticGpuAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ElasticGpuAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "elastic_gpu_id" in value:
-        pairs.append((f"{prefix}.ElasticGpuId", str(value["elastic_gpu_id"])))
+        pairs.append((f"{key_prefix}ElasticGpuId", str(value["elastic_gpu_id"])))
     if "elastic_gpu_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticGpuAssociationId",
+                f"{key_prefix}ElasticGpuAssociationId",
                 str(value["elastic_gpu_association_id"]),
             )
         )
     if "elastic_gpu_association_state" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticGpuAssociationState",
+                f"{key_prefix}ElasticGpuAssociationState",
                 str(value["elastic_gpu_association_state"]),
             )
         )
     if "elastic_gpu_association_time" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticGpuAssociationTime",
+                f"{key_prefix}ElasticGpuAssociationTime",
                 str(value["elastic_gpu_association_time"]),
             )
         )

@@ -26,18 +26,19 @@ class TagDescription(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TagDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key" in value:
-        pairs.append((f"{prefix}.Key", str(value["key"])))
+        pairs.append((f"{key_prefix}Key", str(value["key"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_type" in value:
         import capo_ec2.types.resource_type
 
         capo_ec2.types.resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
 
 
 def deserialize_ec2_query(el: Element) -> TagDescription:

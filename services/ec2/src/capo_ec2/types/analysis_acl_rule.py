@@ -32,22 +32,23 @@ class AnalysisAclRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisAclRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "egress" in value:
-        pairs.append((f"{prefix}.Egress", "true" if value["egress"] else "false"))
+        pairs.append((f"{key_prefix}Egress", "true" if value["egress"] else "false"))
     if "port_range" in value:
         import capo_ec2.types.port_range
 
         capo_ec2.types.port_range.serialize_ec2_query(
-            value["port_range"], pairs, f"{prefix}.PortRange"
+            value["port_range"], pairs, f"{key_prefix}PortRange"
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "rule_action" in value:
-        pairs.append((f"{prefix}.RuleAction", str(value["rule_action"])))
+        pairs.append((f"{key_prefix}RuleAction", str(value["rule_action"])))
     if "rule_number" in value:
-        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+        pairs.append((f"{key_prefix}RuleNumber", str(value["rule_number"])))
 
 
 def deserialize_ec2_query(el: Element) -> AnalysisAclRule:

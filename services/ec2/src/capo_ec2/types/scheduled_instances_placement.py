@@ -22,10 +22,11 @@ class ScheduledInstancesPlacement(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ScheduledInstancesPlacement, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
 
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstancesPlacement:

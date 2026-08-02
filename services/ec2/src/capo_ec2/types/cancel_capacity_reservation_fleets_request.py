@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "capacity_reservation_fleet_ids" in value:
         import capo_ec2.types.capacity_reservation_fleet_id_set
 
         capo_ec2.types.capacity_reservation_fleet_id_set.serialize_ec2_query(
             value["capacity_reservation_fleet_ids"],
             pairs,
-            f"{prefix}.CapacityReservationFleetIds",
+            f"{key_prefix}CapacityReservationFleetIds",
         )
 
 

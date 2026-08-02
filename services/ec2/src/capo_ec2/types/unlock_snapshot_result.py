@@ -19,8 +19,9 @@ class UnlockSnapshotResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: UnlockSnapshotResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> UnlockSnapshotResult:

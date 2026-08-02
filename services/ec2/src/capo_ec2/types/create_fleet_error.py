@@ -29,24 +29,25 @@ class CreateFleetError(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateFleetError, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_and_overrides" in value:
         import capo_ec2.types.launch_template_and_overrides_response
 
         capo_ec2.types.launch_template_and_overrides_response.serialize_ec2_query(
             value["launch_template_and_overrides"],
             pairs,
-            f"{prefix}.LaunchTemplateAndOverrides",
+            f"{key_prefix}LaunchTemplateAndOverrides",
         )
     if "lifecycle" in value:
         import capo_ec2.types.instance_lifecycle
 
         capo_ec2.types.instance_lifecycle.serialize_ec2_query(
-            value["lifecycle"], pairs, f"{prefix}.Lifecycle"
+            value["lifecycle"], pairs, f"{key_prefix}Lifecycle"
         )
     if "error_code" in value:
-        pairs.append((f"{prefix}.ErrorCode", str(value["error_code"])))
+        pairs.append((f"{key_prefix}ErrorCode", str(value["error_code"])))
     if "error_message" in value:
-        pairs.append((f"{prefix}.ErrorMessage", str(value["error_message"])))
+        pairs.append((f"{key_prefix}ErrorMessage", str(value["error_message"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateFleetError:

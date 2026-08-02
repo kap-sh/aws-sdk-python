@@ -26,14 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "connection_notification" in value:
         import capo_ec2.types.connection_notification
 
         capo_ec2.types.connection_notification.serialize_ec2_query(
-            value["connection_notification"], pairs, f"{prefix}.ConnectionNotification"
+            value["connection_notification"],
+            pairs,
+            f"{key_prefix}ConnectionNotification",
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateVpcEndpointConnectionNotificationResult:

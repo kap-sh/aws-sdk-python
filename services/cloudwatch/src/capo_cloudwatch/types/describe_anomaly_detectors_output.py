@@ -55,14 +55,15 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAnomalyDetectorsOutput:
 def serialize_query(
     value: DescribeAnomalyDetectorsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "anomaly_detectors" in value:
         import capo_cloudwatch.types.anomaly_detectors
 
         capo_cloudwatch.types.anomaly_detectors.serialize_query(
-            value["anomaly_detectors"], pairs, f"{prefix}.AnomalyDetectors"
+            value["anomaly_detectors"], pairs, f"{key_prefix}AnomalyDetectors"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeAnomalyDetectorsOutput:

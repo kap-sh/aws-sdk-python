@@ -40,32 +40,33 @@ class ServiceLastAccessed(TypedDict, closed=True):
 def serialize_query(
     value: ServiceLastAccessed, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
     if "last_authenticated" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["last_authenticated"], pairs, f"{prefix}.LastAuthenticated"
+            value["last_authenticated"], pairs, f"{key_prefix}LastAuthenticated"
         )
-    pairs.append((f"{prefix}.ServiceNamespace", str(value["service_namespace"])))
+    pairs.append((f"{key_prefix}ServiceNamespace", str(value["service_namespace"])))
     if "last_authenticated_entity" in value:
         pairs.append(
             (
-                f"{prefix}.LastAuthenticatedEntity",
+                f"{key_prefix}LastAuthenticatedEntity",
                 str(value["last_authenticated_entity"]),
             )
         )
     if "last_authenticated_region" in value:
         pairs.append(
             (
-                f"{prefix}.LastAuthenticatedRegion",
+                f"{key_prefix}LastAuthenticatedRegion",
                 str(value["last_authenticated_region"]),
             )
         )
     if "total_authenticated_entities" in value:
         pairs.append(
             (
-                f"{prefix}.TotalAuthenticatedEntities",
+                f"{key_prefix}TotalAuthenticatedEntities",
                 str(value["total_authenticated_entities"]),
             )
         )
@@ -75,7 +76,7 @@ def serialize_query(
         capo_iam.types.tracked_actions_last_accessed.serialize_query(
             value["tracked_actions_last_accessed"],
             pairs,
-            f"{prefix}.TrackedActionsLastAccessed",
+            f"{key_prefix}TrackedActionsLastAccessed",
         )
 
 

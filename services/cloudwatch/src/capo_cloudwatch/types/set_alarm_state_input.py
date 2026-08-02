@@ -65,18 +65,19 @@ def deserialize_aws_json_1_0(data: dict) -> SetAlarmStateInput:
 def serialize_query(
     value: SetAlarmStateInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "state_value" in value:
         import capo_cloudwatch.types.state_value
 
         capo_cloudwatch.types.state_value.serialize_query(
-            value["state_value"], pairs, f"{prefix}.StateValue"
+            value["state_value"], pairs, f"{key_prefix}StateValue"
         )
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
     if "state_reason_data" in value:
-        pairs.append((f"{prefix}.StateReasonData", str(value["state_reason_data"])))
+        pairs.append((f"{key_prefix}StateReasonData", str(value["state_reason_data"])))
 
 
 def deserialize_query(el: Element) -> SetAlarmStateInput:

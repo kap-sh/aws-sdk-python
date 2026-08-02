@@ -28,19 +28,20 @@ class ListAccessKeysResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListAccessKeysResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.access_key_metadata_list_type
 
     capo_iam.types.access_key_metadata_list_type.serialize_query(
-        value["access_key_metadata"], pairs, f"{prefix}.AccessKeyMetadata"
+        value["access_key_metadata"], pairs, f"{key_prefix}AccessKeyMetadata"
     )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListAccessKeysResponse:

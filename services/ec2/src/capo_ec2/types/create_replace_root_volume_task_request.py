@@ -41,33 +41,34 @@ class CreateReplaceRootVolumeTaskRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateReplaceRootVolumeTaskRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "delete_replaced_root_volume" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteReplacedRootVolume",
+                f"{key_prefix}DeleteReplacedRootVolume",
                 "true" if value["delete_replaced_root_volume"] else "false",
             )
         )
     if "volume_initialization_rate" in value:
         pairs.append(
             (
-                f"{prefix}.VolumeInitializationRate",
+                f"{key_prefix}VolumeInitializationRate",
                 str(value["volume_initialization_rate"]),
             )
         )

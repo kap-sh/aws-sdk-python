@@ -24,14 +24,15 @@ class DescribeSecondaryNetworksResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSecondaryNetworksResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "secondary_networks" in value:
         import capo_ec2.types.secondary_network_list
 
         capo_ec2.types.secondary_network_list.serialize_ec2_query(
-            value["secondary_networks"], pairs, f"{prefix}.SecondaryNetworkSet"
+            value["secondary_networks"], pairs, f"{key_prefix}SecondaryNetworkSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeSecondaryNetworksResult:

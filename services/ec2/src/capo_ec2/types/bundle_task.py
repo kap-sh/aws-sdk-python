@@ -37,41 +37,42 @@ class BundleTask(TypedDict, closed=True):
 def serialize_ec2_query(
     value: BundleTask, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "bundle_id" in value:
-        pairs.append((f"{prefix}.BundleId", str(value["bundle_id"])))
+        pairs.append((f"{key_prefix}BundleId", str(value["bundle_id"])))
     if "state" in value:
         import capo_ec2.types.bundle_task_state
 
         capo_ec2.types.bundle_task_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "update_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["update_time"], pairs, f"{prefix}.UpdateTime"
+            value["update_time"], pairs, f"{key_prefix}UpdateTime"
         )
     if "storage" in value:
         import capo_ec2.types.storage
 
         capo_ec2.types.storage.serialize_ec2_query(
-            value["storage"], pairs, f"{prefix}.Storage"
+            value["storage"], pairs, f"{key_prefix}Storage"
         )
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "bundle_task_error" in value:
         import capo_ec2.types.bundle_task_error
 
         capo_ec2.types.bundle_task_error.serialize_ec2_query(
-            value["bundle_task_error"], pairs, f"{prefix}.Error"
+            value["bundle_task_error"], pairs, f"{key_prefix}Error"
         )
 
 

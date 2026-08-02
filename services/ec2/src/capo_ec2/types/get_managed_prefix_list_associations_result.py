@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "prefix_list_associations" in value:
         import capo_ec2.types.prefix_list_association_set
 
         capo_ec2.types.prefix_list_association_set.serialize_ec2_query(
             value["prefix_list_associations"],
             pairs,
-            f"{prefix}.PrefixListAssociationSet",
+            f"{key_prefix}PrefixListAssociationSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetManagedPrefixListAssociationsResult:

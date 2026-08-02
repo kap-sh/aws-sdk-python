@@ -26,13 +26,14 @@ AuthorizeSecurityGroupEgressResult = TypedDict(
 def serialize_ec2_query(
     value: AuthorizeSecurityGroupEgressResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
     if "security_group_rules" in value:
         import capo_ec2.types.security_group_rule_list
 
         capo_ec2.types.security_group_rule_list.serialize_ec2_query(
-            value["security_group_rules"], pairs, f"{prefix}.SecurityGroupRuleSet"
+            value["security_group_rules"], pairs, f"{key_prefix}SecurityGroupRuleSet"
         )
 
 

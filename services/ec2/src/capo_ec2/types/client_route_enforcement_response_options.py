@@ -21,8 +21,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enforced" in value:
-        pairs.append((f"{prefix}.Enforced", "true" if value["enforced"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Enforced", "true" if value["enforced"] else "false")
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ClientRouteEnforcementResponseOptions:

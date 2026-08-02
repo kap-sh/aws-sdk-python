@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "ipam_external_resource_verification_tokens" in value:
         import capo_ec2.types.ipam_external_resource_verification_token_set
 
         capo_ec2.types.ipam_external_resource_verification_token_set.serialize_ec2_query(
             value["ipam_external_resource_verification_tokens"],
             pairs,
-            f"{prefix}.IpamExternalResourceVerificationTokenSet",
+            f"{key_prefix}IpamExternalResourceVerificationTokenSet",
         )
 
 

@@ -24,15 +24,16 @@ class DescribeSpotFleetRequestsResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSpotFleetRequestsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "spot_fleet_request_configs" in value:
         import capo_ec2.types.spot_fleet_request_config_set
 
         capo_ec2.types.spot_fleet_request_config_set.serialize_ec2_query(
             value["spot_fleet_request_configs"],
             pairs,
-            f"{prefix}.SpotFleetRequestConfigSet",
+            f"{key_prefix}SpotFleetRequestConfigSet",
         )
 
 

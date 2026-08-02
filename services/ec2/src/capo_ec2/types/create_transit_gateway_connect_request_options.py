@@ -21,11 +21,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "protocol" in value:
         import capo_ec2.types.protocol_value
 
         capo_ec2.types.protocol_value.serialize_ec2_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
 
 

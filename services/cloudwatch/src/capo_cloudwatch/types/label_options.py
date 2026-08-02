@@ -36,8 +36,9 @@ def deserialize_aws_json_1_0(data: dict) -> LabelOptions:
 def serialize_query(
     value: LabelOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timezone" in value:
-        pairs.append((f"{prefix}.Timezone", str(value["timezone"])))
+        pairs.append((f"{key_prefix}Timezone", str(value["timezone"])))
 
 
 def deserialize_query(el: Element) -> LabelOptions:

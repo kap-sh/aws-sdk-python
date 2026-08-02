@@ -31,19 +31,20 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "auto_recovery" in value:
         import capo_ec2.types.instance_auto_recovery_state
 
         capo_ec2.types.instance_auto_recovery_state.serialize_ec2_query(
-            value["auto_recovery"], pairs, f"{prefix}.AutoRecovery"
+            value["auto_recovery"], pairs, f"{key_prefix}AutoRecovery"
         )
     if "reboot_migration" in value:
         import capo_ec2.types.instance_reboot_migration_state
 
         capo_ec2.types.instance_reboot_migration_state.serialize_ec2_query(
-            value["reboot_migration"], pairs, f"{prefix}.RebootMigration"
+            value["reboot_migration"], pairs, f"{key_prefix}RebootMigration"
         )
 
 

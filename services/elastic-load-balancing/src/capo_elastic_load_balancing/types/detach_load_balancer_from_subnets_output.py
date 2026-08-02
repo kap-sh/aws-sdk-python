@@ -21,11 +21,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnets" in value:
         import capo_elastic_load_balancing.types.subnets
 
         capo_elastic_load_balancing.types.subnets.serialize_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
 
 

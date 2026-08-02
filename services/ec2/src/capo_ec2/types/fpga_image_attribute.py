@@ -31,23 +31,24 @@ class FpgaImageAttribute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FpgaImageAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "fpga_image_id" in value:
-        pairs.append((f"{prefix}.FpgaImageId", str(value["fpga_image_id"])))
+        pairs.append((f"{key_prefix}FpgaImageId", str(value["fpga_image_id"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "load_permissions" in value:
         import capo_ec2.types.load_permission_list
 
         capo_ec2.types.load_permission_list.serialize_ec2_query(
-            value["load_permissions"], pairs, f"{prefix}.LoadPermissions"
+            value["load_permissions"], pairs, f"{key_prefix}LoadPermissions"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
 
 

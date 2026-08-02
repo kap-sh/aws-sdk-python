@@ -24,14 +24,18 @@ class CapacityReservationTarget(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "capacity_reservation_resource_group_arn" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityReservationResourceGroupArn",
+                f"{key_prefix}CapacityReservationResourceGroupArn",
                 str(value["capacity_reservation_resource_group_arn"]),
             )
         )

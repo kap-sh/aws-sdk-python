@@ -28,12 +28,13 @@ class UpdateRoleRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateRoleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "max_session_duration" in value:
         pairs.append(
-            (f"{prefix}.MaxSessionDuration", str(value["max_session_duration"]))
+            (f"{key_prefix}MaxSessionDuration", str(value["max_session_duration"]))
         )
 
 

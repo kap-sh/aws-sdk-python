@@ -19,11 +19,12 @@ class DeprovisionIpamPoolCidrResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeprovisionIpamPoolCidrResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_pool_cidr" in value:
         import capo_ec2.types.ipam_pool_cidr
 
         capo_ec2.types.ipam_pool_cidr.serialize_ec2_query(
-            value["ipam_pool_cidr"], pairs, f"{prefix}.IpamPoolCidr"
+            value["ipam_pool_cidr"], pairs, f"{key_prefix}IpamPoolCidr"
         )
 
 

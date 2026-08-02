@@ -107,33 +107,34 @@ def deserialize_aws_json_1_0(data: dict) -> MetricDataResult:
 def serialize_query(
     value: MetricDataResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "label" in value:
-        pairs.append((f"{prefix}.Label", str(value["label"])))
+        pairs.append((f"{key_prefix}Label", str(value["label"])))
     if "timestamps" in value:
         import capo_cloudwatch.types.timestamps
 
         capo_cloudwatch.types.timestamps.serialize_query(
-            value["timestamps"], pairs, f"{prefix}.Timestamps"
+            value["timestamps"], pairs, f"{key_prefix}Timestamps"
         )
     if "values" in value:
         import capo_cloudwatch.types.datapoint_values
 
         capo_cloudwatch.types.datapoint_values.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
     if "status_code" in value:
         import capo_cloudwatch.types.status_code
 
         capo_cloudwatch.types.status_code.serialize_query(
-            value["status_code"], pairs, f"{prefix}.StatusCode"
+            value["status_code"], pairs, f"{key_prefix}StatusCode"
         )
     if "messages" in value:
         import capo_cloudwatch.types.metric_data_result_messages
 
         capo_cloudwatch.types.metric_data_result_messages.serialize_query(
-            value["messages"], pairs, f"{prefix}.Messages"
+            value["messages"], pairs, f"{key_prefix}Messages"
         )
 
 

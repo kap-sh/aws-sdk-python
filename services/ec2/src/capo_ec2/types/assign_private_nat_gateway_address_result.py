@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
     if "nat_gateway_addresses" in value:
         import capo_ec2.types.nat_gateway_address_list
 
         capo_ec2.types.nat_gateway_address_list.serialize_ec2_query(
-            value["nat_gateway_addresses"], pairs, f"{prefix}.NatGatewayAddressSet"
+            value["nat_gateway_addresses"], pairs, f"{key_prefix}NatGatewayAddressSet"
         )
 
 

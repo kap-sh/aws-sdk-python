@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "reports" in value:
         import capo_ec2.types.declarative_policies_report_list
 
         capo_ec2.types.declarative_policies_report_list.serialize_ec2_query(
-            value["reports"], pairs, f"{prefix}.ReportSet"
+            value["reports"], pairs, f"{key_prefix}ReportSet"
         )
 
 

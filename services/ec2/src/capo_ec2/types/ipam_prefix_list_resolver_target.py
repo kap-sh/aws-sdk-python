@@ -59,57 +59,62 @@ class IpamPrefixListResolverTarget(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPrefixListResolverTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_prefix_list_resolver_target_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverTargetId",
+                f"{key_prefix}IpamPrefixListResolverTargetId",
                 str(value["ipam_prefix_list_resolver_target_id"]),
             )
         )
     if "ipam_prefix_list_resolver_target_arn" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverTargetArn",
+                f"{key_prefix}IpamPrefixListResolverTargetArn",
                 str(value["ipam_prefix_list_resolver_target_arn"]),
             )
         )
     if "ipam_prefix_list_resolver_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverId",
+                f"{key_prefix}IpamPrefixListResolverId",
                 str(value["ipam_prefix_list_resolver_id"]),
             )
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "prefix_list_region" in value:
-        pairs.append((f"{prefix}.PrefixListRegion", str(value["prefix_list_region"])))
+        pairs.append(
+            (f"{key_prefix}PrefixListRegion", str(value["prefix_list_region"]))
+        )
     if "desired_version" in value:
-        pairs.append((f"{prefix}.DesiredVersion", str(value["desired_version"])))
+        pairs.append((f"{key_prefix}DesiredVersion", str(value["desired_version"])))
     if "last_synced_version" in value:
-        pairs.append((f"{prefix}.LastSyncedVersion", str(value["last_synced_version"])))
+        pairs.append(
+            (f"{key_prefix}LastSyncedVersion", str(value["last_synced_version"]))
+        )
     if "track_latest_version" in value:
         pairs.append(
             (
-                f"{prefix}.TrackLatestVersion",
+                f"{key_prefix}TrackLatestVersion",
                 "true" if value["track_latest_version"] else "false",
             )
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
     if "state" in value:
         import capo_ec2.types.ipam_prefix_list_resolver_target_state
 
         capo_ec2.types.ipam_prefix_list_resolver_target_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -26,13 +26,14 @@ class CancelSpotFleetRequestsResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelSpotFleetRequestsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful_fleet_requests" in value:
         import capo_ec2.types.cancel_spot_fleet_requests_success_set
 
         capo_ec2.types.cancel_spot_fleet_requests_success_set.serialize_ec2_query(
             value["successful_fleet_requests"],
             pairs,
-            f"{prefix}.SuccessfulFleetRequestSet",
+            f"{key_prefix}SuccessfulFleetRequestSet",
         )
     if "unsuccessful_fleet_requests" in value:
         import capo_ec2.types.cancel_spot_fleet_requests_error_set
@@ -40,7 +41,7 @@ def serialize_ec2_query(
         capo_ec2.types.cancel_spot_fleet_requests_error_set.serialize_ec2_query(
             value["unsuccessful_fleet_requests"],
             pairs,
-            f"{prefix}.UnsuccessfulFleetRequestSet",
+            f"{key_prefix}UnsuccessfulFleetRequestSet",
         )
 
 

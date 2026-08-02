@@ -24,17 +24,18 @@ class EnableCapacityManagerRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableCapacityManagerRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "organizations_access" in value:
         pairs.append(
             (
-                f"{prefix}.OrganizationsAccess",
+                f"{key_prefix}OrganizationsAccess",
                 "true" if value["organizations_access"] else "false",
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> EnableCapacityManagerRequest:

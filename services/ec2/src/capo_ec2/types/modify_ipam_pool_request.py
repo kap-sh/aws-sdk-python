@@ -53,41 +53,42 @@ class ModifyIpamPoolRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamPoolRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "auto_import" in value:
         pairs.append(
-            (f"{prefix}.AutoImport", "true" if value["auto_import"] else "false")
+            (f"{key_prefix}AutoImport", "true" if value["auto_import"] else "false")
         )
     if "allocation_min_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.AllocationMinNetmaskLength",
+                f"{key_prefix}AllocationMinNetmaskLength",
                 str(value["allocation_min_netmask_length"]),
             )
         )
     if "allocation_max_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.AllocationMaxNetmaskLength",
+                f"{key_prefix}AllocationMaxNetmaskLength",
                 str(value["allocation_max_netmask_length"]),
             )
         )
     if "allocation_default_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.AllocationDefaultNetmaskLength",
+                f"{key_prefix}AllocationDefaultNetmaskLength",
                 str(value["allocation_default_netmask_length"]),
             )
         )
     if "clear_allocation_default_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.ClearAllocationDefaultNetmaskLength",
+                f"{key_prefix}ClearAllocationDefaultNetmaskLength",
                 "true" if value["clear_allocation_default_netmask_length"] else "false",
             )
         )
@@ -97,7 +98,7 @@ def serialize_ec2_query(
         capo_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
             value["add_allocation_resource_tags"],
             pairs,
-            f"{prefix}.AddAllocationResourceTags",
+            f"{key_prefix}AddAllocationResourceTags",
         )
     if "remove_allocation_resource_tags" in value:
         import capo_ec2.types.request_ipam_resource_tag_list
@@ -105,7 +106,7 @@ def serialize_ec2_query(
         capo_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
             value["remove_allocation_resource_tags"],
             pairs,
-            f"{prefix}.RemoveAllocationResourceTags",
+            f"{key_prefix}RemoveAllocationResourceTags",
         )
 
 

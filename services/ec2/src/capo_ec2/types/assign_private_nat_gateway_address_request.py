@@ -32,20 +32,24 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
     if "private_ip_addresses" in value:
         import capo_ec2.types.ip_list
 
         capo_ec2.types.ip_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddresses"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddresses"
         )
     if "private_ip_address_count" in value:
         pairs.append(
-            (f"{prefix}.PrivateIpAddressCount", str(value["private_ip_address_count"]))
+            (
+                f"{key_prefix}PrivateIpAddressCount",
+                str(value["private_ip_address_count"]),
+            )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> AssignPrivateNatGatewayAddressRequest:

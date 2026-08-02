@@ -23,12 +23,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
     if "db_instance_automated_backups_arn" in value:
         pairs.append(
             (
-                f"{prefix}.DBInstanceAutomatedBackupsArn",
+                f"{key_prefix}DBInstanceAutomatedBackupsArn",
                 str(value["db_instance_automated_backups_arn"]),
             )
         )

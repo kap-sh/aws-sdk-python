@@ -30,9 +30,10 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
-    pairs.append((f"{prefix}.CookieName", str(value["cookie_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"])))
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
+    pairs.append((f"{key_prefix}CookieName", str(value["cookie_name"])))
 
 
 def deserialize_query(el: Element) -> CreateAppCookieStickinessPolicyInput:

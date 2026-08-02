@@ -26,14 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_sessions" in value:
         import capo_ec2.types.traffic_mirror_session_set
 
         capo_ec2.types.traffic_mirror_session_set.serialize_ec2_query(
-            value["traffic_mirror_sessions"], pairs, f"{prefix}.TrafficMirrorSessionSet"
+            value["traffic_mirror_sessions"],
+            pairs,
+            f"{key_prefix}TrafficMirrorSessionSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeTrafficMirrorSessionsResult:

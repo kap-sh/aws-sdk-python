@@ -46,15 +46,16 @@ class CapacityBlock(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityBlock, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_block_id" in value:
-        pairs.append((f"{prefix}.CapacityBlockId", str(value["capacity_block_id"])))
+        pairs.append((f"{key_prefix}CapacityBlockId", str(value["capacity_block_id"])))
     if "ultraserver_type" in value:
-        pairs.append((f"{prefix}.UltraserverType", str(value["ultraserver_type"])))
+        pairs.append((f"{key_prefix}UltraserverType", str(value["ultraserver_type"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "capacity_reservation_ids" in value:
         import capo_ec2.types.capacity_reservation_id_set
@@ -62,37 +63,37 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_reservation_id_set.serialize_ec2_query(
             value["capacity_reservation_ids"],
             pairs,
-            f"{prefix}.CapacityReservationIdSet",
+            f"{key_prefix}CapacityReservationIdSet",
         )
     if "start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "create_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "state" in value:
         import capo_ec2.types.capacity_block_resource_state
 
         capo_ec2.types.capacity_block_resource_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

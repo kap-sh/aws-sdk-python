@@ -19,10 +19,11 @@ class CreateDefaultVpcResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateDefaultVpcResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc" in value:
         import capo_ec2.types.vpc
 
-        capo_ec2.types.vpc.serialize_ec2_query(value["vpc"], pairs, f"{prefix}.Vpc")
+        capo_ec2.types.vpc.serialize_ec2_query(value["vpc"], pairs, f"{key_prefix}Vpc")
 
 
 def deserialize_ec2_query(el: Element) -> CreateDefaultVpcResult:

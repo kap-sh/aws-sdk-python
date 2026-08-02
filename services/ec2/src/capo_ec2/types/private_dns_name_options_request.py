@@ -24,23 +24,24 @@ class PrivateDnsNameOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PrivateDnsNameOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hostname_type" in value:
         import capo_ec2.types.hostname_type
 
         capo_ec2.types.hostname_type.serialize_ec2_query(
-            value["hostname_type"], pairs, f"{prefix}.HostnameType"
+            value["hostname_type"], pairs, f"{key_prefix}HostnameType"
         )
     if "enable_resource_name_dns_a_record" in value:
         pairs.append(
             (
-                f"{prefix}.EnableResourceNameDnsARecord",
+                f"{key_prefix}EnableResourceNameDnsARecord",
                 "true" if value["enable_resource_name_dns_a_record"] else "false",
             )
         )
     if "enable_resource_name_dns_aaaa_record" in value:
         pairs.append(
             (
-                f"{prefix}.EnableResourceNameDnsAAAARecord",
+                f"{key_prefix}EnableResourceNameDnsAAAARecord",
                 "true" if value["enable_resource_name_dns_aaaa_record"] else "false",
             )
         )

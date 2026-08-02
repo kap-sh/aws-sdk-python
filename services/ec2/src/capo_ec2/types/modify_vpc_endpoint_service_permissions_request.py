@@ -35,15 +35,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "service_id" in value:
-        pairs.append((f"{prefix}.ServiceId", str(value["service_id"])))
+        pairs.append((f"{key_prefix}ServiceId", str(value["service_id"])))
     if "add_allowed_principals" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["add_allowed_principals"], pairs, f"{prefix}.AddAllowedPrincipals"
+            value["add_allowed_principals"], pairs, f"{key_prefix}AddAllowedPrincipals"
         )
     if "remove_allowed_principals" in value:
         import capo_ec2.types.value_string_list
@@ -51,7 +52,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["remove_allowed_principals"],
             pairs,
-            f"{prefix}.RemoveAllowedPrincipals",
+            f"{key_prefix}RemoveAllowedPrincipals",
         )
 
 

@@ -26,11 +26,12 @@ class CreatePolicyVersionRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreatePolicyVersionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicyArn", str(value["policy_arn"])))
-    pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyArn", str(value["policy_arn"])))
+    pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     pairs.append(
         (
-            f"{prefix}.SetAsDefault",
+            f"{key_prefix}SetAsDefault",
             "true" if value.get("set_as_default", False) else "false",
         )
     )

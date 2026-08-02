@@ -24,11 +24,12 @@ class ConnectionDraining(TypedDict, closed=True):
 def serialize_query(
     value: ConnectionDraining, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.Enabled", "true" if value.get("enabled", False) else "false")
+        (f"{key_prefix}Enabled", "true" if value.get("enabled", False) else "false")
     )
     if "timeout" in value:
-        pairs.append((f"{prefix}.Timeout", str(value["timeout"])))
+        pairs.append((f"{key_prefix}Timeout", str(value["timeout"])))
 
 
 def deserialize_query(el: Element) -> ConnectionDraining:

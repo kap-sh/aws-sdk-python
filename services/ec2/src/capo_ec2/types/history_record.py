@@ -25,23 +25,24 @@ class HistoryRecord(TypedDict, closed=True):
 def serialize_ec2_query(
     value: HistoryRecord, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event_information" in value:
         import capo_ec2.types.event_information
 
         capo_ec2.types.event_information.serialize_ec2_query(
-            value["event_information"], pairs, f"{prefix}.EventInformation"
+            value["event_information"], pairs, f"{key_prefix}EventInformation"
         )
     if "event_type" in value:
         import capo_ec2.types.event_type
 
         capo_ec2.types.event_type.serialize_ec2_query(
-            value["event_type"], pairs, f"{prefix}.EventType"
+            value["event_type"], pairs, f"{key_prefix}EventType"
         )
     if "timestamp" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
 
 

@@ -74,22 +74,23 @@ def deserialize_aws_json_1_0(data: dict) -> PutInsightRuleInput:
 def serialize_query(
     value: PutInsightRuleInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_name" in value:
-        pairs.append((f"{prefix}.RuleName", str(value["rule_name"])))
+        pairs.append((f"{key_prefix}RuleName", str(value["rule_name"])))
     if "rule_state" in value:
-        pairs.append((f"{prefix}.RuleState", str(value["rule_state"])))
+        pairs.append((f"{key_prefix}RuleState", str(value["rule_state"])))
     if "rule_definition" in value:
-        pairs.append((f"{prefix}.RuleDefinition", str(value["rule_definition"])))
+        pairs.append((f"{key_prefix}RuleDefinition", str(value["rule_definition"])))
     if "tags" in value:
         import capo_cloudwatch.types.tag_list
 
         capo_cloudwatch.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "apply_on_transformed_logs" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyOnTransformedLogs",
+                f"{key_prefix}ApplyOnTransformedLogs",
                 "true" if value["apply_on_transformed_logs"] else "false",
             )
         )

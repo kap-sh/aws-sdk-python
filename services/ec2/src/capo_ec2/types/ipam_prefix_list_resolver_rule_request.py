@@ -35,27 +35,28 @@ class IpamPrefixListResolverRuleRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPrefixListResolverRuleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_type" in value:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_type
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_type.serialize_ec2_query(
-            value["rule_type"], pairs, f"{prefix}.RuleType"
+            value["rule_type"], pairs, f"{key_prefix}RuleType"
         )
     if "static_cidr" in value:
-        pairs.append((f"{prefix}.StaticCidr", str(value["static_cidr"])))
+        pairs.append((f"{key_prefix}StaticCidr", str(value["static_cidr"])))
     if "ipam_scope_id" in value:
-        pairs.append((f"{prefix}.IpamScopeId", str(value["ipam_scope_id"])))
+        pairs.append((f"{key_prefix}IpamScopeId", str(value["ipam_scope_id"])))
     if "resource_type" in value:
         import capo_ec2.types.ipam_resource_type
 
         capo_ec2.types.ipam_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "conditions" in value:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_condition_request_set
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_condition_request_set.serialize_ec2_query(
-            value["conditions"], pairs, f"{prefix}.Conditions"
+            value["conditions"], pairs, f"{key_prefix}Conditions"
         )
 
 

@@ -29,21 +29,22 @@ class ImportInstanceTaskDetails(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportInstanceTaskDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "platform" in value:
         import capo_ec2.types.platform_values
 
         capo_ec2.types.platform_values.serialize_ec2_query(
-            value["platform"], pairs, f"{prefix}.Platform"
+            value["platform"], pairs, f"{key_prefix}Platform"
         )
     if "volumes" in value:
         import capo_ec2.types.import_instance_volume_detail_set
 
         capo_ec2.types.import_instance_volume_detail_set.serialize_ec2_query(
-            value["volumes"], pairs, f"{prefix}.Volumes"
+            value["volumes"], pairs, f"{key_prefix}Volumes"
         )
 
 

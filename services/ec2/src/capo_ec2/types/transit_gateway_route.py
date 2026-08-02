@@ -44,16 +44,17 @@ class TransitGatewayRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "transit_gateway_route_table_announcement_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayRouteTableAnnouncementId",
+                f"{key_prefix}TransitGatewayRouteTableAnnouncementId",
                 str(value["transit_gateway_route_table_announcement_id"]),
             )
         )
@@ -63,19 +64,19 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_route_attachment_list.serialize_ec2_query(
             value["transit_gateway_attachments"],
             pairs,
-            f"{prefix}.TransitGatewayAttachments",
+            f"{key_prefix}TransitGatewayAttachments",
         )
     if "type" in value:
         import capo_ec2.types.transit_gateway_route_type
 
         capo_ec2.types.transit_gateway_route_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "state" in value:
         import capo_ec2.types.transit_gateway_route_state
 
         capo_ec2.types.transit_gateway_route_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

@@ -19,11 +19,12 @@ class ReleaseHostsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReleaseHostsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "host_ids" in value:
         import capo_ec2.types.request_host_id_list
 
         capo_ec2.types.request_host_id_list.serialize_ec2_query(
-            value["host_ids"], pairs, f"{prefix}.HostId"
+            value["host_ids"], pairs, f"{key_prefix}HostId"
         )
 
 

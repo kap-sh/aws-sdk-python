@@ -35,23 +35,29 @@ class ModifyAdditionalStorageVolume(TypedDict, closed=True):
 def serialize_query(
     value: ModifyAdditionalStorageVolume, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_name" in value:
-        pairs.append((f"{prefix}.VolumeName", str(value["volume_name"])))
+        pairs.append((f"{key_prefix}VolumeName", str(value["volume_name"])))
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.IOPS", str(value["iops"])))
+        pairs.append((f"{key_prefix}IOPS", str(value["iops"])))
     if "max_allocated_storage" in value:
         pairs.append(
-            (f"{prefix}.MaxAllocatedStorage", str(value["max_allocated_storage"]))
+            (f"{key_prefix}MaxAllocatedStorage", str(value["max_allocated_storage"]))
         )
     if "storage_throughput" in value:
-        pairs.append((f"{prefix}.StorageThroughput", str(value["storage_throughput"])))
+        pairs.append(
+            (f"{key_prefix}StorageThroughput", str(value["storage_throughput"]))
+        )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "set_for_delete" in value:
         pairs.append(
-            (f"{prefix}.SetForDelete", "true" if value["set_for_delete"] else "false")
+            (
+                f"{key_prefix}SetForDelete",
+                "true" if value["set_for_delete"] else "false",
+            )
         )
 
 

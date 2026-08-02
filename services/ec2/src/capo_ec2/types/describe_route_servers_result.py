@@ -22,14 +22,15 @@ class DescribeRouteServersResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeRouteServersResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_servers" in value:
         import capo_ec2.types.route_servers_list
 
         capo_ec2.types.route_servers_list.serialize_ec2_query(
-            value["route_servers"], pairs, f"{prefix}.RouteServerSet"
+            value["route_servers"], pairs, f"{key_prefix}RouteServerSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeRouteServersResult:

@@ -79,24 +79,25 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricDataInput:
 def serialize_query(
     value: PutMetricDataInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_data" in value:
         import capo_cloudwatch.types.metric_data
 
         capo_cloudwatch.types.metric_data.serialize_query(
-            value["metric_data"], pairs, f"{prefix}.MetricData"
+            value["metric_data"], pairs, f"{key_prefix}MetricData"
         )
     if "entity_metric_data" in value:
         import capo_cloudwatch.types.entity_metric_data_list
 
         capo_cloudwatch.types.entity_metric_data_list.serialize_query(
-            value["entity_metric_data"], pairs, f"{prefix}.EntityMetricData"
+            value["entity_metric_data"], pairs, f"{key_prefix}EntityMetricData"
         )
     if "strict_entity_validation" in value:
         pairs.append(
             (
-                f"{prefix}.StrictEntityValidation",
+                f"{key_prefix}StrictEntityValidation",
                 "true" if value["strict_entity_validation"] else "false",
             )
         )

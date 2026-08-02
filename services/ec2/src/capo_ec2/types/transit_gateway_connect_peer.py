@@ -42,17 +42,18 @@ class TransitGatewayConnectPeer(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayConnectPeer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "transit_gateway_connect_peer_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayConnectPeerId",
+                f"{key_prefix}TransitGatewayConnectPeerId",
                 str(value["transit_gateway_connect_peer_id"]),
             )
         )
@@ -60,13 +61,13 @@ def serialize_ec2_query(
         import capo_ec2.types.transit_gateway_connect_peer_state
 
         capo_ec2.types.transit_gateway_connect_peer_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "creation_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "connect_peer_configuration" in value:
         import capo_ec2.types.transit_gateway_connect_peer_configuration
@@ -74,13 +75,13 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_connect_peer_configuration.serialize_ec2_query(
             value["connect_peer_configuration"],
             pairs,
-            f"{prefix}.ConnectPeerConfiguration",
+            f"{key_prefix}ConnectPeerConfiguration",
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

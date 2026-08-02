@@ -26,11 +26,12 @@ class SupportedEngineLifecycle(TypedDict, closed=True):
 def serialize_query(
     value: SupportedEngineLifecycle, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "lifecycle_support_name" in value:
         import capo_rds.types.lifecycle_support_name
 
         capo_rds.types.lifecycle_support_name.serialize_query(
-            value["lifecycle_support_name"], pairs, f"{prefix}.LifecycleSupportName"
+            value["lifecycle_support_name"], pairs, f"{key_prefix}LifecycleSupportName"
         )
     if "lifecycle_support_start_date" in value:
         import capo_rds.types.t_stamp
@@ -38,7 +39,7 @@ def serialize_query(
         capo_rds.types.t_stamp.serialize_query(
             value["lifecycle_support_start_date"],
             pairs,
-            f"{prefix}.LifecycleSupportStartDate",
+            f"{key_prefix}LifecycleSupportStartDate",
         )
     if "lifecycle_support_end_date" in value:
         import capo_rds.types.t_stamp
@@ -46,7 +47,7 @@ def serialize_query(
         capo_rds.types.t_stamp.serialize_query(
             value["lifecycle_support_end_date"],
             pairs,
-            f"{prefix}.LifecycleSupportEndDate",
+            f"{key_prefix}LifecycleSupportEndDate",
         )
 
 

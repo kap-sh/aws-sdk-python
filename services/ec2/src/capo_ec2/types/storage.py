@@ -19,11 +19,12 @@ class Storage(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Storage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3" in value:
         import capo_ec2.types.s3_storage
 
         capo_ec2.types.s3_storage.serialize_ec2_query(
-            value["s3"], pairs, f"{prefix}.S3"
+            value["s3"], pairs, f"{key_prefix}S3"
         )
 
 

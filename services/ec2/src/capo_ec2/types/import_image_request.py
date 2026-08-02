@@ -62,57 +62,60 @@ class ImportImageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportImageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "architecture" in value:
-        pairs.append((f"{prefix}.Architecture", str(value["architecture"])))
+        pairs.append((f"{key_prefix}Architecture", str(value["architecture"])))
     if "client_data" in value:
         import capo_ec2.types.client_data
 
         capo_ec2.types.client_data.serialize_ec2_query(
-            value["client_data"], pairs, f"{prefix}.ClientData"
+            value["client_data"], pairs, f"{key_prefix}ClientData"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "disk_containers" in value:
         import capo_ec2.types.image_disk_container_list
 
         capo_ec2.types.image_disk_container_list.serialize_ec2_query(
-            value["disk_containers"], pairs, f"{prefix}.DiskContainers"
+            value["disk_containers"], pairs, f"{key_prefix}DiskContainers"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "hypervisor" in value:
-        pairs.append((f"{prefix}.Hypervisor", str(value["hypervisor"])))
+        pairs.append((f"{key_prefix}Hypervisor", str(value["hypervisor"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "license_type" in value:
-        pairs.append((f"{prefix}.LicenseType", str(value["license_type"])))
+        pairs.append((f"{key_prefix}LicenseType", str(value["license_type"])))
     if "platform" in value:
-        pairs.append((f"{prefix}.Platform", str(value["platform"])))
+        pairs.append((f"{key_prefix}Platform", str(value["platform"])))
     if "role_name" in value:
-        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+        pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     if "license_specifications" in value:
         import capo_ec2.types.import_image_license_specification_list_request
 
         capo_ec2.types.import_image_license_specification_list_request.serialize_ec2_query(
-            value["license_specifications"], pairs, f"{prefix}.LicenseSpecifications"
+            value["license_specifications"], pairs, f"{key_prefix}LicenseSpecifications"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "usage_operation" in value:
-        pairs.append((f"{prefix}.UsageOperation", str(value["usage_operation"])))
+        pairs.append((f"{key_prefix}UsageOperation", str(value["usage_operation"])))
     if "boot_mode" in value:
         import capo_ec2.types.boot_mode_values
 
         capo_ec2.types.boot_mode_values.serialize_ec2_query(
-            value["boot_mode"], pairs, f"{prefix}.BootMode"
+            value["boot_mode"], pairs, f"{key_prefix}BootMode"
         )
 
 

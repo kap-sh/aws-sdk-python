@@ -60,58 +60,59 @@ class LocalGatewayVirtualInterface(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LocalGatewayVirtualInterface, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_virtual_interface_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceId",
+                f"{key_prefix}LocalGatewayVirtualInterfaceId",
                 str(value["local_gateway_virtual_interface_id"]),
             )
         )
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
     if "local_gateway_virtual_interface_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceGroupId",
+                f"{key_prefix}LocalGatewayVirtualInterfaceGroupId",
                 str(value["local_gateway_virtual_interface_group_id"]),
             )
         )
     if "local_gateway_virtual_interface_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceArn",
+                f"{key_prefix}LocalGatewayVirtualInterfaceArn",
                 str(value["local_gateway_virtual_interface_arn"]),
             )
         )
     if "outpost_lag_id" in value:
-        pairs.append((f"{prefix}.OutpostLagId", str(value["outpost_lag_id"])))
+        pairs.append((f"{key_prefix}OutpostLagId", str(value["outpost_lag_id"])))
     if "vlan" in value:
-        pairs.append((f"{prefix}.Vlan", str(value["vlan"])))
+        pairs.append((f"{key_prefix}Vlan", str(value["vlan"])))
     if "local_address" in value:
-        pairs.append((f"{prefix}.LocalAddress", str(value["local_address"])))
+        pairs.append((f"{key_prefix}LocalAddress", str(value["local_address"])))
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "local_bgp_asn" in value:
-        pairs.append((f"{prefix}.LocalBgpAsn", str(value["local_bgp_asn"])))
+        pairs.append((f"{key_prefix}LocalBgpAsn", str(value["local_bgp_asn"])))
     if "peer_bgp_asn" in value:
-        pairs.append((f"{prefix}.PeerBgpAsn", str(value["peer_bgp_asn"])))
+        pairs.append((f"{key_prefix}PeerBgpAsn", str(value["peer_bgp_asn"])))
     if "peer_bgp_asn_extended" in value:
         pairs.append(
-            (f"{prefix}.PeerBgpAsnExtended", str(value["peer_bgp_asn_extended"]))
+            (f"{key_prefix}PeerBgpAsnExtended", str(value["peer_bgp_asn_extended"]))
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "configuration_state" in value:
         import capo_ec2.types.local_gateway_virtual_interface_configuration_state
 
         capo_ec2.types.local_gateway_virtual_interface_configuration_state.serialize_ec2_query(
-            value["configuration_state"], pairs, f"{prefix}.ConfigurationState"
+            value["configuration_state"], pairs, f"{key_prefix}ConfigurationState"
         )
 
 

@@ -47,34 +47,35 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_virtual_interface_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceGroupId",
+                f"{key_prefix}LocalGatewayVirtualInterfaceGroupId",
                 str(value["local_gateway_virtual_interface_group_id"]),
             )
         )
     if "outpost_lag_id" in value:
-        pairs.append((f"{prefix}.OutpostLagId", str(value["outpost_lag_id"])))
+        pairs.append((f"{key_prefix}OutpostLagId", str(value["outpost_lag_id"])))
     if "vlan" in value:
-        pairs.append((f"{prefix}.Vlan", str(value["vlan"])))
+        pairs.append((f"{key_prefix}Vlan", str(value["vlan"])))
     if "local_address" in value:
-        pairs.append((f"{prefix}.LocalAddress", str(value["local_address"])))
+        pairs.append((f"{key_prefix}LocalAddress", str(value["local_address"])))
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "peer_bgp_asn" in value:
-        pairs.append((f"{prefix}.PeerBgpAsn", str(value["peer_bgp_asn"])))
+        pairs.append((f"{key_prefix}PeerBgpAsn", str(value["peer_bgp_asn"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "peer_bgp_asn_extended" in value:
         pairs.append(
-            (f"{prefix}.PeerBgpAsnExtended", str(value["peer_bgp_asn_extended"]))
+            (f"{key_prefix}PeerBgpAsnExtended", str(value["peer_bgp_asn_extended"]))
         )
 
 

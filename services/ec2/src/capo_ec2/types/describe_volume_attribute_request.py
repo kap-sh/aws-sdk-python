@@ -25,16 +25,17 @@ class DescribeVolumeAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVolumeAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute" in value:
         import capo_ec2.types.volume_attribute_name
 
         capo_ec2.types.volume_attribute_name.serialize_ec2_query(
-            value["attribute"], pairs, f"{prefix}.Attribute"
+            value["attribute"], pairs, f"{key_prefix}Attribute"
         )
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVolumeAttributeRequest:

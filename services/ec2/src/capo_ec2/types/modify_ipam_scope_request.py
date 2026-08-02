@@ -34,24 +34,25 @@ class ModifyIpamScopeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamScopeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_scope_id" in value:
-        pairs.append((f"{prefix}.IpamScopeId", str(value["ipam_scope_id"])))
+        pairs.append((f"{key_prefix}IpamScopeId", str(value["ipam_scope_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "external_authority_configuration" in value:
         import capo_ec2.types.external_authority_configuration
 
         capo_ec2.types.external_authority_configuration.serialize_ec2_query(
             value["external_authority_configuration"],
             pairs,
-            f"{prefix}.ExternalAuthorityConfiguration",
+            f"{key_prefix}ExternalAuthorityConfiguration",
         )
     if "remove_external_authority_configuration" in value:
         pairs.append(
             (
-                f"{prefix}.RemoveExternalAuthorityConfiguration",
+                f"{key_prefix}RemoveExternalAuthorityConfiguration",
                 "true" if value["remove_external_authority_configuration"] else "false",
             )
         )

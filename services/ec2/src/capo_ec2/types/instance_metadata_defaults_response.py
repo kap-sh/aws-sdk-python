@@ -45,16 +45,17 @@ class InstanceMetadataDefaultsResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceMetadataDefaultsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "http_tokens" in value:
         import capo_ec2.types.http_tokens_state
 
         capo_ec2.types.http_tokens_state.serialize_ec2_query(
-            value["http_tokens"], pairs, f"{prefix}.HttpTokens"
+            value["http_tokens"], pairs, f"{key_prefix}HttpTokens"
         )
     if "http_put_response_hop_limit" in value:
         pairs.append(
             (
-                f"{prefix}.HttpPutResponseHopLimit",
+                f"{key_prefix}HttpPutResponseHopLimit",
                 str(value["http_put_response_hop_limit"]),
             )
         )
@@ -62,24 +63,24 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_metadata_endpoint_state
 
         capo_ec2.types.instance_metadata_endpoint_state.serialize_ec2_query(
-            value["http_endpoint"], pairs, f"{prefix}.HttpEndpoint"
+            value["http_endpoint"], pairs, f"{key_prefix}HttpEndpoint"
         )
     if "instance_metadata_tags" in value:
         import capo_ec2.types.instance_metadata_tags_state
 
         capo_ec2.types.instance_metadata_tags_state.serialize_ec2_query(
-            value["instance_metadata_tags"], pairs, f"{prefix}.InstanceMetadataTags"
+            value["instance_metadata_tags"], pairs, f"{key_prefix}InstanceMetadataTags"
         )
     if "managed_by" in value:
         import capo_ec2.types.managed_by
 
         capo_ec2.types.managed_by.serialize_ec2_query(
-            value["managed_by"], pairs, f"{prefix}.ManagedBy"
+            value["managed_by"], pairs, f"{key_prefix}ManagedBy"
         )
     if "managed_exception_message" in value:
         pairs.append(
             (
-                f"{prefix}.ManagedExceptionMessage",
+                f"{key_prefix}ManagedExceptionMessage",
                 str(value["managed_exception_message"]),
             )
         )
@@ -87,7 +88,7 @@ def serialize_ec2_query(
         import capo_ec2.types.http_tokens_enforced_state
 
         capo_ec2.types.http_tokens_enforced_state.serialize_ec2_query(
-            value["http_tokens_enforced"], pairs, f"{prefix}.HttpTokensEnforced"
+            value["http_tokens_enforced"], pairs, f"{key_prefix}HttpTokensEnforced"
         )
 
 

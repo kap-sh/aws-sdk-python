@@ -28,13 +28,14 @@ class GetSubnetCidrReservationsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetSubnetCidrReservationsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet_ipv4_cidr_reservations" in value:
         import capo_ec2.types.subnet_cidr_reservation_list
 
         capo_ec2.types.subnet_cidr_reservation_list.serialize_ec2_query(
             value["subnet_ipv4_cidr_reservations"],
             pairs,
-            f"{prefix}.SubnetIpv4CidrReservationSet",
+            f"{key_prefix}SubnetIpv4CidrReservationSet",
         )
     if "subnet_ipv6_cidr_reservations" in value:
         import capo_ec2.types.subnet_cidr_reservation_list
@@ -42,10 +43,10 @@ def serialize_ec2_query(
         capo_ec2.types.subnet_cidr_reservation_list.serialize_ec2_query(
             value["subnet_ipv6_cidr_reservations"],
             pairs,
-            f"{prefix}.SubnetIpv6CidrReservationSet",
+            f"{key_prefix}SubnetIpv6CidrReservationSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetSubnetCidrReservationsResult:

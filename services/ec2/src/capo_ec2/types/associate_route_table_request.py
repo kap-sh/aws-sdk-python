@@ -31,16 +31,17 @@ class AssociateRouteTableRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateRouteTableRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "gateway_id" in value:
-        pairs.append((f"{prefix}.GatewayId", str(value["gateway_id"])))
+        pairs.append((f"{key_prefix}GatewayId", str(value["gateway_id"])))
     if "public_ipv4_pool" in value:
-        pairs.append((f"{prefix}.PublicIpv4Pool", str(value["public_ipv4_pool"])))
+        pairs.append((f"{key_prefix}PublicIpv4Pool", str(value["public_ipv4_pool"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> AssociateRouteTableRequest:

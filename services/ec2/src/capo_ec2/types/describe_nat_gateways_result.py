@@ -22,14 +22,15 @@ class DescribeNatGatewaysResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeNatGatewaysResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "nat_gateways" in value:
         import capo_ec2.types.nat_gateway_list
 
         capo_ec2.types.nat_gateway_list.serialize_ec2_query(
-            value["nat_gateways"], pairs, f"{prefix}.NatGatewaySet"
+            value["nat_gateways"], pairs, f"{key_prefix}NatGatewaySet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeNatGatewaysResult:

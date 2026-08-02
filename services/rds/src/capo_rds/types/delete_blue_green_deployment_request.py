@@ -24,16 +24,17 @@ class DeleteBlueGreenDeploymentRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteBlueGreenDeploymentRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "blue_green_deployment_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.BlueGreenDeploymentIdentifier",
+                f"{key_prefix}BlueGreenDeploymentIdentifier",
                 str(value["blue_green_deployment_identifier"]),
             )
         )
     if "delete_target" in value:
         pairs.append(
-            (f"{prefix}.DeleteTarget", "true" if value["delete_target"] else "false")
+            (f"{key_prefix}DeleteTarget", "true" if value["delete_target"] else "false")
         )
 
 

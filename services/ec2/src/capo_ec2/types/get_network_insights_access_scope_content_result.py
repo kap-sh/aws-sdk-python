@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_access_scope_content" in value:
         import capo_ec2.types.network_insights_access_scope_content
 
         capo_ec2.types.network_insights_access_scope_content.serialize_ec2_query(
             value["network_insights_access_scope_content"],
             pairs,
-            f"{prefix}.NetworkInsightsAccessScopeContent",
+            f"{key_prefix}NetworkInsightsAccessScopeContent",
         )
 
 

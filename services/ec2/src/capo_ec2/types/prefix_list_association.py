@@ -21,10 +21,11 @@ class PrefixListAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PrefixListAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
 
 
 def deserialize_ec2_query(el: Element) -> PrefixListAssociation:

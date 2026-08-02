@@ -29,19 +29,22 @@ class ModifyDBShardGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBShardGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_shard_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBShardGroupIdentifier",
+                f"{key_prefix}DBShardGroupIdentifier",
                 str(value["db_shard_group_identifier"]),
             )
         )
     if "max_acu" in value:
-        pairs.append((f"{prefix}.MaxACU", str(value["max_acu"])))
+        pairs.append((f"{key_prefix}MaxACU", str(value["max_acu"])))
     if "min_acu" in value:
-        pairs.append((f"{prefix}.MinACU", str(value["min_acu"])))
+        pairs.append((f"{key_prefix}MinACU", str(value["min_acu"])))
     if "compute_redundancy" in value:
-        pairs.append((f"{prefix}.ComputeRedundancy", str(value["compute_redundancy"])))
+        pairs.append(
+            (f"{key_prefix}ComputeRedundancy", str(value["compute_redundancy"]))
+        )
 
 
 def deserialize_query(el: Element) -> ModifyDBShardGroupMessage:

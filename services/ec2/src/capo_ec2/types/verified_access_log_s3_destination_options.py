@@ -28,14 +28,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "bucket_name" in value:
-        pairs.append((f"{prefix}.BucketName", str(value["bucket_name"])))
+        pairs.append((f"{key_prefix}BucketName", str(value["bucket_name"])))
     if "prefix" in value:
-        pairs.append((f"{prefix}.Prefix", str(value["prefix"])))
+        pairs.append((f"{key_prefix}Prefix", str(value["prefix"])))
     if "bucket_owner" in value:
-        pairs.append((f"{prefix}.BucketOwner", str(value["bucket_owner"])))
+        pairs.append((f"{key_prefix}BucketOwner", str(value["bucket_owner"])))
 
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessLogS3DestinationOptions:

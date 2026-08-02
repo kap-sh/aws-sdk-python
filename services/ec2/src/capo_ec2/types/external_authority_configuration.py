@@ -24,16 +24,17 @@ class ExternalAuthorityConfiguration(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExternalAuthorityConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_ec2.types.ipam_scope_external_authority_type
 
         capo_ec2.types.ipam_scope_external_authority_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "external_resource_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.ExternalResourceIdentifier",
+                f"{key_prefix}ExternalResourceIdentifier",
                 str(value["external_resource_identifier"]),
             )
         )

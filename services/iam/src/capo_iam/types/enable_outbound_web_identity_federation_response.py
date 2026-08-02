@@ -21,8 +21,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "issuer_identifier" in value:
-        pairs.append((f"{prefix}.IssuerIdentifier", str(value["issuer_identifier"])))
+        pairs.append((f"{key_prefix}IssuerIdentifier", str(value["issuer_identifier"])))
 
 
 def deserialize_query(el: Element) -> EnableOutboundWebIdentityFederationResponse:

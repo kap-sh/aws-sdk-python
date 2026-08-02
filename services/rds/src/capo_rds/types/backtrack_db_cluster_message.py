@@ -29,22 +29,23 @@ class BacktrackDBClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: BacktrackDBClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "backtrack_to" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["backtrack_to"], pairs, f"{prefix}.BacktrackTo"
+            value["backtrack_to"], pairs, f"{key_prefix}BacktrackTo"
         )
     if "force" in value:
-        pairs.append((f"{prefix}.Force", "true" if value["force"] else "false"))
+        pairs.append((f"{key_prefix}Force", "true" if value["force"] else "false"))
     if "use_earliest_time_on_point_in_time_unavailable" in value:
         pairs.append(
             (
-                f"{prefix}.UseEarliestTimeOnPointInTimeUnavailable",
+                f"{key_prefix}UseEarliestTimeOnPointInTimeUnavailable",
                 "true"
                 if value["use_earliest_time_on_point_in_time_unavailable"]
                 else "false",

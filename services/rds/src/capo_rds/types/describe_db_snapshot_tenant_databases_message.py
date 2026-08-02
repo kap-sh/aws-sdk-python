@@ -35,28 +35,29 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "db_snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
+            (f"{key_prefix}DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
         )
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBSnapshotTenantDatabasesMessage:

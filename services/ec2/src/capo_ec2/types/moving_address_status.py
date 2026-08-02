@@ -22,14 +22,15 @@ class MovingAddressStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MovingAddressStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "move_status" in value:
         import capo_ec2.types.move_status
 
         capo_ec2.types.move_status.serialize_ec2_query(
-            value["move_status"], pairs, f"{prefix}.MoveStatus"
+            value["move_status"], pairs, f"{key_prefix}MoveStatus"
         )
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> MovingAddressStatus:

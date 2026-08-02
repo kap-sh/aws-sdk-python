@@ -21,11 +21,12 @@ class IpamPublicAddressTags(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPublicAddressTags, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "eip_tags" in value:
         import capo_ec2.types.ipam_public_address_tag_list
 
         capo_ec2.types.ipam_public_address_tag_list.serialize_ec2_query(
-            value["eip_tags"], pairs, f"{prefix}.EipTagSet"
+            value["eip_tags"], pairs, f"{key_prefix}EipTagSet"
         )
 
 

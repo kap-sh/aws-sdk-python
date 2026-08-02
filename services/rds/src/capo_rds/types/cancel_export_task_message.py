@@ -19,9 +19,10 @@ class CancelExportTaskMessage(TypedDict, closed=True):
 def serialize_query(
     value: CancelExportTaskMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "export_task_identifier" in value:
         pairs.append(
-            (f"{prefix}.ExportTaskIdentifier", str(value["export_task_identifier"]))
+            (f"{key_prefix}ExportTaskIdentifier", str(value["export_task_identifier"]))
         )
 
 

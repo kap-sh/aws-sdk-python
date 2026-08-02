@@ -26,15 +26,16 @@ class VpcEncryptionNonCompliantResource(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcEncryptionNonCompliantResource, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "is_excludable" in value:
         pairs.append(
-            (f"{prefix}.IsExcludable", "true" if value["is_excludable"] else "false")
+            (f"{key_prefix}IsExcludable", "true" if value["is_excludable"] else "false")
         )
 
 

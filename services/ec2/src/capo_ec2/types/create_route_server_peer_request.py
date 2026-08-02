@@ -37,25 +37,29 @@ class CreateRouteServerPeerRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateRouteServerPeerRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.RouteServerEndpointId", str(value["route_server_endpoint_id"]))
+            (
+                f"{key_prefix}RouteServerEndpointId",
+                str(value["route_server_endpoint_id"]),
+            )
         )
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "bgp_options" in value:
         import capo_ec2.types.route_server_bgp_options_request
 
         capo_ec2.types.route_server_bgp_options_request.serialize_ec2_query(
-            value["bgp_options"], pairs, f"{prefix}.BgpOptions"
+            value["bgp_options"], pairs, f"{key_prefix}BgpOptions"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

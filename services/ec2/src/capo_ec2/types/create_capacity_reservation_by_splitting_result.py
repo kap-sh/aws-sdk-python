@@ -30,13 +30,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_capacity_reservation" in value:
         import capo_ec2.types.capacity_reservation
 
         capo_ec2.types.capacity_reservation.serialize_ec2_query(
             value["source_capacity_reservation"],
             pairs,
-            f"{prefix}.SourceCapacityReservation",
+            f"{key_prefix}SourceCapacityReservation",
         )
     if "destination_capacity_reservation" in value:
         import capo_ec2.types.capacity_reservation
@@ -44,10 +45,10 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_reservation.serialize_ec2_query(
             value["destination_capacity_reservation"],
             pairs,
-            f"{prefix}.DestinationCapacityReservation",
+            f"{key_prefix}DestinationCapacityReservation",
         )
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateCapacityReservationBySplittingResult:

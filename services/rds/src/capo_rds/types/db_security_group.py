@@ -35,36 +35,37 @@ class DBSecurityGroup(TypedDict, closed=True):
 def serialize_query(
     value: DBSecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "db_security_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSecurityGroupName", str(value["db_security_group_name"]))
+            (f"{key_prefix}DBSecurityGroupName", str(value["db_security_group_name"]))
         )
     if "db_security_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.DBSecurityGroupDescription",
+                f"{key_prefix}DBSecurityGroupDescription",
                 str(value["db_security_group_description"]),
             )
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "ec2_security_groups" in value:
         import capo_rds.types.ec2_security_group_list
 
         capo_rds.types.ec2_security_group_list.serialize_query(
-            value["ec2_security_groups"], pairs, f"{prefix}.EC2SecurityGroups"
+            value["ec2_security_groups"], pairs, f"{key_prefix}EC2SecurityGroups"
         )
     if "ip_ranges" in value:
         import capo_rds.types.ip_range_list
 
         capo_rds.types.ip_range_list.serialize_query(
-            value["ip_ranges"], pairs, f"{prefix}.IPRanges"
+            value["ip_ranges"], pairs, f"{key_prefix}IPRanges"
         )
     if "db_security_group_arn" in value:
         pairs.append(
-            (f"{prefix}.DBSecurityGroupArn", str(value["db_security_group_arn"]))
+            (f"{key_prefix}DBSecurityGroupArn", str(value["db_security_group_arn"]))
         )
 
 

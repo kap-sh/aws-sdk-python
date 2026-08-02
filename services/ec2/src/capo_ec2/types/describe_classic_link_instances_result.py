@@ -24,14 +24,15 @@ class DescribeClassicLinkInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeClassicLinkInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instances" in value:
         import capo_ec2.types.classic_link_instance_list
 
         capo_ec2.types.classic_link_instance_list.serialize_ec2_query(
-            value["instances"], pairs, f"{prefix}.InstancesSet"
+            value["instances"], pairs, f"{key_prefix}InstancesSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeClassicLinkInstancesResult:

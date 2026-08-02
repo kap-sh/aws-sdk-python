@@ -37,21 +37,25 @@ class ConnectionPoolConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: ConnectionPoolConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "max_connections_percent" in value:
         pairs.append(
-            (f"{prefix}.MaxConnectionsPercent", str(value["max_connections_percent"]))
+            (
+                f"{key_prefix}MaxConnectionsPercent",
+                str(value["max_connections_percent"]),
+            )
         )
     if "max_idle_connections_percent" in value:
         pairs.append(
             (
-                f"{prefix}.MaxIdleConnectionsPercent",
+                f"{key_prefix}MaxIdleConnectionsPercent",
                 str(value["max_idle_connections_percent"]),
             )
         )
     if "connection_borrow_timeout" in value:
         pairs.append(
             (
-                f"{prefix}.ConnectionBorrowTimeout",
+                f"{key_prefix}ConnectionBorrowTimeout",
                 str(value["connection_borrow_timeout"]),
             )
         )
@@ -59,10 +63,12 @@ def serialize_query(
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["session_pinning_filters"], pairs, f"{prefix}.SessionPinningFilters"
+            value["session_pinning_filters"],
+            pairs,
+            f"{key_prefix}SessionPinningFilters",
         )
     if "init_query" in value:
-        pairs.append((f"{prefix}.InitQuery", str(value["init_query"])))
+        pairs.append((f"{key_prefix}InitQuery", str(value["init_query"])))
 
 
 def deserialize_query(el: Element) -> ConnectionPoolConfiguration:

@@ -27,21 +27,22 @@ class DescribeSnapshotAttributeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSnapshotAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "create_volume_permissions" in value:
         import capo_ec2.types.create_volume_permission_list
 
         capo_ec2.types.create_volume_permission_list.serialize_ec2_query(
             value["create_volume_permissions"],
             pairs,
-            f"{prefix}.CreateVolumePermission",
+            f"{key_prefix}CreateVolumePermission",
         )
 
 

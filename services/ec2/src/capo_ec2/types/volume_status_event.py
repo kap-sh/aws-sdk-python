@@ -30,26 +30,27 @@ class VolumeStatusEvent(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeStatusEvent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "event_id" in value:
-        pairs.append((f"{prefix}.EventId", str(value["event_id"])))
+        pairs.append((f"{key_prefix}EventId", str(value["event_id"])))
     if "event_type" in value:
-        pairs.append((f"{prefix}.EventType", str(value["event_type"])))
+        pairs.append((f"{key_prefix}EventType", str(value["event_type"])))
     if "not_after" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["not_after"], pairs, f"{prefix}.NotAfter"
+            value["not_after"], pairs, f"{key_prefix}NotAfter"
         )
     if "not_before" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["not_before"], pairs, f"{prefix}.NotBefore"
+            value["not_before"], pairs, f"{key_prefix}NotBefore"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> VolumeStatusEvent:

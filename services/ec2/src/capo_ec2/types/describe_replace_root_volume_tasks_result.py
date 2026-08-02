@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replace_root_volume_tasks" in value:
         import capo_ec2.types.replace_root_volume_tasks
 
         capo_ec2.types.replace_root_volume_tasks.serialize_ec2_query(
             value["replace_root_volume_tasks"],
             pairs,
-            f"{prefix}.ReplaceRootVolumeTaskSet",
+            f"{key_prefix}ReplaceRootVolumeTaskSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeReplaceRootVolumeTasksResult:

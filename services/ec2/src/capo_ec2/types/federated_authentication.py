@@ -21,12 +21,13 @@ class FederatedAuthentication(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FederatedAuthentication, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "saml_provider_arn" in value:
-        pairs.append((f"{prefix}.SamlProviderArn", str(value["saml_provider_arn"])))
+        pairs.append((f"{key_prefix}SamlProviderArn", str(value["saml_provider_arn"])))
     if "self_service_saml_provider_arn" in value:
         pairs.append(
             (
-                f"{prefix}.SelfServiceSamlProviderArn",
+                f"{key_prefix}SelfServiceSamlProviderArn",
                 str(value["self_service_saml_provider_arn"]),
             )
         )

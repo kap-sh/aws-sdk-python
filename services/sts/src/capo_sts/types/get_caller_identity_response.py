@@ -25,12 +25,13 @@ class GetCallerIdentityResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetCallerIdentityResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "account" in value:
-        pairs.append((f"{prefix}.Account", str(value["account"])))
+        pairs.append((f"{key_prefix}Account", str(value["account"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> GetCallerIdentityResponse:

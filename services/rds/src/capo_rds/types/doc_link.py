@@ -19,10 +19,11 @@ class DocLink(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: DocLink, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "text" in value:
-        pairs.append((f"{prefix}.Text", str(value["text"])))
+        pairs.append((f"{key_prefix}Text", str(value["text"])))
     if "url" in value:
-        pairs.append((f"{prefix}.Url", str(value["url"])))
+        pairs.append((f"{key_prefix}Url", str(value["url"])))
 
 
 def deserialize_query(el: Element) -> DocLink:

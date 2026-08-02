@@ -25,21 +25,22 @@ class VpnStaticRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnStaticRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "source" in value:
         import capo_ec2.types.vpn_static_route_source
 
         capo_ec2.types.vpn_static_route_source.serialize_ec2_query(
-            value["source"], pairs, f"{prefix}.Source"
+            value["source"], pairs, f"{key_prefix}Source"
         )
     if "state" in value:
         import capo_ec2.types.vpn_state
 
         capo_ec2.types.vpn_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

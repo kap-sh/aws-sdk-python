@@ -19,10 +19,11 @@ class CreateServiceLinkedRoleResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateServiceLinkedRoleResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "role" in value:
         import capo_iam.types.role
 
-        capo_iam.types.role.serialize_query(value["role"], pairs, f"{prefix}.Role")
+        capo_iam.types.role.serialize_query(value["role"], pairs, f"{key_prefix}Role")
 
 
 def deserialize_query(el: Element) -> CreateServiceLinkedRoleResponse:

@@ -19,11 +19,12 @@ class GetPolicyResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetPolicyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy" in value:
         import capo_iam.types.policy
 
         capo_iam.types.policy.serialize_query(
-            value["policy"], pairs, f"{prefix}.Policy"
+            value["policy"], pairs, f"{key_prefix}Policy"
         )
 
 

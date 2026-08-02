@@ -88,38 +88,39 @@ class CreateCapacityReservationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateCapacityReservationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "instance_platform" in value:
         import capo_ec2.types.capacity_reservation_instance_platform
 
         capo_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
-            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+            value["instance_platform"], pairs, f"{key_prefix}InstancePlatform"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "tenancy" in value:
         import capo_ec2.types.capacity_reservation_tenancy
 
         capo_ec2.types.capacity_reservation_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "ebs_optimized" in value:
         pairs.append(
-            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+            (f"{key_prefix}EbsOptimized", "true" if value["ebs_optimized"] else "false")
         )
     if "ephemeral_storage" in value:
         pairs.append(
             (
-                f"{prefix}.EphemeralStorage",
+                f"{key_prefix}EphemeralStorage",
                 "true" if value["ephemeral_storage"] else "false",
             )
         )
@@ -127,47 +128,51 @@ def serialize_ec2_query(
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "end_date_type" in value:
         import capo_ec2.types.end_date_type
 
         capo_ec2.types.end_date_type.serialize_ec2_query(
-            value["end_date_type"], pairs, f"{prefix}.EndDateType"
+            value["end_date_type"], pairs, f"{key_prefix}EndDateType"
         )
     if "instance_match_criteria" in value:
         import capo_ec2.types.instance_match_criteria
 
         capo_ec2.types.instance_match_criteria.serialize_ec2_query(
-            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+            value["instance_match_criteria"],
+            pairs,
+            f"{key_prefix}InstanceMatchCriteria",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "placement_group_arn" in value:
-        pairs.append((f"{prefix}.PlacementGroupArn", str(value["placement_group_arn"])))
+        pairs.append(
+            (f"{key_prefix}PlacementGroupArn", str(value["placement_group_arn"]))
+        )
     if "start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "commitment_duration" in value:
         pairs.append(
-            (f"{prefix}.CommitmentDuration", str(value["commitment_duration"]))
+            (f"{key_prefix}CommitmentDuration", str(value["commitment_duration"]))
         )
     if "delivery_preference" in value:
         import capo_ec2.types.capacity_reservation_delivery_preference
 
         capo_ec2.types.capacity_reservation_delivery_preference.serialize_ec2_query(
-            value["delivery_preference"], pairs, f"{prefix}.DeliveryPreference"
+            value["delivery_preference"], pairs, f"{key_prefix}DeliveryPreference"
         )
 
 

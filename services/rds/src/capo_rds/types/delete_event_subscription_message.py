@@ -19,8 +19,9 @@ class DeleteEventSubscriptionMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteEventSubscriptionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscription_name" in value:
-        pairs.append((f"{prefix}.SubscriptionName", str(value["subscription_name"])))
+        pairs.append((f"{key_prefix}SubscriptionName", str(value["subscription_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteEventSubscriptionMessage:

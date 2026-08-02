@@ -25,21 +25,24 @@ class Metric(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Metric, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "references" in value:
         import capo_rds.types.metric_reference_list
 
         capo_rds.types.metric_reference_list.serialize_query(
-            value["references"], pairs, f"{prefix}.References"
+            value["references"], pairs, f"{key_prefix}References"
         )
     if "statistics_details" in value:
-        pairs.append((f"{prefix}.StatisticsDetails", str(value["statistics_details"])))
+        pairs.append(
+            (f"{key_prefix}StatisticsDetails", str(value["statistics_details"]))
+        )
     if "metric_query" in value:
         import capo_rds.types.metric_query
 
         capo_rds.types.metric_query.serialize_query(
-            value["metric_query"], pairs, f"{prefix}.MetricQuery"
+            value["metric_query"], pairs, f"{key_prefix}MetricQuery"
         )
 
 

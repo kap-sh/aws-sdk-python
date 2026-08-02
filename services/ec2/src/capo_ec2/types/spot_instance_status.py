@@ -24,15 +24,16 @@ class SpotInstanceStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotInstanceStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "code" in value:
-        pairs.append((f"{prefix}.Code", str(value["code"])))
+        pairs.append((f"{key_prefix}Code", str(value["code"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "update_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["update_time"], pairs, f"{prefix}.UpdateTime"
+            value["update_time"], pairs, f"{key_prefix}UpdateTime"
         )
 
 

@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_prefix_list_reference" in value:
         import capo_ec2.types.transit_gateway_prefix_list_reference
 
         capo_ec2.types.transit_gateway_prefix_list_reference.serialize_ec2_query(
             value["transit_gateway_prefix_list_reference"],
             pairs,
-            f"{prefix}.TransitGatewayPrefixListReference",
+            f"{key_prefix}TransitGatewayPrefixListReference",
         )
 
 

@@ -20,11 +20,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_security_group" in value:
         import capo_rds.types.db_security_group
 
         capo_rds.types.db_security_group.serialize_query(
-            value["db_security_group"], pairs, f"{prefix}.DBSecurityGroup"
+            value["db_security_group"], pairs, f"{key_prefix}DBSecurityGroup"
         )
 
 

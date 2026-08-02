@@ -27,19 +27,20 @@ class CreateFlowLogsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateFlowLogsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "flow_log_ids" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["flow_log_ids"], pairs, f"{prefix}.FlowLogIdSet"
+            value["flow_log_ids"], pairs, f"{key_prefix}FlowLogIdSet"
         )
     if "unsuccessful" in value:
         import capo_ec2.types.unsuccessful_item_set
 
         capo_ec2.types.unsuccessful_item_set.serialize_ec2_query(
-            value["unsuccessful"], pairs, f"{prefix}.Unsuccessful"
+            value["unsuccessful"], pairs, f"{key_prefix}Unsuccessful"
         )
 
 

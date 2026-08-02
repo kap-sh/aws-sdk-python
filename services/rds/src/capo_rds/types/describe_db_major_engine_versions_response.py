@@ -26,14 +26,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_major_engine_versions" in value:
         import capo_rds.types.db_major_engine_versions_list
 
         capo_rds.types.db_major_engine_versions_list.serialize_query(
-            value["db_major_engine_versions"], pairs, f"{prefix}.DBMajorEngineVersions"
+            value["db_major_engine_versions"],
+            pairs,
+            f"{key_prefix}DBMajorEngineVersions",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBMajorEngineVersionsResponse:

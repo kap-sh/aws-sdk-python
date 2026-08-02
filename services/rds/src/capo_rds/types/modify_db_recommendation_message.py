@@ -28,19 +28,20 @@ class ModifyDBRecommendationMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBRecommendationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "recommendation_id" in value:
-        pairs.append((f"{prefix}.RecommendationId", str(value["recommendation_id"])))
+        pairs.append((f"{key_prefix}RecommendationId", str(value["recommendation_id"])))
     if "locale" in value:
-        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+        pairs.append((f"{key_prefix}Locale", str(value["locale"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "recommended_action_updates" in value:
         import capo_rds.types.recommended_action_update_list
 
         capo_rds.types.recommended_action_update_list.serialize_query(
             value["recommended_action_updates"],
             pairs,
-            f"{prefix}.RecommendedActionUpdates",
+            f"{key_prefix}RecommendedActionUpdates",
         )
 
 

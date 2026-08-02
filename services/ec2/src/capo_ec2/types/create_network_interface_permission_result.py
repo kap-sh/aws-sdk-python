@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "interface_permission" in value:
         import capo_ec2.types.network_interface_permission
 
         capo_ec2.types.network_interface_permission.serialize_ec2_query(
-            value["interface_permission"], pairs, f"{prefix}.InterfacePermission"
+            value["interface_permission"], pairs, f"{key_prefix}InterfacePermission"
         )
 
 

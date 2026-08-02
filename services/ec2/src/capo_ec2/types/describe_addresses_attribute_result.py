@@ -22,14 +22,15 @@ class DescribeAddressesAttributeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeAddressesAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "addresses" in value:
         import capo_ec2.types.address_set
 
         capo_ec2.types.address_set.serialize_ec2_query(
-            value["addresses"], pairs, f"{prefix}.AddressSet"
+            value["addresses"], pairs, f"{key_prefix}AddressSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeAddressesAttributeResult:

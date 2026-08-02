@@ -22,17 +22,18 @@ class InstanceMarketOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceMarketOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "market_type" in value:
         import capo_ec2.types.market_type
 
         capo_ec2.types.market_type.serialize_ec2_query(
-            value["market_type"], pairs, f"{prefix}.MarketType"
+            value["market_type"], pairs, f"{key_prefix}MarketType"
         )
     if "spot_options" in value:
         import capo_ec2.types.spot_market_options
 
         capo_ec2.types.spot_market_options.serialize_ec2_query(
-            value["spot_options"], pairs, f"{prefix}.SpotOptions"
+            value["spot_options"], pairs, f"{key_prefix}SpotOptions"
         )
 
 

@@ -43,39 +43,40 @@ class RecommendedAction(TypedDict, closed=True):
 def serialize_query(
     value: RecommendedAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action_id" in value:
-        pairs.append((f"{prefix}.ActionId", str(value["action_id"])))
+        pairs.append((f"{key_prefix}ActionId", str(value["action_id"])))
     if "title" in value:
-        pairs.append((f"{prefix}.Title", str(value["title"])))
+        pairs.append((f"{key_prefix}Title", str(value["title"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "operation" in value:
-        pairs.append((f"{prefix}.Operation", str(value["operation"])))
+        pairs.append((f"{key_prefix}Operation", str(value["operation"])))
     if "parameters" in value:
         import capo_rds.types.recommended_action_parameter_list
 
         capo_rds.types.recommended_action_parameter_list.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "apply_modes" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["apply_modes"], pairs, f"{prefix}.ApplyModes"
+            value["apply_modes"], pairs, f"{key_prefix}ApplyModes"
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "issue_details" in value:
         import capo_rds.types.issue_details
 
         capo_rds.types.issue_details.serialize_query(
-            value["issue_details"], pairs, f"{prefix}.IssueDetails"
+            value["issue_details"], pairs, f"{key_prefix}IssueDetails"
         )
     if "context_attributes" in value:
         import capo_rds.types.context_attribute_list
 
         capo_rds.types.context_attribute_list.serialize_query(
-            value["context_attributes"], pairs, f"{prefix}.ContextAttributes"
+            value["context_attributes"], pairs, f"{key_prefix}ContextAttributes"
         )
 
 

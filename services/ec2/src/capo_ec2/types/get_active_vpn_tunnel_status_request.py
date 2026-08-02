@@ -25,17 +25,18 @@ class GetActiveVpnTunnelStatusRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetActiveVpnTunnelStatusRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "vpn_tunnel_outside_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.VpnTunnelOutsideIpAddress",
+                f"{key_prefix}VpnTunnelOutsideIpAddress",
                 str(value["vpn_tunnel_outside_ip_address"]),
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> GetActiveVpnTunnelStatusRequest:

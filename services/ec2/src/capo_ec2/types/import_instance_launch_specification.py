@@ -54,60 +54,63 @@ class ImportInstanceLaunchSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportInstanceLaunchSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "architecture" in value:
         import capo_ec2.types.architecture_values
 
         capo_ec2.types.architecture_values.serialize_ec2_query(
-            value["architecture"], pairs, f"{prefix}.Architecture"
+            value["architecture"], pairs, f"{key_prefix}Architecture"
         )
     if "group_names" in value:
         import capo_ec2.types.security_group_string_list
 
         capo_ec2.types.security_group_string_list.serialize_ec2_query(
-            value["group_names"], pairs, f"{prefix}.GroupNames"
+            value["group_names"], pairs, f"{key_prefix}GroupNames"
         )
     if "group_ids" in value:
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["group_ids"], pairs, f"{prefix}.GroupIds"
+            value["group_ids"], pairs, f"{key_prefix}GroupIds"
         )
     if "additional_info" in value:
-        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+        pairs.append((f"{key_prefix}AdditionalInfo", str(value["additional_info"])))
     if "user_data" in value:
         import capo_ec2.types.user_data
 
         capo_ec2.types.user_data.serialize_ec2_query(
-            value["user_data"], pairs, f"{prefix}.UserData"
+            value["user_data"], pairs, f"{key_prefix}UserData"
         )
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "placement" in value:
         import capo_ec2.types.placement
 
         capo_ec2.types.placement.serialize_ec2_query(
-            value["placement"], pairs, f"{prefix}.Placement"
+            value["placement"], pairs, f"{key_prefix}Placement"
         )
     if "monitoring" in value:
         pairs.append(
-            (f"{prefix}.Monitoring", "true" if value["monitoring"] else "false")
+            (f"{key_prefix}Monitoring", "true" if value["monitoring"] else "false")
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "instance_initiated_shutdown_behavior" in value:
         import capo_ec2.types.shutdown_behavior
 
         capo_ec2.types.shutdown_behavior.serialize_ec2_query(
             value["instance_initiated_shutdown_behavior"],
             pairs,
-            f"{prefix}.InstanceInitiatedShutdownBehavior",
+            f"{key_prefix}InstanceInitiatedShutdownBehavior",
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ImportInstanceLaunchSpecification:

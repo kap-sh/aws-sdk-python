@@ -34,24 +34,25 @@ class CreateIpamResourceDiscoveryRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateIpamResourceDiscoveryRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "operating_regions" in value:
         import capo_ec2.types.add_ipam_operating_region_set
 
         capo_ec2.types.add_ipam_operating_region_set.serialize_ec2_query(
-            value["operating_regions"], pairs, f"{prefix}.OperatingRegions"
+            value["operating_regions"], pairs, f"{key_prefix}OperatingRegions"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateIpamResourceDiscoveryRequest:

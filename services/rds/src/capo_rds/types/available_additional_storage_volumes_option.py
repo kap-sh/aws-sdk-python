@@ -50,45 +50,46 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "supports_storage_autoscaling" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsStorageAutoscaling",
+                f"{key_prefix}SupportsStorageAutoscaling",
                 "true" if value["supports_storage_autoscaling"] else "false",
             )
         )
     if "supports_storage_throughput" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsStorageThroughput",
+                f"{key_prefix}SupportsStorageThroughput",
                 "true" if value["supports_storage_throughput"] else "false",
             )
         )
     if "supports_iops" in value:
         pairs.append(
-            (f"{prefix}.SupportsIops", "true" if value["supports_iops"] else "false")
+            (f"{key_prefix}SupportsIops", "true" if value["supports_iops"] else "false")
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "min_storage_size" in value:
-        pairs.append((f"{prefix}.MinStorageSize", str(value["min_storage_size"])))
+        pairs.append((f"{key_prefix}MinStorageSize", str(value["min_storage_size"])))
     if "max_storage_size" in value:
-        pairs.append((f"{prefix}.MaxStorageSize", str(value["max_storage_size"])))
+        pairs.append((f"{key_prefix}MaxStorageSize", str(value["max_storage_size"])))
     if "min_iops" in value:
-        pairs.append((f"{prefix}.MinIops", str(value["min_iops"])))
+        pairs.append((f"{key_prefix}MinIops", str(value["min_iops"])))
     if "max_iops" in value:
-        pairs.append((f"{prefix}.MaxIops", str(value["max_iops"])))
+        pairs.append((f"{key_prefix}MaxIops", str(value["max_iops"])))
     if "min_iops_per_gib" in value:
-        pairs.append((f"{prefix}.MinIopsPerGib", str(value["min_iops_per_gib"])))
+        pairs.append((f"{key_prefix}MinIopsPerGib", str(value["min_iops_per_gib"])))
     if "max_iops_per_gib" in value:
-        pairs.append((f"{prefix}.MaxIopsPerGib", str(value["max_iops_per_gib"])))
+        pairs.append((f"{key_prefix}MaxIopsPerGib", str(value["max_iops_per_gib"])))
     if "min_storage_throughput" in value:
         pairs.append(
-            (f"{prefix}.MinStorageThroughput", str(value["min_storage_throughput"]))
+            (f"{key_prefix}MinStorageThroughput", str(value["min_storage_throughput"]))
         )
     if "max_storage_throughput" in value:
         pairs.append(
-            (f"{prefix}.MaxStorageThroughput", str(value["max_storage_throughput"]))
+            (f"{key_prefix}MaxStorageThroughput", str(value["max_storage_throughput"]))
         )
 
 

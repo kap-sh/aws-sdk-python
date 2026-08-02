@@ -33,31 +33,32 @@ class DescribeVolumesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVolumesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_ids" in value:
         import capo_ec2.types.volume_id_string_list
 
         capo_ec2.types.volume_id_string_list.serialize_ec2_query(
-            value["volume_ids"], pairs, f"{prefix}.VolumeIds"
+            value["volume_ids"], pairs, f"{key_prefix}VolumeIds"
         )
     if "include_managed_resources" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeManagedResources",
+                f"{key_prefix}IncludeManagedResources",
                 "true" if value["include_managed_resources"] else "false",
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVolumesRequest:

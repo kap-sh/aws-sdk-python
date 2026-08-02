@@ -63,67 +63,68 @@ class DBRecommendation(TypedDict, closed=True):
 def serialize_query(
     value: DBRecommendation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "recommendation_id" in value:
-        pairs.append((f"{prefix}.RecommendationId", str(value["recommendation_id"])))
+        pairs.append((f"{key_prefix}RecommendationId", str(value["recommendation_id"])))
     if "type_id" in value:
-        pairs.append((f"{prefix}.TypeId", str(value["type_id"])))
+        pairs.append((f"{key_prefix}TypeId", str(value["type_id"])))
     if "severity" in value:
-        pairs.append((f"{prefix}.Severity", str(value["severity"])))
+        pairs.append((f"{key_prefix}Severity", str(value["severity"])))
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "created_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["created_time"], pairs, f"{prefix}.CreatedTime"
+            value["created_time"], pairs, f"{key_prefix}CreatedTime"
         )
     if "updated_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["updated_time"], pairs, f"{prefix}.UpdatedTime"
+            value["updated_time"], pairs, f"{key_prefix}UpdatedTime"
         )
     if "detection" in value:
-        pairs.append((f"{prefix}.Detection", str(value["detection"])))
+        pairs.append((f"{key_prefix}Detection", str(value["detection"])))
     if "recommendation" in value:
-        pairs.append((f"{prefix}.Recommendation", str(value["recommendation"])))
+        pairs.append((f"{key_prefix}Recommendation", str(value["recommendation"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "reason" in value:
-        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+        pairs.append((f"{key_prefix}Reason", str(value["reason"])))
     if "recommended_actions" in value:
         import capo_rds.types.recommended_action_list
 
         capo_rds.types.recommended_action_list.serialize_query(
-            value["recommended_actions"], pairs, f"{prefix}.RecommendedActions"
+            value["recommended_actions"], pairs, f"{key_prefix}RecommendedActions"
         )
     if "category" in value:
-        pairs.append((f"{prefix}.Category", str(value["category"])))
+        pairs.append((f"{key_prefix}Category", str(value["category"])))
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "type_detection" in value:
-        pairs.append((f"{prefix}.TypeDetection", str(value["type_detection"])))
+        pairs.append((f"{key_prefix}TypeDetection", str(value["type_detection"])))
     if "type_recommendation" in value:
         pairs.append(
-            (f"{prefix}.TypeRecommendation", str(value["type_recommendation"]))
+            (f"{key_prefix}TypeRecommendation", str(value["type_recommendation"]))
         )
     if "impact" in value:
-        pairs.append((f"{prefix}.Impact", str(value["impact"])))
+        pairs.append((f"{key_prefix}Impact", str(value["impact"])))
     if "additional_info" in value:
-        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+        pairs.append((f"{key_prefix}AdditionalInfo", str(value["additional_info"])))
     if "links" in value:
         import capo_rds.types.doc_link_list
 
         capo_rds.types.doc_link_list.serialize_query(
-            value["links"], pairs, f"{prefix}.Links"
+            value["links"], pairs, f"{key_prefix}Links"
         )
     if "issue_details" in value:
         import capo_rds.types.issue_details
 
         capo_rds.types.issue_details.serialize_query(
-            value["issue_details"], pairs, f"{prefix}.IssueDetails"
+            value["issue_details"], pairs, f"{key_prefix}IssueDetails"
         )
 
 

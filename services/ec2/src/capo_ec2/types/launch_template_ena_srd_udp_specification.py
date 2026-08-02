@@ -21,10 +21,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ena_srd_udp_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.EnaSrdUdpEnabled",
+                f"{key_prefix}EnaSrdUdpEnabled",
                 "true" if value["ena_srd_udp_enabled"] else "false",
             )
         )

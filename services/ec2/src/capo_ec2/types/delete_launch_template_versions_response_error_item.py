@@ -29,19 +29,22 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_id" in value:
-        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+        pairs.append(
+            (f"{key_prefix}LaunchTemplateId", str(value["launch_template_id"]))
+        )
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "version_number" in value:
-        pairs.append((f"{prefix}.VersionNumber", str(value["version_number"])))
+        pairs.append((f"{key_prefix}VersionNumber", str(value["version_number"])))
     if "response_error" in value:
         import capo_ec2.types.response_error
 
         capo_ec2.types.response_error.serialize_ec2_query(
-            value["response_error"], pairs, f"{prefix}.ResponseError"
+            value["response_error"], pairs, f"{key_prefix}ResponseError"
         )
 
 

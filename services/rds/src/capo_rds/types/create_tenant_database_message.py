@@ -39,42 +39,50 @@ class CreateTenantDatabaseMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateTenantDatabaseMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "tenant_db_name" in value:
-        pairs.append((f"{prefix}.TenantDBName", str(value["tenant_db_name"])))
+        pairs.append((f"{key_prefix}TenantDBName", str(value["tenant_db_name"])))
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "character_set_name" in value:
-        pairs.append((f"{prefix}.CharacterSetName", str(value["character_set_name"])))
+        pairs.append(
+            (f"{key_prefix}CharacterSetName", str(value["character_set_name"]))
+        )
     if "nchar_character_set_name" in value:
         pairs.append(
-            (f"{prefix}.NcharCharacterSetName", str(value["nchar_character_set_name"]))
+            (
+                f"{key_prefix}NcharCharacterSetName",
+                str(value["nchar_character_set_name"]),
+            )
         )
     if "manage_master_user_password" in value:
         pairs.append(
             (
-                f"{prefix}.ManageMasterUserPassword",
+                f"{key_prefix}ManageMasterUserPassword",
                 "true" if value["manage_master_user_password"] else "false",
             )
         )
     if "master_user_secret_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.MasterUserSecretKmsKeyId",
+                f"{key_prefix}MasterUserSecretKmsKeyId",
                 str(value["master_user_secret_kms_key_id"]),
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateTenantDatabaseMessage:

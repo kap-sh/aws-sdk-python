@@ -99,30 +99,31 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleMetricDatapoint:
 def serialize_query(
     value: InsightRuleMetricDatapoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "unique_contributors" in value:
         pairs.append(
-            (f"{prefix}.UniqueContributors", str(value["unique_contributors"]))
+            (f"{key_prefix}UniqueContributors", str(value["unique_contributors"]))
         )
     if "max_contributor_value" in value:
         pairs.append(
-            (f"{prefix}.MaxContributorValue", str(value["max_contributor_value"]))
+            (f"{key_prefix}MaxContributorValue", str(value["max_contributor_value"]))
         )
     if "sample_count" in value:
-        pairs.append((f"{prefix}.SampleCount", str(value["sample_count"])))
+        pairs.append((f"{key_prefix}SampleCount", str(value["sample_count"])))
     if "average" in value:
-        pairs.append((f"{prefix}.Average", str(value["average"])))
+        pairs.append((f"{key_prefix}Average", str(value["average"])))
     if "sum" in value:
-        pairs.append((f"{prefix}.Sum", str(value["sum"])))
+        pairs.append((f"{key_prefix}Sum", str(value["sum"])))
     if "minimum" in value:
-        pairs.append((f"{prefix}.Minimum", str(value["minimum"])))
+        pairs.append((f"{key_prefix}Minimum", str(value["minimum"])))
     if "maximum" in value:
-        pairs.append((f"{prefix}.Maximum", str(value["maximum"])))
+        pairs.append((f"{key_prefix}Maximum", str(value["maximum"])))
 
 
 def deserialize_query(el: Element) -> InsightRuleMetricDatapoint:

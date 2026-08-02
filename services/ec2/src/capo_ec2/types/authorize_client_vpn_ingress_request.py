@@ -35,27 +35,30 @@ class AuthorizeClientVpnIngressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AuthorizeClientVpnIngressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "target_network_cidr" in value:
-        pairs.append((f"{prefix}.TargetNetworkCidr", str(value["target_network_cidr"])))
+        pairs.append(
+            (f"{key_prefix}TargetNetworkCidr", str(value["target_network_cidr"]))
+        )
     if "access_group_id" in value:
-        pairs.append((f"{prefix}.AccessGroupId", str(value["access_group_id"])))
+        pairs.append((f"{key_prefix}AccessGroupId", str(value["access_group_id"])))
     if "authorize_all_groups" in value:
         pairs.append(
             (
-                f"{prefix}.AuthorizeAllGroups",
+                f"{key_prefix}AuthorizeAllGroups",
                 "true" if value["authorize_all_groups"] else "false",
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> AuthorizeClientVpnIngressRequest:

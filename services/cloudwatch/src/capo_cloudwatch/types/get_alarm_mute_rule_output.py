@@ -151,50 +151,53 @@ def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleOutput:
 def serialize_query(
     value: GetAlarmMuteRuleOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "alarm_mute_rule_arn" in value:
-        pairs.append((f"{prefix}.AlarmMuteRuleArn", str(value["alarm_mute_rule_arn"])))
+        pairs.append(
+            (f"{key_prefix}AlarmMuteRuleArn", str(value["alarm_mute_rule_arn"]))
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "rule" in value:
         import capo_cloudwatch.types.rule
 
         capo_cloudwatch.types.rule.serialize_query(
-            value["rule"], pairs, f"{prefix}.Rule"
+            value["rule"], pairs, f"{key_prefix}Rule"
         )
     if "mute_targets" in value:
         import capo_cloudwatch.types.mute_targets
 
         capo_cloudwatch.types.mute_targets.serialize_query(
-            value["mute_targets"], pairs, f"{prefix}.MuteTargets"
+            value["mute_targets"], pairs, f"{key_prefix}MuteTargets"
         )
     if "start_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "expire_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["expire_date"], pairs, f"{prefix}.ExpireDate"
+            value["expire_date"], pairs, f"{key_prefix}ExpireDate"
         )
     if "status" in value:
         import capo_cloudwatch.types.alarm_mute_rule_status
 
         capo_cloudwatch.types.alarm_mute_rule_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "last_updated_timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["last_updated_timestamp"], pairs, f"{prefix}.LastUpdatedTimestamp"
+            value["last_updated_timestamp"], pairs, f"{key_prefix}LastUpdatedTimestamp"
         )
     if "mute_type" in value:
-        pairs.append((f"{prefix}.MuteType", str(value["mute_type"])))
+        pairs.append((f"{key_prefix}MuteType", str(value["mute_type"])))
 
 
 def deserialize_query(el: Element) -> GetAlarmMuteRuleOutput:

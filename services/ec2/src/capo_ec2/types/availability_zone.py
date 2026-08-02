@@ -58,55 +58,56 @@ class AvailabilityZone(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AvailabilityZone, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "opt_in_status" in value:
         import capo_ec2.types.availability_zone_opt_in_status
 
         capo_ec2.types.availability_zone_opt_in_status.serialize_ec2_query(
-            value["opt_in_status"], pairs, f"{prefix}.OptInStatus"
+            value["opt_in_status"], pairs, f"{key_prefix}OptInStatus"
         )
     if "messages" in value:
         import capo_ec2.types.availability_zone_message_list
 
         capo_ec2.types.availability_zone_message_list.serialize_ec2_query(
-            value["messages"], pairs, f"{prefix}.MessageSet"
+            value["messages"], pairs, f"{key_prefix}MessageSet"
         )
     if "region_name" in value:
-        pairs.append((f"{prefix}.RegionName", str(value["region_name"])))
+        pairs.append((f"{key_prefix}RegionName", str(value["region_name"])))
     if "zone_name" in value:
-        pairs.append((f"{prefix}.ZoneName", str(value["zone_name"])))
+        pairs.append((f"{key_prefix}ZoneName", str(value["zone_name"])))
     if "zone_id" in value:
-        pairs.append((f"{prefix}.ZoneId", str(value["zone_id"])))
+        pairs.append((f"{key_prefix}ZoneId", str(value["zone_id"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "zone_type" in value:
-        pairs.append((f"{prefix}.ZoneType", str(value["zone_type"])))
+        pairs.append((f"{key_prefix}ZoneType", str(value["zone_type"])))
     if "parent_zone_name" in value:
-        pairs.append((f"{prefix}.ParentZoneName", str(value["parent_zone_name"])))
+        pairs.append((f"{key_prefix}ParentZoneName", str(value["parent_zone_name"])))
     if "parent_zone_id" in value:
-        pairs.append((f"{prefix}.ParentZoneId", str(value["parent_zone_id"])))
+        pairs.append((f"{key_prefix}ParentZoneId", str(value["parent_zone_id"])))
     if "group_long_name" in value:
-        pairs.append((f"{prefix}.GroupLongName", str(value["group_long_name"])))
+        pairs.append((f"{key_prefix}GroupLongName", str(value["group_long_name"])))
     if "geography" in value:
         import capo_ec2.types.availability_zone_geography_list
 
         capo_ec2.types.availability_zone_geography_list.serialize_ec2_query(
-            value["geography"], pairs, f"{prefix}.GeographySet"
+            value["geography"], pairs, f"{key_prefix}GeographySet"
         )
     if "sub_geography" in value:
         import capo_ec2.types.availability_zone_sub_geography_list
 
         capo_ec2.types.availability_zone_sub_geography_list.serialize_ec2_query(
-            value["sub_geography"], pairs, f"{prefix}.SubGeographySet"
+            value["sub_geography"], pairs, f"{key_prefix}SubGeographySet"
         )
     if "state" in value:
         import capo_ec2.types.availability_zone_state
 
         capo_ec2.types.availability_zone_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.ZoneState"
+            value["state"], pairs, f"{key_prefix}ZoneState"
         )
 
 

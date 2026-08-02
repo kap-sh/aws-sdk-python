@@ -38,32 +38,33 @@ class VpcPeeringConnectionVpcInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcPeeringConnectionVpcInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "ipv6_cidr_block_set" in value:
         import capo_ec2.types.ipv6_cidr_block_set
 
         capo_ec2.types.ipv6_cidr_block_set.serialize_ec2_query(
-            value["ipv6_cidr_block_set"], pairs, f"{prefix}.Ipv6CidrBlockSet"
+            value["ipv6_cidr_block_set"], pairs, f"{key_prefix}Ipv6CidrBlockSet"
         )
     if "cidr_block_set" in value:
         import capo_ec2.types.cidr_block_set
 
         capo_ec2.types.cidr_block_set.serialize_ec2_query(
-            value["cidr_block_set"], pairs, f"{prefix}.CidrBlockSet"
+            value["cidr_block_set"], pairs, f"{key_prefix}CidrBlockSet"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "peering_options" in value:
         import capo_ec2.types.vpc_peering_connection_options_description
 
         capo_ec2.types.vpc_peering_connection_options_description.serialize_ec2_query(
-            value["peering_options"], pairs, f"{prefix}.PeeringOptions"
+            value["peering_options"], pairs, f"{key_prefix}PeeringOptions"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
 
 
 def deserialize_ec2_query(el: Element) -> VpcPeeringConnectionVpcInfo:

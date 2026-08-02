@@ -36,23 +36,24 @@ class ClientVpnAuthentication(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClientVpnAuthentication, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_ec2.types.client_vpn_authentication_type
 
         capo_ec2.types.client_vpn_authentication_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "active_directory" in value:
         import capo_ec2.types.directory_service_authentication
 
         capo_ec2.types.directory_service_authentication.serialize_ec2_query(
-            value["active_directory"], pairs, f"{prefix}.ActiveDirectory"
+            value["active_directory"], pairs, f"{key_prefix}ActiveDirectory"
         )
     if "mutual_authentication" in value:
         import capo_ec2.types.certificate_authentication
 
         capo_ec2.types.certificate_authentication.serialize_ec2_query(
-            value["mutual_authentication"], pairs, f"{prefix}.MutualAuthentication"
+            value["mutual_authentication"], pairs, f"{key_prefix}MutualAuthentication"
         )
     if "federated_authentication" in value:
         import capo_ec2.types.federated_authentication
@@ -60,7 +61,7 @@ def serialize_ec2_query(
         capo_ec2.types.federated_authentication.serialize_ec2_query(
             value["federated_authentication"],
             pairs,
-            f"{prefix}.FederatedAuthentication",
+            f"{key_prefix}FederatedAuthentication",
         )
 
 

@@ -46,11 +46,12 @@ def deserialize_aws_json_1_0(data: dict) -> DeleteDashboardsInput:
 def serialize_query(
     value: DeleteDashboardsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dashboard_names" in value:
         import capo_cloudwatch.types.dashboard_names
 
         capo_cloudwatch.types.dashboard_names.serialize_query(
-            value["dashboard_names"], pairs, f"{prefix}.DashboardNames"
+            value["dashboard_names"], pairs, f"{key_prefix}DashboardNames"
         )
 
 

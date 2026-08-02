@@ -24,10 +24,11 @@ class DeleteManagedPrefixListRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteManagedPrefixListRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteManagedPrefixListRequest:

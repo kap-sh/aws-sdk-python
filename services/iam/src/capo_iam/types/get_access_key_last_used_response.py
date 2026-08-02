@@ -26,13 +26,14 @@ class GetAccessKeyLastUsedResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetAccessKeyLastUsedResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "access_key_last_used" in value:
         import capo_iam.types.access_key_last_used
 
         capo_iam.types.access_key_last_used.serialize_query(
-            value["access_key_last_used"], pairs, f"{prefix}.AccessKeyLastUsed"
+            value["access_key_last_used"], pairs, f"{key_prefix}AccessKeyLastUsed"
         )
 
 

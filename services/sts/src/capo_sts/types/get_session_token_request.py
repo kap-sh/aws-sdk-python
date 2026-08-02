@@ -27,12 +27,13 @@ class GetSessionTokenRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetSessionTokenRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
     if "serial_number" in value:
-        pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+        pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     if "token_code" in value:
-        pairs.append((f"{prefix}.TokenCode", str(value["token_code"])))
+        pairs.append((f"{key_prefix}TokenCode", str(value["token_code"])))
 
 
 def deserialize_query(el: Element) -> GetSessionTokenRequest:

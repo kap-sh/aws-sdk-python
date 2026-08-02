@@ -48,11 +48,12 @@ def deserialize_aws_json_1_0(data: dict) -> GetOTelEnrichmentOutput:
 def serialize_query(
     value: GetOTelEnrichmentOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_cloudwatch.types.o_tel_enrichment_status
 
         capo_cloudwatch.types.o_tel_enrichment_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

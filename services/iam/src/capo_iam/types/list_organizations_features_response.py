@@ -24,13 +24,14 @@ class ListOrganizationsFeaturesResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListOrganizationsFeaturesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "organization_id" in value:
-        pairs.append((f"{prefix}.OrganizationId", str(value["organization_id"])))
+        pairs.append((f"{key_prefix}OrganizationId", str(value["organization_id"])))
     if "enabled_features" in value:
         import capo_iam.types.features_list_type
 
         capo_iam.types.features_list_type.serialize_query(
-            value["enabled_features"], pairs, f"{prefix}.EnabledFeatures"
+            value["enabled_features"], pairs, f"{key_prefix}EnabledFeatures"
         )
 
 

@@ -22,10 +22,11 @@ class TargetConfiguration(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TargetConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "offering_id" in value:
-        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+        pairs.append((f"{key_prefix}OfferingId", str(value["offering_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> TargetConfiguration:

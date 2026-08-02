@@ -24,13 +24,14 @@ class InstanceExportDetails(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceExportDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "target_environment" in value:
         import capo_ec2.types.export_environment
 
         capo_ec2.types.export_environment.serialize_ec2_query(
-            value["target_environment"], pairs, f"{prefix}.TargetEnvironment"
+            value["target_environment"], pairs, f"{key_prefix}TargetEnvironment"
         )
 
 

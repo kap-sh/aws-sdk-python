@@ -40,25 +40,26 @@ class GroupDetail(TypedDict, closed=True):
 def serialize_query(
     value: GroupDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "group_policy_list" in value:
         import capo_iam.types.policy_detail_list_type
 
         capo_iam.types.policy_detail_list_type.serialize_query(
-            value["group_policy_list"], pairs, f"{prefix}.GroupPolicyList"
+            value["group_policy_list"], pairs, f"{key_prefix}GroupPolicyList"
         )
     if "attached_managed_policies" in value:
         import capo_iam.types.attached_policies_list_type
@@ -66,7 +67,7 @@ def serialize_query(
         capo_iam.types.attached_policies_list_type.serialize_query(
             value["attached_managed_policies"],
             pairs,
-            f"{prefix}.AttachedManagedPolicies",
+            f"{key_prefix}AttachedManagedPolicies",
         )
 
 

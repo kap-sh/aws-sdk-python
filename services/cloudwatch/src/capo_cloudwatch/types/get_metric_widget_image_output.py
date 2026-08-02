@@ -48,11 +48,12 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricWidgetImageOutput:
 def serialize_query(
     value: GetMetricWidgetImageOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_widget_image" in value:
         import capo_cloudwatch.types.metric_widget_image
 
         capo_cloudwatch.types.metric_widget_image.serialize_query(
-            value["metric_widget_image"], pairs, f"{prefix}.MetricWidgetImage"
+            value["metric_widget_image"], pairs, f"{key_prefix}MetricWidgetImage"
         )
 
 

@@ -29,29 +29,30 @@ class ModifyPrivateDnsNameOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyPrivateDnsNameOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "private_dns_hostname_type" in value:
         import capo_ec2.types.hostname_type
 
         capo_ec2.types.hostname_type.serialize_ec2_query(
             value["private_dns_hostname_type"],
             pairs,
-            f"{prefix}.PrivateDnsHostnameType",
+            f"{key_prefix}PrivateDnsHostnameType",
         )
     if "enable_resource_name_dns_a_record" in value:
         pairs.append(
             (
-                f"{prefix}.EnableResourceNameDnsARecord",
+                f"{key_prefix}EnableResourceNameDnsARecord",
                 "true" if value["enable_resource_name_dns_a_record"] else "false",
             )
         )
     if "enable_resource_name_dns_aaaa_record" in value:
         pairs.append(
             (
-                f"{prefix}.EnableResourceNameDnsAAAARecord",
+                f"{key_prefix}EnableResourceNameDnsAAAARecord",
                 "true" if value["enable_resource_name_dns_aaaa_record"] else "false",
             )
         )

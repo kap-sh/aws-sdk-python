@@ -52,14 +52,15 @@ def deserialize_aws_json_1_0(data: dict) -> StatisticSet:
 def serialize_query(
     value: StatisticSet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "sample_count" in value:
-        pairs.append((f"{prefix}.SampleCount", str(value["sample_count"])))
+        pairs.append((f"{key_prefix}SampleCount", str(value["sample_count"])))
     if "sum" in value:
-        pairs.append((f"{prefix}.Sum", str(value["sum"])))
+        pairs.append((f"{key_prefix}Sum", str(value["sum"])))
     if "minimum" in value:
-        pairs.append((f"{prefix}.Minimum", str(value["minimum"])))
+        pairs.append((f"{key_prefix}Minimum", str(value["minimum"])))
     if "maximum" in value:
-        pairs.append((f"{prefix}.Maximum", str(value["maximum"])))
+        pairs.append((f"{key_prefix}Maximum", str(value["maximum"])))
 
 
 def deserialize_query(el: Element) -> StatisticSet:

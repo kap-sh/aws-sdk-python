@@ -51,13 +51,14 @@ def deserialize_aws_json_1_0(data: dict) -> UntagResourceInput:
 def serialize_query(
     value: UntagResourceInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceARN", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceARN", str(value["resource_arn"])))
     if "tag_keys" in value:
         import capo_cloudwatch.types.tag_key_list
 
         capo_cloudwatch.types.tag_key_list.serialize_query(
-            value["tag_keys"], pairs, f"{prefix}.TagKeys"
+            value["tag_keys"], pairs, f"{key_prefix}TagKeys"
         )
 
 

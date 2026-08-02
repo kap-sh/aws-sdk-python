@@ -19,8 +19,9 @@ class CreateStoreImageTaskResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateStoreImageTaskResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "object_key" in value:
-        pairs.append((f"{prefix}.ObjectKey", str(value["object_key"])))
+        pairs.append((f"{key_prefix}ObjectKey", str(value["object_key"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateStoreImageTaskResult:

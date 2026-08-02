@@ -39,19 +39,20 @@ class OptionConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: OptionConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_name" in value:
-        pairs.append((f"{prefix}.OptionName", str(value["option_name"])))
+        pairs.append((f"{key_prefix}OptionName", str(value["option_name"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "option_version" in value:
-        pairs.append((f"{prefix}.OptionVersion", str(value["option_version"])))
+        pairs.append((f"{key_prefix}OptionVersion", str(value["option_version"])))
     if "db_security_group_memberships" in value:
         import capo_rds.types.db_security_group_name_list
 
         capo_rds.types.db_security_group_name_list.serialize_query(
             value["db_security_group_memberships"],
             pairs,
-            f"{prefix}.DBSecurityGroupMemberships",
+            f"{key_prefix}DBSecurityGroupMemberships",
         )
     if "vpc_security_group_memberships" in value:
         import capo_rds.types.vpc_security_group_id_list
@@ -59,13 +60,13 @@ def serialize_query(
         capo_rds.types.vpc_security_group_id_list.serialize_query(
             value["vpc_security_group_memberships"],
             pairs,
-            f"{prefix}.VpcSecurityGroupMemberships",
+            f"{key_prefix}VpcSecurityGroupMemberships",
         )
     if "option_settings" in value:
         import capo_rds.types.option_settings_list
 
         capo_rds.types.option_settings_list.serialize_query(
-            value["option_settings"], pairs, f"{prefix}.OptionSettings"
+            value["option_settings"], pairs, f"{key_prefix}OptionSettings"
         )
 
 

@@ -36,29 +36,33 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_address" in value:
         pairs.append(
-            (f"{prefix}.TransitGatewayAddress", str(value["transit_gateway_address"]))
+            (
+                f"{key_prefix}TransitGatewayAddress",
+                str(value["transit_gateway_address"]),
+            )
         )
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "inside_cidr_blocks" in value:
         import capo_ec2.types.inside_cidr_blocks_string_list
 
         capo_ec2.types.inside_cidr_blocks_string_list.serialize_ec2_query(
-            value["inside_cidr_blocks"], pairs, f"{prefix}.InsideCidrBlocks"
+            value["inside_cidr_blocks"], pairs, f"{key_prefix}InsideCidrBlocks"
         )
     if "protocol" in value:
         import capo_ec2.types.protocol_value
 
         capo_ec2.types.protocol_value.serialize_ec2_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "bgp_configurations" in value:
         import capo_ec2.types.transit_gateway_attachment_bgp_configuration_list
 
         capo_ec2.types.transit_gateway_attachment_bgp_configuration_list.serialize_ec2_query(
-            value["bgp_configurations"], pairs, f"{prefix}.BgpConfigurations"
+            value["bgp_configurations"], pairs, f"{key_prefix}BgpConfigurations"
         )
 
 

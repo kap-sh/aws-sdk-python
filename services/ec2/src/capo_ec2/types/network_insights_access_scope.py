@@ -38,17 +38,18 @@ class NetworkInsightsAccessScope(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInsightsAccessScope, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_access_scope_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeId",
+                f"{key_prefix}NetworkInsightsAccessScopeId",
                 str(value["network_insights_access_scope_id"]),
             )
         )
     if "network_insights_access_scope_arn" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeArn",
+                f"{key_prefix}NetworkInsightsAccessScopeArn",
                 str(value["network_insights_access_scope_arn"]),
             )
         )
@@ -56,19 +57,19 @@ def serialize_ec2_query(
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["created_date"], pairs, f"{prefix}.CreatedDate"
+            value["created_date"], pairs, f"{key_prefix}CreatedDate"
         )
     if "updated_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["updated_date"], pairs, f"{prefix}.UpdatedDate"
+            value["updated_date"], pairs, f"{key_prefix}UpdatedDate"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

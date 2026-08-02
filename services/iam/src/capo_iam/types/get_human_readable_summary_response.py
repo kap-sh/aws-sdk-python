@@ -27,15 +27,16 @@ class GetHumanReadableSummaryResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetHumanReadableSummaryResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "summary_content" in value:
-        pairs.append((f"{prefix}.SummaryContent", str(value["summary_content"])))
+        pairs.append((f"{key_prefix}SummaryContent", str(value["summary_content"])))
     if "locale" in value:
-        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+        pairs.append((f"{key_prefix}Locale", str(value["locale"])))
     if "summary_state" in value:
         import capo_iam.types.summary_state_type
 
         capo_iam.types.summary_state_type.serialize_query(
-            value["summary_state"], pairs, f"{prefix}.SummaryState"
+            value["summary_state"], pairs, f"{key_prefix}SummaryState"
         )
 
 

@@ -19,11 +19,12 @@ class GetSessionTokenResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetSessionTokenResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "credentials" in value:
         import capo_sts.types.credentials
 
         capo_sts.types.credentials.serialize_query(
-            value["credentials"], pairs, f"{prefix}.Credentials"
+            value["credentials"], pairs, f"{key_prefix}Credentials"
         )
 
 

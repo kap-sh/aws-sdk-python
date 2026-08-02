@@ -56,17 +56,18 @@ class RequestSpotInstancesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RequestSpotInstancesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_specification" in value:
         import capo_ec2.types.request_spot_launch_specification
 
         capo_ec2.types.request_spot_launch_specification.serialize_ec2_query(
-            value["launch_specification"], pairs, f"{prefix}.LaunchSpecification"
+            value["launch_specification"], pairs, f"{key_prefix}LaunchSpecification"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "instance_interruption_behavior" in value:
         import capo_ec2.types.instance_interruption_behavior
@@ -74,43 +75,46 @@ def serialize_ec2_query(
         capo_ec2.types.instance_interruption_behavior.serialize_ec2_query(
             value["instance_interruption_behavior"],
             pairs,
-            f"{prefix}.InstanceInterruptionBehavior",
+            f"{key_prefix}InstanceInterruptionBehavior",
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "spot_price" in value:
-        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+        pairs.append((f"{key_prefix}SpotPrice", str(value["spot_price"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "type" in value:
         import capo_ec2.types.spot_instance_type
 
         capo_ec2.types.spot_instance_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "valid_from" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+            value["valid_from"], pairs, f"{key_prefix}ValidFrom"
         )
     if "valid_until" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+            value["valid_until"], pairs, f"{key_prefix}ValidUntil"
         )
     if "launch_group" in value:
-        pairs.append((f"{prefix}.LaunchGroup", str(value["launch_group"])))
+        pairs.append((f"{key_prefix}LaunchGroup", str(value["launch_group"])))
     if "availability_zone_group" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneGroup", str(value["availability_zone_group"]))
+            (
+                f"{key_prefix}AvailabilityZoneGroup",
+                str(value["availability_zone_group"]),
+            )
         )
     if "block_duration_minutes" in value:
         pairs.append(
-            (f"{prefix}.BlockDurationMinutes", str(value["block_duration_minutes"]))
+            (f"{key_prefix}BlockDurationMinutes", str(value["block_duration_minutes"]))
         )
 
 

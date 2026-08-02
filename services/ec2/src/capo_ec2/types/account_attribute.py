@@ -24,13 +24,14 @@ class AccountAttribute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AccountAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute_name" in value:
-        pairs.append((f"{prefix}.AttributeName", str(value["attribute_name"])))
+        pairs.append((f"{key_prefix}AttributeName", str(value["attribute_name"])))
     if "attribute_values" in value:
         import capo_ec2.types.account_attribute_value_list
 
         capo_ec2.types.account_attribute_value_list.serialize_ec2_query(
-            value["attribute_values"], pairs, f"{prefix}.AttributeValueSet"
+            value["attribute_values"], pairs, f"{key_prefix}AttributeValueSet"
         )
 
 

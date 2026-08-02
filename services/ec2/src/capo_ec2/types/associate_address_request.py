@@ -40,24 +40,27 @@ class AssociateAddressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateAddressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "allow_reassociation" in value:
         pairs.append(
             (
-                f"{prefix}.AllowReassociation",
+                f"{key_prefix}AllowReassociation",
                 "true" if value["allow_reassociation"] else "false",
             )
         )

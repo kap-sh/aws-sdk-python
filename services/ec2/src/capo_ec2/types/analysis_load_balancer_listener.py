@@ -21,10 +21,13 @@ class AnalysisLoadBalancerListener(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisLoadBalancerListener, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_port" in value:
-        pairs.append((f"{prefix}.LoadBalancerPort", str(value["load_balancer_port"])))
+        pairs.append(
+            (f"{key_prefix}LoadBalancerPort", str(value["load_balancer_port"]))
+        )
     if "instance_port" in value:
-        pairs.append((f"{prefix}.InstancePort", str(value["instance_port"])))
+        pairs.append((f"{key_prefix}InstancePort", str(value["instance_port"])))
 
 
 def deserialize_ec2_query(el: Element) -> AnalysisLoadBalancerListener:

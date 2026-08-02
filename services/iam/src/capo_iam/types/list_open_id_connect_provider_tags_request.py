@@ -28,16 +28,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.OpenIDConnectProviderArn",
+            f"{key_prefix}OpenIDConnectProviderArn",
             str(value["open_id_connect_provider_arn"]),
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
 
 
 def deserialize_query(el: Element) -> ListOpenIDConnectProviderTagsRequest:

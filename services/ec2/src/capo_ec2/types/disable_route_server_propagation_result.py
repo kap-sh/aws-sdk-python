@@ -23,11 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_propagation" in value:
         import capo_ec2.types.route_server_propagation
 
         capo_ec2.types.route_server_propagation.serialize_ec2_query(
-            value["route_server_propagation"], pairs, f"{prefix}.RouteServerPropagation"
+            value["route_server_propagation"],
+            pairs,
+            f"{key_prefix}RouteServerPropagation",
         )
 
 

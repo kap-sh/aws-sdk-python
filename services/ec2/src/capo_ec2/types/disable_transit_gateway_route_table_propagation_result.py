@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "propagation" in value:
         import capo_ec2.types.transit_gateway_propagation
 
         capo_ec2.types.transit_gateway_propagation.serialize_ec2_query(
-            value["propagation"], pairs, f"{prefix}.Propagation"
+            value["propagation"], pairs, f"{key_prefix}Propagation"
         )
 
 

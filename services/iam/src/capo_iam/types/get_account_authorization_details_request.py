@@ -27,16 +27,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "filter" in value:
         import capo_iam.types.entity_list_type
 
         capo_iam.types.entity_list_type.serialize_query(
-            value["filter"], pairs, f"{prefix}.Filter"
+            value["filter"], pairs, f"{key_prefix}Filter"
         )
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> GetAccountAuthorizationDetailsRequest:

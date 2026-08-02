@@ -21,11 +21,12 @@ class DisassociateSecurityGroupVpcResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisassociateSecurityGroupVpcResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.security_group_vpc_association_state
 
         capo_ec2.types.security_group_vpc_association_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

@@ -19,11 +19,12 @@ class CreateVpnConcentratorResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateVpnConcentratorResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_concentrator" in value:
         import capo_ec2.types.vpn_concentrator
 
         capo_ec2.types.vpn_concentrator.serialize_ec2_query(
-            value["vpn_concentrator"], pairs, f"{prefix}.VpnConcentrator"
+            value["vpn_concentrator"], pairs, f"{key_prefix}VpnConcentrator"
         )
 
 

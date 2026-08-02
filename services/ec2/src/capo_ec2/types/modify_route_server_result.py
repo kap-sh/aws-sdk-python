@@ -19,11 +19,12 @@ class ModifyRouteServerResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyRouteServerResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server" in value:
         import capo_ec2.types.route_server
 
         capo_ec2.types.route_server.serialize_ec2_query(
-            value["route_server"], pairs, f"{prefix}.RouteServer"
+            value["route_server"], pairs, f"{key_prefix}RouteServer"
         )
 
 

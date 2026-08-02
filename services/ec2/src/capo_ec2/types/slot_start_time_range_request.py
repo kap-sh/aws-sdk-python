@@ -21,17 +21,18 @@ class SlotStartTimeRangeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SlotStartTimeRangeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "earliest_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["earliest_time"], pairs, f"{prefix}.EarliestTime"
+            value["earliest_time"], pairs, f"{key_prefix}EarliestTime"
         )
     if "latest_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["latest_time"], pairs, f"{prefix}.LatestTime"
+            value["latest_time"], pairs, f"{key_prefix}LatestTime"
         )
 
 

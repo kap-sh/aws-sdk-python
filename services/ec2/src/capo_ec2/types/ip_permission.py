@@ -38,35 +38,36 @@ class IpPermission(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpPermission, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ip_protocol" in value:
-        pairs.append((f"{prefix}.IpProtocol", str(value["ip_protocol"])))
+        pairs.append((f"{key_prefix}IpProtocol", str(value["ip_protocol"])))
     if "from_port" in value:
-        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+        pairs.append((f"{key_prefix}FromPort", str(value["from_port"])))
     if "to_port" in value:
-        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+        pairs.append((f"{key_prefix}ToPort", str(value["to_port"])))
     if "user_id_group_pairs" in value:
         import capo_ec2.types.user_id_group_pair_list
 
         capo_ec2.types.user_id_group_pair_list.serialize_ec2_query(
-            value["user_id_group_pairs"], pairs, f"{prefix}.Groups"
+            value["user_id_group_pairs"], pairs, f"{key_prefix}Groups"
         )
     if "ip_ranges" in value:
         import capo_ec2.types.ip_range_list
 
         capo_ec2.types.ip_range_list.serialize_ec2_query(
-            value["ip_ranges"], pairs, f"{prefix}.IpRanges"
+            value["ip_ranges"], pairs, f"{key_prefix}IpRanges"
         )
     if "ipv6_ranges" in value:
         import capo_ec2.types.ipv6_range_list
 
         capo_ec2.types.ipv6_range_list.serialize_ec2_query(
-            value["ipv6_ranges"], pairs, f"{prefix}.Ipv6Ranges"
+            value["ipv6_ranges"], pairs, f"{key_prefix}Ipv6Ranges"
         )
     if "prefix_list_ids" in value:
         import capo_ec2.types.prefix_list_id_list
 
         capo_ec2.types.prefix_list_id_list.serialize_ec2_query(
-            value["prefix_list_ids"], pairs, f"{prefix}.PrefixListIds"
+            value["prefix_list_ids"], pairs, f"{key_prefix}PrefixListIds"
         )
 
 

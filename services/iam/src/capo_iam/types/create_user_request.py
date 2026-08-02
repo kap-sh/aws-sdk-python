@@ -29,18 +29,19 @@ class CreateUserRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateUserRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "permissions_boundary" in value:
         pairs.append(
-            (f"{prefix}.PermissionsBoundary", str(value["permissions_boundary"]))
+            (f"{key_prefix}PermissionsBoundary", str(value["permissions_boundary"]))
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

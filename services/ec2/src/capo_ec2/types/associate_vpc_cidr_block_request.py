@@ -42,33 +42,38 @@ class AssociateVpcCidrBlockRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateVpcCidrBlockRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "ipv6_cidr_block_network_border_group" in value:
         pairs.append(
             (
-                f"{prefix}.Ipv6CidrBlockNetworkBorderGroup",
+                f"{key_prefix}Ipv6CidrBlockNetworkBorderGroup",
                 str(value["ipv6_cidr_block_network_border_group"]),
             )
         )
     if "ipv6_pool" in value:
-        pairs.append((f"{prefix}.Ipv6Pool", str(value["ipv6_pool"])))
+        pairs.append((f"{key_prefix}Ipv6Pool", str(value["ipv6_pool"])))
     if "ipv6_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
     if "ipv4_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
     if "ipv4_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv4NetmaskLength", str(value["ipv4_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv4NetmaskLength", str(value["ipv4_netmask_length"]))
+        )
     if "ipv6_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
     if "ipv6_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv6NetmaskLength", str(value["ipv6_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6NetmaskLength", str(value["ipv6_netmask_length"]))
+        )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "amazon_provided_ipv6_cidr_block" in value:
         pairs.append(
             (
-                f"{prefix}.AmazonProvidedIpv6CidrBlock",
+                f"{key_prefix}AmazonProvidedIpv6CidrBlock",
                 "true" if value["amazon_provided_ipv6_cidr_block"] else "false",
             )
         )

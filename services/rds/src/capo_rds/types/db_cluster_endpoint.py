@@ -38,49 +38,50 @@ class DBClusterEndpoint(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_endpoint_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterEndpointIdentifier",
+                f"{key_prefix}DBClusterEndpointIdentifier",
                 str(value["db_cluster_endpoint_identifier"]),
             )
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "db_cluster_endpoint_resource_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterEndpointResourceIdentifier",
+                f"{key_prefix}DBClusterEndpointResourceIdentifier",
                 str(value["db_cluster_endpoint_resource_identifier"]),
             )
         )
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "endpoint_type" in value:
-        pairs.append((f"{prefix}.EndpointType", str(value["endpoint_type"])))
+        pairs.append((f"{key_prefix}EndpointType", str(value["endpoint_type"])))
     if "custom_endpoint_type" in value:
         pairs.append(
-            (f"{prefix}.CustomEndpointType", str(value["custom_endpoint_type"]))
+            (f"{key_prefix}CustomEndpointType", str(value["custom_endpoint_type"]))
         )
     if "static_members" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["static_members"], pairs, f"{prefix}.StaticMembers"
+            value["static_members"], pairs, f"{key_prefix}StaticMembers"
         )
     if "excluded_members" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["excluded_members"], pairs, f"{prefix}.ExcludedMembers"
+            value["excluded_members"], pairs, f"{key_prefix}ExcludedMembers"
         )
     if "db_cluster_endpoint_arn" in value:
         pairs.append(
-            (f"{prefix}.DBClusterEndpointArn", str(value["db_cluster_endpoint_arn"]))
+            (f"{key_prefix}DBClusterEndpointArn", str(value["db_cluster_endpoint_arn"]))
         )
 
 

@@ -53,64 +53,65 @@ class ExportTask(TypedDict, closed=True):
 def serialize_query(
     value: ExportTask, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "export_task_identifier" in value:
         pairs.append(
-            (f"{prefix}.ExportTaskIdentifier", str(value["export_task_identifier"]))
+            (f"{key_prefix}ExportTaskIdentifier", str(value["export_task_identifier"]))
         )
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "export_only" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["export_only"], pairs, f"{prefix}.ExportOnly"
+            value["export_only"], pairs, f"{key_prefix}ExportOnly"
         )
     if "snapshot_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["snapshot_time"], pairs, f"{prefix}.SnapshotTime"
+            value["snapshot_time"], pairs, f"{key_prefix}SnapshotTime"
         )
     if "task_start_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["task_start_time"], pairs, f"{prefix}.TaskStartTime"
+            value["task_start_time"], pairs, f"{key_prefix}TaskStartTime"
         )
     if "task_end_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["task_end_time"], pairs, f"{prefix}.TaskEndTime"
+            value["task_end_time"], pairs, f"{key_prefix}TaskEndTime"
         )
     if "s3_bucket" in value:
-        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+        pairs.append((f"{key_prefix}S3Bucket", str(value["s3_bucket"])))
     if "s3_prefix" in value:
-        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+        pairs.append((f"{key_prefix}S3Prefix", str(value["s3_prefix"])))
     if "iam_role_arn" in value:
-        pairs.append((f"{prefix}.IamRoleArn", str(value["iam_role_arn"])))
+        pairs.append((f"{key_prefix}IamRoleArn", str(value["iam_role_arn"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "percent_progress" in value:
-        pairs.append((f"{prefix}.PercentProgress", str(value["percent_progress"])))
+        pairs.append((f"{key_prefix}PercentProgress", str(value["percent_progress"])))
     if "total_extracted_data_in_gb" in value:
         pairs.append(
             (
-                f"{prefix}.TotalExtractedDataInGB",
+                f"{key_prefix}TotalExtractedDataInGB",
                 str(value["total_extracted_data_in_gb"]),
             )
         )
     if "failure_cause" in value:
-        pairs.append((f"{prefix}.FailureCause", str(value["failure_cause"])))
+        pairs.append((f"{key_prefix}FailureCause", str(value["failure_cause"])))
     if "warning_message" in value:
-        pairs.append((f"{prefix}.WarningMessage", str(value["warning_message"])))
+        pairs.append((f"{key_prefix}WarningMessage", str(value["warning_message"])))
     if "source_type" in value:
         import capo_rds.types.export_source_type
 
         capo_rds.types.export_source_type.serialize_query(
-            value["source_type"], pairs, f"{prefix}.SourceType"
+            value["source_type"], pairs, f"{key_prefix}SourceType"
         )
 
 

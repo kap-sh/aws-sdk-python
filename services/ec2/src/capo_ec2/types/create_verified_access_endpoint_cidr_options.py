@@ -36,25 +36,26 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "protocol" in value:
         import capo_ec2.types.verified_access_endpoint_protocol
 
         capo_ec2.types.verified_access_endpoint_protocol.serialize_ec2_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "subnet_ids" in value:
         import capo_ec2.types.create_verified_access_endpoint_subnet_id_list
 
         capo_ec2.types.create_verified_access_endpoint_subnet_id_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "port_ranges" in value:
         import capo_ec2.types.create_verified_access_endpoint_port_range_list
 
         capo_ec2.types.create_verified_access_endpoint_port_range_list.serialize_ec2_query(
-            value["port_ranges"], pairs, f"{prefix}.PortRanges"
+            value["port_ranges"], pairs, f"{key_prefix}PortRanges"
         )
 
 

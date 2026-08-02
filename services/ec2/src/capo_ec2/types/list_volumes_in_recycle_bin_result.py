@@ -24,14 +24,15 @@ class ListVolumesInRecycleBinResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ListVolumesInRecycleBinResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volumes" in value:
         import capo_ec2.types.volume_recycle_bin_info_list
 
         capo_ec2.types.volume_recycle_bin_info_list.serialize_ec2_query(
-            value["volumes"], pairs, f"{prefix}.VolumeSet"
+            value["volumes"], pairs, f"{key_prefix}VolumeSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> ListVolumesInRecycleBinResult:

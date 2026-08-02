@@ -19,11 +19,12 @@ class RegisterEndPointsOutput(TypedDict, closed=True):
 def serialize_query(
     value: RegisterEndPointsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instances" in value:
         import capo_elastic_load_balancing.types.instances
 
         capo_elastic_load_balancing.types.instances.serialize_query(
-            value["instances"], pairs, f"{prefix}.Instances"
+            value["instances"], pairs, f"{key_prefix}Instances"
         )
 
 

@@ -72,83 +72,86 @@ class IpamDiscoveredPublicAddress(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamDiscoveredPublicAddress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_resource_discovery_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryId",
+                f"{key_prefix}IpamResourceDiscoveryId",
                 str(value["ipam_resource_discovery_id"]),
             )
         )
     if "address_region" in value:
-        pairs.append((f"{prefix}.AddressRegion", str(value["address_region"])))
+        pairs.append((f"{key_prefix}AddressRegion", str(value["address_region"])))
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "address_owner_id" in value:
-        pairs.append((f"{prefix}.AddressOwnerId", str(value["address_owner_id"])))
+        pairs.append((f"{key_prefix}AddressOwnerId", str(value["address_owner_id"])))
     if "address_allocation_id" in value:
         pairs.append(
-            (f"{prefix}.AddressAllocationId", str(value["address_allocation_id"]))
+            (f"{key_prefix}AddressAllocationId", str(value["address_allocation_id"]))
         )
     if "association_status" in value:
         import capo_ec2.types.ipam_public_address_association_status
 
         capo_ec2.types.ipam_public_address_association_status.serialize_ec2_query(
-            value["association_status"], pairs, f"{prefix}.AssociationStatus"
+            value["association_status"], pairs, f"{key_prefix}AssociationStatus"
         )
     if "address_type" in value:
         import capo_ec2.types.ipam_public_address_type
 
         capo_ec2.types.ipam_public_address_type.serialize_ec2_query(
-            value["address_type"], pairs, f"{prefix}.AddressType"
+            value["address_type"], pairs, f"{key_prefix}AddressType"
         )
     if "service" in value:
         import capo_ec2.types.ipam_public_address_aws_service
 
         capo_ec2.types.ipam_public_address_aws_service.serialize_ec2_query(
-            value["service"], pairs, f"{prefix}.Service"
+            value["service"], pairs, f"{key_prefix}Service"
         )
     if "service_resource" in value:
-        pairs.append((f"{prefix}.ServiceResource", str(value["service_resource"])))
+        pairs.append((f"{key_prefix}ServiceResource", str(value["service_resource"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "public_ipv4_pool_id" in value:
-        pairs.append((f"{prefix}.PublicIpv4PoolId", str(value["public_ipv4_pool_id"])))
+        pairs.append(
+            (f"{key_prefix}PublicIpv4PoolId", str(value["public_ipv4_pool_id"]))
+        )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "network_interface_description" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInterfaceDescription",
+                f"{key_prefix}NetworkInterfaceDescription",
                 str(value["network_interface_description"]),
             )
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "tags" in value:
         import capo_ec2.types.ipam_public_address_tags
 
         capo_ec2.types.ipam_public_address_tags.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "security_groups" in value:
         import capo_ec2.types.ipam_public_address_security_group_list
 
         capo_ec2.types.ipam_public_address_security_group_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroupSet"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroupSet"
         )
     if "sample_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["sample_time"], pairs, f"{prefix}.SampleTime"
+            value["sample_time"], pairs, f"{key_prefix}SampleTime"
         )
 
 

@@ -19,8 +19,9 @@ class OperatorRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: OperatorRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "principal" in value:
-        pairs.append((f"{prefix}.Principal", str(value["principal"])))
+        pairs.append((f"{key_prefix}Principal", str(value["principal"])))
 
 
 def deserialize_ec2_query(el: Element) -> OperatorRequest:

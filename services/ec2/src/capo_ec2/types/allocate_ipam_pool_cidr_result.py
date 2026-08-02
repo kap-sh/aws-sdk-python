@@ -21,11 +21,12 @@ class AllocateIpamPoolCidrResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AllocateIpamPoolCidrResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_pool_allocation" in value:
         import capo_ec2.types.ipam_pool_allocation
 
         capo_ec2.types.ipam_pool_allocation.serialize_ec2_query(
-            value["ipam_pool_allocation"], pairs, f"{prefix}.IpamPoolAllocation"
+            value["ipam_pool_allocation"], pairs, f"{key_prefix}IpamPoolAllocation"
         )
 
 

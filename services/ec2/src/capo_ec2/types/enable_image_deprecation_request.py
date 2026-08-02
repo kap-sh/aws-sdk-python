@@ -27,16 +27,17 @@ class EnableImageDeprecationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableImageDeprecationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "deprecate_at" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["deprecate_at"], pairs, f"{prefix}.DeprecateAt"
+            value["deprecate_at"], pairs, f"{key_prefix}DeprecateAt"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> EnableImageDeprecationRequest:

@@ -44,38 +44,41 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_ec2.types.user_trust_provider_type
 
         capo_ec2.types.user_trust_provider_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "scopes" in value:
-        pairs.append((f"{prefix}.Scopes", str(value["scopes"])))
+        pairs.append((f"{key_prefix}Scopes", str(value["scopes"])))
     if "issuer" in value:
-        pairs.append((f"{prefix}.Issuer", str(value["issuer"])))
+        pairs.append((f"{key_prefix}Issuer", str(value["issuer"])))
     if "authorization_endpoint" in value:
         pairs.append(
-            (f"{prefix}.AuthorizationEndpoint", str(value["authorization_endpoint"]))
+            (f"{key_prefix}AuthorizationEndpoint", str(value["authorization_endpoint"]))
         )
     if "public_signing_key_endpoint" in value:
         pairs.append(
             (
-                f"{prefix}.PublicSigningKeyEndpoint",
+                f"{key_prefix}PublicSigningKeyEndpoint",
                 str(value["public_signing_key_endpoint"]),
             )
         )
     if "token_endpoint" in value:
-        pairs.append((f"{prefix}.TokenEndpoint", str(value["token_endpoint"])))
+        pairs.append((f"{key_prefix}TokenEndpoint", str(value["token_endpoint"])))
     if "user_info_endpoint" in value:
-        pairs.append((f"{prefix}.UserInfoEndpoint", str(value["user_info_endpoint"])))
+        pairs.append(
+            (f"{key_prefix}UserInfoEndpoint", str(value["user_info_endpoint"]))
+        )
     if "client_id" in value:
-        pairs.append((f"{prefix}.ClientId", str(value["client_id"])))
+        pairs.append((f"{key_prefix}ClientId", str(value["client_id"])))
     if "client_secret" in value:
-        pairs.append((f"{prefix}.ClientSecret", str(value["client_secret"])))
+        pairs.append((f"{key_prefix}ClientSecret", str(value["client_secret"])))
     if "pkce_enabled" in value:
         pairs.append(
-            (f"{prefix}.PkceEnabled", "true" if value["pkce_enabled"] else "false")
+            (f"{key_prefix}PkceEnabled", "true" if value["pkce_enabled"] else "false")
         )
 
 

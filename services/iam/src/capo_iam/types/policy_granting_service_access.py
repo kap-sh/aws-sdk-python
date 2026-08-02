@@ -33,22 +33,23 @@ class PolicyGrantingServiceAccess(TypedDict, closed=True):
 def serialize_query(
     value: PolicyGrantingServiceAccess, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     import capo_iam.types.policy_type
 
     capo_iam.types.policy_type.serialize_query(
-        value["policy_type"], pairs, f"{prefix}.PolicyType"
+        value["policy_type"], pairs, f"{key_prefix}PolicyType"
     )
     if "policy_arn" in value:
-        pairs.append((f"{prefix}.PolicyArn", str(value["policy_arn"])))
+        pairs.append((f"{key_prefix}PolicyArn", str(value["policy_arn"])))
     if "entity_type" in value:
         import capo_iam.types.policy_owner_entity_type
 
         capo_iam.types.policy_owner_entity_type.serialize_query(
-            value["entity_type"], pairs, f"{prefix}.EntityType"
+            value["entity_type"], pairs, f"{key_prefix}EntityType"
         )
     if "entity_name" in value:
-        pairs.append((f"{prefix}.EntityName", str(value["entity_name"])))
+        pairs.append((f"{key_prefix}EntityName", str(value["entity_name"])))
 
 
 def deserialize_query(el: Element) -> PolicyGrantingServiceAccess:

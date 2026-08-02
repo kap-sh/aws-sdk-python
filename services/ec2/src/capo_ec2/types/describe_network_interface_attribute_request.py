@@ -31,17 +31,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "attribute" in value:
         import capo_ec2.types.network_interface_attribute
 
         capo_ec2.types.network_interface_attribute.serialize_ec2_query(
-            value["attribute"], pairs, f"{prefix}.Attribute"
+            value["attribute"], pairs, f"{key_prefix}Attribute"
         )
 
 

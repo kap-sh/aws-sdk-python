@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_tag_attribute" in value:
         import capo_ec2.types.instance_tag_notification_attribute
 
         capo_ec2.types.instance_tag_notification_attribute.serialize_ec2_query(
-            value["instance_tag_attribute"], pairs, f"{prefix}.InstanceTagAttribute"
+            value["instance_tag_attribute"], pairs, f"{key_prefix}InstanceTagAttribute"
         )
 
 

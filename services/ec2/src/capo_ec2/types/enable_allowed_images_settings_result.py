@@ -21,13 +21,14 @@ class EnableAllowedImagesSettingsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableAllowedImagesSettingsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allowed_images_settings_state" in value:
         import capo_ec2.types.allowed_images_settings_enabled_state
 
         capo_ec2.types.allowed_images_settings_enabled_state.serialize_ec2_query(
             value["allowed_images_settings_state"],
             pairs,
-            f"{prefix}.AllowedImagesSettingsState",
+            f"{key_prefix}AllowedImagesSettingsState",
         )
 
 

@@ -19,8 +19,9 @@ class Ipv4PrefixSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Ipv4PrefixSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv4_prefix" in value:
-        pairs.append((f"{prefix}.Ipv4Prefix", str(value["ipv4_prefix"])))
+        pairs.append((f"{key_prefix}Ipv4Prefix", str(value["ipv4_prefix"])))
 
 
 def deserialize_ec2_query(el: Element) -> Ipv4PrefixSpecification:

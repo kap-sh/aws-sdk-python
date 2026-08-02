@@ -28,24 +28,25 @@ class ProvisionedBandwidth(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProvisionedBandwidth, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "provision_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["provision_time"], pairs, f"{prefix}.ProvisionTime"
+            value["provision_time"], pairs, f"{key_prefix}ProvisionTime"
         )
     if "provisioned" in value:
-        pairs.append((f"{prefix}.Provisioned", str(value["provisioned"])))
+        pairs.append((f"{key_prefix}Provisioned", str(value["provisioned"])))
     if "request_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["request_time"], pairs, f"{prefix}.RequestTime"
+            value["request_time"], pairs, f"{key_prefix}RequestTime"
         )
     if "requested" in value:
-        pairs.append((f"{prefix}.Requested", str(value["requested"])))
+        pairs.append((f"{key_prefix}Requested", str(value["requested"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_ec2_query(el: Element) -> ProvisionedBandwidth:

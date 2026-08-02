@@ -19,11 +19,12 @@ class CreateSnapshotsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateSnapshotsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshots" in value:
         import capo_ec2.types.snapshot_set
 
         capo_ec2.types.snapshot_set.serialize_ec2_query(
-            value["snapshots"], pairs, f"{prefix}.SnapshotSet"
+            value["snapshots"], pairs, f"{key_prefix}SnapshotSet"
         )
 
 

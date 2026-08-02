@@ -22,14 +22,15 @@ class CreateNetworkInterfaceResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateNetworkInterfaceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_interface" in value:
         import capo_ec2.types.network_interface
 
         capo_ec2.types.network_interface.serialize_ec2_query(
-            value["network_interface"], pairs, f"{prefix}.NetworkInterface"
+            value["network_interface"], pairs, f"{key_prefix}NetworkInterface"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInterfaceResult:

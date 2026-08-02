@@ -35,35 +35,36 @@ class ServerlessV2PlatformVersionInfo(TypedDict, closed=True):
 def serialize_query(
     value: ServerlessV2PlatformVersionInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_v2_platform_version" in value:
         pairs.append(
             (
-                f"{prefix}.ServerlessV2PlatformVersion",
+                f"{key_prefix}ServerlessV2PlatformVersion",
                 str(value["serverless_v2_platform_version"]),
             )
         )
     if "serverless_v2_platform_version_description" in value:
         pairs.append(
             (
-                f"{prefix}.ServerlessV2PlatformVersionDescription",
+                f"{key_prefix}ServerlessV2PlatformVersionDescription",
                 str(value["serverless_v2_platform_version_description"]),
             )
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "serverless_v2_features_support" in value:
         import capo_rds.types.serverless_v2_features_support
 
         capo_rds.types.serverless_v2_features_support.serialize_query(
             value["serverless_v2_features_support"],
             pairs,
-            f"{prefix}.ServerlessV2FeaturesSupport",
+            f"{key_prefix}ServerlessV2FeaturesSupport",
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
 
 

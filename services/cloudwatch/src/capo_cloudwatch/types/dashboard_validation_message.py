@@ -41,10 +41,11 @@ def deserialize_aws_json_1_0(data: dict) -> DashboardValidationMessage:
 def serialize_query(
     value: DashboardValidationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_path" in value:
-        pairs.append((f"{prefix}.DataPath", str(value["data_path"])))
+        pairs.append((f"{key_prefix}DataPath", str(value["data_path"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> DashboardValidationMessage:

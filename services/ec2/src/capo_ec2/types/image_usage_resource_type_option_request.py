@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_name" in value:
-        pairs.append((f"{prefix}.OptionName", str(value["option_name"])))
+        pairs.append((f"{key_prefix}OptionName", str(value["option_name"])))
     if "option_values" in value:
         import capo_ec2.types.image_usage_resource_type_option_values_list
 
         capo_ec2.types.image_usage_resource_type_option_values_list.serialize_ec2_query(
-            value["option_values"], pairs, f"{prefix}.OptionValues"
+            value["option_values"], pairs, f"{key_prefix}OptionValues"
         )
 
 

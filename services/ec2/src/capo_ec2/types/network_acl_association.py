@@ -23,17 +23,18 @@ class NetworkAclAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkAclAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_acl_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkAclAssociationId",
+                f"{key_prefix}NetworkAclAssociationId",
                 str(value["network_acl_association_id"]),
             )
         )
     if "network_acl_id" in value:
-        pairs.append((f"{prefix}.NetworkAclId", str(value["network_acl_id"])))
+        pairs.append((f"{key_prefix}NetworkAclId", str(value["network_acl_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> NetworkAclAssociation:

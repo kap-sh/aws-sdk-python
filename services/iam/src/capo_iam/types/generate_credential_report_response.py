@@ -24,14 +24,15 @@ class GenerateCredentialReportResponse(TypedDict, closed=True):
 def serialize_query(
     value: GenerateCredentialReportResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_iam.types.report_state_type
 
         capo_iam.types.report_state_type.serialize_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> GenerateCredentialReportResponse:

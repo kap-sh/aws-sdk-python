@@ -72,62 +72,65 @@ class OptionGroupOption(TypedDict, closed=True):
 def serialize_query(
     value: OptionGroupOption, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "engine_name" in value:
-        pairs.append((f"{prefix}.EngineName", str(value["engine_name"])))
+        pairs.append((f"{key_prefix}EngineName", str(value["engine_name"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
     if "minimum_required_minor_engine_version" in value:
         pairs.append(
             (
-                f"{prefix}.MinimumRequiredMinorEngineVersion",
+                f"{key_prefix}MinimumRequiredMinorEngineVersion",
                 str(value["minimum_required_minor_engine_version"]),
             )
         )
     if "port_required" in value:
         pairs.append(
-            (f"{prefix}.PortRequired", "true" if value["port_required"] else "false")
+            (f"{key_prefix}PortRequired", "true" if value["port_required"] else "false")
         )
     if "default_port" in value:
-        pairs.append((f"{prefix}.DefaultPort", str(value["default_port"])))
+        pairs.append((f"{key_prefix}DefaultPort", str(value["default_port"])))
     if "options_depended_on" in value:
         import capo_rds.types.options_depended_on
 
         capo_rds.types.options_depended_on.serialize_query(
-            value["options_depended_on"], pairs, f"{prefix}.OptionsDependedOn"
+            value["options_depended_on"], pairs, f"{key_prefix}OptionsDependedOn"
         )
     if "options_conflicts_with" in value:
         import capo_rds.types.options_conflicts_with
 
         capo_rds.types.options_conflicts_with.serialize_query(
-            value["options_conflicts_with"], pairs, f"{prefix}.OptionsConflictsWith"
+            value["options_conflicts_with"], pairs, f"{key_prefix}OptionsConflictsWith"
         )
     if "persistent" in value:
         pairs.append(
-            (f"{prefix}.Persistent", "true" if value["persistent"] else "false")
+            (f"{key_prefix}Persistent", "true" if value["persistent"] else "false")
         )
     if "permanent" in value:
-        pairs.append((f"{prefix}.Permanent", "true" if value["permanent"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Permanent", "true" if value["permanent"] else "false")
+        )
     if "requires_auto_minor_engine_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.RequiresAutoMinorEngineVersionUpgrade",
+                f"{key_prefix}RequiresAutoMinorEngineVersionUpgrade",
                 "true"
                 if value["requires_auto_minor_engine_version_upgrade"]
                 else "false",
             )
         )
     if "vpc_only" in value:
-        pairs.append((f"{prefix}.VpcOnly", "true" if value["vpc_only"] else "false"))
+        pairs.append((f"{key_prefix}VpcOnly", "true" if value["vpc_only"] else "false"))
     if "supports_option_version_downgrade" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsOptionVersionDowngrade",
+                f"{key_prefix}SupportsOptionVersionDowngrade",
                 "true" if value["supports_option_version_downgrade"] else "false",
             )
         )
@@ -137,7 +140,7 @@ def serialize_query(
         capo_rds.types.option_group_option_settings_list.serialize_query(
             value["option_group_option_settings"],
             pairs,
-            f"{prefix}.OptionGroupOptionSettings",
+            f"{key_prefix}OptionGroupOptionSettings",
         )
     if "option_group_option_versions" in value:
         import capo_rds.types.option_group_option_versions_list
@@ -145,12 +148,12 @@ def serialize_query(
         capo_rds.types.option_group_option_versions_list.serialize_query(
             value["option_group_option_versions"],
             pairs,
-            f"{prefix}.OptionGroupOptionVersions",
+            f"{key_prefix}OptionGroupOptionVersions",
         )
     if "copyable_cross_account" in value:
         pairs.append(
             (
-                f"{prefix}.CopyableCrossAccount",
+                f"{key_prefix}CopyableCrossAccount",
                 "true" if value["copyable_cross_account"] else "false",
             )
         )

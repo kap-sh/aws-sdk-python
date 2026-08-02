@@ -32,16 +32,17 @@ class DnsOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DnsOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dns_record_ip_type" in value:
         import capo_ec2.types.dns_record_ip_type
 
         capo_ec2.types.dns_record_ip_type.serialize_ec2_query(
-            value["dns_record_ip_type"], pairs, f"{prefix}.DnsRecordIpType"
+            value["dns_record_ip_type"], pairs, f"{key_prefix}DnsRecordIpType"
         )
     if "private_dns_only_for_inbound_resolver_endpoint" in value:
         pairs.append(
             (
-                f"{prefix}.PrivateDnsOnlyForInboundResolverEndpoint",
+                f"{key_prefix}PrivateDnsOnlyForInboundResolverEndpoint",
                 "true"
                 if value["private_dns_only_for_inbound_resolver_endpoint"]
                 else "false",
@@ -49,7 +50,7 @@ def serialize_ec2_query(
         )
     if "private_dns_preference" in value:
         pairs.append(
-            (f"{prefix}.PrivateDnsPreference", str(value["private_dns_preference"]))
+            (f"{key_prefix}PrivateDnsPreference", str(value["private_dns_preference"]))
         )
     if "private_dns_specified_domains" in value:
         import capo_ec2.types.private_dns_specified_domain_set
@@ -57,7 +58,7 @@ def serialize_ec2_query(
         capo_ec2.types.private_dns_specified_domain_set.serialize_ec2_query(
             value["private_dns_specified_domains"],
             pairs,
-            f"{prefix}.PrivateDnsSpecifiedDomainSet",
+            f"{key_prefix}PrivateDnsSpecifiedDomainSet",
         )
 
 

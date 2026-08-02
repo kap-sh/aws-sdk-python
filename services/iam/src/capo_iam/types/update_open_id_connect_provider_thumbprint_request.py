@@ -25,16 +25,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.OpenIDConnectProviderArn",
+            f"{key_prefix}OpenIDConnectProviderArn",
             str(value["open_id_connect_provider_arn"]),
         )
     )
     import capo_iam.types.thumbprint_list_type
 
     capo_iam.types.thumbprint_list_type.serialize_query(
-        value["thumbprint_list"], pairs, f"{prefix}.ThumbprintList"
+        value["thumbprint_list"], pairs, f"{key_prefix}ThumbprintList"
     )
 
 

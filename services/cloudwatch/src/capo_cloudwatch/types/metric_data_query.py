@@ -84,26 +84,27 @@ def deserialize_aws_json_1_0(data: dict) -> MetricDataQuery:
 def serialize_query(
     value: MetricDataQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "metric_stat" in value:
         import capo_cloudwatch.types.metric_stat
 
         capo_cloudwatch.types.metric_stat.serialize_query(
-            value["metric_stat"], pairs, f"{prefix}.MetricStat"
+            value["metric_stat"], pairs, f"{key_prefix}MetricStat"
         )
     if "expression" in value:
-        pairs.append((f"{prefix}.Expression", str(value["expression"])))
+        pairs.append((f"{key_prefix}Expression", str(value["expression"])))
     if "label" in value:
-        pairs.append((f"{prefix}.Label", str(value["label"])))
+        pairs.append((f"{key_prefix}Label", str(value["label"])))
     if "return_data" in value:
         pairs.append(
-            (f"{prefix}.ReturnData", "true" if value["return_data"] else "false")
+            (f"{key_prefix}ReturnData", "true" if value["return_data"] else "false")
         )
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "account_id" in value:
-        pairs.append((f"{prefix}.AccountId", str(value["account_id"])))
+        pairs.append((f"{key_prefix}AccountId", str(value["account_id"])))
 
 
 def deserialize_query(el: Element) -> MetricDataQuery:

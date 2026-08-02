@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_discovered_resource_cidrs" in value:
         import capo_ec2.types.ipam_discovered_resource_cidr_set
 
         capo_ec2.types.ipam_discovered_resource_cidr_set.serialize_ec2_query(
             value["ipam_discovered_resource_cidrs"],
             pairs,
-            f"{prefix}.IpamDiscoveredResourceCidrSet",
+            f"{key_prefix}IpamDiscoveredResourceCidrSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredResourceCidrsResult:

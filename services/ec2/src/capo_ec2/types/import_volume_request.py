@@ -35,27 +35,28 @@ class ImportVolumeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportVolumeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "image" in value:
         import capo_ec2.types.disk_image_detail
 
         capo_ec2.types.disk_image_detail.serialize_ec2_query(
-            value["image"], pairs, f"{prefix}.Image"
+            value["image"], pairs, f"{key_prefix}Image"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "volume" in value:
         import capo_ec2.types.volume_detail
 
         capo_ec2.types.volume_detail.serialize_ec2_query(
-            value["volume"], pairs, f"{prefix}.Volume"
+            value["volume"], pairs, f"{key_prefix}Volume"
         )
 
 

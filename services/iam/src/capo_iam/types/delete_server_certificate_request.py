@@ -22,8 +22,9 @@ class DeleteServerCertificateRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteServerCertificateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
 
 

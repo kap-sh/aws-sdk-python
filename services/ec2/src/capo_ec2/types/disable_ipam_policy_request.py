@@ -25,13 +25,14 @@ class DisableIpamPolicyRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisableIpamPolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_policy_id" in value:
-        pairs.append((f"{prefix}.IpamPolicyId", str(value["ipam_policy_id"])))
+        pairs.append((f"{key_prefix}IpamPolicyId", str(value["ipam_policy_id"])))
     if "organization_target_id" in value:
         pairs.append(
-            (f"{prefix}.OrganizationTargetId", str(value["organization_target_id"]))
+            (f"{key_prefix}OrganizationTargetId", str(value["organization_target_id"]))
         )
 
 

@@ -21,9 +21,10 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_configuration" in value:
         pairs.append(
-            (f"{prefix}.ClientConfiguration", str(value["client_configuration"]))
+            (f"{key_prefix}ClientConfiguration", str(value["client_configuration"]))
         )
 
 

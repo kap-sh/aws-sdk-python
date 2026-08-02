@@ -29,31 +29,34 @@ class AnalysisPacketHeader(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisPacketHeader, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_addresses" in value:
         import capo_ec2.types.ip_address_list
 
         capo_ec2.types.ip_address_list.serialize_ec2_query(
-            value["destination_addresses"], pairs, f"{prefix}.DestinationAddressSet"
+            value["destination_addresses"], pairs, f"{key_prefix}DestinationAddressSet"
         )
     if "destination_port_ranges" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["destination_port_ranges"], pairs, f"{prefix}.DestinationPortRangeSet"
+            value["destination_port_ranges"],
+            pairs,
+            f"{key_prefix}DestinationPortRangeSet",
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "source_addresses" in value:
         import capo_ec2.types.ip_address_list
 
         capo_ec2.types.ip_address_list.serialize_ec2_query(
-            value["source_addresses"], pairs, f"{prefix}.SourceAddressSet"
+            value["source_addresses"], pairs, f"{key_prefix}SourceAddressSet"
         )
     if "source_port_ranges" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["source_port_ranges"], pairs, f"{prefix}.SourcePortRangeSet"
+            value["source_port_ranges"], pairs, f"{key_prefix}SourcePortRangeSet"
         )
 
 

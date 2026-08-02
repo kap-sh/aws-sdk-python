@@ -87,61 +87,62 @@ class DBClusterSnapshot(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterSnapshot, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_rds.types.availability_zones
 
         capo_rds.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterSnapshotIdentifier",
+                f"{key_prefix}DBClusterSnapshotIdentifier",
                 str(value["db_cluster_snapshot_identifier"]),
             )
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "snapshot_create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["snapshot_create_time"], pairs, f"{prefix}.SnapshotCreateTime"
+            value["snapshot_create_time"], pairs, f"{key_prefix}SnapshotCreateTime"
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_mode" in value:
-        pairs.append((f"{prefix}.EngineMode", str(value["engine_mode"])))
+        pairs.append((f"{key_prefix}EngineMode", str(value["engine_mode"])))
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "cluster_create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["cluster_create_time"], pairs, f"{prefix}.ClusterCreateTime"
+            value["cluster_create_time"], pairs, f"{key_prefix}ClusterCreateTime"
         )
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "percent_progress" in value:
-        pairs.append((f"{prefix}.PercentProgress", str(value["percent_progress"])))
+        pairs.append((f"{key_prefix}PercentProgress", str(value["percent_progress"])))
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
@@ -149,33 +150,41 @@ def serialize_query(
         import capo_rds.types.storage_encryption_type
 
         capo_rds.types.storage_encryption_type.serialize_query(
-            value["storage_encryption_type"], pairs, f"{prefix}.StorageEncryptionType"
+            value["storage_encryption_type"],
+            pairs,
+            f"{key_prefix}StorageEncryptionType",
         )
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "preferred_backup_window" in value:
         pairs.append(
-            (f"{prefix}.PreferredBackupWindow", str(value["preferred_backup_window"]))
+            (
+                f"{key_prefix}PreferredBackupWindow",
+                str(value["preferred_backup_window"]),
+            )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "db_cluster_snapshot_arn" in value:
         pairs.append(
-            (f"{prefix}.DBClusterSnapshotArn", str(value["db_cluster_snapshot_arn"]))
+            (f"{key_prefix}DBClusterSnapshotArn", str(value["db_cluster_snapshot_arn"]))
         )
     if "source_db_cluster_snapshot_arn" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBClusterSnapshotArn",
+                f"{key_prefix}SourceDBClusterSnapshotArn",
                 str(value["source_db_cluster_snapshot_arn"]),
             )
         )
     if "iam_database_authentication_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IAMDatabaseAuthenticationEnabled",
+                f"{key_prefix}IAMDatabaseAuthenticationEnabled",
                 "true" if value["iam_database_authentication_enabled"] else "false",
             )
         )
@@ -183,18 +192,20 @@ def serialize_query(
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "storage_throughput" in value:
-        pairs.append((f"{prefix}.StorageThroughput", str(value["storage_throughput"])))
+        pairs.append(
+            (f"{key_prefix}StorageThroughput", str(value["storage_throughput"]))
+        )
     if "db_cluster_resource_id" in value:
         pairs.append(
-            (f"{prefix}.DbClusterResourceId", str(value["db_cluster_resource_id"]))
+            (f"{key_prefix}DbClusterResourceId", str(value["db_cluster_resource_id"]))
         )
     if "db_system_id" in value:
-        pairs.append((f"{prefix}.DBSystemId", str(value["db_system_id"])))
+        pairs.append((f"{key_prefix}DBSystemId", str(value["db_system_id"])))
 
 
 def deserialize_query(el: Element) -> DBClusterSnapshot:

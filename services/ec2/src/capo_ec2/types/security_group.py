@@ -39,35 +39,38 @@ class SecurityGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "ip_permissions_egress" in value:
         import capo_ec2.types.ip_permission_list
 
         capo_ec2.types.ip_permission_list.serialize_ec2_query(
-            value["ip_permissions_egress"], pairs, f"{prefix}.IpPermissionsEgress"
+            value["ip_permissions_egress"], pairs, f"{key_prefix}IpPermissionsEgress"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "security_group_arn" in value:
-        pairs.append((f"{prefix}.SecurityGroupArn", str(value["security_group_arn"])))
+        pairs.append(
+            (f"{key_prefix}SecurityGroupArn", str(value["security_group_arn"]))
+        )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.GroupDescription", str(value["description"])))
+        pairs.append((f"{key_prefix}GroupDescription", str(value["description"])))
     if "ip_permissions" in value:
         import capo_ec2.types.ip_permission_list
 
         capo_ec2.types.ip_permission_list.serialize_ec2_query(
-            value["ip_permissions"], pairs, f"{prefix}.IpPermissions"
+            value["ip_permissions"], pairs, f"{key_prefix}IpPermissions"
         )
 
 

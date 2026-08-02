@@ -24,13 +24,14 @@ class TenantDatabasesMessage(TypedDict, closed=True):
 def serialize_query(
     value: TenantDatabasesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "tenant_databases" in value:
         import capo_rds.types.tenant_databases_list
 
         capo_rds.types.tenant_databases_list.serialize_query(
-            value["tenant_databases"], pairs, f"{prefix}.TenantDatabases"
+            value["tenant_databases"], pairs, f"{key_prefix}TenantDatabases"
         )
 
 

@@ -24,17 +24,18 @@ class PurchaseCapacityBlockResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PurchaseCapacityBlockResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation" in value:
         import capo_ec2.types.capacity_reservation
 
         capo_ec2.types.capacity_reservation.serialize_ec2_query(
-            value["capacity_reservation"], pairs, f"{prefix}.CapacityReservation"
+            value["capacity_reservation"], pairs, f"{key_prefix}CapacityReservation"
         )
     if "capacity_blocks" in value:
         import capo_ec2.types.capacity_block_set
 
         capo_ec2.types.capacity_block_set.serialize_ec2_query(
-            value["capacity_blocks"], pairs, f"{prefix}.CapacityBlockSet"
+            value["capacity_blocks"], pairs, f"{key_prefix}CapacityBlockSet"
         )
 
 

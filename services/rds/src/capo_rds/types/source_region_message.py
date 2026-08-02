@@ -22,13 +22,14 @@ class SourceRegionMessage(TypedDict, closed=True):
 def serialize_query(
     value: SourceRegionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "source_regions" in value:
         import capo_rds.types.source_region_list
 
         capo_rds.types.source_region_list.serialize_query(
-            value["source_regions"], pairs, f"{prefix}.SourceRegions"
+            value["source_regions"], pairs, f"{key_prefix}SourceRegions"
         )
 
 

@@ -32,16 +32,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBMajorEngineVersionsRequest:

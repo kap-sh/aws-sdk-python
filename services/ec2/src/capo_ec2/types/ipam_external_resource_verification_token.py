@@ -54,53 +54,54 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_external_resource_verification_token_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamExternalResourceVerificationTokenId",
+                f"{key_prefix}IpamExternalResourceVerificationTokenId",
                 str(value["ipam_external_resource_verification_token_id"]),
             )
         )
     if "ipam_external_resource_verification_token_arn" in value:
         pairs.append(
             (
-                f"{prefix}.IpamExternalResourceVerificationTokenArn",
+                f"{key_prefix}IpamExternalResourceVerificationTokenArn",
                 str(value["ipam_external_resource_verification_token_arn"]),
             )
         )
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "ipam_arn" in value:
-        pairs.append((f"{prefix}.IpamArn", str(value["ipam_arn"])))
+        pairs.append((f"{key_prefix}IpamArn", str(value["ipam_arn"])))
     if "ipam_region" in value:
-        pairs.append((f"{prefix}.IpamRegion", str(value["ipam_region"])))
+        pairs.append((f"{key_prefix}IpamRegion", str(value["ipam_region"])))
     if "token_value" in value:
-        pairs.append((f"{prefix}.TokenValue", str(value["token_value"])))
+        pairs.append((f"{key_prefix}TokenValue", str(value["token_value"])))
     if "token_name" in value:
-        pairs.append((f"{prefix}.TokenName", str(value["token_name"])))
+        pairs.append((f"{key_prefix}TokenName", str(value["token_name"])))
     if "not_after" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["not_after"], pairs, f"{prefix}.NotAfter"
+            value["not_after"], pairs, f"{key_prefix}NotAfter"
         )
     if "status" in value:
         import capo_ec2.types.token_state
 
         capo_ec2.types.token_state.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "state" in value:
         import capo_ec2.types.ipam_external_resource_verification_token_state
 
         capo_ec2.types.ipam_external_resource_verification_token_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

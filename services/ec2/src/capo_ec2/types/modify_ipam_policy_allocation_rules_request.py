@@ -37,23 +37,24 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_policy_id" in value:
-        pairs.append((f"{prefix}.IpamPolicyId", str(value["ipam_policy_id"])))
+        pairs.append((f"{key_prefix}IpamPolicyId", str(value["ipam_policy_id"])))
     if "locale" in value:
-        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+        pairs.append((f"{key_prefix}Locale", str(value["locale"])))
     if "resource_type" in value:
         import capo_ec2.types.ipam_policy_resource_type
 
         capo_ec2.types.ipam_policy_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "allocation_rules" in value:
         import capo_ec2.types.ipam_policy_allocation_rule_list_request
 
         capo_ec2.types.ipam_policy_allocation_rule_list_request.serialize_ec2_query(
-            value["allocation_rules"], pairs, f"{prefix}.AllocationRules"
+            value["allocation_rules"], pairs, f"{key_prefix}AllocationRules"
         )
 
 

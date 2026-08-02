@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_metadata_options" in value:
         import capo_ec2.types.instance_metadata_options_response
 
         capo_ec2.types.instance_metadata_options_response.serialize_ec2_query(
             value["instance_metadata_options"],
             pairs,
-            f"{prefix}.InstanceMetadataOptions",
+            f"{key_prefix}InstanceMetadataOptions",
         )
 
 

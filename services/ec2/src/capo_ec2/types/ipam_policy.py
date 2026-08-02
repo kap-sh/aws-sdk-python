@@ -38,30 +38,33 @@ class IpamPolicy(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "ipam_policy_id" in value:
-        pairs.append((f"{prefix}.IpamPolicyId", str(value["ipam_policy_id"])))
+        pairs.append((f"{key_prefix}IpamPolicyId", str(value["ipam_policy_id"])))
     if "ipam_policy_arn" in value:
-        pairs.append((f"{prefix}.IpamPolicyArn", str(value["ipam_policy_arn"])))
+        pairs.append((f"{key_prefix}IpamPolicyArn", str(value["ipam_policy_arn"])))
     if "ipam_policy_region" in value:
-        pairs.append((f"{prefix}.IpamPolicyRegion", str(value["ipam_policy_region"])))
+        pairs.append(
+            (f"{key_prefix}IpamPolicyRegion", str(value["ipam_policy_region"]))
+        )
     if "state" in value:
         import capo_ec2.types.ipam_policy_state
 
         capo_ec2.types.ipam_policy_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> IpamPolicy:

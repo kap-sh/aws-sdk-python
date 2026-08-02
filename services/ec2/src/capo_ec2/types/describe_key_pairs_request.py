@@ -32,32 +32,33 @@ class DescribeKeyPairsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeKeyPairsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_names" in value:
         import capo_ec2.types.key_name_string_list
 
         capo_ec2.types.key_name_string_list.serialize_ec2_query(
-            value["key_names"], pairs, f"{prefix}.KeyNames"
+            value["key_names"], pairs, f"{key_prefix}KeyNames"
         )
     if "key_pair_ids" in value:
         import capo_ec2.types.key_pair_id_string_list
 
         capo_ec2.types.key_pair_id_string_list.serialize_ec2_query(
-            value["key_pair_ids"], pairs, f"{prefix}.KeyPairIds"
+            value["key_pair_ids"], pairs, f"{key_prefix}KeyPairIds"
         )
     if "include_public_key" in value:
         pairs.append(
             (
-                f"{prefix}.IncludePublicKey",
+                f"{key_prefix}IncludePublicKey",
                 "true" if value["include_public_key"] else "false",
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
 
 

@@ -38,29 +38,30 @@ class DescribeSecurityGroupsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSecurityGroupsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_ids" in value:
         import capo_ec2.types.group_id_string_list
 
         capo_ec2.types.group_id_string_list.serialize_ec2_query(
-            value["group_ids"], pairs, f"{prefix}.GroupIds"
+            value["group_ids"], pairs, f"{key_prefix}GroupIds"
         )
     if "group_names" in value:
         import capo_ec2.types.group_name_string_list
 
         capo_ec2.types.group_name_string_list.serialize_ec2_query(
-            value["group_names"], pairs, f"{prefix}.GroupNames"
+            value["group_names"], pairs, f"{key_prefix}GroupNames"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
 
 

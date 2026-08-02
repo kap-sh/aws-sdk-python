@@ -26,14 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_peering_connections" in value:
         import capo_ec2.types.vpc_peering_connection_list
 
         capo_ec2.types.vpc_peering_connection_list.serialize_ec2_query(
-            value["vpc_peering_connections"], pairs, f"{prefix}.VpcPeeringConnectionSet"
+            value["vpc_peering_connections"],
+            pairs,
+            f"{key_prefix}VpcPeeringConnectionSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcPeeringConnectionsResult:

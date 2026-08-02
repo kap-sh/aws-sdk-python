@@ -21,11 +21,14 @@ class DeleteVerifiedAccessInstanceResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteVerifiedAccessInstanceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_instance" in value:
         import capo_ec2.types.verified_access_instance
 
         capo_ec2.types.verified_access_instance.serialize_ec2_query(
-            value["verified_access_instance"], pairs, f"{prefix}.VerifiedAccessInstance"
+            value["verified_access_instance"],
+            pairs,
+            f"{key_prefix}VerifiedAccessInstance",
         )
 
 

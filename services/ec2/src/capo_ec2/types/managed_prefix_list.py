@@ -52,45 +52,46 @@ class ManagedPrefixList(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ManagedPrefixList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "address_family" in value:
-        pairs.append((f"{prefix}.AddressFamily", str(value["address_family"])))
+        pairs.append((f"{key_prefix}AddressFamily", str(value["address_family"])))
     if "state" in value:
         import capo_ec2.types.prefix_list_state
 
         capo_ec2.types.prefix_list_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
     if "prefix_list_arn" in value:
-        pairs.append((f"{prefix}.PrefixListArn", str(value["prefix_list_arn"])))
+        pairs.append((f"{key_prefix}PrefixListArn", str(value["prefix_list_arn"])))
     if "prefix_list_name" in value:
-        pairs.append((f"{prefix}.PrefixListName", str(value["prefix_list_name"])))
+        pairs.append((f"{key_prefix}PrefixListName", str(value["prefix_list_name"])))
     if "max_entries" in value:
-        pairs.append((f"{prefix}.MaxEntries", str(value["max_entries"])))
+        pairs.append((f"{key_prefix}MaxEntries", str(value["max_entries"])))
     if "version" in value:
-        pairs.append((f"{prefix}.Version", str(value["version"])))
+        pairs.append((f"{key_prefix}Version", str(value["version"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "ipam_prefix_list_resolver_target_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverTargetId",
+                f"{key_prefix}IpamPrefixListResolverTargetId",
                 str(value["ipam_prefix_list_resolver_target_id"]),
             )
         )
     if "ipam_prefix_list_resolver_sync_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverSyncEnabled",
+                f"{key_prefix}IpamPrefixListResolverSyncEnabled",
                 "true" if value["ipam_prefix_list_resolver_sync_enabled"] else "false",
             )
         )

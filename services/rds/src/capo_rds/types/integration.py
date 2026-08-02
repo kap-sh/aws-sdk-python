@@ -55,49 +55,52 @@ class Integration(TypedDict, closed=True):
 def serialize_query(
     value: Integration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "target_arn" in value:
-        pairs.append((f"{prefix}.TargetArn", str(value["target_arn"])))
+        pairs.append((f"{key_prefix}TargetArn", str(value["target_arn"])))
     if "integration_name" in value:
-        pairs.append((f"{prefix}.IntegrationName", str(value["integration_name"])))
+        pairs.append((f"{key_prefix}IntegrationName", str(value["integration_name"])))
     if "integration_arn" in value:
-        pairs.append((f"{prefix}.IntegrationArn", str(value["integration_arn"])))
+        pairs.append((f"{key_prefix}IntegrationArn", str(value["integration_arn"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KMSKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KMSKeyId", str(value["kms_key_id"])))
     if "additional_encryption_context" in value:
         import capo_rds.types.encryption_context_map
 
         capo_rds.types.encryption_context_map.serialize_query(
             value["additional_encryption_context"],
             pairs,
-            f"{prefix}.AdditionalEncryptionContext",
+            f"{key_prefix}AdditionalEncryptionContext",
         )
     if "status" in value:
         import capo_rds.types.integration_status
 
         capo_rds.types.integration_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "data_filter" in value:
-        pairs.append((f"{prefix}.DataFilter", str(value["data_filter"])))
+        pairs.append((f"{key_prefix}DataFilter", str(value["data_filter"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "errors" in value:
         import capo_rds.types.integration_error_list
 
         capo_rds.types.integration_error_list.serialize_query(
-            value["errors"], pairs, f"{prefix}.Errors"
+            value["errors"], pairs, f"{key_prefix}Errors"
         )
 
 

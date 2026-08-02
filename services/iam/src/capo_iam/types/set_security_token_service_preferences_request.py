@@ -24,12 +24,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.global_endpoint_token_version
 
     capo_iam.types.global_endpoint_token_version.serialize_query(
         value["global_endpoint_token_version"],
         pairs,
-        f"{prefix}.GlobalEndpointTokenVersion",
+        f"{key_prefix}GlobalEndpointTokenVersion",
     )
 
 

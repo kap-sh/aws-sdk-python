@@ -46,33 +46,37 @@ class RouteServerEndpoint(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServerEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_id" in value:
-        pairs.append((f"{prefix}.RouteServerId", str(value["route_server_id"])))
+        pairs.append((f"{key_prefix}RouteServerId", str(value["route_server_id"])))
     if "route_server_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.RouteServerEndpointId", str(value["route_server_endpoint_id"]))
+            (
+                f"{key_prefix}RouteServerEndpointId",
+                str(value["route_server_endpoint_id"]),
+            )
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "eni_id" in value:
-        pairs.append((f"{prefix}.EniId", str(value["eni_id"])))
+        pairs.append((f"{key_prefix}EniId", str(value["eni_id"])))
     if "eni_address" in value:
-        pairs.append((f"{prefix}.EniAddress", str(value["eni_address"])))
+        pairs.append((f"{key_prefix}EniAddress", str(value["eni_address"])))
     if "state" in value:
         import capo_ec2.types.route_server_endpoint_state
 
         capo_ec2.types.route_server_endpoint_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "failure_reason" in value:
-        pairs.append((f"{prefix}.FailureReason", str(value["failure_reason"])))
+        pairs.append((f"{key_prefix}FailureReason", str(value["failure_reason"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

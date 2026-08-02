@@ -46,11 +46,12 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsForMetricOutput:
 def serialize_query(
     value: DescribeAlarmsForMetricOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_alarms" in value:
         import capo_cloudwatch.types.metric_alarms
 
         capo_cloudwatch.types.metric_alarms.serialize_query(
-            value["metric_alarms"], pairs, f"{prefix}.MetricAlarms"
+            value["metric_alarms"], pairs, f"{key_prefix}MetricAlarms"
         )
 
 

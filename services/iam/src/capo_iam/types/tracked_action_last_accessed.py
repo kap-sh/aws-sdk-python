@@ -26,21 +26,22 @@ class TrackedActionLastAccessed(TypedDict, closed=True):
 def serialize_query(
     value: TrackedActionLastAccessed, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action_name" in value:
-        pairs.append((f"{prefix}.ActionName", str(value["action_name"])))
+        pairs.append((f"{key_prefix}ActionName", str(value["action_name"])))
     if "last_accessed_entity" in value:
         pairs.append(
-            (f"{prefix}.LastAccessedEntity", str(value["last_accessed_entity"]))
+            (f"{key_prefix}LastAccessedEntity", str(value["last_accessed_entity"]))
         )
     if "last_accessed_time" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["last_accessed_time"], pairs, f"{prefix}.LastAccessedTime"
+            value["last_accessed_time"], pairs, f"{key_prefix}LastAccessedTime"
         )
     if "last_accessed_region" in value:
         pairs.append(
-            (f"{prefix}.LastAccessedRegion", str(value["last_accessed_region"]))
+            (f"{key_prefix}LastAccessedRegion", str(value["last_accessed_region"]))
         )
 
 

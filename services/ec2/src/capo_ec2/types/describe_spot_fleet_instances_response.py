@@ -26,17 +26,18 @@ class DescribeSpotFleetInstancesResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSpotFleetInstancesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "active_instances" in value:
         import capo_ec2.types.active_instance_set
 
         capo_ec2.types.active_instance_set.serialize_ec2_query(
-            value["active_instances"], pairs, f"{prefix}.ActiveInstanceSet"
+            value["active_instances"], pairs, f"{key_prefix}ActiveInstanceSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "spot_fleet_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotFleetRequestId", str(value["spot_fleet_request_id"]))
+            (f"{key_prefix}SpotFleetRequestId", str(value["spot_fleet_request_id"]))
         )
 
 

@@ -31,20 +31,23 @@ class ImageAncestryEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageAncestryEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "creation_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["creation_date"], pairs, f"{prefix}.CreationDate"
+            value["creation_date"], pairs, f"{key_prefix}CreationDate"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "image_owner_alias" in value:
-        pairs.append((f"{prefix}.ImageOwnerAlias", str(value["image_owner_alias"])))
+        pairs.append((f"{key_prefix}ImageOwnerAlias", str(value["image_owner_alias"])))
     if "source_image_id" in value:
-        pairs.append((f"{prefix}.SourceImageId", str(value["source_image_id"])))
+        pairs.append((f"{key_prefix}SourceImageId", str(value["source_image_id"])))
     if "source_image_region" in value:
-        pairs.append((f"{prefix}.SourceImageRegion", str(value["source_image_region"])))
+        pairs.append(
+            (f"{key_prefix}SourceImageRegion", str(value["source_image_region"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ImageAncestryEntry:

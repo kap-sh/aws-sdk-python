@@ -38,30 +38,33 @@ class ImageMetadata(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageMetadata, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.ImageOwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}ImageOwnerId", str(value["owner_id"])))
     if "state" in value:
         import capo_ec2.types.image_state
 
         capo_ec2.types.image_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.ImageState"
+            value["state"], pairs, f"{key_prefix}ImageState"
         )
     if "image_owner_alias" in value:
-        pairs.append((f"{prefix}.ImageOwnerAlias", str(value["image_owner_alias"])))
+        pairs.append((f"{key_prefix}ImageOwnerAlias", str(value["image_owner_alias"])))
     if "creation_date" in value:
-        pairs.append((f"{prefix}.CreationDate", str(value["creation_date"])))
+        pairs.append((f"{key_prefix}CreationDate", str(value["creation_date"])))
     if "deprecation_time" in value:
-        pairs.append((f"{prefix}.DeprecationTime", str(value["deprecation_time"])))
+        pairs.append((f"{key_prefix}DeprecationTime", str(value["deprecation_time"])))
     if "image_allowed" in value:
         pairs.append(
-            (f"{prefix}.ImageAllowed", "true" if value["image_allowed"] else "false")
+            (f"{key_prefix}ImageAllowed", "true" if value["image_allowed"] else "false")
         )
     if "is_public" in value:
-        pairs.append((f"{prefix}.IsPublic", "true" if value["is_public"] else "false"))
+        pairs.append(
+            (f"{key_prefix}IsPublic", "true" if value["is_public"] else "false")
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ImageMetadata:

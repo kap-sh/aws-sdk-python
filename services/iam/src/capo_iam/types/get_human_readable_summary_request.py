@@ -23,9 +23,10 @@ class GetHumanReadableSummaryRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetHumanReadableSummaryRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.EntityArn", str(value["entity_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EntityArn", str(value["entity_arn"])))
     if "locale" in value:
-        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+        pairs.append((f"{key_prefix}Locale", str(value["locale"])))
 
 
 def deserialize_query(el: Element) -> GetHumanReadableSummaryRequest:

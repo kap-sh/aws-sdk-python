@@ -22,14 +22,15 @@ class DescribeIpv6PoolsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeIpv6PoolsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv6_pools" in value:
         import capo_ec2.types.ipv6_pool_set
 
         capo_ec2.types.ipv6_pool_set.serialize_ec2_query(
-            value["ipv6_pools"], pairs, f"{prefix}.Ipv6PoolSet"
+            value["ipv6_pools"], pairs, f"{key_prefix}Ipv6PoolSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeIpv6PoolsResult:

@@ -24,12 +24,13 @@ class DescribeDBLogFilesDetails(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBLogFilesDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "log_file_name" in value:
-        pairs.append((f"{prefix}.LogFileName", str(value["log_file_name"])))
+        pairs.append((f"{key_prefix}LogFileName", str(value["log_file_name"])))
     if "last_written" in value:
-        pairs.append((f"{prefix}.LastWritten", str(value["last_written"])))
+        pairs.append((f"{key_prefix}LastWritten", str(value["last_written"])))
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBLogFilesDetails:

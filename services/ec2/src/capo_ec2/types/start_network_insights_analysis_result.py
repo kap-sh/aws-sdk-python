@@ -21,13 +21,14 @@ class StartNetworkInsightsAnalysisResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StartNetworkInsightsAnalysisResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_analysis" in value:
         import capo_ec2.types.network_insights_analysis
 
         capo_ec2.types.network_insights_analysis.serialize_ec2_query(
             value["network_insights_analysis"],
             pairs,
-            f"{prefix}.NetworkInsightsAnalysis",
+            f"{key_prefix}NetworkInsightsAnalysis",
         )
 
 

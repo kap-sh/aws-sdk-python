@@ -24,13 +24,14 @@ class DBClusterBacktrackMessage(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterBacktrackMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "db_cluster_backtracks" in value:
         import capo_rds.types.db_cluster_backtrack_list
 
         capo_rds.types.db_cluster_backtrack_list.serialize_query(
-            value["db_cluster_backtracks"], pairs, f"{prefix}.DBClusterBacktracks"
+            value["db_cluster_backtracks"], pairs, f"{key_prefix}DBClusterBacktracks"
         )
 
 

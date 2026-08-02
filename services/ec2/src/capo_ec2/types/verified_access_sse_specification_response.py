@@ -24,15 +24,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "customer_managed_key_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.CustomerManagedKeyEnabled",
+                f"{key_prefix}CustomerManagedKeyEnabled",
                 "true" if value["customer_managed_key_enabled"] else "false",
             )
         )
     if "kms_key_arn" in value:
-        pairs.append((f"{prefix}.KmsKeyArn", str(value["kms_key_arn"])))
+        pairs.append((f"{key_prefix}KmsKeyArn", str(value["kms_key_arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessSseSpecificationResponse:

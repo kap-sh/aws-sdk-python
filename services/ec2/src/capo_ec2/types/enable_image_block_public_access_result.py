@@ -21,13 +21,14 @@ class EnableImageBlockPublicAccessResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableImageBlockPublicAccessResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_block_public_access_state" in value:
         import capo_ec2.types.image_block_public_access_enabled_state
 
         capo_ec2.types.image_block_public_access_enabled_state.serialize_ec2_query(
             value["image_block_public_access_state"],
             pairs,
-            f"{prefix}.ImageBlockPublicAccessState",
+            f"{key_prefix}ImageBlockPublicAccessState",
         )
 
 

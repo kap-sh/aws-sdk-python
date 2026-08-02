@@ -31,16 +31,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.JobId", str(value["job_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}JobId", str(value["job_id"])))
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "sort_key" in value:
         import capo_iam.types.sort_key_type
 
         capo_iam.types.sort_key_type.serialize_query(
-            value["sort_key"], pairs, f"{prefix}.SortKey"
+            value["sort_key"], pairs, f"{key_prefix}SortKey"
         )
 
 

@@ -73,64 +73,67 @@ class ServiceDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ServiceDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_name" in value:
-        pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+        pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
     if "service_id" in value:
-        pairs.append((f"{prefix}.ServiceId", str(value["service_id"])))
+        pairs.append((f"{key_prefix}ServiceId", str(value["service_id"])))
     if "service_type" in value:
         import capo_ec2.types.service_type_detail_set
 
         capo_ec2.types.service_type_detail_set.serialize_ec2_query(
-            value["service_type"], pairs, f"{prefix}.ServiceType"
+            value["service_type"], pairs, f"{key_prefix}ServiceType"
         )
     if "service_region" in value:
-        pairs.append((f"{prefix}.ServiceRegion", str(value["service_region"])))
+        pairs.append((f"{key_prefix}ServiceRegion", str(value["service_region"])))
     if "availability_zone_ids" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIdSet"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIdSet"
         )
     if "availability_zones" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZoneSet"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZoneSet"
         )
     if "owner" in value:
-        pairs.append((f"{prefix}.Owner", str(value["owner"])))
+        pairs.append((f"{key_prefix}Owner", str(value["owner"])))
     if "base_endpoint_dns_names" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["base_endpoint_dns_names"], pairs, f"{prefix}.BaseEndpointDnsNameSet"
+            value["base_endpoint_dns_names"],
+            pairs,
+            f"{key_prefix}BaseEndpointDnsNameSet",
         )
     if "private_dns_name" in value:
-        pairs.append((f"{prefix}.PrivateDnsName", str(value["private_dns_name"])))
+        pairs.append((f"{key_prefix}PrivateDnsName", str(value["private_dns_name"])))
     if "private_dns_names" in value:
         import capo_ec2.types.private_dns_details_set
 
         capo_ec2.types.private_dns_details_set.serialize_ec2_query(
-            value["private_dns_names"], pairs, f"{prefix}.PrivateDnsNameSet"
+            value["private_dns_names"], pairs, f"{key_prefix}PrivateDnsNameSet"
         )
     if "vpc_endpoint_policy_supported" in value:
         pairs.append(
             (
-                f"{prefix}.VpcEndpointPolicySupported",
+                f"{key_prefix}VpcEndpointPolicySupported",
                 "true" if value["vpc_endpoint_policy_supported"] else "false",
             )
         )
     if "acceptance_required" in value:
         pairs.append(
             (
-                f"{prefix}.AcceptanceRequired",
+                f"{key_prefix}AcceptanceRequired",
                 "true" if value["acceptance_required"] else "false",
             )
         )
     if "manages_vpc_endpoints" in value:
         pairs.append(
             (
-                f"{prefix}.ManagesVpcEndpoints",
+                f"{key_prefix}ManagesVpcEndpoints",
                 "true" if value["manages_vpc_endpoints"] else "false",
             )
         )
@@ -138,13 +141,13 @@ def serialize_ec2_query(
         import capo_ec2.types.payer_responsibility
 
         capo_ec2.types.payer_responsibility.serialize_ec2_query(
-            value["payer_responsibility"], pairs, f"{prefix}.PayerResponsibility"
+            value["payer_responsibility"], pairs, f"{key_prefix}PayerResponsibility"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "private_dns_name_verification_state" in value:
         import capo_ec2.types.dns_name_state
@@ -152,7 +155,7 @@ def serialize_ec2_query(
         capo_ec2.types.dns_name_state.serialize_ec2_query(
             value["private_dns_name_verification_state"],
             pairs,
-            f"{prefix}.PrivateDnsNameVerificationState",
+            f"{key_prefix}PrivateDnsNameVerificationState",
         )
     if "supported_ip_address_types" in value:
         import capo_ec2.types.supported_ip_address_types
@@ -160,7 +163,7 @@ def serialize_ec2_query(
         capo_ec2.types.supported_ip_address_types.serialize_ec2_query(
             value["supported_ip_address_types"],
             pairs,
-            f"{prefix}.SupportedIpAddressTypeSet",
+            f"{key_prefix}SupportedIpAddressTypeSet",
         )
 
 

@@ -45,48 +45,51 @@ class DBShardGroup(TypedDict, closed=True):
 def serialize_query(
     value: DBShardGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_shard_group_resource_id" in value:
         pairs.append(
             (
-                f"{prefix}.DBShardGroupResourceId",
+                f"{key_prefix}DBShardGroupResourceId",
                 str(value["db_shard_group_resource_id"]),
             )
         )
     if "db_shard_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBShardGroupIdentifier",
+                f"{key_prefix}DBShardGroupIdentifier",
                 str(value["db_shard_group_identifier"]),
             )
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "max_acu" in value:
-        pairs.append((f"{prefix}.MaxACU", str(value["max_acu"])))
+        pairs.append((f"{key_prefix}MaxACU", str(value["max_acu"])))
     if "min_acu" in value:
-        pairs.append((f"{prefix}.MinACU", str(value["min_acu"])))
+        pairs.append((f"{key_prefix}MinACU", str(value["min_acu"])))
     if "compute_redundancy" in value:
-        pairs.append((f"{prefix}.ComputeRedundancy", str(value["compute_redundancy"])))
+        pairs.append(
+            (f"{key_prefix}ComputeRedundancy", str(value["compute_redundancy"]))
+        )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "db_shard_group_arn" in value:
-        pairs.append((f"{prefix}.DBShardGroupArn", str(value["db_shard_group_arn"])))
+        pairs.append((f"{key_prefix}DBShardGroupArn", str(value["db_shard_group_arn"])))
     if "tag_list" in value:
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
 
 

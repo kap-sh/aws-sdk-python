@@ -41,10 +41,11 @@ def deserialize_aws_json_1_0(data: dict) -> MetricStreamStatisticsMetric:
 def serialize_query(
     value: MetricStreamStatisticsMetric, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
 
 
 def deserialize_query(el: Element) -> MetricStreamStatisticsMetric:

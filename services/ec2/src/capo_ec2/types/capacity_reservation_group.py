@@ -21,10 +21,11 @@ class CapacityReservationGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_arn" in value:
-        pairs.append((f"{prefix}.GroupArn", str(value["group_arn"])))
+        pairs.append((f"{key_prefix}GroupArn", str(value["group_arn"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationGroup:

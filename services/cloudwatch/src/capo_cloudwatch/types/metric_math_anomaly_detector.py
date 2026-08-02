@@ -48,11 +48,12 @@ def deserialize_aws_json_1_0(data: dict) -> MetricMathAnomalyDetector:
 def serialize_query(
     value: MetricMathAnomalyDetector, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_data_queries" in value:
         import capo_cloudwatch.types.metric_data_queries
 
         capo_cloudwatch.types.metric_data_queries.serialize_query(
-            value["metric_data_queries"], pairs, f"{prefix}.MetricDataQueries"
+            value["metric_data_queries"], pairs, f"{key_prefix}MetricDataQueries"
         )
 
 

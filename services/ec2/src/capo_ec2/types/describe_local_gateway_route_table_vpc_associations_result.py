@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_route_table_vpc_associations" in value:
         import capo_ec2.types.local_gateway_route_table_vpc_association_set
 
         capo_ec2.types.local_gateway_route_table_vpc_association_set.serialize_ec2_query(
             value["local_gateway_route_table_vpc_associations"],
             pairs,
-            f"{prefix}.LocalGatewayRouteTableVpcAssociationSet",
+            f"{key_prefix}LocalGatewayRouteTableVpcAssociationSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(

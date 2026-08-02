@@ -35,17 +35,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "ip_permissions" in value:
         import capo_ec2.types.ip_permission_list
 
         capo_ec2.types.ip_permission_list.serialize_ec2_query(
-            value["ip_permissions"], pairs, f"{prefix}.IpPermissions"
+            value["ip_permissions"], pairs, f"{key_prefix}IpPermissions"
         )
     if "security_group_rule_descriptions" in value:
         import capo_ec2.types.security_group_rule_description_list
@@ -53,7 +54,7 @@ def serialize_ec2_query(
         capo_ec2.types.security_group_rule_description_list.serialize_ec2_query(
             value["security_group_rule_descriptions"],
             pairs,
-            f"{prefix}.SecurityGroupRuleDescriptions",
+            f"{key_prefix}SecurityGroupRuleDescriptions",
         )
 
 

@@ -31,15 +31,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "service_id" in value:
-        pairs.append((f"{prefix}.ServiceId", str(value["service_id"])))
+        pairs.append((f"{key_prefix}ServiceId", str(value["service_id"])))
     if "payer_responsibility" in value:
         import capo_ec2.types.payer_responsibility
 
         capo_ec2.types.payer_responsibility.serialize_ec2_query(
-            value["payer_responsibility"], pairs, f"{prefix}.PayerResponsibility"
+            value["payer_responsibility"], pairs, f"{key_prefix}PayerResponsibility"
         )
 
 

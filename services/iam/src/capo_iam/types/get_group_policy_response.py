@@ -26,9 +26,10 @@ class GetGroupPolicyResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetGroupPolicyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
-    pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
+    pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
 
 
 def deserialize_query(el: Element) -> GetGroupPolicyResponse:

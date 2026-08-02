@@ -39,37 +39,38 @@ class LoadBalancerAttributes(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancerAttributes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cross_zone_load_balancing" in value:
         import capo_elastic_load_balancing.types.cross_zone_load_balancing
 
         capo_elastic_load_balancing.types.cross_zone_load_balancing.serialize_query(
             value["cross_zone_load_balancing"],
             pairs,
-            f"{prefix}.CrossZoneLoadBalancing",
+            f"{key_prefix}CrossZoneLoadBalancing",
         )
     if "access_log" in value:
         import capo_elastic_load_balancing.types.access_log
 
         capo_elastic_load_balancing.types.access_log.serialize_query(
-            value["access_log"], pairs, f"{prefix}.AccessLog"
+            value["access_log"], pairs, f"{key_prefix}AccessLog"
         )
     if "connection_draining" in value:
         import capo_elastic_load_balancing.types.connection_draining
 
         capo_elastic_load_balancing.types.connection_draining.serialize_query(
-            value["connection_draining"], pairs, f"{prefix}.ConnectionDraining"
+            value["connection_draining"], pairs, f"{key_prefix}ConnectionDraining"
         )
     if "connection_settings" in value:
         import capo_elastic_load_balancing.types.connection_settings
 
         capo_elastic_load_balancing.types.connection_settings.serialize_query(
-            value["connection_settings"], pairs, f"{prefix}.ConnectionSettings"
+            value["connection_settings"], pairs, f"{key_prefix}ConnectionSettings"
         )
     if "additional_attributes" in value:
         import capo_elastic_load_balancing.types.additional_attributes
 
         capo_elastic_load_balancing.types.additional_attributes.serialize_query(
-            value["additional_attributes"], pairs, f"{prefix}.AdditionalAttributes"
+            value["additional_attributes"], pairs, f"{key_prefix}AdditionalAttributes"
         )
 
 

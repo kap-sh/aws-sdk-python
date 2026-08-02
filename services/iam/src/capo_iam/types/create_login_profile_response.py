@@ -20,10 +20,11 @@ class CreateLoginProfileResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateLoginProfileResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.login_profile
 
     capo_iam.types.login_profile.serialize_query(
-        value["login_profile"], pairs, f"{prefix}.LoginProfile"
+        value["login_profile"], pairs, f"{key_prefix}LoginProfile"
     )
 
 

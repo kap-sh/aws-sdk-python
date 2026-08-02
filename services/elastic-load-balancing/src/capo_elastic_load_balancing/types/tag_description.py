@@ -24,13 +24,16 @@ class TagDescription(TypedDict, closed=True):
 def serialize_query(
     value: TagDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_name" in value:
-        pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
+        pairs.append(
+            (f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"]))
+        )
     if "tags" in value:
         import capo_elastic_load_balancing.types.tag_list
 
         capo_elastic_load_balancing.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

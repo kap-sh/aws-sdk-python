@@ -24,14 +24,17 @@ class GetAssociatedIpv6PoolCidrsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetAssociatedIpv6PoolCidrsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv6_cidr_associations" in value:
         import capo_ec2.types.ipv6_cidr_association_set
 
         capo_ec2.types.ipv6_cidr_association_set.serialize_ec2_query(
-            value["ipv6_cidr_associations"], pairs, f"{prefix}.Ipv6CidrAssociationSet"
+            value["ipv6_cidr_associations"],
+            pairs,
+            f"{key_prefix}Ipv6CidrAssociationSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetAssociatedIpv6PoolCidrsResult:

@@ -40,11 +40,12 @@ def deserialize_aws_json_1_0(data: dict) -> Rule:
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Rule, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "schedule" in value:
         import capo_cloudwatch.types.schedule
 
         capo_cloudwatch.types.schedule.serialize_query(
-            value["schedule"], pairs, f"{prefix}.Schedule"
+            value["schedule"], pairs, f"{key_prefix}Schedule"
         )
 
 

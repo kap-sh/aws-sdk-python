@@ -108,31 +108,32 @@ def deserialize_aws_json_1_0(data: dict) -> MetricStreamEntry:
 def serialize_query(
     value: MetricStreamEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "creation_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["creation_date"], pairs, f"{prefix}.CreationDate"
+            value["creation_date"], pairs, f"{key_prefix}CreationDate"
         )
     if "last_update_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["last_update_date"], pairs, f"{prefix}.LastUpdateDate"
+            value["last_update_date"], pairs, f"{key_prefix}LastUpdateDate"
         )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "firehose_arn" in value:
-        pairs.append((f"{prefix}.FirehoseArn", str(value["firehose_arn"])))
+        pairs.append((f"{key_prefix}FirehoseArn", str(value["firehose_arn"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "output_format" in value:
         import capo_cloudwatch.types.metric_stream_output_format
 
         capo_cloudwatch.types.metric_stream_output_format.serialize_query(
-            value["output_format"], pairs, f"{prefix}.OutputFormat"
+            value["output_format"], pairs, f"{key_prefix}OutputFormat"
         )
 
 

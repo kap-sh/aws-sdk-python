@@ -22,10 +22,11 @@ class AppCookieStickinessPolicy(TypedDict, closed=True):
 def serialize_query(
     value: AppCookieStickinessPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_name" in value:
-        pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+        pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "cookie_name" in value:
-        pairs.append((f"{prefix}.CookieName", str(value["cookie_name"])))
+        pairs.append((f"{key_prefix}CookieName", str(value["cookie_name"])))
 
 
 def deserialize_query(el: Element) -> AppCookieStickinessPolicy:

@@ -34,24 +34,25 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "elastic_inference_accelerator_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticInferenceAcceleratorArn",
+                f"{key_prefix}ElasticInferenceAcceleratorArn",
                 str(value["elastic_inference_accelerator_arn"]),
             )
         )
     if "elastic_inference_accelerator_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticInferenceAcceleratorAssociationId",
+                f"{key_prefix}ElasticInferenceAcceleratorAssociationId",
                 str(value["elastic_inference_accelerator_association_id"]),
             )
         )
     if "elastic_inference_accelerator_association_state" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticInferenceAcceleratorAssociationState",
+                f"{key_prefix}ElasticInferenceAcceleratorAssociationState",
                 str(value["elastic_inference_accelerator_association_state"]),
             )
         )
@@ -61,7 +62,7 @@ def serialize_ec2_query(
         capo_ec2.types.date_time.serialize_ec2_query(
             value["elastic_inference_accelerator_association_time"],
             pairs,
-            f"{prefix}.ElasticInferenceAcceleratorAssociationTime",
+            f"{key_prefix}ElasticInferenceAcceleratorAssociationTime",
         )
 
 

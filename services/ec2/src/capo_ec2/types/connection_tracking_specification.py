@@ -23,14 +23,20 @@ class ConnectionTrackingSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ConnectionTrackingSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tcp_established_timeout" in value:
         pairs.append(
-            (f"{prefix}.TcpEstablishedTimeout", str(value["tcp_established_timeout"]))
+            (
+                f"{key_prefix}TcpEstablishedTimeout",
+                str(value["tcp_established_timeout"]),
+            )
         )
     if "udp_timeout" in value:
-        pairs.append((f"{prefix}.UdpTimeout", str(value["udp_timeout"])))
+        pairs.append((f"{key_prefix}UdpTimeout", str(value["udp_timeout"])))
     if "udp_stream_timeout" in value:
-        pairs.append((f"{prefix}.UdpStreamTimeout", str(value["udp_stream_timeout"])))
+        pairs.append(
+            (f"{key_prefix}UdpStreamTimeout", str(value["udp_stream_timeout"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ConnectionTrackingSpecification:

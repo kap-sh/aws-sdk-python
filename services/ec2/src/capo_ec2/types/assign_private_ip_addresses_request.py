@@ -37,35 +37,36 @@ class AssignPrivateIpAddressesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssignPrivateIpAddressesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv4_prefixes" in value:
         import capo_ec2.types.ip_prefix_list
 
         capo_ec2.types.ip_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
         )
     if "ipv4_prefix_count" in value:
-        pairs.append((f"{prefix}.Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
+        pairs.append((f"{key_prefix}Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "private_ip_addresses" in value:
         import capo_ec2.types.private_ip_address_string_list
 
         capo_ec2.types.private_ip_address_string_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddress"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddress"
         )
     if "secondary_private_ip_address_count" in value:
         pairs.append(
             (
-                f"{prefix}.SecondaryPrivateIpAddressCount",
+                f"{key_prefix}SecondaryPrivateIpAddressCount",
                 str(value["secondary_private_ip_address_count"]),
             )
         )
     if "allow_reassignment" in value:
         pairs.append(
             (
-                f"{prefix}.AllowReassignment",
+                f"{key_prefix}AllowReassignment",
                 "true" if value["allow_reassignment"] else "false",
             )
         )

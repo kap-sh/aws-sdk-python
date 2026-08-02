@@ -24,14 +24,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_groups" in value:
         import capo_rds.types.target_group_list
 
         capo_rds.types.target_group_list.serialize_query(
-            value["target_groups"], pairs, f"{prefix}.TargetGroups"
+            value["target_groups"], pairs, f"{key_prefix}TargetGroups"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBProxyTargetGroupsResponse:

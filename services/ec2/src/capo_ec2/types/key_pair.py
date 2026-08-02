@@ -29,20 +29,21 @@ class KeyPair(TypedDict, closed=True):
 def serialize_ec2_query(
     value: KeyPair, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_pair_id" in value:
-        pairs.append((f"{prefix}.KeyPairId", str(value["key_pair_id"])))
+        pairs.append((f"{key_prefix}KeyPairId", str(value["key_pair_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "key_fingerprint" in value:
-        pairs.append((f"{prefix}.KeyFingerprint", str(value["key_fingerprint"])))
+        pairs.append((f"{key_prefix}KeyFingerprint", str(value["key_fingerprint"])))
     if "key_material" in value:
-        pairs.append((f"{prefix}.KeyMaterial", str(value["key_material"])))
+        pairs.append((f"{key_prefix}KeyMaterial", str(value["key_material"])))
 
 
 def deserialize_ec2_query(el: Element) -> KeyPair:

@@ -45,11 +45,12 @@ VpcEncryptionControlExclusions = TypedDict(
 def serialize_ec2_query(
     value: VpcEncryptionControlExclusions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "internet_gateway" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["internet_gateway"], pairs, f"{prefix}.InternetGateway"
+            value["internet_gateway"], pairs, f"{key_prefix}InternetGateway"
         )
     if "egress_only_internet_gateway" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
@@ -57,43 +58,45 @@ def serialize_ec2_query(
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
             value["egress_only_internet_gateway"],
             pairs,
-            f"{prefix}.EgressOnlyInternetGateway",
+            f"{key_prefix}EgressOnlyInternetGateway",
         )
     if "nat_gateway" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["nat_gateway"], pairs, f"{prefix}.NatGateway"
+            value["nat_gateway"], pairs, f"{key_prefix}NatGateway"
         )
     if "virtual_private_gateway" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["virtual_private_gateway"], pairs, f"{prefix}.VirtualPrivateGateway"
+            value["virtual_private_gateway"],
+            pairs,
+            f"{key_prefix}VirtualPrivateGateway",
         )
     if "vpc_peering" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["vpc_peering"], pairs, f"{prefix}.VpcPeering"
+            value["vpc_peering"], pairs, f"{key_prefix}VpcPeering"
         )
     if "lambda" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["lambda"], pairs, f"{prefix}.Lambda"
+            value["lambda"], pairs, f"{key_prefix}Lambda"
         )
     if "vpc_lattice" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["vpc_lattice"], pairs, f"{prefix}.VpcLattice"
+            value["vpc_lattice"], pairs, f"{key_prefix}VpcLattice"
         )
     if "elastic_file_system" in value:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
         capo_ec2.types.vpc_encryption_control_exclusion.serialize_ec2_query(
-            value["elastic_file_system"], pairs, f"{prefix}.ElasticFileSystem"
+            value["elastic_file_system"], pairs, f"{key_prefix}ElasticFileSystem"
         )
 
 

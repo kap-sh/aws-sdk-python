@@ -49,22 +49,23 @@ class AllocateIpamPoolCidrRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AllocateIpamPoolCidrRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "netmask_length" in value:
-        pairs.append((f"{prefix}.NetmaskLength", str(value["netmask_length"])))
+        pairs.append((f"{key_prefix}NetmaskLength", str(value["netmask_length"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "preview_next_cidr" in value:
         pairs.append(
             (
-                f"{prefix}.PreviewNextCidr",
+                f"{key_prefix}PreviewNextCidr",
                 "true" if value["preview_next_cidr"] else "false",
             )
         )
@@ -72,19 +73,19 @@ def serialize_ec2_query(
         import capo_ec2.types.ipam_pool_allocation_allowed_cidrs
 
         capo_ec2.types.ipam_pool_allocation_allowed_cidrs.serialize_ec2_query(
-            value["allowed_cidrs"], pairs, f"{prefix}.AllowedCidrs"
+            value["allowed_cidrs"], pairs, f"{key_prefix}AllowedCidrs"
         )
     if "disallowed_cidrs" in value:
         import capo_ec2.types.ipam_pool_allocation_disallowed_cidrs
 
         capo_ec2.types.ipam_pool_allocation_disallowed_cidrs.serialize_ec2_query(
-            value["disallowed_cidrs"], pairs, f"{prefix}.DisallowedCidrs"
+            value["disallowed_cidrs"], pairs, f"{key_prefix}DisallowedCidrs"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

@@ -27,16 +27,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dimensions" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "group" in value:
-        pairs.append((f"{prefix}.Group", str(value["group"])))
+        pairs.append((f"{key_prefix}Group", str(value["group"])))
     if "limit" in value:
-        pairs.append((f"{prefix}.Limit", str(value["limit"])))
+        pairs.append((f"{key_prefix}Limit", str(value["limit"])))
 
 
 def deserialize_query(el: Element) -> PerformanceInsightsMetricDimensionGroup:

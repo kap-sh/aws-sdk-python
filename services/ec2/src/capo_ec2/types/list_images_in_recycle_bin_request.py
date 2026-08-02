@@ -30,18 +30,19 @@ class ListImagesInRecycleBinRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ListImagesInRecycleBinRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_ids" in value:
         import capo_ec2.types.image_id_string_list
 
         capo_ec2.types.image_id_string_list.serialize_ec2_query(
-            value["image_ids"], pairs, f"{prefix}.ImageIds"
+            value["image_ids"], pairs, f"{key_prefix}ImageIds"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ListImagesInRecycleBinRequest:

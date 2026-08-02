@@ -79,56 +79,57 @@ class CreateVpcEndpointRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateVpcEndpointRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "vpc_endpoint_type" in value:
         import capo_ec2.types.vpc_endpoint_type
 
         capo_ec2.types.vpc_endpoint_type.serialize_ec2_query(
-            value["vpc_endpoint_type"], pairs, f"{prefix}.VpcEndpointType"
+            value["vpc_endpoint_type"], pairs, f"{key_prefix}VpcEndpointType"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "service_name" in value:
-        pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+        pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "route_table_ids" in value:
         import capo_ec2.types.vpc_endpoint_route_table_id_list
 
         capo_ec2.types.vpc_endpoint_route_table_id_list.serialize_ec2_query(
-            value["route_table_ids"], pairs, f"{prefix}.RouteTableIds"
+            value["route_table_ids"], pairs, f"{key_prefix}RouteTableIds"
         )
     if "subnet_ids" in value:
         import capo_ec2.types.vpc_endpoint_subnet_id_list
 
         capo_ec2.types.vpc_endpoint_subnet_id_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "security_group_ids" in value:
         import capo_ec2.types.vpc_endpoint_security_group_id_list
 
         capo_ec2.types.vpc_endpoint_security_group_id_list.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "ip_address_type" in value:
         import capo_ec2.types.ip_address_type
 
         capo_ec2.types.ip_address_type.serialize_ec2_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "dns_options" in value:
         import capo_ec2.types.dns_options_specification
 
         capo_ec2.types.dns_options_specification.serialize_ec2_query(
-            value["dns_options"], pairs, f"{prefix}.DnsOptions"
+            value["dns_options"], pairs, f"{key_prefix}DnsOptions"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "private_dns_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.PrivateDnsEnabled",
+                f"{key_prefix}PrivateDnsEnabled",
                 "true" if value["private_dns_enabled"] else "false",
             )
         )
@@ -136,25 +137,27 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "subnet_configurations" in value:
         import capo_ec2.types.subnet_configurations_list
 
         capo_ec2.types.subnet_configurations_list.serialize_ec2_query(
-            value["subnet_configurations"], pairs, f"{prefix}.SubnetConfigurations"
+            value["subnet_configurations"], pairs, f"{key_prefix}SubnetConfigurations"
         )
     if "service_network_arn" in value:
-        pairs.append((f"{prefix}.ServiceNetworkArn", str(value["service_network_arn"])))
+        pairs.append(
+            (f"{key_prefix}ServiceNetworkArn", str(value["service_network_arn"]))
+        )
     if "resource_configuration_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ResourceConfigurationArn",
+                f"{key_prefix}ResourceConfigurationArn",
                 str(value["resource_configuration_arn"]),
             )
         )
     if "service_region" in value:
-        pairs.append((f"{prefix}.ServiceRegion", str(value["service_region"])))
+        pairs.append((f"{key_prefix}ServiceRegion", str(value["service_region"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateVpcEndpointRequest:

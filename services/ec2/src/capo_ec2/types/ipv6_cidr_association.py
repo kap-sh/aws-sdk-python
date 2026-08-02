@@ -21,11 +21,12 @@ class Ipv6CidrAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Ipv6CidrAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv6_cidr" in value:
-        pairs.append((f"{prefix}.Ipv6Cidr", str(value["ipv6_cidr"])))
+        pairs.append((f"{key_prefix}Ipv6Cidr", str(value["ipv6_cidr"])))
     if "associated_resource" in value:
         pairs.append(
-            (f"{prefix}.AssociatedResource", str(value["associated_resource"]))
+            (f"{key_prefix}AssociatedResource", str(value["associated_resource"]))
         )
 
 

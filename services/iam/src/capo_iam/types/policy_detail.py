@@ -24,10 +24,11 @@ class PolicyDetail(TypedDict, closed=True):
 def serialize_query(
     value: PolicyDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_name" in value:
-        pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+        pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
 
 
 def deserialize_query(el: Element) -> PolicyDetail:

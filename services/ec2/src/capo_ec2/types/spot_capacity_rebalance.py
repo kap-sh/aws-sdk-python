@@ -24,14 +24,15 @@ class SpotCapacityRebalance(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotCapacityRebalance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replacement_strategy" in value:
         import capo_ec2.types.replacement_strategy
 
         capo_ec2.types.replacement_strategy.serialize_ec2_query(
-            value["replacement_strategy"], pairs, f"{prefix}.ReplacementStrategy"
+            value["replacement_strategy"], pairs, f"{key_prefix}ReplacementStrategy"
         )
     if "termination_delay" in value:
-        pairs.append((f"{prefix}.TerminationDelay", str(value["termination_delay"])))
+        pairs.append((f"{key_prefix}TerminationDelay", str(value["termination_delay"])))
 
 
 def deserialize_ec2_query(el: Element) -> SpotCapacityRebalance:

@@ -32,30 +32,31 @@ class DescribeDBRecommendationsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBRecommendationsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "last_updated_after" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["last_updated_after"], pairs, f"{prefix}.LastUpdatedAfter"
+            value["last_updated_after"], pairs, f"{key_prefix}LastUpdatedAfter"
         )
     if "last_updated_before" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["last_updated_before"], pairs, f"{prefix}.LastUpdatedBefore"
+            value["last_updated_before"], pairs, f"{key_prefix}LastUpdatedBefore"
         )
     if "locale" in value:
-        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+        pairs.append((f"{key_prefix}Locale", str(value["locale"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBRecommendationsMessage:

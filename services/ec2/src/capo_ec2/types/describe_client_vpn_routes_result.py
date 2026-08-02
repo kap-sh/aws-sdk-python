@@ -22,14 +22,15 @@ class DescribeClientVpnRoutesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeClientVpnRoutesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "routes" in value:
         import capo_ec2.types.client_vpn_route_set
 
         capo_ec2.types.client_vpn_route_set.serialize_ec2_query(
-            value["routes"], pairs, f"{prefix}.Routes"
+            value["routes"], pairs, f"{key_prefix}Routes"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeClientVpnRoutesResult:

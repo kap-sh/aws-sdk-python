@@ -31,29 +31,30 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "history_records" in value:
         import capo_ec2.types.history_records
 
         capo_ec2.types.history_records.serialize_ec2_query(
-            value["history_records"], pairs, f"{prefix}.HistoryRecordSet"
+            value["history_records"], pairs, f"{key_prefix}HistoryRecordSet"
         )
     if "last_evaluated_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["last_evaluated_time"], pairs, f"{prefix}.LastEvaluatedTime"
+            value["last_evaluated_time"], pairs, f"{key_prefix}LastEvaluatedTime"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "spot_fleet_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotFleetRequestId", str(value["spot_fleet_request_id"]))
+            (f"{key_prefix}SpotFleetRequestId", str(value["spot_fleet_request_id"]))
         )
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
 
 

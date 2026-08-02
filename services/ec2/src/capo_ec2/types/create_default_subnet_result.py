@@ -19,11 +19,12 @@ class CreateDefaultSubnetResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateDefaultSubnetResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet" in value:
         import capo_ec2.types.subnet
 
         capo_ec2.types.subnet.serialize_ec2_query(
-            value["subnet"], pairs, f"{prefix}.Subnet"
+            value["subnet"], pairs, f"{key_prefix}Subnet"
         )
 
 

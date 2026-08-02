@@ -21,11 +21,12 @@ class DescribeConversionTasksResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeConversionTasksResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "conversion_tasks" in value:
         import capo_ec2.types.describe_conversion_task_list
 
         capo_ec2.types.describe_conversion_task_list.serialize_ec2_query(
-            value["conversion_tasks"], pairs, f"{prefix}.ConversionTasks"
+            value["conversion_tasks"], pairs, f"{key_prefix}ConversionTasks"
         )
 
 

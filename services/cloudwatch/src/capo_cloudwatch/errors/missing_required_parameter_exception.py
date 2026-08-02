@@ -37,8 +37,9 @@ def deserialize_aws_json_1_0(data: dict) -> MissingRequiredParameterException_:
 def serialize_query(
     value: MissingRequiredParameterException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message" in value:
-        pairs.append((f"{prefix}.message", str(value["message"])))
+        pairs.append((f"{key_prefix}message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> MissingRequiredParameterException_:

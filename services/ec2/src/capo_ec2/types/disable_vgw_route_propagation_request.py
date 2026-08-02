@@ -25,12 +25,13 @@ class DisableVgwRoutePropagationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisableVgwRoutePropagationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "gateway_id" in value:
-        pairs.append((f"{prefix}.GatewayId", str(value["gateway_id"])))
+        pairs.append((f"{key_prefix}GatewayId", str(value["gateway_id"])))
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DisableVgwRoutePropagationRequest:

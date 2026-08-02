@@ -40,40 +40,43 @@ class ProvisionByoipCidrRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProvisionByoipCidrRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "cidr_authorization_context" in value:
         import capo_ec2.types.cidr_authorization_context
 
         capo_ec2.types.cidr_authorization_context.serialize_ec2_query(
             value["cidr_authorization_context"],
             pairs,
-            f"{prefix}.CidrAuthorizationContext",
+            f"{key_prefix}CidrAuthorizationContext",
         )
     if "publicly_advertisable" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAdvertisable",
+                f"{key_prefix}PubliclyAdvertisable",
                 "true" if value["publicly_advertisable"] else "false",
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "pool_tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["pool_tag_specifications"], pairs, f"{prefix}.PoolTagSpecifications"
+            value["pool_tag_specifications"],
+            pairs,
+            f"{key_prefix}PoolTagSpecifications",
         )
     if "multi_region" in value:
         pairs.append(
-            (f"{prefix}.MultiRegion", "true" if value["multi_region"] else "false")
+            (f"{key_prefix}MultiRegion", "true" if value["multi_region"] else "false")
         )
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
 
 

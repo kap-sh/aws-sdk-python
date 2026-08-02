@@ -51,40 +51,44 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "start_date_range" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date_range"], pairs, f"{prefix}.StartDateRange"
+            value["start_date_range"], pairs, f"{key_prefix}StartDateRange"
         )
     if "end_date_range" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date_range"], pairs, f"{prefix}.EndDateRange"
+            value["end_date_range"], pairs, f"{key_prefix}EndDateRange"
         )
     if "capacity_duration_hours" in value:
         pairs.append(
-            (f"{prefix}.CapacityDurationHours", str(value["capacity_duration_hours"]))
+            (
+                f"{key_prefix}CapacityDurationHours",
+                str(value["capacity_duration_hours"]),
+            )
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "ultraserver_type" in value:
-        pairs.append((f"{prefix}.UltraserverType", str(value["ultraserver_type"])))
+        pairs.append((f"{key_prefix}UltraserverType", str(value["ultraserver_type"])))
     if "ultraserver_count" in value:
-        pairs.append((f"{prefix}.UltraserverCount", str(value["ultraserver_count"])))
+        pairs.append((f"{key_prefix}UltraserverCount", str(value["ultraserver_count"])))
     if "all_availability_zones" in value:
         pairs.append(
             (
-                f"{prefix}.AllAvailabilityZones",
+                f"{key_prefix}AllAvailabilityZones",
                 "true" if value["all_availability_zones"] else "false",
             )
         )

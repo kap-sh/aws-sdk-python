@@ -51,52 +51,53 @@ class CapacityManagerDataExportResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityManagerDataExportResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_manager_data_export_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityManagerDataExportId",
+                f"{key_prefix}CapacityManagerDataExportId",
                 str(value["capacity_manager_data_export_id"]),
             )
         )
     if "s3_bucket_name" in value:
-        pairs.append((f"{prefix}.S3BucketName", str(value["s3_bucket_name"])))
+        pairs.append((f"{key_prefix}S3BucketName", str(value["s3_bucket_name"])))
     if "s3_bucket_prefix" in value:
-        pairs.append((f"{prefix}.S3BucketPrefix", str(value["s3_bucket_prefix"])))
+        pairs.append((f"{key_prefix}S3BucketPrefix", str(value["s3_bucket_prefix"])))
     if "schedule" in value:
         import capo_ec2.types.schedule
 
         capo_ec2.types.schedule.serialize_ec2_query(
-            value["schedule"], pairs, f"{prefix}.Schedule"
+            value["schedule"], pairs, f"{key_prefix}Schedule"
         )
     if "output_format" in value:
         import capo_ec2.types.output_format
 
         capo_ec2.types.output_format.serialize_ec2_query(
-            value["output_format"], pairs, f"{prefix}.OutputFormat"
+            value["output_format"], pairs, f"{key_prefix}OutputFormat"
         )
     if "create_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "latest_delivery_status" in value:
         import capo_ec2.types.capacity_manager_data_export_status
 
         capo_ec2.types.capacity_manager_data_export_status.serialize_ec2_query(
-            value["latest_delivery_status"], pairs, f"{prefix}.LatestDeliveryStatus"
+            value["latest_delivery_status"], pairs, f"{key_prefix}LatestDeliveryStatus"
         )
     if "latest_delivery_status_message" in value:
         pairs.append(
             (
-                f"{prefix}.LatestDeliveryStatusMessage",
+                f"{key_prefix}LatestDeliveryStatusMessage",
                 str(value["latest_delivery_status_message"]),
             )
         )
     if "latest_delivery_s3_location_uri" in value:
         pairs.append(
             (
-                f"{prefix}.LatestDeliveryS3LocationUri",
+                f"{key_prefix}LatestDeliveryS3LocationUri",
                 str(value["latest_delivery_s3_location_uri"]),
             )
         )
@@ -104,13 +105,13 @@ def serialize_ec2_query(
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["latest_delivery_time"], pairs, f"{prefix}.LatestDeliveryTime"
+            value["latest_delivery_time"], pairs, f"{key_prefix}LatestDeliveryTime"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -45,34 +45,35 @@ class ProvisionIpamPoolCidrRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProvisionIpamPoolCidrRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "cidr_authorization_context" in value:
         import capo_ec2.types.ipam_cidr_authorization_context
 
         capo_ec2.types.ipam_cidr_authorization_context.serialize_ec2_query(
             value["cidr_authorization_context"],
             pairs,
-            f"{prefix}.CidrAuthorizationContext",
+            f"{key_prefix}CidrAuthorizationContext",
         )
     if "netmask_length" in value:
-        pairs.append((f"{prefix}.NetmaskLength", str(value["netmask_length"])))
+        pairs.append((f"{key_prefix}NetmaskLength", str(value["netmask_length"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "verification_method" in value:
         import capo_ec2.types.verification_method
 
         capo_ec2.types.verification_method.serialize_ec2_query(
-            value["verification_method"], pairs, f"{prefix}.VerificationMethod"
+            value["verification_method"], pairs, f"{key_prefix}VerificationMethod"
         )
     if "ipam_external_resource_verification_token_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamExternalResourceVerificationTokenId",
+                f"{key_prefix}IpamExternalResourceVerificationTokenId",
                 str(value["ipam_external_resource_verification_token_id"]),
             )
         )

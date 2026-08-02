@@ -68,12 +68,7 @@ def _sts_mock(action: str = "AssumeRole") -> Mock:
 def _form(mock: Mock, index: int = 0) -> dict[str, str]:
     body = mock.calls[index].body
     assert isinstance(body, bytes)
-    # capo-sts serializes top-level members as ".RoleArn"; strip the stray prefix
-    # so these assertions keep holding once that codegen bug is fixed
-    return {
-        k.lstrip("."): v[0]
-        for k, v in parse_qs(body.decode(), strict_parsing=True).items()
-    }
+    return {k: v[0] for k, v in parse_qs(body.decode(), strict_parsing=True).items()}
 
 
 def test_assume_role_with_source_profile(tmp_path: Path) -> None:

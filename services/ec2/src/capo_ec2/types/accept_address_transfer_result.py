@@ -19,11 +19,12 @@ class AcceptAddressTransferResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AcceptAddressTransferResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "address_transfer" in value:
         import capo_ec2.types.address_transfer
 
         capo_ec2.types.address_transfer.serialize_ec2_query(
-            value["address_transfer"], pairs, f"{prefix}.AddressTransfer"
+            value["address_transfer"], pairs, f"{key_prefix}AddressTransfer"
         )
 
 

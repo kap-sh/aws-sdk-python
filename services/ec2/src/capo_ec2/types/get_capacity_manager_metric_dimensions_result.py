@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_dimension_results" in value:
         import capo_ec2.types.metric_dimension_result_set
 
         capo_ec2.types.metric_dimension_result_set.serialize_ec2_query(
             value["metric_dimension_results"],
             pairs,
-            f"{prefix}.MetricDimensionResultSet",
+            f"{key_prefix}MetricDimensionResultSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDimensionsResult:

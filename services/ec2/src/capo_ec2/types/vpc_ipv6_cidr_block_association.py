@@ -38,33 +38,34 @@ class VpcIpv6CidrBlockAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcIpv6CidrBlockAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "ipv6_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
     if "ipv6_cidr_block_state" in value:
         import capo_ec2.types.vpc_cidr_block_state
 
         capo_ec2.types.vpc_cidr_block_state.serialize_ec2_query(
-            value["ipv6_cidr_block_state"], pairs, f"{prefix}.Ipv6CidrBlockState"
+            value["ipv6_cidr_block_state"], pairs, f"{key_prefix}Ipv6CidrBlockState"
         )
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "ipv6_pool" in value:
-        pairs.append((f"{prefix}.Ipv6Pool", str(value["ipv6_pool"])))
+        pairs.append((f"{key_prefix}Ipv6Pool", str(value["ipv6_pool"])))
     if "ipv6_address_attribute" in value:
         import capo_ec2.types.ipv6_address_attribute
 
         capo_ec2.types.ipv6_address_attribute.serialize_ec2_query(
-            value["ipv6_address_attribute"], pairs, f"{prefix}.Ipv6AddressAttribute"
+            value["ipv6_address_attribute"], pairs, f"{key_prefix}Ipv6AddressAttribute"
         )
     if "ip_source" in value:
         import capo_ec2.types.ip_source
 
         capo_ec2.types.ip_source.serialize_ec2_query(
-            value["ip_source"], pairs, f"{prefix}.IpSource"
+            value["ip_source"], pairs, f"{key_prefix}IpSource"
         )
 
 

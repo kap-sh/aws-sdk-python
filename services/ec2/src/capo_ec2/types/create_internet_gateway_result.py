@@ -19,11 +19,12 @@ class CreateInternetGatewayResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateInternetGatewayResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "internet_gateway" in value:
         import capo_ec2.types.internet_gateway
 
         capo_ec2.types.internet_gateway.serialize_ec2_query(
-            value["internet_gateway"], pairs, f"{prefix}.InternetGateway"
+            value["internet_gateway"], pairs, f"{key_prefix}InternetGateway"
         )
 
 

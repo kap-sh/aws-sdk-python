@@ -33,18 +33,19 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "state" in value:
         import capo_ec2.types.secondary_subnet_cidr_block_association_state
 
         capo_ec2.types.secondary_subnet_cidr_block_association_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
 
 
 def deserialize_ec2_query(el: Element) -> SecondarySubnetIpv4CidrBlockAssociation:

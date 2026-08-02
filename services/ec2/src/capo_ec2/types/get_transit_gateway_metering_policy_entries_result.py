@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_metering_policy_entries" in value:
         import capo_ec2.types.transit_gateway_metering_policy_entry_list
 
         capo_ec2.types.transit_gateway_metering_policy_entry_list.serialize_ec2_query(
             value["transit_gateway_metering_policy_entries"],
             pairs,
-            f"{prefix}.TransitGatewayMeteringPolicyEntries",
+            f"{key_prefix}TransitGatewayMeteringPolicyEntries",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetTransitGatewayMeteringPolicyEntriesResult:

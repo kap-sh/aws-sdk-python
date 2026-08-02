@@ -42,18 +42,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "customer_gateway_id" in value:
-        pairs.append((f"{prefix}.CustomerGatewayId", str(value["customer_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CustomerGatewayId", str(value["customer_gateway_id"]))
+        )
     if "vpn_gateway_id" in value:
-        pairs.append((f"{prefix}.VpnGatewayId", str(value["vpn_gateway_id"])))
+        pairs.append((f"{key_prefix}VpnGatewayId", str(value["vpn_gateway_id"])))
     if "vpn_tunnel_outside_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.VpnTunnelOutsideIpAddress",
+                f"{key_prefix}VpnTunnelOutsideIpAddress",
                 str(value["vpn_tunnel_outside_ip_address"]),
             )
         )
@@ -61,7 +66,7 @@ def serialize_ec2_query(
         import capo_ec2.types.maintenance_details
 
         capo_ec2.types.maintenance_details.serialize_ec2_query(
-            value["maintenance_details"], pairs, f"{prefix}.MaintenanceDetails"
+            value["maintenance_details"], pairs, f"{key_prefix}MaintenanceDetails"
         )
 
 

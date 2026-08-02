@@ -22,14 +22,15 @@ class DeleteFleetErrorItem(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteFleetErrorItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "error" in value:
         import capo_ec2.types.delete_fleet_error
 
         capo_ec2.types.delete_fleet_error.serialize_ec2_query(
-            value["error"], pairs, f"{prefix}.Error"
+            value["error"], pairs, f"{key_prefix}Error"
         )
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteFleetErrorItem:

@@ -21,11 +21,12 @@ class DescribeEndPointStateOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEndPointStateOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_states" in value:
         import capo_elastic_load_balancing.types.instance_states
 
         capo_elastic_load_balancing.types.instance_states.serialize_query(
-            value["instance_states"], pairs, f"{prefix}.InstanceStates"
+            value["instance_states"], pairs, f"{key_prefix}InstanceStates"
         )
 
 

@@ -53,13 +53,14 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeInsightRulesOutput:
 def serialize_query(
     value: DescribeInsightRulesOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "insight_rules" in value:
         import capo_cloudwatch.types.insight_rules
 
         capo_cloudwatch.types.insight_rules.serialize_query(
-            value["insight_rules"], pairs, f"{prefix}.InsightRules"
+            value["insight_rules"], pairs, f"{key_prefix}InsightRules"
         )
 
 

@@ -21,13 +21,14 @@ class BlockPublicAccessStates(TypedDict, closed=True):
 def serialize_ec2_query(
     value: BlockPublicAccessStates, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "internet_gateway_block_mode" in value:
         import capo_ec2.types.block_public_access_mode
 
         capo_ec2.types.block_public_access_mode.serialize_ec2_query(
             value["internet_gateway_block_mode"],
             pairs,
-            f"{prefix}.InternetGatewayBlockMode",
+            f"{key_prefix}InternetGatewayBlockMode",
         )
 
 

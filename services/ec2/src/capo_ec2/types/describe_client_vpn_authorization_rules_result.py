@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "authorization_rules" in value:
         import capo_ec2.types.authorization_rule_set
 
         capo_ec2.types.authorization_rule_set.serialize_ec2_query(
-            value["authorization_rules"], pairs, f"{prefix}.AuthorizationRule"
+            value["authorization_rules"], pairs, f"{key_prefix}AuthorizationRule"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeClientVpnAuthorizationRulesResult:

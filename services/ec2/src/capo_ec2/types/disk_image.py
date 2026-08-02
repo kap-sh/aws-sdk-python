@@ -25,19 +25,20 @@ class DiskImage(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DiskImage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "image" in value:
         import capo_ec2.types.disk_image_detail
 
         capo_ec2.types.disk_image_detail.serialize_ec2_query(
-            value["image"], pairs, f"{prefix}.Image"
+            value["image"], pairs, f"{key_prefix}Image"
         )
     if "volume" in value:
         import capo_ec2.types.volume_detail
 
         capo_ec2.types.volume_detail.serialize_ec2_query(
-            value["volume"], pairs, f"{prefix}.Volume"
+            value["volume"], pairs, f"{key_prefix}Volume"
         )
 
 

@@ -52,12 +52,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "currency_code" in value:
-        pairs.append((f"{prefix}.CurrencyCode", str(value["currency_code"])))
+        pairs.append((f"{key_prefix}CurrencyCode", str(value["currency_code"])))
     if "is_valid_exchange" in value:
         pairs.append(
             (
-                f"{prefix}.IsValidExchange",
+                f"{key_prefix}IsValidExchange",
                 "true" if value["is_valid_exchange"] else "false",
             )
         )
@@ -67,17 +68,17 @@ def serialize_ec2_query(
         capo_ec2.types.date_time.serialize_ec2_query(
             value["output_reserved_instances_will_expire_at"],
             pairs,
-            f"{prefix}.OutputReservedInstancesWillExpireAt",
+            f"{key_prefix}OutputReservedInstancesWillExpireAt",
         )
     if "payment_due" in value:
-        pairs.append((f"{prefix}.PaymentDue", str(value["payment_due"])))
+        pairs.append((f"{key_prefix}PaymentDue", str(value["payment_due"])))
     if "reserved_instance_value_rollup" in value:
         import capo_ec2.types.reservation_value
 
         capo_ec2.types.reservation_value.serialize_ec2_query(
             value["reserved_instance_value_rollup"],
             pairs,
-            f"{prefix}.ReservedInstanceValueRollup",
+            f"{key_prefix}ReservedInstanceValueRollup",
         )
     if "reserved_instance_value_set" in value:
         import capo_ec2.types.reserved_instance_reservation_value_set
@@ -85,7 +86,7 @@ def serialize_ec2_query(
         capo_ec2.types.reserved_instance_reservation_value_set.serialize_ec2_query(
             value["reserved_instance_value_set"],
             pairs,
-            f"{prefix}.ReservedInstanceValueSet",
+            f"{key_prefix}ReservedInstanceValueSet",
         )
     if "target_configuration_value_rollup" in value:
         import capo_ec2.types.reservation_value
@@ -93,7 +94,7 @@ def serialize_ec2_query(
         capo_ec2.types.reservation_value.serialize_ec2_query(
             value["target_configuration_value_rollup"],
             pairs,
-            f"{prefix}.TargetConfigurationValueRollup",
+            f"{key_prefix}TargetConfigurationValueRollup",
         )
     if "target_configuration_value_set" in value:
         import capo_ec2.types.target_reservation_value_set
@@ -101,12 +102,12 @@ def serialize_ec2_query(
         capo_ec2.types.target_reservation_value_set.serialize_ec2_query(
             value["target_configuration_value_set"],
             pairs,
-            f"{prefix}.TargetConfigurationValueSet",
+            f"{key_prefix}TargetConfigurationValueSet",
         )
     if "validation_failure_reason" in value:
         pairs.append(
             (
-                f"{prefix}.ValidationFailureReason",
+                f"{key_prefix}ValidationFailureReason",
                 str(value["validation_failure_reason"]),
             )
         )

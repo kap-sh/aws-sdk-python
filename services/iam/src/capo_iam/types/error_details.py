@@ -22,8 +22,9 @@ class ErrorDetails(TypedDict, closed=True):
 def serialize_query(
     value: ErrorDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Message", str(value["message"])))
-    pairs.append((f"{prefix}.Code", str(value["code"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Message", str(value["message"])))
+    pairs.append((f"{key_prefix}Code", str(value["code"])))
 
 
 def deserialize_query(el: Element) -> ErrorDetails:

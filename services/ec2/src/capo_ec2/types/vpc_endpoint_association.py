@@ -47,47 +47,53 @@ class VpcEndpointAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcEndpointAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "service_network_arn" in value:
-        pairs.append((f"{prefix}.ServiceNetworkArn", str(value["service_network_arn"])))
+        pairs.append(
+            (f"{key_prefix}ServiceNetworkArn", str(value["service_network_arn"]))
+        )
     if "service_network_name" in value:
         pairs.append(
-            (f"{prefix}.ServiceNetworkName", str(value["service_network_name"]))
+            (f"{key_prefix}ServiceNetworkName", str(value["service_network_name"]))
         )
     if "associated_resource_accessibility" in value:
         pairs.append(
             (
-                f"{prefix}.AssociatedResourceAccessibility",
+                f"{key_prefix}AssociatedResourceAccessibility",
                 str(value["associated_resource_accessibility"]),
             )
         )
     if "failure_reason" in value:
-        pairs.append((f"{prefix}.FailureReason", str(value["failure_reason"])))
+        pairs.append((f"{key_prefix}FailureReason", str(value["failure_reason"])))
     if "failure_code" in value:
-        pairs.append((f"{prefix}.FailureCode", str(value["failure_code"])))
+        pairs.append((f"{key_prefix}FailureCode", str(value["failure_code"])))
     if "dns_entry" in value:
         import capo_ec2.types.dns_entry
 
         capo_ec2.types.dns_entry.serialize_ec2_query(
-            value["dns_entry"], pairs, f"{prefix}.DnsEntry"
+            value["dns_entry"], pairs, f"{key_prefix}DnsEntry"
         )
     if "private_dns_entry" in value:
         import capo_ec2.types.dns_entry
 
         capo_ec2.types.dns_entry.serialize_ec2_query(
-            value["private_dns_entry"], pairs, f"{prefix}.PrivateDnsEntry"
+            value["private_dns_entry"], pairs, f"{key_prefix}PrivateDnsEntry"
         )
     if "associated_resource_arn" in value:
         pairs.append(
-            (f"{prefix}.AssociatedResourceArn", str(value["associated_resource_arn"]))
+            (
+                f"{key_prefix}AssociatedResourceArn",
+                str(value["associated_resource_arn"]),
+            )
         )
     if "resource_configuration_group_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ResourceConfigurationGroupArn",
+                f"{key_prefix}ResourceConfigurationGroupArn",
                 str(value["resource_configuration_group_arn"]),
             )
         )
@@ -95,7 +101,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

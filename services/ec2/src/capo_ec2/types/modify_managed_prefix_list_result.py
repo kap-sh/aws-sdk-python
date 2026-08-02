@@ -19,11 +19,12 @@ class ModifyManagedPrefixListResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyManagedPrefixListResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "prefix_list" in value:
         import capo_ec2.types.managed_prefix_list
 
         capo_ec2.types.managed_prefix_list.serialize_ec2_query(
-            value["prefix_list"], pairs, f"{prefix}.PrefixList"
+            value["prefix_list"], pairs, f"{key_prefix}PrefixList"
         )
 
 

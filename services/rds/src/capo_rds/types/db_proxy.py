@@ -65,71 +65,76 @@ class DBProxy(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: DBProxy, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "db_proxy_arn" in value:
-        pairs.append((f"{prefix}.DBProxyArn", str(value["db_proxy_arn"])))
+        pairs.append((f"{key_prefix}DBProxyArn", str(value["db_proxy_arn"])))
     if "status" in value:
         import capo_rds.types.db_proxy_status
 
         capo_rds.types.db_proxy_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "engine_family" in value:
-        pairs.append((f"{prefix}.EngineFamily", str(value["engine_family"])))
+        pairs.append((f"{key_prefix}EngineFamily", str(value["engine_family"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "vpc_security_group_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "vpc_subnet_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_subnet_ids"], pairs, f"{prefix}.VpcSubnetIds"
+            value["vpc_subnet_ids"], pairs, f"{key_prefix}VpcSubnetIds"
         )
     if "default_auth_scheme" in value:
-        pairs.append((f"{prefix}.DefaultAuthScheme", str(value["default_auth_scheme"])))
+        pairs.append(
+            (f"{key_prefix}DefaultAuthScheme", str(value["default_auth_scheme"]))
+        )
     if "auth" in value:
         import capo_rds.types.user_auth_config_info_list
 
         capo_rds.types.user_auth_config_info_list.serialize_query(
-            value["auth"], pairs, f"{prefix}.Auth"
+            value["auth"], pairs, f"{key_prefix}Auth"
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "require_tls" in value:
         pairs.append(
-            (f"{prefix}.RequireTLS", "true" if value["require_tls"] else "false")
+            (f"{key_prefix}RequireTLS", "true" if value["require_tls"] else "false")
         )
     if "idle_client_timeout" in value:
-        pairs.append((f"{prefix}.IdleClientTimeout", str(value["idle_client_timeout"])))
+        pairs.append(
+            (f"{key_prefix}IdleClientTimeout", str(value["idle_client_timeout"]))
+        )
     if "debug_logging" in value:
         pairs.append(
-            (f"{prefix}.DebugLogging", "true" if value["debug_logging"] else "false")
+            (f"{key_prefix}DebugLogging", "true" if value["debug_logging"] else "false")
         )
     if "created_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["created_date"], pairs, f"{prefix}.CreatedDate"
+            value["created_date"], pairs, f"{key_prefix}CreatedDate"
         )
     if "updated_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["updated_date"], pairs, f"{prefix}.UpdatedDate"
+            value["updated_date"], pairs, f"{key_prefix}UpdatedDate"
         )
     if "endpoint_network_type" in value:
         import capo_rds.types.endpoint_network_type
 
         capo_rds.types.endpoint_network_type.serialize_query(
-            value["endpoint_network_type"], pairs, f"{prefix}.EndpointNetworkType"
+            value["endpoint_network_type"], pairs, f"{key_prefix}EndpointNetworkType"
         )
     if "target_connection_network_type" in value:
         import capo_rds.types.target_connection_network_type
@@ -137,7 +142,7 @@ def serialize_query(value: DBProxy, pairs: list[tuple[str, str]], prefix: str) -
         capo_rds.types.target_connection_network_type.serialize_query(
             value["target_connection_network_type"],
             pairs,
-            f"{prefix}.TargetConnectionNetworkType",
+            f"{key_prefix}TargetConnectionNetworkType",
         )
 
 

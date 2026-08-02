@@ -27,23 +27,24 @@ class EbsStatusDetails(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EbsStatusDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "impaired_since" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["impaired_since"], pairs, f"{prefix}.ImpairedSince"
+            value["impaired_since"], pairs, f"{key_prefix}ImpairedSince"
         )
     if "name" in value:
         import capo_ec2.types.status_name
 
         capo_ec2.types.status_name.serialize_ec2_query(
-            value["name"], pairs, f"{prefix}.Name"
+            value["name"], pairs, f"{key_prefix}Name"
         )
     if "status" in value:
         import capo_ec2.types.status_type
 
         capo_ec2.types.status_type.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

@@ -21,11 +21,12 @@ class GetLaunchTemplateDataResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetLaunchTemplateDataResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_data" in value:
         import capo_ec2.types.response_launch_template_data
 
         capo_ec2.types.response_launch_template_data.serialize_ec2_query(
-            value["launch_template_data"], pairs, f"{prefix}.LaunchTemplateData"
+            value["launch_template_data"], pairs, f"{key_prefix}LaunchTemplateData"
         )
 
 

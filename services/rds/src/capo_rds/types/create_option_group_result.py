@@ -18,11 +18,12 @@ class CreateOptionGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateOptionGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_group" in value:
         import capo_rds.types.option_group
 
         capo_rds.types.option_group.serialize_query(
-            value["option_group"], pairs, f"{prefix}.OptionGroup"
+            value["option_group"], pairs, f"{key_prefix}OptionGroup"
         )
 
 

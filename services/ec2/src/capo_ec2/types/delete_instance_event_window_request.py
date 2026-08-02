@@ -26,15 +26,19 @@ class DeleteInstanceEventWindowRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteInstanceEventWindowRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "force_delete" in value:
         pairs.append(
-            (f"{prefix}.ForceDelete", "true" if value["force_delete"] else "false")
+            (f"{key_prefix}ForceDelete", "true" if value["force_delete"] else "false")
         )
     if "instance_event_window_id" in value:
         pairs.append(
-            (f"{prefix}.InstanceEventWindowId", str(value["instance_event_window_id"]))
+            (
+                f"{key_prefix}InstanceEventWindowId",
+                str(value["instance_event_window_id"]),
+            )
         )
 
 

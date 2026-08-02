@@ -21,11 +21,12 @@ class CapacityManagerCondition(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityManagerCondition, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dimension_condition" in value:
         import capo_ec2.types.dimension_condition
 
         capo_ec2.types.dimension_condition.serialize_ec2_query(
-            value["dimension_condition"], pairs, f"{prefix}.DimensionCondition"
+            value["dimension_condition"], pairs, f"{key_prefix}DimensionCondition"
         )
 
 

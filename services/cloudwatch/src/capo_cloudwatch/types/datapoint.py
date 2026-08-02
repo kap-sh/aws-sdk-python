@@ -109,33 +109,34 @@ def deserialize_aws_json_1_0(data: dict) -> Datapoint:
 def serialize_query(
     value: Datapoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "sample_count" in value:
-        pairs.append((f"{prefix}.SampleCount", str(value["sample_count"])))
+        pairs.append((f"{key_prefix}SampleCount", str(value["sample_count"])))
     if "average" in value:
-        pairs.append((f"{prefix}.Average", str(value["average"])))
+        pairs.append((f"{key_prefix}Average", str(value["average"])))
     if "sum" in value:
-        pairs.append((f"{prefix}.Sum", str(value["sum"])))
+        pairs.append((f"{key_prefix}Sum", str(value["sum"])))
     if "minimum" in value:
-        pairs.append((f"{prefix}.Minimum", str(value["minimum"])))
+        pairs.append((f"{key_prefix}Minimum", str(value["minimum"])))
     if "maximum" in value:
-        pairs.append((f"{prefix}.Maximum", str(value["maximum"])))
+        pairs.append((f"{key_prefix}Maximum", str(value["maximum"])))
     if "unit" in value:
         import capo_cloudwatch.types.standard_unit
 
         capo_cloudwatch.types.standard_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
     if "extended_statistics" in value:
         import capo_cloudwatch.types.datapoint_value_map
 
         capo_cloudwatch.types.datapoint_value_map.serialize_query(
-            value["extended_statistics"], pairs, f"{prefix}.ExtendedStatistics"
+            value["extended_statistics"], pairs, f"{key_prefix}ExtendedStatistics"
         )
 
 

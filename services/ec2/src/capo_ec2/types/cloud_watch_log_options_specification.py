@@ -35,23 +35,27 @@ class CloudWatchLogOptionsSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CloudWatchLogOptionsSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "log_enabled" in value:
         pairs.append(
-            (f"{prefix}.LogEnabled", "true" if value["log_enabled"] else "false")
+            (f"{key_prefix}LogEnabled", "true" if value["log_enabled"] else "false")
         )
     if "log_group_arn" in value:
-        pairs.append((f"{prefix}.LogGroupArn", str(value["log_group_arn"])))
+        pairs.append((f"{key_prefix}LogGroupArn", str(value["log_group_arn"])))
     if "log_output_format" in value:
-        pairs.append((f"{prefix}.LogOutputFormat", str(value["log_output_format"])))
+        pairs.append((f"{key_prefix}LogOutputFormat", str(value["log_output_format"])))
     if "bgp_log_enabled" in value:
         pairs.append(
-            (f"{prefix}.BgpLogEnabled", "true" if value["bgp_log_enabled"] else "false")
+            (
+                f"{key_prefix}BgpLogEnabled",
+                "true" if value["bgp_log_enabled"] else "false",
+            )
         )
     if "bgp_log_group_arn" in value:
-        pairs.append((f"{prefix}.BgpLogGroupArn", str(value["bgp_log_group_arn"])))
+        pairs.append((f"{key_prefix}BgpLogGroupArn", str(value["bgp_log_group_arn"])))
     if "bgp_log_output_format" in value:
         pairs.append(
-            (f"{prefix}.BgpLogOutputFormat", str(value["bgp_log_output_format"]))
+            (f"{key_prefix}BgpLogOutputFormat", str(value["bgp_log_output_format"]))
         )
 
 

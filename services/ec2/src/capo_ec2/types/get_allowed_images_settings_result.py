@@ -27,19 +27,20 @@ class GetAllowedImagesSettingsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetAllowedImagesSettingsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "image_criteria" in value:
         import capo_ec2.types.image_criterion_list
 
         capo_ec2.types.image_criterion_list.serialize_ec2_query(
-            value["image_criteria"], pairs, f"{prefix}.ImageCriterionSet"
+            value["image_criteria"], pairs, f"{key_prefix}ImageCriterionSet"
         )
     if "managed_by" in value:
         import capo_ec2.types.managed_by
 
         capo_ec2.types.managed_by.serialize_ec2_query(
-            value["managed_by"], pairs, f"{prefix}.ManagedBy"
+            value["managed_by"], pairs, f"{key_prefix}ManagedBy"
         )
 
 

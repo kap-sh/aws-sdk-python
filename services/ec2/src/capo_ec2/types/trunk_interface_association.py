@@ -39,27 +39,32 @@ class TrunkInterfaceAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TrunkInterfaceAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "branch_interface_id" in value:
-        pairs.append((f"{prefix}.BranchInterfaceId", str(value["branch_interface_id"])))
+        pairs.append(
+            (f"{key_prefix}BranchInterfaceId", str(value["branch_interface_id"]))
+        )
     if "trunk_interface_id" in value:
-        pairs.append((f"{prefix}.TrunkInterfaceId", str(value["trunk_interface_id"])))
+        pairs.append(
+            (f"{key_prefix}TrunkInterfaceId", str(value["trunk_interface_id"]))
+        )
     if "interface_protocol" in value:
         import capo_ec2.types.interface_protocol_type
 
         capo_ec2.types.interface_protocol_type.serialize_ec2_query(
-            value["interface_protocol"], pairs, f"{prefix}.InterfaceProtocol"
+            value["interface_protocol"], pairs, f"{key_prefix}InterfaceProtocol"
         )
     if "vlan_id" in value:
-        pairs.append((f"{prefix}.VlanId", str(value["vlan_id"])))
+        pairs.append((f"{key_prefix}VlanId", str(value["vlan_id"])))
     if "gre_key" in value:
-        pairs.append((f"{prefix}.GreKey", str(value["gre_key"])))
+        pairs.append((f"{key_prefix}GreKey", str(value["gre_key"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

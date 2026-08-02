@@ -21,17 +21,18 @@ class PendingCloudwatchLogsExports(TypedDict, closed=True):
 def serialize_query(
     value: PendingCloudwatchLogsExports, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "log_types_to_enable" in value:
         import capo_rds.types.log_type_list
 
         capo_rds.types.log_type_list.serialize_query(
-            value["log_types_to_enable"], pairs, f"{prefix}.LogTypesToEnable"
+            value["log_types_to_enable"], pairs, f"{key_prefix}LogTypesToEnable"
         )
     if "log_types_to_disable" in value:
         import capo_rds.types.log_type_list
 
         capo_rds.types.log_type_list.serialize_query(
-            value["log_types_to_disable"], pairs, f"{prefix}.LogTypesToDisable"
+            value["log_types_to_disable"], pairs, f"{key_prefix}LogTypesToDisable"
         )
 
 

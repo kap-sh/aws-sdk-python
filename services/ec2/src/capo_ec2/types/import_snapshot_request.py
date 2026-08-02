@@ -44,35 +44,38 @@ class ImportSnapshotRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportSnapshotRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_data" in value:
         import capo_ec2.types.client_data
 
         capo_ec2.types.client_data.serialize_ec2_query(
-            value["client_data"], pairs, f"{prefix}.ClientData"
+            value["client_data"], pairs, f"{key_prefix}ClientData"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "disk_container" in value:
         import capo_ec2.types.snapshot_disk_container
 
         capo_ec2.types.snapshot_disk_container.serialize_ec2_query(
-            value["disk_container"], pairs, f"{prefix}.DiskContainer"
+            value["disk_container"], pairs, f"{key_prefix}DiskContainer"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "role_name" in value:
-        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+        pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

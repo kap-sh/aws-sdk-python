@@ -23,12 +23,13 @@ class AnalysisComponent(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisComponent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
 
 
 def deserialize_ec2_query(el: Element) -> AnalysisComponent:

@@ -41,10 +41,11 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmContributorsInput:
 def serialize_query(
     value: DescribeAlarmContributorsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeAlarmContributorsInput:

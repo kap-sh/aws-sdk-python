@@ -24,10 +24,11 @@ DeleteKeyPairResult = TypedDict(
 def serialize_ec2_query(
     value: DeleteKeyPairResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
     if "key_pair_id" in value:
-        pairs.append((f"{prefix}.KeyPairId", str(value["key_pair_id"])))
+        pairs.append((f"{key_prefix}KeyPairId", str(value["key_pair_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteKeyPairResult:

@@ -21,10 +21,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ebs_encryption_by_default" in value:
         pairs.append(
             (
-                f"{prefix}.EbsEncryptionByDefault",
+                f"{key_prefix}EbsEncryptionByDefault",
                 "true" if value["ebs_encryption_by_default"] else "false",
             )
         )

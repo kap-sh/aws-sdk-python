@@ -21,10 +21,11 @@ class InstanceConnectEndpointDnsNames(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceConnectEndpointDnsNames, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DnsName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DnsName", str(value["dns_name"])))
     if "fips_dns_name" in value:
-        pairs.append((f"{prefix}.FipsDnsName", str(value["fips_dns_name"])))
+        pairs.append((f"{key_prefix}FipsDnsName", str(value["fips_dns_name"])))
 
 
 def deserialize_ec2_query(el: Element) -> InstanceConnectEndpointDnsNames:

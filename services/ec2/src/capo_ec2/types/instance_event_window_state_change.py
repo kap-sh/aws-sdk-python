@@ -26,15 +26,19 @@ class InstanceEventWindowStateChange(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceEventWindowStateChange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_event_window_id" in value:
         pairs.append(
-            (f"{prefix}.InstanceEventWindowId", str(value["instance_event_window_id"]))
+            (
+                f"{key_prefix}InstanceEventWindowId",
+                str(value["instance_event_window_id"]),
+            )
         )
     if "state" in value:
         import capo_ec2.types.instance_event_window_state
 
         capo_ec2.types.instance_event_window_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

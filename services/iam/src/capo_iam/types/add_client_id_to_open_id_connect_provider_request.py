@@ -25,13 +25,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.OpenIDConnectProviderArn",
+            f"{key_prefix}OpenIDConnectProviderArn",
             str(value["open_id_connect_provider_arn"]),
         )
     )
-    pairs.append((f"{prefix}.ClientID", str(value["client_id"])))
+    pairs.append((f"{key_prefix}ClientID", str(value["client_id"])))
 
 
 def deserialize_query(el: Element) -> AddClientIDToOpenIDConnectProviderRequest:

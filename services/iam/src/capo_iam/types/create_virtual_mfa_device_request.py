@@ -28,16 +28,17 @@ class CreateVirtualMFADeviceRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateVirtualMFADeviceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     pairs.append(
-        (f"{prefix}.VirtualMFADeviceName", str(value["virtual_mfa_device_name"]))
+        (f"{key_prefix}VirtualMFADeviceName", str(value["virtual_mfa_device_name"]))
     )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

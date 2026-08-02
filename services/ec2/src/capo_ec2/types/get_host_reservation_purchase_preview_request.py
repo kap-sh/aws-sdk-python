@@ -24,14 +24,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "host_id_set" in value:
         import capo_ec2.types.request_host_id_set
 
         capo_ec2.types.request_host_id_set.serialize_ec2_query(
-            value["host_id_set"], pairs, f"{prefix}.HostIdSet"
+            value["host_id_set"], pairs, f"{key_prefix}HostIdSet"
         )
     if "offering_id" in value:
-        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+        pairs.append((f"{key_prefix}OfferingId", str(value["offering_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetHostReservationPurchasePreviewRequest:

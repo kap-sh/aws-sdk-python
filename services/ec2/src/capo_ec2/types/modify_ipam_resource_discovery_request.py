@@ -47,28 +47,31 @@ class ModifyIpamResourceDiscoveryRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamResourceDiscoveryRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_resource_discovery_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryId",
+                f"{key_prefix}IpamResourceDiscoveryId",
                 str(value["ipam_resource_discovery_id"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "add_operating_regions" in value:
         import capo_ec2.types.add_ipam_operating_region_set
 
         capo_ec2.types.add_ipam_operating_region_set.serialize_ec2_query(
-            value["add_operating_regions"], pairs, f"{prefix}.AddOperatingRegions"
+            value["add_operating_regions"], pairs, f"{key_prefix}AddOperatingRegions"
         )
     if "remove_operating_regions" in value:
         import capo_ec2.types.remove_ipam_operating_region_set
 
         capo_ec2.types.remove_ipam_operating_region_set.serialize_ec2_query(
-            value["remove_operating_regions"], pairs, f"{prefix}.RemoveOperatingRegions"
+            value["remove_operating_regions"],
+            pairs,
+            f"{key_prefix}RemoveOperatingRegions",
         )
     if "add_organizational_unit_exclusions" in value:
         import capo_ec2.types.add_ipam_organizational_unit_exclusion_set
@@ -76,7 +79,7 @@ def serialize_ec2_query(
         capo_ec2.types.add_ipam_organizational_unit_exclusion_set.serialize_ec2_query(
             value["add_organizational_unit_exclusions"],
             pairs,
-            f"{prefix}.AddOrganizationalUnitExclusions",
+            f"{key_prefix}AddOrganizationalUnitExclusions",
         )
     if "remove_organizational_unit_exclusions" in value:
         import capo_ec2.types.remove_ipam_organizational_unit_exclusion_set
@@ -84,7 +87,7 @@ def serialize_ec2_query(
         capo_ec2.types.remove_ipam_organizational_unit_exclusion_set.serialize_ec2_query(
             value["remove_organizational_unit_exclusions"],
             pairs,
-            f"{prefix}.RemoveOrganizationalUnitExclusions",
+            f"{key_prefix}RemoveOrganizationalUnitExclusions",
         )
 
 

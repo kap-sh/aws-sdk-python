@@ -33,27 +33,30 @@ class ModifyIpamResourceCidrRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamResourceCidrRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_cidr" in value:
-        pairs.append((f"{prefix}.ResourceCidr", str(value["resource_cidr"])))
+        pairs.append((f"{key_prefix}ResourceCidr", str(value["resource_cidr"])))
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "current_ipam_scope_id" in value:
         pairs.append(
-            (f"{prefix}.CurrentIpamScopeId", str(value["current_ipam_scope_id"]))
+            (f"{key_prefix}CurrentIpamScopeId", str(value["current_ipam_scope_id"]))
         )
     if "destination_ipam_scope_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationIpamScopeId",
+                f"{key_prefix}DestinationIpamScopeId",
                 str(value["destination_ipam_scope_id"]),
             )
         )
     if "monitored" in value:
-        pairs.append((f"{prefix}.Monitored", "true" if value["monitored"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Monitored", "true" if value["monitored"] else "false")
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ModifyIpamResourceCidrRequest:

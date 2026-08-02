@@ -19,8 +19,9 @@ class CreateAccessPointOutput(TypedDict, closed=True):
 def serialize_query(
     value: CreateAccessPointOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DNSName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DNSName", str(value["dns_name"])))
 
 
 def deserialize_query(el: Element) -> CreateAccessPointOutput:

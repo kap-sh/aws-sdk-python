@@ -21,10 +21,11 @@ class RebootDBShardGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: RebootDBShardGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_shard_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBShardGroupIdentifier",
+                f"{key_prefix}DBShardGroupIdentifier",
                 str(value["db_shard_group_identifier"]),
             )
         )

@@ -40,34 +40,39 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "version" in value:
-        pairs.append((f"{prefix}.Version", str(value["version"])))
+        pairs.append((f"{key_prefix}Version", str(value["version"])))
     if "verified_access_instance_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessInstanceId",
+                f"{key_prefix}VerifiedAccessInstanceId",
                 str(value["verified_access_instance_id"]),
             )
         )
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "device_trust_providers" in value:
         import capo_ec2.types.device_trust_provider_type_list
 
         capo_ec2.types.device_trust_provider_type_list.serialize_ec2_query(
-            value["device_trust_providers"], pairs, f"{prefix}.DeviceTrustProviderSet"
+            value["device_trust_providers"],
+            pairs,
+            f"{key_prefix}DeviceTrustProviderSet",
         )
     if "user_trust_provider" in value:
         import capo_ec2.types.verified_access_instance_user_trust_provider_client_configuration
 
         capo_ec2.types.verified_access_instance_user_trust_provider_client_configuration.serialize_ec2_query(
-            value["user_trust_provider"], pairs, f"{prefix}.UserTrustProvider"
+            value["user_trust_provider"], pairs, f"{key_prefix}UserTrustProvider"
         )
     if "open_vpn_configurations" in value:
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_list
 
         capo_ec2.types.verified_access_instance_open_vpn_client_configuration_list.serialize_ec2_query(
-            value["open_vpn_configurations"], pairs, f"{prefix}.OpenVpnConfigurationSet"
+            value["open_vpn_configurations"],
+            pairs,
+            f"{key_prefix}OpenVpnConfigurationSet",
         )
 
 

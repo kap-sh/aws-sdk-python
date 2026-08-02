@@ -27,26 +27,27 @@ class DBClusterMember(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterMember, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "is_cluster_writer" in value:
         pairs.append(
             (
-                f"{prefix}.IsClusterWriter",
+                f"{key_prefix}IsClusterWriter",
                 "true" if value["is_cluster_writer"] else "false",
             )
         )
     if "db_cluster_parameter_group_status" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterParameterGroupStatus",
+                f"{key_prefix}DBClusterParameterGroupStatus",
                 str(value["db_cluster_parameter_group_status"]),
             )
         )
     if "promotion_tier" in value:
-        pairs.append((f"{prefix}.PromotionTier", str(value["promotion_tier"])))
+        pairs.append((f"{key_prefix}PromotionTier", str(value["promotion_tier"])))
 
 
 def deserialize_query(el: Element) -> DBClusterMember:

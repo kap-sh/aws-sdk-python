@@ -21,11 +21,12 @@ class DescribeReservedInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeReservedInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_instances" in value:
         import capo_ec2.types.reserved_instances_list
 
         capo_ec2.types.reserved_instances_list.serialize_ec2_query(
-            value["reserved_instances"], pairs, f"{prefix}.ReservedInstancesSet"
+            value["reserved_instances"], pairs, f"{key_prefix}ReservedInstancesSet"
         )
 
 

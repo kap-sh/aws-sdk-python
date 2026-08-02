@@ -24,13 +24,14 @@ class DescribeSpotPriceHistoryResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSpotPriceHistoryResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "spot_price_history" in value:
         import capo_ec2.types.spot_price_history_list
 
         capo_ec2.types.spot_price_history_list.serialize_ec2_query(
-            value["spot_price_history"], pairs, f"{prefix}.SpotPriceHistorySet"
+            value["spot_price_history"], pairs, f"{key_prefix}SpotPriceHistorySet"
         )
 
 

@@ -29,16 +29,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "bandwidth_weighting" in value:
         import capo_ec2.types.instance_bandwidth_weighting
 
         capo_ec2.types.instance_bandwidth_weighting.serialize_ec2_query(
-            value["bandwidth_weighting"], pairs, f"{prefix}.BandwidthWeighting"
+            value["bandwidth_weighting"], pairs, f"{key_prefix}BandwidthWeighting"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceNetworkPerformanceRequest:

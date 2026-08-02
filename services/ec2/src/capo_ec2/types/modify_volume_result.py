@@ -21,11 +21,12 @@ class ModifyVolumeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVolumeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_modification" in value:
         import capo_ec2.types.volume_modification
 
         capo_ec2.types.volume_modification.serialize_ec2_query(
-            value["volume_modification"], pairs, f"{prefix}.VolumeModification"
+            value["volume_modification"], pairs, f"{key_prefix}VolumeModification"
         )
 
 

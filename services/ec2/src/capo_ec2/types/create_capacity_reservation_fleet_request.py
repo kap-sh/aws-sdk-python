@@ -52,50 +52,53 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_strategy" in value:
         pairs.append(
-            (f"{prefix}.AllocationStrategy", str(value["allocation_strategy"]))
+            (f"{key_prefix}AllocationStrategy", str(value["allocation_strategy"]))
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "instance_type_specifications" in value:
         import capo_ec2.types.reservation_fleet_instance_specification_list
 
         capo_ec2.types.reservation_fleet_instance_specification_list.serialize_ec2_query(
             value["instance_type_specifications"],
             pairs,
-            f"{prefix}.InstanceTypeSpecifications",
+            f"{key_prefix}InstanceTypeSpecifications",
         )
     if "tenancy" in value:
         import capo_ec2.types.fleet_capacity_reservation_tenancy
 
         capo_ec2.types.fleet_capacity_reservation_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "total_target_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+            (f"{key_prefix}TotalTargetCapacity", str(value["total_target_capacity"]))
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "instance_match_criteria" in value:
         import capo_ec2.types.fleet_instance_match_criteria
 
         capo_ec2.types.fleet_instance_match_criteria.serialize_ec2_query(
-            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+            value["instance_match_criteria"],
+            pairs,
+            f"{key_prefix}InstanceMatchCriteria",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetRequest:

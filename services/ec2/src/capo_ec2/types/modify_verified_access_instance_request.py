@@ -33,23 +33,24 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_instance_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessInstanceId",
+                f"{key_prefix}VerifiedAccessInstanceId",
                 str(value["verified_access_instance_id"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "cidr_endpoints_custom_sub_domain" in value:
         pairs.append(
             (
-                f"{prefix}.CidrEndpointsCustomSubDomain",
+                f"{key_prefix}CidrEndpointsCustomSubDomain",
                 str(value["cidr_endpoints_custom_sub_domain"]),
             )
         )

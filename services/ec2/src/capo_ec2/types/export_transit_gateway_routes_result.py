@@ -19,8 +19,9 @@ class ExportTransitGatewayRoutesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExportTransitGatewayRoutesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3_location" in value:
-        pairs.append((f"{prefix}.S3Location", str(value["s3_location"])))
+        pairs.append((f"{key_prefix}S3Location", str(value["s3_location"])))
 
 
 def deserialize_ec2_query(el: Element) -> ExportTransitGatewayRoutesResult:

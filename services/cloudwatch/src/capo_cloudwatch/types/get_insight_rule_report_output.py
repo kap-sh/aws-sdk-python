@@ -117,33 +117,37 @@ def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportOutput:
 def serialize_query(
     value: GetInsightRuleReportOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_labels" in value:
         import capo_cloudwatch.types.insight_rule_contributor_key_labels
 
         capo_cloudwatch.types.insight_rule_contributor_key_labels.serialize_query(
-            value["key_labels"], pairs, f"{prefix}.KeyLabels"
+            value["key_labels"], pairs, f"{key_prefix}KeyLabels"
         )
     if "aggregation_statistic" in value:
         pairs.append(
-            (f"{prefix}.AggregationStatistic", str(value["aggregation_statistic"]))
+            (f"{key_prefix}AggregationStatistic", str(value["aggregation_statistic"]))
         )
     if "aggregate_value" in value:
-        pairs.append((f"{prefix}.AggregateValue", str(value["aggregate_value"])))
+        pairs.append((f"{key_prefix}AggregateValue", str(value["aggregate_value"])))
     if "approximate_unique_count" in value:
         pairs.append(
-            (f"{prefix}.ApproximateUniqueCount", str(value["approximate_unique_count"]))
+            (
+                f"{key_prefix}ApproximateUniqueCount",
+                str(value["approximate_unique_count"]),
+            )
         )
     if "contributors" in value:
         import capo_cloudwatch.types.insight_rule_contributors
 
         capo_cloudwatch.types.insight_rule_contributors.serialize_query(
-            value["contributors"], pairs, f"{prefix}.Contributors"
+            value["contributors"], pairs, f"{key_prefix}Contributors"
         )
     if "metric_datapoints" in value:
         import capo_cloudwatch.types.insight_rule_metric_datapoints
 
         capo_cloudwatch.types.insight_rule_metric_datapoints.serialize_query(
-            value["metric_datapoints"], pairs, f"{prefix}.MetricDatapoints"
+            value["metric_datapoints"], pairs, f"{key_prefix}MetricDatapoints"
         )
 
 

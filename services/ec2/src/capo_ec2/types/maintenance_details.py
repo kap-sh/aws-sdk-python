@@ -28,9 +28,10 @@ class MaintenanceDetails(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MaintenanceDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pending_maintenance" in value:
         pairs.append(
-            (f"{prefix}.PendingMaintenance", str(value["pending_maintenance"]))
+            (f"{key_prefix}PendingMaintenance", str(value["pending_maintenance"]))
         )
     if "maintenance_auto_applied_after" in value:
         import capo_ec2.types.millisecond_date_time
@@ -38,13 +39,15 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["maintenance_auto_applied_after"],
             pairs,
-            f"{prefix}.MaintenanceAutoAppliedAfter",
+            f"{key_prefix}MaintenanceAutoAppliedAfter",
         )
     if "last_maintenance_applied" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["last_maintenance_applied"], pairs, f"{prefix}.LastMaintenanceApplied"
+            value["last_maintenance_applied"],
+            pairs,
+            f"{key_prefix}LastMaintenanceApplied",
         )
 
 

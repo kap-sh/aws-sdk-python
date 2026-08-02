@@ -40,32 +40,33 @@ class User(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: User, pairs: list[tuple[str, str]], prefix: str) -> None:
-    pairs.append((f"{prefix}.Path", str(value["path"])))
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.UserId", str(value["user_id"])))
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Path", str(value["path"])))
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["create_date"], pairs, f"{prefix}.CreateDate"
+        value["create_date"], pairs, f"{key_prefix}CreateDate"
     )
     if "password_last_used" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["password_last_used"], pairs, f"{prefix}.PasswordLastUsed"
+            value["password_last_used"], pairs, f"{key_prefix}PasswordLastUsed"
         )
     if "permissions_boundary" in value:
         import capo_iam.types.attached_permissions_boundary
 
         capo_iam.types.attached_permissions_boundary.serialize_query(
-            value["permissions_boundary"], pairs, f"{prefix}.PermissionsBoundary"
+            value["permissions_boundary"], pairs, f"{key_prefix}PermissionsBoundary"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

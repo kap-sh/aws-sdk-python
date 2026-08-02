@@ -52,12 +52,13 @@ def deserialize_aws_json_1_0(data: dict) -> ListManagedInsightRulesInput:
 def serialize_query(
     value: ListManagedInsightRulesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceARN", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceARN", str(value["resource_arn"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_query(el: Element) -> ListManagedInsightRulesInput:

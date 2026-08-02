@@ -19,8 +19,9 @@ class CreditSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreditSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cpu_credits" in value:
-        pairs.append((f"{prefix}.CpuCredits", str(value["cpu_credits"])))
+        pairs.append((f"{key_prefix}CpuCredits", str(value["cpu_credits"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreditSpecification:

@@ -28,19 +28,20 @@ class TerminateConnectionStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TerminateConnectionStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "connection_id" in value:
-        pairs.append((f"{prefix}.ConnectionId", str(value["connection_id"])))
+        pairs.append((f"{key_prefix}ConnectionId", str(value["connection_id"])))
     if "previous_status" in value:
         import capo_ec2.types.client_vpn_connection_status
 
         capo_ec2.types.client_vpn_connection_status.serialize_ec2_query(
-            value["previous_status"], pairs, f"{prefix}.PreviousStatus"
+            value["previous_status"], pairs, f"{key_prefix}PreviousStatus"
         )
     if "current_status" in value:
         import capo_ec2.types.client_vpn_connection_status
 
         capo_ec2.types.client_vpn_connection_status.serialize_ec2_query(
-            value["current_status"], pairs, f"{prefix}.CurrentStatus"
+            value["current_status"], pairs, f"{key_prefix}CurrentStatus"
         )
 
 

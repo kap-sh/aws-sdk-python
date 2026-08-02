@@ -137,45 +137,46 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmHistoryInput:
 def serialize_query(
     value: DescribeAlarmHistoryInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "alarm_contributor_id" in value:
         pairs.append(
-            (f"{prefix}.AlarmContributorId", str(value["alarm_contributor_id"]))
+            (f"{key_prefix}AlarmContributorId", str(value["alarm_contributor_id"]))
         )
     if "alarm_types" in value:
         import capo_cloudwatch.types.alarm_types
 
         capo_cloudwatch.types.alarm_types.serialize_query(
-            value["alarm_types"], pairs, f"{prefix}.AlarmTypes"
+            value["alarm_types"], pairs, f"{key_prefix}AlarmTypes"
         )
     if "history_item_type" in value:
         import capo_cloudwatch.types.history_item_type
 
         capo_cloudwatch.types.history_item_type.serialize_query(
-            value["history_item_type"], pairs, f"{prefix}.HistoryItemType"
+            value["history_item_type"], pairs, f"{key_prefix}HistoryItemType"
         )
     if "start_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "end_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "scan_by" in value:
         import capo_cloudwatch.types.scan_by
 
         capo_cloudwatch.types.scan_by.serialize_query(
-            value["scan_by"], pairs, f"{prefix}.ScanBy"
+            value["scan_by"], pairs, f"{key_prefix}ScanBy"
         )
 
 

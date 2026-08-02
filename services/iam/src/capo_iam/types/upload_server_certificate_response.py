@@ -24,19 +24,20 @@ class UploadServerCertificateResponse(TypedDict, closed=True):
 def serialize_query(
     value: UploadServerCertificateResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "server_certificate_metadata" in value:
         import capo_iam.types.server_certificate_metadata
 
         capo_iam.types.server_certificate_metadata.serialize_query(
             value["server_certificate_metadata"],
             pairs,
-            f"{prefix}.ServerCertificateMetadata",
+            f"{key_prefix}ServerCertificateMetadata",
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

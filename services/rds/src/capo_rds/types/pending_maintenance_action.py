@@ -30,30 +30,31 @@ class PendingMaintenanceAction(TypedDict, closed=True):
 def serialize_query(
     value: PendingMaintenanceAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action" in value:
-        pairs.append((f"{prefix}.Action", str(value["action"])))
+        pairs.append((f"{key_prefix}Action", str(value["action"])))
     if "auto_applied_after_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["auto_applied_after_date"], pairs, f"{prefix}.AutoAppliedAfterDate"
+            value["auto_applied_after_date"], pairs, f"{key_prefix}AutoAppliedAfterDate"
         )
     if "forced_apply_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["forced_apply_date"], pairs, f"{prefix}.ForcedApplyDate"
+            value["forced_apply_date"], pairs, f"{key_prefix}ForcedApplyDate"
         )
     if "opt_in_status" in value:
-        pairs.append((f"{prefix}.OptInStatus", str(value["opt_in_status"])))
+        pairs.append((f"{key_prefix}OptInStatus", str(value["opt_in_status"])))
     if "current_apply_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["current_apply_date"], pairs, f"{prefix}.CurrentApplyDate"
+            value["current_apply_date"], pairs, f"{key_prefix}CurrentApplyDate"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> PendingMaintenanceAction:

@@ -40,19 +40,20 @@ class AssumeRoleWithSAMLRequest(TypedDict, closed=True):
 def serialize_query(
     value: AssumeRoleWithSAMLRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
-    pairs.append((f"{prefix}.PrincipalArn", str(value["principal_arn"])))
-    pairs.append((f"{prefix}.SAMLAssertion", str(value["saml_assertion"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
+    pairs.append((f"{key_prefix}PrincipalArn", str(value["principal_arn"])))
+    pairs.append((f"{key_prefix}SAMLAssertion", str(value["saml_assertion"])))
     if "policy_arns" in value:
         import capo_sts.types.policy_descriptor_list_type
 
         capo_sts.types.policy_descriptor_list_type.serialize_query(
-            value["policy_arns"], pairs, f"{prefix}.PolicyArns"
+            value["policy_arns"], pairs, f"{key_prefix}PolicyArns"
         )
     if "policy" in value:
-        pairs.append((f"{prefix}.Policy", str(value["policy"])))
+        pairs.append((f"{key_prefix}Policy", str(value["policy"])))
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
 
 
 def deserialize_query(el: Element) -> AssumeRoleWithSAMLRequest:

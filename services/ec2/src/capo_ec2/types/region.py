@@ -26,18 +26,19 @@ class Region(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Region, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "opt_in_status" in value:
-        pairs.append((f"{prefix}.OptInStatus", str(value["opt_in_status"])))
+        pairs.append((f"{key_prefix}OptInStatus", str(value["opt_in_status"])))
     if "geography" in value:
         import capo_ec2.types.region_geography_list
 
         capo_ec2.types.region_geography_list.serialize_ec2_query(
-            value["geography"], pairs, f"{prefix}.GeographySet"
+            value["geography"], pairs, f"{key_prefix}GeographySet"
         )
     if "region_name" in value:
-        pairs.append((f"{prefix}.RegionName", str(value["region_name"])))
+        pairs.append((f"{key_prefix}RegionName", str(value["region_name"])))
     if "endpoint" in value:
-        pairs.append((f"{prefix}.RegionEndpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}RegionEndpoint", str(value["endpoint"])))
 
 
 def deserialize_ec2_query(el: Element) -> Region:

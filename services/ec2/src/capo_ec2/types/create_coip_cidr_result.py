@@ -19,11 +19,12 @@ class CreateCoipCidrResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateCoipCidrResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "coip_cidr" in value:
         import capo_ec2.types.coip_cidr
 
         capo_ec2.types.coip_cidr.serialize_ec2_query(
-            value["coip_cidr"], pairs, f"{prefix}.CoipCidr"
+            value["coip_cidr"], pairs, f"{key_prefix}CoipCidr"
         )
 
 

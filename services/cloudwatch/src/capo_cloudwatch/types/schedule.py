@@ -46,12 +46,13 @@ def deserialize_aws_json_1_0(data: dict) -> Schedule:
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Schedule, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "expression" in value:
-        pairs.append((f"{prefix}.Expression", str(value["expression"])))
+        pairs.append((f"{key_prefix}Expression", str(value["expression"])))
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "timezone" in value:
-        pairs.append((f"{prefix}.Timezone", str(value["timezone"])))
+        pairs.append((f"{key_prefix}Timezone", str(value["timezone"])))
 
 
 def deserialize_query(el: Element) -> Schedule:

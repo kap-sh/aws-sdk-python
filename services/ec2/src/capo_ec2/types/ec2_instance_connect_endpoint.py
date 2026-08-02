@@ -80,19 +80,20 @@ class Ec2InstanceConnectEndpoint(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Ec2InstanceConnectEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "instance_connect_endpoint_id" in value:
         pairs.append(
             (
-                f"{prefix}.InstanceConnectEndpointId",
+                f"{key_prefix}InstanceConnectEndpointId",
                 str(value["instance_connect_endpoint_id"]),
             )
         )
     if "instance_connect_endpoint_arn" in value:
         pairs.append(
             (
-                f"{prefix}.InstanceConnectEndpointArn",
+                f"{key_prefix}InstanceConnectEndpointArn",
                 str(value["instance_connect_endpoint_arn"]),
             )
         )
@@ -100,36 +101,36 @@ def serialize_ec2_query(
         import capo_ec2.types.ec2_instance_connect_endpoint_state
 
         capo_ec2.types.ec2_instance_connect_endpoint_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DnsName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DnsName", str(value["dns_name"])))
     if "fips_dns_name" in value:
-        pairs.append((f"{prefix}.FipsDnsName", str(value["fips_dns_name"])))
+        pairs.append((f"{key_prefix}FipsDnsName", str(value["fips_dns_name"])))
     if "network_interface_ids" in value:
         import capo_ec2.types.network_interface_id_set
 
         capo_ec2.types.network_interface_id_set.serialize_ec2_query(
-            value["network_interface_ids"], pairs, f"{prefix}.NetworkInterfaceIdSet"
+            value["network_interface_ids"], pairs, f"{key_prefix}NetworkInterfaceIdSet"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "created_at" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["created_at"], pairs, f"{prefix}.CreatedAt"
+            value["created_at"], pairs, f"{key_prefix}CreatedAt"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "preserve_client_ip" in value:
         pairs.append(
             (
-                f"{prefix}.PreserveClientIp",
+                f"{key_prefix}PreserveClientIp",
                 "true" if value["preserve_client_ip"] else "false",
             )
         )
@@ -137,29 +138,29 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_id_set
 
         capo_ec2.types.security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIdSet"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIdSet"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "ip_address_type" in value:
         import capo_ec2.types.ip_address_type
 
         capo_ec2.types.ip_address_type.serialize_ec2_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "public_dns_names" in value:
         import capo_ec2.types.instance_connect_endpoint_public_dns_names
 
         capo_ec2.types.instance_connect_endpoint_public_dns_names.serialize_ec2_query(
-            value["public_dns_names"], pairs, f"{prefix}.PublicDnsNames"
+            value["public_dns_names"], pairs, f"{key_prefix}PublicDnsNames"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

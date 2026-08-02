@@ -32,33 +32,34 @@ class InstanceStatusEvent(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceStatusEvent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_event_id" in value:
-        pairs.append((f"{prefix}.InstanceEventId", str(value["instance_event_id"])))
+        pairs.append((f"{key_prefix}InstanceEventId", str(value["instance_event_id"])))
     if "code" in value:
         import capo_ec2.types.event_code
 
         capo_ec2.types.event_code.serialize_ec2_query(
-            value["code"], pairs, f"{prefix}.Code"
+            value["code"], pairs, f"{key_prefix}Code"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "not_after" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["not_after"], pairs, f"{prefix}.NotAfter"
+            value["not_after"], pairs, f"{key_prefix}NotAfter"
         )
     if "not_before" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["not_before"], pairs, f"{prefix}.NotBefore"
+            value["not_before"], pairs, f"{key_prefix}NotBefore"
         )
     if "not_before_deadline" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["not_before_deadline"], pairs, f"{prefix}.NotBeforeDeadline"
+            value["not_before_deadline"], pairs, f"{key_prefix}NotBeforeDeadline"
         )
 
 

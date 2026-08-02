@@ -32,11 +32,12 @@ class TransitGatewayVpcAttachmentOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayVpcAttachmentOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dns_support" in value:
         import capo_ec2.types.dns_support_value
 
         capo_ec2.types.dns_support_value.serialize_ec2_query(
-            value["dns_support"], pairs, f"{prefix}.DnsSupport"
+            value["dns_support"], pairs, f"{key_prefix}DnsSupport"
         )
     if "security_group_referencing_support" in value:
         import capo_ec2.types.security_group_referencing_support_value
@@ -44,19 +45,19 @@ def serialize_ec2_query(
         capo_ec2.types.security_group_referencing_support_value.serialize_ec2_query(
             value["security_group_referencing_support"],
             pairs,
-            f"{prefix}.SecurityGroupReferencingSupport",
+            f"{key_prefix}SecurityGroupReferencingSupport",
         )
     if "ipv6_support" in value:
         import capo_ec2.types.ipv6_support_value
 
         capo_ec2.types.ipv6_support_value.serialize_ec2_query(
-            value["ipv6_support"], pairs, f"{prefix}.Ipv6Support"
+            value["ipv6_support"], pairs, f"{key_prefix}Ipv6Support"
         )
     if "appliance_mode_support" in value:
         import capo_ec2.types.appliance_mode_support_value
 
         capo_ec2.types.appliance_mode_support_value.serialize_ec2_query(
-            value["appliance_mode_support"], pairs, f"{prefix}.ApplianceModeSupport"
+            value["appliance_mode_support"], pairs, f"{key_prefix}ApplianceModeSupport"
         )
 
 

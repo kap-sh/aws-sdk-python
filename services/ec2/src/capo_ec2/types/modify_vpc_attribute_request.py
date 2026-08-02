@@ -32,27 +32,28 @@ class ModifyVpcAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVpcAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enable_dns_hostnames" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["enable_dns_hostnames"], pairs, f"{prefix}.EnableDnsHostnames"
+            value["enable_dns_hostnames"], pairs, f"{key_prefix}EnableDnsHostnames"
         )
     if "enable_dns_support" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["enable_dns_support"], pairs, f"{prefix}.EnableDnsSupport"
+            value["enable_dns_support"], pairs, f"{key_prefix}EnableDnsSupport"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "enable_network_address_usage_metrics" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["enable_network_address_usage_metrics"],
             pairs,
-            f"{prefix}.EnableNetworkAddressUsageMetrics",
+            f"{key_prefix}EnableNetworkAddressUsageMetrics",
         )
 
 

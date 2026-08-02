@@ -40,31 +40,32 @@ class IpamPoolAllocation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPoolAllocation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "ipam_pool_allocation_id" in value:
         pairs.append(
-            (f"{prefix}.IpamPoolAllocationId", str(value["ipam_pool_allocation_id"]))
+            (f"{key_prefix}IpamPoolAllocationId", str(value["ipam_pool_allocation_id"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_type" in value:
         import capo_ec2.types.ipam_pool_allocation_resource_type
 
         capo_ec2.types.ipam_pool_allocation_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

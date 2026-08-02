@@ -27,22 +27,23 @@ class ExportToS3Task(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExportToS3Task, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "container_format" in value:
         import capo_ec2.types.container_format
 
         capo_ec2.types.container_format.serialize_ec2_query(
-            value["container_format"], pairs, f"{prefix}.ContainerFormat"
+            value["container_format"], pairs, f"{key_prefix}ContainerFormat"
         )
     if "disk_image_format" in value:
         import capo_ec2.types.disk_image_format
 
         capo_ec2.types.disk_image_format.serialize_ec2_query(
-            value["disk_image_format"], pairs, f"{prefix}.DiskImageFormat"
+            value["disk_image_format"], pairs, f"{key_prefix}DiskImageFormat"
         )
     if "s3_bucket" in value:
-        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+        pairs.append((f"{key_prefix}S3Bucket", str(value["s3_bucket"])))
     if "s3_key" in value:
-        pairs.append((f"{prefix}.S3Key", str(value["s3_key"])))
+        pairs.append((f"{key_prefix}S3Key", str(value["s3_key"])))
 
 
 def deserialize_ec2_query(el: Element) -> ExportToS3Task:

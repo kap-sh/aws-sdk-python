@@ -25,31 +25,34 @@ class CopyDBParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopyDBParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_db_parameter_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBParameterGroupIdentifier",
+                f"{key_prefix}SourceDBParameterGroupIdentifier",
                 str(value["source_db_parameter_group_identifier"]),
             )
         )
     if "target_db_parameter_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBParameterGroupIdentifier",
+                f"{key_prefix}TargetDBParameterGroupIdentifier",
                 str(value["target_db_parameter_group_identifier"]),
             )
         )
     if "target_db_parameter_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBParameterGroupDescription",
+                f"{key_prefix}TargetDBParameterGroupDescription",
                 str(value["target_db_parameter_group_description"]),
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CopyDBParameterGroupMessage:

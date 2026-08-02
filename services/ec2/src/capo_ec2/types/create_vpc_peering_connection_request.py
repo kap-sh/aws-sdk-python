@@ -34,22 +34,23 @@ class CreateVpcPeeringConnectionRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateVpcPeeringConnectionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "peer_region" in value:
-        pairs.append((f"{prefix}.PeerRegion", str(value["peer_region"])))
+        pairs.append((f"{key_prefix}PeerRegion", str(value["peer_region"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "peer_vpc_id" in value:
-        pairs.append((f"{prefix}.PeerVpcId", str(value["peer_vpc_id"])))
+        pairs.append((f"{key_prefix}PeerVpcId", str(value["peer_vpc_id"])))
     if "peer_owner_id" in value:
-        pairs.append((f"{prefix}.PeerOwnerId", str(value["peer_owner_id"])))
+        pairs.append((f"{key_prefix}PeerOwnerId", str(value["peer_owner_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateVpcPeeringConnectionRequest:

@@ -36,24 +36,28 @@ class CapacityBlockStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityBlockStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_block_id" in value:
-        pairs.append((f"{prefix}.CapacityBlockId", str(value["capacity_block_id"])))
+        pairs.append((f"{key_prefix}CapacityBlockId", str(value["capacity_block_id"])))
     if "interconnect_status" in value:
         import capo_ec2.types.capacity_block_interconnect_status
 
         capo_ec2.types.capacity_block_interconnect_status.serialize_ec2_query(
-            value["interconnect_status"], pairs, f"{prefix}.InterconnectStatus"
+            value["interconnect_status"], pairs, f"{key_prefix}InterconnectStatus"
         )
     if "total_capacity" in value:
-        pairs.append((f"{prefix}.TotalCapacity", str(value["total_capacity"])))
+        pairs.append((f"{key_prefix}TotalCapacity", str(value["total_capacity"])))
     if "total_available_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalAvailableCapacity", str(value["total_available_capacity"]))
+            (
+                f"{key_prefix}TotalAvailableCapacity",
+                str(value["total_available_capacity"]),
+            )
         )
     if "total_unavailable_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.TotalUnavailableCapacity",
+                f"{key_prefix}TotalUnavailableCapacity",
                 str(value["total_unavailable_capacity"]),
             )
         )
@@ -63,7 +67,7 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_reservation_status_set.serialize_ec2_query(
             value["capacity_reservation_statuses"],
             pairs,
-            f"{prefix}.CapacityReservationStatusSet",
+            f"{key_prefix}CapacityReservationStatusSet",
         )
 
 

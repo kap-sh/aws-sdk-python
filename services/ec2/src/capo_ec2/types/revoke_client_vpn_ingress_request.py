@@ -31,23 +31,26 @@ class RevokeClientVpnIngressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RevokeClientVpnIngressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "target_network_cidr" in value:
-        pairs.append((f"{prefix}.TargetNetworkCidr", str(value["target_network_cidr"])))
+        pairs.append(
+            (f"{key_prefix}TargetNetworkCidr", str(value["target_network_cidr"]))
+        )
     if "access_group_id" in value:
-        pairs.append((f"{prefix}.AccessGroupId", str(value["access_group_id"])))
+        pairs.append((f"{key_prefix}AccessGroupId", str(value["access_group_id"])))
     if "revoke_all_groups" in value:
         pairs.append(
             (
-                f"{prefix}.RevokeAllGroups",
+                f"{key_prefix}RevokeAllGroups",
                 "true" if value["revoke_all_groups"] else "false",
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> RevokeClientVpnIngressRequest:

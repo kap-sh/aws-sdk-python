@@ -42,48 +42,49 @@ class ReservedInstancesModification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReservedInstancesModification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "create_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "effective_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["effective_date"], pairs, f"{prefix}.EffectiveDate"
+            value["effective_date"], pairs, f"{key_prefix}EffectiveDate"
         )
     if "modification_results" in value:
         import capo_ec2.types.reserved_instances_modification_result_list
 
         capo_ec2.types.reserved_instances_modification_result_list.serialize_ec2_query(
-            value["modification_results"], pairs, f"{prefix}.ModificationResultSet"
+            value["modification_results"], pairs, f"{key_prefix}ModificationResultSet"
         )
     if "reserved_instances_ids" in value:
         import capo_ec2.types.reserved_intances_ids
 
         capo_ec2.types.reserved_intances_ids.serialize_ec2_query(
-            value["reserved_instances_ids"], pairs, f"{prefix}.ReservedInstancesSet"
+            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesSet"
         )
     if "reserved_instances_modification_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedInstancesModificationId",
+                f"{key_prefix}ReservedInstancesModificationId",
                 str(value["reserved_instances_modification_id"]),
             )
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "update_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["update_date"], pairs, f"{prefix}.UpdateDate"
+            value["update_date"], pairs, f"{key_prefix}UpdateDate"
         )
 
 

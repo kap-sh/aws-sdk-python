@@ -24,14 +24,15 @@ class SpotPlacementScore(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotPlacementScore, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "score" in value:
-        pairs.append((f"{prefix}.Score", str(value["score"])))
+        pairs.append((f"{key_prefix}Score", str(value["score"])))
 
 
 def deserialize_ec2_query(el: Element) -> SpotPlacementScore:

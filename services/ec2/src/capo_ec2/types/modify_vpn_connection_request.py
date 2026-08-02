@@ -35,16 +35,21 @@ class ModifyVpnConnectionRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVpnConnectionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "customer_gateway_id" in value:
-        pairs.append((f"{prefix}.CustomerGatewayId", str(value["customer_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}CustomerGatewayId", str(value["customer_gateway_id"]))
+        )
     if "vpn_gateway_id" in value:
-        pairs.append((f"{prefix}.VpnGatewayId", str(value["vpn_gateway_id"])))
+        pairs.append((f"{key_prefix}VpnGatewayId", str(value["vpn_gateway_id"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyVpnConnectionRequest:

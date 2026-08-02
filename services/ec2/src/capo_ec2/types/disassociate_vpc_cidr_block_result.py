@@ -29,22 +29,23 @@ class DisassociateVpcCidrBlockResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisassociateVpcCidrBlockResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv6_cidr_block_association" in value:
         import capo_ec2.types.vpc_ipv6_cidr_block_association
 
         capo_ec2.types.vpc_ipv6_cidr_block_association.serialize_ec2_query(
             value["ipv6_cidr_block_association"],
             pairs,
-            f"{prefix}.Ipv6CidrBlockAssociation",
+            f"{key_prefix}Ipv6CidrBlockAssociation",
         )
     if "cidr_block_association" in value:
         import capo_ec2.types.vpc_cidr_block_association
 
         capo_ec2.types.vpc_cidr_block_association.serialize_ec2_query(
-            value["cidr_block_association"], pairs, f"{prefix}.CidrBlockAssociation"
+            value["cidr_block_association"], pairs, f"{key_prefix}CidrBlockAssociation"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DisassociateVpcCidrBlockResult:

@@ -35,26 +35,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "fips_enabled" in value:
         pairs.append(
-            (f"{prefix}.FIPSEnabled", "true" if value["fips_enabled"] else "false")
+            (f"{key_prefix}FIPSEnabled", "true" if value["fips_enabled"] else "false")
         )
     if "cidr_endpoints_custom_sub_domain" in value:
         pairs.append(
             (
-                f"{prefix}.CidrEndpointsCustomSubDomain",
+                f"{key_prefix}CidrEndpointsCustomSubDomain",
                 str(value["cidr_endpoints_custom_sub_domain"]),
             )
         )

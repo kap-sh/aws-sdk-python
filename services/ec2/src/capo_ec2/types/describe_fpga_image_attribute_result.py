@@ -21,11 +21,12 @@ class DescribeFpgaImageAttributeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeFpgaImageAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "fpga_image_attribute" in value:
         import capo_ec2.types.fpga_image_attribute
 
         capo_ec2.types.fpga_image_attribute.serialize_ec2_query(
-            value["fpga_image_attribute"], pairs, f"{prefix}.FpgaImageAttribute"
+            value["fpga_image_attribute"], pairs, f"{key_prefix}FpgaImageAttribute"
         )
 
 

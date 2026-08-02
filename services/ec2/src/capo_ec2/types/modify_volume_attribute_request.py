@@ -27,16 +27,17 @@ class ModifyVolumeAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVolumeAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_enable_io" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["auto_enable_io"], pairs, f"{prefix}.AutoEnableIO"
+            value["auto_enable_io"], pairs, f"{key_prefix}AutoEnableIO"
         )
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyVolumeAttributeRequest:

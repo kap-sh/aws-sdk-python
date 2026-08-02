@@ -61,69 +61,73 @@ class CreateFlowLogsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateFlowLogsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "deliver_logs_permission_arn" in value:
         pairs.append(
             (
-                f"{prefix}.DeliverLogsPermissionArn",
+                f"{key_prefix}DeliverLogsPermissionArn",
                 str(value["deliver_logs_permission_arn"]),
             )
         )
     if "deliver_cross_account_role" in value:
         pairs.append(
             (
-                f"{prefix}.DeliverCrossAccountRole",
+                f"{key_prefix}DeliverCrossAccountRole",
                 str(value["deliver_cross_account_role"]),
             )
         )
     if "log_group_name" in value:
-        pairs.append((f"{prefix}.LogGroupName", str(value["log_group_name"])))
+        pairs.append((f"{key_prefix}LogGroupName", str(value["log_group_name"])))
     if "resource_ids" in value:
         import capo_ec2.types.flow_log_resource_ids
 
         capo_ec2.types.flow_log_resource_ids.serialize_ec2_query(
-            value["resource_ids"], pairs, f"{prefix}.ResourceIds"
+            value["resource_ids"], pairs, f"{key_prefix}ResourceIds"
         )
     if "resource_type" in value:
         import capo_ec2.types.flow_logs_resource_type
 
         capo_ec2.types.flow_logs_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "traffic_type" in value:
         import capo_ec2.types.traffic_type
 
         capo_ec2.types.traffic_type.serialize_ec2_query(
-            value["traffic_type"], pairs, f"{prefix}.TrafficType"
+            value["traffic_type"], pairs, f"{key_prefix}TrafficType"
         )
     if "log_destination_type" in value:
         import capo_ec2.types.log_destination_type
 
         capo_ec2.types.log_destination_type.serialize_ec2_query(
-            value["log_destination_type"], pairs, f"{prefix}.LogDestinationType"
+            value["log_destination_type"], pairs, f"{key_prefix}LogDestinationType"
         )
     if "log_destination" in value:
-        pairs.append((f"{prefix}.LogDestination", str(value["log_destination"])))
+        pairs.append((f"{key_prefix}LogDestination", str(value["log_destination"])))
     if "log_format" in value:
-        pairs.append((f"{prefix}.LogFormat", str(value["log_format"])))
+        pairs.append((f"{key_prefix}LogFormat", str(value["log_format"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "max_aggregation_interval" in value:
         pairs.append(
-            (f"{prefix}.MaxAggregationInterval", str(value["max_aggregation_interval"]))
+            (
+                f"{key_prefix}MaxAggregationInterval",
+                str(value["max_aggregation_interval"]),
+            )
         )
     if "destination_options" in value:
         import capo_ec2.types.destination_options_request
 
         capo_ec2.types.destination_options_request.serialize_ec2_query(
-            value["destination_options"], pairs, f"{prefix}.DestinationOptions"
+            value["destination_options"], pairs, f"{key_prefix}DestinationOptions"
         )
 
 

@@ -28,13 +28,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful_instance_credit_specifications" in value:
         import capo_ec2.types.successful_instance_credit_specification_set
 
         capo_ec2.types.successful_instance_credit_specification_set.serialize_ec2_query(
             value["successful_instance_credit_specifications"],
             pairs,
-            f"{prefix}.SuccessfulInstanceCreditSpecificationSet",
+            f"{key_prefix}SuccessfulInstanceCreditSpecificationSet",
         )
     if "unsuccessful_instance_credit_specifications" in value:
         import capo_ec2.types.unsuccessful_instance_credit_specification_set
@@ -42,7 +43,7 @@ def serialize_ec2_query(
         capo_ec2.types.unsuccessful_instance_credit_specification_set.serialize_ec2_query(
             value["unsuccessful_instance_credit_specifications"],
             pairs,
-            f"{prefix}.UnsuccessfulInstanceCreditSpecificationSet",
+            f"{key_prefix}UnsuccessfulInstanceCreditSpecificationSet",
         )
 
 

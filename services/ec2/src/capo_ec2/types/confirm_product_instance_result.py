@@ -24,10 +24,11 @@ ConfirmProductInstanceResult = TypedDict(
 def serialize_ec2_query(
     value: ConfirmProductInstanceResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> ConfirmProductInstanceResult:

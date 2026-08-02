@@ -31,19 +31,20 @@ class GetWebIdentityTokenRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetWebIdentityTokenRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_sts.types.web_identity_token_audience_list_type
 
     capo_sts.types.web_identity_token_audience_list_type.serialize_query(
-        value["audience"], pairs, f"{prefix}.Audience"
+        value["audience"], pairs, f"{key_prefix}Audience"
     )
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
-    pairs.append((f"{prefix}.SigningAlgorithm", str(value["signing_algorithm"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
+    pairs.append((f"{key_prefix}SigningAlgorithm", str(value["signing_algorithm"])))
     if "tags" in value:
         import capo_sts.types.tag_list_type
 
         capo_sts.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

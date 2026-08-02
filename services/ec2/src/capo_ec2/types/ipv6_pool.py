@@ -29,21 +29,22 @@ class Ipv6Pool(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Ipv6Pool, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pool_id" in value:
-        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "pool_cidr_blocks" in value:
         import capo_ec2.types.pool_cidr_blocks_set
 
         capo_ec2.types.pool_cidr_blocks_set.serialize_ec2_query(
-            value["pool_cidr_blocks"], pairs, f"{prefix}.PoolCidrBlockSet"
+            value["pool_cidr_blocks"], pairs, f"{key_prefix}PoolCidrBlockSet"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -21,8 +21,9 @@ class DecodeAuthorizationMessageResponse(TypedDict, closed=True):
 def serialize_query(
     value: DecodeAuthorizationMessageResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "decoded_message" in value:
-        pairs.append((f"{prefix}.DecodedMessage", str(value["decoded_message"])))
+        pairs.append((f"{key_prefix}DecodedMessage", str(value["decoded_message"])))
 
 
 def deserialize_query(el: Element) -> DecodeAuthorizationMessageResponse:

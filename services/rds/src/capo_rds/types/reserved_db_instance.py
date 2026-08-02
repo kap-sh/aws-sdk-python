@@ -56,57 +56,61 @@ class ReservedDBInstance(TypedDict, closed=True):
 def serialize_query(
     value: ReservedDBInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_db_instance_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedDBInstanceId", str(value["reserved_db_instance_id"]))
+            (f"{key_prefix}ReservedDBInstanceId", str(value["reserved_db_instance_id"]))
         )
     if "reserved_db_instances_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedDBInstancesOfferingId",
+                f"{key_prefix}ReservedDBInstancesOfferingId",
                 str(value["reserved_db_instances_offering_id"]),
             )
         )
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "start_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "fixed_price" in value:
-        pairs.append((f"{prefix}.FixedPrice", str(value["fixed_price"])))
+        pairs.append((f"{key_prefix}FixedPrice", str(value["fixed_price"])))
     if "usage_price" in value:
-        pairs.append((f"{prefix}.UsagePrice", str(value["usage_price"])))
+        pairs.append((f"{key_prefix}UsagePrice", str(value["usage_price"])))
     if "currency_code" in value:
-        pairs.append((f"{prefix}.CurrencyCode", str(value["currency_code"])))
+        pairs.append((f"{key_prefix}CurrencyCode", str(value["currency_code"])))
     if "db_instance_count" in value:
-        pairs.append((f"{prefix}.DBInstanceCount", str(value["db_instance_count"])))
+        pairs.append((f"{key_prefix}DBInstanceCount", str(value["db_instance_count"])))
     if "product_description" in value:
         pairs.append(
-            (f"{prefix}.ProductDescription", str(value["product_description"]))
+            (f"{key_prefix}ProductDescription", str(value["product_description"]))
         )
     if "offering_type" in value:
-        pairs.append((f"{prefix}.OfferingType", str(value["offering_type"])))
+        pairs.append((f"{key_prefix}OfferingType", str(value["offering_type"])))
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "recurring_charges" in value:
         import capo_rds.types.recurring_charge_list
 
         capo_rds.types.recurring_charge_list.serialize_query(
-            value["recurring_charges"], pairs, f"{prefix}.RecurringCharges"
+            value["recurring_charges"], pairs, f"{key_prefix}RecurringCharges"
         )
     if "reserved_db_instance_arn" in value:
         pairs.append(
-            (f"{prefix}.ReservedDBInstanceArn", str(value["reserved_db_instance_arn"]))
+            (
+                f"{key_prefix}ReservedDBInstanceArn",
+                str(value["reserved_db_instance_arn"]),
+            )
         )
     if "lease_id" in value:
-        pairs.append((f"{prefix}.LeaseId", str(value["lease_id"])))
+        pairs.append((f"{key_prefix}LeaseId", str(value["lease_id"])))
 
 
 def deserialize_query(el: Element) -> ReservedDBInstance:

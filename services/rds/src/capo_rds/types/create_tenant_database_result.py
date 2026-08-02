@@ -18,11 +18,12 @@ class CreateTenantDatabaseResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateTenantDatabaseResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tenant_database" in value:
         import capo_rds.types.tenant_database
 
         capo_rds.types.tenant_database.serialize_query(
-            value["tenant_database"], pairs, f"{prefix}.TenantDatabase"
+            value["tenant_database"], pairs, f"{key_prefix}TenantDatabase"
         )
 
 

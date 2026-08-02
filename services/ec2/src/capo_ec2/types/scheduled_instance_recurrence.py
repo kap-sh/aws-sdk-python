@@ -32,25 +32,26 @@ class ScheduledInstanceRecurrence(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ScheduledInstanceRecurrence, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "frequency" in value:
-        pairs.append((f"{prefix}.Frequency", str(value["frequency"])))
+        pairs.append((f"{key_prefix}Frequency", str(value["frequency"])))
     if "interval" in value:
-        pairs.append((f"{prefix}.Interval", str(value["interval"])))
+        pairs.append((f"{key_prefix}Interval", str(value["interval"])))
     if "occurrence_day_set" in value:
         import capo_ec2.types.occurrence_day_set
 
         capo_ec2.types.occurrence_day_set.serialize_ec2_query(
-            value["occurrence_day_set"], pairs, f"{prefix}.OccurrenceDaySet"
+            value["occurrence_day_set"], pairs, f"{key_prefix}OccurrenceDaySet"
         )
     if "occurrence_relative_to_end" in value:
         pairs.append(
             (
-                f"{prefix}.OccurrenceRelativeToEnd",
+                f"{key_prefix}OccurrenceRelativeToEnd",
                 "true" if value["occurrence_relative_to_end"] else "false",
             )
         )
     if "occurrence_unit" in value:
-        pairs.append((f"{prefix}.OccurrenceUnit", str(value["occurrence_unit"])))
+        pairs.append((f"{key_prefix}OccurrenceUnit", str(value["occurrence_unit"])))
 
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstanceRecurrence:

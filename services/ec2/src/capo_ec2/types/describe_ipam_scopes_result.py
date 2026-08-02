@@ -22,13 +22,14 @@ class DescribeIpamScopesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeIpamScopesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "ipam_scopes" in value:
         import capo_ec2.types.ipam_scope_set
 
         capo_ec2.types.ipam_scope_set.serialize_ec2_query(
-            value["ipam_scopes"], pairs, f"{prefix}.IpamScopeSet"
+            value["ipam_scopes"], pairs, f"{key_prefix}IpamScopeSet"
         )
 
 

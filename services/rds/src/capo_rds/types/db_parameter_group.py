@@ -25,22 +25,23 @@ class DBParameterGroup(TypedDict, closed=True):
 def serialize_query(
     value: DBParameterGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBParameterGroupName", str(value["db_parameter_group_name"]))
+            (f"{key_prefix}DBParameterGroupName", str(value["db_parameter_group_name"]))
         )
     if "db_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.DBParameterGroupFamily",
+                f"{key_prefix}DBParameterGroupFamily",
                 str(value["db_parameter_group_family"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "db_parameter_group_arn" in value:
         pairs.append(
-            (f"{prefix}.DBParameterGroupArn", str(value["db_parameter_group_arn"]))
+            (f"{key_prefix}DBParameterGroupArn", str(value["db_parameter_group_arn"]))
         )
 
 

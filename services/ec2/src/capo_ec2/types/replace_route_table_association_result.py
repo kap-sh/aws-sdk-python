@@ -24,13 +24,16 @@ class ReplaceRouteTableAssociationResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReplaceRouteTableAssociationResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "new_association_id" in value:
-        pairs.append((f"{prefix}.NewAssociationId", str(value["new_association_id"])))
+        pairs.append(
+            (f"{key_prefix}NewAssociationId", str(value["new_association_id"]))
+        )
     if "association_state" in value:
         import capo_ec2.types.route_table_association_state
 
         capo_ec2.types.route_table_association_state.serialize_ec2_query(
-            value["association_state"], pairs, f"{prefix}.AssociationState"
+            value["association_state"], pairs, f"{key_prefix}AssociationState"
         )
 
 

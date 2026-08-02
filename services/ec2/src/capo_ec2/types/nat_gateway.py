@@ -71,84 +71,85 @@ class NatGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NatGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "delete_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["delete_time"], pairs, f"{prefix}.DeleteTime"
+            value["delete_time"], pairs, f"{key_prefix}DeleteTime"
         )
     if "failure_code" in value:
-        pairs.append((f"{prefix}.FailureCode", str(value["failure_code"])))
+        pairs.append((f"{key_prefix}FailureCode", str(value["failure_code"])))
     if "failure_message" in value:
-        pairs.append((f"{prefix}.FailureMessage", str(value["failure_message"])))
+        pairs.append((f"{key_prefix}FailureMessage", str(value["failure_message"])))
     if "nat_gateway_addresses" in value:
         import capo_ec2.types.nat_gateway_address_list
 
         capo_ec2.types.nat_gateway_address_list.serialize_ec2_query(
-            value["nat_gateway_addresses"], pairs, f"{prefix}.NatGatewayAddressSet"
+            value["nat_gateway_addresses"], pairs, f"{key_prefix}NatGatewayAddressSet"
         )
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
     if "provisioned_bandwidth" in value:
         import capo_ec2.types.provisioned_bandwidth
 
         capo_ec2.types.provisioned_bandwidth.serialize_ec2_query(
-            value["provisioned_bandwidth"], pairs, f"{prefix}.ProvisionedBandwidth"
+            value["provisioned_bandwidth"], pairs, f"{key_prefix}ProvisionedBandwidth"
         )
     if "state" in value:
         import capo_ec2.types.nat_gateway_state
 
         capo_ec2.types.nat_gateway_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "connectivity_type" in value:
         import capo_ec2.types.connectivity_type
 
         capo_ec2.types.connectivity_type.serialize_ec2_query(
-            value["connectivity_type"], pairs, f"{prefix}.ConnectivityType"
+            value["connectivity_type"], pairs, f"{key_prefix}ConnectivityType"
         )
     if "availability_mode" in value:
         import capo_ec2.types.availability_mode
 
         capo_ec2.types.availability_mode.serialize_ec2_query(
-            value["availability_mode"], pairs, f"{prefix}.AvailabilityMode"
+            value["availability_mode"], pairs, f"{key_prefix}AvailabilityMode"
         )
     if "auto_scaling_ips" in value:
         import capo_ec2.types.auto_scaling_ips_state
 
         capo_ec2.types.auto_scaling_ips_state.serialize_ec2_query(
-            value["auto_scaling_ips"], pairs, f"{prefix}.AutoScalingIps"
+            value["auto_scaling_ips"], pairs, f"{key_prefix}AutoScalingIps"
         )
     if "auto_provision_zones" in value:
         import capo_ec2.types.auto_provision_zones_state
 
         capo_ec2.types.auto_provision_zones_state.serialize_ec2_query(
-            value["auto_provision_zones"], pairs, f"{prefix}.AutoProvisionZones"
+            value["auto_provision_zones"], pairs, f"{key_prefix}AutoProvisionZones"
         )
     if "attached_appliances" in value:
         import capo_ec2.types.nat_gateway_attached_appliance_list
 
         capo_ec2.types.nat_gateway_attached_appliance_list.serialize_ec2_query(
-            value["attached_appliances"], pairs, f"{prefix}.AttachedApplianceSet"
+            value["attached_appliances"], pairs, f"{key_prefix}AttachedApplianceSet"
         )
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> NatGateway:

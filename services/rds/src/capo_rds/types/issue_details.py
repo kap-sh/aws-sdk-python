@@ -21,13 +21,14 @@ class IssueDetails(TypedDict, closed=True):
 def serialize_query(
     value: IssueDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "performance_issue_details" in value:
         import capo_rds.types.performance_issue_details
 
         capo_rds.types.performance_issue_details.serialize_query(
             value["performance_issue_details"],
             pairs,
-            f"{prefix}.PerformanceIssueDetails",
+            f"{key_prefix}PerformanceIssueDetails",
         )
 
 

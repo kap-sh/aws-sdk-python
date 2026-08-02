@@ -134,25 +134,26 @@ class DBEngineVersion(TypedDict, closed=True):
 def serialize_query(
     value: DBEngineVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "database_installation_files_s3_bucket_name" in value:
         pairs.append(
             (
-                f"{prefix}.DatabaseInstallationFilesS3BucketName",
+                f"{key_prefix}DatabaseInstallationFilesS3BucketName",
                 str(value["database_installation_files_s3_bucket_name"]),
             )
         )
     if "database_installation_files_s3_prefix" in value:
         pairs.append(
             (
-                f"{prefix}.DatabaseInstallationFilesS3Prefix",
+                f"{key_prefix}DatabaseInstallationFilesS3Prefix",
                 str(value["database_installation_files_s3_prefix"]),
             )
         )
@@ -162,34 +163,34 @@ def serialize_query(
         capo_rds.types.string_list.serialize_query(
             value["database_installation_files"],
             pairs,
-            f"{prefix}.DatabaseInstallationFiles",
+            f"{key_prefix}DatabaseInstallationFiles",
         )
     if "custom_db_engine_version_manifest" in value:
         pairs.append(
             (
-                f"{prefix}.CustomDBEngineVersionManifest",
+                f"{key_prefix}CustomDBEngineVersionManifest",
                 str(value["custom_db_engine_version_manifest"]),
             )
         )
     if "db_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.DBParameterGroupFamily",
+                f"{key_prefix}DBParameterGroupFamily",
                 str(value["db_parameter_group_family"]),
             )
         )
     if "db_engine_description" in value:
         pairs.append(
-            (f"{prefix}.DBEngineDescription", str(value["db_engine_description"]))
+            (f"{key_prefix}DBEngineDescription", str(value["db_engine_description"]))
         )
     if "db_engine_version_arn" in value:
         pairs.append(
-            (f"{prefix}.DBEngineVersionArn", str(value["db_engine_version_arn"]))
+            (f"{key_prefix}DBEngineVersionArn", str(value["db_engine_version_arn"]))
         )
     if "db_engine_version_description" in value:
         pairs.append(
             (
-                f"{prefix}.DBEngineVersionDescription",
+                f"{key_prefix}DBEngineVersionDescription",
                 str(value["db_engine_version_description"]),
             )
         )
@@ -197,33 +198,35 @@ def serialize_query(
         import capo_rds.types.character_set
 
         capo_rds.types.character_set.serialize_query(
-            value["default_character_set"], pairs, f"{prefix}.DefaultCharacterSet"
+            value["default_character_set"], pairs, f"{key_prefix}DefaultCharacterSet"
         )
     if "failure_reason" in value:
-        pairs.append((f"{prefix}.FailureReason", str(value["failure_reason"])))
+        pairs.append((f"{key_prefix}FailureReason", str(value["failure_reason"])))
     if "image" in value:
         import capo_rds.types.custom_db_engine_version_ami
 
         capo_rds.types.custom_db_engine_version_ami.serialize_query(
-            value["image"], pairs, f"{prefix}.Image"
+            value["image"], pairs, f"{key_prefix}Image"
         )
     if "db_engine_media_type" in value:
         pairs.append(
-            (f"{prefix}.DBEngineMediaType", str(value["db_engine_media_type"]))
+            (f"{key_prefix}DBEngineMediaType", str(value["db_engine_media_type"]))
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KMSKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KMSKeyId", str(value["kms_key_id"])))
     if "create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "supported_character_sets" in value:
         import capo_rds.types.supported_character_sets_list
 
         capo_rds.types.supported_character_sets_list.serialize_query(
-            value["supported_character_sets"], pairs, f"{prefix}.SupportedCharacterSets"
+            value["supported_character_sets"],
+            pairs,
+            f"{key_prefix}SupportedCharacterSets",
         )
     if "supported_nchar_character_sets" in value:
         import capo_rds.types.supported_character_sets_list
@@ -231,37 +234,37 @@ def serialize_query(
         capo_rds.types.supported_character_sets_list.serialize_query(
             value["supported_nchar_character_sets"],
             pairs,
-            f"{prefix}.SupportedNcharCharacterSets",
+            f"{key_prefix}SupportedNcharCharacterSets",
         )
     if "valid_upgrade_target" in value:
         import capo_rds.types.valid_upgrade_target_list
 
         capo_rds.types.valid_upgrade_target_list.serialize_query(
-            value["valid_upgrade_target"], pairs, f"{prefix}.ValidUpgradeTarget"
+            value["valid_upgrade_target"], pairs, f"{key_prefix}ValidUpgradeTarget"
         )
     if "supported_timezones" in value:
         import capo_rds.types.supported_timezones_list
 
         capo_rds.types.supported_timezones_list.serialize_query(
-            value["supported_timezones"], pairs, f"{prefix}.SupportedTimezones"
+            value["supported_timezones"], pairs, f"{key_prefix}SupportedTimezones"
         )
     if "exportable_log_types" in value:
         import capo_rds.types.log_type_list
 
         capo_rds.types.log_type_list.serialize_query(
-            value["exportable_log_types"], pairs, f"{prefix}.ExportableLogTypes"
+            value["exportable_log_types"], pairs, f"{key_prefix}ExportableLogTypes"
         )
     if "supports_log_exports_to_cloudwatch_logs" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLogExportsToCloudwatchLogs",
+                f"{key_prefix}SupportsLogExportsToCloudwatchLogs",
                 "true" if value["supports_log_exports_to_cloudwatch_logs"] else "false",
             )
         )
     if "supports_read_replica" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsReadReplica",
+                f"{key_prefix}SupportsReadReplica",
                 "true" if value["supports_read_replica"] else "false",
             )
         )
@@ -269,27 +272,29 @@ def serialize_query(
         import capo_rds.types.engine_mode_list
 
         capo_rds.types.engine_mode_list.serialize_query(
-            value["supported_engine_modes"], pairs, f"{prefix}.SupportedEngineModes"
+            value["supported_engine_modes"], pairs, f"{key_prefix}SupportedEngineModes"
         )
     if "supported_feature_names" in value:
         import capo_rds.types.feature_name_list
 
         capo_rds.types.feature_name_list.serialize_query(
-            value["supported_feature_names"], pairs, f"{prefix}.SupportedFeatureNames"
+            value["supported_feature_names"],
+            pairs,
+            f"{key_prefix}SupportedFeatureNames",
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "supports_parallel_query" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsParallelQuery",
+                f"{key_prefix}SupportsParallelQuery",
                 "true" if value["supports_parallel_query"] else "false",
             )
         )
     if "supports_global_databases" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsGlobalDatabases",
+                f"{key_prefix}SupportsGlobalDatabases",
                 "true" if value["supports_global_databases"] else "false",
             )
         )
@@ -297,26 +302,26 @@ def serialize_query(
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
     if "supports_babelfish" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsBabelfish",
+                f"{key_prefix}SupportsBabelfish",
                 "true" if value["supports_babelfish"] else "false",
             )
         )
     if "supports_limitless_database" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLimitlessDatabase",
+                f"{key_prefix}SupportsLimitlessDatabase",
                 "true" if value["supports_limitless_database"] else "false",
             )
         )
     if "supports_certificate_rotation_without_restart" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsCertificateRotationWithoutRestart",
+                f"{key_prefix}SupportsCertificateRotationWithoutRestart",
                 "true"
                 if value["supports_certificate_rotation_without_restart"]
                 else "false",
@@ -328,19 +333,19 @@ def serialize_query(
         capo_rds.types.ca_certificate_identifiers_list.serialize_query(
             value["supported_ca_certificate_identifiers"],
             pairs,
-            f"{prefix}.SupportedCACertificateIdentifiers",
+            f"{key_prefix}SupportedCACertificateIdentifiers",
         )
     if "supports_local_write_forwarding" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLocalWriteForwarding",
+                f"{key_prefix}SupportsLocalWriteForwarding",
                 "true" if value["supports_local_write_forwarding"] else "false",
             )
         )
     if "supports_integrations" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsIntegrations",
+                f"{key_prefix}SupportsIntegrations",
                 "true" if value["supports_integrations"] else "false",
             )
         )
@@ -350,7 +355,7 @@ def serialize_query(
         capo_rds.types.serverless_v2_features_support.serialize_query(
             value["serverless_v2_features_support"],
             pairs,
-            f"{prefix}.ServerlessV2FeaturesSupport",
+            f"{key_prefix}ServerlessV2FeaturesSupport",
         )
 
 

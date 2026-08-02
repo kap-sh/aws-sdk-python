@@ -35,25 +35,29 @@ class VCpuInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VCpuInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_v_cpus" in value:
-        pairs.append((f"{prefix}.DefaultVCpus", str(value["default_v_cpus"])))
+        pairs.append((f"{key_prefix}DefaultVCpus", str(value["default_v_cpus"])))
     if "default_cores" in value:
-        pairs.append((f"{prefix}.DefaultCores", str(value["default_cores"])))
+        pairs.append((f"{key_prefix}DefaultCores", str(value["default_cores"])))
     if "default_threads_per_core" in value:
         pairs.append(
-            (f"{prefix}.DefaultThreadsPerCore", str(value["default_threads_per_core"]))
+            (
+                f"{key_prefix}DefaultThreadsPerCore",
+                str(value["default_threads_per_core"]),
+            )
         )
     if "valid_cores" in value:
         import capo_ec2.types.core_count_list
 
         capo_ec2.types.core_count_list.serialize_ec2_query(
-            value["valid_cores"], pairs, f"{prefix}.ValidCores"
+            value["valid_cores"], pairs, f"{key_prefix}ValidCores"
         )
     if "valid_threads_per_core" in value:
         import capo_ec2.types.threads_per_core_list
 
         capo_ec2.types.threads_per_core_list.serialize_ec2_query(
-            value["valid_threads_per_core"], pairs, f"{prefix}.ValidThreadsPerCore"
+            value["valid_threads_per_core"], pairs, f"{key_prefix}ValidThreadsPerCore"
         )
 
 

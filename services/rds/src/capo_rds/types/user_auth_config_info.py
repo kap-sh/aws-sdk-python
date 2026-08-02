@@ -34,23 +34,24 @@ class UserAuthConfigInfo(TypedDict, closed=True):
 def serialize_query(
     value: UserAuthConfigInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "auth_scheme" in value:
         import capo_rds.types.auth_scheme
 
         capo_rds.types.auth_scheme.serialize_query(
-            value["auth_scheme"], pairs, f"{prefix}.AuthScheme"
+            value["auth_scheme"], pairs, f"{key_prefix}AuthScheme"
         )
     if "secret_arn" in value:
-        pairs.append((f"{prefix}.SecretArn", str(value["secret_arn"])))
+        pairs.append((f"{key_prefix}SecretArn", str(value["secret_arn"])))
     if "iam_auth" in value:
         import capo_rds.types.iam_auth_mode
 
         capo_rds.types.iam_auth_mode.serialize_query(
-            value["iam_auth"], pairs, f"{prefix}.IAMAuth"
+            value["iam_auth"], pairs, f"{key_prefix}IAMAuth"
         )
     if "client_password_auth_type" in value:
         import capo_rds.types.client_password_auth_type
@@ -58,7 +59,7 @@ def serialize_query(
         capo_rds.types.client_password_auth_type.serialize_query(
             value["client_password_auth_type"],
             pairs,
-            f"{prefix}.ClientPasswordAuthType",
+            f"{key_prefix}ClientPasswordAuthType",
         )
 
 

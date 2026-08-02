@@ -26,17 +26,18 @@ class ResourceTypeOption(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ResourceTypeOption, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_name" in value:
         import capo_ec2.types.image_reference_option_name
 
         capo_ec2.types.image_reference_option_name.serialize_ec2_query(
-            value["option_name"], pairs, f"{prefix}.OptionName"
+            value["option_name"], pairs, f"{key_prefix}OptionName"
         )
     if "option_values" in value:
         import capo_ec2.types.resource_type_option_values_list
 
         capo_ec2.types.resource_type_option_values_list.serialize_ec2_query(
-            value["option_values"], pairs, f"{prefix}.OptionValues"
+            value["option_values"], pairs, f"{key_prefix}OptionValues"
         )
 
 

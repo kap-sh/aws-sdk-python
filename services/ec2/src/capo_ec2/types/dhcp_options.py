@@ -29,21 +29,22 @@ class DhcpOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DhcpOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "dhcp_options_id" in value:
-        pairs.append((f"{prefix}.DhcpOptionsId", str(value["dhcp_options_id"])))
+        pairs.append((f"{key_prefix}DhcpOptionsId", str(value["dhcp_options_id"])))
     if "dhcp_configurations" in value:
         import capo_ec2.types.dhcp_configuration_list
 
         capo_ec2.types.dhcp_configuration_list.serialize_ec2_query(
-            value["dhcp_configurations"], pairs, f"{prefix}.DhcpConfigurationSet"
+            value["dhcp_configurations"], pairs, f"{key_prefix}DhcpConfigurationSet"
         )
 
 

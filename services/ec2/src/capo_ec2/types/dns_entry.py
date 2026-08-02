@@ -21,10 +21,11 @@ class DnsEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DnsEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DnsName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DnsName", str(value["dns_name"])))
     if "hosted_zone_id" in value:
-        pairs.append((f"{prefix}.HostedZoneId", str(value["hosted_zone_id"])))
+        pairs.append((f"{key_prefix}HostedZoneId", str(value["hosted_zone_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DnsEntry:

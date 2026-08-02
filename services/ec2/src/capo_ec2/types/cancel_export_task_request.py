@@ -19,8 +19,9 @@ class CancelExportTaskRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelExportTaskRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "export_task_id" in value:
-        pairs.append((f"{prefix}.ExportTaskId", str(value["export_task_id"])))
+        pairs.append((f"{key_prefix}ExportTaskId", str(value["export_task_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> CancelExportTaskRequest:

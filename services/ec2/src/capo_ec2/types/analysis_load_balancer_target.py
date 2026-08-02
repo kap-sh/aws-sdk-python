@@ -30,22 +30,23 @@ class AnalysisLoadBalancerTarget(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisLoadBalancerTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "instance" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["instance"], pairs, f"{prefix}.Instance"
+            value["instance"], pairs, f"{key_prefix}Instance"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
 
 
 def deserialize_ec2_query(el: Element) -> AnalysisLoadBalancerTarget:

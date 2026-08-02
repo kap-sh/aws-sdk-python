@@ -91,42 +91,45 @@ class FleetData(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FleetData, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "activity_status" in value:
         import capo_ec2.types.fleet_activity_status
 
         capo_ec2.types.fleet_activity_status.serialize_ec2_query(
-            value["activity_status"], pairs, f"{prefix}.ActivityStatus"
+            value["activity_status"], pairs, f"{key_prefix}ActivityStatus"
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
     if "fleet_state" in value:
         import capo_ec2.types.fleet_state_code
 
         capo_ec2.types.fleet_state_code.serialize_ec2_query(
-            value["fleet_state"], pairs, f"{prefix}.FleetState"
+            value["fleet_state"], pairs, f"{key_prefix}FleetState"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "excess_capacity_termination_policy" in value:
         import capo_ec2.types.fleet_excess_capacity_termination_policy
 
         capo_ec2.types.fleet_excess_capacity_termination_policy.serialize_ec2_query(
             value["excess_capacity_termination_policy"],
             pairs,
-            f"{prefix}.ExcessCapacityTerminationPolicy",
+            f"{key_prefix}ExcessCapacityTerminationPolicy",
         )
     if "fulfilled_capacity" in value:
-        pairs.append((f"{prefix}.FulfilledCapacity", str(value["fulfilled_capacity"])))
+        pairs.append(
+            (f"{key_prefix}FulfilledCapacity", str(value["fulfilled_capacity"]))
+        )
     if "fulfilled_on_demand_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.FulfilledOnDemandCapacity",
+                f"{key_prefix}FulfilledOnDemandCapacity",
                 str(value["fulfilled_on_demand_capacity"]),
             )
         )
@@ -134,7 +137,9 @@ def serialize_ec2_query(
         import capo_ec2.types.fleet_launch_template_config_list
 
         capo_ec2.types.fleet_launch_template_config_list.serialize_ec2_query(
-            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+            value["launch_template_configs"],
+            pairs,
+            f"{key_prefix}LaunchTemplateConfigs",
         )
     if "target_capacity_specification" in value:
         import capo_ec2.types.target_capacity_specification
@@ -142,12 +147,12 @@ def serialize_ec2_query(
         capo_ec2.types.target_capacity_specification.serialize_ec2_query(
             value["target_capacity_specification"],
             pairs,
-            f"{prefix}.TargetCapacitySpecification",
+            f"{key_prefix}TargetCapacitySpecification",
         )
     if "terminate_instances_with_expiration" in value:
         pairs.append(
             (
-                f"{prefix}.TerminateInstancesWithExpiration",
+                f"{key_prefix}TerminateInstancesWithExpiration",
                 "true" if value["terminate_instances_with_expiration"] else "false",
             )
         )
@@ -155,24 +160,24 @@ def serialize_ec2_query(
         import capo_ec2.types.fleet_type
 
         capo_ec2.types.fleet_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "valid_from" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+            value["valid_from"], pairs, f"{key_prefix}ValidFrom"
         )
     if "valid_until" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+            value["valid_until"], pairs, f"{key_prefix}ValidUntil"
         )
     if "replace_unhealthy_instances" in value:
         pairs.append(
             (
-                f"{prefix}.ReplaceUnhealthyInstances",
+                f"{key_prefix}ReplaceUnhealthyInstances",
                 "true" if value["replace_unhealthy_instances"] else "false",
             )
         )
@@ -180,13 +185,13 @@ def serialize_ec2_query(
         import capo_ec2.types.spot_options
 
         capo_ec2.types.spot_options.serialize_ec2_query(
-            value["spot_options"], pairs, f"{prefix}.SpotOptions"
+            value["spot_options"], pairs, f"{key_prefix}SpotOptions"
         )
     if "on_demand_options" in value:
         import capo_ec2.types.on_demand_options
 
         capo_ec2.types.on_demand_options.serialize_ec2_query(
-            value["on_demand_options"], pairs, f"{prefix}.OnDemandOptions"
+            value["on_demand_options"], pairs, f"{key_prefix}OnDemandOptions"
         )
     if "reserved_capacity_options" in value:
         import capo_ec2.types.reserved_capacity_options
@@ -194,28 +199,28 @@ def serialize_ec2_query(
         capo_ec2.types.reserved_capacity_options.serialize_ec2_query(
             value["reserved_capacity_options"],
             pairs,
-            f"{prefix}.ReservedCapacityOptions",
+            f"{key_prefix}ReservedCapacityOptions",
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "errors" in value:
         import capo_ec2.types.describe_fleets_error_set
 
         capo_ec2.types.describe_fleets_error_set.serialize_ec2_query(
-            value["errors"], pairs, f"{prefix}.ErrorSet"
+            value["errors"], pairs, f"{key_prefix}ErrorSet"
         )
     if "instances" in value:
         import capo_ec2.types.describe_fleets_instances_set
 
         capo_ec2.types.describe_fleets_instances_set.serialize_ec2_query(
-            value["instances"], pairs, f"{prefix}.FleetInstanceSet"
+            value["instances"], pairs, f"{key_prefix}FleetInstanceSet"
         )
     if "context" in value:
-        pairs.append((f"{prefix}.Context", str(value["context"])))
+        pairs.append((f"{key_prefix}Context", str(value["context"])))
 
 
 def deserialize_ec2_query(el: Element) -> FleetData:

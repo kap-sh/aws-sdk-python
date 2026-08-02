@@ -43,27 +43,30 @@ class GpuDeviceInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GpuDeviceInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "manufacturer" in value:
-        pairs.append((f"{prefix}.Manufacturer", str(value["manufacturer"])))
+        pairs.append((f"{key_prefix}Manufacturer", str(value["manufacturer"])))
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "logical_gpu_count" in value:
-        pairs.append((f"{prefix}.LogicalGpuCount", str(value["logical_gpu_count"])))
+        pairs.append((f"{key_prefix}LogicalGpuCount", str(value["logical_gpu_count"])))
     if "gpu_partition_size" in value:
-        pairs.append((f"{prefix}.GpuPartitionSize", str(value["gpu_partition_size"])))
+        pairs.append(
+            (f"{key_prefix}GpuPartitionSize", str(value["gpu_partition_size"]))
+        )
     if "workloads" in value:
         import capo_ec2.types.workloads_list
 
         capo_ec2.types.workloads_list.serialize_ec2_query(
-            value["workloads"], pairs, f"{prefix}.WorkloadSet"
+            value["workloads"], pairs, f"{key_prefix}WorkloadSet"
         )
     if "memory_info" in value:
         import capo_ec2.types.gpu_device_memory_info
 
         capo_ec2.types.gpu_device_memory_info.serialize_ec2_query(
-            value["memory_info"], pairs, f"{prefix}.MemoryInfo"
+            value["memory_info"], pairs, f"{key_prefix}MemoryInfo"
         )
 
 

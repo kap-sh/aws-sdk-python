@@ -54,15 +54,16 @@ def deserialize_aws_json_1_0(data: dict) -> Metric:
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Metric, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
 
 

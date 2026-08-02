@@ -21,8 +21,9 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "success" in value:
-        pairs.append((f"{prefix}.Success", "true" if value["success"] else "false"))
+        pairs.append((f"{key_prefix}Success", "true" if value["success"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DisableIpamOrganizationAdminAccountResult:

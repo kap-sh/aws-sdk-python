@@ -21,10 +21,11 @@ class TransitGatewayPolicyRuleMetaData(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayPolicyRuleMetaData, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "meta_data_key" in value:
-        pairs.append((f"{prefix}.MetaDataKey", str(value["meta_data_key"])))
+        pairs.append((f"{key_prefix}MetaDataKey", str(value["meta_data_key"])))
     if "meta_data_value" in value:
-        pairs.append((f"{prefix}.MetaDataValue", str(value["meta_data_value"])))
+        pairs.append((f"{key_prefix}MetaDataValue", str(value["meta_data_value"])))
 
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPolicyRuleMetaData:

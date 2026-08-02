@@ -42,39 +42,40 @@ class ExportImageResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ExportImageResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "disk_image_format" in value:
         import capo_ec2.types.disk_image_format
 
         capo_ec2.types.disk_image_format.serialize_ec2_query(
-            value["disk_image_format"], pairs, f"{prefix}.DiskImageFormat"
+            value["disk_image_format"], pairs, f"{key_prefix}DiskImageFormat"
         )
     if "export_image_task_id" in value:
         pairs.append(
-            (f"{prefix}.ExportImageTaskId", str(value["export_image_task_id"]))
+            (f"{key_prefix}ExportImageTaskId", str(value["export_image_task_id"]))
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "role_name" in value:
-        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+        pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "s3_export_location" in value:
         import capo_ec2.types.export_task_s3_location
 
         capo_ec2.types.export_task_s3_location.serialize_ec2_query(
-            value["s3_export_location"], pairs, f"{prefix}.S3ExportLocation"
+            value["s3_export_location"], pairs, f"{key_prefix}S3ExportLocation"
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

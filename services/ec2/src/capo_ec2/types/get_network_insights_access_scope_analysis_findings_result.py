@@ -34,10 +34,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_access_scope_analysis_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeAnalysisId",
+                f"{key_prefix}NetworkInsightsAccessScopeAnalysisId",
                 str(value["network_insights_access_scope_analysis_id"]),
             )
         )
@@ -45,16 +46,16 @@ def serialize_ec2_query(
         import capo_ec2.types.analysis_status
 
         capo_ec2.types.analysis_status.serialize_ec2_query(
-            value["analysis_status"], pairs, f"{prefix}.AnalysisStatus"
+            value["analysis_status"], pairs, f"{key_prefix}AnalysisStatus"
         )
     if "analysis_findings" in value:
         import capo_ec2.types.access_scope_analysis_finding_list
 
         capo_ec2.types.access_scope_analysis_finding_list.serialize_ec2_query(
-            value["analysis_findings"], pairs, f"{prefix}.AnalysisFindingSet"
+            value["analysis_findings"], pairs, f"{key_prefix}AnalysisFindingSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(

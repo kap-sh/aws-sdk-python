@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_rebalance" in value:
         import capo_ec2.types.fleet_spot_capacity_rebalance_request
 
         capo_ec2.types.fleet_spot_capacity_rebalance_request.serialize_ec2_query(
-            value["capacity_rebalance"], pairs, f"{prefix}.CapacityRebalance"
+            value["capacity_rebalance"], pairs, f"{key_prefix}CapacityRebalance"
         )
 
 

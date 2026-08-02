@@ -27,12 +27,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate_arn" in value:
-        pairs.append((f"{prefix}.CertificateArn", str(value["certificate_arn"])))
+        pairs.append((f"{key_prefix}CertificateArn", str(value["certificate_arn"])))
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> AssociateEnclaveCertificateIamRoleRequest:

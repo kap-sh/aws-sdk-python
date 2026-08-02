@@ -24,14 +24,15 @@ class ModifyCertificatesMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyCertificatesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate_identifier" in value:
         pairs.append(
-            (f"{prefix}.CertificateIdentifier", str(value["certificate_identifier"]))
+            (f"{key_prefix}CertificateIdentifier", str(value["certificate_identifier"]))
         )
     if "remove_customer_override" in value:
         pairs.append(
             (
-                f"{prefix}.RemoveCustomerOverride",
+                f"{key_prefix}RemoveCustomerOverride",
                 "true" if value["remove_customer_override"] else "false",
             )
         )

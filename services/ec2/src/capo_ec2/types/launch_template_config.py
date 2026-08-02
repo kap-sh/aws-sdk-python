@@ -26,19 +26,20 @@ class LaunchTemplateConfig(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LaunchTemplateConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_specification" in value:
         import capo_ec2.types.fleet_launch_template_specification
 
         capo_ec2.types.fleet_launch_template_specification.serialize_ec2_query(
             value["launch_template_specification"],
             pairs,
-            f"{prefix}.LaunchTemplateSpecification",
+            f"{key_prefix}LaunchTemplateSpecification",
         )
     if "overrides" in value:
         import capo_ec2.types.launch_template_overrides_list
 
         capo_ec2.types.launch_template_overrides_list.serialize_ec2_query(
-            value["overrides"], pairs, f"{prefix}.Overrides"
+            value["overrides"], pairs, f"{key_prefix}Overrides"
         )
 
 

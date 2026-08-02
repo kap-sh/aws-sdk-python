@@ -51,14 +51,15 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributorDatapoint:
 def serialize_query(
     value: InsightRuleContributorDatapoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "approximate_value" in value:
-        pairs.append((f"{prefix}.ApproximateValue", str(value["approximate_value"])))
+        pairs.append((f"{key_prefix}ApproximateValue", str(value["approximate_value"])))
 
 
 def deserialize_query(el: Element) -> InsightRuleContributorDatapoint:

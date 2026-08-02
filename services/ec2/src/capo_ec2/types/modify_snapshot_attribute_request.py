@@ -43,40 +43,43 @@ class ModifySnapshotAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifySnapshotAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute" in value:
         import capo_ec2.types.snapshot_attribute_name
 
         capo_ec2.types.snapshot_attribute_name.serialize_ec2_query(
-            value["attribute"], pairs, f"{prefix}.Attribute"
+            value["attribute"], pairs, f"{key_prefix}Attribute"
         )
     if "create_volume_permission" in value:
         import capo_ec2.types.create_volume_permission_modifications
 
         capo_ec2.types.create_volume_permission_modifications.serialize_ec2_query(
-            value["create_volume_permission"], pairs, f"{prefix}.CreateVolumePermission"
+            value["create_volume_permission"],
+            pairs,
+            f"{key_prefix}CreateVolumePermission",
         )
     if "group_names" in value:
         import capo_ec2.types.group_name_string_list
 
         capo_ec2.types.group_name_string_list.serialize_ec2_query(
-            value["group_names"], pairs, f"{prefix}.GroupNames"
+            value["group_names"], pairs, f"{key_prefix}GroupNames"
         )
     if "operation_type" in value:
         import capo_ec2.types.operation_type
 
         capo_ec2.types.operation_type.serialize_ec2_query(
-            value["operation_type"], pairs, f"{prefix}.OperationType"
+            value["operation_type"], pairs, f"{key_prefix}OperationType"
         )
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "user_ids" in value:
         import capo_ec2.types.user_id_string_list
 
         capo_ec2.types.user_id_string_list.serialize_ec2_query(
-            value["user_ids"], pairs, f"{prefix}.UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifySnapshotAttributeRequest:

@@ -24,13 +24,14 @@ class ModifySnapshotTierResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifySnapshotTierResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "tiering_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["tiering_start_time"], pairs, f"{prefix}.TieringStartTime"
+            value["tiering_start_time"], pairs, f"{key_prefix}TieringStartTime"
         )
 
 

@@ -26,16 +26,19 @@ class GetDelegatedAccessTokenResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetDelegatedAccessTokenResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "credentials" in value:
         import capo_sts.types.credentials
 
         capo_sts.types.credentials.serialize_query(
-            value["credentials"], pairs, f"{prefix}.Credentials"
+            value["credentials"], pairs, f"{key_prefix}Credentials"
         )
     if "packed_policy_size" in value:
-        pairs.append((f"{prefix}.PackedPolicySize", str(value["packed_policy_size"])))
+        pairs.append(
+            (f"{key_prefix}PackedPolicySize", str(value["packed_policy_size"]))
+        )
     if "assumed_principal" in value:
-        pairs.append((f"{prefix}.AssumedPrincipal", str(value["assumed_principal"])))
+        pairs.append((f"{key_prefix}AssumedPrincipal", str(value["assumed_principal"])))
 
 
 def deserialize_query(el: Element) -> GetDelegatedAccessTokenResponse:

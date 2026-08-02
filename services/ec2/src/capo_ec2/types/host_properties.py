@@ -28,16 +28,17 @@ class HostProperties(TypedDict, closed=True):
 def serialize_ec2_query(
     value: HostProperties, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cores" in value:
-        pairs.append((f"{prefix}.Cores", str(value["cores"])))
+        pairs.append((f"{key_prefix}Cores", str(value["cores"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
     if "sockets" in value:
-        pairs.append((f"{prefix}.Sockets", str(value["sockets"])))
+        pairs.append((f"{key_prefix}Sockets", str(value["sockets"])))
     if "total_v_cpus" in value:
-        pairs.append((f"{prefix}.TotalVCpus", str(value["total_v_cpus"])))
+        pairs.append((f"{key_prefix}TotalVCpus", str(value["total_v_cpus"])))
 
 
 def deserialize_ec2_query(el: Element) -> HostProperties:

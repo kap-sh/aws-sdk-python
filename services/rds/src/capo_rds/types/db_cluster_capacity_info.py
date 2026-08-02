@@ -30,20 +30,21 @@ class DBClusterCapacityInfo(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterCapacityInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "pending_capacity" in value:
-        pairs.append((f"{prefix}.PendingCapacity", str(value["pending_capacity"])))
+        pairs.append((f"{key_prefix}PendingCapacity", str(value["pending_capacity"])))
     if "current_capacity" in value:
-        pairs.append((f"{prefix}.CurrentCapacity", str(value["current_capacity"])))
+        pairs.append((f"{key_prefix}CurrentCapacity", str(value["current_capacity"])))
     if "seconds_before_timeout" in value:
         pairs.append(
-            (f"{prefix}.SecondsBeforeTimeout", str(value["seconds_before_timeout"]))
+            (f"{key_prefix}SecondsBeforeTimeout", str(value["seconds_before_timeout"]))
         )
     if "timeout_action" in value:
-        pairs.append((f"{prefix}.TimeoutAction", str(value["timeout_action"])))
+        pairs.append((f"{key_prefix}TimeoutAction", str(value["timeout_action"])))
 
 
 def deserialize_query(el: Element) -> DBClusterCapacityInfo:

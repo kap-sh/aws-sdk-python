@@ -32,27 +32,28 @@ class ReservedInstancesConfiguration(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReservedInstancesConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "platform" in value:
-        pairs.append((f"{prefix}.Platform", str(value["platform"])))
+        pairs.append((f"{key_prefix}Platform", str(value["platform"])))
     if "scope" in value:
         import capo_ec2.types.scope
 
         capo_ec2.types.scope.serialize_ec2_query(
-            value["scope"], pairs, f"{prefix}.Scope"
+            value["scope"], pairs, f"{key_prefix}Scope"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

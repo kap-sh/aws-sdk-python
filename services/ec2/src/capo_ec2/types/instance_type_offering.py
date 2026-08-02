@@ -25,20 +25,21 @@ class InstanceTypeOffering(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceTypeOffering, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "location_type" in value:
         import capo_ec2.types.location_type
 
         capo_ec2.types.location_type.serialize_ec2_query(
-            value["location_type"], pairs, f"{prefix}.LocationType"
+            value["location_type"], pairs, f"{key_prefix}LocationType"
         )
     if "location" in value:
-        pairs.append((f"{prefix}.Location", str(value["location"])))
+        pairs.append((f"{key_prefix}Location", str(value["location"])))
 
 
 def deserialize_ec2_query(el: Element) -> InstanceTypeOffering:

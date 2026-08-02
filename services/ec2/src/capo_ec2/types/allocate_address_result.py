@@ -34,30 +34,34 @@ class AllocateAddressResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AllocateAddressResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "public_ipv4_pool" in value:
-        pairs.append((f"{prefix}.PublicIpv4Pool", str(value["public_ipv4_pool"])))
+        pairs.append((f"{key_prefix}PublicIpv4Pool", str(value["public_ipv4_pool"])))
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "domain" in value:
         import capo_ec2.types.domain_type
 
         capo_ec2.types.domain_type.serialize_ec2_query(
-            value["domain"], pairs, f"{prefix}.Domain"
+            value["domain"], pairs, f"{key_prefix}Domain"
         )
     if "customer_owned_ip" in value:
-        pairs.append((f"{prefix}.CustomerOwnedIp", str(value["customer_owned_ip"])))
+        pairs.append((f"{key_prefix}CustomerOwnedIp", str(value["customer_owned_ip"])))
     if "customer_owned_ipv4_pool" in value:
         pairs.append(
-            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+            (
+                f"{key_prefix}CustomerOwnedIpv4Pool",
+                str(value["customer_owned_ipv4_pool"]),
+            )
         )
     if "carrier_ip" in value:
-        pairs.append((f"{prefix}.CarrierIp", str(value["carrier_ip"])))
+        pairs.append((f"{key_prefix}CarrierIp", str(value["carrier_ip"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> AllocateAddressResult:

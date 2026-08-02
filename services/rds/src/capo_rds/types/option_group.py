@@ -44,46 +44,52 @@ class OptionGroup(TypedDict, closed=True):
 def serialize_query(
     value: OptionGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
     if "option_group_description" in value:
         pairs.append(
-            (f"{prefix}.OptionGroupDescription", str(value["option_group_description"]))
+            (
+                f"{key_prefix}OptionGroupDescription",
+                str(value["option_group_description"]),
+            )
         )
     if "engine_name" in value:
-        pairs.append((f"{prefix}.EngineName", str(value["engine_name"])))
+        pairs.append((f"{key_prefix}EngineName", str(value["engine_name"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
     if "options" in value:
         import capo_rds.types.options_list
 
         capo_rds.types.options_list.serialize_query(
-            value["options"], pairs, f"{prefix}.Options"
+            value["options"], pairs, f"{key_prefix}Options"
         )
     if "allows_vpc_and_non_vpc_instance_memberships" in value:
         pairs.append(
             (
-                f"{prefix}.AllowsVpcAndNonVpcInstanceMemberships",
+                f"{key_prefix}AllowsVpcAndNonVpcInstanceMemberships",
                 "true"
                 if value["allows_vpc_and_non_vpc_instance_memberships"]
                 else "false",
             )
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "option_group_arn" in value:
-        pairs.append((f"{prefix}.OptionGroupArn", str(value["option_group_arn"])))
+        pairs.append((f"{key_prefix}OptionGroupArn", str(value["option_group_arn"])))
     if "source_option_group" in value:
-        pairs.append((f"{prefix}.SourceOptionGroup", str(value["source_option_group"])))
+        pairs.append(
+            (f"{key_prefix}SourceOptionGroup", str(value["source_option_group"]))
+        )
     if "source_account_id" in value:
-        pairs.append((f"{prefix}.SourceAccountId", str(value["source_account_id"])))
+        pairs.append((f"{key_prefix}SourceAccountId", str(value["source_account_id"])))
     if "copy_timestamp" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["copy_timestamp"], pairs, f"{prefix}.CopyTimestamp"
+            value["copy_timestamp"], pairs, f"{key_prefix}CopyTimestamp"
         )
 
 

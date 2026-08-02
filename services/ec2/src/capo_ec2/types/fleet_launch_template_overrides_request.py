@@ -57,45 +57,46 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "max_price" in value:
-        pairs.append((f"{prefix}.MaxPrice", str(value["max_price"])))
+        pairs.append((f"{key_prefix}MaxPrice", str(value["max_price"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "weighted_capacity" in value:
-        pairs.append((f"{prefix}.WeightedCapacity", str(value["weighted_capacity"])))
+        pairs.append((f"{key_prefix}WeightedCapacity", str(value["weighted_capacity"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
     if "placement" in value:
         import capo_ec2.types.placement
 
         capo_ec2.types.placement.serialize_ec2_query(
-            value["placement"], pairs, f"{prefix}.Placement"
+            value["placement"], pairs, f"{key_prefix}Placement"
         )
     if "block_device_mappings" in value:
         import capo_ec2.types.fleet_block_device_mapping_request_list
 
         capo_ec2.types.fleet_block_device_mapping_request_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
         )
     if "instance_requirements" in value:
         import capo_ec2.types.instance_requirements_request
 
         capo_ec2.types.instance_requirements_request.serialize_ec2_query(
-            value["instance_requirements"], pairs, f"{prefix}.InstanceRequirements"
+            value["instance_requirements"], pairs, f"{key_prefix}InstanceRequirements"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

@@ -40,29 +40,30 @@ class ConnectionNotification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ConnectionNotification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "connection_notification_id" in value:
         pairs.append(
             (
-                f"{prefix}.ConnectionNotificationId",
+                f"{key_prefix}ConnectionNotificationId",
                 str(value["connection_notification_id"]),
             )
         )
     if "service_id" in value:
-        pairs.append((f"{prefix}.ServiceId", str(value["service_id"])))
+        pairs.append((f"{key_prefix}ServiceId", str(value["service_id"])))
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "connection_notification_type" in value:
         import capo_ec2.types.connection_notification_type
 
         capo_ec2.types.connection_notification_type.serialize_ec2_query(
             value["connection_notification_type"],
             pairs,
-            f"{prefix}.ConnectionNotificationType",
+            f"{key_prefix}ConnectionNotificationType",
         )
     if "connection_notification_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ConnectionNotificationArn",
+                f"{key_prefix}ConnectionNotificationArn",
                 str(value["connection_notification_arn"]),
             )
         )
@@ -70,7 +71,7 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["connection_events"], pairs, f"{prefix}.ConnectionEvents"
+            value["connection_events"], pairs, f"{key_prefix}ConnectionEvents"
         )
     if "connection_notification_state" in value:
         import capo_ec2.types.connection_notification_state
@@ -78,10 +79,10 @@ def serialize_ec2_query(
         capo_ec2.types.connection_notification_state.serialize_ec2_query(
             value["connection_notification_state"],
             pairs,
-            f"{prefix}.ConnectionNotificationState",
+            f"{key_prefix}ConnectionNotificationState",
         )
     if "service_region" in value:
-        pairs.append((f"{prefix}.ServiceRegion", str(value["service_region"])))
+        pairs.append((f"{key_prefix}ServiceRegion", str(value["service_region"])))
 
 
 def deserialize_ec2_query(el: Element) -> ConnectionNotification:

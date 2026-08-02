@@ -44,50 +44,51 @@ class TransitGatewayMulticastGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayMulticastGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_ip_address" in value:
-        pairs.append((f"{prefix}.GroupIpAddress", str(value["group_ip_address"])))
+        pairs.append((f"{key_prefix}GroupIpAddress", str(value["group_ip_address"])))
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_type" in value:
         import capo_ec2.types.transit_gateway_attachment_resource_type
 
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_owner_id" in value:
-        pairs.append((f"{prefix}.ResourceOwnerId", str(value["resource_owner_id"])))
+        pairs.append((f"{key_prefix}ResourceOwnerId", str(value["resource_owner_id"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "group_member" in value:
         pairs.append(
-            (f"{prefix}.GroupMember", "true" if value["group_member"] else "false")
+            (f"{key_prefix}GroupMember", "true" if value["group_member"] else "false")
         )
     if "group_source" in value:
         pairs.append(
-            (f"{prefix}.GroupSource", "true" if value["group_source"] else "false")
+            (f"{key_prefix}GroupSource", "true" if value["group_source"] else "false")
         )
     if "member_type" in value:
         import capo_ec2.types.membership_type
 
         capo_ec2.types.membership_type.serialize_ec2_query(
-            value["member_type"], pairs, f"{prefix}.MemberType"
+            value["member_type"], pairs, f"{key_prefix}MemberType"
         )
     if "source_type" in value:
         import capo_ec2.types.membership_type
 
         capo_ec2.types.membership_type.serialize_ec2_query(
-            value["source_type"], pairs, f"{prefix}.SourceType"
+            value["source_type"], pairs, f"{key_prefix}SourceType"
         )
 
 

@@ -35,24 +35,25 @@ class DescribeClientVpnEndpointsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeClientVpnEndpointsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_ids" in value:
         import capo_ec2.types.client_vpn_endpoint_id_list
 
         capo_ec2.types.client_vpn_endpoint_id_list.serialize_ec2_query(
-            value["client_vpn_endpoint_ids"], pairs, f"{prefix}.ClientVpnEndpointIds"
+            value["client_vpn_endpoint_ids"], pairs, f"{key_prefix}ClientVpnEndpointIds"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeClientVpnEndpointsRequest:

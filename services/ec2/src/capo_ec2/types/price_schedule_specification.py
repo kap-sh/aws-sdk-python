@@ -25,15 +25,16 @@ class PriceScheduleSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PriceScheduleSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "term" in value:
-        pairs.append((f"{prefix}.Term", str(value["term"])))
+        pairs.append((f"{key_prefix}Term", str(value["term"])))
     if "price" in value:
-        pairs.append((f"{prefix}.Price", str(value["price"])))
+        pairs.append((f"{key_prefix}Price", str(value["price"])))
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
 
 

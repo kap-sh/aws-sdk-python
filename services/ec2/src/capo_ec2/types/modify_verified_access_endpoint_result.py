@@ -21,11 +21,14 @@ class ModifyVerifiedAccessEndpointResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVerifiedAccessEndpointResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_endpoint" in value:
         import capo_ec2.types.verified_access_endpoint
 
         capo_ec2.types.verified_access_endpoint.serialize_ec2_query(
-            value["verified_access_endpoint"], pairs, f"{prefix}.VerifiedAccessEndpoint"
+            value["verified_access_endpoint"],
+            pairs,
+            f"{key_prefix}VerifiedAccessEndpoint",
         )
 
 

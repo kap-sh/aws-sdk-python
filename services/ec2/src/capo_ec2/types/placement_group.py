@@ -44,45 +44,46 @@ class PlacementGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PlacementGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "state" in value:
         import capo_ec2.types.placement_group_state
 
         capo_ec2.types.placement_group_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "strategy" in value:
         import capo_ec2.types.placement_strategy
 
         capo_ec2.types.placement_strategy.serialize_ec2_query(
-            value["strategy"], pairs, f"{prefix}.Strategy"
+            value["strategy"], pairs, f"{key_prefix}Strategy"
         )
     if "partition_count" in value:
-        pairs.append((f"{prefix}.PartitionCount", str(value["partition_count"])))
+        pairs.append((f"{key_prefix}PartitionCount", str(value["partition_count"])))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "group_arn" in value:
-        pairs.append((f"{prefix}.GroupArn", str(value["group_arn"])))
+        pairs.append((f"{key_prefix}GroupArn", str(value["group_arn"])))
     if "spread_level" in value:
         import capo_ec2.types.spread_level
 
         capo_ec2.types.spread_level.serialize_ec2_query(
-            value["spread_level"], pairs, f"{prefix}.SpreadLevel"
+            value["spread_level"], pairs, f"{key_prefix}SpreadLevel"
         )
     if "linked_group_id" in value:
-        pairs.append((f"{prefix}.LinkedGroupId", str(value["linked_group_id"])))
+        pairs.append((f"{key_prefix}LinkedGroupId", str(value["linked_group_id"])))
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
 
 

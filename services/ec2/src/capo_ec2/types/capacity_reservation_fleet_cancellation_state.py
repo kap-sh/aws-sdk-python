@@ -32,22 +32,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "current_fleet_state" in value:
         import capo_ec2.types.capacity_reservation_fleet_state
 
         capo_ec2.types.capacity_reservation_fleet_state.serialize_ec2_query(
-            value["current_fleet_state"], pairs, f"{prefix}.CurrentFleetState"
+            value["current_fleet_state"], pairs, f"{key_prefix}CurrentFleetState"
         )
     if "previous_fleet_state" in value:
         import capo_ec2.types.capacity_reservation_fleet_state
 
         capo_ec2.types.capacity_reservation_fleet_state.serialize_ec2_query(
-            value["previous_fleet_state"], pairs, f"{prefix}.PreviousFleetState"
+            value["previous_fleet_state"], pairs, f"{key_prefix}PreviousFleetState"
         )
     if "capacity_reservation_fleet_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityReservationFleetId",
+                f"{key_prefix}CapacityReservationFleetId",
                 str(value["capacity_reservation_fleet_id"]),
             )
         )

@@ -45,34 +45,37 @@ class ModifyIpamRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIpamRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "add_operating_regions" in value:
         import capo_ec2.types.add_ipam_operating_region_set
 
         capo_ec2.types.add_ipam_operating_region_set.serialize_ec2_query(
-            value["add_operating_regions"], pairs, f"{prefix}.AddOperatingRegions"
+            value["add_operating_regions"], pairs, f"{key_prefix}AddOperatingRegions"
         )
     if "remove_operating_regions" in value:
         import capo_ec2.types.remove_ipam_operating_region_set
 
         capo_ec2.types.remove_ipam_operating_region_set.serialize_ec2_query(
-            value["remove_operating_regions"], pairs, f"{prefix}.RemoveOperatingRegions"
+            value["remove_operating_regions"],
+            pairs,
+            f"{key_prefix}RemoveOperatingRegions",
         )
     if "tier" in value:
         import capo_ec2.types.ipam_tier
 
         capo_ec2.types.ipam_tier.serialize_ec2_query(
-            value["tier"], pairs, f"{prefix}.Tier"
+            value["tier"], pairs, f"{key_prefix}Tier"
         )
     if "enable_private_gua" in value:
         pairs.append(
             (
-                f"{prefix}.EnablePrivateGua",
+                f"{key_prefix}EnablePrivateGua",
                 "true" if value["enable_private_gua"] else "false",
             )
         )
@@ -80,7 +83,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ipam_metered_account
 
         capo_ec2.types.ipam_metered_account.serialize_ec2_query(
-            value["metered_account"], pairs, f"{prefix}.MeteredAccount"
+            value["metered_account"], pairs, f"{key_prefix}MeteredAccount"
         )
 
 

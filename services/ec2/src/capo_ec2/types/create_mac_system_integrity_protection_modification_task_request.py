@@ -47,21 +47,22 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "mac_credentials" in value:
-        pairs.append((f"{prefix}.MacCredentials", str(value["mac_credentials"])))
+        pairs.append((f"{key_prefix}MacCredentials", str(value["mac_credentials"])))
     if "mac_system_integrity_protection_configuration" in value:
         import capo_ec2.types.mac_system_integrity_protection_configuration_request
 
         capo_ec2.types.mac_system_integrity_protection_configuration_request.serialize_ec2_query(
             value["mac_system_integrity_protection_configuration"],
             pairs,
-            f"{prefix}.MacSystemIntegrityProtectionConfiguration",
+            f"{key_prefix}MacSystemIntegrityProtectionConfiguration",
         )
     if "mac_system_integrity_protection_status" in value:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
@@ -69,13 +70,13 @@ def serialize_ec2_query(
         capo_ec2.types.mac_system_integrity_protection_setting_status.serialize_ec2_query(
             value["mac_system_integrity_protection_status"],
             pairs,
-            f"{prefix}.MacSystemIntegrityProtectionStatus",
+            f"{key_prefix}MacSystemIntegrityProtectionStatus",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

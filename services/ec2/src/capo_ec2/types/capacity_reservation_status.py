@@ -28,20 +28,27 @@ class CapacityReservationStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "total_capacity" in value:
-        pairs.append((f"{prefix}.TotalCapacity", str(value["total_capacity"])))
+        pairs.append((f"{key_prefix}TotalCapacity", str(value["total_capacity"])))
     if "total_available_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalAvailableCapacity", str(value["total_available_capacity"]))
+            (
+                f"{key_prefix}TotalAvailableCapacity",
+                str(value["total_available_capacity"]),
+            )
         )
     if "total_unavailable_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.TotalUnavailableCapacity",
+                f"{key_prefix}TotalUnavailableCapacity",
                 str(value["total_unavailable_capacity"]),
             )
         )

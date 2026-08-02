@@ -68,12 +68,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "include_marketplace" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeMarketplace",
+                f"{key_prefix}IncludeMarketplace",
                 "true" if value["include_marketplace"] else "false",
             )
         )
@@ -81,25 +82,27 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "max_duration" in value:
-        pairs.append((f"{prefix}.MaxDuration", str(value["max_duration"])))
+        pairs.append((f"{key_prefix}MaxDuration", str(value["max_duration"])))
     if "max_instance_count" in value:
-        pairs.append((f"{prefix}.MaxInstanceCount", str(value["max_instance_count"])))
+        pairs.append(
+            (f"{key_prefix}MaxInstanceCount", str(value["max_instance_count"]))
+        )
     if "min_duration" in value:
-        pairs.append((f"{prefix}.MinDuration", str(value["min_duration"])))
+        pairs.append((f"{key_prefix}MinDuration", str(value["min_duration"])))
     if "offering_class" in value:
         import capo_ec2.types.offering_class_type
 
         capo_ec2.types.offering_class_type.serialize_ec2_query(
-            value["offering_class"], pairs, f"{prefix}.OfferingClass"
+            value["offering_class"], pairs, f"{key_prefix}OfferingClass"
         )
     if "product_description" in value:
         import capo_ec2.types.ri_product_description
 
         capo_ec2.types.ri_product_description.serialize_ec2_query(
-            value["product_description"], pairs, f"{prefix}.ProductDescription"
+            value["product_description"], pairs, f"{key_prefix}ProductDescription"
         )
     if "reserved_instances_offering_ids" in value:
         import capo_ec2.types.reserved_instances_offering_id_string_list
@@ -107,36 +110,36 @@ def serialize_ec2_query(
         capo_ec2.types.reserved_instances_offering_id_string_list.serialize_ec2_query(
             value["reserved_instances_offering_ids"],
             pairs,
-            f"{prefix}.ReservedInstancesOfferingIds",
+            f"{key_prefix}ReservedInstancesOfferingIds",
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "instance_tenancy" in value:
         import capo_ec2.types.tenancy
 
         capo_ec2.types.tenancy.serialize_ec2_query(
-            value["instance_tenancy"], pairs, f"{prefix}.InstanceTenancy"
+            value["instance_tenancy"], pairs, f"{key_prefix}InstanceTenancy"
         )
     if "offering_type" in value:
         import capo_ec2.types.offering_type_values
 
         capo_ec2.types.offering_type_values.serialize_ec2_query(
-            value["offering_type"], pairs, f"{prefix}.OfferingType"
+            value["offering_type"], pairs, f"{key_prefix}OfferingType"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesOfferingsRequest:

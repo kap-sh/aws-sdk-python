@@ -30,32 +30,33 @@ class DescribeAvailabilityZonesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeAvailabilityZonesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "zone_names" in value:
         import capo_ec2.types.zone_name_string_list
 
         capo_ec2.types.zone_name_string_list.serialize_ec2_query(
-            value["zone_names"], pairs, f"{prefix}.ZoneNames"
+            value["zone_names"], pairs, f"{key_prefix}ZoneNames"
         )
     if "zone_ids" in value:
         import capo_ec2.types.zone_id_string_list
 
         capo_ec2.types.zone_id_string_list.serialize_ec2_query(
-            value["zone_ids"], pairs, f"{prefix}.ZoneIds"
+            value["zone_ids"], pairs, f"{key_prefix}ZoneIds"
         )
     if "all_availability_zones" in value:
         pairs.append(
             (
-                f"{prefix}.AllAvailabilityZones",
+                f"{key_prefix}AllAvailabilityZones",
                 "true" if value["all_availability_zones"] else "false",
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
 
 

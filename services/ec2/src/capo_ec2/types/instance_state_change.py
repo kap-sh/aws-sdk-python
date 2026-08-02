@@ -24,19 +24,20 @@ class InstanceStateChange(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceStateChange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "current_state" in value:
         import capo_ec2.types.instance_state
 
         capo_ec2.types.instance_state.serialize_ec2_query(
-            value["current_state"], pairs, f"{prefix}.CurrentState"
+            value["current_state"], pairs, f"{key_prefix}CurrentState"
         )
     if "previous_state" in value:
         import capo_ec2.types.instance_state
 
         capo_ec2.types.instance_state.serialize_ec2_query(
-            value["previous_state"], pairs, f"{prefix}.PreviousState"
+            value["previous_state"], pairs, f"{key_prefix}PreviousState"
         )
 
 

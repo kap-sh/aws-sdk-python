@@ -20,11 +20,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine_defaults" in value:
         import capo_rds.types.engine_defaults
 
         capo_rds.types.engine_defaults.serialize_query(
-            value["engine_defaults"], pairs, f"{prefix}.EngineDefaults"
+            value["engine_defaults"], pairs, f"{key_prefix}EngineDefaults"
         )
 
 

@@ -188,73 +188,76 @@ class RunInstancesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RunInstancesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "block_device_mappings" in value:
         import capo_ec2.types.block_device_mapping_request_list
 
         capo_ec2.types.block_device_mapping_request_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "ipv6_address_count" in value:
-        pairs.append((f"{prefix}.Ipv6AddressCount", str(value["ipv6_address_count"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6AddressCount", str(value["ipv6_address_count"]))
+        )
     if "ipv6_addresses" in value:
         import capo_ec2.types.instance_ipv6_address_list
 
         capo_ec2.types.instance_ipv6_address_list.serialize_ec2_query(
-            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6Addresses"
+            value["ipv6_addresses"], pairs, f"{key_prefix}Ipv6Addresses"
         )
     if "kernel_id" in value:
-        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+        pairs.append((f"{key_prefix}KernelId", str(value["kernel_id"])))
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "max_count" in value:
-        pairs.append((f"{prefix}.MaxCount", str(value["max_count"])))
+        pairs.append((f"{key_prefix}MaxCount", str(value["max_count"])))
     if "min_count" in value:
-        pairs.append((f"{prefix}.MinCount", str(value["min_count"])))
+        pairs.append((f"{key_prefix}MinCount", str(value["min_count"])))
     if "monitoring" in value:
         import capo_ec2.types.run_instances_monitoring_enabled
 
         capo_ec2.types.run_instances_monitoring_enabled.serialize_ec2_query(
-            value["monitoring"], pairs, f"{prefix}.Monitoring"
+            value["monitoring"], pairs, f"{key_prefix}Monitoring"
         )
     if "placement" in value:
         import capo_ec2.types.placement
 
         capo_ec2.types.placement.serialize_ec2_query(
-            value["placement"], pairs, f"{prefix}.Placement"
+            value["placement"], pairs, f"{key_prefix}Placement"
         )
     if "ramdisk_id" in value:
-        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+        pairs.append((f"{key_prefix}RamdiskId", str(value["ramdisk_id"])))
     if "security_group_ids" in value:
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "security_groups" in value:
         import capo_ec2.types.security_group_string_list
 
         capo_ec2.types.security_group_string_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "user_data" in value:
-        pairs.append((f"{prefix}.UserData", str(value["user_data"])))
+        pairs.append((f"{key_prefix}UserData", str(value["user_data"])))
     if "elastic_gpu_specification" in value:
         import capo_ec2.types.elastic_gpu_specifications
 
         capo_ec2.types.elastic_gpu_specifications.serialize_ec2_query(
             value["elastic_gpu_specification"],
             pairs,
-            f"{prefix}.ElasticGpuSpecification",
+            f"{key_prefix}ElasticGpuSpecification",
         )
     if "elastic_inference_accelerators" in value:
         import capo_ec2.types.elastic_inference_accelerators
@@ -262,37 +265,39 @@ def serialize_ec2_query(
         capo_ec2.types.elastic_inference_accelerators.serialize_ec2_query(
             value["elastic_inference_accelerators"],
             pairs,
-            f"{prefix}.ElasticInferenceAccelerators",
+            f"{key_prefix}ElasticInferenceAccelerators",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "launch_template" in value:
         import capo_ec2.types.launch_template_specification
 
         capo_ec2.types.launch_template_specification.serialize_ec2_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "instance_market_options" in value:
         import capo_ec2.types.instance_market_options_request
 
         capo_ec2.types.instance_market_options_request.serialize_ec2_query(
-            value["instance_market_options"], pairs, f"{prefix}.InstanceMarketOptions"
+            value["instance_market_options"],
+            pairs,
+            f"{key_prefix}InstanceMarketOptions",
         )
     if "credit_specification" in value:
         import capo_ec2.types.credit_specification_request
 
         capo_ec2.types.credit_specification_request.serialize_ec2_query(
-            value["credit_specification"], pairs, f"{prefix}.CreditSpecification"
+            value["credit_specification"], pairs, f"{key_prefix}CreditSpecification"
         )
     if "cpu_options" in value:
         import capo_ec2.types.cpu_options_request
 
         capo_ec2.types.cpu_options_request.serialize_ec2_query(
-            value["cpu_options"], pairs, f"{prefix}.CpuOptions"
+            value["cpu_options"], pairs, f"{key_prefix}CpuOptions"
         )
     if "capacity_reservation_specification" in value:
         import capo_ec2.types.capacity_reservation_specification
@@ -300,55 +305,57 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_reservation_specification.serialize_ec2_query(
             value["capacity_reservation_specification"],
             pairs,
-            f"{prefix}.CapacityReservationSpecification",
+            f"{key_prefix}CapacityReservationSpecification",
         )
     if "hibernation_options" in value:
         import capo_ec2.types.hibernation_options_request
 
         capo_ec2.types.hibernation_options_request.serialize_ec2_query(
-            value["hibernation_options"], pairs, f"{prefix}.HibernationOptions"
+            value["hibernation_options"], pairs, f"{key_prefix}HibernationOptions"
         )
     if "license_specifications" in value:
         import capo_ec2.types.license_specification_list_request
 
         capo_ec2.types.license_specification_list_request.serialize_ec2_query(
-            value["license_specifications"], pairs, f"{prefix}.LicenseSpecifications"
+            value["license_specifications"], pairs, f"{key_prefix}LicenseSpecifications"
         )
     if "metadata_options" in value:
         import capo_ec2.types.instance_metadata_options_request
 
         capo_ec2.types.instance_metadata_options_request.serialize_ec2_query(
-            value["metadata_options"], pairs, f"{prefix}.MetadataOptions"
+            value["metadata_options"], pairs, f"{key_prefix}MetadataOptions"
         )
     if "enclave_options" in value:
         import capo_ec2.types.enclave_options_request
 
         capo_ec2.types.enclave_options_request.serialize_ec2_query(
-            value["enclave_options"], pairs, f"{prefix}.EnclaveOptions"
+            value["enclave_options"], pairs, f"{key_prefix}EnclaveOptions"
         )
     if "private_dns_name_options" in value:
         import capo_ec2.types.private_dns_name_options_request
 
         capo_ec2.types.private_dns_name_options_request.serialize_ec2_query(
-            value["private_dns_name_options"], pairs, f"{prefix}.PrivateDnsNameOptions"
+            value["private_dns_name_options"],
+            pairs,
+            f"{key_prefix}PrivateDnsNameOptions",
         )
     if "maintenance_options" in value:
         import capo_ec2.types.instance_maintenance_options_request
 
         capo_ec2.types.instance_maintenance_options_request.serialize_ec2_query(
-            value["maintenance_options"], pairs, f"{prefix}.MaintenanceOptions"
+            value["maintenance_options"], pairs, f"{key_prefix}MaintenanceOptions"
         )
     if "disable_api_stop" in value:
         pairs.append(
             (
-                f"{prefix}.DisableApiStop",
+                f"{key_prefix}DisableApiStop",
                 "true" if value["disable_api_stop"] else "false",
             )
         )
     if "enable_primary_ipv6" in value:
         pairs.append(
             (
-                f"{prefix}.EnablePrimaryIpv6",
+                f"{key_prefix}EnablePrimaryIpv6",
                 "true" if value["enable_primary_ipv6"] else "false",
             )
         )
@@ -358,26 +365,26 @@ def serialize_ec2_query(
         capo_ec2.types.instance_network_performance_options_request.serialize_ec2_query(
             value["network_performance_options"],
             pairs,
-            f"{prefix}.NetworkPerformanceOptions",
+            f"{key_prefix}NetworkPerformanceOptions",
         )
     if "operator" in value:
         import capo_ec2.types.operator_request
 
         capo_ec2.types.operator_request.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "secondary_interfaces" in value:
         import capo_ec2.types.instance_secondary_interface_specification_list_request
 
         capo_ec2.types.instance_secondary_interface_specification_list_request.serialize_ec2_query(
-            value["secondary_interfaces"], pairs, f"{prefix}.SecondaryInterfaces"
+            value["secondary_interfaces"], pairs, f"{key_prefix}SecondaryInterfaces"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "disable_api_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DisableApiTermination",
+                f"{key_prefix}DisableApiTermination",
                 "true" if value["disable_api_termination"] else "false",
             )
         )
@@ -387,29 +394,31 @@ def serialize_ec2_query(
         capo_ec2.types.shutdown_behavior.serialize_ec2_query(
             value["instance_initiated_shutdown_behavior"],
             pairs,
-            f"{prefix}.InstanceInitiatedShutdownBehavior",
+            f"{key_prefix}InstanceInitiatedShutdownBehavior",
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "additional_info" in value:
-        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+        pairs.append((f"{key_prefix}AdditionalInfo", str(value["additional_info"])))
     if "network_interfaces" in value:
         import capo_ec2.types.instance_network_interface_specification_list
 
         capo_ec2.types.instance_network_interface_specification_list.serialize_ec2_query(
-            value["network_interfaces"], pairs, f"{prefix}.NetworkInterface"
+            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterface"
         )
     if "iam_instance_profile" in value:
         import capo_ec2.types.iam_instance_profile_specification
 
         capo_ec2.types.iam_instance_profile_specification.serialize_ec2_query(
-            value["iam_instance_profile"], pairs, f"{prefix}.IamInstanceProfile"
+            value["iam_instance_profile"], pairs, f"{key_prefix}IamInstanceProfile"
         )
     if "ebs_optimized" in value:
         pairs.append(
-            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+            (f"{key_prefix}EbsOptimized", "true" if value["ebs_optimized"] else "false")
         )
 
 

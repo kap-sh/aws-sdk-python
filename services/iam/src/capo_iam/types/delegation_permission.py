@@ -24,13 +24,16 @@ class DelegationPermission(TypedDict, closed=True):
 def serialize_query(
     value: DelegationPermission, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_template_arn" in value:
-        pairs.append((f"{prefix}.PolicyTemplateArn", str(value["policy_template_arn"])))
+        pairs.append(
+            (f"{key_prefix}PolicyTemplateArn", str(value["policy_template_arn"]))
+        )
     if "parameters" in value:
         import capo_iam.types.policy_parameter_list_type
 
         capo_iam.types.policy_parameter_list_type.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
 
 

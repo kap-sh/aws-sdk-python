@@ -63,12 +63,13 @@ class SimulatePrincipalPolicyRequest(TypedDict, closed=True):
 def serialize_query(
     value: SimulatePrincipalPolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicySourceArn", str(value["policy_source_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicySourceArn", str(value["policy_source_arn"])))
     if "policy_input_list" in value:
         import capo_iam.types.simulation_policy_list_type
 
         capo_iam.types.simulation_policy_list_type.serialize_query(
-            value["policy_input_list"], pairs, f"{prefix}.PolicyInputList"
+            value["policy_input_list"], pairs, f"{key_prefix}PolicyInputList"
         )
     if "permissions_boundary_policy_input_list" in value:
         import capo_iam.types.simulation_policy_list_type
@@ -76,39 +77,42 @@ def serialize_query(
         capo_iam.types.simulation_policy_list_type.serialize_query(
             value["permissions_boundary_policy_input_list"],
             pairs,
-            f"{prefix}.PermissionsBoundaryPolicyInputList",
+            f"{key_prefix}PermissionsBoundaryPolicyInputList",
         )
     import capo_iam.types.action_name_list_type
 
     capo_iam.types.action_name_list_type.serialize_query(
-        value["action_names"], pairs, f"{prefix}.ActionNames"
+        value["action_names"], pairs, f"{key_prefix}ActionNames"
     )
     if "resource_arns" in value:
         import capo_iam.types.resource_name_list_type
 
         capo_iam.types.resource_name_list_type.serialize_query(
-            value["resource_arns"], pairs, f"{prefix}.ResourceArns"
+            value["resource_arns"], pairs, f"{key_prefix}ResourceArns"
         )
     if "resource_policy" in value:
-        pairs.append((f"{prefix}.ResourcePolicy", str(value["resource_policy"])))
+        pairs.append((f"{key_prefix}ResourcePolicy", str(value["resource_policy"])))
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
     if "caller_arn" in value:
-        pairs.append((f"{prefix}.CallerArn", str(value["caller_arn"])))
+        pairs.append((f"{key_prefix}CallerArn", str(value["caller_arn"])))
     if "context_entries" in value:
         import capo_iam.types.context_entry_list_type
 
         capo_iam.types.context_entry_list_type.serialize_query(
-            value["context_entries"], pairs, f"{prefix}.ContextEntries"
+            value["context_entries"], pairs, f"{key_prefix}ContextEntries"
         )
     if "resource_handling_option" in value:
         pairs.append(
-            (f"{prefix}.ResourceHandlingOption", str(value["resource_handling_option"]))
+            (
+                f"{key_prefix}ResourceHandlingOption",
+                str(value["resource_handling_option"]),
+            )
         )
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> SimulatePrincipalPolicyRequest:

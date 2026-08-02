@@ -41,39 +41,42 @@ class CreateDBProxyEndpointRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBProxyEndpointRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "db_proxy_endpoint_name" in value:
         pairs.append(
-            (f"{prefix}.DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
+            (f"{key_prefix}DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
         )
     if "vpc_subnet_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_subnet_ids"], pairs, f"{prefix}.VpcSubnetIds"
+            value["vpc_subnet_ids"], pairs, f"{key_prefix}VpcSubnetIds"
         )
     if "vpc_security_group_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "target_role" in value:
         import capo_rds.types.db_proxy_endpoint_target_role
 
         capo_rds.types.db_proxy_endpoint_target_role.serialize_query(
-            value["target_role"], pairs, f"{prefix}.TargetRole"
+            value["target_role"], pairs, f"{key_prefix}TargetRole"
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "endpoint_network_type" in value:
         import capo_rds.types.endpoint_network_type
 
         capo_rds.types.endpoint_network_type.serialize_query(
-            value["endpoint_network_type"], pairs, f"{prefix}.EndpointNetworkType"
+            value["endpoint_network_type"], pairs, f"{key_prefix}EndpointNetworkType"
         )
 
 

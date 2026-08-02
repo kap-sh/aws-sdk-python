@@ -19,8 +19,9 @@ class CidrBlock(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CidrBlock, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
 
 
 def deserialize_ec2_query(el: Element) -> CidrBlock:

@@ -34,32 +34,33 @@ class KeyPairInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: KeyPairInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_pair_id" in value:
-        pairs.append((f"{prefix}.KeyPairId", str(value["key_pair_id"])))
+        pairs.append((f"{key_prefix}KeyPairId", str(value["key_pair_id"])))
     if "key_type" in value:
         import capo_ec2.types.key_type
 
         capo_ec2.types.key_type.serialize_ec2_query(
-            value["key_type"], pairs, f"{prefix}.KeyType"
+            value["key_type"], pairs, f"{key_prefix}KeyType"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "public_key" in value:
-        pairs.append((f"{prefix}.PublicKey", str(value["public_key"])))
+        pairs.append((f"{key_prefix}PublicKey", str(value["public_key"])))
     if "create_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "key_fingerprint" in value:
-        pairs.append((f"{prefix}.KeyFingerprint", str(value["key_fingerprint"])))
+        pairs.append((f"{key_prefix}KeyFingerprint", str(value["key_fingerprint"])))
 
 
 def deserialize_ec2_query(el: Element) -> KeyPairInfo:

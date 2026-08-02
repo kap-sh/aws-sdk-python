@@ -34,27 +34,28 @@ class ImportVolumeTaskDetails(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportVolumeTaskDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "bytes_converted" in value:
-        pairs.append((f"{prefix}.BytesConverted", str(value["bytes_converted"])))
+        pairs.append((f"{key_prefix}BytesConverted", str(value["bytes_converted"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "image" in value:
         import capo_ec2.types.disk_image_description
 
         capo_ec2.types.disk_image_description.serialize_ec2_query(
-            value["image"], pairs, f"{prefix}.Image"
+            value["image"], pairs, f"{key_prefix}Image"
         )
     if "volume" in value:
         import capo_ec2.types.disk_image_volume_description
 
         capo_ec2.types.disk_image_volume_description.serialize_ec2_query(
-            value["volume"], pairs, f"{prefix}.Volume"
+            value["volume"], pairs, f"{key_prefix}Volume"
         )
 
 

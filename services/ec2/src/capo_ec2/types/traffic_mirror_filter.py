@@ -38,35 +38,39 @@ class TrafficMirrorFilter(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TrafficMirrorFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_filter_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+            (
+                f"{key_prefix}TrafficMirrorFilterId",
+                str(value["traffic_mirror_filter_id"]),
+            )
         )
     if "ingress_filter_rules" in value:
         import capo_ec2.types.traffic_mirror_filter_rule_list
 
         capo_ec2.types.traffic_mirror_filter_rule_list.serialize_ec2_query(
-            value["ingress_filter_rules"], pairs, f"{prefix}.IngressFilterRuleSet"
+            value["ingress_filter_rules"], pairs, f"{key_prefix}IngressFilterRuleSet"
         )
     if "egress_filter_rules" in value:
         import capo_ec2.types.traffic_mirror_filter_rule_list
 
         capo_ec2.types.traffic_mirror_filter_rule_list.serialize_ec2_query(
-            value["egress_filter_rules"], pairs, f"{prefix}.EgressFilterRuleSet"
+            value["egress_filter_rules"], pairs, f"{key_prefix}EgressFilterRuleSet"
         )
     if "network_services" in value:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         capo_ec2.types.traffic_mirror_network_service_list.serialize_ec2_query(
-            value["network_services"], pairs, f"{prefix}.NetworkServiceSet"
+            value["network_services"], pairs, f"{key_prefix}NetworkServiceSet"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

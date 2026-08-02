@@ -24,15 +24,18 @@ class StopActivityStreamResponse(TypedDict, closed=True):
 def serialize_query(
     value: StopActivityStreamResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "kinesis_stream_name" in value:
-        pairs.append((f"{prefix}.KinesisStreamName", str(value["kinesis_stream_name"])))
+        pairs.append(
+            (f"{key_prefix}KinesisStreamName", str(value["kinesis_stream_name"]))
+        )
     if "status" in value:
         import capo_rds.types.activity_stream_status
 
         capo_rds.types.activity_stream_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

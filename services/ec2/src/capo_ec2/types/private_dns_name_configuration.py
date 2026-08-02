@@ -26,18 +26,19 @@ class PrivateDnsNameConfiguration(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PrivateDnsNameConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.dns_name_state
 
         capo_ec2.types.dns_name_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
 
 
 def deserialize_ec2_query(el: Element) -> PrivateDnsNameConfiguration:

@@ -25,15 +25,16 @@ class DiskInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DiskInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "size_in_gb" in value:
-        pairs.append((f"{prefix}.SizeInGB", str(value["size_in_gb"])))
+        pairs.append((f"{key_prefix}SizeInGB", str(value["size_in_gb"])))
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "type" in value:
         import capo_ec2.types.disk_type
 
         capo_ec2.types.disk_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
 
 

@@ -27,10 +27,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "from_port" in value:
-        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+        pairs.append((f"{key_prefix}FromPort", str(value["from_port"])))
     if "to_port" in value:
-        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+        pairs.append((f"{key_prefix}ToPort", str(value["to_port"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessEndpointPortRange:

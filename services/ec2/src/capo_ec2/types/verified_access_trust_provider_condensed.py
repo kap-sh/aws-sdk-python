@@ -38,26 +38,29 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_trust_provider_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessTrustProviderId",
+                f"{key_prefix}VerifiedAccessTrustProviderId",
                 str(value["verified_access_trust_provider_id"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "trust_provider_type" in value:
         import capo_ec2.types.trust_provider_type
 
         capo_ec2.types.trust_provider_type.serialize_ec2_query(
-            value["trust_provider_type"], pairs, f"{prefix}.TrustProviderType"
+            value["trust_provider_type"], pairs, f"{key_prefix}TrustProviderType"
         )
     if "user_trust_provider_type" in value:
         import capo_ec2.types.user_trust_provider_type
 
         capo_ec2.types.user_trust_provider_type.serialize_ec2_query(
-            value["user_trust_provider_type"], pairs, f"{prefix}.UserTrustProviderType"
+            value["user_trust_provider_type"],
+            pairs,
+            f"{key_prefix}UserTrustProviderType",
         )
     if "device_trust_provider_type" in value:
         import capo_ec2.types.device_trust_provider_type
@@ -65,7 +68,7 @@ def serialize_ec2_query(
         capo_ec2.types.device_trust_provider_type.serialize_ec2_query(
             value["device_trust_provider_type"],
             pairs,
-            f"{prefix}.DeviceTrustProviderType",
+            f"{key_prefix}DeviceTrustProviderType",
         )
 
 

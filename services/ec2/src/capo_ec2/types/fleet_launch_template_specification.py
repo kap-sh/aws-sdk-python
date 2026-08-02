@@ -26,14 +26,17 @@ class FleetLaunchTemplateSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FleetLaunchTemplateSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_id" in value:
-        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+        pairs.append(
+            (f"{key_prefix}LaunchTemplateId", str(value["launch_template_id"]))
+        )
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "version" in value:
-        pairs.append((f"{prefix}.Version", str(value["version"])))
+        pairs.append((f"{key_prefix}Version", str(value["version"])))
 
 
 def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateSpecification:

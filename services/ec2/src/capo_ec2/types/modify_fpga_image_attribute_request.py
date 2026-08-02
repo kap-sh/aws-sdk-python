@@ -53,50 +53,51 @@ class ModifyFpgaImageAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyFpgaImageAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "fpga_image_id" in value:
-        pairs.append((f"{prefix}.FpgaImageId", str(value["fpga_image_id"])))
+        pairs.append((f"{key_prefix}FpgaImageId", str(value["fpga_image_id"])))
     if "attribute" in value:
         import capo_ec2.types.fpga_image_attribute_name
 
         capo_ec2.types.fpga_image_attribute_name.serialize_ec2_query(
-            value["attribute"], pairs, f"{prefix}.Attribute"
+            value["attribute"], pairs, f"{key_prefix}Attribute"
         )
     if "operation_type" in value:
         import capo_ec2.types.operation_type
 
         capo_ec2.types.operation_type.serialize_ec2_query(
-            value["operation_type"], pairs, f"{prefix}.OperationType"
+            value["operation_type"], pairs, f"{key_prefix}OperationType"
         )
     if "user_ids" in value:
         import capo_ec2.types.user_id_string_list
 
         capo_ec2.types.user_id_string_list.serialize_ec2_query(
-            value["user_ids"], pairs, f"{prefix}.UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserIds"
         )
     if "user_groups" in value:
         import capo_ec2.types.user_group_string_list
 
         capo_ec2.types.user_group_string_list.serialize_ec2_query(
-            value["user_groups"], pairs, f"{prefix}.UserGroups"
+            value["user_groups"], pairs, f"{key_prefix}UserGroups"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_string_list
 
         capo_ec2.types.product_code_string_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "load_permission" in value:
         import capo_ec2.types.load_permission_modifications
 
         capo_ec2.types.load_permission_modifications.serialize_ec2_query(
-            value["load_permission"], pairs, f"{prefix}.LoadPermission"
+            value["load_permission"], pairs, f"{key_prefix}LoadPermission"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyFpgaImageAttributeRequest:

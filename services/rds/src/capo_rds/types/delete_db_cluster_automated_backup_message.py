@@ -21,9 +21,10 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_resource_id" in value:
         pairs.append(
-            (f"{prefix}.DbClusterResourceId", str(value["db_cluster_resource_id"]))
+            (f"{key_prefix}DbClusterResourceId", str(value["db_cluster_resource_id"]))
         )
 
 

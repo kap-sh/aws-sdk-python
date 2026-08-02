@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_connect_endpoint" in value:
         import capo_ec2.types.ec2_instance_connect_endpoint
 
         capo_ec2.types.ec2_instance_connect_endpoint.serialize_ec2_query(
             value["instance_connect_endpoint"],
             pairs,
-            f"{prefix}.InstanceConnectEndpoint",
+            f"{key_prefix}InstanceConnectEndpoint",
         )
 
 

@@ -31,27 +31,28 @@ class StartActivityStreamRequest(TypedDict, closed=True):
 def serialize_query(
     value: StartActivityStreamRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     if "mode" in value:
         import capo_rds.types.activity_stream_mode
 
         capo_rds.types.activity_stream_mode.serialize_query(
-            value["mode"], pairs, f"{prefix}.Mode"
+            value["mode"], pairs, f"{key_prefix}Mode"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "apply_immediately" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyImmediately",
+                f"{key_prefix}ApplyImmediately",
                 "true" if value["apply_immediately"] else "false",
             )
         )
     if "engine_native_audit_fields_included" in value:
         pairs.append(
             (
-                f"{prefix}.EngineNativeAuditFieldsIncluded",
+                f"{key_prefix}EngineNativeAuditFieldsIncluded",
                 "true" if value["engine_native_audit_fields_included"] else "false",
             )
         )

@@ -26,14 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "non_compliant_resources" in value:
         import capo_ec2.types.vpc_encryption_non_compliant_resource_list
 
         capo_ec2.types.vpc_encryption_non_compliant_resource_list.serialize_ec2_query(
-            value["non_compliant_resources"], pairs, f"{prefix}.NonCompliantResourceSet"
+            value["non_compliant_resources"],
+            pairs,
+            f"{key_prefix}NonCompliantResourceSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(

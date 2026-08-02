@@ -70,90 +70,93 @@ class Volume(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Volume, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "source_volume_id" in value:
-        pairs.append((f"{prefix}.SourceVolumeId", str(value["source_volume_id"])))
+        pairs.append((f"{key_prefix}SourceVolumeId", str(value["source_volume_id"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["volume_type"], pairs, f"{prefix}.VolumeType"
+            value["volume_type"], pairs, f"{key_prefix}VolumeType"
         )
     if "fast_restored" in value:
         pairs.append(
-            (f"{prefix}.FastRestored", "true" if value["fast_restored"] else "false")
+            (f"{key_prefix}FastRestored", "true" if value["fast_restored"] else "false")
         )
     if "multi_attach_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.MultiAttachEnabled",
+                f"{key_prefix}MultiAttachEnabled",
                 "true" if value["multi_attach_enabled"] else "false",
             )
         )
     if "throughput" in value:
-        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+        pairs.append((f"{key_prefix}Throughput", str(value["throughput"])))
     if "sse_type" in value:
         import capo_ec2.types.sse_type
 
         capo_ec2.types.sse_type.serialize_ec2_query(
-            value["sse_type"], pairs, f"{prefix}.SseType"
+            value["sse_type"], pairs, f"{key_prefix}SseType"
         )
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "volume_initialization_rate" in value:
         pairs.append(
             (
-                f"{prefix}.VolumeInitializationRate",
+                f"{key_prefix}VolumeInitializationRate",
                 str(value["volume_initialization_rate"]),
             )
         )
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "state" in value:
         import capo_ec2.types.volume_state
 
         capo_ec2.types.volume_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.Status"
+            value["state"], pairs, f"{key_prefix}Status"
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "attachments" in value:
         import capo_ec2.types.volume_attachment_list
 
         capo_ec2.types.volume_attachment_list.serialize_ec2_query(
-            value["attachments"], pairs, f"{prefix}.AttachmentSet"
+            value["attachments"], pairs, f"{key_prefix}AttachmentSet"
         )
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> Volume:

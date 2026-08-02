@@ -22,10 +22,13 @@ class PrivateIpAddressSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PrivateIpAddressSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "primary" in value:
-        pairs.append((f"{prefix}.Primary", "true" if value["primary"] else "false"))
+        pairs.append((f"{key_prefix}Primary", "true" if value["primary"] else "false"))
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> PrivateIpAddressSpecification:

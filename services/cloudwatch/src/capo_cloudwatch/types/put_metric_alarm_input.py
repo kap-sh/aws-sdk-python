@@ -319,14 +319,15 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
 def serialize_query(
     value: PutMetricAlarmInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "alarm_description" in value:
-        pairs.append((f"{prefix}.AlarmDescription", str(value["alarm_description"])))
+        pairs.append((f"{key_prefix}AlarmDescription", str(value["alarm_description"])))
     if "actions_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ActionsEnabled",
+                f"{key_prefix}ActionsEnabled",
                 "true" if value["actions_enabled"] else "false",
             )
         )
@@ -334,13 +335,13 @@ def serialize_query(
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
-            value["ok_actions"], pairs, f"{prefix}.OKActions"
+            value["ok_actions"], pairs, f"{key_prefix}OKActions"
         )
     if "alarm_actions" in value:
         import capo_cloudwatch.types.resource_list
 
         capo_cloudwatch.types.resource_list.serialize_query(
-            value["alarm_actions"], pairs, f"{prefix}.AlarmActions"
+            value["alarm_actions"], pairs, f"{key_prefix}AlarmActions"
         )
     if "insufficient_data_actions" in value:
         import capo_cloudwatch.types.resource_list
@@ -348,52 +349,60 @@ def serialize_query(
         capo_cloudwatch.types.resource_list.serialize_query(
             value["insufficient_data_actions"],
             pairs,
-            f"{prefix}.InsufficientDataActions",
+            f"{key_prefix}InsufficientDataActions",
         )
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "statistic" in value:
         import capo_cloudwatch.types.statistic
 
         capo_cloudwatch.types.statistic.serialize_query(
-            value["statistic"], pairs, f"{prefix}.Statistic"
+            value["statistic"], pairs, f"{key_prefix}Statistic"
         )
     if "extended_statistic" in value:
-        pairs.append((f"{prefix}.ExtendedStatistic", str(value["extended_statistic"])))
+        pairs.append(
+            (f"{key_prefix}ExtendedStatistic", str(value["extended_statistic"]))
+        )
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "unit" in value:
         import capo_cloudwatch.types.standard_unit
 
         capo_cloudwatch.types.standard_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
     if "evaluation_periods" in value:
-        pairs.append((f"{prefix}.EvaluationPeriods", str(value["evaluation_periods"])))
+        pairs.append(
+            (f"{key_prefix}EvaluationPeriods", str(value["evaluation_periods"]))
+        )
     if "datapoints_to_alarm" in value:
-        pairs.append((f"{prefix}.DatapointsToAlarm", str(value["datapoints_to_alarm"])))
+        pairs.append(
+            (f"{key_prefix}DatapointsToAlarm", str(value["datapoints_to_alarm"]))
+        )
     if "threshold" in value:
-        pairs.append((f"{prefix}.Threshold", str(value["threshold"])))
+        pairs.append((f"{key_prefix}Threshold", str(value["threshold"])))
     if "comparison_operator" in value:
         import capo_cloudwatch.types.comparison_operator
 
         capo_cloudwatch.types.comparison_operator.serialize_query(
-            value["comparison_operator"], pairs, f"{prefix}.ComparisonOperator"
+            value["comparison_operator"], pairs, f"{key_prefix}ComparisonOperator"
         )
     if "treat_missing_data" in value:
-        pairs.append((f"{prefix}.TreatMissingData", str(value["treat_missing_data"])))
+        pairs.append(
+            (f"{key_prefix}TreatMissingData", str(value["treat_missing_data"]))
+        )
     if "evaluate_low_sample_count_percentile" in value:
         pairs.append(
             (
-                f"{prefix}.EvaluateLowSampleCountPercentile",
+                f"{key_prefix}EvaluateLowSampleCountPercentile",
                 str(value["evaluate_low_sample_count_percentile"]),
             )
         )
@@ -401,25 +410,27 @@ def serialize_query(
         import capo_cloudwatch.types.metric_data_queries
 
         capo_cloudwatch.types.metric_data_queries.serialize_query(
-            value["metrics"], pairs, f"{prefix}.Metrics"
+            value["metrics"], pairs, f"{key_prefix}Metrics"
         )
     if "tags" in value:
         import capo_cloudwatch.types.tag_list
 
         capo_cloudwatch.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "threshold_metric_id" in value:
-        pairs.append((f"{prefix}.ThresholdMetricId", str(value["threshold_metric_id"])))
+        pairs.append(
+            (f"{key_prefix}ThresholdMetricId", str(value["threshold_metric_id"]))
+        )
     if "evaluation_criteria" in value:
         import capo_cloudwatch.types.evaluation_criteria
 
         capo_cloudwatch.types.evaluation_criteria.serialize_query(
-            value["evaluation_criteria"], pairs, f"{prefix}.EvaluationCriteria"
+            value["evaluation_criteria"], pairs, f"{key_prefix}EvaluationCriteria"
         )
     if "evaluation_interval" in value:
         pairs.append(
-            (f"{prefix}.EvaluationInterval", str(value["evaluation_interval"]))
+            (f"{key_prefix}EvaluationInterval", str(value["evaluation_interval"]))
         )
 
 

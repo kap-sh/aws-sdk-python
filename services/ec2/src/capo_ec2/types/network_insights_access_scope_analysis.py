@@ -53,24 +53,25 @@ class NetworkInsightsAccessScopeAnalysis(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInsightsAccessScopeAnalysis, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_access_scope_analysis_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeAnalysisId",
+                f"{key_prefix}NetworkInsightsAccessScopeAnalysisId",
                 str(value["network_insights_access_scope_analysis_id"]),
             )
         )
     if "network_insights_access_scope_analysis_arn" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeAnalysisArn",
+                f"{key_prefix}NetworkInsightsAccessScopeAnalysisArn",
                 str(value["network_insights_access_scope_analysis_arn"]),
             )
         )
     if "network_insights_access_scope_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeId",
+                f"{key_prefix}NetworkInsightsAccessScopeId",
                 str(value["network_insights_access_scope_id"]),
             )
         )
@@ -78,37 +79,39 @@ def serialize_ec2_query(
         import capo_ec2.types.analysis_status
 
         capo_ec2.types.analysis_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "warning_message" in value:
-        pairs.append((f"{prefix}.WarningMessage", str(value["warning_message"])))
+        pairs.append((f"{key_prefix}WarningMessage", str(value["warning_message"])))
     if "start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "findings_found" in value:
         import capo_ec2.types.findings_found
 
         capo_ec2.types.findings_found.serialize_ec2_query(
-            value["findings_found"], pairs, f"{prefix}.FindingsFound"
+            value["findings_found"], pairs, f"{key_prefix}FindingsFound"
         )
     if "analyzed_eni_count" in value:
-        pairs.append((f"{prefix}.AnalyzedEniCount", str(value["analyzed_eni_count"])))
+        pairs.append(
+            (f"{key_prefix}AnalyzedEniCount", str(value["analyzed_eni_count"]))
+        )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

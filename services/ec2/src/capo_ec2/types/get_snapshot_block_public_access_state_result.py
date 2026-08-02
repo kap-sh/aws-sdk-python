@@ -26,17 +26,18 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.snapshot_block_public_access_state
 
         capo_ec2.types.snapshot_block_public_access_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "managed_by" in value:
         import capo_ec2.types.managed_by
 
         capo_ec2.types.managed_by.serialize_ec2_query(
-            value["managed_by"], pairs, f"{prefix}.ManagedBy"
+            value["managed_by"], pairs, f"{key_prefix}ManagedBy"
         )
 
 

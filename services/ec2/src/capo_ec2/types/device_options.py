@@ -21,11 +21,12 @@ class DeviceOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeviceOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tenant_id" in value:
-        pairs.append((f"{prefix}.TenantId", str(value["tenant_id"])))
+        pairs.append((f"{key_prefix}TenantId", str(value["tenant_id"])))
     if "public_signing_key_url" in value:
         pairs.append(
-            (f"{prefix}.PublicSigningKeyUrl", str(value["public_signing_key_url"]))
+            (f"{key_prefix}PublicSigningKeyUrl", str(value["public_signing_key_url"]))
         )
 
 

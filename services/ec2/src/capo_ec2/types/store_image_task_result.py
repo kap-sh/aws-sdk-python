@@ -35,28 +35,29 @@ class StoreImageTaskResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StoreImageTaskResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ami_id" in value:
-        pairs.append((f"{prefix}.AmiId", str(value["ami_id"])))
+        pairs.append((f"{key_prefix}AmiId", str(value["ami_id"])))
     if "task_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["task_start_time"], pairs, f"{prefix}.TaskStartTime"
+            value["task_start_time"], pairs, f"{key_prefix}TaskStartTime"
         )
     if "bucket" in value:
-        pairs.append((f"{prefix}.Bucket", str(value["bucket"])))
+        pairs.append((f"{key_prefix}Bucket", str(value["bucket"])))
     if "s3object_key" in value:
-        pairs.append((f"{prefix}.S3objectKey", str(value["s3object_key"])))
+        pairs.append((f"{key_prefix}S3objectKey", str(value["s3object_key"])))
     if "progress_percentage" in value:
         pairs.append(
-            (f"{prefix}.ProgressPercentage", str(value["progress_percentage"]))
+            (f"{key_prefix}ProgressPercentage", str(value["progress_percentage"]))
         )
     if "store_task_state" in value:
-        pairs.append((f"{prefix}.StoreTaskState", str(value["store_task_state"])))
+        pairs.append((f"{key_prefix}StoreTaskState", str(value["store_task_state"])))
     if "store_task_failure_reason" in value:
         pairs.append(
             (
-                f"{prefix}.StoreTaskFailureReason",
+                f"{key_prefix}StoreTaskFailureReason",
                 str(value["store_task_failure_reason"]),
             )
         )

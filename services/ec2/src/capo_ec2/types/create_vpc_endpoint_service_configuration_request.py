@@ -48,24 +48,25 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "acceptance_required" in value:
         pairs.append(
             (
-                f"{prefix}.AcceptanceRequired",
+                f"{key_prefix}AcceptanceRequired",
                 "true" if value["acceptance_required"] else "false",
             )
         )
     if "private_dns_name" in value:
-        pairs.append((f"{prefix}.PrivateDnsName", str(value["private_dns_name"])))
+        pairs.append((f"{key_prefix}PrivateDnsName", str(value["private_dns_name"])))
     if "network_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["network_load_balancer_arns"],
             pairs,
-            f"{prefix}.NetworkLoadBalancerArns",
+            f"{key_prefix}NetworkLoadBalancerArns",
         )
     if "gateway_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -73,7 +74,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["gateway_load_balancer_arns"],
             pairs,
-            f"{prefix}.GatewayLoadBalancerArns",
+            f"{key_prefix}GatewayLoadBalancerArns",
         )
     if "supported_ip_address_types" in value:
         import capo_ec2.types.value_string_list
@@ -81,21 +82,21 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["supported_ip_address_types"],
             pairs,
-            f"{prefix}.SupportedIpAddressTypes",
+            f"{key_prefix}SupportedIpAddressTypes",
         )
     if "supported_regions" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["supported_regions"], pairs, f"{prefix}.SupportedRegions"
+            value["supported_regions"], pairs, f"{key_prefix}SupportedRegions"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

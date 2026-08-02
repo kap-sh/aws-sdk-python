@@ -57,57 +57,61 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "state" in value:
         import capo_ec2.types.fast_snapshot_restore_state_code
 
         capo_ec2.types.fast_snapshot_restore_state_code.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_transition_reason" in value:
         pairs.append(
-            (f"{prefix}.StateTransitionReason", str(value["state_transition_reason"]))
+            (
+                f"{key_prefix}StateTransitionReason",
+                str(value["state_transition_reason"]),
+            )
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "owner_alias" in value:
-        pairs.append((f"{prefix}.OwnerAlias", str(value["owner_alias"])))
+        pairs.append((f"{key_prefix}OwnerAlias", str(value["owner_alias"])))
     if "enabling_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["enabling_time"], pairs, f"{prefix}.EnablingTime"
+            value["enabling_time"], pairs, f"{key_prefix}EnablingTime"
         )
     if "optimizing_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["optimizing_time"], pairs, f"{prefix}.OptimizingTime"
+            value["optimizing_time"], pairs, f"{key_prefix}OptimizingTime"
         )
     if "enabled_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["enabled_time"], pairs, f"{prefix}.EnabledTime"
+            value["enabled_time"], pairs, f"{key_prefix}EnabledTime"
         )
     if "disabling_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["disabling_time"], pairs, f"{prefix}.DisablingTime"
+            value["disabling_time"], pairs, f"{key_prefix}DisablingTime"
         )
     if "disabled_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["disabled_time"], pairs, f"{prefix}.DisabledTime"
+            value["disabled_time"], pairs, f"{key_prefix}DisabledTime"
         )
 
 

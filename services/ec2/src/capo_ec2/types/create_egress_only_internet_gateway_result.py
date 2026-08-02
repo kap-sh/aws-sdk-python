@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "egress_only_internet_gateway" in value:
         import capo_ec2.types.egress_only_internet_gateway
 
         capo_ec2.types.egress_only_internet_gateway.serialize_ec2_query(
             value["egress_only_internet_gateway"],
             pairs,
-            f"{prefix}.EgressOnlyInternetGateway",
+            f"{key_prefix}EgressOnlyInternetGateway",
         )
 
 

@@ -37,11 +37,12 @@ class ImageCriterion(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageCriterion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_providers" in value:
         import capo_ec2.types.image_provider_list
 
         capo_ec2.types.image_provider_list.serialize_ec2_query(
-            value["image_providers"], pairs, f"{prefix}.ImageProviderSet"
+            value["image_providers"], pairs, f"{key_prefix}ImageProviderSet"
         )
     if "marketplace_product_codes" in value:
         import capo_ec2.types.marketplace_product_code_list
@@ -49,13 +50,13 @@ def serialize_ec2_query(
         capo_ec2.types.marketplace_product_code_list.serialize_ec2_query(
             value["marketplace_product_codes"],
             pairs,
-            f"{prefix}.MarketplaceProductCodeSet",
+            f"{key_prefix}MarketplaceProductCodeSet",
         )
     if "image_names" in value:
         import capo_ec2.types.image_name_list
 
         capo_ec2.types.image_name_list.serialize_ec2_query(
-            value["image_names"], pairs, f"{prefix}.ImageNameSet"
+            value["image_names"], pairs, f"{key_prefix}ImageNameSet"
         )
     if "deprecation_time_condition" in value:
         import capo_ec2.types.deprecation_time_condition
@@ -63,13 +64,15 @@ def serialize_ec2_query(
         capo_ec2.types.deprecation_time_condition.serialize_ec2_query(
             value["deprecation_time_condition"],
             pairs,
-            f"{prefix}.DeprecationTimeCondition",
+            f"{key_prefix}DeprecationTimeCondition",
         )
     if "creation_date_condition" in value:
         import capo_ec2.types.creation_date_condition
 
         capo_ec2.types.creation_date_condition.serialize_ec2_query(
-            value["creation_date_condition"], pairs, f"{prefix}.CreationDateCondition"
+            value["creation_date_condition"],
+            pairs,
+            f"{key_prefix}CreationDateCondition",
         )
 
 

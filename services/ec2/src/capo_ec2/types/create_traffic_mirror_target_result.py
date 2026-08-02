@@ -24,14 +24,15 @@ class CreateTrafficMirrorTargetResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateTrafficMirrorTargetResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_target" in value:
         import capo_ec2.types.traffic_mirror_target
 
         capo_ec2.types.traffic_mirror_target.serialize_ec2_query(
-            value["traffic_mirror_target"], pairs, f"{prefix}.TrafficMirrorTarget"
+            value["traffic_mirror_target"], pairs, f"{key_prefix}TrafficMirrorTarget"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateTrafficMirrorTargetResult:

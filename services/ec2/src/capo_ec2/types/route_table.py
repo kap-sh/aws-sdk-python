@@ -39,36 +39,37 @@ class RouteTable(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteTable, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "associations" in value:
         import capo_ec2.types.route_table_association_list
 
         capo_ec2.types.route_table_association_list.serialize_ec2_query(
-            value["associations"], pairs, f"{prefix}.AssociationSet"
+            value["associations"], pairs, f"{key_prefix}AssociationSet"
         )
     if "propagating_vgws" in value:
         import capo_ec2.types.propagating_vgw_list
 
         capo_ec2.types.propagating_vgw_list.serialize_ec2_query(
-            value["propagating_vgws"], pairs, f"{prefix}.PropagatingVgwSet"
+            value["propagating_vgws"], pairs, f"{key_prefix}PropagatingVgwSet"
         )
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
     if "routes" in value:
         import capo_ec2.types.route_list
 
         capo_ec2.types.route_list.serialize_ec2_query(
-            value["routes"], pairs, f"{prefix}.RouteSet"
+            value["routes"], pairs, f"{key_prefix}RouteSet"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> RouteTable:

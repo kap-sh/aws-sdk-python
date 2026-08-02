@@ -32,25 +32,26 @@ class DescribePlacementGroupsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribePlacementGroupsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_ids" in value:
         import capo_ec2.types.placement_group_id_string_list
 
         capo_ec2.types.placement_group_id_string_list.serialize_ec2_query(
-            value["group_ids"], pairs, f"{prefix}.GroupIds"
+            value["group_ids"], pairs, f"{key_prefix}GroupIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "group_names" in value:
         import capo_ec2.types.placement_group_string_list
 
         capo_ec2.types.placement_group_string_list.serialize_ec2_query(
-            value["group_names"], pairs, f"{prefix}.GroupName"
+            value["group_names"], pairs, f"{key_prefix}GroupName"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
 
 

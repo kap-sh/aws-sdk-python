@@ -24,14 +24,15 @@ class DescribeSecurityGroupRulesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSecurityGroupRulesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "security_group_rules" in value:
         import capo_ec2.types.security_group_rule_list
 
         capo_ec2.types.security_group_rule_list.serialize_ec2_query(
-            value["security_group_rules"], pairs, f"{prefix}.SecurityGroupRuleSet"
+            value["security_group_rules"], pairs, f"{key_prefix}SecurityGroupRuleSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupRulesResult:

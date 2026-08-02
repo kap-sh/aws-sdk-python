@@ -55,38 +55,39 @@ class IpamResourceDiscoveryAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamResourceDiscoveryAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "ipam_resource_discovery_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryAssociationId",
+                f"{key_prefix}IpamResourceDiscoveryAssociationId",
                 str(value["ipam_resource_discovery_association_id"]),
             )
         )
     if "ipam_resource_discovery_association_arn" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryAssociationArn",
+                f"{key_prefix}IpamResourceDiscoveryAssociationArn",
                 str(value["ipam_resource_discovery_association_arn"]),
             )
         )
     if "ipam_resource_discovery_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryId",
+                f"{key_prefix}IpamResourceDiscoveryId",
                 str(value["ipam_resource_discovery_id"]),
             )
         )
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "ipam_arn" in value:
-        pairs.append((f"{prefix}.IpamArn", str(value["ipam_arn"])))
+        pairs.append((f"{key_prefix}IpamArn", str(value["ipam_arn"])))
     if "ipam_region" in value:
-        pairs.append((f"{prefix}.IpamRegion", str(value["ipam_region"])))
+        pairs.append((f"{key_prefix}IpamRegion", str(value["ipam_region"])))
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "resource_discovery_status" in value:
         import capo_ec2.types.ipam_associated_resource_discovery_status
@@ -94,19 +95,19 @@ def serialize_ec2_query(
         capo_ec2.types.ipam_associated_resource_discovery_status.serialize_ec2_query(
             value["resource_discovery_status"],
             pairs,
-            f"{prefix}.ResourceDiscoveryStatus",
+            f"{key_prefix}ResourceDiscoveryStatus",
         )
     if "state" in value:
         import capo_ec2.types.ipam_resource_discovery_association_state
 
         capo_ec2.types.ipam_resource_discovery_association_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

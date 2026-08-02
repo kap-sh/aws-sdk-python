@@ -39,40 +39,49 @@ class TrafficMirrorSession(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TrafficMirrorSession, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_session_id" in value:
         pairs.append(
             (
-                f"{prefix}.TrafficMirrorSessionId",
+                f"{key_prefix}TrafficMirrorSessionId",
                 str(value["traffic_mirror_session_id"]),
             )
         )
     if "traffic_mirror_target_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorTargetId", str(value["traffic_mirror_target_id"]))
+            (
+                f"{key_prefix}TrafficMirrorTargetId",
+                str(value["traffic_mirror_target_id"]),
+            )
         )
     if "traffic_mirror_filter_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+            (
+                f"{key_prefix}TrafficMirrorFilterId",
+                str(value["traffic_mirror_filter_id"]),
+            )
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "packet_length" in value:
-        pairs.append((f"{prefix}.PacketLength", str(value["packet_length"])))
+        pairs.append((f"{key_prefix}PacketLength", str(value["packet_length"])))
     if "session_number" in value:
-        pairs.append((f"{prefix}.SessionNumber", str(value["session_number"])))
+        pairs.append((f"{key_prefix}SessionNumber", str(value["session_number"])))
     if "virtual_network_id" in value:
-        pairs.append((f"{prefix}.VirtualNetworkId", str(value["virtual_network_id"])))
+        pairs.append(
+            (f"{key_prefix}VirtualNetworkId", str(value["virtual_network_id"]))
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -50,24 +50,29 @@ class CreateDelegationRequestRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateDelegationRequestRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_account_id" in value:
-        pairs.append((f"{prefix}.OwnerAccountId", str(value["owner_account_id"])))
-    pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}OwnerAccountId", str(value["owner_account_id"])))
+    pairs.append((f"{key_prefix}Description", str(value["description"])))
     import capo_iam.types.delegation_permission
 
     capo_iam.types.delegation_permission.serialize_query(
-        value["permissions"], pairs, f"{prefix}.Permissions"
+        value["permissions"], pairs, f"{key_prefix}Permissions"
     )
     if "request_message" in value:
-        pairs.append((f"{prefix}.RequestMessage", str(value["request_message"])))
-    pairs.append((f"{prefix}.RequestorWorkflowId", str(value["requestor_workflow_id"])))
+        pairs.append((f"{key_prefix}RequestMessage", str(value["request_message"])))
+    pairs.append(
+        (f"{key_prefix}RequestorWorkflowId", str(value["requestor_workflow_id"]))
+    )
     if "redirect_url" in value:
-        pairs.append((f"{prefix}.RedirectUrl", str(value["redirect_url"])))
-    pairs.append((f"{prefix}.NotificationChannel", str(value["notification_channel"])))
-    pairs.append((f"{prefix}.SessionDuration", str(value["session_duration"])))
+        pairs.append((f"{key_prefix}RedirectUrl", str(value["redirect_url"])))
+    pairs.append(
+        (f"{key_prefix}NotificationChannel", str(value["notification_channel"]))
+    )
+    pairs.append((f"{key_prefix}SessionDuration", str(value["session_duration"])))
     pairs.append(
         (
-            f"{prefix}.OnlySendByOwner",
+            f"{key_prefix}OnlySendByOwner",
             "true" if value.get("only_send_by_owner", False) else "false",
         )
     )

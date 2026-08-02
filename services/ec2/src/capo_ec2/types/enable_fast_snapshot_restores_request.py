@@ -34,26 +34,27 @@ class EnableFastSnapshotRestoresRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableFastSnapshotRestoresRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_ec2.types.availability_zone_string_list
 
         capo_ec2.types.availability_zone_string_list.serialize_ec2_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "availability_zone_ids" in value:
         import capo_ec2.types.availability_zone_id_string_list
 
         capo_ec2.types.availability_zone_id_string_list.serialize_ec2_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIds"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIds"
         )
     if "source_snapshot_ids" in value:
         import capo_ec2.types.snapshot_id_string_list
 
         capo_ec2.types.snapshot_id_string_list.serialize_ec2_query(
-            value["source_snapshot_ids"], pairs, f"{prefix}.SourceSnapshotIds"
+            value["source_snapshot_ids"], pairs, f"{key_prefix}SourceSnapshotIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoresRequest:

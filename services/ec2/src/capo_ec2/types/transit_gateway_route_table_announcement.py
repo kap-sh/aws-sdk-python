@@ -63,39 +63,42 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_route_table_announcement_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayRouteTableAnnouncementId",
+                f"{key_prefix}TransitGatewayRouteTableAnnouncementId",
                 str(value["transit_gateway_route_table_announcement_id"]),
             )
         )
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "core_network_id" in value:
-        pairs.append((f"{prefix}.CoreNetworkId", str(value["core_network_id"])))
+        pairs.append((f"{key_prefix}CoreNetworkId", str(value["core_network_id"])))
     if "peer_transit_gateway_id" in value:
         pairs.append(
-            (f"{prefix}.PeerTransitGatewayId", str(value["peer_transit_gateway_id"]))
+            (f"{key_prefix}PeerTransitGatewayId", str(value["peer_transit_gateway_id"]))
         )
     if "peer_core_network_id" in value:
         pairs.append(
-            (f"{prefix}.PeerCoreNetworkId", str(value["peer_core_network_id"]))
+            (f"{key_prefix}PeerCoreNetworkId", str(value["peer_core_network_id"]))
         )
     if "peering_attachment_id" in value:
         pairs.append(
-            (f"{prefix}.PeeringAttachmentId", str(value["peering_attachment_id"]))
+            (f"{key_prefix}PeeringAttachmentId", str(value["peering_attachment_id"]))
         )
     if "announcement_direction" in value:
         import capo_ec2.types.transit_gateway_route_table_announcement_direction
 
         capo_ec2.types.transit_gateway_route_table_announcement_direction.serialize_ec2_query(
-            value["announcement_direction"], pairs, f"{prefix}.AnnouncementDirection"
+            value["announcement_direction"], pairs, f"{key_prefix}AnnouncementDirection"
         )
     if "transit_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayRouteTableId",
+                f"{key_prefix}TransitGatewayRouteTableId",
                 str(value["transit_gateway_route_table_id"]),
             )
         )
@@ -103,19 +106,19 @@ def serialize_ec2_query(
         import capo_ec2.types.transit_gateway_route_table_announcement_state
 
         capo_ec2.types.transit_gateway_route_table_announcement_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "creation_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

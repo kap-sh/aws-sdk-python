@@ -22,12 +22,13 @@ class Endpoint(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Endpoint, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "hosted_zone_id" in value:
-        pairs.append((f"{prefix}.HostedZoneId", str(value["hosted_zone_id"])))
+        pairs.append((f"{key_prefix}HostedZoneId", str(value["hosted_zone_id"])))
 
 
 def deserialize_query(el: Element) -> Endpoint:

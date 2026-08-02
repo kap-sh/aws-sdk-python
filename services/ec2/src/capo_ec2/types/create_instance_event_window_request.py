@@ -37,23 +37,24 @@ class CreateInstanceEventWindowRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateInstanceEventWindowRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "time_ranges" in value:
         import capo_ec2.types.instance_event_window_time_range_request_set
 
         capo_ec2.types.instance_event_window_time_range_request_set.serialize_ec2_query(
-            value["time_ranges"], pairs, f"{prefix}.TimeRanges"
+            value["time_ranges"], pairs, f"{key_prefix}TimeRanges"
         )
     if "cron_expression" in value:
-        pairs.append((f"{prefix}.CronExpression", str(value["cron_expression"])))
+        pairs.append((f"{key_prefix}CronExpression", str(value["cron_expression"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

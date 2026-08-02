@@ -39,27 +39,28 @@ class OptionSetting(TypedDict, closed=True):
 def serialize_query(
     value: OptionSetting, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "apply_type" in value:
-        pairs.append((f"{prefix}.ApplyType", str(value["apply_type"])))
+        pairs.append((f"{key_prefix}ApplyType", str(value["apply_type"])))
     if "data_type" in value:
-        pairs.append((f"{prefix}.DataType", str(value["data_type"])))
+        pairs.append((f"{key_prefix}DataType", str(value["data_type"])))
     if "allowed_values" in value:
-        pairs.append((f"{prefix}.AllowedValues", str(value["allowed_values"])))
+        pairs.append((f"{key_prefix}AllowedValues", str(value["allowed_values"])))
     if "is_modifiable" in value:
         pairs.append(
-            (f"{prefix}.IsModifiable", "true" if value["is_modifiable"] else "false")
+            (f"{key_prefix}IsModifiable", "true" if value["is_modifiable"] else "false")
         )
     if "is_collection" in value:
         pairs.append(
-            (f"{prefix}.IsCollection", "true" if value["is_collection"] else "false")
+            (f"{key_prefix}IsCollection", "true" if value["is_collection"] else "false")
         )
 
 

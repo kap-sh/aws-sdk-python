@@ -52,10 +52,11 @@ class VpnConnectionOptionsSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnConnectionOptionsSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enable_acceleration" in value:
         pairs.append(
             (
-                f"{prefix}.EnableAcceleration",
+                f"{key_prefix}EnableAcceleration",
                 "true" if value["enable_acceleration"] else "false",
             )
         )
@@ -63,38 +64,46 @@ def serialize_ec2_query(
         import capo_ec2.types.tunnel_inside_ip_version
 
         capo_ec2.types.tunnel_inside_ip_version.serialize_ec2_query(
-            value["tunnel_inside_ip_version"], pairs, f"{prefix}.TunnelInsideIpVersion"
+            value["tunnel_inside_ip_version"],
+            pairs,
+            f"{key_prefix}TunnelInsideIpVersion",
         )
     if "tunnel_options" in value:
         import capo_ec2.types.vpn_tunnel_options_specifications_list
 
         capo_ec2.types.vpn_tunnel_options_specifications_list.serialize_ec2_query(
-            value["tunnel_options"], pairs, f"{prefix}.TunnelOptions"
+            value["tunnel_options"], pairs, f"{key_prefix}TunnelOptions"
         )
     if "local_ipv4_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.LocalIpv4NetworkCidr", str(value["local_ipv4_network_cidr"]))
+            (f"{key_prefix}LocalIpv4NetworkCidr", str(value["local_ipv4_network_cidr"]))
         )
     if "remote_ipv4_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.RemoteIpv4NetworkCidr", str(value["remote_ipv4_network_cidr"]))
+            (
+                f"{key_prefix}RemoteIpv4NetworkCidr",
+                str(value["remote_ipv4_network_cidr"]),
+            )
         )
     if "local_ipv6_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.LocalIpv6NetworkCidr", str(value["local_ipv6_network_cidr"]))
+            (f"{key_prefix}LocalIpv6NetworkCidr", str(value["local_ipv6_network_cidr"]))
         )
     if "remote_ipv6_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.RemoteIpv6NetworkCidr", str(value["remote_ipv6_network_cidr"]))
+            (
+                f"{key_prefix}RemoteIpv6NetworkCidr",
+                str(value["remote_ipv6_network_cidr"]),
+            )
         )
     if "outside_ip_address_type" in value:
         pairs.append(
-            (f"{prefix}.OutsideIpAddressType", str(value["outside_ip_address_type"]))
+            (f"{key_prefix}OutsideIpAddressType", str(value["outside_ip_address_type"]))
         )
     if "transport_transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransportTransitGatewayAttachmentId",
+                f"{key_prefix}TransportTransitGatewayAttachmentId",
                 str(value["transport_transit_gateway_attachment_id"]),
             )
         )
@@ -102,12 +111,12 @@ def serialize_ec2_query(
         import capo_ec2.types.vpn_tunnel_bandwidth
 
         capo_ec2.types.vpn_tunnel_bandwidth.serialize_ec2_query(
-            value["tunnel_bandwidth"], pairs, f"{prefix}.TunnelBandwidth"
+            value["tunnel_bandwidth"], pairs, f"{key_prefix}TunnelBandwidth"
         )
     if "static_routes_only" in value:
         pairs.append(
             (
-                f"{prefix}.StaticRoutesOnly",
+                f"{key_prefix}StaticRoutesOnly",
                 "true" if value["static_routes_only"] else "false",
             )
         )

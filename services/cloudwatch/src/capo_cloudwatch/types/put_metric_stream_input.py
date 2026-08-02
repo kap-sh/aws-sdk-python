@@ -158,35 +158,36 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricStreamInput:
 def serialize_query(
     value: PutMetricStreamInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "include_filters" in value:
         import capo_cloudwatch.types.metric_stream_filters
 
         capo_cloudwatch.types.metric_stream_filters.serialize_query(
-            value["include_filters"], pairs, f"{prefix}.IncludeFilters"
+            value["include_filters"], pairs, f"{key_prefix}IncludeFilters"
         )
     if "exclude_filters" in value:
         import capo_cloudwatch.types.metric_stream_filters
 
         capo_cloudwatch.types.metric_stream_filters.serialize_query(
-            value["exclude_filters"], pairs, f"{prefix}.ExcludeFilters"
+            value["exclude_filters"], pairs, f"{key_prefix}ExcludeFilters"
         )
     if "firehose_arn" in value:
-        pairs.append((f"{prefix}.FirehoseArn", str(value["firehose_arn"])))
+        pairs.append((f"{key_prefix}FirehoseArn", str(value["firehose_arn"])))
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
     if "output_format" in value:
         import capo_cloudwatch.types.metric_stream_output_format
 
         capo_cloudwatch.types.metric_stream_output_format.serialize_query(
-            value["output_format"], pairs, f"{prefix}.OutputFormat"
+            value["output_format"], pairs, f"{key_prefix}OutputFormat"
         )
     if "tags" in value:
         import capo_cloudwatch.types.tag_list
 
         capo_cloudwatch.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "statistics_configurations" in value:
         import capo_cloudwatch.types.metric_stream_statistics_configurations
@@ -194,12 +195,12 @@ def serialize_query(
         capo_cloudwatch.types.metric_stream_statistics_configurations.serialize_query(
             value["statistics_configurations"],
             pairs,
-            f"{prefix}.StatisticsConfigurations",
+            f"{key_prefix}StatisticsConfigurations",
         )
     if "include_linked_accounts_metrics" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeLinkedAccountsMetrics",
+                f"{key_prefix}IncludeLinkedAccountsMetrics",
                 "true" if value["include_linked_accounts_metrics"] else "false",
             )
         )

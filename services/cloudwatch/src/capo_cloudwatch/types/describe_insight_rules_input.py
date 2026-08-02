@@ -43,10 +43,11 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeInsightRulesInput:
 def serialize_query(
     value: DescribeInsightRulesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_query(el: Element) -> DescribeInsightRulesInput:

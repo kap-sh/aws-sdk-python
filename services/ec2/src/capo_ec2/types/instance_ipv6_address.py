@@ -22,11 +22,15 @@ class InstanceIpv6Address(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceIpv6Address, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv6_address" in value:
-        pairs.append((f"{prefix}.Ipv6Address", str(value["ipv6_address"])))
+        pairs.append((f"{key_prefix}Ipv6Address", str(value["ipv6_address"])))
     if "is_primary_ipv6" in value:
         pairs.append(
-            (f"{prefix}.IsPrimaryIpv6", "true" if value["is_primary_ipv6"] else "false")
+            (
+                f"{key_prefix}IsPrimaryIpv6",
+                "true" if value["is_primary_ipv6"] else "false",
+            )
         )
 
 

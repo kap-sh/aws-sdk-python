@@ -23,12 +23,13 @@ class MasterUserSecret(TypedDict, closed=True):
 def serialize_query(
     value: MasterUserSecret, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "secret_arn" in value:
-        pairs.append((f"{prefix}.SecretArn", str(value["secret_arn"])))
+        pairs.append((f"{key_prefix}SecretArn", str(value["secret_arn"])))
     if "secret_status" in value:
-        pairs.append((f"{prefix}.SecretStatus", str(value["secret_status"])))
+        pairs.append((f"{key_prefix}SecretStatus", str(value["secret_status"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
 
 
 def deserialize_query(el: Element) -> MasterUserSecret:

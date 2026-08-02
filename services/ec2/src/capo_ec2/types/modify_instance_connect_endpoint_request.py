@@ -36,12 +36,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_connect_endpoint_id" in value:
         pairs.append(
             (
-                f"{prefix}.InstanceConnectEndpointId",
+                f"{key_prefix}InstanceConnectEndpointId",
                 str(value["instance_connect_endpoint_id"]),
             )
         )
@@ -49,18 +50,18 @@ def serialize_ec2_query(
         import capo_ec2.types.ip_address_type
 
         capo_ec2.types.ip_address_type.serialize_ec2_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "security_group_ids" in value:
         import capo_ec2.types.security_group_id_string_list_request
 
         capo_ec2.types.security_group_id_string_list_request.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "preserve_client_ip" in value:
         pairs.append(
             (
-                f"{prefix}.PreserveClientIp",
+                f"{key_prefix}PreserveClientIp",
                 "true" if value["preserve_client_ip"] else "false",
             )
         )

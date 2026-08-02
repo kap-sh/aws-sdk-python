@@ -71,77 +71,81 @@ class Ipam(TypedDict, closed=True):
 
 # --- ec2Query ser/de ---
 def serialize_ec2_query(value: Ipam, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "ipam_arn" in value:
-        pairs.append((f"{prefix}.IpamArn", str(value["ipam_arn"])))
+        pairs.append((f"{key_prefix}IpamArn", str(value["ipam_arn"])))
     if "ipam_region" in value:
-        pairs.append((f"{prefix}.IpamRegion", str(value["ipam_region"])))
+        pairs.append((f"{key_prefix}IpamRegion", str(value["ipam_region"])))
     if "public_default_scope_id" in value:
         pairs.append(
-            (f"{prefix}.PublicDefaultScopeId", str(value["public_default_scope_id"]))
+            (f"{key_prefix}PublicDefaultScopeId", str(value["public_default_scope_id"]))
         )
     if "private_default_scope_id" in value:
         pairs.append(
-            (f"{prefix}.PrivateDefaultScopeId", str(value["private_default_scope_id"]))
+            (
+                f"{key_prefix}PrivateDefaultScopeId",
+                str(value["private_default_scope_id"]),
+            )
         )
     if "scope_count" in value:
-        pairs.append((f"{prefix}.ScopeCount", str(value["scope_count"])))
+        pairs.append((f"{key_prefix}ScopeCount", str(value["scope_count"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "operating_regions" in value:
         import capo_ec2.types.ipam_operating_region_set
 
         capo_ec2.types.ipam_operating_region_set.serialize_ec2_query(
-            value["operating_regions"], pairs, f"{prefix}.OperatingRegionSet"
+            value["operating_regions"], pairs, f"{key_prefix}OperatingRegionSet"
         )
     if "state" in value:
         import capo_ec2.types.ipam_state
 
         capo_ec2.types.ipam_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "default_resource_discovery_id" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultResourceDiscoveryId",
+                f"{key_prefix}DefaultResourceDiscoveryId",
                 str(value["default_resource_discovery_id"]),
             )
         )
     if "default_resource_discovery_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultResourceDiscoveryAssociationId",
+                f"{key_prefix}DefaultResourceDiscoveryAssociationId",
                 str(value["default_resource_discovery_association_id"]),
             )
         )
     if "resource_discovery_association_count" in value:
         pairs.append(
             (
-                f"{prefix}.ResourceDiscoveryAssociationCount",
+                f"{key_prefix}ResourceDiscoveryAssociationCount",
                 str(value["resource_discovery_association_count"]),
             )
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
     if "tier" in value:
         import capo_ec2.types.ipam_tier
 
         capo_ec2.types.ipam_tier.serialize_ec2_query(
-            value["tier"], pairs, f"{prefix}.Tier"
+            value["tier"], pairs, f"{key_prefix}Tier"
         )
     if "enable_private_gua" in value:
         pairs.append(
             (
-                f"{prefix}.EnablePrivateGua",
+                f"{key_prefix}EnablePrivateGua",
                 "true" if value["enable_private_gua"] else "false",
             )
         )
@@ -149,7 +153,7 @@ def serialize_ec2_query(value: Ipam, pairs: list[tuple[str, str]], prefix: str) 
         import capo_ec2.types.ipam_metered_account
 
         capo_ec2.types.ipam_metered_account.serialize_ec2_query(
-            value["metered_account"], pairs, f"{prefix}.MeteredAccount"
+            value["metered_account"], pairs, f"{key_prefix}MeteredAccount"
         )
 
 

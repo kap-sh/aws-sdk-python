@@ -47,46 +47,47 @@ class RevokeSecurityGroupIngressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RevokeSecurityGroupIngressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr_ip" in value:
-        pairs.append((f"{prefix}.CidrIp", str(value["cidr_ip"])))
+        pairs.append((f"{key_prefix}CidrIp", str(value["cidr_ip"])))
     if "from_port" in value:
-        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+        pairs.append((f"{key_prefix}FromPort", str(value["from_port"])))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "ip_permissions" in value:
         import capo_ec2.types.ip_permission_list
 
         capo_ec2.types.ip_permission_list.serialize_ec2_query(
-            value["ip_permissions"], pairs, f"{prefix}.IpPermissions"
+            value["ip_permissions"], pairs, f"{key_prefix}IpPermissions"
         )
     if "ip_protocol" in value:
-        pairs.append((f"{prefix}.IpProtocol", str(value["ip_protocol"])))
+        pairs.append((f"{key_prefix}IpProtocol", str(value["ip_protocol"])))
     if "source_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.SourceSecurityGroupName",
+                f"{key_prefix}SourceSecurityGroupName",
                 str(value["source_security_group_name"]),
             )
         )
     if "source_security_group_owner_id" in value:
         pairs.append(
             (
-                f"{prefix}.SourceSecurityGroupOwnerId",
+                f"{key_prefix}SourceSecurityGroupOwnerId",
                 str(value["source_security_group_owner_id"]),
             )
         )
     if "to_port" in value:
-        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+        pairs.append((f"{key_prefix}ToPort", str(value["to_port"])))
     if "security_group_rule_ids" in value:
         import capo_ec2.types.security_group_rule_id_list
 
         capo_ec2.types.security_group_rule_id_list.serialize_ec2_query(
-            value["security_group_rule_ids"], pairs, f"{prefix}.SecurityGroupRuleIds"
+            value["security_group_rule_ids"], pairs, f"{key_prefix}SecurityGroupRuleIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupIngressRequest:

@@ -26,13 +26,14 @@ class BackendServerDescription(TypedDict, closed=True):
 def serialize_query(
     value: BackendServerDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_port" in value:
-        pairs.append((f"{prefix}.InstancePort", str(value["instance_port"])))
+        pairs.append((f"{key_prefix}InstancePort", str(value["instance_port"])))
     if "policy_names" in value:
         import capo_elastic_load_balancing.types.policy_names
 
         capo_elastic_load_balancing.types.policy_names.serialize_query(
-            value["policy_names"], pairs, f"{prefix}.PolicyNames"
+            value["policy_names"], pairs, f"{key_prefix}PolicyNames"
         )
 
 

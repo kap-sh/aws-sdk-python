@@ -28,18 +28,19 @@ class IpamPoolSourceResource(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPoolSourceResource, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_type" in value:
         import capo_ec2.types.ipam_pool_source_resource_type
 
         capo_ec2.types.ipam_pool_source_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
 
 
 def deserialize_ec2_query(el: Element) -> IpamPoolSourceResource:

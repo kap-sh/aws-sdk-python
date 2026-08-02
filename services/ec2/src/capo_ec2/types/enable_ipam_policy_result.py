@@ -19,8 +19,9 @@ class EnableIpamPolicyResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableIpamPolicyResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_policy_id" in value:
-        pairs.append((f"{prefix}.IpamPolicyId", str(value["ipam_policy_id"])))
+        pairs.append((f"{key_prefix}IpamPolicyId", str(value["ipam_policy_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> EnableIpamPolicyResult:

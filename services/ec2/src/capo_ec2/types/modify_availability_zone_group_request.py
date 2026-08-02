@@ -27,16 +27,17 @@ class ModifyAvailabilityZoneGroupRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyAvailabilityZoneGroupRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "opt_in_status" in value:
         import capo_ec2.types.modify_availability_zone_opt_in_status
 
         capo_ec2.types.modify_availability_zone_opt_in_status.serialize_ec2_query(
-            value["opt_in_status"], pairs, f"{prefix}.OptInStatus"
+            value["opt_in_status"], pairs, f"{key_prefix}OptInStatus"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyAvailabilityZoneGroupRequest:

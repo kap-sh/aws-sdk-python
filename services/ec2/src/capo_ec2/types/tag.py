@@ -19,10 +19,11 @@ class Tag(TypedDict, closed=True):
 
 # --- ec2Query ser/de ---
 def serialize_ec2_query(value: Tag, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key" in value:
-        pairs.append((f"{prefix}.Key", str(value["key"])))
+        pairs.append((f"{key_prefix}Key", str(value["key"])))
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
 
 
 def deserialize_ec2_query(el: Element) -> Tag:

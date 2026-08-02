@@ -38,27 +38,28 @@ class AssociateNatGatewayAddressRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateNatGatewayAddressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "nat_gateway_id" in value:
-        pairs.append((f"{prefix}.NatGatewayId", str(value["nat_gateway_id"])))
+        pairs.append((f"{key_prefix}NatGatewayId", str(value["nat_gateway_id"])))
     if "allocation_ids" in value:
         import capo_ec2.types.allocation_id_list
 
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
-            value["allocation_ids"], pairs, f"{prefix}.AllocationIds"
+            value["allocation_ids"], pairs, f"{key_prefix}AllocationIds"
         )
     if "private_ip_addresses" in value:
         import capo_ec2.types.ip_list
 
         capo_ec2.types.ip_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddresses"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddresses"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

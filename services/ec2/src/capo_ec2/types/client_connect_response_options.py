@@ -27,15 +27,18 @@ class ClientConnectResponseOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClientConnectResponseOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "lambda_function_arn" in value:
-        pairs.append((f"{prefix}.LambdaFunctionArn", str(value["lambda_function_arn"])))
+        pairs.append(
+            (f"{key_prefix}LambdaFunctionArn", str(value["lambda_function_arn"]))
+        )
     if "status" in value:
         import capo_ec2.types.client_vpn_endpoint_attribute_status
 
         capo_ec2.types.client_vpn_endpoint_attribute_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

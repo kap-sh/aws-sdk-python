@@ -24,21 +24,24 @@ class CreateDBClusterSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBClusterSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterSnapshotIdentifier",
+                f"{key_prefix}DBClusterSnapshotIdentifier",
                 str(value["db_cluster_snapshot_identifier"]),
             )
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateDBClusterSnapshotMessage:

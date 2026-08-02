@@ -43,30 +43,33 @@ class CreateIntegrationMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateIntegrationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "target_arn" in value:
-        pairs.append((f"{prefix}.TargetArn", str(value["target_arn"])))
+        pairs.append((f"{key_prefix}TargetArn", str(value["target_arn"])))
     if "integration_name" in value:
-        pairs.append((f"{prefix}.IntegrationName", str(value["integration_name"])))
+        pairs.append((f"{key_prefix}IntegrationName", str(value["integration_name"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KMSKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KMSKeyId", str(value["kms_key_id"])))
     if "additional_encryption_context" in value:
         import capo_rds.types.encryption_context_map
 
         capo_rds.types.encryption_context_map.serialize_query(
             value["additional_encryption_context"],
             pairs,
-            f"{prefix}.AdditionalEncryptionContext",
+            f"{key_prefix}AdditionalEncryptionContext",
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "data_filter" in value:
-        pairs.append((f"{prefix}.DataFilter", str(value["data_filter"])))
+        pairs.append((f"{key_prefix}DataFilter", str(value["data_filter"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> CreateIntegrationMessage:

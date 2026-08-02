@@ -48,10 +48,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_route_table_virtual_interface_group_association_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
+                f"{key_prefix}LocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
                 str(
                     value[
                         "local_gateway_route_table_virtual_interface_group_association_id"
@@ -62,35 +63,35 @@ def serialize_ec2_query(
     if "local_gateway_virtual_interface_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceGroupId",
+                f"{key_prefix}LocalGatewayVirtualInterfaceGroupId",
                 str(value["local_gateway_virtual_interface_group_id"]),
             )
         )
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
     if "local_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableId",
+                f"{key_prefix}LocalGatewayRouteTableId",
                 str(value["local_gateway_route_table_id"]),
             )
         )
     if "local_gateway_route_table_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableArn",
+                f"{key_prefix}LocalGatewayRouteTableArn",
                 str(value["local_gateway_route_table_arn"]),
             )
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

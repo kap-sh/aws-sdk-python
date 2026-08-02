@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "config" in value:
-        pairs.append((f"{prefix}.Config", str(value["config"])))
+        pairs.append((f"{key_prefix}Config", str(value["config"])))
     if "routes" in value:
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list
 
         capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list.serialize_ec2_query(
-            value["routes"], pairs, f"{prefix}.RouteSet"
+            value["routes"], pairs, f"{key_prefix}RouteSet"
         )
 
 

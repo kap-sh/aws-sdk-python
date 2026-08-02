@@ -31,19 +31,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_block_extension_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityBlockExtensionOfferingId",
+                f"{key_prefix}CapacityBlockExtensionOfferingId",
                 str(value["capacity_block_extension_offering_id"]),
             )
         )
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> PurchaseCapacityBlockExtensionRequest:

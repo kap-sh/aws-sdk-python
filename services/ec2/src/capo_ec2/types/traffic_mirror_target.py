@@ -37,18 +37,22 @@ class TrafficMirrorTarget(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TrafficMirrorTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_target_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorTargetId", str(value["traffic_mirror_target_id"]))
+            (
+                f"{key_prefix}TrafficMirrorTargetId",
+                str(value["traffic_mirror_target_id"]),
+            )
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "network_load_balancer_arn" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkLoadBalancerArn",
+                f"{key_prefix}NetworkLoadBalancerArn",
                 str(value["network_load_balancer_arn"]),
             )
         )
@@ -56,22 +60,22 @@ def serialize_ec2_query(
         import capo_ec2.types.traffic_mirror_target_type
 
         capo_ec2.types.traffic_mirror_target_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "gateway_load_balancer_endpoint_id" in value:
         pairs.append(
             (
-                f"{prefix}.GatewayLoadBalancerEndpointId",
+                f"{key_prefix}GatewayLoadBalancerEndpointId",
                 str(value["gateway_load_balancer_endpoint_id"]),
             )
         )

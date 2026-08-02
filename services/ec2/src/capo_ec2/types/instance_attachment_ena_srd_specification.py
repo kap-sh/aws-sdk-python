@@ -26,9 +26,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ena_srd_enabled" in value:
         pairs.append(
-            (f"{prefix}.EnaSrdEnabled", "true" if value["ena_srd_enabled"] else "false")
+            (
+                f"{key_prefix}EnaSrdEnabled",
+                "true" if value["ena_srd_enabled"] else "false",
+            )
         )
     if "ena_srd_udp_specification" in value:
         import capo_ec2.types.instance_attachment_ena_srd_udp_specification
@@ -36,7 +40,7 @@ def serialize_ec2_query(
         capo_ec2.types.instance_attachment_ena_srd_udp_specification.serialize_ec2_query(
             value["ena_srd_udp_specification"],
             pairs,
-            f"{prefix}.EnaSrdUdpSpecification",
+            f"{key_prefix}EnaSrdUdpSpecification",
         )
 
 

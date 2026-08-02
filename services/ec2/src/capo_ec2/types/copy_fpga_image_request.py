@@ -30,20 +30,21 @@ class CopyFpgaImageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CopyFpgaImageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "source_fpga_image_id" in value:
         pairs.append(
-            (f"{prefix}.SourceFpgaImageId", str(value["source_fpga_image_id"]))
+            (f"{key_prefix}SourceFpgaImageId", str(value["source_fpga_image_id"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "source_region" in value:
-        pairs.append((f"{prefix}.SourceRegion", str(value["source_region"])))
+        pairs.append((f"{key_prefix}SourceRegion", str(value["source_region"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CopyFpgaImageRequest:

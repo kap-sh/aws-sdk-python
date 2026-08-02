@@ -42,32 +42,33 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "instance_platform" in value:
         import capo_ec2.types.capacity_reservation_instance_platform
 
         capo_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
-            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+            value["instance_platform"], pairs, f"{key_prefix}InstancePlatform"
         )
     if "weight" in value:
-        pairs.append((f"{prefix}.Weight", str(value["weight"])))
+        pairs.append((f"{key_prefix}Weight", str(value["weight"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "ebs_optimized" in value:
         pairs.append(
-            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+            (f"{key_prefix}EbsOptimized", "true" if value["ebs_optimized"] else "false")
         )
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
 
 
 def deserialize_ec2_query(el: Element) -> ReservationFleetInstanceSpecification:

@@ -19,11 +19,12 @@ class ModifyDBProxyEndpointResponse(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBProxyEndpointResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_endpoint" in value:
         import capo_rds.types.db_proxy_endpoint
 
         capo_rds.types.db_proxy_endpoint.serialize_query(
-            value["db_proxy_endpoint"], pairs, f"{prefix}.DBProxyEndpoint"
+            value["db_proxy_endpoint"], pairs, f"{key_prefix}DBProxyEndpoint"
         )
 
 

@@ -45,11 +45,15 @@ class MacModificationTask(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MacModificationTask, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "mac_modification_task_id" in value:
         pairs.append(
-            (f"{prefix}.MacModificationTaskId", str(value["mac_modification_task_id"]))
+            (
+                f"{key_prefix}MacModificationTaskId",
+                str(value["mac_modification_task_id"]),
+            )
         )
     if "mac_system_integrity_protection_config" in value:
         import capo_ec2.types.mac_system_integrity_protection_configuration
@@ -57,31 +61,31 @@ def serialize_ec2_query(
         capo_ec2.types.mac_system_integrity_protection_configuration.serialize_ec2_query(
             value["mac_system_integrity_protection_config"],
             pairs,
-            f"{prefix}.MacSystemIntegrityProtectionConfig",
+            f"{key_prefix}MacSystemIntegrityProtectionConfig",
         )
     if "start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "task_state" in value:
         import capo_ec2.types.mac_modification_task_state
 
         capo_ec2.types.mac_modification_task_state.serialize_ec2_query(
-            value["task_state"], pairs, f"{prefix}.TaskState"
+            value["task_state"], pairs, f"{key_prefix}TaskState"
         )
     if "task_type" in value:
         import capo_ec2.types.mac_modification_task_type
 
         capo_ec2.types.mac_modification_task_type.serialize_ec2_query(
-            value["task_type"], pairs, f"{prefix}.TaskType"
+            value["task_type"], pairs, f"{key_prefix}TaskType"
         )
 
 

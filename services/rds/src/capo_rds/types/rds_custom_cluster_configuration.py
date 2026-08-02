@@ -24,14 +24,15 @@ class RdsCustomClusterConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: RdsCustomClusterConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "interconnect_subnet_id" in value:
         pairs.append(
-            (f"{prefix}.InterconnectSubnetId", str(value["interconnect_subnet_id"]))
+            (f"{key_prefix}InterconnectSubnetId", str(value["interconnect_subnet_id"]))
         )
     if "transit_gateway_multicast_domain_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMulticastDomainId",
+                f"{key_prefix}TransitGatewayMulticastDomainId",
                 str(value["transit_gateway_multicast_domain_id"]),
             )
         )
@@ -39,7 +40,7 @@ def serialize_query(
         import capo_rds.types.replica_mode
 
         capo_rds.types.replica_mode.serialize_query(
-            value["replica_mode"], pairs, f"{prefix}.ReplicaMode"
+            value["replica_mode"], pairs, f"{key_prefix}ReplicaMode"
         )
 
 

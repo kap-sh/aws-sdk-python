@@ -52,61 +52,62 @@ class CapacityBlockOffering(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityBlockOffering, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_block_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityBlockOfferingId",
+                f"{key_prefix}CapacityBlockOfferingId",
                 str(value["capacity_block_offering_id"]),
             )
         )
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "capacity_block_duration_hours" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityBlockDurationHours",
+                f"{key_prefix}CapacityBlockDurationHours",
                 str(value["capacity_block_duration_hours"]),
             )
         )
     if "upfront_fee" in value:
-        pairs.append((f"{prefix}.UpfrontFee", str(value["upfront_fee"])))
+        pairs.append((f"{key_prefix}UpfrontFee", str(value["upfront_fee"])))
     if "currency_code" in value:
-        pairs.append((f"{prefix}.CurrencyCode", str(value["currency_code"])))
+        pairs.append((f"{key_prefix}CurrencyCode", str(value["currency_code"])))
     if "tenancy" in value:
         import capo_ec2.types.capacity_reservation_tenancy
 
         capo_ec2.types.capacity_reservation_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "ultraserver_type" in value:
-        pairs.append((f"{prefix}.UltraserverType", str(value["ultraserver_type"])))
+        pairs.append((f"{key_prefix}UltraserverType", str(value["ultraserver_type"])))
     if "ultraserver_count" in value:
-        pairs.append((f"{prefix}.UltraserverCount", str(value["ultraserver_count"])))
+        pairs.append((f"{key_prefix}UltraserverCount", str(value["ultraserver_count"])))
     if "capacity_block_duration_minutes" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityBlockDurationMinutes",
+                f"{key_prefix}CapacityBlockDurationMinutes",
                 str(value["capacity_block_duration_minutes"]),
             )
         )
     if "zone_type" in value:
-        pairs.append((f"{prefix}.ZoneType", str(value["zone_type"])))
+        pairs.append((f"{key_prefix}ZoneType", str(value["zone_type"])))
 
 
 def deserialize_ec2_query(el: Element) -> CapacityBlockOffering:

@@ -22,12 +22,16 @@ class GetVerifiedAccessGroupPolicyResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetVerifiedAccessGroupPolicyResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_enabled" in value:
         pairs.append(
-            (f"{prefix}.PolicyEnabled", "true" if value["policy_enabled"] else "false")
+            (
+                f"{key_prefix}PolicyEnabled",
+                "true" if value["policy_enabled"] else "false",
+            )
         )
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetVerifiedAccessGroupPolicyResult:

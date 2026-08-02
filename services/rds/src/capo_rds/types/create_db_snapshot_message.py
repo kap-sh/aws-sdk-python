@@ -23,18 +23,21 @@ class CreateDBSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
+            (f"{key_prefix}DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
         )
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateDBSnapshotMessage:

@@ -26,11 +26,12 @@ class UpdateUserRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateUserRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "new_path" in value:
-        pairs.append((f"{prefix}.NewPath", str(value["new_path"])))
+        pairs.append((f"{key_prefix}NewPath", str(value["new_path"])))
     if "new_user_name" in value:
-        pairs.append((f"{prefix}.NewUserName", str(value["new_user_name"])))
+        pairs.append((f"{key_prefix}NewUserName", str(value["new_user_name"])))
 
 
 def deserialize_query(el: Element) -> UpdateUserRequest:

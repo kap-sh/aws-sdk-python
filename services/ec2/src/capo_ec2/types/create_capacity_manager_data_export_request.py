@@ -39,31 +39,32 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3_bucket_name" in value:
-        pairs.append((f"{prefix}.S3BucketName", str(value["s3_bucket_name"])))
+        pairs.append((f"{key_prefix}S3BucketName", str(value["s3_bucket_name"])))
     if "s3_bucket_prefix" in value:
-        pairs.append((f"{prefix}.S3BucketPrefix", str(value["s3_bucket_prefix"])))
+        pairs.append((f"{key_prefix}S3BucketPrefix", str(value["s3_bucket_prefix"])))
     if "schedule" in value:
         import capo_ec2.types.schedule
 
         capo_ec2.types.schedule.serialize_ec2_query(
-            value["schedule"], pairs, f"{prefix}.Schedule"
+            value["schedule"], pairs, f"{key_prefix}Schedule"
         )
     if "output_format" in value:
         import capo_ec2.types.output_format
 
         capo_ec2.types.output_format.serialize_ec2_query(
-            value["output_format"], pairs, f"{prefix}.OutputFormat"
+            value["output_format"], pairs, f"{key_prefix}OutputFormat"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

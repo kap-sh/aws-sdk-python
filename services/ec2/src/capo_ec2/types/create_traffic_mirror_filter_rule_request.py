@@ -62,55 +62,59 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_filter_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+            (
+                f"{key_prefix}TrafficMirrorFilterId",
+                str(value["traffic_mirror_filter_id"]),
+            )
         )
     if "traffic_direction" in value:
         import capo_ec2.types.traffic_direction
 
         capo_ec2.types.traffic_direction.serialize_ec2_query(
-            value["traffic_direction"], pairs, f"{prefix}.TrafficDirection"
+            value["traffic_direction"], pairs, f"{key_prefix}TrafficDirection"
         )
     if "rule_number" in value:
-        pairs.append((f"{prefix}.RuleNumber", str(value["rule_number"])))
+        pairs.append((f"{key_prefix}RuleNumber", str(value["rule_number"])))
     if "rule_action" in value:
         import capo_ec2.types.traffic_mirror_rule_action
 
         capo_ec2.types.traffic_mirror_rule_action.serialize_ec2_query(
-            value["rule_action"], pairs, f"{prefix}.RuleAction"
+            value["rule_action"], pairs, f"{key_prefix}RuleAction"
         )
     if "destination_port_range" in value:
         import capo_ec2.types.traffic_mirror_port_range_request
 
         capo_ec2.types.traffic_mirror_port_range_request.serialize_ec2_query(
-            value["destination_port_range"], pairs, f"{prefix}.DestinationPortRange"
+            value["destination_port_range"], pairs, f"{key_prefix}DestinationPortRange"
         )
     if "source_port_range" in value:
         import capo_ec2.types.traffic_mirror_port_range_request
 
         capo_ec2.types.traffic_mirror_port_range_request.serialize_ec2_query(
-            value["source_port_range"], pairs, f"{prefix}.SourcePortRange"
+            value["source_port_range"], pairs, f"{key_prefix}SourcePortRange"
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "destination_cidr_block" in value:
         pairs.append(
-            (f"{prefix}.DestinationCidrBlock", str(value["destination_cidr_block"]))
+            (f"{key_prefix}DestinationCidrBlock", str(value["destination_cidr_block"]))
         )
     if "source_cidr_block" in value:
-        pairs.append((f"{prefix}.SourceCidrBlock", str(value["source_cidr_block"])))
+        pairs.append((f"{key_prefix}SourceCidrBlock", str(value["source_cidr_block"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

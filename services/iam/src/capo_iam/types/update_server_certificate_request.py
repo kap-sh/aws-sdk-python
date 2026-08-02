@@ -29,15 +29,16 @@ class UpdateServerCertificateRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateServerCertificateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
     if "new_path" in value:
-        pairs.append((f"{prefix}.NewPath", str(value["new_path"])))
+        pairs.append((f"{key_prefix}NewPath", str(value["new_path"])))
     if "new_server_certificate_name" in value:
         pairs.append(
             (
-                f"{prefix}.NewServerCertificateName",
+                f"{key_prefix}NewServerCertificateName",
                 str(value["new_server_certificate_name"]),
             )
         )

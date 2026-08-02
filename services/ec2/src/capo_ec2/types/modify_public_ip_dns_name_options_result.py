@@ -19,9 +19,10 @@ class ModifyPublicIpDnsNameOptionsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyPublicIpDnsNameOptionsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful" in value:
         pairs.append(
-            (f"{prefix}.Successful", "true" if value["successful"] else "false")
+            (f"{key_prefix}Successful", "true" if value["successful"] else "false")
         )
 
 

@@ -28,25 +28,26 @@ class DescribeAddressesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeAddressesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "public_ips" in value:
         import capo_ec2.types.public_ip_string_list
 
         capo_ec2.types.public_ip_string_list.serialize_ec2_query(
-            value["public_ips"], pairs, f"{prefix}.PublicIps"
+            value["public_ips"], pairs, f"{key_prefix}PublicIps"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "allocation_ids" in value:
         import capo_ec2.types.allocation_id_list
 
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
-            value["allocation_ids"], pairs, f"{prefix}.AllocationIds"
+            value["allocation_ids"], pairs, f"{key_prefix}AllocationIds"
         )
 
 

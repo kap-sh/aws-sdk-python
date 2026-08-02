@@ -19,8 +19,9 @@ class MemoryInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MemoryInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "size_in_mi_b" in value:
-        pairs.append((f"{prefix}.SizeInMiB", str(value["size_in_mi_b"])))
+        pairs.append((f"{key_prefix}SizeInMiB", str(value["size_in_mi_b"])))
 
 
 def deserialize_ec2_query(el: Element) -> MemoryInfo:

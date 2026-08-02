@@ -42,42 +42,43 @@ class EventSubscription(TypedDict, closed=True):
 def serialize_query(
     value: EventSubscription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "customer_aws_id" in value:
-        pairs.append((f"{prefix}.CustomerAwsId", str(value["customer_aws_id"])))
+        pairs.append((f"{key_prefix}CustomerAwsId", str(value["customer_aws_id"])))
     if "cust_subscription_id" in value:
         pairs.append(
-            (f"{prefix}.CustSubscriptionId", str(value["cust_subscription_id"]))
+            (f"{key_prefix}CustSubscriptionId", str(value["cust_subscription_id"]))
         )
     if "sns_topic_arn" in value:
-        pairs.append((f"{prefix}.SnsTopicArn", str(value["sns_topic_arn"])))
+        pairs.append((f"{key_prefix}SnsTopicArn", str(value["sns_topic_arn"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "subscription_creation_time" in value:
         pairs.append(
             (
-                f"{prefix}.SubscriptionCreationTime",
+                f"{key_prefix}SubscriptionCreationTime",
                 str(value["subscription_creation_time"]),
             )
         )
     if "source_type" in value:
-        pairs.append((f"{prefix}.SourceType", str(value["source_type"])))
+        pairs.append((f"{key_prefix}SourceType", str(value["source_type"])))
     if "source_ids_list" in value:
         import capo_rds.types.source_ids_list
 
         capo_rds.types.source_ids_list.serialize_query(
-            value["source_ids_list"], pairs, f"{prefix}.SourceIdsList"
+            value["source_ids_list"], pairs, f"{key_prefix}SourceIdsList"
         )
     if "event_categories_list" in value:
         import capo_rds.types.event_categories_list
 
         capo_rds.types.event_categories_list.serialize_query(
-            value["event_categories_list"], pairs, f"{prefix}.EventCategoriesList"
+            value["event_categories_list"], pairs, f"{key_prefix}EventCategoriesList"
         )
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "event_subscription_arn" in value:
         pairs.append(
-            (f"{prefix}.EventSubscriptionArn", str(value["event_subscription_arn"]))
+            (f"{key_prefix}EventSubscriptionArn", str(value["event_subscription_arn"]))
         )
 
 

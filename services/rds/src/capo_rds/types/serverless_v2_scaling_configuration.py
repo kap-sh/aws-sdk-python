@@ -26,13 +26,17 @@ class ServerlessV2ScalingConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: ServerlessV2ScalingConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "min_capacity" in value:
-        pairs.append((f"{prefix}.MinCapacity", str(value["min_capacity"])))
+        pairs.append((f"{key_prefix}MinCapacity", str(value["min_capacity"])))
     if "max_capacity" in value:
-        pairs.append((f"{prefix}.MaxCapacity", str(value["max_capacity"])))
+        pairs.append((f"{key_prefix}MaxCapacity", str(value["max_capacity"])))
     if "seconds_until_auto_pause" in value:
         pairs.append(
-            (f"{prefix}.SecondsUntilAutoPause", str(value["seconds_until_auto_pause"]))
+            (
+                f"{key_prefix}SecondsUntilAutoPause",
+                str(value["seconds_until_auto_pause"]),
+            )
         )
 
 

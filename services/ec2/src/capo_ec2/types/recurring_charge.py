@@ -24,13 +24,14 @@ class RecurringCharge(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RecurringCharge, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "amount" in value:
-        pairs.append((f"{prefix}.Amount", str(value["amount"])))
+        pairs.append((f"{key_prefix}Amount", str(value["amount"])))
     if "frequency" in value:
         import capo_ec2.types.recurring_charge_frequency
 
         capo_ec2.types.recurring_charge_frequency.serialize_ec2_query(
-            value["frequency"], pairs, f"{prefix}.Frequency"
+            value["frequency"], pairs, f"{key_prefix}Frequency"
         )
 
 

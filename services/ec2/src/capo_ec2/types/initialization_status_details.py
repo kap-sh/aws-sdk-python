@@ -26,18 +26,19 @@ class InitializationStatusDetails(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InitializationStatusDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "initialization_type" in value:
         import capo_ec2.types.initialization_type
 
         capo_ec2.types.initialization_type.serialize_ec2_query(
-            value["initialization_type"], pairs, f"{prefix}.InitializationType"
+            value["initialization_type"], pairs, f"{key_prefix}InitializationType"
         )
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "estimated_time_to_complete_in_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.EstimatedTimeToCompleteInSeconds",
+                f"{key_prefix}EstimatedTimeToCompleteInSeconds",
                 str(value["estimated_time_to_complete_in_seconds"]),
             )
         )

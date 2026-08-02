@@ -24,15 +24,16 @@ class GpuInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GpuInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "gpus" in value:
         import capo_ec2.types.gpu_device_info_list
 
         capo_ec2.types.gpu_device_info_list.serialize_ec2_query(
-            value["gpus"], pairs, f"{prefix}.Gpus"
+            value["gpus"], pairs, f"{key_prefix}Gpus"
         )
     if "total_gpu_memory_in_mi_b" in value:
         pairs.append(
-            (f"{prefix}.TotalGpuMemoryInMiB", str(value["total_gpu_memory_in_mi_b"]))
+            (f"{key_prefix}TotalGpuMemoryInMiB", str(value["total_gpu_memory_in_mi_b"]))
         )
 
 

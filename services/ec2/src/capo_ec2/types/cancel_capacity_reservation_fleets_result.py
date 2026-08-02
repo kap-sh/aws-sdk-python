@@ -28,13 +28,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful_fleet_cancellations" in value:
         import capo_ec2.types.capacity_reservation_fleet_cancellation_state_set
 
         capo_ec2.types.capacity_reservation_fleet_cancellation_state_set.serialize_ec2_query(
             value["successful_fleet_cancellations"],
             pairs,
-            f"{prefix}.SuccessfulFleetCancellationSet",
+            f"{key_prefix}SuccessfulFleetCancellationSet",
         )
     if "failed_fleet_cancellations" in value:
         import capo_ec2.types.failed_capacity_reservation_fleet_cancellation_result_set
@@ -42,7 +43,7 @@ def serialize_ec2_query(
         capo_ec2.types.failed_capacity_reservation_fleet_cancellation_result_set.serialize_ec2_query(
             value["failed_fleet_cancellations"],
             pairs,
-            f"{prefix}.FailedFleetCancellationSet",
+            f"{key_prefix}FailedFleetCancellationSet",
         )
 
 

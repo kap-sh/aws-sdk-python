@@ -22,13 +22,14 @@ class ReservedInstanceLimitPrice(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReservedInstanceLimitPrice, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "amount" in value:
-        pairs.append((f"{prefix}.Amount", str(value["amount"])))
+        pairs.append((f"{key_prefix}Amount", str(value["amount"])))
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
 
 

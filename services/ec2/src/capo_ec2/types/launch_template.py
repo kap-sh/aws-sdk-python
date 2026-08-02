@@ -40,39 +40,42 @@ class LaunchTemplate(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LaunchTemplate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_id" in value:
-        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+        pairs.append(
+            (f"{key_prefix}LaunchTemplateId", str(value["launch_template_id"]))
+        )
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "created_by" in value:
-        pairs.append((f"{prefix}.CreatedBy", str(value["created_by"])))
+        pairs.append((f"{key_prefix}CreatedBy", str(value["created_by"])))
     if "default_version_number" in value:
         pairs.append(
-            (f"{prefix}.DefaultVersionNumber", str(value["default_version_number"]))
+            (f"{key_prefix}DefaultVersionNumber", str(value["default_version_number"]))
         )
     if "latest_version_number" in value:
         pairs.append(
-            (f"{prefix}.LatestVersionNumber", str(value["latest_version_number"]))
+            (f"{key_prefix}LatestVersionNumber", str(value["latest_version_number"]))
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
 
 

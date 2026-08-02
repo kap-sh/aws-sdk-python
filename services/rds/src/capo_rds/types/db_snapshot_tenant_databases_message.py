@@ -24,15 +24,16 @@ class DBSnapshotTenantDatabasesMessage(TypedDict, closed=True):
 def serialize_query(
     value: DBSnapshotTenantDatabasesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "db_snapshot_tenant_databases" in value:
         import capo_rds.types.db_snapshot_tenant_databases_list
 
         capo_rds.types.db_snapshot_tenant_databases_list.serialize_query(
             value["db_snapshot_tenant_databases"],
             pairs,
-            f"{prefix}.DBSnapshotTenantDatabases",
+            f"{key_prefix}DBSnapshotTenantDatabases",
         )
 
 

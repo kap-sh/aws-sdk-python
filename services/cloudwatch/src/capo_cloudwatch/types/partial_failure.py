@@ -59,15 +59,16 @@ def deserialize_aws_json_1_0(data: dict) -> PartialFailure:
 def serialize_query(
     value: PartialFailure, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "failure_resource" in value:
-        pairs.append((f"{prefix}.FailureResource", str(value["failure_resource"])))
+        pairs.append((f"{key_prefix}FailureResource", str(value["failure_resource"])))
     if "exception_type" in value:
-        pairs.append((f"{prefix}.ExceptionType", str(value["exception_type"])))
+        pairs.append((f"{key_prefix}ExceptionType", str(value["exception_type"])))
     if "failure_code" in value:
-        pairs.append((f"{prefix}.FailureCode", str(value["failure_code"])))
+        pairs.append((f"{key_prefix}FailureCode", str(value["failure_code"])))
     if "failure_description" in value:
         pairs.append(
-            (f"{prefix}.FailureDescription", str(value["failure_description"]))
+            (f"{key_prefix}FailureDescription", str(value["failure_description"]))
         )
 
 

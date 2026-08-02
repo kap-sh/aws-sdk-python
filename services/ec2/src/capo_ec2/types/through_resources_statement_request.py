@@ -21,11 +21,12 @@ class ThroughResourcesStatementRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ThroughResourcesStatementRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_statement" in value:
         import capo_ec2.types.resource_statement_request
 
         capo_ec2.types.resource_statement_request.serialize_ec2_query(
-            value["resource_statement"], pairs, f"{prefix}.ResourceStatement"
+            value["resource_statement"], pairs, f"{key_prefix}ResourceStatement"
         )
 
 

@@ -25,20 +25,21 @@ class ListPoliciesResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListPoliciesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policies" in value:
         import capo_iam.types.policy_list_type
 
         capo_iam.types.policy_list_type.serialize_query(
-            value["policies"], pairs, f"{prefix}.Policies"
+            value["policies"], pairs, f"{key_prefix}Policies"
         )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListPoliciesResponse:

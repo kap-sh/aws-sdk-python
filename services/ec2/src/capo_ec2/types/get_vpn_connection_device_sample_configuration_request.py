@@ -34,26 +34,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "vpn_connection_device_type_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpnConnectionDeviceTypeId",
+                f"{key_prefix}VpnConnectionDeviceTypeId",
                 str(value["vpn_connection_device_type_id"]),
             )
         )
     if "internet_key_exchange_version" in value:
         pairs.append(
             (
-                f"{prefix}.InternetKeyExchangeVersion",
+                f"{key_prefix}InternetKeyExchangeVersion",
                 str(value["internet_key_exchange_version"]),
             )
         )
     if "sample_type" in value:
-        pairs.append((f"{prefix}.SampleType", str(value["sample_type"])))
+        pairs.append((f"{key_prefix}SampleType", str(value["sample_type"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(

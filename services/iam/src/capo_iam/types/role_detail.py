@@ -61,24 +61,25 @@ class RoleDetail(TypedDict, closed=True):
 def serialize_query(
     value: RoleDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "role_name" in value:
-        pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
+        pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
     if "role_id" in value:
-        pairs.append((f"{prefix}.RoleId", str(value["role_id"])))
+        pairs.append((f"{key_prefix}RoleId", str(value["role_id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "assume_role_policy_document" in value:
         pairs.append(
             (
-                f"{prefix}.AssumeRolePolicyDocument",
+                f"{key_prefix}AssumeRolePolicyDocument",
                 str(value["assume_role_policy_document"]),
             )
         )
@@ -86,13 +87,13 @@ def serialize_query(
         import capo_iam.types.instance_profile_list_type
 
         capo_iam.types.instance_profile_list_type.serialize_query(
-            value["instance_profile_list"], pairs, f"{prefix}.InstanceProfileList"
+            value["instance_profile_list"], pairs, f"{key_prefix}InstanceProfileList"
         )
     if "role_policy_list" in value:
         import capo_iam.types.policy_detail_list_type
 
         capo_iam.types.policy_detail_list_type.serialize_query(
-            value["role_policy_list"], pairs, f"{prefix}.RolePolicyList"
+            value["role_policy_list"], pairs, f"{key_prefix}RolePolicyList"
         )
     if "attached_managed_policies" in value:
         import capo_iam.types.attached_policies_list_type
@@ -100,25 +101,25 @@ def serialize_query(
         capo_iam.types.attached_policies_list_type.serialize_query(
             value["attached_managed_policies"],
             pairs,
-            f"{prefix}.AttachedManagedPolicies",
+            f"{key_prefix}AttachedManagedPolicies",
         )
     if "permissions_boundary" in value:
         import capo_iam.types.attached_permissions_boundary
 
         capo_iam.types.attached_permissions_boundary.serialize_query(
-            value["permissions_boundary"], pairs, f"{prefix}.PermissionsBoundary"
+            value["permissions_boundary"], pairs, f"{key_prefix}PermissionsBoundary"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "role_last_used" in value:
         import capo_iam.types.role_last_used
 
         capo_iam.types.role_last_used.serialize_query(
-            value["role_last_used"], pairs, f"{prefix}.RoleLastUsed"
+            value["role_last_used"], pairs, f"{key_prefix}RoleLastUsed"
         )
 
 

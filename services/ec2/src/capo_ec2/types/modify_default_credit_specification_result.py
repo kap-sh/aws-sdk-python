@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_family_credit_specification" in value:
         import capo_ec2.types.instance_family_credit_specification
 
         capo_ec2.types.instance_family_credit_specification.serialize_ec2_query(
             value["instance_family_credit_specification"],
             pairs,
-            f"{prefix}.InstanceFamilyCreditSpecification",
+            f"{key_prefix}InstanceFamilyCreditSpecification",
         )
 
 

@@ -21,11 +21,12 @@ class ModifyVerifiedAccessGroupResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVerifiedAccessGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_group" in value:
         import capo_ec2.types.verified_access_group
 
         capo_ec2.types.verified_access_group.serialize_ec2_query(
-            value["verified_access_group"], pairs, f"{prefix}.VerifiedAccessGroup"
+            value["verified_access_group"], pairs, f"{key_prefix}VerifiedAccessGroup"
         )
 
 

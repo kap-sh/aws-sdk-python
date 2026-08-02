@@ -30,19 +30,20 @@ class ProvisionIpamByoasnRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProvisionIpamByoasnRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "asn" in value:
-        pairs.append((f"{prefix}.Asn", str(value["asn"])))
+        pairs.append((f"{key_prefix}Asn", str(value["asn"])))
     if "asn_authorization_context" in value:
         import capo_ec2.types.asn_authorization_context
 
         capo_ec2.types.asn_authorization_context.serialize_ec2_query(
             value["asn_authorization_context"],
             pairs,
-            f"{prefix}.AsnAuthorizationContext",
+            f"{key_prefix}AsnAuthorizationContext",
         )
 
 

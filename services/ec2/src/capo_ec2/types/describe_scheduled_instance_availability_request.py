@@ -47,13 +47,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "first_slot_start_time_range" in value:
         import capo_ec2.types.slot_date_time_range_request
@@ -61,31 +62,31 @@ def serialize_ec2_query(
         capo_ec2.types.slot_date_time_range_request.serialize_ec2_query(
             value["first_slot_start_time_range"],
             pairs,
-            f"{prefix}.FirstSlotStartTimeRange",
+            f"{key_prefix}FirstSlotStartTimeRange",
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "max_slot_duration_in_hours" in value:
         pairs.append(
             (
-                f"{prefix}.MaxSlotDurationInHours",
+                f"{key_prefix}MaxSlotDurationInHours",
                 str(value["max_slot_duration_in_hours"]),
             )
         )
     if "min_slot_duration_in_hours" in value:
         pairs.append(
             (
-                f"{prefix}.MinSlotDurationInHours",
+                f"{key_prefix}MinSlotDurationInHours",
                 str(value["min_slot_duration_in_hours"]),
             )
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "recurrence" in value:
         import capo_ec2.types.scheduled_instance_recurrence_request
 
         capo_ec2.types.scheduled_instance_recurrence_request.serialize_ec2_query(
-            value["recurrence"], pairs, f"{prefix}.Recurrence"
+            value["recurrence"], pairs, f"{key_prefix}Recurrence"
         )
 
 

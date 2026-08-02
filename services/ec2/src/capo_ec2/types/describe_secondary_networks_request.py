@@ -35,23 +35,24 @@ class DescribeSecondaryNetworksRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSecondaryNetworksRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "secondary_network_ids" in value:
         import capo_ec2.types.secondary_network_id_list
 
         capo_ec2.types.secondary_network_id_list.serialize_ec2_query(
-            value["secondary_network_ids"], pairs, f"{prefix}.SecondaryNetworkIds"
+            value["secondary_network_ids"], pairs, f"{key_prefix}SecondaryNetworkIds"
         )
 
 

@@ -31,20 +31,21 @@ class TransitGatewayRouteTableRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayRouteTableRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_cidr" in value:
-        pairs.append((f"{prefix}.DestinationCidr", str(value["destination_cidr"])))
+        pairs.append((f"{key_prefix}DestinationCidr", str(value["destination_cidr"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "route_origin" in value:
-        pairs.append((f"{prefix}.RouteOrigin", str(value["route_origin"])))
+        pairs.append((f"{key_prefix}RouteOrigin", str(value["route_origin"])))
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "attachment_id" in value:
-        pairs.append((f"{prefix}.AttachmentId", str(value["attachment_id"])))
+        pairs.append((f"{key_prefix}AttachmentId", str(value["attachment_id"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
 
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTableRoute:

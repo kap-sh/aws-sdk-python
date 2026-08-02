@@ -19,8 +19,9 @@ class GetAccessKeyInfoResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetAccessKeyInfoResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account" in value:
-        pairs.append((f"{prefix}.Account", str(value["account"])))
+        pairs.append((f"{key_prefix}Account", str(value["account"])))
 
 
 def deserialize_query(el: Element) -> GetAccessKeyInfoResponse:

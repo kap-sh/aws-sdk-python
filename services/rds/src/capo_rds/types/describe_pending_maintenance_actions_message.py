@@ -29,20 +29,21 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_identifier" in value:
         pairs.append(
-            (f"{prefix}.ResourceIdentifier", str(value["resource_identifier"]))
+            (f"{key_prefix}ResourceIdentifier", str(value["resource_identifier"]))
         )
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribePendingMaintenanceActionsMessage:

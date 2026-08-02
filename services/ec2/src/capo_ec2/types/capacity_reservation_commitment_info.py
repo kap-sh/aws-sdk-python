@@ -24,15 +24,19 @@ class CapacityReservationCommitmentInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationCommitmentInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "committed_instance_count" in value:
         pairs.append(
-            (f"{prefix}.CommittedInstanceCount", str(value["committed_instance_count"]))
+            (
+                f"{key_prefix}CommittedInstanceCount",
+                str(value["committed_instance_count"]),
+            )
         )
     if "commitment_end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["commitment_end_date"], pairs, f"{prefix}.CommitmentEndDate"
+            value["commitment_end_date"], pairs, f"{key_prefix}CommitmentEndDate"
         )
 
 

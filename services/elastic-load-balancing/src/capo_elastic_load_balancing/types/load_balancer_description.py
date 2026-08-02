@@ -84,21 +84,24 @@ class LoadBalancerDescription(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancerDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_name" in value:
-        pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
+        pairs.append(
+            (f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"]))
+        )
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DNSName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DNSName", str(value["dns_name"])))
     if "canonical_hosted_zone_name" in value:
         pairs.append(
             (
-                f"{prefix}.CanonicalHostedZoneName",
+                f"{key_prefix}CanonicalHostedZoneName",
                 str(value["canonical_hosted_zone_name"]),
             )
         )
     if "canonical_hosted_zone_name_id" in value:
         pairs.append(
             (
-                f"{prefix}.CanonicalHostedZoneNameID",
+                f"{key_prefix}CanonicalHostedZoneNameID",
                 str(value["canonical_hosted_zone_name_id"]),
             )
         )
@@ -106,13 +109,13 @@ def serialize_query(
         import capo_elastic_load_balancing.types.listener_descriptions
 
         capo_elastic_load_balancing.types.listener_descriptions.serialize_query(
-            value["listener_descriptions"], pairs, f"{prefix}.ListenerDescriptions"
+            value["listener_descriptions"], pairs, f"{key_prefix}ListenerDescriptions"
         )
     if "policies" in value:
         import capo_elastic_load_balancing.types.policies
 
         capo_elastic_load_balancing.types.policies.serialize_query(
-            value["policies"], pairs, f"{prefix}.Policies"
+            value["policies"], pairs, f"{key_prefix}Policies"
         )
     if "backend_server_descriptions" in value:
         import capo_elastic_load_balancing.types.backend_server_descriptions
@@ -120,54 +123,54 @@ def serialize_query(
         capo_elastic_load_balancing.types.backend_server_descriptions.serialize_query(
             value["backend_server_descriptions"],
             pairs,
-            f"{prefix}.BackendServerDescriptions",
+            f"{key_prefix}BackendServerDescriptions",
         )
     if "availability_zones" in value:
         import capo_elastic_load_balancing.types.availability_zones
 
         capo_elastic_load_balancing.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "subnets" in value:
         import capo_elastic_load_balancing.types.subnets
 
         capo_elastic_load_balancing.types.subnets.serialize_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VPCId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VPCId", str(value["vpc_id"])))
     if "instances" in value:
         import capo_elastic_load_balancing.types.instances
 
         capo_elastic_load_balancing.types.instances.serialize_query(
-            value["instances"], pairs, f"{prefix}.Instances"
+            value["instances"], pairs, f"{key_prefix}Instances"
         )
     if "health_check" in value:
         import capo_elastic_load_balancing.types.health_check
 
         capo_elastic_load_balancing.types.health_check.serialize_query(
-            value["health_check"], pairs, f"{prefix}.HealthCheck"
+            value["health_check"], pairs, f"{key_prefix}HealthCheck"
         )
     if "source_security_group" in value:
         import capo_elastic_load_balancing.types.source_security_group
 
         capo_elastic_load_balancing.types.source_security_group.serialize_query(
-            value["source_security_group"], pairs, f"{prefix}.SourceSecurityGroup"
+            value["source_security_group"], pairs, f"{key_prefix}SourceSecurityGroup"
         )
     if "security_groups" in value:
         import capo_elastic_load_balancing.types.security_groups
 
         capo_elastic_load_balancing.types.security_groups.serialize_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "created_time" in value:
         import capo_elastic_load_balancing.types.created_time
 
         capo_elastic_load_balancing.types.created_time.serialize_query(
-            value["created_time"], pairs, f"{prefix}.CreatedTime"
+            value["created_time"], pairs, f"{key_prefix}CreatedTime"
         )
     if "scheme" in value:
-        pairs.append((f"{prefix}.Scheme", str(value["scheme"])))
+        pairs.append((f"{key_prefix}Scheme", str(value["scheme"])))
 
 
 def deserialize_query(el: Element) -> LoadBalancerDescription:

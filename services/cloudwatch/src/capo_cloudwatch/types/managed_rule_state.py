@@ -41,10 +41,11 @@ def deserialize_aws_json_1_0(data: dict) -> ManagedRuleState:
 def serialize_query(
     value: ManagedRuleState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_name" in value:
-        pairs.append((f"{prefix}.RuleName", str(value["rule_name"])))
+        pairs.append((f"{key_prefix}RuleName", str(value["rule_name"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
 
 
 def deserialize_query(el: Element) -> ManagedRuleState:

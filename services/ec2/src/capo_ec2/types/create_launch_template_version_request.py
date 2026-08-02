@@ -46,31 +46,34 @@ class CreateLaunchTemplateVersionRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateLaunchTemplateVersionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "launch_template_id" in value:
-        pairs.append((f"{prefix}.LaunchTemplateId", str(value["launch_template_id"])))
+        pairs.append(
+            (f"{key_prefix}LaunchTemplateId", str(value["launch_template_id"]))
+        )
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "source_version" in value:
-        pairs.append((f"{prefix}.SourceVersion", str(value["source_version"])))
+        pairs.append((f"{key_prefix}SourceVersion", str(value["source_version"])))
     if "version_description" in value:
         pairs.append(
-            (f"{prefix}.VersionDescription", str(value["version_description"]))
+            (f"{key_prefix}VersionDescription", str(value["version_description"]))
         )
     if "launch_template_data" in value:
         import capo_ec2.types.request_launch_template_data
 
         capo_ec2.types.request_launch_template_data.serialize_ec2_query(
-            value["launch_template_data"], pairs, f"{prefix}.LaunchTemplateData"
+            value["launch_template_data"], pairs, f"{key_prefix}LaunchTemplateData"
         )
     if "resolve_alias" in value:
         pairs.append(
-            (f"{prefix}.ResolveAlias", "true" if value["resolve_alias"] else "false")
+            (f"{key_prefix}ResolveAlias", "true" if value["resolve_alias"] else "false")
         )
 
 

@@ -83,23 +83,24 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmContributor:
 def serialize_query(
     value: AlarmContributor, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "contributor_id" in value:
-        pairs.append((f"{prefix}.ContributorId", str(value["contributor_id"])))
+        pairs.append((f"{key_prefix}ContributorId", str(value["contributor_id"])))
     if "contributor_attributes" in value:
         import capo_cloudwatch.types.contributor_attributes
 
         capo_cloudwatch.types.contributor_attributes.serialize_query(
-            value["contributor_attributes"], pairs, f"{prefix}.ContributorAttributes"
+            value["contributor_attributes"], pairs, f"{key_prefix}ContributorAttributes"
         )
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
     if "state_transitioned_timestamp" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
             value["state_transitioned_timestamp"],
             pairs,
-            f"{prefix}.StateTransitionedTimestamp",
+            f"{key_prefix}StateTransitionedTimestamp",
         )
 
 

@@ -24,10 +24,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.simulation_policy_list_type
 
     capo_iam.types.simulation_policy_list_type.serialize_query(
-        value["policy_input_list"], pairs, f"{prefix}.PolicyInputList"
+        value["policy_input_list"], pairs, f"{key_prefix}PolicyInputList"
     )
 
 

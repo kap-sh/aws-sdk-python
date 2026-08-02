@@ -24,13 +24,14 @@ class ReservedDBInstanceMessage(TypedDict, closed=True):
 def serialize_query(
     value: ReservedDBInstanceMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "reserved_db_instances" in value:
         import capo_rds.types.reserved_db_instance_list
 
         capo_rds.types.reserved_db_instance_list.serialize_query(
-            value["reserved_db_instances"], pairs, f"{prefix}.ReservedDBInstances"
+            value["reserved_db_instances"], pairs, f"{key_prefix}ReservedDBInstances"
         )
 
 

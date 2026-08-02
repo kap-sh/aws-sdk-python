@@ -30,27 +30,28 @@ class DescribeFleetHistoryResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeFleetHistoryResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "history_records" in value:
         import capo_ec2.types.history_record_set
 
         capo_ec2.types.history_record_set.serialize_ec2_query(
-            value["history_records"], pairs, f"{prefix}.HistoryRecordSet"
+            value["history_records"], pairs, f"{key_prefix}HistoryRecordSet"
         )
     if "last_evaluated_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["last_evaluated_time"], pairs, f"{prefix}.LastEvaluatedTime"
+            value["last_evaluated_time"], pairs, f"{key_prefix}LastEvaluatedTime"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
 
 

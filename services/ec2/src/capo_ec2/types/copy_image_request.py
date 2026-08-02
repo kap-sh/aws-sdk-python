@@ -58,57 +58,66 @@ class CopyImageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CopyImageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "source_image_id" in value:
-        pairs.append((f"{prefix}.SourceImageId", str(value["source_image_id"])))
+        pairs.append((f"{key_prefix}SourceImageId", str(value["source_image_id"])))
     if "source_region" in value:
-        pairs.append((f"{prefix}.SourceRegion", str(value["source_region"])))
+        pairs.append((f"{key_prefix}SourceRegion", str(value["source_region"])))
     if "destination_outpost_arn" in value:
         pairs.append(
-            (f"{prefix}.DestinationOutpostArn", str(value["destination_outpost_arn"]))
+            (
+                f"{key_prefix}DestinationOutpostArn",
+                str(value["destination_outpost_arn"]),
+            )
         )
     if "copy_image_tags" in value:
         pairs.append(
-            (f"{prefix}.CopyImageTags", "true" if value["copy_image_tags"] else "false")
+            (
+                f"{key_prefix}CopyImageTags",
+                "true" if value["copy_image_tags"] else "false",
+            )
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "snapshot_copy_completion_duration_minutes" in value:
         pairs.append(
             (
-                f"{prefix}.SnapshotCopyCompletionDurationMinutes",
+                f"{key_prefix}SnapshotCopyCompletionDurationMinutes",
                 str(value["snapshot_copy_completion_duration_minutes"]),
             )
         )
     if "destination_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationAvailabilityZone",
+                f"{key_prefix}DestinationAvailabilityZone",
                 str(value["destination_availability_zone"]),
             )
         )
     if "destination_availability_zone_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationAvailabilityZoneId",
+                f"{key_prefix}DestinationAvailabilityZoneId",
                 str(value["destination_availability_zone_id"]),
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CopyImageRequest:

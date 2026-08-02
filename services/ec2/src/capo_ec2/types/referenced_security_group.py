@@ -27,18 +27,19 @@ class ReferencedSecurityGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReferencedSecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "peering_status" in value:
-        pairs.append((f"{prefix}.PeeringStatus", str(value["peering_status"])))
+        pairs.append((f"{key_prefix}PeeringStatus", str(value["peering_status"])))
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )

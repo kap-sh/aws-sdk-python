@@ -21,11 +21,12 @@ class GetImageAncestryResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetImageAncestryResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_ancestry_entries" in value:
         import capo_ec2.types.image_ancestry_entry_list
 
         capo_ec2.types.image_ancestry_entry_list.serialize_ec2_query(
-            value["image_ancestry_entries"], pairs, f"{prefix}.ImageAncestryEntrySet"
+            value["image_ancestry_entries"], pairs, f"{key_prefix}ImageAncestryEntrySet"
         )
 
 

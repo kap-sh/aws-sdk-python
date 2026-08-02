@@ -21,9 +21,10 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_db_instance_arn" in value:
         pairs.append(
-            (f"{prefix}.SourceDBInstanceArn", str(value["source_db_instance_arn"]))
+            (f"{key_prefix}SourceDBInstanceArn", str(value["source_db_instance_arn"]))
         )
 
 

@@ -31,16 +31,20 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "unused_reservation_billing_owner_id" in value:
         pairs.append(
             (
-                f"{prefix}.UnusedReservationBillingOwnerId",
+                f"{key_prefix}UnusedReservationBillingOwnerId",
                 str(value["unused_reservation_billing_owner_id"]),
             )
         )

@@ -21,8 +21,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "job_id" in value:
-        pairs.append((f"{prefix}.JobId", str(value["job_id"])))
+        pairs.append((f"{key_prefix}JobId", str(value["job_id"])))
 
 
 def deserialize_query(el: Element) -> GenerateServiceLastAccessedDetailsResponse:

@@ -29,21 +29,22 @@ class UnassignPrivateIpAddressesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: UnassignPrivateIpAddressesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv4_prefixes" in value:
         import capo_ec2.types.ip_prefix_list
 
         capo_ec2.types.ip_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "private_ip_addresses" in value:
         import capo_ec2.types.private_ip_address_string_list
 
         capo_ec2.types.private_ip_address_string_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddress"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddress"
         )
 
 

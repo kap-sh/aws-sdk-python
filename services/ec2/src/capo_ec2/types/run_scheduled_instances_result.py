@@ -19,11 +19,12 @@ class RunScheduledInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RunScheduledInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id_set" in value:
         import capo_ec2.types.instance_id_set
 
         capo_ec2.types.instance_id_set.serialize_ec2_query(
-            value["instance_id_set"], pairs, f"{prefix}.InstanceIdSet"
+            value["instance_id_set"], pairs, f"{key_prefix}InstanceIdSet"
         )
 
 

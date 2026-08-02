@@ -71,17 +71,18 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "include_metrics" in value:
         import capo_cloudwatch.types.metric_stream_statistics_include_metrics
 
         capo_cloudwatch.types.metric_stream_statistics_include_metrics.serialize_query(
-            value["include_metrics"], pairs, f"{prefix}.IncludeMetrics"
+            value["include_metrics"], pairs, f"{key_prefix}IncludeMetrics"
         )
     if "additional_statistics" in value:
         import capo_cloudwatch.types.metric_stream_statistics_additional_statistics
 
         capo_cloudwatch.types.metric_stream_statistics_additional_statistics.serialize_query(
-            value["additional_statistics"], pairs, f"{prefix}.AdditionalStatistics"
+            value["additional_statistics"], pairs, f"{key_prefix}AdditionalStatistics"
         )
 
 

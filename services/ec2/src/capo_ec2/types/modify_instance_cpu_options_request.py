@@ -32,20 +32,21 @@ class ModifyInstanceCpuOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyInstanceCpuOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "core_count" in value:
-        pairs.append((f"{prefix}.CoreCount", str(value["core_count"])))
+        pairs.append((f"{key_prefix}CoreCount", str(value["core_count"])))
     if "threads_per_core" in value:
-        pairs.append((f"{prefix}.ThreadsPerCore", str(value["threads_per_core"])))
+        pairs.append((f"{key_prefix}ThreadsPerCore", str(value["threads_per_core"])))
     if "nested_virtualization" in value:
         import capo_ec2.types.nested_virtualization_specification
 
         capo_ec2.types.nested_virtualization_specification.serialize_ec2_query(
-            value["nested_virtualization"], pairs, f"{prefix}.NestedVirtualization"
+            value["nested_virtualization"], pairs, f"{key_prefix}NestedVirtualization"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceCpuOptionsRequest:

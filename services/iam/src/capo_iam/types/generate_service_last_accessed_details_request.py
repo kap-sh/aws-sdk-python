@@ -27,12 +27,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "granularity" in value:
         import capo_iam.types.access_advisor_usage_granularity_type
 
         capo_iam.types.access_advisor_usage_granularity_type.serialize_query(
-            value["granularity"], pairs, f"{prefix}.Granularity"
+            value["granularity"], pairs, f"{key_prefix}Granularity"
         )
 
 

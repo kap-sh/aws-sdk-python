@@ -114,103 +114,106 @@ class NetworkInterface(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInterface, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association" in value:
         import capo_ec2.types.network_interface_association
 
         capo_ec2.types.network_interface_association.serialize_ec2_query(
-            value["association"], pairs, f"{prefix}.Association"
+            value["association"], pairs, f"{key_prefix}Association"
         )
     if "attachment" in value:
         import capo_ec2.types.network_interface_attachment
 
         capo_ec2.types.network_interface_attachment.serialize_ec2_query(
-            value["attachment"], pairs, f"{prefix}.Attachment"
+            value["attachment"], pairs, f"{key_prefix}Attachment"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "connection_tracking_configuration" in value:
         import capo_ec2.types.connection_tracking_configuration
 
         capo_ec2.types.connection_tracking_configuration.serialize_ec2_query(
             value["connection_tracking_configuration"],
             pairs,
-            f"{prefix}.ConnectionTrackingConfiguration",
+            f"{key_prefix}ConnectionTrackingConfiguration",
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "groups" in value:
         import capo_ec2.types.group_identifier_list
 
         capo_ec2.types.group_identifier_list.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.GroupSet"
+            value["groups"], pairs, f"{key_prefix}GroupSet"
         )
     if "interface_type" in value:
         import capo_ec2.types.network_interface_type
 
         capo_ec2.types.network_interface_type.serialize_ec2_query(
-            value["interface_type"], pairs, f"{prefix}.InterfaceType"
+            value["interface_type"], pairs, f"{key_prefix}InterfaceType"
         )
     if "ipv6_addresses" in value:
         import capo_ec2.types.network_interface_ipv6_addresses_list
 
         capo_ec2.types.network_interface_ipv6_addresses_list.serialize_ec2_query(
-            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6AddressesSet"
+            value["ipv6_addresses"], pairs, f"{key_prefix}Ipv6AddressesSet"
         )
     if "mac_address" in value:
-        pairs.append((f"{prefix}.MacAddress", str(value["mac_address"])))
+        pairs.append((f"{key_prefix}MacAddress", str(value["mac_address"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "private_dns_name" in value:
-        pairs.append((f"{prefix}.PrivateDnsName", str(value["private_dns_name"])))
+        pairs.append((f"{key_prefix}PrivateDnsName", str(value["private_dns_name"])))
     if "public_dns_name" in value:
-        pairs.append((f"{prefix}.PublicDnsName", str(value["public_dns_name"])))
+        pairs.append((f"{key_prefix}PublicDnsName", str(value["public_dns_name"])))
     if "public_ip_dns_name_options" in value:
         import capo_ec2.types.public_ip_dns_name_options
 
         capo_ec2.types.public_ip_dns_name_options.serialize_ec2_query(
             value["public_ip_dns_name_options"],
             pairs,
-            f"{prefix}.PublicIpDnsNameOptions",
+            f"{key_prefix}PublicIpDnsNameOptions",
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "private_ip_addresses" in value:
         import capo_ec2.types.network_interface_private_ip_address_list
 
         capo_ec2.types.network_interface_private_ip_address_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddressesSet"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddressesSet"
         )
     if "ipv4_prefixes" in value:
         import capo_ec2.types.ipv4_prefixes_list
 
         capo_ec2.types.ipv4_prefixes_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4PrefixSet"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4PrefixSet"
         )
     if "ipv6_prefixes" in value:
         import capo_ec2.types.ipv6_prefixes_list
 
         capo_ec2.types.ipv6_prefixes_list.serialize_ec2_query(
-            value["ipv6_prefixes"], pairs, f"{prefix}.Ipv6PrefixSet"
+            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6PrefixSet"
         )
     if "requester_id" in value:
-        pairs.append((f"{prefix}.RequesterId", str(value["requester_id"])))
+        pairs.append((f"{key_prefix}RequesterId", str(value["requester_id"])))
     if "requester_managed" in value:
         pairs.append(
             (
-                f"{prefix}.RequesterManaged",
+                f"{key_prefix}RequesterManaged",
                 "true" if value["requester_managed"] else "false",
             )
         )
     if "source_dest_check" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDestCheck",
+                f"{key_prefix}SourceDestCheck",
                 "true" if value["source_dest_check"] else "false",
             )
         )
@@ -218,46 +221,46 @@ def serialize_ec2_query(
         import capo_ec2.types.network_interface_status
 
         capo_ec2.types.network_interface_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "tag_set" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tag_set"], pairs, f"{prefix}.TagSet"
+            value["tag_set"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "deny_all_igw_traffic" in value:
         pairs.append(
             (
-                f"{prefix}.DenyAllIgwTraffic",
+                f"{key_prefix}DenyAllIgwTraffic",
                 "true" if value["deny_all_igw_traffic"] else "false",
             )
         )
     if "ipv6_native" in value:
         pairs.append(
-            (f"{prefix}.Ipv6Native", "true" if value["ipv6_native"] else "false")
+            (f"{key_prefix}Ipv6Native", "true" if value["ipv6_native"] else "false")
         )
     if "ipv6_address" in value:
-        pairs.append((f"{prefix}.Ipv6Address", str(value["ipv6_address"])))
+        pairs.append((f"{key_prefix}Ipv6Address", str(value["ipv6_address"])))
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "associated_subnets" in value:
         import capo_ec2.types.associated_subnet_list
 
         capo_ec2.types.associated_subnet_list.serialize_ec2_query(
-            value["associated_subnets"], pairs, f"{prefix}.AssociatedSubnetSet"
+            value["associated_subnets"], pairs, f"{key_prefix}AssociatedSubnetSet"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

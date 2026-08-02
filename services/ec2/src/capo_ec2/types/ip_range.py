@@ -21,10 +21,11 @@ class IpRange(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpRange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "cidr_ip" in value:
-        pairs.append((f"{prefix}.CidrIp", str(value["cidr_ip"])))
+        pairs.append((f"{key_prefix}CidrIp", str(value["cidr_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> IpRange:

@@ -21,11 +21,12 @@ class DescribeLoadBalancerPoliciesOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeLoadBalancerPoliciesOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_descriptions" in value:
         import capo_elastic_load_balancing.types.policy_descriptions
 
         capo_elastic_load_balancing.types.policy_descriptions.serialize_query(
-            value["policy_descriptions"], pairs, f"{prefix}.PolicyDescriptions"
+            value["policy_descriptions"], pairs, f"{key_prefix}PolicyDescriptions"
         )
 
 

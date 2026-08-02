@@ -24,12 +24,13 @@ class DeleteIpamRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteIpamRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "cascade" in value:
-        pairs.append((f"{prefix}.Cascade", "true" if value["cascade"] else "false"))
+        pairs.append((f"{key_prefix}Cascade", "true" if value["cascade"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteIpamRequest:

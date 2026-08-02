@@ -22,13 +22,14 @@ class CreateVolumePermission(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateVolumePermission, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "group" in value:
         import capo_ec2.types.permission_group
 
         capo_ec2.types.permission_group.serialize_ec2_query(
-            value["group"], pairs, f"{prefix}.Group"
+            value["group"], pairs, f"{key_prefix}Group"
         )
 
 

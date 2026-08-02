@@ -19,10 +19,13 @@ class DeleteIpamResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteIpamResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam" in value:
         import capo_ec2.types.ipam
 
-        capo_ec2.types.ipam.serialize_ec2_query(value["ipam"], pairs, f"{prefix}.Ipam")
+        capo_ec2.types.ipam.serialize_ec2_query(
+            value["ipam"], pairs, f"{key_prefix}Ipam"
+        )
 
 
 def deserialize_ec2_query(el: Element) -> DeleteIpamResult:

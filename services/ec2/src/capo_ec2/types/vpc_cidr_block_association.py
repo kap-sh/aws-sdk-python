@@ -26,15 +26,16 @@ class VpcCidrBlockAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcCidrBlockAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "cidr_block_state" in value:
         import capo_ec2.types.vpc_cidr_block_state
 
         capo_ec2.types.vpc_cidr_block_state.serialize_ec2_query(
-            value["cidr_block_state"], pairs, f"{prefix}.CidrBlockState"
+            value["cidr_block_state"], pairs, f"{key_prefix}CidrBlockState"
         )
 
 

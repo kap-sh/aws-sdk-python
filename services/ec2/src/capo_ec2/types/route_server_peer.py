@@ -68,59 +68,63 @@ class RouteServerPeer(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServerPeer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_peer_id" in value:
         pairs.append(
-            (f"{prefix}.RouteServerPeerId", str(value["route_server_peer_id"]))
+            (f"{key_prefix}RouteServerPeerId", str(value["route_server_peer_id"]))
         )
     if "route_server_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.RouteServerEndpointId", str(value["route_server_endpoint_id"]))
+            (
+                f"{key_prefix}RouteServerEndpointId",
+                str(value["route_server_endpoint_id"]),
+            )
         )
     if "route_server_id" in value:
-        pairs.append((f"{prefix}.RouteServerId", str(value["route_server_id"])))
+        pairs.append((f"{key_prefix}RouteServerId", str(value["route_server_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "state" in value:
         import capo_ec2.types.route_server_peer_state
 
         capo_ec2.types.route_server_peer_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "failure_reason" in value:
-        pairs.append((f"{prefix}.FailureReason", str(value["failure_reason"])))
+        pairs.append((f"{key_prefix}FailureReason", str(value["failure_reason"])))
     if "endpoint_eni_id" in value:
-        pairs.append((f"{prefix}.EndpointEniId", str(value["endpoint_eni_id"])))
+        pairs.append((f"{key_prefix}EndpointEniId", str(value["endpoint_eni_id"])))
     if "endpoint_eni_address" in value:
         pairs.append(
-            (f"{prefix}.EndpointEniAddress", str(value["endpoint_eni_address"]))
+            (f"{key_prefix}EndpointEniAddress", str(value["endpoint_eni_address"]))
         )
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "bgp_options" in value:
         import capo_ec2.types.route_server_bgp_options
 
         capo_ec2.types.route_server_bgp_options.serialize_ec2_query(
-            value["bgp_options"], pairs, f"{prefix}.BgpOptions"
+            value["bgp_options"], pairs, f"{key_prefix}BgpOptions"
         )
     if "bgp_status" in value:
         import capo_ec2.types.route_server_bgp_status
 
         capo_ec2.types.route_server_bgp_status.serialize_ec2_query(
-            value["bgp_status"], pairs, f"{prefix}.BgpStatus"
+            value["bgp_status"], pairs, f"{key_prefix}BgpStatus"
         )
     if "bfd_status" in value:
         import capo_ec2.types.route_server_bfd_status
 
         capo_ec2.types.route_server_bfd_status.serialize_ec2_query(
-            value["bfd_status"], pairs, f"{prefix}.BfdStatus"
+            value["bfd_status"], pairs, f"{key_prefix}BfdStatus"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

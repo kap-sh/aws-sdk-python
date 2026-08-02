@@ -30,18 +30,19 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "device_name" in value:
-        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+        pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "virtual_name" in value:
-        pairs.append((f"{prefix}.VirtualName", str(value["virtual_name"])))
+        pairs.append((f"{key_prefix}VirtualName", str(value["virtual_name"])))
     if "ebs" in value:
         import capo_ec2.types.launch_template_ebs_block_device_request
 
         capo_ec2.types.launch_template_ebs_block_device_request.serialize_ec2_query(
-            value["ebs"], pairs, f"{prefix}.Ebs"
+            value["ebs"], pairs, f"{key_prefix}Ebs"
         )
     if "no_device" in value:
-        pairs.append((f"{prefix}.NoDevice", str(value["no_device"])))
+        pairs.append((f"{key_prefix}NoDevice", str(value["no_device"])))
 
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateBlockDeviceMappingRequest:

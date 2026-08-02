@@ -36,26 +36,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "source_capacity_reservation_id" in value:
         pairs.append(
             (
-                f"{prefix}.SourceCapacityReservationId",
+                f"{key_prefix}SourceCapacityReservationId",
                 str(value["source_capacity_reservation_id"]),
             )
         )
     if "destination_capacity_reservation_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationCapacityReservationId",
+                f"{key_prefix}DestinationCapacityReservationId",
                 str(value["destination_capacity_reservation_id"]),
             )
         )
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
 
 
 def deserialize_ec2_query(el: Element) -> MoveCapacityReservationInstancesRequest:

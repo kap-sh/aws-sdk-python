@@ -35,10 +35,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_metering_policy_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMeteringPolicyId",
+                f"{key_prefix}TransitGatewayMeteringPolicyId",
                 str(value["transit_gateway_metering_policy_id"]),
             )
         )
@@ -48,7 +49,7 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_id_string_list.serialize_ec2_query(
             value["add_middlebox_attachment_ids"],
             pairs,
-            f"{prefix}.AddMiddleboxAttachmentIds",
+            f"{key_prefix}AddMiddleboxAttachmentIds",
         )
     if "remove_middlebox_attachment_ids" in value:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
@@ -56,10 +57,10 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_id_string_list.serialize_ec2_query(
             value["remove_middlebox_attachment_ids"],
             pairs,
-            f"{prefix}.RemoveMiddleboxAttachmentIds",
+            f"{key_prefix}RemoveMiddleboxAttachmentIds",
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyTransitGatewayMeteringPolicyRequest:

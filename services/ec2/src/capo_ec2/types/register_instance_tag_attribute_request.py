@@ -26,10 +26,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "include_all_tags_of_instance" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeAllTagsOfInstance",
+                f"{key_prefix}IncludeAllTagsOfInstance",
                 "true" if value["include_all_tags_of_instance"] else "false",
             )
         )
@@ -37,7 +38,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_tag_key_set
 
         capo_ec2.types.instance_tag_key_set.serialize_ec2_query(
-            value["instance_tag_keys"], pairs, f"{prefix}.InstanceTagKeys"
+            value["instance_tag_keys"], pairs, f"{key_prefix}InstanceTagKeys"
         )
 
 

@@ -29,21 +29,24 @@ class InternetGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InternetGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attachments" in value:
         import capo_ec2.types.internet_gateway_attachment_list
 
         capo_ec2.types.internet_gateway_attachment_list.serialize_ec2_query(
-            value["attachments"], pairs, f"{prefix}.AttachmentSet"
+            value["attachments"], pairs, f"{key_prefix}AttachmentSet"
         )
     if "internet_gateway_id" in value:
-        pairs.append((f"{prefix}.InternetGatewayId", str(value["internet_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}InternetGatewayId", str(value["internet_gateway_id"]))
+        )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

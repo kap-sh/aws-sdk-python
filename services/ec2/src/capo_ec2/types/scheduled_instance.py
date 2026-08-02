@@ -52,66 +52,67 @@ class ScheduledInstance(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ScheduledInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "create_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "hourly_price" in value:
-        pairs.append((f"{prefix}.HourlyPrice", str(value["hourly_price"])))
+        pairs.append((f"{key_prefix}HourlyPrice", str(value["hourly_price"])))
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "network_platform" in value:
-        pairs.append((f"{prefix}.NetworkPlatform", str(value["network_platform"])))
+        pairs.append((f"{key_prefix}NetworkPlatform", str(value["network_platform"])))
     if "next_slot_start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["next_slot_start_time"], pairs, f"{prefix}.NextSlotStartTime"
+            value["next_slot_start_time"], pairs, f"{key_prefix}NextSlotStartTime"
         )
     if "platform" in value:
-        pairs.append((f"{prefix}.Platform", str(value["platform"])))
+        pairs.append((f"{key_prefix}Platform", str(value["platform"])))
     if "previous_slot_end_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["previous_slot_end_time"], pairs, f"{prefix}.PreviousSlotEndTime"
+            value["previous_slot_end_time"], pairs, f"{key_prefix}PreviousSlotEndTime"
         )
     if "recurrence" in value:
         import capo_ec2.types.scheduled_instance_recurrence
 
         capo_ec2.types.scheduled_instance_recurrence.serialize_ec2_query(
-            value["recurrence"], pairs, f"{prefix}.Recurrence"
+            value["recurrence"], pairs, f"{key_prefix}Recurrence"
         )
     if "scheduled_instance_id" in value:
         pairs.append(
-            (f"{prefix}.ScheduledInstanceId", str(value["scheduled_instance_id"]))
+            (f"{key_prefix}ScheduledInstanceId", str(value["scheduled_instance_id"]))
         )
     if "slot_duration_in_hours" in value:
         pairs.append(
-            (f"{prefix}.SlotDurationInHours", str(value["slot_duration_in_hours"]))
+            (f"{key_prefix}SlotDurationInHours", str(value["slot_duration_in_hours"]))
         )
     if "term_end_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["term_end_date"], pairs, f"{prefix}.TermEndDate"
+            value["term_end_date"], pairs, f"{key_prefix}TermEndDate"
         )
     if "term_start_date" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["term_start_date"], pairs, f"{prefix}.TermStartDate"
+            value["term_start_date"], pairs, f"{key_prefix}TermStartDate"
         )
     if "total_scheduled_instance_hours" in value:
         pairs.append(
             (
-                f"{prefix}.TotalScheduledInstanceHours",
+                f"{key_prefix}TotalScheduledInstanceHours",
                 str(value["total_scheduled_instance_hours"]),
             )
         )

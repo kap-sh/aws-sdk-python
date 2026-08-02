@@ -35,35 +35,36 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_multicast_domain_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayMulticastDomainId",
+                f"{key_prefix}TransitGatewayMulticastDomainId",
                 str(value["transit_gateway_multicast_domain_id"]),
             )
         )
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_type" in value:
         import capo_ec2.types.transit_gateway_attachment_resource_type
 
         capo_ec2.types.transit_gateway_attachment_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_owner_id" in value:
-        pairs.append((f"{prefix}.ResourceOwnerId", str(value["resource_owner_id"])))
+        pairs.append((f"{key_prefix}ResourceOwnerId", str(value["resource_owner_id"])))
     if "subnets" in value:
         import capo_ec2.types.subnet_association_list
 
         capo_ec2.types.subnet_association_list.serialize_ec2_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
 
 

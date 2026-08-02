@@ -38,42 +38,43 @@ class FirewallStatelessRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FirewallStatelessRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_group_arn" in value:
-        pairs.append((f"{prefix}.RuleGroupArn", str(value["rule_group_arn"])))
+        pairs.append((f"{key_prefix}RuleGroupArn", str(value["rule_group_arn"])))
     if "sources" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["sources"], pairs, f"{prefix}.SourceSet"
+            value["sources"], pairs, f"{key_prefix}SourceSet"
         )
     if "destinations" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["destinations"], pairs, f"{prefix}.DestinationSet"
+            value["destinations"], pairs, f"{key_prefix}DestinationSet"
         )
     if "source_ports" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["source_ports"], pairs, f"{prefix}.SourcePortSet"
+            value["source_ports"], pairs, f"{key_prefix}SourcePortSet"
         )
     if "destination_ports" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["destination_ports"], pairs, f"{prefix}.DestinationPortSet"
+            value["destination_ports"], pairs, f"{key_prefix}DestinationPortSet"
         )
     if "protocols" in value:
         import capo_ec2.types.protocol_int_list
 
         capo_ec2.types.protocol_int_list.serialize_ec2_query(
-            value["protocols"], pairs, f"{prefix}.ProtocolSet"
+            value["protocols"], pairs, f"{key_prefix}ProtocolSet"
         )
     if "rule_action" in value:
-        pairs.append((f"{prefix}.RuleAction", str(value["rule_action"])))
+        pairs.append((f"{key_prefix}RuleAction", str(value["rule_action"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
 
 
 def deserialize_ec2_query(el: Element) -> FirewallStatelessRule:

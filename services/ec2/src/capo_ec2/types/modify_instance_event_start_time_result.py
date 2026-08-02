@@ -19,11 +19,12 @@ class ModifyInstanceEventStartTimeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyInstanceEventStartTimeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event" in value:
         import capo_ec2.types.instance_status_event
 
         capo_ec2.types.instance_status_event.serialize_ec2_query(
-            value["event"], pairs, f"{prefix}.Event"
+            value["event"], pairs, f"{key_prefix}Event"
         )
 
 

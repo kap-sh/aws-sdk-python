@@ -24,14 +24,15 @@ class SubnetCidrBlockState(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SubnetCidrBlockState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.subnet_cidr_block_state_code
 
         capo_ec2.types.subnet_cidr_block_state_code.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
 
 
 def deserialize_ec2_query(el: Element) -> SubnetCidrBlockState:

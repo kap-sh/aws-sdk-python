@@ -28,13 +28,14 @@ class UpdateAccessKeyRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateAccessKeyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.AccessKeyId", str(value["access_key_id"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}AccessKeyId", str(value["access_key_id"])))
     import capo_iam.types.status_type
 
     capo_iam.types.status_type.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
 
 

@@ -36,17 +36,18 @@ class SpotFleetRequestConfig(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotFleetRequestConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "activity_status" in value:
         import capo_ec2.types.activity_status
 
         capo_ec2.types.activity_status.serialize_ec2_query(
-            value["activity_status"], pairs, f"{prefix}.ActivityStatus"
+            value["activity_status"], pairs, f"{key_prefix}ActivityStatus"
         )
     if "create_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "spot_fleet_request_config" in value:
         import capo_ec2.types.spot_fleet_request_config_data
@@ -54,23 +55,25 @@ def serialize_ec2_query(
         capo_ec2.types.spot_fleet_request_config_data.serialize_ec2_query(
             value["spot_fleet_request_config"],
             pairs,
-            f"{prefix}.SpotFleetRequestConfig",
+            f"{key_prefix}SpotFleetRequestConfig",
         )
     if "spot_fleet_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotFleetRequestId", str(value["spot_fleet_request_id"]))
+            (f"{key_prefix}SpotFleetRequestId", str(value["spot_fleet_request_id"]))
         )
     if "spot_fleet_request_state" in value:
         import capo_ec2.types.batch_state
 
         capo_ec2.types.batch_state.serialize_ec2_query(
-            value["spot_fleet_request_state"], pairs, f"{prefix}.SpotFleetRequestState"
+            value["spot_fleet_request_state"],
+            pairs,
+            f"{key_prefix}SpotFleetRequestState",
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

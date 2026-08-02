@@ -29,14 +29,15 @@ class CreateDBSubnetGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBSubnetGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSubnetGroupName", str(value["db_subnet_group_name"]))
+            (f"{key_prefix}DBSubnetGroupName", str(value["db_subnet_group_name"]))
         )
     if "db_subnet_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.DBSubnetGroupDescription",
+                f"{key_prefix}DBSubnetGroupDescription",
                 str(value["db_subnet_group_description"]),
             )
         )
@@ -44,12 +45,14 @@ def serialize_query(
         import capo_rds.types.subnet_identifier_list
 
         capo_rds.types.subnet_identifier_list.serialize_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateDBSubnetGroupMessage:

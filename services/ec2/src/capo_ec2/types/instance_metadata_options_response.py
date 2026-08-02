@@ -42,22 +42,23 @@ class InstanceMetadataOptionsResponse(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceMetadataOptionsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.instance_metadata_options_state
 
         capo_ec2.types.instance_metadata_options_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "http_tokens" in value:
         import capo_ec2.types.http_tokens_state
 
         capo_ec2.types.http_tokens_state.serialize_ec2_query(
-            value["http_tokens"], pairs, f"{prefix}.HttpTokens"
+            value["http_tokens"], pairs, f"{key_prefix}HttpTokens"
         )
     if "http_put_response_hop_limit" in value:
         pairs.append(
             (
-                f"{prefix}.HttpPutResponseHopLimit",
+                f"{key_prefix}HttpPutResponseHopLimit",
                 str(value["http_put_response_hop_limit"]),
             )
         )
@@ -65,19 +66,19 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_metadata_endpoint_state
 
         capo_ec2.types.instance_metadata_endpoint_state.serialize_ec2_query(
-            value["http_endpoint"], pairs, f"{prefix}.HttpEndpoint"
+            value["http_endpoint"], pairs, f"{key_prefix}HttpEndpoint"
         )
     if "http_protocol_ipv6" in value:
         import capo_ec2.types.instance_metadata_protocol_state
 
         capo_ec2.types.instance_metadata_protocol_state.serialize_ec2_query(
-            value["http_protocol_ipv6"], pairs, f"{prefix}.HttpProtocolIpv6"
+            value["http_protocol_ipv6"], pairs, f"{key_prefix}HttpProtocolIpv6"
         )
     if "instance_metadata_tags" in value:
         import capo_ec2.types.instance_metadata_tags_state
 
         capo_ec2.types.instance_metadata_tags_state.serialize_ec2_query(
-            value["instance_metadata_tags"], pairs, f"{prefix}.InstanceMetadataTags"
+            value["instance_metadata_tags"], pairs, f"{key_prefix}InstanceMetadataTags"
         )
 
 

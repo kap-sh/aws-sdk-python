@@ -28,15 +28,18 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "blue_green_deployment_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.BlueGreenDeploymentIdentifier",
+                f"{key_prefix}BlueGreenDeploymentIdentifier",
                 str(value["blue_green_deployment_identifier"]),
             )
         )
     if "switchover_timeout" in value:
-        pairs.append((f"{prefix}.SwitchoverTimeout", str(value["switchover_timeout"])))
+        pairs.append(
+            (f"{key_prefix}SwitchoverTimeout", str(value["switchover_timeout"]))
+        )
 
 
 def deserialize_query(el: Element) -> SwitchoverBlueGreenDeploymentRequest:

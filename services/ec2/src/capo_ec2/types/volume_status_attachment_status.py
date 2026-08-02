@@ -21,10 +21,11 @@ class VolumeStatusAttachmentStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeStatusAttachmentStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "io_performance" in value:
-        pairs.append((f"{prefix}.IoPerformance", str(value["io_performance"])))
+        pairs.append((f"{key_prefix}IoPerformance", str(value["io_performance"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> VolumeStatusAttachmentStatus:

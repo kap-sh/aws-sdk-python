@@ -19,11 +19,12 @@ class DeleteTransitGatewayResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteTransitGatewayResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway" in value:
         import capo_ec2.types.transit_gateway
 
         capo_ec2.types.transit_gateway.serialize_ec2_query(
-            value["transit_gateway"], pairs, f"{prefix}.TransitGateway"
+            value["transit_gateway"], pairs, f"{key_prefix}TransitGateway"
         )
 
 

@@ -64,59 +64,60 @@ class IpamResourceCidr(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamResourceCidr, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "ipam_scope_id" in value:
-        pairs.append((f"{prefix}.IpamScopeId", str(value["ipam_scope_id"])))
+        pairs.append((f"{key_prefix}IpamScopeId", str(value["ipam_scope_id"])))
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "resource_owner_id" in value:
-        pairs.append((f"{prefix}.ResourceOwnerId", str(value["resource_owner_id"])))
+        pairs.append((f"{key_prefix}ResourceOwnerId", str(value["resource_owner_id"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
     if "resource_cidr" in value:
-        pairs.append((f"{prefix}.ResourceCidr", str(value["resource_cidr"])))
+        pairs.append((f"{key_prefix}ResourceCidr", str(value["resource_cidr"])))
     if "resource_type" in value:
         import capo_ec2.types.ipam_resource_type
 
         capo_ec2.types.ipam_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_tags" in value:
         import capo_ec2.types.ipam_resource_tag_list
 
         capo_ec2.types.ipam_resource_tag_list.serialize_ec2_query(
-            value["resource_tags"], pairs, f"{prefix}.ResourceTagSet"
+            value["resource_tags"], pairs, f"{key_prefix}ResourceTagSet"
         )
     if "ip_usage" in value:
-        pairs.append((f"{prefix}.IpUsage", str(value["ip_usage"])))
+        pairs.append((f"{key_prefix}IpUsage", str(value["ip_usage"])))
     if "compliance_status" in value:
         import capo_ec2.types.ipam_compliance_status
 
         capo_ec2.types.ipam_compliance_status.serialize_ec2_query(
-            value["compliance_status"], pairs, f"{prefix}.ComplianceStatus"
+            value["compliance_status"], pairs, f"{key_prefix}ComplianceStatus"
         )
     if "management_state" in value:
         import capo_ec2.types.ipam_management_state
 
         capo_ec2.types.ipam_management_state.serialize_ec2_query(
-            value["management_state"], pairs, f"{prefix}.ManagementState"
+            value["management_state"], pairs, f"{key_prefix}ManagementState"
         )
     if "overlap_status" in value:
         import capo_ec2.types.ipam_overlap_status
 
         capo_ec2.types.ipam_overlap_status.serialize_ec2_query(
-            value["overlap_status"], pairs, f"{prefix}.OverlapStatus"
+            value["overlap_status"], pairs, f"{key_prefix}OverlapStatus"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

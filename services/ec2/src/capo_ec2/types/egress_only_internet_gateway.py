@@ -29,16 +29,17 @@ class EgressOnlyInternetGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EgressOnlyInternetGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attachments" in value:
         import capo_ec2.types.internet_gateway_attachment_list
 
         capo_ec2.types.internet_gateway_attachment_list.serialize_ec2_query(
-            value["attachments"], pairs, f"{prefix}.AttachmentSet"
+            value["attachments"], pairs, f"{key_prefix}AttachmentSet"
         )
     if "egress_only_internet_gateway_id" in value:
         pairs.append(
             (
-                f"{prefix}.EgressOnlyInternetGatewayId",
+                f"{key_prefix}EgressOnlyInternetGatewayId",
                 str(value["egress_only_internet_gateway_id"]),
             )
         )
@@ -46,7 +47,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

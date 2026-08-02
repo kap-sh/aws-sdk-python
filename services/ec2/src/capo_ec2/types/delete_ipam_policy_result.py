@@ -19,11 +19,12 @@ class DeleteIpamPolicyResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteIpamPolicyResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_policy" in value:
         import capo_ec2.types.ipam_policy
 
         capo_ec2.types.ipam_policy.serialize_ec2_query(
-            value["ipam_policy"], pairs, f"{prefix}.IpamPolicy"
+            value["ipam_policy"], pairs, f"{key_prefix}IpamPolicy"
         )
 
 

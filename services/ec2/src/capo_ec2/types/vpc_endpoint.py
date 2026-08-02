@@ -93,67 +93,68 @@ class VpcEndpoint(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "vpc_endpoint_type" in value:
         import capo_ec2.types.vpc_endpoint_type
 
         capo_ec2.types.vpc_endpoint_type.serialize_ec2_query(
-            value["vpc_endpoint_type"], pairs, f"{prefix}.VpcEndpointType"
+            value["vpc_endpoint_type"], pairs, f"{key_prefix}VpcEndpointType"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "service_name" in value:
-        pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+        pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
     if "state" in value:
         import capo_ec2.types.state
 
         capo_ec2.types.state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "route_table_ids" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["route_table_ids"], pairs, f"{prefix}.RouteTableIdSet"
+            value["route_table_ids"], pairs, f"{key_prefix}RouteTableIdSet"
         )
     if "subnet_ids" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIdSet"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIdSet"
         )
     if "groups" in value:
         import capo_ec2.types.group_identifier_set
 
         capo_ec2.types.group_identifier_set.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.GroupSet"
+            value["groups"], pairs, f"{key_prefix}GroupSet"
         )
     if "ip_address_type" in value:
         import capo_ec2.types.ip_address_type
 
         capo_ec2.types.ip_address_type.serialize_ec2_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "dns_options" in value:
         import capo_ec2.types.dns_options
 
         capo_ec2.types.dns_options.serialize_ec2_query(
-            value["dns_options"], pairs, f"{prefix}.DnsOptions"
+            value["dns_options"], pairs, f"{key_prefix}DnsOptions"
         )
     if "private_dns_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.PrivateDnsEnabled",
+                f"{key_prefix}PrivateDnsEnabled",
                 "true" if value["private_dns_enabled"] else "false",
             )
         )
     if "requester_managed" in value:
         pairs.append(
             (
-                f"{prefix}.RequesterManaged",
+                f"{key_prefix}RequesterManaged",
                 "true" if value["requester_managed"] else "false",
             )
         )
@@ -161,59 +162,61 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["network_interface_ids"], pairs, f"{prefix}.NetworkInterfaceIdSet"
+            value["network_interface_ids"], pairs, f"{key_prefix}NetworkInterfaceIdSet"
         )
     if "dns_entries" in value:
         import capo_ec2.types.dns_entry_set
 
         capo_ec2.types.dns_entry_set.serialize_ec2_query(
-            value["dns_entries"], pairs, f"{prefix}.DnsEntrySet"
+            value["dns_entries"], pairs, f"{key_prefix}DnsEntrySet"
         )
     if "creation_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["creation_timestamp"], pairs, f"{prefix}.CreationTimestamp"
+            value["creation_timestamp"], pairs, f"{key_prefix}CreationTimestamp"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "last_error" in value:
         import capo_ec2.types.last_error
 
         capo_ec2.types.last_error.serialize_ec2_query(
-            value["last_error"], pairs, f"{prefix}.LastError"
+            value["last_error"], pairs, f"{key_prefix}LastError"
         )
     if "ipv4_prefixes" in value:
         import capo_ec2.types.subnet_ip_prefixes_list
 
         capo_ec2.types.subnet_ip_prefixes_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4PrefixSet"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4PrefixSet"
         )
     if "ipv6_prefixes" in value:
         import capo_ec2.types.subnet_ip_prefixes_list
 
         capo_ec2.types.subnet_ip_prefixes_list.serialize_ec2_query(
-            value["ipv6_prefixes"], pairs, f"{prefix}.Ipv6PrefixSet"
+            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6PrefixSet"
         )
     if "failure_reason" in value:
-        pairs.append((f"{prefix}.FailureReason", str(value["failure_reason"])))
+        pairs.append((f"{key_prefix}FailureReason", str(value["failure_reason"])))
     if "service_network_arn" in value:
-        pairs.append((f"{prefix}.ServiceNetworkArn", str(value["service_network_arn"])))
+        pairs.append(
+            (f"{key_prefix}ServiceNetworkArn", str(value["service_network_arn"]))
+        )
     if "resource_configuration_arn" in value:
         pairs.append(
             (
-                f"{prefix}.ResourceConfigurationArn",
+                f"{key_prefix}ResourceConfigurationArn",
                 str(value["resource_configuration_arn"]),
             )
         )
     if "service_region" in value:
-        pairs.append((f"{prefix}.ServiceRegion", str(value["service_region"])))
+        pairs.append((f"{key_prefix}ServiceRegion", str(value["service_region"])))
 
 
 def deserialize_ec2_query(el: Element) -> VpcEndpoint:

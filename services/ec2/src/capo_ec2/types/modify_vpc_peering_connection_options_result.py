@@ -27,13 +27,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accepter_peering_connection_options" in value:
         import capo_ec2.types.peering_connection_options
 
         capo_ec2.types.peering_connection_options.serialize_ec2_query(
             value["accepter_peering_connection_options"],
             pairs,
-            f"{prefix}.AccepterPeeringConnectionOptions",
+            f"{key_prefix}AccepterPeeringConnectionOptions",
         )
     if "requester_peering_connection_options" in value:
         import capo_ec2.types.peering_connection_options
@@ -41,7 +42,7 @@ def serialize_ec2_query(
         capo_ec2.types.peering_connection_options.serialize_ec2_query(
             value["requester_peering_connection_options"],
             pairs,
-            f"{prefix}.RequesterPeeringConnectionOptions",
+            f"{key_prefix}RequesterPeeringConnectionOptions",
         )
 
 

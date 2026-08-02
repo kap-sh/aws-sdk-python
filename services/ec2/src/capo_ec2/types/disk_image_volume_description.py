@@ -22,10 +22,11 @@ class DiskImageVolumeDescription(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DiskImageVolumeDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
 
 
 def deserialize_ec2_query(el: Element) -> DiskImageVolumeDescription:

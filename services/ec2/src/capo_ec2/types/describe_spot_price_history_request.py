@@ -48,48 +48,49 @@ class DescribeSpotPriceHistoryRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSpotPriceHistoryRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "instance_types" in value:
         import capo_ec2.types.instance_type_list
 
         capo_ec2.types.instance_type_list.serialize_ec2_query(
-            value["instance_types"], pairs, f"{prefix}.InstanceTypes"
+            value["instance_types"], pairs, f"{key_prefix}InstanceTypes"
         )
     if "product_descriptions" in value:
         import capo_ec2.types.product_description_list
 
         capo_ec2.types.product_description_list.serialize_ec2_query(
-            value["product_descriptions"], pairs, f"{prefix}.ProductDescriptions"
+            value["product_descriptions"], pairs, f"{key_prefix}ProductDescriptions"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeSpotPriceHistoryRequest:

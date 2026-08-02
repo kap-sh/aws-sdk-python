@@ -44,27 +44,28 @@ class CreateSecondarySubnetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateSecondarySubnetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipv4_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv4CidrBlock", str(value["ipv4_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv4CidrBlock", str(value["ipv4_cidr_block"])))
     if "secondary_network_id" in value:
         pairs.append(
-            (f"{prefix}.SecondaryNetworkId", str(value["secondary_network_id"]))
+            (f"{key_prefix}SecondaryNetworkId", str(value["secondary_network_id"]))
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

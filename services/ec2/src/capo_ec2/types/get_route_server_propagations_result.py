@@ -21,13 +21,14 @@ class GetRouteServerPropagationsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetRouteServerPropagationsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_propagations" in value:
         import capo_ec2.types.route_server_propagations_list
 
         capo_ec2.types.route_server_propagations_list.serialize_ec2_query(
             value["route_server_propagations"],
             pairs,
-            f"{prefix}.RouteServerPropagationSet",
+            f"{key_prefix}RouteServerPropagationSet",
         )
 
 

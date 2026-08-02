@@ -80,46 +80,47 @@ class Snapshot(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Snapshot, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_alias" in value:
-        pairs.append((f"{prefix}.OwnerAlias", str(value["owner_alias"])))
+        pairs.append((f"{key_prefix}OwnerAlias", str(value["owner_alias"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "storage_tier" in value:
         import capo_ec2.types.storage_tier
 
         capo_ec2.types.storage_tier.serialize_ec2_query(
-            value["storage_tier"], pairs, f"{prefix}.StorageTier"
+            value["storage_tier"], pairs, f"{key_prefix}StorageTier"
         )
     if "restore_expiry_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["restore_expiry_time"], pairs, f"{prefix}.RestoreExpiryTime"
+            value["restore_expiry_time"], pairs, f"{key_prefix}RestoreExpiryTime"
         )
     if "sse_type" in value:
         import capo_ec2.types.sse_type
 
         capo_ec2.types.sse_type.serialize_ec2_query(
-            value["sse_type"], pairs, f"{prefix}.SseType"
+            value["sse_type"], pairs, f"{key_prefix}SseType"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "transfer_type" in value:
         import capo_ec2.types.transfer_type
 
         capo_ec2.types.transfer_type.serialize_ec2_query(
-            value["transfer_type"], pairs, f"{prefix}.TransferType"
+            value["transfer_type"], pairs, f"{key_prefix}TransferType"
         )
     if "completion_duration_minutes" in value:
         pairs.append(
             (
-                f"{prefix}.CompletionDurationMinutes",
+                f"{key_prefix}CompletionDurationMinutes",
                 str(value["completion_duration_minutes"]),
             )
         )
@@ -127,48 +128,50 @@ def serialize_ec2_query(
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["completion_time"], pairs, f"{prefix}.CompletionTime"
+            value["completion_time"], pairs, f"{key_prefix}CompletionTime"
         )
     if "full_snapshot_size_in_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.FullSnapshotSizeInBytes",
+                f"{key_prefix}FullSnapshotSizeInBytes",
                 str(value["full_snapshot_size_in_bytes"]),
             )
         )
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "state" in value:
         import capo_ec2.types.snapshot_state
 
         capo_ec2.types.snapshot_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.Status"
+            value["state"], pairs, f"{key_prefix}Status"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["state_message"])))
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "volume_size" in value:
-        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+        pairs.append((f"{key_prefix}VolumeSize", str(value["volume_size"])))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "data_encryption_key_id" in value:
         pairs.append(
-            (f"{prefix}.DataEncryptionKeyId", str(value["data_encryption_key_id"]))
+            (f"{key_prefix}DataEncryptionKeyId", str(value["data_encryption_key_id"]))
         )
 
 

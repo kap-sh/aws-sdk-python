@@ -35,14 +35,15 @@ class CreateLoadBalancerPolicyInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateLoadBalancerPolicyInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
-    pairs.append((f"{prefix}.PolicyTypeName", str(value["policy_type_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"])))
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
+    pairs.append((f"{key_prefix}PolicyTypeName", str(value["policy_type_name"])))
     if "policy_attributes" in value:
         import capo_elastic_load_balancing.types.policy_attributes
 
         capo_elastic_load_balancing.types.policy_attributes.serialize_query(
-            value["policy_attributes"], pairs, f"{prefix}.PolicyAttributes"
+            value["policy_attributes"], pairs, f"{key_prefix}PolicyAttributes"
         )
 
 

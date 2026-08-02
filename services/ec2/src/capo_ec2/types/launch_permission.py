@@ -26,19 +26,23 @@ class LaunchPermission(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LaunchPermission, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "organization_arn" in value:
-        pairs.append((f"{prefix}.OrganizationArn", str(value["organization_arn"])))
+        pairs.append((f"{key_prefix}OrganizationArn", str(value["organization_arn"])))
     if "organizational_unit_arn" in value:
         pairs.append(
-            (f"{prefix}.OrganizationalUnitArn", str(value["organizational_unit_arn"]))
+            (
+                f"{key_prefix}OrganizationalUnitArn",
+                str(value["organizational_unit_arn"]),
+            )
         )
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "group" in value:
         import capo_ec2.types.permission_group
 
         capo_ec2.types.permission_group.serialize_ec2_query(
-            value["group"], pairs, f"{prefix}.Group"
+            value["group"], pairs, f"{key_prefix}Group"
         )
 
 

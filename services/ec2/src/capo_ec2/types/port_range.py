@@ -23,10 +23,11 @@ PortRange = TypedDict(
 def serialize_ec2_query(
     value: PortRange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "from" in value:
-        pairs.append((f"{prefix}.From", str(value["from"])))
+        pairs.append((f"{key_prefix}From", str(value["from"])))
     if "to" in value:
-        pairs.append((f"{prefix}.To", str(value["to"])))
+        pairs.append((f"{key_prefix}To", str(value["to"])))
 
 
 def deserialize_ec2_query(el: Element) -> PortRange:

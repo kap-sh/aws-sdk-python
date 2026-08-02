@@ -22,8 +22,9 @@ class ChangePasswordRequest(TypedDict, closed=True):
 def serialize_query(
     value: ChangePasswordRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.OldPassword", str(value["old_password"])))
-    pairs.append((f"{prefix}.NewPassword", str(value["new_password"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}OldPassword", str(value["old_password"])))
+    pairs.append((f"{key_prefix}NewPassword", str(value["new_password"])))
 
 
 def deserialize_query(el: Element) -> ChangePasswordRequest:

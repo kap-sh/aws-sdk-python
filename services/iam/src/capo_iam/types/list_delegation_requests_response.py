@@ -27,17 +27,18 @@ class ListDelegationRequestsResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListDelegationRequestsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delegation_requests" in value:
         import capo_iam.types.delegation_requests_list_type
 
         capo_iam.types.delegation_requests_list_type.serialize_query(
-            value["delegation_requests"], pairs, f"{prefix}.DelegationRequests"
+            value["delegation_requests"], pairs, f"{key_prefix}DelegationRequests"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     pairs.append(
         (
-            f"{prefix}.isTruncated",
+            f"{key_prefix}isTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )

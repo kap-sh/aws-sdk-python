@@ -58,38 +58,44 @@ class GlobalCluster(TypedDict, closed=True):
 def serialize_query(
     value: GlobalCluster, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterIdentifier",
+                f"{key_prefix}GlobalClusterIdentifier",
                 str(value["global_cluster_identifier"]),
             )
         )
     if "global_cluster_resource_id" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterResourceId",
+                f"{key_prefix}GlobalClusterResourceId",
                 str(value["global_cluster_resource_id"]),
             )
         )
     if "global_cluster_arn" in value:
-        pairs.append((f"{prefix}.GlobalClusterArn", str(value["global_cluster_arn"])))
+        pairs.append(
+            (f"{key_prefix}GlobalClusterArn", str(value["global_cluster_arn"]))
+        )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "engine_lifecycle_support" in value:
         pairs.append(
-            (f"{prefix}.EngineLifecycleSupport", str(value["engine_lifecycle_support"]))
+            (
+                f"{key_prefix}EngineLifecycleSupport",
+                str(value["engine_lifecycle_support"]),
+            )
         )
     if "database_name" in value:
-        pairs.append((f"{prefix}.DatabaseName", str(value["database_name"])))
+        pairs.append((f"{key_prefix}DatabaseName", str(value["database_name"])))
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
@@ -97,12 +103,14 @@ def serialize_query(
         import capo_rds.types.storage_encryption_type
 
         capo_rds.types.storage_encryption_type.serialize_query(
-            value["storage_encryption_type"], pairs, f"{prefix}.StorageEncryptionType"
+            value["storage_encryption_type"],
+            pairs,
+            f"{key_prefix}StorageEncryptionType",
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
@@ -110,21 +118,21 @@ def serialize_query(
         import capo_rds.types.global_cluster_member_list
 
         capo_rds.types.global_cluster_member_list.serialize_query(
-            value["global_cluster_members"], pairs, f"{prefix}.GlobalClusterMembers"
+            value["global_cluster_members"], pairs, f"{key_prefix}GlobalClusterMembers"
         )
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "failover_state" in value:
         import capo_rds.types.failover_state
 
         capo_rds.types.failover_state.serialize_query(
-            value["failover_state"], pairs, f"{prefix}.FailoverState"
+            value["failover_state"], pairs, f"{key_prefix}FailoverState"
         )
     if "tag_list" in value:
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
 
 

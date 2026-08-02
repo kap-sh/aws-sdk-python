@@ -69,18 +69,19 @@ def deserialize_aws_json_1_0(data: dict) -> ListAlarmMuteRulesInput:
 def serialize_query(
     value: ListAlarmMuteRulesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "statuses" in value:
         import capo_cloudwatch.types.alarm_mute_rule_statuses
 
         capo_cloudwatch.types.alarm_mute_rule_statuses.serialize_query(
-            value["statuses"], pairs, f"{prefix}.Statuses"
+            value["statuses"], pairs, f"{key_prefix}Statuses"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListAlarmMuteRulesInput:

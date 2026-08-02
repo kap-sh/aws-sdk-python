@@ -26,19 +26,20 @@ class ListGroupsResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListGroupsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.group_list_type
 
     capo_iam.types.group_list_type.serialize_query(
-        value["groups"], pairs, f"{prefix}.Groups"
+        value["groups"], pairs, f"{key_prefix}Groups"
     )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListGroupsResponse:

@@ -37,12 +37,13 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "reserved_instances_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedInstancesOfferingId",
+                f"{key_prefix}ReservedInstancesOfferingId",
                 str(value["reserved_instances_offering_id"]),
             )
         )
@@ -50,15 +51,15 @@ def serialize_ec2_query(
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["purchase_time"], pairs, f"{prefix}.PurchaseTime"
+            value["purchase_time"], pairs, f"{key_prefix}PurchaseTime"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "limit_price" in value:
         import capo_ec2.types.reserved_instance_limit_price
 
         capo_ec2.types.reserved_instance_limit_price.serialize_ec2_query(
-            value["limit_price"], pairs, f"{prefix}.LimitPrice"
+            value["limit_price"], pairs, f"{key_prefix}LimitPrice"
         )
 
 

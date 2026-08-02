@@ -35,28 +35,29 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accepter_peering_connection_options" in value:
         import capo_ec2.types.peering_connection_options_request
 
         capo_ec2.types.peering_connection_options_request.serialize_ec2_query(
             value["accepter_peering_connection_options"],
             pairs,
-            f"{prefix}.AccepterPeeringConnectionOptions",
+            f"{key_prefix}AccepterPeeringConnectionOptions",
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "requester_peering_connection_options" in value:
         import capo_ec2.types.peering_connection_options_request
 
         capo_ec2.types.peering_connection_options_request.serialize_ec2_query(
             value["requester_peering_connection_options"],
             pairs,
-            f"{prefix}.RequesterPeeringConnectionOptions",
+            f"{key_prefix}RequesterPeeringConnectionOptions",
         )
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )

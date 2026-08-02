@@ -24,10 +24,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterParameterGroupName",
+                f"{key_prefix}DBClusterParameterGroupName",
                 str(value["db_cluster_parameter_group_name"]),
             )
         )
@@ -35,7 +36,7 @@ def serialize_query(
         import capo_rds.types.parameters_list
 
         capo_rds.types.parameters_list.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
 
 

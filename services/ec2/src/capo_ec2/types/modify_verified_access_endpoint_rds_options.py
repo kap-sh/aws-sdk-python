@@ -31,16 +31,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet_ids" in value:
         import capo_ec2.types.modify_verified_access_endpoint_subnet_id_list
 
         capo_ec2.types.modify_verified_access_endpoint_subnet_id_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "rds_endpoint" in value:
-        pairs.append((f"{prefix}.RdsEndpoint", str(value["rds_endpoint"])))
+        pairs.append((f"{key_prefix}RdsEndpoint", str(value["rds_endpoint"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessEndpointRdsOptions:

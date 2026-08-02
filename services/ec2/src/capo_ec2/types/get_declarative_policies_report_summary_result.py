@@ -42,32 +42,35 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "report_id" in value:
-        pairs.append((f"{prefix}.ReportId", str(value["report_id"])))
+        pairs.append((f"{key_prefix}ReportId", str(value["report_id"])))
     if "s3_bucket" in value:
-        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+        pairs.append((f"{key_prefix}S3Bucket", str(value["s3_bucket"])))
     if "s3_prefix" in value:
-        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+        pairs.append((f"{key_prefix}S3Prefix", str(value["s3_prefix"])))
     if "target_id" in value:
-        pairs.append((f"{prefix}.TargetId", str(value["target_id"])))
+        pairs.append((f"{key_prefix}TargetId", str(value["target_id"])))
     if "start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "number_of_accounts" in value:
-        pairs.append((f"{prefix}.NumberOfAccounts", str(value["number_of_accounts"])))
+        pairs.append(
+            (f"{key_prefix}NumberOfAccounts", str(value["number_of_accounts"]))
+        )
     if "number_of_failed_accounts" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfFailedAccounts",
+                f"{key_prefix}NumberOfFailedAccounts",
                 str(value["number_of_failed_accounts"]),
             )
         )
@@ -75,7 +78,7 @@ def serialize_ec2_query(
         import capo_ec2.types.attribute_summary_list
 
         capo_ec2.types.attribute_summary_list.serialize_ec2_query(
-            value["attribute_summaries"], pairs, f"{prefix}.AttributeSummarySet"
+            value["attribute_summaries"], pairs, f"{key_prefix}AttributeSummarySet"
         )
 
 

@@ -38,35 +38,36 @@ class DBProxyTargetGroup(TypedDict, closed=True):
 def serialize_query(
     value: DBProxyTargetGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "target_group_name" in value:
-        pairs.append((f"{prefix}.TargetGroupName", str(value["target_group_name"])))
+        pairs.append((f"{key_prefix}TargetGroupName", str(value["target_group_name"])))
     if "target_group_arn" in value:
-        pairs.append((f"{prefix}.TargetGroupArn", str(value["target_group_arn"])))
+        pairs.append((f"{key_prefix}TargetGroupArn", str(value["target_group_arn"])))
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "connection_pool_config" in value:
         import capo_rds.types.connection_pool_configuration_info
 
         capo_rds.types.connection_pool_configuration_info.serialize_query(
-            value["connection_pool_config"], pairs, f"{prefix}.ConnectionPoolConfig"
+            value["connection_pool_config"], pairs, f"{key_prefix}ConnectionPoolConfig"
         )
     if "created_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["created_date"], pairs, f"{prefix}.CreatedDate"
+            value["created_date"], pairs, f"{key_prefix}CreatedDate"
         )
     if "updated_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["updated_date"], pairs, f"{prefix}.UpdatedDate"
+            value["updated_date"], pairs, f"{key_prefix}UpdatedDate"
         )
 
 

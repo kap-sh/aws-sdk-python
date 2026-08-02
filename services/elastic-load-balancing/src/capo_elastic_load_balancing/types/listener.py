@@ -35,15 +35,18 @@ class Listener(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Listener, pairs: list[tuple[str, str]], prefix: str) -> None:
-    pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     pairs.append(
-        (f"{prefix}.LoadBalancerPort", str(value.get("load_balancer_port", 0)))
+        (f"{key_prefix}LoadBalancerPort", str(value.get("load_balancer_port", 0)))
     )
     if "instance_protocol" in value:
-        pairs.append((f"{prefix}.InstanceProtocol", str(value["instance_protocol"])))
-    pairs.append((f"{prefix}.InstancePort", str(value["instance_port"])))
+        pairs.append((f"{key_prefix}InstanceProtocol", str(value["instance_protocol"])))
+    pairs.append((f"{key_prefix}InstancePort", str(value["instance_port"])))
     if "ssl_certificate_id" in value:
-        pairs.append((f"{prefix}.SSLCertificateId", str(value["ssl_certificate_id"])))
+        pairs.append(
+            (f"{key_prefix}SSLCertificateId", str(value["ssl_certificate_id"]))
+        )
 
 
 def deserialize_query(el: Element) -> Listener:

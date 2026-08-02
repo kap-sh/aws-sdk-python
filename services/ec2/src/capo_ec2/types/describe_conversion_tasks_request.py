@@ -24,13 +24,14 @@ class DescribeConversionTasksRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeConversionTasksRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "conversion_task_ids" in value:
         import capo_ec2.types.conversion_id_string_list
 
         capo_ec2.types.conversion_id_string_list.serialize_ec2_query(
-            value["conversion_task_ids"], pairs, f"{prefix}.ConversionTaskId"
+            value["conversion_task_ids"], pairs, f"{key_prefix}ConversionTaskId"
         )
 
 

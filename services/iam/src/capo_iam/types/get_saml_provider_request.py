@@ -20,7 +20,8 @@ class GetSAMLProviderRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetSAMLProviderRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SAMLProviderArn", str(value["saml_provider_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SAMLProviderArn", str(value["saml_provider_arn"])))
 
 
 def deserialize_query(el: Element) -> GetSAMLProviderRequest:

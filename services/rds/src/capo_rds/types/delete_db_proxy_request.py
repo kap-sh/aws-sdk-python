@@ -19,8 +19,9 @@ class DeleteDBProxyRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteDBProxyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteDBProxyRequest:

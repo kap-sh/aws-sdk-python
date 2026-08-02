@@ -56,64 +56,65 @@ class FpgaImage(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FpgaImage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "fpga_image_id" in value:
-        pairs.append((f"{prefix}.FpgaImageId", str(value["fpga_image_id"])))
+        pairs.append((f"{key_prefix}FpgaImageId", str(value["fpga_image_id"])))
     if "fpga_image_global_id" in value:
         pairs.append(
-            (f"{prefix}.FpgaImageGlobalId", str(value["fpga_image_global_id"]))
+            (f"{key_prefix}FpgaImageGlobalId", str(value["fpga_image_global_id"]))
         )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "shell_version" in value:
-        pairs.append((f"{prefix}.ShellVersion", str(value["shell_version"])))
+        pairs.append((f"{key_prefix}ShellVersion", str(value["shell_version"])))
     if "pci_id" in value:
         import capo_ec2.types.pci_id
 
         capo_ec2.types.pci_id.serialize_ec2_query(
-            value["pci_id"], pairs, f"{prefix}.PciId"
+            value["pci_id"], pairs, f"{key_prefix}PciId"
         )
     if "state" in value:
         import capo_ec2.types.fpga_image_state
 
         capo_ec2.types.fpga_image_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "update_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["update_time"], pairs, f"{prefix}.UpdateTime"
+            value["update_time"], pairs, f"{key_prefix}UpdateTime"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "owner_alias" in value:
-        pairs.append((f"{prefix}.OwnerAlias", str(value["owner_alias"])))
+        pairs.append((f"{key_prefix}OwnerAlias", str(value["owner_alias"])))
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "public" in value:
-        pairs.append((f"{prefix}.Public", "true" if value["public"] else "false"))
+        pairs.append((f"{key_prefix}Public", "true" if value["public"] else "false"))
     if "data_retention_support" in value:
         pairs.append(
             (
-                f"{prefix}.DataRetentionSupport",
+                f"{key_prefix}DataRetentionSupport",
                 "true" if value["data_retention_support"] else "false",
             )
         )
@@ -121,7 +122,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_types_list
 
         capo_ec2.types.instance_types_list.serialize_ec2_query(
-            value["instance_types"], pairs, f"{prefix}.InstanceTypes"
+            value["instance_types"], pairs, f"{key_prefix}InstanceTypes"
         )
 
 

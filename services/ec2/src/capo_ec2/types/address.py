@@ -52,61 +52,67 @@ class Address(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Address, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "domain" in value:
         import capo_ec2.types.domain_type
 
         capo_ec2.types.domain_type.serialize_ec2_query(
-            value["domain"], pairs, f"{prefix}.Domain"
+            value["domain"], pairs, f"{key_prefix}Domain"
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "network_interface_owner_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInterfaceOwnerId",
+                f"{key_prefix}NetworkInterfaceOwnerId",
                 str(value["network_interface_owner_id"]),
             )
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "public_ipv4_pool" in value:
-        pairs.append((f"{prefix}.PublicIpv4Pool", str(value["public_ipv4_pool"])))
+        pairs.append((f"{key_prefix}PublicIpv4Pool", str(value["public_ipv4_pool"])))
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "customer_owned_ip" in value:
-        pairs.append((f"{prefix}.CustomerOwnedIp", str(value["customer_owned_ip"])))
+        pairs.append((f"{key_prefix}CustomerOwnedIp", str(value["customer_owned_ip"])))
     if "customer_owned_ipv4_pool" in value:
         pairs.append(
-            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+            (
+                f"{key_prefix}CustomerOwnedIpv4Pool",
+                str(value["customer_owned_ipv4_pool"]),
+            )
         )
     if "carrier_ip" in value:
-        pairs.append((f"{prefix}.CarrierIp", str(value["carrier_ip"])))
+        pairs.append((f"{key_prefix}CarrierIp", str(value["carrier_ip"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "service_managed" in value:
         import capo_ec2.types.service_managed
 
         capo_ec2.types.service_managed.serialize_ec2_query(
-            value["service_managed"], pairs, f"{prefix}.ServiceManaged"
+            value["service_managed"], pairs, f"{key_prefix}ServiceManaged"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> Address:

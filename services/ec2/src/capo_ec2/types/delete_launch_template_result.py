@@ -19,11 +19,12 @@ class DeleteLaunchTemplateResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteLaunchTemplateResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template" in value:
         import capo_ec2.types.launch_template
 
         capo_ec2.types.launch_template.serialize_ec2_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
 
 

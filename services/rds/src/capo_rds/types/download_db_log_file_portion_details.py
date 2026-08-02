@@ -25,14 +25,15 @@ class DownloadDBLogFilePortionDetails(TypedDict, closed=True):
 def serialize_query(
     value: DownloadDBLogFilePortionDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "log_file_data" in value:
-        pairs.append((f"{prefix}.LogFileData", str(value["log_file_data"])))
+        pairs.append((f"{key_prefix}LogFileData", str(value["log_file_data"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "additional_data_pending" in value:
         pairs.append(
             (
-                f"{prefix}.AdditionalDataPending",
+                f"{key_prefix}AdditionalDataPending",
                 "true" if value["additional_data_pending"] else "false",
             )
         )

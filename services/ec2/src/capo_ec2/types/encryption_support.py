@@ -24,14 +24,15 @@ class EncryptionSupport(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EncryptionSupport, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "encryption_state" in value:
         import capo_ec2.types.encryption_state_value
 
         capo_ec2.types.encryption_state_value.serialize_ec2_query(
-            value["encryption_state"], pairs, f"{prefix}.EncryptionState"
+            value["encryption_state"], pairs, f"{key_prefix}EncryptionState"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
 
 
 def deserialize_ec2_query(el: Element) -> EncryptionSupport:

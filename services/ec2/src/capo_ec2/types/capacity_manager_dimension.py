@@ -71,31 +71,32 @@ class CapacityManagerDimension(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityManagerDimension, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "account_id" in value:
-        pairs.append((f"{prefix}.AccountId", str(value["account_id"])))
+        pairs.append((f"{key_prefix}AccountId", str(value["account_id"])))
     if "account_name" in value:
-        pairs.append((f"{prefix}.AccountName", str(value["account_name"])))
+        pairs.append((f"{key_prefix}AccountName", str(value["account_name"])))
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "instance_platform" in value:
-        pairs.append((f"{prefix}.InstancePlatform", str(value["instance_platform"])))
+        pairs.append((f"{key_prefix}InstancePlatform", str(value["instance_platform"])))
     if "reservation_arn" in value:
-        pairs.append((f"{prefix}.ReservationArn", str(value["reservation_arn"])))
+        pairs.append((f"{key_prefix}ReservationArn", str(value["reservation_arn"])))
     if "reservation_id" in value:
-        pairs.append((f"{prefix}.ReservationId", str(value["reservation_id"])))
+        pairs.append((f"{key_prefix}ReservationId", str(value["reservation_id"])))
     if "reservation_type" in value:
         import capo_ec2.types.reservation_type
 
         capo_ec2.types.reservation_type.serialize_ec2_query(
-            value["reservation_type"], pairs, f"{prefix}.ReservationType"
+            value["reservation_type"], pairs, f"{key_prefix}ReservationType"
         )
     if "reservation_create_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
@@ -103,7 +104,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["reservation_create_timestamp"],
             pairs,
-            f"{prefix}.ReservationCreateTimestamp",
+            f"{key_prefix}ReservationCreateTimestamp",
         )
     if "reservation_start_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
@@ -111,7 +112,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["reservation_start_timestamp"],
             pairs,
-            f"{prefix}.ReservationStartTimestamp",
+            f"{key_prefix}ReservationStartTimestamp",
         )
     if "reservation_end_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
@@ -119,7 +120,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["reservation_end_timestamp"],
             pairs,
-            f"{prefix}.ReservationEndTimestamp",
+            f"{key_prefix}ReservationEndTimestamp",
         )
     if "reservation_end_date_type" in value:
         import capo_ec2.types.reservation_end_date_type
@@ -127,31 +128,31 @@ def serialize_ec2_query(
         capo_ec2.types.reservation_end_date_type.serialize_ec2_query(
             value["reservation_end_date_type"],
             pairs,
-            f"{prefix}.ReservationEndDateType",
+            f"{key_prefix}ReservationEndDateType",
         )
     if "tenancy" in value:
         import capo_ec2.types.capacity_tenancy
 
         capo_ec2.types.capacity_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "reservation_state" in value:
         import capo_ec2.types.reservation_state
 
         capo_ec2.types.reservation_state.serialize_ec2_query(
-            value["reservation_state"], pairs, f"{prefix}.ReservationState"
+            value["reservation_state"], pairs, f"{key_prefix}ReservationState"
         )
     if "reservation_instance_match_criteria" in value:
         pairs.append(
             (
-                f"{prefix}.ReservationInstanceMatchCriteria",
+                f"{key_prefix}ReservationInstanceMatchCriteria",
                 str(value["reservation_instance_match_criteria"]),
             )
         )
     if "reservation_unused_financial_owner" in value:
         pairs.append(
             (
-                f"{prefix}.ReservationUnusedFinancialOwner",
+                f"{key_prefix}ReservationUnusedFinancialOwner",
                 str(value["reservation_unused_financial_owner"]),
             )
         )
@@ -159,7 +160,7 @@ def serialize_ec2_query(
         import capo_ec2.types.capacity_manager_tag_dimension_set
 
         capo_ec2.types.capacity_manager_tag_dimension_set.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

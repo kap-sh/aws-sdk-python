@@ -36,23 +36,26 @@ class ServerCertificateMetadata(TypedDict, closed=True):
 def serialize_query(
     value: ServerCertificateMetadata, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Path", str(value["path"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Path", str(value["path"])))
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
-    pairs.append((f"{prefix}.ServerCertificateId", str(value["server_certificate_id"])))
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+    pairs.append(
+        (f"{key_prefix}ServerCertificateId", str(value["server_certificate_id"]))
+    )
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "upload_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["upload_date"], pairs, f"{prefix}.UploadDate"
+            value["upload_date"], pairs, f"{key_prefix}UploadDate"
         )
     if "expiration" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["expiration"], pairs, f"{prefix}.Expiration"
+            value["expiration"], pairs, f"{key_prefix}Expiration"
         )
 
 

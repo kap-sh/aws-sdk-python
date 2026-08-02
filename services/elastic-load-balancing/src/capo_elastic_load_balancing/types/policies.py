@@ -29,13 +29,14 @@ class Policies(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Policies, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "app_cookie_stickiness_policies" in value:
         import capo_elastic_load_balancing.types.app_cookie_stickiness_policies
 
         capo_elastic_load_balancing.types.app_cookie_stickiness_policies.serialize_query(
             value["app_cookie_stickiness_policies"],
             pairs,
-            f"{prefix}.AppCookieStickinessPolicies",
+            f"{key_prefix}AppCookieStickinessPolicies",
         )
     if "lb_cookie_stickiness_policies" in value:
         import capo_elastic_load_balancing.types.lb_cookie_stickiness_policies
@@ -43,13 +44,13 @@ def serialize_query(value: Policies, pairs: list[tuple[str, str]], prefix: str) 
         capo_elastic_load_balancing.types.lb_cookie_stickiness_policies.serialize_query(
             value["lb_cookie_stickiness_policies"],
             pairs,
-            f"{prefix}.LBCookieStickinessPolicies",
+            f"{key_prefix}LBCookieStickinessPolicies",
         )
     if "other_policies" in value:
         import capo_elastic_load_balancing.types.policy_names
 
         capo_elastic_load_balancing.types.policy_names.serialize_query(
-            value["other_policies"], pairs, f"{prefix}.OtherPolicies"
+            value["other_policies"], pairs, f"{key_prefix}OtherPolicies"
         )
 
 

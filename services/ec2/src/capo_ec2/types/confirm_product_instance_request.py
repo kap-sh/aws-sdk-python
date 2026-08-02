@@ -25,12 +25,13 @@ class ConfirmProductInstanceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ConfirmProductInstanceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "product_code" in value:
-        pairs.append((f"{prefix}.ProductCode", str(value["product_code"])))
+        pairs.append((f"{key_prefix}ProductCode", str(value["product_code"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ConfirmProductInstanceRequest:

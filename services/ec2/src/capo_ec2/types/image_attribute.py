@@ -55,59 +55,60 @@ class ImageAttribute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["description"], pairs, f"{prefix}.Description"
+            value["description"], pairs, f"{key_prefix}Description"
         )
     if "kernel_id" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["kernel_id"], pairs, f"{prefix}.Kernel"
+            value["kernel_id"], pairs, f"{key_prefix}Kernel"
         )
     if "ramdisk_id" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["ramdisk_id"], pairs, f"{prefix}.Ramdisk"
+            value["ramdisk_id"], pairs, f"{key_prefix}Ramdisk"
         )
     if "sriov_net_support" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["sriov_net_support"], pairs, f"{prefix}.SriovNetSupport"
+            value["sriov_net_support"], pairs, f"{key_prefix}SriovNetSupport"
         )
     if "boot_mode" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["boot_mode"], pairs, f"{prefix}.BootMode"
+            value["boot_mode"], pairs, f"{key_prefix}BootMode"
         )
     if "tpm_support" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["tpm_support"], pairs, f"{prefix}.TpmSupport"
+            value["tpm_support"], pairs, f"{key_prefix}TpmSupport"
         )
     if "uefi_data" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["uefi_data"], pairs, f"{prefix}.UefiData"
+            value["uefi_data"], pairs, f"{key_prefix}UefiData"
         )
     if "last_launched_time" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["last_launched_time"], pairs, f"{prefix}.LastLaunchedTime"
+            value["last_launched_time"], pairs, f"{key_prefix}LastLaunchedTime"
         )
     if "imds_support" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["imds_support"], pairs, f"{prefix}.ImdsSupport"
+            value["imds_support"], pairs, f"{key_prefix}ImdsSupport"
         )
     if "deregistration_protection" in value:
         import capo_ec2.types.attribute_value
@@ -115,27 +116,27 @@ def serialize_ec2_query(
         capo_ec2.types.attribute_value.serialize_ec2_query(
             value["deregistration_protection"],
             pairs,
-            f"{prefix}.DeregistrationProtection",
+            f"{key_prefix}DeregistrationProtection",
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "launch_permissions" in value:
         import capo_ec2.types.launch_permission_list
 
         capo_ec2.types.launch_permission_list.serialize_ec2_query(
-            value["launch_permissions"], pairs, f"{prefix}.LaunchPermission"
+            value["launch_permissions"], pairs, f"{key_prefix}LaunchPermission"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "block_device_mappings" in value:
         import capo_ec2.types.block_device_mapping_list
 
         capo_ec2.types.block_device_mapping_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMapping"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
 
 

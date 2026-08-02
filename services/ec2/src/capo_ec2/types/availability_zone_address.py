@@ -29,17 +29,18 @@ class AvailabilityZoneAddress(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AvailabilityZoneAddress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "allocation_ids" in value:
         import capo_ec2.types.allocation_id_list
 
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
-            value["allocation_ids"], pairs, f"{prefix}.AllocationIds"
+            value["allocation_ids"], pairs, f"{key_prefix}AllocationIds"
         )
 
 

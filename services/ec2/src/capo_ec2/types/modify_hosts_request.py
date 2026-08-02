@@ -33,33 +33,34 @@ class ModifyHostsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyHostsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "host_recovery" in value:
         import capo_ec2.types.host_recovery
 
         capo_ec2.types.host_recovery.serialize_ec2_query(
-            value["host_recovery"], pairs, f"{prefix}.HostRecovery"
+            value["host_recovery"], pairs, f"{key_prefix}HostRecovery"
         )
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
     if "host_maintenance" in value:
         import capo_ec2.types.host_maintenance
 
         capo_ec2.types.host_maintenance.serialize_ec2_query(
-            value["host_maintenance"], pairs, f"{prefix}.HostMaintenance"
+            value["host_maintenance"], pairs, f"{key_prefix}HostMaintenance"
         )
     if "host_ids" in value:
         import capo_ec2.types.request_host_id_list
 
         capo_ec2.types.request_host_id_list.serialize_ec2_query(
-            value["host_ids"], pairs, f"{prefix}.HostId"
+            value["host_ids"], pairs, f"{key_prefix}HostId"
         )
     if "auto_placement" in value:
         import capo_ec2.types.auto_placement
 
         capo_ec2.types.auto_placement.serialize_ec2_query(
-            value["auto_placement"], pairs, f"{prefix}.AutoPlacement"
+            value["auto_placement"], pairs, f"{key_prefix}AutoPlacement"
         )
 
 

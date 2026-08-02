@@ -24,12 +24,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "tenant_db_name" in value:
-        pairs.append((f"{prefix}.TenantDBName", str(value["tenant_db_name"])))
+        pairs.append((f"{key_prefix}TenantDBName", str(value["tenant_db_name"])))
 
 
 def deserialize_query(el: Element) -> TenantDatabasePendingModifiedValues:

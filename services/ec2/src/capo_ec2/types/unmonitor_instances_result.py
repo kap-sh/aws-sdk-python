@@ -21,11 +21,12 @@ class UnmonitorInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: UnmonitorInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_monitorings" in value:
         import capo_ec2.types.instance_monitoring_list
 
         capo_ec2.types.instance_monitoring_list.serialize_ec2_query(
-            value["instance_monitorings"], pairs, f"{prefix}.InstancesSet"
+            value["instance_monitorings"], pairs, f"{key_prefix}InstancesSet"
         )
 
 

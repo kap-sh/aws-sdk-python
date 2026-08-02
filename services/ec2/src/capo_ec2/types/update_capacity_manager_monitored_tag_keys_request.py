@@ -29,22 +29,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "activate_tag_keys" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["activate_tag_keys"], pairs, f"{prefix}.ActivateTagKeys"
+            value["activate_tag_keys"], pairs, f"{key_prefix}ActivateTagKeys"
         )
     if "deactivate_tag_keys" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["deactivate_tag_keys"], pairs, f"{prefix}.DeactivateTagKeys"
+            value["deactivate_tag_keys"], pairs, f"{key_prefix}DeactivateTagKeys"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> UpdateCapacityManagerMonitoredTagKeysRequest:

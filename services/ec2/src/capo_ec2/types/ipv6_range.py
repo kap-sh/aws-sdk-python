@@ -21,10 +21,11 @@ class Ipv6Range(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Ipv6Range, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "cidr_ipv6" in value:
-        pairs.append((f"{prefix}.CidrIpv6", str(value["cidr_ipv6"])))
+        pairs.append((f"{key_prefix}CidrIpv6", str(value["cidr_ipv6"])))
 
 
 def deserialize_ec2_query(el: Element) -> Ipv6Range:

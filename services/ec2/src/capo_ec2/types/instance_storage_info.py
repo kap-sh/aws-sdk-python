@@ -32,25 +32,26 @@ class InstanceStorageInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceStorageInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "total_size_in_gb" in value:
-        pairs.append((f"{prefix}.TotalSizeInGB", str(value["total_size_in_gb"])))
+        pairs.append((f"{key_prefix}TotalSizeInGB", str(value["total_size_in_gb"])))
     if "disks" in value:
         import capo_ec2.types.disk_info_list
 
         capo_ec2.types.disk_info_list.serialize_ec2_query(
-            value["disks"], pairs, f"{prefix}.Disks"
+            value["disks"], pairs, f"{key_prefix}Disks"
         )
     if "nvme_support" in value:
         import capo_ec2.types.ephemeral_nvme_support
 
         capo_ec2.types.ephemeral_nvme_support.serialize_ec2_query(
-            value["nvme_support"], pairs, f"{prefix}.NvmeSupport"
+            value["nvme_support"], pairs, f"{key_prefix}NvmeSupport"
         )
     if "encryption_support" in value:
         import capo_ec2.types.instance_storage_encryption_support
 
         capo_ec2.types.instance_storage_encryption_support.serialize_ec2_query(
-            value["encryption_support"], pairs, f"{prefix}.EncryptionSupport"
+            value["encryption_support"], pairs, f"{key_prefix}EncryptionSupport"
         )
 
 

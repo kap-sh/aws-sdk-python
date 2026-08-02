@@ -22,13 +22,14 @@ class DeleteSnapshotReturnCode(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteSnapshotReturnCode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "return_code" in value:
         import capo_ec2.types.snapshot_return_codes
 
         capo_ec2.types.snapshot_return_codes.serialize_ec2_query(
-            value["return_code"], pairs, f"{prefix}.ReturnCode"
+            value["return_code"], pairs, f"{key_prefix}ReturnCode"
         )
 
 

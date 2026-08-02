@@ -24,20 +24,21 @@ class DeleteFleetSuccessItem(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteFleetSuccessItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "current_fleet_state" in value:
         import capo_ec2.types.fleet_state_code
 
         capo_ec2.types.fleet_state_code.serialize_ec2_query(
-            value["current_fleet_state"], pairs, f"{prefix}.CurrentFleetState"
+            value["current_fleet_state"], pairs, f"{key_prefix}CurrentFleetState"
         )
     if "previous_fleet_state" in value:
         import capo_ec2.types.fleet_state_code
 
         capo_ec2.types.fleet_state_code.serialize_ec2_query(
-            value["previous_fleet_state"], pairs, f"{prefix}.PreviousFleetState"
+            value["previous_fleet_state"], pairs, f"{key_prefix}PreviousFleetState"
         )
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteFleetSuccessItem:

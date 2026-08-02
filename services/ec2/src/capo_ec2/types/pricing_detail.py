@@ -22,10 +22,11 @@ class PricingDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PricingDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "price" in value:
-        pairs.append((f"{prefix}.Price", str(value["price"])))
+        pairs.append((f"{key_prefix}Price", str(value["price"])))
 
 
 def deserialize_ec2_query(el: Element) -> PricingDetail:

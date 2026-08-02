@@ -26,16 +26,17 @@ class NeuronInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NeuronInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "neuron_devices" in value:
         import capo_ec2.types.neuron_device_info_list
 
         capo_ec2.types.neuron_device_info_list.serialize_ec2_query(
-            value["neuron_devices"], pairs, f"{prefix}.NeuronDevices"
+            value["neuron_devices"], pairs, f"{key_prefix}NeuronDevices"
         )
     if "total_neuron_device_memory_in_mi_b" in value:
         pairs.append(
             (
-                f"{prefix}.TotalNeuronDeviceMemoryInMiB",
+                f"{key_prefix}TotalNeuronDeviceMemoryInMiB",
                 str(value["total_neuron_device_memory_in_mi_b"]),
             )
         )

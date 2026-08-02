@@ -22,17 +22,18 @@ class CreateLaunchTemplateResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateLaunchTemplateResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template" in value:
         import capo_ec2.types.launch_template
 
         capo_ec2.types.launch_template.serialize_ec2_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "warning" in value:
         import capo_ec2.types.validation_warning
 
         capo_ec2.types.validation_warning.serialize_ec2_query(
-            value["warning"], pairs, f"{prefix}.Warning"
+            value["warning"], pairs, f"{key_prefix}Warning"
         )
 
 

@@ -56,20 +56,21 @@ class UpgradeTarget(TypedDict, closed=True):
 def serialize_query(
     value: UpgradeTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "auto_upgrade" in value:
         pairs.append(
-            (f"{prefix}.AutoUpgrade", "true" if value["auto_upgrade"] else "false")
+            (f"{key_prefix}AutoUpgrade", "true" if value["auto_upgrade"] else "false")
         )
     if "is_major_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.IsMajorVersionUpgrade",
+                f"{key_prefix}IsMajorVersionUpgrade",
                 "true" if value["is_major_version_upgrade"] else "false",
             )
         )
@@ -77,47 +78,47 @@ def serialize_query(
         import capo_rds.types.engine_mode_list
 
         capo_rds.types.engine_mode_list.serialize_query(
-            value["supported_engine_modes"], pairs, f"{prefix}.SupportedEngineModes"
+            value["supported_engine_modes"], pairs, f"{key_prefix}SupportedEngineModes"
         )
     if "supports_parallel_query" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsParallelQuery",
+                f"{key_prefix}SupportsParallelQuery",
                 "true" if value["supports_parallel_query"] else "false",
             )
         )
     if "supports_global_databases" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsGlobalDatabases",
+                f"{key_prefix}SupportsGlobalDatabases",
                 "true" if value["supports_global_databases"] else "false",
             )
         )
     if "supports_babelfish" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsBabelfish",
+                f"{key_prefix}SupportsBabelfish",
                 "true" if value["supports_babelfish"] else "false",
             )
         )
     if "supports_limitless_database" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLimitlessDatabase",
+                f"{key_prefix}SupportsLimitlessDatabase",
                 "true" if value["supports_limitless_database"] else "false",
             )
         )
     if "supports_local_write_forwarding" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLocalWriteForwarding",
+                f"{key_prefix}SupportsLocalWriteForwarding",
                 "true" if value["supports_local_write_forwarding"] else "false",
             )
         )
     if "supports_integrations" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsIntegrations",
+                f"{key_prefix}SupportsIntegrations",
                 "true" if value["supports_integrations"] else "false",
             )
         )

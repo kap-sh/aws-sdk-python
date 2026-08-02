@@ -47,13 +47,17 @@ class RouteServerRoute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServerRoute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_server_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.RouteServerEndpointId", str(value["route_server_endpoint_id"]))
+            (
+                f"{key_prefix}RouteServerEndpointId",
+                str(value["route_server_endpoint_id"]),
+            )
         )
     if "route_server_peer_id" in value:
         pairs.append(
-            (f"{prefix}.RouteServerPeerId", str(value["route_server_peer_id"]))
+            (f"{key_prefix}RouteServerPeerId", str(value["route_server_peer_id"]))
         )
     if "route_installation_details" in value:
         import capo_ec2.types.route_server_route_installation_details
@@ -61,26 +65,26 @@ def serialize_ec2_query(
         capo_ec2.types.route_server_route_installation_details.serialize_ec2_query(
             value["route_installation_details"],
             pairs,
-            f"{prefix}.RouteInstallationDetailSet",
+            f"{key_prefix}RouteInstallationDetailSet",
         )
     if "route_status" in value:
         import capo_ec2.types.route_server_route_status
 
         capo_ec2.types.route_server_route_status.serialize_ec2_query(
-            value["route_status"], pairs, f"{prefix}.RouteStatus"
+            value["route_status"], pairs, f"{key_prefix}RouteStatus"
         )
     if "prefix" in value:
-        pairs.append((f"{prefix}.Prefix", str(value["prefix"])))
+        pairs.append((f"{key_prefix}Prefix", str(value["prefix"])))
     if "as_paths" in value:
         import capo_ec2.types.as_path
 
         capo_ec2.types.as_path.serialize_ec2_query(
-            value["as_paths"], pairs, f"{prefix}.AsPathSet"
+            value["as_paths"], pairs, f"{key_prefix}AsPathSet"
         )
     if "med" in value:
-        pairs.append((f"{prefix}.Med", str(value["med"])))
+        pairs.append((f"{key_prefix}Med", str(value["med"])))
     if "next_hop_ip" in value:
-        pairs.append((f"{prefix}.NextHopIp", str(value["next_hop_ip"])))
+        pairs.append((f"{key_prefix}NextHopIp", str(value["next_hop_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> RouteServerRoute:

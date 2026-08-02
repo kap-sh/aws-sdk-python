@@ -45,12 +45,13 @@ class VpcEncryptionControl(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcEncryptionControl, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "vpc_encryption_control_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcEncryptionControlId",
+                f"{key_prefix}VpcEncryptionControlId",
                 str(value["vpc_encryption_control_id"]),
             )
         )
@@ -58,27 +59,27 @@ def serialize_ec2_query(
         import capo_ec2.types.vpc_encryption_control_mode
 
         capo_ec2.types.vpc_encryption_control_mode.serialize_ec2_query(
-            value["mode"], pairs, f"{prefix}.Mode"
+            value["mode"], pairs, f"{key_prefix}Mode"
         )
     if "state" in value:
         import capo_ec2.types.vpc_encryption_control_state
 
         capo_ec2.types.vpc_encryption_control_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_message" in value:
-        pairs.append((f"{prefix}.StateMessage", str(value["state_message"])))
+        pairs.append((f"{key_prefix}StateMessage", str(value["state_message"])))
     if "resource_exclusions" in value:
         import capo_ec2.types.vpc_encryption_control_exclusions
 
         capo_ec2.types.vpc_encryption_control_exclusions.serialize_ec2_query(
-            value["resource_exclusions"], pairs, f"{prefix}.ResourceExclusions"
+            value["resource_exclusions"], pairs, f"{key_prefix}ResourceExclusions"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

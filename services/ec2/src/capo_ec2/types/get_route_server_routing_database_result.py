@@ -27,10 +27,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "are_routes_persisted" in value:
         pairs.append(
             (
-                f"{prefix}.AreRoutesPersisted",
+                f"{key_prefix}AreRoutesPersisted",
                 "true" if value["are_routes_persisted"] else "false",
             )
         )
@@ -38,10 +39,10 @@ def serialize_ec2_query(
         import capo_ec2.types.route_server_route_list
 
         capo_ec2.types.route_server_route_list.serialize_ec2_query(
-            value["routes"], pairs, f"{prefix}.RouteSet"
+            value["routes"], pairs, f"{key_prefix}RouteSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetRouteServerRoutingDatabaseResult:

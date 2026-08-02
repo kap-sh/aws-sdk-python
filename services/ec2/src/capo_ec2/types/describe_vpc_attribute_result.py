@@ -32,17 +32,18 @@ class DescribeVpcAttributeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpcAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enable_dns_hostnames" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["enable_dns_hostnames"], pairs, f"{prefix}.EnableDnsHostnames"
+            value["enable_dns_hostnames"], pairs, f"{key_prefix}EnableDnsHostnames"
         )
     if "enable_dns_support" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["enable_dns_support"], pairs, f"{prefix}.EnableDnsSupport"
+            value["enable_dns_support"], pairs, f"{key_prefix}EnableDnsSupport"
         )
     if "enable_network_address_usage_metrics" in value:
         import capo_ec2.types.attribute_boolean_value
@@ -50,10 +51,10 @@ def serialize_ec2_query(
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["enable_network_address_usage_metrics"],
             pairs,
-            f"{prefix}.EnableNetworkAddressUsageMetrics",
+            f"{key_prefix}EnableNetworkAddressUsageMetrics",
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcAttributeResult:

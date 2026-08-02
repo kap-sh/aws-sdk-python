@@ -19,11 +19,12 @@ class CreateDBProxyResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBProxyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy" in value:
         import capo_rds.types.db_proxy
 
         capo_rds.types.db_proxy.serialize_query(
-            value["db_proxy"], pairs, f"{prefix}.DBProxy"
+            value["db_proxy"], pairs, f"{key_prefix}DBProxy"
         )
 
 

@@ -60,62 +60,63 @@ class IpamDiscoveredResourceCidr(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamDiscoveredResourceCidr, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_resource_discovery_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamResourceDiscoveryId",
+                f"{key_prefix}IpamResourceDiscoveryId",
                 str(value["ipam_resource_discovery_id"]),
             )
         )
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_owner_id" in value:
-        pairs.append((f"{prefix}.ResourceOwnerId", str(value["resource_owner_id"])))
+        pairs.append((f"{key_prefix}ResourceOwnerId", str(value["resource_owner_id"])))
     if "resource_cidr" in value:
-        pairs.append((f"{prefix}.ResourceCidr", str(value["resource_cidr"])))
+        pairs.append((f"{key_prefix}ResourceCidr", str(value["resource_cidr"])))
     if "ip_source" in value:
         import capo_ec2.types.ipam_resource_cidr_ip_source
 
         capo_ec2.types.ipam_resource_cidr_ip_source.serialize_ec2_query(
-            value["ip_source"], pairs, f"{prefix}.IpSource"
+            value["ip_source"], pairs, f"{key_prefix}IpSource"
         )
     if "resource_type" in value:
         import capo_ec2.types.ipam_resource_type
 
         capo_ec2.types.ipam_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_tags" in value:
         import capo_ec2.types.ipam_resource_tag_list
 
         capo_ec2.types.ipam_resource_tag_list.serialize_ec2_query(
-            value["resource_tags"], pairs, f"{prefix}.ResourceTagSet"
+            value["resource_tags"], pairs, f"{key_prefix}ResourceTagSet"
         )
     if "ip_usage" in value:
-        pairs.append((f"{prefix}.IpUsage", str(value["ip_usage"])))
+        pairs.append((f"{key_prefix}IpUsage", str(value["ip_usage"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "network_interface_attachment_status" in value:
         import capo_ec2.types.ipam_network_interface_attachment_status
 
         capo_ec2.types.ipam_network_interface_attachment_status.serialize_ec2_query(
             value["network_interface_attachment_status"],
             pairs,
-            f"{prefix}.NetworkInterfaceAttachmentStatus",
+            f"{key_prefix}NetworkInterfaceAttachmentStatus",
         )
     if "sample_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["sample_time"], pairs, f"{prefix}.SampleTime"
+            value["sample_time"], pairs, f"{key_prefix}SampleTime"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

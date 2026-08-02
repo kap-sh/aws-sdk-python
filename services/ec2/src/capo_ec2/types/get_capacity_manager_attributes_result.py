@@ -42,30 +42,36 @@ class GetCapacityManagerAttributesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetCapacityManagerAttributesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_manager_status" in value:
         import capo_ec2.types.capacity_manager_status
 
         capo_ec2.types.capacity_manager_status.serialize_ec2_query(
-            value["capacity_manager_status"], pairs, f"{prefix}.CapacityManagerStatus"
+            value["capacity_manager_status"],
+            pairs,
+            f"{key_prefix}CapacityManagerStatus",
         )
     if "organizations_access" in value:
         pairs.append(
             (
-                f"{prefix}.OrganizationsAccess",
+                f"{key_prefix}OrganizationsAccess",
                 "true" if value["organizations_access"] else "false",
             )
         )
     if "data_export_count" in value:
-        pairs.append((f"{prefix}.DataExportCount", str(value["data_export_count"])))
+        pairs.append((f"{key_prefix}DataExportCount", str(value["data_export_count"])))
     if "ingestion_status" in value:
         import capo_ec2.types.ingestion_status
 
         capo_ec2.types.ingestion_status.serialize_ec2_query(
-            value["ingestion_status"], pairs, f"{prefix}.IngestionStatus"
+            value["ingestion_status"], pairs, f"{key_prefix}IngestionStatus"
         )
     if "ingestion_status_message" in value:
         pairs.append(
-            (f"{prefix}.IngestionStatusMessage", str(value["ingestion_status_message"]))
+            (
+                f"{key_prefix}IngestionStatusMessage",
+                str(value["ingestion_status_message"]),
+            )
         )
     if "earliest_datapoint_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
@@ -73,7 +79,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["earliest_datapoint_timestamp"],
             pairs,
-            f"{prefix}.EarliestDatapointTimestamp",
+            f"{key_prefix}EarliestDatapointTimestamp",
         )
     if "latest_datapoint_timestamp" in value:
         import capo_ec2.types.millisecond_date_time
@@ -81,7 +87,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["latest_datapoint_timestamp"],
             pairs,
-            f"{prefix}.LatestDatapointTimestamp",
+            f"{key_prefix}LatestDatapointTimestamp",
         )
 
 

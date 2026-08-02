@@ -71,21 +71,22 @@ def deserialize_aws_json_1_0(data: dict) -> MetricStat:
 def serialize_query(
     value: MetricStat, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric" in value:
         import capo_cloudwatch.types.metric
 
         capo_cloudwatch.types.metric.serialize_query(
-            value["metric"], pairs, f"{prefix}.Metric"
+            value["metric"], pairs, f"{key_prefix}Metric"
         )
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "stat" in value:
-        pairs.append((f"{prefix}.Stat", str(value["stat"])))
+        pairs.append((f"{key_prefix}Stat", str(value["stat"])))
     if "unit" in value:
         import capo_cloudwatch.types.standard_unit
 
         capo_cloudwatch.types.standard_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
 
 

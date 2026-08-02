@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_family" in value:
         import capo_ec2.types.unlimited_supported_instance_family
 
         capo_ec2.types.unlimited_supported_instance_family.serialize_ec2_query(
-            value["instance_family"], pairs, f"{prefix}.InstanceFamily"
+            value["instance_family"], pairs, f"{key_prefix}InstanceFamily"
         )
 
 

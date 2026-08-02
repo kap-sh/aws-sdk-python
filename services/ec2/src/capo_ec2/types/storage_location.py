@@ -21,10 +21,11 @@ class StorageLocation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StorageLocation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bucket" in value:
-        pairs.append((f"{prefix}.Bucket", str(value["bucket"])))
+        pairs.append((f"{key_prefix}Bucket", str(value["bucket"])))
     if "key" in value:
-        pairs.append((f"{prefix}.Key", str(value["key"])))
+        pairs.append((f"{key_prefix}Key", str(value["key"])))
 
 
 def deserialize_ec2_query(el: Element) -> StorageLocation:

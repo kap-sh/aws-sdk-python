@@ -41,52 +41,57 @@ class CopyDBSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopyDBSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_db_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBSnapshotIdentifier",
+                f"{key_prefix}SourceDBSnapshotIdentifier",
                 str(value["source_db_snapshot_identifier"]),
             )
         )
     if "target_db_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBSnapshotIdentifier",
+                f"{key_prefix}TargetDBSnapshotIdentifier",
                 str(value["target_db_snapshot_identifier"]),
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "copy_tags" in value:
-        pairs.append((f"{prefix}.CopyTags", "true" if value["copy_tags"] else "false"))
+        pairs.append(
+            (f"{key_prefix}CopyTags", "true" if value["copy_tags"] else "false")
+        )
     if "pre_signed_url" in value:
-        pairs.append((f"{prefix}.PreSignedUrl", str(value["pre_signed_url"])))
+        pairs.append((f"{key_prefix}PreSignedUrl", str(value["pre_signed_url"])))
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
     if "target_custom_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.TargetCustomAvailabilityZone",
+                f"{key_prefix}TargetCustomAvailabilityZone",
                 str(value["target_custom_availability_zone"]),
             )
         )
     if "snapshot_target" in value:
-        pairs.append((f"{prefix}.SnapshotTarget", str(value["snapshot_target"])))
+        pairs.append((f"{key_prefix}SnapshotTarget", str(value["snapshot_target"])))
     if "copy_option_group" in value:
         pairs.append(
             (
-                f"{prefix}.CopyOptionGroup",
+                f"{key_prefix}CopyOptionGroup",
                 "true" if value["copy_option_group"] else "false",
             )
         )
     if "snapshot_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.SnapshotAvailabilityZone",
+                f"{key_prefix}SnapshotAvailabilityZone",
                 str(value["snapshot_availability_zone"]),
             )
         )

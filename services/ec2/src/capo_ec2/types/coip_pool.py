@@ -33,18 +33,19 @@ class CoipPool(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CoipPool, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pool_id" in value:
-        pairs.append((f"{prefix}.PoolId", str(value["pool_id"])))
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
     if "pool_cidrs" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["pool_cidrs"], pairs, f"{prefix}.PoolCidrSet"
+            value["pool_cidrs"], pairs, f"{key_prefix}PoolCidrSet"
         )
     if "local_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableId",
+                f"{key_prefix}LocalGatewayRouteTableId",
                 str(value["local_gateway_route_table_id"]),
             )
         )
@@ -52,10 +53,10 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "pool_arn" in value:
-        pairs.append((f"{prefix}.PoolArn", str(value["pool_arn"])))
+        pairs.append((f"{key_prefix}PoolArn", str(value["pool_arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> CoipPool:

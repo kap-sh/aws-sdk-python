@@ -40,40 +40,41 @@ class ReportInstanceStatusRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReportInstanceStatusRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instances" in value:
         import capo_ec2.types.instance_id_string_list
 
         capo_ec2.types.instance_id_string_list.serialize_ec2_query(
-            value["instances"], pairs, f"{prefix}.InstanceId"
+            value["instances"], pairs, f"{key_prefix}InstanceId"
         )
     if "status" in value:
         import capo_ec2.types.report_status_type
 
         capo_ec2.types.report_status_type.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "reason_codes" in value:
         import capo_ec2.types.reason_codes_list
 
         capo_ec2.types.reason_codes_list.serialize_ec2_query(
-            value["reason_codes"], pairs, f"{prefix}.ReasonCode"
+            value["reason_codes"], pairs, f"{key_prefix}ReasonCode"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_ec2_query(el: Element) -> ReportInstanceStatusRequest:

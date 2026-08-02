@@ -24,13 +24,14 @@ class DBClusterSnapshotAttribute(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterSnapshotAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute_name" in value:
-        pairs.append((f"{prefix}.AttributeName", str(value["attribute_name"])))
+        pairs.append((f"{key_prefix}AttributeName", str(value["attribute_name"])))
     if "attribute_values" in value:
         import capo_rds.types.attribute_value_list
 
         capo_rds.types.attribute_value_list.serialize_query(
-            value["attribute_values"], pairs, f"{prefix}.AttributeValues"
+            value["attribute_values"], pairs, f"{key_prefix}AttributeValues"
         )
 
 

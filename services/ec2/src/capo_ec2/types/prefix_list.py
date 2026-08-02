@@ -24,16 +24,17 @@ class PrefixList(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PrefixList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidrs" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["cidrs"], pairs, f"{prefix}.CidrSet"
+            value["cidrs"], pairs, f"{key_prefix}CidrSet"
         )
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "prefix_list_name" in value:
-        pairs.append((f"{prefix}.PrefixListName", str(value["prefix_list_name"])))
+        pairs.append((f"{key_prefix}PrefixListName", str(value["prefix_list_name"])))
 
 
 def deserialize_ec2_query(el: Element) -> PrefixList:

@@ -109,34 +109,35 @@ def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportInput:
 def serialize_query(
     value: GetInsightRuleReportInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_name" in value:
-        pairs.append((f"{prefix}.RuleName", str(value["rule_name"])))
+        pairs.append((f"{key_prefix}RuleName", str(value["rule_name"])))
     if "start_time" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "max_contributor_count" in value:
         pairs.append(
-            (f"{prefix}.MaxContributorCount", str(value["max_contributor_count"]))
+            (f"{key_prefix}MaxContributorCount", str(value["max_contributor_count"]))
         )
     if "metrics" in value:
         import capo_cloudwatch.types.insight_rule_metric_list
 
         capo_cloudwatch.types.insight_rule_metric_list.serialize_query(
-            value["metrics"], pairs, f"{prefix}.Metrics"
+            value["metrics"], pairs, f"{key_prefix}Metrics"
         )
     if "order_by" in value:
-        pairs.append((f"{prefix}.OrderBy", str(value["order_by"])))
+        pairs.append((f"{key_prefix}OrderBy", str(value["order_by"])))
 
 
 def deserialize_query(el: Element) -> GetInsightRuleReportInput:

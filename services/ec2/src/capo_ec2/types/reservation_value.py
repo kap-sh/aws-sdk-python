@@ -23,15 +23,19 @@ class ReservationValue(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReservationValue, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hourly_price" in value:
-        pairs.append((f"{prefix}.HourlyPrice", str(value["hourly_price"])))
+        pairs.append((f"{key_prefix}HourlyPrice", str(value["hourly_price"])))
     if "remaining_total_value" in value:
         pairs.append(
-            (f"{prefix}.RemainingTotalValue", str(value["remaining_total_value"]))
+            (f"{key_prefix}RemainingTotalValue", str(value["remaining_total_value"]))
         )
     if "remaining_upfront_value" in value:
         pairs.append(
-            (f"{prefix}.RemainingUpfrontValue", str(value["remaining_upfront_value"]))
+            (
+                f"{key_prefix}RemainingUpfrontValue",
+                str(value["remaining_upfront_value"]),
+            )
         )
 
 

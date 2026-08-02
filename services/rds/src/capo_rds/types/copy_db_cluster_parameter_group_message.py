@@ -31,31 +31,34 @@ class CopyDBClusterParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopyDBClusterParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_db_cluster_parameter_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBClusterParameterGroupIdentifier",
+                f"{key_prefix}SourceDBClusterParameterGroupIdentifier",
                 str(value["source_db_cluster_parameter_group_identifier"]),
             )
         )
     if "target_db_cluster_parameter_group_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBClusterParameterGroupIdentifier",
+                f"{key_prefix}TargetDBClusterParameterGroupIdentifier",
                 str(value["target_db_cluster_parameter_group_identifier"]),
             )
         )
     if "target_db_cluster_parameter_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBClusterParameterGroupDescription",
+                f"{key_prefix}TargetDBClusterParameterGroupDescription",
                 str(value["target_db_cluster_parameter_group_description"]),
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CopyDBClusterParameterGroupMessage:

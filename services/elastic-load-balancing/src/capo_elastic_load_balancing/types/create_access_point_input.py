@@ -46,37 +46,38 @@ class CreateAccessPointInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateAccessPointInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"])))
     import capo_elastic_load_balancing.types.listeners
 
     capo_elastic_load_balancing.types.listeners.serialize_query(
-        value["listeners"], pairs, f"{prefix}.Listeners"
+        value["listeners"], pairs, f"{key_prefix}Listeners"
     )
     if "availability_zones" in value:
         import capo_elastic_load_balancing.types.availability_zones
 
         capo_elastic_load_balancing.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "subnets" in value:
         import capo_elastic_load_balancing.types.subnets
 
         capo_elastic_load_balancing.types.subnets.serialize_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
     if "security_groups" in value:
         import capo_elastic_load_balancing.types.security_groups
 
         capo_elastic_load_balancing.types.security_groups.serialize_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "scheme" in value:
-        pairs.append((f"{prefix}.Scheme", str(value["scheme"])))
+        pairs.append((f"{key_prefix}Scheme", str(value["scheme"])))
     if "tags" in value:
         import capo_elastic_load_balancing.types.tag_list
 
         capo_elastic_load_balancing.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

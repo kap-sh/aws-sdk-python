@@ -26,11 +26,12 @@ class CreateDelegationRequestResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateDelegationRequestResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "console_deep_link" in value:
-        pairs.append((f"{prefix}.ConsoleDeepLink", str(value["console_deep_link"])))
+        pairs.append((f"{key_prefix}ConsoleDeepLink", str(value["console_deep_link"])))
     if "delegation_request_id" in value:
         pairs.append(
-            (f"{prefix}.DelegationRequestId", str(value["delegation_request_id"]))
+            (f"{key_prefix}DelegationRequestId", str(value["delegation_request_id"]))
         )
 
 

@@ -34,30 +34,34 @@ class CapacityReservationTopology(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationTopology, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "capacity_block_id" in value:
-        pairs.append((f"{prefix}.CapacityBlockId", str(value["capacity_block_id"])))
+        pairs.append((f"{key_prefix}CapacityBlockId", str(value["capacity_block_id"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "network_nodes" in value:
         import capo_ec2.types.network_node_set
 
         capo_ec2.types.network_node_set.serialize_ec2_query(
-            value["network_nodes"], pairs, f"{prefix}.NetworkNodeSet"
+            value["network_nodes"], pairs, f"{key_prefix}NetworkNodeSet"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
 
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationTopology:

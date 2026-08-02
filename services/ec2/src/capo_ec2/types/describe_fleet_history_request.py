@@ -34,25 +34,26 @@ class DescribeFleetHistoryRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeFleetHistoryRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "event_type" in value:
         import capo_ec2.types.fleet_event_type
 
         capo_ec2.types.fleet_event_type.serialize_ec2_query(
-            value["event_type"], pairs, f"{prefix}.EventType"
+            value["event_type"], pairs, f"{key_prefix}EventType"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
 
 

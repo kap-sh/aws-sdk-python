@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_endpoints" in value:
         import capo_ec2.types.verified_access_endpoint_list
 
         capo_ec2.types.verified_access_endpoint_list.serialize_ec2_query(
             value["verified_access_endpoints"],
             pairs,
-            f"{prefix}.VerifiedAccessEndpointSet",
+            f"{key_prefix}VerifiedAccessEndpointSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVerifiedAccessEndpointsResult:

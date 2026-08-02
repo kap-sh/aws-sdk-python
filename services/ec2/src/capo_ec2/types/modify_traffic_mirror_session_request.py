@@ -49,37 +49,46 @@ class ModifyTrafficMirrorSessionRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyTrafficMirrorSessionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_session_id" in value:
         pairs.append(
             (
-                f"{prefix}.TrafficMirrorSessionId",
+                f"{key_prefix}TrafficMirrorSessionId",
                 str(value["traffic_mirror_session_id"]),
             )
         )
     if "traffic_mirror_target_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorTargetId", str(value["traffic_mirror_target_id"]))
+            (
+                f"{key_prefix}TrafficMirrorTargetId",
+                str(value["traffic_mirror_target_id"]),
+            )
         )
     if "traffic_mirror_filter_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+            (
+                f"{key_prefix}TrafficMirrorFilterId",
+                str(value["traffic_mirror_filter_id"]),
+            )
         )
     if "packet_length" in value:
-        pairs.append((f"{prefix}.PacketLength", str(value["packet_length"])))
+        pairs.append((f"{key_prefix}PacketLength", str(value["packet_length"])))
     if "session_number" in value:
-        pairs.append((f"{prefix}.SessionNumber", str(value["session_number"])))
+        pairs.append((f"{key_prefix}SessionNumber", str(value["session_number"])))
     if "virtual_network_id" in value:
-        pairs.append((f"{prefix}.VirtualNetworkId", str(value["virtual_network_id"])))
+        pairs.append(
+            (f"{key_prefix}VirtualNetworkId", str(value["virtual_network_id"]))
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "remove_fields" in value:
         import capo_ec2.types.traffic_mirror_session_field_list
 
         capo_ec2.types.traffic_mirror_session_field_list.serialize_ec2_query(
-            value["remove_fields"], pairs, f"{prefix}.RemoveFields"
+            value["remove_fields"], pairs, f"{key_prefix}RemoveFields"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyTrafficMirrorSessionRequest:

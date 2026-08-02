@@ -34,9 +34,10 @@ def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleInput:
 def serialize_query(
     value: GetAlarmMuteRuleInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_mute_rule_name" in value:
         pairs.append(
-            (f"{prefix}.AlarmMuteRuleName", str(value["alarm_mute_rule_name"]))
+            (f"{key_prefix}AlarmMuteRuleName", str(value["alarm_mute_rule_name"]))
         )
 
 

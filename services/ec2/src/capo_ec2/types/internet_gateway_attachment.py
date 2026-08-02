@@ -22,14 +22,15 @@ class InternetGatewayAttachment(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InternetGatewayAttachment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_ec2.types.attachment_status
 
         capo_ec2.types.attachment_status.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> InternetGatewayAttachment:

@@ -22,13 +22,14 @@ class ExportTasksMessage(TypedDict, closed=True):
 def serialize_query(
     value: ExportTasksMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "export_tasks" in value:
         import capo_rds.types.export_tasks_list
 
         capo_rds.types.export_tasks_list.serialize_query(
-            value["export_tasks"], pairs, f"{prefix}.ExportTasks"
+            value["export_tasks"], pairs, f"{key_prefix}ExportTasks"
         )
 
 

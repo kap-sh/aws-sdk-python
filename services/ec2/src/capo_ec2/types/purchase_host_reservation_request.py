@@ -35,29 +35,30 @@ class PurchaseHostReservationRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PurchaseHostReservationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
     if "host_id_set" in value:
         import capo_ec2.types.request_host_id_set
 
         capo_ec2.types.request_host_id_set.serialize_ec2_query(
-            value["host_id_set"], pairs, f"{prefix}.HostIdSet"
+            value["host_id_set"], pairs, f"{key_prefix}HostIdSet"
         )
     if "limit_price" in value:
-        pairs.append((f"{prefix}.LimitPrice", str(value["limit_price"])))
+        pairs.append((f"{key_prefix}LimitPrice", str(value["limit_price"])))
     if "offering_id" in value:
-        pairs.append((f"{prefix}.OfferingId", str(value["offering_id"])))
+        pairs.append((f"{key_prefix}OfferingId", str(value["offering_id"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

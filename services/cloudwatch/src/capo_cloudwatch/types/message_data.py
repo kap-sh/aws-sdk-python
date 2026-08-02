@@ -41,10 +41,11 @@ def deserialize_aws_json_1_0(data: dict) -> MessageData:
 def serialize_query(
     value: MessageData, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "code" in value:
-        pairs.append((f"{prefix}.Code", str(value["code"])))
+        pairs.append((f"{key_prefix}Code", str(value["code"])))
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
 
 
 def deserialize_query(el: Element) -> MessageData:

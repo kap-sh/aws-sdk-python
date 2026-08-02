@@ -48,12 +48,13 @@ def deserialize_aws_json_1_0(data: dict) -> GetDatasetOutput:
 def serialize_query(
     value: GetDatasetOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dataset_id" in value:
-        pairs.append((f"{prefix}.DatasetId", str(value["dataset_id"])))
+        pairs.append((f"{key_prefix}DatasetId", str(value["dataset_id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "kms_key_arn" in value:
-        pairs.append((f"{prefix}.KmsKeyArn", str(value["kms_key_arn"])))
+        pairs.append((f"{key_prefix}KmsKeyArn", str(value["kms_key_arn"])))
 
 
 def deserialize_query(el: Element) -> GetDatasetOutput:

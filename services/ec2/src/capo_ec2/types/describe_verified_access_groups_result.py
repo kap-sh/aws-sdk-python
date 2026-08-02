@@ -24,14 +24,17 @@ class DescribeVerifiedAccessGroupsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVerifiedAccessGroupsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_groups" in value:
         import capo_ec2.types.verified_access_group_list
 
         capo_ec2.types.verified_access_group_list.serialize_ec2_query(
-            value["verified_access_groups"], pairs, f"{prefix}.VerifiedAccessGroupSet"
+            value["verified_access_groups"],
+            pairs,
+            f"{key_prefix}VerifiedAccessGroupSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVerifiedAccessGroupsResult:

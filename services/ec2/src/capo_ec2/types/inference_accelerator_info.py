@@ -26,16 +26,17 @@ class InferenceAcceleratorInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InferenceAcceleratorInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accelerators" in value:
         import capo_ec2.types.inference_device_info_list
 
         capo_ec2.types.inference_device_info_list.serialize_ec2_query(
-            value["accelerators"], pairs, f"{prefix}.Accelerators"
+            value["accelerators"], pairs, f"{key_prefix}Accelerators"
         )
     if "total_inference_memory_in_mi_b" in value:
         pairs.append(
             (
-                f"{prefix}.TotalInferenceMemoryInMiB",
+                f"{key_prefix}TotalInferenceMemoryInMiB",
                 str(value["total_inference_memory_in_mi_b"]),
             )
         )

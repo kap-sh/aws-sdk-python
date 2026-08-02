@@ -28,14 +28,15 @@ class AssumeRootRequest(TypedDict, closed=True):
 def serialize_query(
     value: AssumeRootRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TargetPrincipal", str(value["target_principal"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TargetPrincipal", str(value["target_principal"])))
     import capo_sts.types.policy_descriptor_type
 
     capo_sts.types.policy_descriptor_type.serialize_query(
-        value["task_policy_arn"], pairs, f"{prefix}.TaskPolicyArn"
+        value["task_policy_arn"], pairs, f"{key_prefix}TaskPolicyArn"
     )
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
 
 
 def deserialize_query(el: Element) -> AssumeRootRequest:

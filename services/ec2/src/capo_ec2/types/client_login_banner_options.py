@@ -22,10 +22,11 @@ class ClientLoginBannerOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClientLoginBannerOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "banner_text" in value:
-        pairs.append((f"{prefix}.BannerText", str(value["banner_text"])))
+        pairs.append((f"{key_prefix}BannerText", str(value["banner_text"])))
 
 
 def deserialize_ec2_query(el: Element) -> ClientLoginBannerOptions:

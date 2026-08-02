@@ -25,20 +25,21 @@ class PublicIpDnsNameOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PublicIpDnsNameOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dns_hostname_type" in value:
-        pairs.append((f"{prefix}.DnsHostnameType", str(value["dns_hostname_type"])))
+        pairs.append((f"{key_prefix}DnsHostnameType", str(value["dns_hostname_type"])))
     if "public_ipv4_dns_name" in value:
         pairs.append(
-            (f"{prefix}.PublicIpv4DnsName", str(value["public_ipv4_dns_name"]))
+            (f"{key_prefix}PublicIpv4DnsName", str(value["public_ipv4_dns_name"]))
         )
     if "public_ipv6_dns_name" in value:
         pairs.append(
-            (f"{prefix}.PublicIpv6DnsName", str(value["public_ipv6_dns_name"]))
+            (f"{key_prefix}PublicIpv6DnsName", str(value["public_ipv6_dns_name"]))
         )
     if "public_dual_stack_dns_name" in value:
         pairs.append(
             (
-                f"{prefix}.PublicDualStackDnsName",
+                f"{key_prefix}PublicDualStackDnsName",
                 str(value["public_dual_stack_dns_name"]),
             )
         )

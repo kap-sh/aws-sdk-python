@@ -54,45 +54,46 @@ class Role(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Role, pairs: list[tuple[str, str]], prefix: str) -> None:
-    pairs.append((f"{prefix}.Path", str(value["path"])))
-    pairs.append((f"{prefix}.RoleName", str(value["role_name"])))
-    pairs.append((f"{prefix}.RoleId", str(value["role_id"])))
-    pairs.append((f"{prefix}.Arn", str(value["arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Path", str(value["path"])))
+    pairs.append((f"{key_prefix}RoleName", str(value["role_name"])))
+    pairs.append((f"{key_prefix}RoleId", str(value["role_id"])))
+    pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     import capo_iam.types.date_type
 
     capo_iam.types.date_type.serialize_query(
-        value["create_date"], pairs, f"{prefix}.CreateDate"
+        value["create_date"], pairs, f"{key_prefix}CreateDate"
     )
     if "assume_role_policy_document" in value:
         pairs.append(
             (
-                f"{prefix}.AssumeRolePolicyDocument",
+                f"{key_prefix}AssumeRolePolicyDocument",
                 str(value["assume_role_policy_document"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "max_session_duration" in value:
         pairs.append(
-            (f"{prefix}.MaxSessionDuration", str(value["max_session_duration"]))
+            (f"{key_prefix}MaxSessionDuration", str(value["max_session_duration"]))
         )
     if "permissions_boundary" in value:
         import capo_iam.types.attached_permissions_boundary
 
         capo_iam.types.attached_permissions_boundary.serialize_query(
-            value["permissions_boundary"], pairs, f"{prefix}.PermissionsBoundary"
+            value["permissions_boundary"], pairs, f"{key_prefix}PermissionsBoundary"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "role_last_used" in value:
         import capo_iam.types.role_last_used
 
         capo_iam.types.role_last_used.serialize_query(
-            value["role_last_used"], pairs, f"{prefix}.RoleLastUsed"
+            value["role_last_used"], pairs, f"{key_prefix}RoleLastUsed"
         )
 
 

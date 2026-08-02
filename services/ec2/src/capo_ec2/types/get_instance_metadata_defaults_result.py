@@ -21,11 +21,12 @@ class GetInstanceMetadataDefaultsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetInstanceMetadataDefaultsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_level" in value:
         import capo_ec2.types.instance_metadata_defaults_response
 
         capo_ec2.types.instance_metadata_defaults_response.serialize_ec2_query(
-            value["account_level"], pairs, f"{prefix}.AccountLevel"
+            value["account_level"], pairs, f"{key_prefix}AccountLevel"
         )
 
 

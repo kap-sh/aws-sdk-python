@@ -21,10 +21,11 @@ class CidrAuthorizationContext(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CidrAuthorizationContext, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "signature" in value:
-        pairs.append((f"{prefix}.Signature", str(value["signature"])))
+        pairs.append((f"{key_prefix}Signature", str(value["signature"])))
 
 
 def deserialize_ec2_query(el: Element) -> CidrAuthorizationContext:

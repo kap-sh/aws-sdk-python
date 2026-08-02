@@ -24,15 +24,16 @@ class EnableFastSnapshotRestoreErrorItem(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableFastSnapshotRestoreErrorItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "fast_snapshot_restore_state_errors" in value:
         import capo_ec2.types.enable_fast_snapshot_restore_state_error_set
 
         capo_ec2.types.enable_fast_snapshot_restore_state_error_set.serialize_ec2_query(
             value["fast_snapshot_restore_state_errors"],
             pairs,
-            f"{prefix}.FastSnapshotRestoreStateErrorSet",
+            f"{key_prefix}FastSnapshotRestoreStateErrorSet",
         )
 
 

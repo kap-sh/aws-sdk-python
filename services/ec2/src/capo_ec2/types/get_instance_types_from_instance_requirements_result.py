@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_types" in value:
         import capo_ec2.types.instance_type_info_from_instance_requirements_set
 
         capo_ec2.types.instance_type_info_from_instance_requirements_set.serialize_ec2_query(
-            value["instance_types"], pairs, f"{prefix}.InstanceTypeSet"
+            value["instance_types"], pairs, f"{key_prefix}InstanceTypeSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(

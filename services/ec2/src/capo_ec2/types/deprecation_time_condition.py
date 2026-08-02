@@ -21,10 +21,11 @@ class DeprecationTimeCondition(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeprecationTimeCondition, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "maximum_days_since_deprecated" in value:
         pairs.append(
             (
-                f"{prefix}.MaximumDaysSinceDeprecated",
+                f"{key_prefix}MaximumDaysSinceDeprecated",
                 str(value["maximum_days_since_deprecated"]),
             )
         )

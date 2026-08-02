@@ -51,42 +51,46 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_analysis_ids" in value:
         import capo_ec2.types.network_insights_analysis_id_list
 
         capo_ec2.types.network_insights_analysis_id_list.serialize_ec2_query(
             value["network_insights_analysis_ids"],
             pairs,
-            f"{prefix}.NetworkInsightsAnalysisIds",
+            f"{key_prefix}NetworkInsightsAnalysisIds",
         )
     if "network_insights_path_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInsightsPathId", str(value["network_insights_path_id"]))
+            (
+                f"{key_prefix}NetworkInsightsPathId",
+                str(value["network_insights_path_id"]),
+            )
         )
     if "analysis_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["analysis_start_time"], pairs, f"{prefix}.AnalysisStartTime"
+            value["analysis_start_time"], pairs, f"{key_prefix}AnalysisStartTime"
         )
     if "analysis_end_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["analysis_end_time"], pairs, f"{prefix}.AnalysisEndTime"
+            value["analysis_end_time"], pairs, f"{key_prefix}AnalysisEndTime"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeNetworkInsightsAnalysesRequest:

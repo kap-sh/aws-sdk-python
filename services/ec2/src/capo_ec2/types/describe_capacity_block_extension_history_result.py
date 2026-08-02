@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_block_extensions" in value:
         import capo_ec2.types.capacity_block_extension_set
 
         capo_ec2.types.capacity_block_extension_set.serialize_ec2_query(
             value["capacity_block_extensions"],
             pairs,
-            f"{prefix}.CapacityBlockExtensionSet",
+            f"{key_prefix}CapacityBlockExtensionSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeCapacityBlockExtensionHistoryResult:

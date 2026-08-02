@@ -19,11 +19,12 @@ class ProvisionIpamByoasnResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProvisionIpamByoasnResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "byoasn" in value:
         import capo_ec2.types.byoasn
 
         capo_ec2.types.byoasn.serialize_ec2_query(
-            value["byoasn"], pairs, f"{prefix}.Byoasn"
+            value["byoasn"], pairs, f"{key_prefix}Byoasn"
         )
 
 

@@ -33,28 +33,29 @@ class CreateKeyPairRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateKeyPairRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "key_type" in value:
         import capo_ec2.types.key_type
 
         capo_ec2.types.key_type.serialize_ec2_query(
-            value["key_type"], pairs, f"{prefix}.KeyType"
+            value["key_type"], pairs, f"{key_prefix}KeyType"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "key_format" in value:
         import capo_ec2.types.key_format
 
         capo_ec2.types.key_format.serialize_ec2_query(
-            value["key_format"], pairs, f"{prefix}.KeyFormat"
+            value["key_format"], pairs, f"{key_prefix}KeyFormat"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateKeyPairRequest:

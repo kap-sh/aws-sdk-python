@@ -19,11 +19,12 @@ class DescribeVpnGatewaysResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpnGatewaysResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_gateways" in value:
         import capo_ec2.types.vpn_gateway_list
 
         capo_ec2.types.vpn_gateway_list.serialize_ec2_query(
-            value["vpn_gateways"], pairs, f"{prefix}.VpnGatewaySet"
+            value["vpn_gateways"], pairs, f"{key_prefix}VpnGatewaySet"
         )
 
 

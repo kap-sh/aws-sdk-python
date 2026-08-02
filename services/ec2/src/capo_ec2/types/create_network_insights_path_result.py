@@ -21,11 +21,12 @@ class CreateNetworkInsightsPathResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateNetworkInsightsPathResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_path" in value:
         import capo_ec2.types.network_insights_path
 
         capo_ec2.types.network_insights_path.serialize_ec2_query(
-            value["network_insights_path"], pairs, f"{prefix}.NetworkInsightsPath"
+            value["network_insights_path"], pairs, f"{key_prefix}NetworkInsightsPath"
         )
 
 

@@ -22,14 +22,15 @@ class GetAwsNetworkPerformanceDataResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetAwsNetworkPerformanceDataResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_responses" in value:
         import capo_ec2.types.data_responses
 
         capo_ec2.types.data_responses.serialize_ec2_query(
-            value["data_responses"], pairs, f"{prefix}.DataResponseSet"
+            value["data_responses"], pairs, f"{key_prefix}DataResponseSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetAwsNetworkPerformanceDataResult:

@@ -53,49 +53,52 @@ class IpamAddressHistoryRecord(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamAddressHistoryRecord, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_owner_id" in value:
-        pairs.append((f"{prefix}.ResourceOwnerId", str(value["resource_owner_id"])))
+        pairs.append((f"{key_prefix}ResourceOwnerId", str(value["resource_owner_id"])))
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "resource_type" in value:
         import capo_ec2.types.ipam_address_history_resource_type
 
         capo_ec2.types.ipam_address_history_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_cidr" in value:
-        pairs.append((f"{prefix}.ResourceCidr", str(value["resource_cidr"])))
+        pairs.append((f"{key_prefix}ResourceCidr", str(value["resource_cidr"])))
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
     if "resource_compliance_status" in value:
         import capo_ec2.types.ipam_compliance_status
 
         capo_ec2.types.ipam_compliance_status.serialize_ec2_query(
             value["resource_compliance_status"],
             pairs,
-            f"{prefix}.ResourceComplianceStatus",
+            f"{key_prefix}ResourceComplianceStatus",
         )
     if "resource_overlap_status" in value:
         import capo_ec2.types.ipam_overlap_status
 
         capo_ec2.types.ipam_overlap_status.serialize_ec2_query(
-            value["resource_overlap_status"], pairs, f"{prefix}.ResourceOverlapStatus"
+            value["resource_overlap_status"],
+            pairs,
+            f"{key_prefix}ResourceOverlapStatus",
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "sampled_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["sampled_start_time"], pairs, f"{prefix}.SampledStartTime"
+            value["sampled_start_time"], pairs, f"{key_prefix}SampledStartTime"
         )
     if "sampled_end_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["sampled_end_time"], pairs, f"{prefix}.SampledEndTime"
+            value["sampled_end_time"], pairs, f"{key_prefix}SampledEndTime"
         )
 
 

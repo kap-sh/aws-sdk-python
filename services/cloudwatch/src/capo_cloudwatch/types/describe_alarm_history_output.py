@@ -55,14 +55,15 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmHistoryOutput:
 def serialize_query(
     value: DescribeAlarmHistoryOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_history_items" in value:
         import capo_cloudwatch.types.alarm_history_items
 
         capo_cloudwatch.types.alarm_history_items.serialize_query(
-            value["alarm_history_items"], pairs, f"{prefix}.AlarmHistoryItems"
+            value["alarm_history_items"], pairs, f"{key_prefix}AlarmHistoryItems"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeAlarmHistoryOutput:

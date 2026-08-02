@@ -21,10 +21,11 @@ class IamInstanceProfile(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IamInstanceProfile, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
 
 
 def deserialize_ec2_query(el: Element) -> IamInstanceProfile:

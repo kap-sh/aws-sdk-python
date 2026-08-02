@@ -60,25 +60,28 @@ class EvaluationResult(TypedDict, closed=True):
 def serialize_query(
     value: EvaluationResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.EvalActionName", str(value["eval_action_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EvalActionName", str(value["eval_action_name"])))
     if "eval_resource_name" in value:
-        pairs.append((f"{prefix}.EvalResourceName", str(value["eval_resource_name"])))
+        pairs.append(
+            (f"{key_prefix}EvalResourceName", str(value["eval_resource_name"]))
+        )
     import capo_iam.types.policy_evaluation_decision_type
 
     capo_iam.types.policy_evaluation_decision_type.serialize_query(
-        value["eval_decision"], pairs, f"{prefix}.EvalDecision"
+        value["eval_decision"], pairs, f"{key_prefix}EvalDecision"
     )
     if "matched_statements" in value:
         import capo_iam.types.statement_list_type
 
         capo_iam.types.statement_list_type.serialize_query(
-            value["matched_statements"], pairs, f"{prefix}.MatchedStatements"
+            value["matched_statements"], pairs, f"{key_prefix}MatchedStatements"
         )
     if "missing_context_values" in value:
         import capo_iam.types.context_key_names_result_list_type
 
         capo_iam.types.context_key_names_result_list_type.serialize_query(
-            value["missing_context_values"], pairs, f"{prefix}.MissingContextValues"
+            value["missing_context_values"], pairs, f"{key_prefix}MissingContextValues"
         )
     if "organizations_decision_detail" in value:
         import capo_iam.types.organizations_decision_detail
@@ -86,7 +89,7 @@ def serialize_query(
         capo_iam.types.organizations_decision_detail.serialize_query(
             value["organizations_decision_detail"],
             pairs,
-            f"{prefix}.OrganizationsDecisionDetail",
+            f"{key_prefix}OrganizationsDecisionDetail",
         )
     if "permissions_boundary_decision_detail" in value:
         import capo_iam.types.permissions_boundary_decision_detail
@@ -94,13 +97,13 @@ def serialize_query(
         capo_iam.types.permissions_boundary_decision_detail.serialize_query(
             value["permissions_boundary_decision_detail"],
             pairs,
-            f"{prefix}.PermissionsBoundaryDecisionDetail",
+            f"{key_prefix}PermissionsBoundaryDecisionDetail",
         )
     if "eval_decision_details" in value:
         import capo_iam.types.eval_decision_details_type
 
         capo_iam.types.eval_decision_details_type.serialize_query(
-            value["eval_decision_details"], pairs, f"{prefix}.EvalDecisionDetails"
+            value["eval_decision_details"], pairs, f"{key_prefix}EvalDecisionDetails"
         )
     if "resource_specific_results" in value:
         import capo_iam.types.resource_specific_result_list_type
@@ -108,7 +111,7 @@ def serialize_query(
         capo_iam.types.resource_specific_result_list_type.serialize_query(
             value["resource_specific_results"],
             pairs,
-            f"{prefix}.ResourceSpecificResults",
+            f"{key_prefix}ResourceSpecificResults",
         )
 
 

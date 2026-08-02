@@ -21,11 +21,12 @@ class StopInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StopInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stopping_instances" in value:
         import capo_ec2.types.instance_state_change_list
 
         capo_ec2.types.instance_state_change_list.serialize_ec2_query(
-            value["stopping_instances"], pairs, f"{prefix}.InstancesSet"
+            value["stopping_instances"], pairs, f"{key_prefix}InstancesSet"
         )
 
 

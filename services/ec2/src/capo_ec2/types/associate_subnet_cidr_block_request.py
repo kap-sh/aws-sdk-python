@@ -28,14 +28,17 @@ class AssociateSubnetCidrBlockRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateSubnetCidrBlockRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv6_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
     if "ipv6_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv6NetmaskLength", str(value["ipv6_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6NetmaskLength", str(value["ipv6_netmask_length"]))
+        )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "ipv6_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
 
 
 def deserialize_ec2_query(el: Element) -> AssociateSubnetCidrBlockRequest:

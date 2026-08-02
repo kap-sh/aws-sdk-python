@@ -110,149 +110,156 @@ class Image(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Image, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_details" in value:
-        pairs.append((f"{prefix}.PlatformDetails", str(value["platform_details"])))
+        pairs.append((f"{key_prefix}PlatformDetails", str(value["platform_details"])))
     if "usage_operation" in value:
-        pairs.append((f"{prefix}.UsageOperation", str(value["usage_operation"])))
+        pairs.append((f"{key_prefix}UsageOperation", str(value["usage_operation"])))
     if "block_device_mappings" in value:
         import capo_ec2.types.block_device_mapping_list
 
         capo_ec2.types.block_device_mapping_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMapping"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "ena_support" in value:
         pairs.append(
-            (f"{prefix}.EnaSupport", "true" if value["ena_support"] else "false")
+            (f"{key_prefix}EnaSupport", "true" if value["ena_support"] else "false")
         )
     if "hypervisor" in value:
         import capo_ec2.types.hypervisor_type
 
         capo_ec2.types.hypervisor_type.serialize_ec2_query(
-            value["hypervisor"], pairs, f"{prefix}.Hypervisor"
+            value["hypervisor"], pairs, f"{key_prefix}Hypervisor"
         )
     if "image_owner_alias" in value:
-        pairs.append((f"{prefix}.ImageOwnerAlias", str(value["image_owner_alias"])))
+        pairs.append((f"{key_prefix}ImageOwnerAlias", str(value["image_owner_alias"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "root_device_name" in value:
-        pairs.append((f"{prefix}.RootDeviceName", str(value["root_device_name"])))
+        pairs.append((f"{key_prefix}RootDeviceName", str(value["root_device_name"])))
     if "root_device_type" in value:
         import capo_ec2.types.device_type
 
         capo_ec2.types.device_type.serialize_ec2_query(
-            value["root_device_type"], pairs, f"{prefix}.RootDeviceType"
+            value["root_device_type"], pairs, f"{key_prefix}RootDeviceType"
         )
     if "sriov_net_support" in value:
-        pairs.append((f"{prefix}.SriovNetSupport", str(value["sriov_net_support"])))
+        pairs.append((f"{key_prefix}SriovNetSupport", str(value["sriov_net_support"])))
     if "state_reason" in value:
         import capo_ec2.types.state_reason
 
         capo_ec2.types.state_reason.serialize_ec2_query(
-            value["state_reason"], pairs, f"{prefix}.StateReason"
+            value["state_reason"], pairs, f"{key_prefix}StateReason"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "virtualization_type" in value:
         import capo_ec2.types.virtualization_type
 
         capo_ec2.types.virtualization_type.serialize_ec2_query(
-            value["virtualization_type"], pairs, f"{prefix}.VirtualizationType"
+            value["virtualization_type"], pairs, f"{key_prefix}VirtualizationType"
         )
     if "boot_mode" in value:
         import capo_ec2.types.boot_mode_values
 
         capo_ec2.types.boot_mode_values.serialize_ec2_query(
-            value["boot_mode"], pairs, f"{prefix}.BootMode"
+            value["boot_mode"], pairs, f"{key_prefix}BootMode"
         )
     if "tpm_support" in value:
         import capo_ec2.types.tpm_support_values
 
         capo_ec2.types.tpm_support_values.serialize_ec2_query(
-            value["tpm_support"], pairs, f"{prefix}.TpmSupport"
+            value["tpm_support"], pairs, f"{key_prefix}TpmSupport"
         )
     if "deprecation_time" in value:
-        pairs.append((f"{prefix}.DeprecationTime", str(value["deprecation_time"])))
+        pairs.append((f"{key_prefix}DeprecationTime", str(value["deprecation_time"])))
     if "imds_support" in value:
         import capo_ec2.types.imds_support_values
 
         capo_ec2.types.imds_support_values.serialize_ec2_query(
-            value["imds_support"], pairs, f"{prefix}.ImdsSupport"
+            value["imds_support"], pairs, f"{key_prefix}ImdsSupport"
         )
     if "source_instance_id" in value:
-        pairs.append((f"{prefix}.SourceInstanceId", str(value["source_instance_id"])))
+        pairs.append(
+            (f"{key_prefix}SourceInstanceId", str(value["source_instance_id"]))
+        )
     if "deregistration_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeregistrationProtection",
+                f"{key_prefix}DeregistrationProtection",
                 str(value["deregistration_protection"]),
             )
         )
     if "last_launched_time" in value:
-        pairs.append((f"{prefix}.LastLaunchedTime", str(value["last_launched_time"])))
+        pairs.append(
+            (f"{key_prefix}LastLaunchedTime", str(value["last_launched_time"]))
+        )
     if "image_allowed" in value:
         pairs.append(
-            (f"{prefix}.ImageAllowed", "true" if value["image_allowed"] else "false")
+            (f"{key_prefix}ImageAllowed", "true" if value["image_allowed"] else "false")
         )
     if "source_image_id" in value:
-        pairs.append((f"{prefix}.SourceImageId", str(value["source_image_id"])))
+        pairs.append((f"{key_prefix}SourceImageId", str(value["source_image_id"])))
     if "source_image_region" in value:
-        pairs.append((f"{prefix}.SourceImageRegion", str(value["source_image_region"])))
+        pairs.append(
+            (f"{key_prefix}SourceImageRegion", str(value["source_image_region"]))
+        )
     if "free_tier_eligible" in value:
         pairs.append(
             (
-                f"{prefix}.FreeTierEligible",
+                f"{key_prefix}FreeTierEligible",
                 "true" if value["free_tier_eligible"] else "false",
             )
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "image_location" in value:
-        pairs.append((f"{prefix}.ImageLocation", str(value["image_location"])))
+        pairs.append((f"{key_prefix}ImageLocation", str(value["image_location"])))
     if "state" in value:
         import capo_ec2.types.image_state
 
         capo_ec2.types.image_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.ImageState"
+            value["state"], pairs, f"{key_prefix}ImageState"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.ImageOwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}ImageOwnerId", str(value["owner_id"])))
     if "creation_date" in value:
-        pairs.append((f"{prefix}.CreationDate", str(value["creation_date"])))
+        pairs.append((f"{key_prefix}CreationDate", str(value["creation_date"])))
     if "public" in value:
-        pairs.append((f"{prefix}.IsPublic", "true" if value["public"] else "false"))
+        pairs.append((f"{key_prefix}IsPublic", "true" if value["public"] else "false"))
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "architecture" in value:
         import capo_ec2.types.architecture_values
 
         capo_ec2.types.architecture_values.serialize_ec2_query(
-            value["architecture"], pairs, f"{prefix}.Architecture"
+            value["architecture"], pairs, f"{key_prefix}Architecture"
         )
     if "image_type" in value:
         import capo_ec2.types.image_type_values
 
         capo_ec2.types.image_type_values.serialize_ec2_query(
-            value["image_type"], pairs, f"{prefix}.ImageType"
+            value["image_type"], pairs, f"{key_prefix}ImageType"
         )
     if "kernel_id" in value:
-        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+        pairs.append((f"{key_prefix}KernelId", str(value["kernel_id"])))
     if "ramdisk_id" in value:
-        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+        pairs.append((f"{key_prefix}RamdiskId", str(value["ramdisk_id"])))
     if "platform" in value:
         import capo_ec2.types.platform_values
 
         capo_ec2.types.platform_values.serialize_ec2_query(
-            value["platform"], pairs, f"{prefix}.Platform"
+            value["platform"], pairs, f"{key_prefix}Platform"
         )
 
 

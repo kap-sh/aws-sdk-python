@@ -20,9 +20,10 @@ class CreateGroupResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateGroupResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.group
 
-    capo_iam.types.group.serialize_query(value["group"], pairs, f"{prefix}.Group")
+    capo_iam.types.group.serialize_query(value["group"], pairs, f"{key_prefix}Group")
 
 
 def deserialize_query(el: Element) -> CreateGroupResponse:

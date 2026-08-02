@@ -32,25 +32,26 @@ class StartExportTaskMessage(TypedDict, closed=True):
 def serialize_query(
     value: StartExportTaskMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "export_task_identifier" in value:
         pairs.append(
-            (f"{prefix}.ExportTaskIdentifier", str(value["export_task_identifier"]))
+            (f"{key_prefix}ExportTaskIdentifier", str(value["export_task_identifier"]))
         )
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "s3_bucket_name" in value:
-        pairs.append((f"{prefix}.S3BucketName", str(value["s3_bucket_name"])))
+        pairs.append((f"{key_prefix}S3BucketName", str(value["s3_bucket_name"])))
     if "iam_role_arn" in value:
-        pairs.append((f"{prefix}.IamRoleArn", str(value["iam_role_arn"])))
+        pairs.append((f"{key_prefix}IamRoleArn", str(value["iam_role_arn"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "s3_prefix" in value:
-        pairs.append((f"{prefix}.S3Prefix", str(value["s3_prefix"])))
+        pairs.append((f"{key_prefix}S3Prefix", str(value["s3_prefix"])))
     if "export_only" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["export_only"], pairs, f"{prefix}.ExportOnly"
+            value["export_only"], pairs, f"{key_prefix}ExportOnly"
         )
 
 

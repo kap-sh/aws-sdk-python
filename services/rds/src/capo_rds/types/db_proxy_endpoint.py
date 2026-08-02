@@ -51,59 +51,60 @@ class DBProxyEndpoint(TypedDict, closed=True):
 def serialize_query(
     value: DBProxyEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_endpoint_name" in value:
         pairs.append(
-            (f"{prefix}.DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
+            (f"{key_prefix}DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
         )
     if "db_proxy_endpoint_arn" in value:
         pairs.append(
-            (f"{prefix}.DBProxyEndpointArn", str(value["db_proxy_endpoint_arn"]))
+            (f"{key_prefix}DBProxyEndpointArn", str(value["db_proxy_endpoint_arn"]))
         )
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "status" in value:
         import capo_rds.types.db_proxy_endpoint_status
 
         capo_rds.types.db_proxy_endpoint_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "vpc_security_group_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "vpc_subnet_ids" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["vpc_subnet_ids"], pairs, f"{prefix}.VpcSubnetIds"
+            value["vpc_subnet_ids"], pairs, f"{key_prefix}VpcSubnetIds"
         )
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "created_date" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["created_date"], pairs, f"{prefix}.CreatedDate"
+            value["created_date"], pairs, f"{key_prefix}CreatedDate"
         )
     if "target_role" in value:
         import capo_rds.types.db_proxy_endpoint_target_role
 
         capo_rds.types.db_proxy_endpoint_target_role.serialize_query(
-            value["target_role"], pairs, f"{prefix}.TargetRole"
+            value["target_role"], pairs, f"{key_prefix}TargetRole"
         )
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "endpoint_network_type" in value:
         import capo_rds.types.endpoint_network_type
 
         capo_rds.types.endpoint_network_type.serialize_query(
-            value["endpoint_network_type"], pairs, f"{prefix}.EndpointNetworkType"
+            value["endpoint_network_type"], pairs, f"{key_prefix}EndpointNetworkType"
         )
 
 

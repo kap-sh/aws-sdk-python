@@ -78,16 +78,17 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributor:
 def serialize_query(
     value: InsightRuleContributor, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "keys" in value:
         import capo_cloudwatch.types.insight_rule_contributor_keys
 
         capo_cloudwatch.types.insight_rule_contributor_keys.serialize_query(
-            value["keys"], pairs, f"{prefix}.Keys"
+            value["keys"], pairs, f"{key_prefix}Keys"
         )
     if "approximate_aggregate_value" in value:
         pairs.append(
             (
-                f"{prefix}.ApproximateAggregateValue",
+                f"{key_prefix}ApproximateAggregateValue",
                 str(value["approximate_aggregate_value"]),
             )
         )
@@ -95,7 +96,7 @@ def serialize_query(
         import capo_cloudwatch.types.insight_rule_contributor_datapoints
 
         capo_cloudwatch.types.insight_rule_contributor_datapoints.serialize_query(
-            value["datapoints"], pairs, f"{prefix}.Datapoints"
+            value["datapoints"], pairs, f"{key_prefix}Datapoints"
         )
 
 

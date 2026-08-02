@@ -33,24 +33,25 @@ class IpamPoolCidr(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPoolCidr, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "state" in value:
         import capo_ec2.types.ipam_pool_cidr_state
 
         capo_ec2.types.ipam_pool_cidr_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "failure_reason" in value:
         import capo_ec2.types.ipam_pool_cidr_failure_reason
 
         capo_ec2.types.ipam_pool_cidr_failure_reason.serialize_ec2_query(
-            value["failure_reason"], pairs, f"{prefix}.FailureReason"
+            value["failure_reason"], pairs, f"{key_prefix}FailureReason"
         )
     if "ipam_pool_cidr_id" in value:
-        pairs.append((f"{prefix}.IpamPoolCidrId", str(value["ipam_pool_cidr_id"])))
+        pairs.append((f"{key_prefix}IpamPoolCidrId", str(value["ipam_pool_cidr_id"])))
     if "netmask_length" in value:
-        pairs.append((f"{prefix}.NetmaskLength", str(value["netmask_length"])))
+        pairs.append((f"{key_prefix}NetmaskLength", str(value["netmask_length"])))
 
 
 def deserialize_ec2_query(el: Element) -> IpamPoolCidr:

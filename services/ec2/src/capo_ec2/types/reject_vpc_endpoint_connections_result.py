@@ -21,11 +21,12 @@ class RejectVpcEndpointConnectionsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RejectVpcEndpointConnectionsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "unsuccessful" in value:
         import capo_ec2.types.unsuccessful_item_set
 
         capo_ec2.types.unsuccessful_item_set.serialize_ec2_query(
-            value["unsuccessful"], pairs, f"{prefix}.Unsuccessful"
+            value["unsuccessful"], pairs, f"{key_prefix}Unsuccessful"
         )
 
 

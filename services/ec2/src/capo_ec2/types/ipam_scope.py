@@ -51,41 +51,42 @@ class IpamScope(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamScope, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "ipam_scope_id" in value:
-        pairs.append((f"{prefix}.IpamScopeId", str(value["ipam_scope_id"])))
+        pairs.append((f"{key_prefix}IpamScopeId", str(value["ipam_scope_id"])))
     if "ipam_scope_arn" in value:
-        pairs.append((f"{prefix}.IpamScopeArn", str(value["ipam_scope_arn"])))
+        pairs.append((f"{key_prefix}IpamScopeArn", str(value["ipam_scope_arn"])))
     if "ipam_arn" in value:
-        pairs.append((f"{prefix}.IpamArn", str(value["ipam_arn"])))
+        pairs.append((f"{key_prefix}IpamArn", str(value["ipam_arn"])))
     if "ipam_region" in value:
-        pairs.append((f"{prefix}.IpamRegion", str(value["ipam_region"])))
+        pairs.append((f"{key_prefix}IpamRegion", str(value["ipam_region"])))
     if "ipam_scope_type" in value:
         import capo_ec2.types.ipam_scope_type
 
         capo_ec2.types.ipam_scope_type.serialize_ec2_query(
-            value["ipam_scope_type"], pairs, f"{prefix}.IpamScopeType"
+            value["ipam_scope_type"], pairs, f"{key_prefix}IpamScopeType"
         )
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "pool_count" in value:
-        pairs.append((f"{prefix}.PoolCount", str(value["pool_count"])))
+        pairs.append((f"{key_prefix}PoolCount", str(value["pool_count"])))
     if "state" in value:
         import capo_ec2.types.ipam_scope_state
 
         capo_ec2.types.ipam_scope_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "external_authority_configuration" in value:
         import capo_ec2.types.ipam_scope_external_authority_configuration
@@ -93,7 +94,7 @@ def serialize_ec2_query(
         capo_ec2.types.ipam_scope_external_authority_configuration.serialize_ec2_query(
             value["external_authority_configuration"],
             pairs,
-            f"{prefix}.ExternalAuthorityConfiguration",
+            f"{key_prefix}ExternalAuthorityConfiguration",
         )
 
 

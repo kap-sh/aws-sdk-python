@@ -44,57 +44,63 @@ class DBSnapshotTenantDatabase(TypedDict, closed=True):
 def serialize_query(
     value: DBSnapshotTenantDatabase, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
+            (f"{key_prefix}DBSnapshotIdentifier", str(value["db_snapshot_identifier"]))
         )
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
     if "engine_name" in value:
-        pairs.append((f"{prefix}.EngineName", str(value["engine_name"])))
+        pairs.append((f"{key_prefix}EngineName", str(value["engine_name"])))
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "tenant_database_create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
             value["tenant_database_create_time"],
             pairs,
-            f"{prefix}.TenantDatabaseCreateTime",
+            f"{key_prefix}TenantDatabaseCreateTime",
         )
     if "tenant_db_name" in value:
-        pairs.append((f"{prefix}.TenantDBName", str(value["tenant_db_name"])))
+        pairs.append((f"{key_prefix}TenantDBName", str(value["tenant_db_name"])))
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "tenant_database_resource_id" in value:
         pairs.append(
             (
-                f"{prefix}.TenantDatabaseResourceId",
+                f"{key_prefix}TenantDatabaseResourceId",
                 str(value["tenant_database_resource_id"]),
             )
         )
     if "character_set_name" in value:
-        pairs.append((f"{prefix}.CharacterSetName", str(value["character_set_name"])))
+        pairs.append(
+            (f"{key_prefix}CharacterSetName", str(value["character_set_name"]))
+        )
     if "db_snapshot_tenant_database_arn" in value:
         pairs.append(
             (
-                f"{prefix}.DBSnapshotTenantDatabaseARN",
+                f"{key_prefix}DBSnapshotTenantDatabaseARN",
                 str(value["db_snapshot_tenant_database_arn"]),
             )
         )
     if "nchar_character_set_name" in value:
         pairs.append(
-            (f"{prefix}.NcharCharacterSetName", str(value["nchar_character_set_name"]))
+            (
+                f"{key_prefix}NcharCharacterSetName",
+                str(value["nchar_character_set_name"]),
+            )
         )
     if "tag_list" in value:
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
 
 

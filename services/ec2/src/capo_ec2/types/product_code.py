@@ -24,13 +24,14 @@ class ProductCode(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ProductCode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "product_code_id" in value:
-        pairs.append((f"{prefix}.ProductCode", str(value["product_code_id"])))
+        pairs.append((f"{key_prefix}ProductCode", str(value["product_code_id"])))
     if "product_code_type" in value:
         import capo_ec2.types.product_code_values
 
         capo_ec2.types.product_code_values.serialize_ec2_query(
-            value["product_code_type"], pairs, f"{prefix}.Type"
+            value["product_code_type"], pairs, f"{key_prefix}Type"
         )
 
 

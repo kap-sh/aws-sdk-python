@@ -58,45 +58,48 @@ class SecurityGroupRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecurityGroupRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "security_group_rule_id" in value:
         pairs.append(
-            (f"{prefix}.SecurityGroupRuleId", str(value["security_group_rule_id"]))
+            (f"{key_prefix}SecurityGroupRuleId", str(value["security_group_rule_id"]))
         )
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "group_owner_id" in value:
-        pairs.append((f"{prefix}.GroupOwnerId", str(value["group_owner_id"])))
+        pairs.append((f"{key_prefix}GroupOwnerId", str(value["group_owner_id"])))
     if "is_egress" in value:
-        pairs.append((f"{prefix}.IsEgress", "true" if value["is_egress"] else "false"))
+        pairs.append(
+            (f"{key_prefix}IsEgress", "true" if value["is_egress"] else "false")
+        )
     if "ip_protocol" in value:
-        pairs.append((f"{prefix}.IpProtocol", str(value["ip_protocol"])))
+        pairs.append((f"{key_prefix}IpProtocol", str(value["ip_protocol"])))
     if "from_port" in value:
-        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+        pairs.append((f"{key_prefix}FromPort", str(value["from_port"])))
     if "to_port" in value:
-        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+        pairs.append((f"{key_prefix}ToPort", str(value["to_port"])))
     if "cidr_ipv4" in value:
-        pairs.append((f"{prefix}.CidrIpv4", str(value["cidr_ipv4"])))
+        pairs.append((f"{key_prefix}CidrIpv4", str(value["cidr_ipv4"])))
     if "cidr_ipv6" in value:
-        pairs.append((f"{prefix}.CidrIpv6", str(value["cidr_ipv6"])))
+        pairs.append((f"{key_prefix}CidrIpv6", str(value["cidr_ipv6"])))
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "referenced_group_info" in value:
         import capo_ec2.types.referenced_security_group
 
         capo_ec2.types.referenced_security_group.serialize_ec2_query(
-            value["referenced_group_info"], pairs, f"{prefix}.ReferencedGroupInfo"
+            value["referenced_group_info"], pairs, f"{key_prefix}ReferencedGroupInfo"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "security_group_rule_arn" in value:
         pairs.append(
-            (f"{prefix}.SecurityGroupRuleArn", str(value["security_group_rule_arn"]))
+            (f"{key_prefix}SecurityGroupRuleArn", str(value["security_group_rule_arn"]))
         )
 
 

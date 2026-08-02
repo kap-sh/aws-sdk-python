@@ -26,21 +26,22 @@ class ListServerCertificatesResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListServerCertificatesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.server_certificate_metadata_list_type
 
     capo_iam.types.server_certificate_metadata_list_type.serialize_query(
         value["server_certificate_metadata_list"],
         pairs,
-        f"{prefix}.ServerCertificateMetadataList",
+        f"{key_prefix}ServerCertificateMetadataList",
     )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListServerCertificatesResponse:

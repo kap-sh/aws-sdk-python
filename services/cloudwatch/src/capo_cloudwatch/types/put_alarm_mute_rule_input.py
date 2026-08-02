@@ -113,39 +113,40 @@ def deserialize_aws_json_1_0(data: dict) -> PutAlarmMuteRuleInput:
 def serialize_query(
     value: PutAlarmMuteRuleInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "rule" in value:
         import capo_cloudwatch.types.rule
 
         capo_cloudwatch.types.rule.serialize_query(
-            value["rule"], pairs, f"{prefix}.Rule"
+            value["rule"], pairs, f"{key_prefix}Rule"
         )
     if "mute_targets" in value:
         import capo_cloudwatch.types.mute_targets
 
         capo_cloudwatch.types.mute_targets.serialize_query(
-            value["mute_targets"], pairs, f"{prefix}.MuteTargets"
+            value["mute_targets"], pairs, f"{key_prefix}MuteTargets"
         )
     if "tags" in value:
         import capo_cloudwatch.types.tag_list
 
         capo_cloudwatch.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "start_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "expire_date" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["expire_date"], pairs, f"{prefix}.ExpireDate"
+            value["expire_date"], pairs, f"{key_prefix}ExpireDate"
         )
 
 

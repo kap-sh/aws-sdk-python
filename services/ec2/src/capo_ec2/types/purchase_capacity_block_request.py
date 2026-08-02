@@ -32,18 +32,19 @@ class PurchaseCapacityBlockRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PurchaseCapacityBlockRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "capacity_block_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityBlockOfferingId",
+                f"{key_prefix}CapacityBlockOfferingId",
                 str(value["capacity_block_offering_id"]),
             )
         )
@@ -51,7 +52,7 @@ def serialize_ec2_query(
         import capo_ec2.types.capacity_reservation_instance_platform
 
         capo_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
-            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+            value["instance_platform"], pairs, f"{key_prefix}InstancePlatform"
         )
 
 

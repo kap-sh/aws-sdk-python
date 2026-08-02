@@ -24,15 +24,16 @@ class ConnectionLogOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ConnectionLogOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "cloudwatch_log_group" in value:
         pairs.append(
-            (f"{prefix}.CloudwatchLogGroup", str(value["cloudwatch_log_group"]))
+            (f"{key_prefix}CloudwatchLogGroup", str(value["cloudwatch_log_group"]))
         )
     if "cloudwatch_log_stream" in value:
         pairs.append(
-            (f"{prefix}.CloudwatchLogStream", str(value["cloudwatch_log_stream"]))
+            (f"{key_prefix}CloudwatchLogStream", str(value["cloudwatch_log_stream"]))
         )
 
 

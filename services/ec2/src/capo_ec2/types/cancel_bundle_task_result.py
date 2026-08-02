@@ -19,11 +19,12 @@ class CancelBundleTaskResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelBundleTaskResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bundle_task" in value:
         import capo_ec2.types.bundle_task
 
         capo_ec2.types.bundle_task.serialize_ec2_query(
-            value["bundle_task"], pairs, f"{prefix}.BundleInstanceTask"
+            value["bundle_task"], pairs, f"{key_prefix}BundleInstanceTask"
         )
 
 

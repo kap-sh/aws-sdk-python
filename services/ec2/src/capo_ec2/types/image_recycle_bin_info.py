@@ -32,23 +32,24 @@ class ImageRecycleBinInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageRecycleBinInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "recycle_bin_enter_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["recycle_bin_enter_time"], pairs, f"{prefix}.RecycleBinEnterTime"
+            value["recycle_bin_enter_time"], pairs, f"{key_prefix}RecycleBinEnterTime"
         )
     if "recycle_bin_exit_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["recycle_bin_exit_time"], pairs, f"{prefix}.RecycleBinExitTime"
+            value["recycle_bin_exit_time"], pairs, f"{key_prefix}RecycleBinExitTime"
         )
 
 

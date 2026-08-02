@@ -42,34 +42,37 @@ class TransitGatewayPrefixListReference(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayPrefixListReference, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayRouteTableId",
+                f"{key_prefix}TransitGatewayRouteTableId",
                 str(value["transit_gateway_route_table_id"]),
             )
         )
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "prefix_list_owner_id" in value:
         pairs.append(
-            (f"{prefix}.PrefixListOwnerId", str(value["prefix_list_owner_id"]))
+            (f"{key_prefix}PrefixListOwnerId", str(value["prefix_list_owner_id"]))
         )
     if "state" in value:
         import capo_ec2.types.transit_gateway_prefix_list_reference_state
 
         capo_ec2.types.transit_gateway_prefix_list_reference_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "blackhole" in value:
-        pairs.append((f"{prefix}.Blackhole", "true" if value["blackhole"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Blackhole", "true" if value["blackhole"] else "false")
+        )
     if "transit_gateway_attachment" in value:
         import capo_ec2.types.transit_gateway_prefix_list_attachment
 
         capo_ec2.types.transit_gateway_prefix_list_attachment.serialize_ec2_query(
             value["transit_gateway_attachment"],
             pairs,
-            f"{prefix}.TransitGatewayAttachment",
+            f"{key_prefix}TransitGatewayAttachment",
         )
 
 

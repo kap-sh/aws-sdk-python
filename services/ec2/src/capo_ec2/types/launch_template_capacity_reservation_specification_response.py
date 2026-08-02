@@ -28,13 +28,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_preference" in value:
         import capo_ec2.types.capacity_reservation_preference
 
         capo_ec2.types.capacity_reservation_preference.serialize_ec2_query(
             value["capacity_reservation_preference"],
             pairs,
-            f"{prefix}.CapacityReservationPreference",
+            f"{key_prefix}CapacityReservationPreference",
         )
     if "capacity_reservation_target" in value:
         import capo_ec2.types.capacity_reservation_target_response
@@ -42,7 +43,7 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_reservation_target_response.serialize_ec2_query(
             value["capacity_reservation_target"],
             pairs,
-            f"{prefix}.CapacityReservationTarget",
+            f"{key_prefix}CapacityReservationTarget",
         )
 
 

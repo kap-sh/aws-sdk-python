@@ -27,23 +27,24 @@ class MetricDataResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MetricDataResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dimension" in value:
         import capo_ec2.types.capacity_manager_dimension
 
         capo_ec2.types.capacity_manager_dimension.serialize_ec2_query(
-            value["dimension"], pairs, f"{prefix}.Dimension"
+            value["dimension"], pairs, f"{key_prefix}Dimension"
         )
     if "timestamp" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "metric_values" in value:
         import capo_ec2.types.metric_value_set
 
         capo_ec2.types.metric_value_set.serialize_ec2_query(
-            value["metric_values"], pairs, f"{prefix}.MetricValueSet"
+            value["metric_values"], pairs, f"{key_prefix}MetricValueSet"
         )
 
 

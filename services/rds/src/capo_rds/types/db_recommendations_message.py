@@ -24,14 +24,15 @@ class DBRecommendationsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DBRecommendationsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_recommendations" in value:
         import capo_rds.types.db_recommendation_list
 
         capo_rds.types.db_recommendation_list.serialize_query(
-            value["db_recommendations"], pairs, f"{prefix}.DBRecommendations"
+            value["db_recommendations"], pairs, f"{key_prefix}DBRecommendations"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DBRecommendationsMessage:

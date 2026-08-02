@@ -43,10 +43,13 @@ def deserialize_aws_json_1_0(data: dict) -> AssociateDatasetKmsKeyInput:
 def serialize_query(
     value: AssociateDatasetKmsKeyInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dataset_identifier" in value:
-        pairs.append((f"{prefix}.DatasetIdentifier", str(value["dataset_identifier"])))
+        pairs.append(
+            (f"{key_prefix}DatasetIdentifier", str(value["dataset_identifier"]))
+        )
     if "kms_key_arn" in value:
-        pairs.append((f"{prefix}.KmsKeyArn", str(value["kms_key_arn"])))
+        pairs.append((f"{key_prefix}KmsKeyArn", str(value["kms_key_arn"])))
 
 
 def deserialize_query(el: Element) -> AssociateDatasetKmsKeyInput:

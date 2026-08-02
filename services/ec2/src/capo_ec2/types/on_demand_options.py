@@ -37,11 +37,12 @@ class OnDemandOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: OnDemandOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_strategy" in value:
         import capo_ec2.types.fleet_on_demand_allocation_strategy
 
         capo_ec2.types.fleet_on_demand_allocation_strategy.serialize_ec2_query(
-            value["allocation_strategy"], pairs, f"{prefix}.AllocationStrategy"
+            value["allocation_strategy"], pairs, f"{key_prefix}AllocationStrategy"
         )
     if "capacity_reservation_options" in value:
         import capo_ec2.types.capacity_reservation_options
@@ -49,26 +50,28 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_reservation_options.serialize_ec2_query(
             value["capacity_reservation_options"],
             pairs,
-            f"{prefix}.CapacityReservationOptions",
+            f"{key_prefix}CapacityReservationOptions",
         )
     if "single_instance_type" in value:
         pairs.append(
             (
-                f"{prefix}.SingleInstanceType",
+                f"{key_prefix}SingleInstanceType",
                 "true" if value["single_instance_type"] else "false",
             )
         )
     if "single_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.SingleAvailabilityZone",
+                f"{key_prefix}SingleAvailabilityZone",
                 "true" if value["single_availability_zone"] else "false",
             )
         )
     if "min_target_capacity" in value:
-        pairs.append((f"{prefix}.MinTargetCapacity", str(value["min_target_capacity"])))
+        pairs.append(
+            (f"{key_prefix}MinTargetCapacity", str(value["min_target_capacity"]))
+        )
     if "max_total_price" in value:
-        pairs.append((f"{prefix}.MaxTotalPrice", str(value["max_total_price"])))
+        pairs.append((f"{key_prefix}MaxTotalPrice", str(value["max_total_price"])))
 
 
 def deserialize_ec2_query(el: Element) -> OnDemandOptions:

@@ -20,7 +20,8 @@ class DeleteVirtualMFADeviceRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteVirtualMFADeviceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
 
 
 def deserialize_query(el: Element) -> DeleteVirtualMFADeviceRequest:

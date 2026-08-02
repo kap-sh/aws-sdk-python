@@ -32,10 +32,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "blue_green_deployment_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.BlueGreenDeploymentIdentifier",
+                f"{key_prefix}BlueGreenDeploymentIdentifier",
                 str(value["blue_green_deployment_identifier"]),
             )
         )
@@ -43,12 +44,12 @@ def serialize_query(
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribeBlueGreenDeploymentsRequest:

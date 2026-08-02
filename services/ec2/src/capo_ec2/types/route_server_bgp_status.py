@@ -19,11 +19,12 @@ class RouteServerBgpStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServerBgpStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_ec2.types.route_server_bgp_state
 
         capo_ec2.types.route_server_bgp_state.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

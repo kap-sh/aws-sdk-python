@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "code" in value:
         import capo_ec2.types.unsuccessful_instance_credit_specification_error_code
 
         capo_ec2.types.unsuccessful_instance_credit_specification_error_code.serialize_ec2_query(
-            value["code"], pairs, f"{prefix}.Code"
+            value["code"], pairs, f"{key_prefix}Code"
         )
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_ec2_query(

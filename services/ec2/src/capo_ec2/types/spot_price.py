@@ -34,31 +34,32 @@ class SpotPrice(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotPrice, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "product_description" in value:
         import capo_ec2.types.ri_product_description
 
         capo_ec2.types.ri_product_description.serialize_ec2_query(
-            value["product_description"], pairs, f"{prefix}.ProductDescription"
+            value["product_description"], pairs, f"{key_prefix}ProductDescription"
         )
     if "spot_price" in value:
-        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+        pairs.append((f"{key_prefix}SpotPrice", str(value["spot_price"])))
     if "timestamp" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
 
 

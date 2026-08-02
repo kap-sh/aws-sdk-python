@@ -19,11 +19,12 @@ class GetAccountSummaryResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetAccountSummaryResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "summary_map" in value:
         import capo_iam.types.summary_map_type
 
         capo_iam.types.summary_map_type.serialize_query(
-            value["summary_map"], pairs, f"{prefix}.SummaryMap"
+            value["summary_map"], pairs, f"{key_prefix}SummaryMap"
         )
 
 

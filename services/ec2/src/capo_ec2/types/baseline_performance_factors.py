@@ -19,11 +19,12 @@ class BaselinePerformanceFactors(TypedDict, closed=True):
 def serialize_ec2_query(
     value: BaselinePerformanceFactors, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cpu" in value:
         import capo_ec2.types.cpu_performance_factor
 
         capo_ec2.types.cpu_performance_factor.serialize_ec2_query(
-            value["cpu"], pairs, f"{prefix}.Cpu"
+            value["cpu"], pairs, f"{key_prefix}Cpu"
         )
 
 

@@ -24,16 +24,17 @@ class GetIpamDiscoveredAccountsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetIpamDiscoveredAccountsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_discovered_accounts" in value:
         import capo_ec2.types.ipam_discovered_account_set
 
         capo_ec2.types.ipam_discovered_account_set.serialize_ec2_query(
             value["ipam_discovered_accounts"],
             pairs,
-            f"{prefix}.IpamDiscoveredAccountSet",
+            f"{key_prefix}IpamDiscoveredAccountSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredAccountsResult:

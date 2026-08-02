@@ -27,16 +27,17 @@ class StartInstancesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StartInstancesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_ids" in value:
         import capo_ec2.types.instance_id_string_list
 
         capo_ec2.types.instance_id_string_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{prefix}.InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
         )
     if "additional_info" in value:
-        pairs.append((f"{prefix}.AdditionalInfo", str(value["additional_info"])))
+        pairs.append((f"{key_prefix}AdditionalInfo", str(value["additional_info"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> StartInstancesRequest:

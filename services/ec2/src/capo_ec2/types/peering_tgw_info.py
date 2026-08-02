@@ -25,14 +25,17 @@ class PeeringTgwInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PeeringTgwInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "core_network_id" in value:
-        pairs.append((f"{prefix}.CoreNetworkId", str(value["core_network_id"])))
+        pairs.append((f"{key_prefix}CoreNetworkId", str(value["core_network_id"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
 
 
 def deserialize_ec2_query(el: Element) -> PeeringTgwInfo:

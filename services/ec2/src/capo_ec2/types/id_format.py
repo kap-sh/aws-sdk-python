@@ -25,17 +25,18 @@ class IdFormat(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IdFormat, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "deadline" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["deadline"], pairs, f"{prefix}.Deadline"
+            value["deadline"], pairs, f"{key_prefix}Deadline"
         )
     if "resource" in value:
-        pairs.append((f"{prefix}.Resource", str(value["resource"])))
+        pairs.append((f"{key_prefix}Resource", str(value["resource"])))
     if "use_long_ids" in value:
         pairs.append(
-            (f"{prefix}.UseLongIds", "true" if value["use_long_ids"] else "false")
+            (f"{key_prefix}UseLongIds", "true" if value["use_long_ids"] else "false")
         )
 
 

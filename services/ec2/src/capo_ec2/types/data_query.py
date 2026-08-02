@@ -32,29 +32,30 @@ class DataQuery(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DataQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "destination" in value:
-        pairs.append((f"{prefix}.Destination", str(value["destination"])))
+        pairs.append((f"{key_prefix}Destination", str(value["destination"])))
     if "metric" in value:
         import capo_ec2.types.metric_type
 
         capo_ec2.types.metric_type.serialize_ec2_query(
-            value["metric"], pairs, f"{prefix}.Metric"
+            value["metric"], pairs, f"{key_prefix}Metric"
         )
     if "statistic" in value:
         import capo_ec2.types.statistic_type
 
         capo_ec2.types.statistic_type.serialize_ec2_query(
-            value["statistic"], pairs, f"{prefix}.Statistic"
+            value["statistic"], pairs, f"{key_prefix}Statistic"
         )
     if "period" in value:
         import capo_ec2.types.period_type
 
         capo_ec2.types.period_type.serialize_ec2_query(
-            value["period"], pairs, f"{prefix}.Period"
+            value["period"], pairs, f"{key_prefix}Period"
         )
 
 

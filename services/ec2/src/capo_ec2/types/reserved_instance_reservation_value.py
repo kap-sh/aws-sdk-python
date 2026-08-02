@@ -22,15 +22,16 @@ class ReservedInstanceReservationValue(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReservedInstanceReservationValue, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reservation_value" in value:
         import capo_ec2.types.reservation_value
 
         capo_ec2.types.reservation_value.serialize_ec2_query(
-            value["reservation_value"], pairs, f"{prefix}.ReservationValue"
+            value["reservation_value"], pairs, f"{key_prefix}ReservationValue"
         )
     if "reserved_instance_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedInstanceId", str(value["reserved_instance_id"]))
+            (f"{key_prefix}ReservedInstanceId", str(value["reserved_instance_id"]))
         )
 
 

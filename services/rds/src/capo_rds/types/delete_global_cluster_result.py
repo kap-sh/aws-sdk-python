@@ -18,11 +18,12 @@ class DeleteGlobalClusterResult(TypedDict, closed=True):
 def serialize_query(
     value: DeleteGlobalClusterResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster" in value:
         import capo_rds.types.global_cluster
 
         capo_rds.types.global_cluster.serialize_query(
-            value["global_cluster"], pairs, f"{prefix}.GlobalCluster"
+            value["global_cluster"], pairs, f"{key_prefix}GlobalCluster"
         )
 
 

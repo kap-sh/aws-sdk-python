@@ -24,10 +24,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "open_id_connect_provider_arn" in value:
         pairs.append(
             (
-                f"{prefix}.OpenIDConnectProviderArn",
+                f"{key_prefix}OpenIDConnectProviderArn",
                 str(value["open_id_connect_provider_arn"]),
             )
         )
@@ -35,7 +36,7 @@ def serialize_query(
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

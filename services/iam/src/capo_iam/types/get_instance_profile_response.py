@@ -20,10 +20,11 @@ class GetInstanceProfileResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetInstanceProfileResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.instance_profile
 
     capo_iam.types.instance_profile.serialize_query(
-        value["instance_profile"], pairs, f"{prefix}.InstanceProfile"
+        value["instance_profile"], pairs, f"{key_prefix}InstanceProfile"
     )
 
 

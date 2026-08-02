@@ -24,14 +24,15 @@ class DescribeLaunchTemplatesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeLaunchTemplatesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_templates" in value:
         import capo_ec2.types.launch_template_set
 
         capo_ec2.types.launch_template_set.serialize_ec2_query(
-            value["launch_templates"], pairs, f"{prefix}.LaunchTemplates"
+            value["launch_templates"], pairs, f"{key_prefix}LaunchTemplates"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplatesResult:

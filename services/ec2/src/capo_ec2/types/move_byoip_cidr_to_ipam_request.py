@@ -27,14 +27,15 @@ class MoveByoipCidrToIpamRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MoveByoipCidrToIpamRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "ipam_pool_owner" in value:
-        pairs.append((f"{prefix}.IpamPoolOwner", str(value["ipam_pool_owner"])))
+        pairs.append((f"{key_prefix}IpamPoolOwner", str(value["ipam_pool_owner"])))
 
 
 def deserialize_ec2_query(el: Element) -> MoveByoipCidrToIpamRequest:

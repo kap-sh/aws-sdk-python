@@ -19,10 +19,11 @@ class ModifyReservedInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyReservedInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_instances_modification_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedInstancesModificationId",
+                f"{key_prefix}ReservedInstancesModificationId",
                 str(value["reserved_instances_modification_id"]),
             )
         )

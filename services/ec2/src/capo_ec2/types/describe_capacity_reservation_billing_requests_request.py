@@ -40,30 +40,33 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_ids" in value:
         import capo_ec2.types.capacity_reservation_id_set
 
         capo_ec2.types.capacity_reservation_id_set.serialize_ec2_query(
-            value["capacity_reservation_ids"], pairs, f"{prefix}.CapacityReservationIds"
+            value["capacity_reservation_ids"],
+            pairs,
+            f"{key_prefix}CapacityReservationIds",
         )
     if "role" in value:
         import capo_ec2.types.caller_role
 
         capo_ec2.types.caller_role.serialize_ec2_query(
-            value["role"], pairs, f"{prefix}.Role"
+            value["role"], pairs, f"{key_prefix}Role"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(

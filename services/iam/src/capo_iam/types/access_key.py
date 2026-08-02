@@ -32,19 +32,20 @@ class AccessKey(TypedDict, closed=True):
 def serialize_query(
     value: AccessKey, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.AccessKeyId", str(value["access_key_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}AccessKeyId", str(value["access_key_id"])))
     import capo_iam.types.status_type
 
     capo_iam.types.status_type.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
-    pairs.append((f"{prefix}.SecretAccessKey", str(value["secret_access_key"])))
+    pairs.append((f"{key_prefix}SecretAccessKey", str(value["secret_access_key"])))
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
 
 

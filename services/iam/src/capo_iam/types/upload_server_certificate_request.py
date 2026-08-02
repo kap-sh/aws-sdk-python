@@ -39,20 +39,21 @@ class UploadServerCertificateRequest(TypedDict, closed=True):
 def serialize_query(
     value: UploadServerCertificateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
-    pairs.append((f"{prefix}.CertificateBody", str(value["certificate_body"])))
-    pairs.append((f"{prefix}.PrivateKey", str(value["private_key"])))
+    pairs.append((f"{key_prefix}CertificateBody", str(value["certificate_body"])))
+    pairs.append((f"{key_prefix}PrivateKey", str(value["private_key"])))
     if "certificate_chain" in value:
-        pairs.append((f"{prefix}.CertificateChain", str(value["certificate_chain"])))
+        pairs.append((f"{key_prefix}CertificateChain", str(value["certificate_chain"])))
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

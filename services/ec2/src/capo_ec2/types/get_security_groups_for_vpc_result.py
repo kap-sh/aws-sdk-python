@@ -24,13 +24,16 @@ class GetSecurityGroupsForVpcResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetSecurityGroupsForVpcResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "security_group_for_vpcs" in value:
         import capo_ec2.types.security_group_for_vpc_list
 
         capo_ec2.types.security_group_for_vpc_list.serialize_ec2_query(
-            value["security_group_for_vpcs"], pairs, f"{prefix}.SecurityGroupForVpcSet"
+            value["security_group_for_vpcs"],
+            pairs,
+            f"{key_prefix}SecurityGroupForVpcSet",
         )
 
 

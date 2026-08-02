@@ -38,22 +38,23 @@ class GetFederationTokenRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetFederationTokenRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "policy" in value:
-        pairs.append((f"{prefix}.Policy", str(value["policy"])))
+        pairs.append((f"{key_prefix}Policy", str(value["policy"])))
     if "policy_arns" in value:
         import capo_sts.types.policy_descriptor_list_type
 
         capo_sts.types.policy_descriptor_list_type.serialize_query(
-            value["policy_arns"], pairs, f"{prefix}.PolicyArns"
+            value["policy_arns"], pairs, f"{key_prefix}PolicyArns"
         )
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
     if "tags" in value:
         import capo_sts.types.tag_list_type
 
         capo_sts.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

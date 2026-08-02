@@ -21,10 +21,11 @@ class AlternatePathHint(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AlternatePathHint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "component_id" in value:
-        pairs.append((f"{prefix}.ComponentId", str(value["component_id"])))
+        pairs.append((f"{key_prefix}ComponentId", str(value["component_id"])))
     if "component_arn" in value:
-        pairs.append((f"{prefix}.ComponentArn", str(value["component_arn"])))
+        pairs.append((f"{key_prefix}ComponentArn", str(value["component_arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> AlternatePathHint:

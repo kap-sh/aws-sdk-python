@@ -93,25 +93,26 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAnomalyDetectorsInput:
 def serialize_query(
     value: DescribeAnomalyDetectorsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "anomaly_detector_types" in value:
         import capo_cloudwatch.types.anomaly_detector_types
 
         capo_cloudwatch.types.anomaly_detector_types.serialize_query(
-            value["anomaly_detector_types"], pairs, f"{prefix}.AnomalyDetectorTypes"
+            value["anomaly_detector_types"], pairs, f"{key_prefix}AnomalyDetectorTypes"
         )
 
 

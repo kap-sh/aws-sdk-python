@@ -31,21 +31,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_asn" in value:
-        pairs.append((f"{prefix}.TransitGatewayAsn", str(value["transit_gateway_asn"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayAsn", str(value["transit_gateway_asn"]))
+        )
     if "peer_asn" in value:
-        pairs.append((f"{prefix}.PeerAsn", str(value["peer_asn"])))
+        pairs.append((f"{key_prefix}PeerAsn", str(value["peer_asn"])))
     if "transit_gateway_address" in value:
         pairs.append(
-            (f"{prefix}.TransitGatewayAddress", str(value["transit_gateway_address"]))
+            (
+                f"{key_prefix}TransitGatewayAddress",
+                str(value["transit_gateway_address"]),
+            )
         )
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "bgp_status" in value:
         import capo_ec2.types.bgp_status
 
         capo_ec2.types.bgp_status.serialize_ec2_query(
-            value["bgp_status"], pairs, f"{prefix}.BgpStatus"
+            value["bgp_status"], pairs, f"{key_prefix}BgpStatus"
         )
 
 

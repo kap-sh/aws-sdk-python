@@ -26,12 +26,13 @@ class GetSSHPublicKeyRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetSSHPublicKeyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.SSHPublicKeyId", str(value["ssh_public_key_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}SSHPublicKeyId", str(value["ssh_public_key_id"])))
     import capo_iam.types.encoding_type
 
     capo_iam.types.encoding_type.serialize_query(
-        value["encoding"], pairs, f"{prefix}.Encoding"
+        value["encoding"], pairs, f"{key_prefix}Encoding"
     )
 
 

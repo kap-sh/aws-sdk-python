@@ -24,14 +24,15 @@ class ModifyIdentityIdFormatRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyIdentityIdFormatRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource" in value:
-        pairs.append((f"{prefix}.Resource", str(value["resource"])))
+        pairs.append((f"{key_prefix}Resource", str(value["resource"])))
     if "use_long_ids" in value:
         pairs.append(
-            (f"{prefix}.UseLongIds", "true" if value["use_long_ids"] else "false")
+            (f"{key_prefix}UseLongIds", "true" if value["use_long_ids"] else "false")
         )
     if "principal_arn" in value:
-        pairs.append((f"{prefix}.PrincipalArn", str(value["principal_arn"])))
+        pairs.append((f"{key_prefix}PrincipalArn", str(value["principal_arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyIdentityIdFormatRequest:

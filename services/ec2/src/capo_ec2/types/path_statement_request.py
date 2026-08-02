@@ -26,17 +26,20 @@ class PathStatementRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PathStatementRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "packet_header_statement" in value:
         import capo_ec2.types.packet_header_statement_request
 
         capo_ec2.types.packet_header_statement_request.serialize_ec2_query(
-            value["packet_header_statement"], pairs, f"{prefix}.PacketHeaderStatement"
+            value["packet_header_statement"],
+            pairs,
+            f"{key_prefix}PacketHeaderStatement",
         )
     if "resource_statement" in value:
         import capo_ec2.types.resource_statement_request
 
         capo_ec2.types.resource_statement_request.serialize_ec2_query(
-            value["resource_statement"], pairs, f"{prefix}.ResourceStatement"
+            value["resource_statement"], pairs, f"{key_prefix}ResourceStatement"
         )
 
 

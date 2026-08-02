@@ -32,27 +32,28 @@ class DescribeExportTasksMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeExportTasksMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "export_task_identifier" in value:
         pairs.append(
-            (f"{prefix}.ExportTaskIdentifier", str(value["export_task_identifier"]))
+            (f"{key_prefix}ExportTaskIdentifier", str(value["export_task_identifier"]))
         )
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "source_type" in value:
         import capo_rds.types.export_source_type
 
         capo_rds.types.export_source_type.serialize_query(
-            value["source_type"], pairs, f"{prefix}.SourceType"
+            value["source_type"], pairs, f"{key_prefix}SourceType"
         )
 
 

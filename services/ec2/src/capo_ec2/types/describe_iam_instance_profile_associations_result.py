@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "iam_instance_profile_associations" in value:
         import capo_ec2.types.iam_instance_profile_association_set
 
         capo_ec2.types.iam_instance_profile_association_set.serialize_ec2_query(
             value["iam_instance_profile_associations"],
             pairs,
-            f"{prefix}.IamInstanceProfileAssociationSet",
+            f"{key_prefix}IamInstanceProfileAssociationSet",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeIamInstanceProfileAssociationsResult:

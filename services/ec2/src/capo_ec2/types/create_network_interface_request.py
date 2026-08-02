@@ -79,40 +79,41 @@ class CreateNetworkInterfaceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateNetworkInterfaceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv4_prefixes" in value:
         import capo_ec2.types.ipv4_prefix_list
 
         capo_ec2.types.ipv4_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{prefix}.Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
         )
     if "ipv4_prefix_count" in value:
-        pairs.append((f"{prefix}.Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
+        pairs.append((f"{key_prefix}Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
     if "ipv6_prefixes" in value:
         import capo_ec2.types.ipv6_prefix_list
 
         capo_ec2.types.ipv6_prefix_list.serialize_ec2_query(
-            value["ipv6_prefixes"], pairs, f"{prefix}.Ipv6Prefixes"
+            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefixes"
         )
     if "ipv6_prefix_count" in value:
-        pairs.append((f"{prefix}.Ipv6PrefixCount", str(value["ipv6_prefix_count"])))
+        pairs.append((f"{key_prefix}Ipv6PrefixCount", str(value["ipv6_prefix_count"])))
     if "interface_type" in value:
         import capo_ec2.types.network_interface_creation_type
 
         capo_ec2.types.network_interface_creation_type.serialize_ec2_query(
-            value["interface_type"], pairs, f"{prefix}.InterfaceType"
+            value["interface_type"], pairs, f"{key_prefix}InterfaceType"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "enable_primary_ipv6" in value:
         pairs.append(
             (
-                f"{prefix}.EnablePrimaryIpv6",
+                f"{key_prefix}EnablePrimaryIpv6",
                 "true" if value["enable_primary_ipv6"] else "false",
             )
         )
@@ -122,36 +123,38 @@ def serialize_ec2_query(
         capo_ec2.types.connection_tracking_specification_request.serialize_ec2_query(
             value["connection_tracking_specification"],
             pairs,
-            f"{prefix}.ConnectionTrackingSpecification",
+            f"{key_prefix}ConnectionTrackingSpecification",
         )
     if "operator" in value:
         import capo_ec2.types.operator_request
 
         capo_ec2.types.operator_request.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "groups" in value:
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.Groups"
+            value["groups"], pairs, f"{key_prefix}Groups"
         )
     if "private_ip_addresses" in value:
         import capo_ec2.types.private_ip_address_specification_list
 
         capo_ec2.types.private_ip_address_specification_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddresses"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddresses"
         )
     if "secondary_private_ip_address_count" in value:
         pairs.append(
             (
-                f"{prefix}.SecondaryPrivateIpAddressCount",
+                f"{key_prefix}SecondaryPrivateIpAddressCount",
                 str(value["secondary_private_ip_address_count"]),
             )
         )
@@ -159,12 +162,14 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_ipv6_address_list
 
         capo_ec2.types.instance_ipv6_address_list.serialize_ec2_query(
-            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6Addresses"
+            value["ipv6_addresses"], pairs, f"{key_prefix}Ipv6Addresses"
         )
     if "ipv6_address_count" in value:
-        pairs.append((f"{prefix}.Ipv6AddressCount", str(value["ipv6_address_count"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6AddressCount", str(value["ipv6_address_count"]))
+        )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInterfaceRequest:

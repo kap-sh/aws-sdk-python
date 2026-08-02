@@ -39,34 +39,37 @@ class ModifySpotFleetRequestRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifySpotFleetRequestRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_configs" in value:
         import capo_ec2.types.launch_template_config_list
 
         capo_ec2.types.launch_template_config_list.serialize_ec2_query(
-            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+            value["launch_template_configs"],
+            pairs,
+            f"{key_prefix}LaunchTemplateConfigs",
         )
     if "on_demand_target_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandTargetCapacity",
+                f"{key_prefix}OnDemandTargetCapacity",
                 str(value["on_demand_target_capacity"]),
             )
         )
     if "context" in value:
-        pairs.append((f"{prefix}.Context", str(value["context"])))
+        pairs.append((f"{key_prefix}Context", str(value["context"])))
     if "spot_fleet_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotFleetRequestId", str(value["spot_fleet_request_id"]))
+            (f"{key_prefix}SpotFleetRequestId", str(value["spot_fleet_request_id"]))
         )
     if "target_capacity" in value:
-        pairs.append((f"{prefix}.TargetCapacity", str(value["target_capacity"])))
+        pairs.append((f"{key_prefix}TargetCapacity", str(value["target_capacity"])))
     if "excess_capacity_termination_policy" in value:
         import capo_ec2.types.excess_capacity_termination_policy
 
         capo_ec2.types.excess_capacity_termination_policy.serialize_ec2_query(
             value["excess_capacity_termination_policy"],
             pairs,
-            f"{prefix}.ExcessCapacityTerminationPolicy",
+            f"{key_prefix}ExcessCapacityTerminationPolicy",
         )
 
 

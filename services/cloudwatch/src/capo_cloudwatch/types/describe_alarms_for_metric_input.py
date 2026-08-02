@@ -102,31 +102,34 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsForMetricInput:
 def serialize_query(
     value: DescribeAlarmsForMetricInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "statistic" in value:
         import capo_cloudwatch.types.statistic
 
         capo_cloudwatch.types.statistic.serialize_query(
-            value["statistic"], pairs, f"{prefix}.Statistic"
+            value["statistic"], pairs, f"{key_prefix}Statistic"
         )
     if "extended_statistic" in value:
-        pairs.append((f"{prefix}.ExtendedStatistic", str(value["extended_statistic"])))
+        pairs.append(
+            (f"{key_prefix}ExtendedStatistic", str(value["extended_statistic"]))
+        )
     if "dimensions" in value:
         import capo_cloudwatch.types.dimensions
 
         capo_cloudwatch.types.dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "unit" in value:
         import capo_cloudwatch.types.standard_unit
 
         capo_cloudwatch.types.standard_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
 
 

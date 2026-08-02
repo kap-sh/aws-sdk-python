@@ -39,50 +39,51 @@ class ActiveVpnTunnelStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ActiveVpnTunnelStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "phase1_encryption_algorithm" in value:
         pairs.append(
             (
-                f"{prefix}.Phase1EncryptionAlgorithm",
+                f"{key_prefix}Phase1EncryptionAlgorithm",
                 str(value["phase1_encryption_algorithm"]),
             )
         )
     if "phase2_encryption_algorithm" in value:
         pairs.append(
             (
-                f"{prefix}.Phase2EncryptionAlgorithm",
+                f"{key_prefix}Phase2EncryptionAlgorithm",
                 str(value["phase2_encryption_algorithm"]),
             )
         )
     if "phase1_integrity_algorithm" in value:
         pairs.append(
             (
-                f"{prefix}.Phase1IntegrityAlgorithm",
+                f"{key_prefix}Phase1IntegrityAlgorithm",
                 str(value["phase1_integrity_algorithm"]),
             )
         )
     if "phase2_integrity_algorithm" in value:
         pairs.append(
             (
-                f"{prefix}.Phase2IntegrityAlgorithm",
+                f"{key_prefix}Phase2IntegrityAlgorithm",
                 str(value["phase2_integrity_algorithm"]),
             )
         )
     if "phase1_dh_group" in value:
-        pairs.append((f"{prefix}.Phase1DHGroup", str(value["phase1_dh_group"])))
+        pairs.append((f"{key_prefix}Phase1DHGroup", str(value["phase1_dh_group"])))
     if "phase2_dh_group" in value:
-        pairs.append((f"{prefix}.Phase2DHGroup", str(value["phase2_dh_group"])))
+        pairs.append((f"{key_prefix}Phase2DHGroup", str(value["phase2_dh_group"])))
     if "ike_version" in value:
-        pairs.append((f"{prefix}.IkeVersion", str(value["ike_version"])))
+        pairs.append((f"{key_prefix}IkeVersion", str(value["ike_version"])))
     if "provisioning_status" in value:
         import capo_ec2.types.vpn_tunnel_provisioning_status
 
         capo_ec2.types.vpn_tunnel_provisioning_status.serialize_ec2_query(
-            value["provisioning_status"], pairs, f"{prefix}.ProvisioningStatus"
+            value["provisioning_status"], pairs, f"{key_prefix}ProvisioningStatus"
         )
     if "provisioning_status_reason" in value:
         pairs.append(
             (
-                f"{prefix}.ProvisioningStatusReason",
+                f"{key_prefix}ProvisioningStatusReason",
                 str(value["provisioning_status_reason"]),
             )
         )

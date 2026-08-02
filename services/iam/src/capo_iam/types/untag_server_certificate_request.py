@@ -25,13 +25,14 @@ class UntagServerCertificateRequest(TypedDict, closed=True):
 def serialize_query(
     value: UntagServerCertificateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ServerCertificateName", str(value["server_certificate_name"]))
+        (f"{key_prefix}ServerCertificateName", str(value["server_certificate_name"]))
     )
     import capo_iam.types.tag_key_list_type
 
     capo_iam.types.tag_key_list_type.serialize_query(
-        value["tag_keys"], pairs, f"{prefix}.TagKeys"
+        value["tag_keys"], pairs, f"{key_prefix}TagKeys"
     )
 
 

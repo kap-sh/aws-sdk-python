@@ -59,50 +59,53 @@ class ImportImageResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImportImageResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "architecture" in value:
-        pairs.append((f"{prefix}.Architecture", str(value["architecture"])))
+        pairs.append((f"{key_prefix}Architecture", str(value["architecture"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "hypervisor" in value:
-        pairs.append((f"{prefix}.Hypervisor", str(value["hypervisor"])))
+        pairs.append((f"{key_prefix}Hypervisor", str(value["hypervisor"])))
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "import_task_id" in value:
-        pairs.append((f"{prefix}.ImportTaskId", str(value["import_task_id"])))
+        pairs.append((f"{key_prefix}ImportTaskId", str(value["import_task_id"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "license_type" in value:
-        pairs.append((f"{prefix}.LicenseType", str(value["license_type"])))
+        pairs.append((f"{key_prefix}LicenseType", str(value["license_type"])))
     if "platform" in value:
-        pairs.append((f"{prefix}.Platform", str(value["platform"])))
+        pairs.append((f"{key_prefix}Platform", str(value["platform"])))
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "snapshot_details" in value:
         import capo_ec2.types.snapshot_detail_list
 
         capo_ec2.types.snapshot_detail_list.serialize_ec2_query(
-            value["snapshot_details"], pairs, f"{prefix}.SnapshotDetailSet"
+            value["snapshot_details"], pairs, f"{key_prefix}SnapshotDetailSet"
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "license_specifications" in value:
         import capo_ec2.types.import_image_license_specification_list_response
 
         capo_ec2.types.import_image_license_specification_list_response.serialize_ec2_query(
-            value["license_specifications"], pairs, f"{prefix}.LicenseSpecifications"
+            value["license_specifications"], pairs, f"{key_prefix}LicenseSpecifications"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "usage_operation" in value:
-        pairs.append((f"{prefix}.UsageOperation", str(value["usage_operation"])))
+        pairs.append((f"{key_prefix}UsageOperation", str(value["usage_operation"])))
 
 
 def deserialize_ec2_query(el: Element) -> ImportImageResult:

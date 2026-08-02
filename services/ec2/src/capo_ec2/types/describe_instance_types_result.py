@@ -24,14 +24,15 @@ class DescribeInstanceTypesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeInstanceTypesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_types" in value:
         import capo_ec2.types.instance_type_info_list
 
         capo_ec2.types.instance_type_info_list.serialize_ec2_query(
-            value["instance_types"], pairs, f"{prefix}.InstanceTypeSet"
+            value["instance_types"], pairs, f"{key_prefix}InstanceTypeSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceTypesResult:

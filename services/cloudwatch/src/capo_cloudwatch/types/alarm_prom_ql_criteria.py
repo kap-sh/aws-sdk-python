@@ -48,12 +48,13 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmPromQLCriteria:
 def serialize_query(
     value: AlarmPromQLCriteria, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "query" in value:
-        pairs.append((f"{prefix}.Query", str(value["query"])))
+        pairs.append((f"{key_prefix}Query", str(value["query"])))
     if "pending_period" in value:
-        pairs.append((f"{prefix}.PendingPeriod", str(value["pending_period"])))
+        pairs.append((f"{key_prefix}PendingPeriod", str(value["pending_period"])))
     if "recovery_period" in value:
-        pairs.append((f"{prefix}.RecoveryPeriod", str(value["recovery_period"])))
+        pairs.append((f"{key_prefix}RecoveryPeriod", str(value["recovery_period"])))
 
 
 def deserialize_query(el: Element) -> AlarmPromQLCriteria:

@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "scheduled_instance_availability_set" in value:
         import capo_ec2.types.scheduled_instance_availability_set
 
         capo_ec2.types.scheduled_instance_availability_set.serialize_ec2_query(
             value["scheduled_instance_availability_set"],
             pairs,
-            f"{prefix}.ScheduledInstanceAvailabilitySet",
+            f"{key_prefix}ScheduledInstanceAvailabilitySet",
         )
 
 

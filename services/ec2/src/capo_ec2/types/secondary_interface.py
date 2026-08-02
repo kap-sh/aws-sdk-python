@@ -79,58 +79,66 @@ class SecondaryInterface(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecondaryInterface, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "attachment" in value:
         import capo_ec2.types.secondary_interface_attachment
 
         capo_ec2.types.secondary_interface_attachment.serialize_ec2_query(
-            value["attachment"], pairs, f"{prefix}.Attachment"
+            value["attachment"], pairs, f"{key_prefix}Attachment"
         )
     if "mac_address" in value:
-        pairs.append((f"{prefix}.MacAddress", str(value["mac_address"])))
+        pairs.append((f"{key_prefix}MacAddress", str(value["mac_address"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "private_ipv4_addresses" in value:
         import capo_ec2.types.secondary_interface_ipv4_address_list
 
         capo_ec2.types.secondary_interface_ipv4_address_list.serialize_ec2_query(
-            value["private_ipv4_addresses"], pairs, f"{prefix}.PrivateIpv4AddressSet"
+            value["private_ipv4_addresses"], pairs, f"{key_prefix}PrivateIpv4AddressSet"
         )
     if "secondary_interface_id" in value:
         pairs.append(
-            (f"{prefix}.SecondaryInterfaceId", str(value["secondary_interface_id"]))
+            (f"{key_prefix}SecondaryInterfaceId", str(value["secondary_interface_id"]))
         )
     if "secondary_interface_arn" in value:
         pairs.append(
-            (f"{prefix}.SecondaryInterfaceArn", str(value["secondary_interface_arn"]))
+            (
+                f"{key_prefix}SecondaryInterfaceArn",
+                str(value["secondary_interface_arn"]),
+            )
         )
     if "secondary_interface_type" in value:
         import capo_ec2.types.secondary_interface_type
 
         capo_ec2.types.secondary_interface_type.serialize_ec2_query(
-            value["secondary_interface_type"], pairs, f"{prefix}.SecondaryInterfaceType"
+            value["secondary_interface_type"],
+            pairs,
+            f"{key_prefix}SecondaryInterfaceType",
         )
     if "secondary_subnet_id" in value:
-        pairs.append((f"{prefix}.SecondarySubnetId", str(value["secondary_subnet_id"])))
+        pairs.append(
+            (f"{key_prefix}SecondarySubnetId", str(value["secondary_subnet_id"]))
+        )
     if "secondary_network_id" in value:
         pairs.append(
-            (f"{prefix}.SecondaryNetworkId", str(value["secondary_network_id"]))
+            (f"{key_prefix}SecondaryNetworkId", str(value["secondary_network_id"]))
         )
     if "secondary_network_type" in value:
         import capo_ec2.types.secondary_network_type
 
         capo_ec2.types.secondary_network_type.serialize_ec2_query(
-            value["secondary_network_type"], pairs, f"{prefix}.SecondaryNetworkType"
+            value["secondary_network_type"], pairs, f"{key_prefix}SecondaryNetworkType"
         )
     if "source_dest_check" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDestCheck",
+                f"{key_prefix}SourceDestCheck",
                 "true" if value["source_dest_check"] else "false",
             )
         )
@@ -138,13 +146,13 @@ def serialize_ec2_query(
         import capo_ec2.types.secondary_interface_status
 
         capo_ec2.types.secondary_interface_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

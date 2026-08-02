@@ -61,21 +61,22 @@ class CreateCustomDBEngineVersionMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateCustomDBEngineVersionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "database_installation_files_s3_bucket_name" in value:
         pairs.append(
             (
-                f"{prefix}.DatabaseInstallationFilesS3BucketName",
+                f"{key_prefix}DatabaseInstallationFilesS3BucketName",
                 str(value["database_installation_files_s3_bucket_name"]),
             )
         )
     if "database_installation_files_s3_prefix" in value:
         pairs.append(
             (
-                f"{prefix}.DatabaseInstallationFilesS3Prefix",
+                f"{key_prefix}DatabaseInstallationFilesS3Prefix",
                 str(value["database_installation_files_s3_prefix"]),
             )
         )
@@ -85,34 +86,36 @@ def serialize_query(
         capo_rds.types.string_list.serialize_query(
             value["database_installation_files"],
             pairs,
-            f"{prefix}.DatabaseInstallationFiles",
+            f"{key_prefix}DatabaseInstallationFiles",
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KMSKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KMSKeyId", str(value["kms_key_id"])))
     if "source_custom_db_engine_version_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceCustomDbEngineVersionIdentifier",
+                f"{key_prefix}SourceCustomDbEngineVersionIdentifier",
                 str(value["source_custom_db_engine_version_identifier"]),
             )
         )
     if "use_aws_provided_latest_image" in value:
         pairs.append(
             (
-                f"{prefix}.UseAwsProvidedLatestImage",
+                f"{key_prefix}UseAwsProvidedLatestImage",
                 "true" if value["use_aws_provided_latest_image"] else "false",
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "manifest" in value:
-        pairs.append((f"{prefix}.Manifest", str(value["manifest"])))
+        pairs.append((f"{key_prefix}Manifest", str(value["manifest"])))
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateCustomDBEngineVersionMessage:

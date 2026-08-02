@@ -20,7 +20,8 @@ class GetAccessKeyLastUsedRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetAccessKeyLastUsedRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.AccessKeyId", str(value["access_key_id"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}AccessKeyId", str(value["access_key_id"])))
 
 
 def deserialize_query(el: Element) -> GetAccessKeyLastUsedRequest:

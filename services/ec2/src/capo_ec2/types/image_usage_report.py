@@ -50,43 +50,44 @@ class ImageUsageReport(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageUsageReport, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "report_id" in value:
-        pairs.append((f"{prefix}.ReportId", str(value["report_id"])))
+        pairs.append((f"{key_prefix}ReportId", str(value["report_id"])))
     if "resource_types" in value:
         import capo_ec2.types.image_usage_resource_type_list
 
         capo_ec2.types.image_usage_resource_type_list.serialize_ec2_query(
-            value["resource_types"], pairs, f"{prefix}.ResourceTypeSet"
+            value["resource_types"], pairs, f"{key_prefix}ResourceTypeSet"
         )
     if "account_ids" in value:
         import capo_ec2.types.user_id_list
 
         capo_ec2.types.user_id_list.serialize_ec2_query(
-            value["account_ids"], pairs, f"{prefix}.AccountIdSet"
+            value["account_ids"], pairs, f"{key_prefix}AccountIdSet"
         )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
     if "creation_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "expiration_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["expiration_time"], pairs, f"{prefix}.ExpirationTime"
+            value["expiration_time"], pairs, f"{key_prefix}ExpirationTime"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

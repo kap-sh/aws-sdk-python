@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_filter" in value:
         import capo_ec2.types.traffic_mirror_filter
 
         capo_ec2.types.traffic_mirror_filter.serialize_ec2_query(
-            value["traffic_mirror_filter"], pairs, f"{prefix}.TrafficMirrorFilter"
+            value["traffic_mirror_filter"], pairs, f"{key_prefix}TrafficMirrorFilter"
         )
 
 

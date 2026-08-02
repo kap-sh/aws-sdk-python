@@ -28,23 +28,24 @@ class PathFilter(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PathFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_address" in value:
-        pairs.append((f"{prefix}.SourceAddress", str(value["source_address"])))
+        pairs.append((f"{key_prefix}SourceAddress", str(value["source_address"])))
     if "source_port_range" in value:
         import capo_ec2.types.filter_port_range
 
         capo_ec2.types.filter_port_range.serialize_ec2_query(
-            value["source_port_range"], pairs, f"{prefix}.SourcePortRange"
+            value["source_port_range"], pairs, f"{key_prefix}SourcePortRange"
         )
     if "destination_address" in value:
         pairs.append(
-            (f"{prefix}.DestinationAddress", str(value["destination_address"]))
+            (f"{key_prefix}DestinationAddress", str(value["destination_address"]))
         )
     if "destination_port_range" in value:
         import capo_ec2.types.filter_port_range
 
         capo_ec2.types.filter_port_range.serialize_ec2_query(
-            value["destination_port_range"], pairs, f"{prefix}.DestinationPortRange"
+            value["destination_port_range"], pairs, f"{key_prefix}DestinationPortRange"
         )
 
 

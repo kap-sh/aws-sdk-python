@@ -24,14 +24,15 @@ class CoipCidr(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CoipCidr, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "coip_pool_id" in value:
-        pairs.append((f"{prefix}.CoipPoolId", str(value["coip_pool_id"])))
+        pairs.append((f"{key_prefix}CoipPoolId", str(value["coip_pool_id"])))
     if "local_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableId",
+                f"{key_prefix}LocalGatewayRouteTableId",
                 str(value["local_gateway_route_table_id"]),
             )
         )

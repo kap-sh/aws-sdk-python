@@ -21,17 +21,18 @@ class RestoreWindow(TypedDict, closed=True):
 def serialize_query(
     value: RestoreWindow, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "earliest_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["earliest_time"], pairs, f"{prefix}.EarliestTime"
+            value["earliest_time"], pairs, f"{key_prefix}EarliestTime"
         )
     if "latest_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["latest_time"], pairs, f"{prefix}.LatestTime"
+            value["latest_time"], pairs, f"{key_prefix}LatestTime"
         )
 
 

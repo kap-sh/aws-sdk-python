@@ -25,23 +25,24 @@ class GetCredentialReportResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetCredentialReportResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "content" in value:
         import capo_iam.types.report_content_type
 
         capo_iam.types.report_content_type.serialize_query(
-            value["content"], pairs, f"{prefix}.Content"
+            value["content"], pairs, f"{key_prefix}Content"
         )
     if "report_format" in value:
         import capo_iam.types.report_format_type
 
         capo_iam.types.report_format_type.serialize_query(
-            value["report_format"], pairs, f"{prefix}.ReportFormat"
+            value["report_format"], pairs, f"{key_prefix}ReportFormat"
         )
     if "generated_time" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["generated_time"], pairs, f"{prefix}.GeneratedTime"
+            value["generated_time"], pairs, f"{key_prefix}GeneratedTime"
         )
 
 

@@ -26,15 +26,19 @@ class PublicIpv4PoolRange(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PublicIpv4PoolRange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "first_address" in value:
-        pairs.append((f"{prefix}.FirstAddress", str(value["first_address"])))
+        pairs.append((f"{key_prefix}FirstAddress", str(value["first_address"])))
     if "last_address" in value:
-        pairs.append((f"{prefix}.LastAddress", str(value["last_address"])))
+        pairs.append((f"{key_prefix}LastAddress", str(value["last_address"])))
     if "address_count" in value:
-        pairs.append((f"{prefix}.AddressCount", str(value["address_count"])))
+        pairs.append((f"{key_prefix}AddressCount", str(value["address_count"])))
     if "available_address_count" in value:
         pairs.append(
-            (f"{prefix}.AvailableAddressCount", str(value["available_address_count"]))
+            (
+                f"{key_prefix}AvailableAddressCount",
+                str(value["available_address_count"]),
+            )
         )
 
 

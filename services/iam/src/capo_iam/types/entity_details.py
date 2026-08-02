@@ -23,16 +23,17 @@ class EntityDetails(TypedDict, closed=True):
 def serialize_query(
     value: EntityDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.entity_info
 
     capo_iam.types.entity_info.serialize_query(
-        value["entity_info"], pairs, f"{prefix}.EntityInfo"
+        value["entity_info"], pairs, f"{key_prefix}EntityInfo"
     )
     if "last_authenticated" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["last_authenticated"], pairs, f"{prefix}.LastAuthenticated"
+            value["last_authenticated"], pairs, f"{key_prefix}LastAuthenticated"
         )
 
 

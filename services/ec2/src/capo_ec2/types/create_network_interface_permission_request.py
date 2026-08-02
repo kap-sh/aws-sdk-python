@@ -36,22 +36,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "aws_account_id" in value:
-        pairs.append((f"{prefix}.AwsAccountId", str(value["aws_account_id"])))
+        pairs.append((f"{key_prefix}AwsAccountId", str(value["aws_account_id"])))
     if "aws_service" in value:
-        pairs.append((f"{prefix}.AwsService", str(value["aws_service"])))
+        pairs.append((f"{key_prefix}AwsService", str(value["aws_service"])))
     if "permission" in value:
         import capo_ec2.types.interface_permission_type
 
         capo_ec2.types.interface_permission_type.serialize_ec2_query(
-            value["permission"], pairs, f"{prefix}.Permission"
+            value["permission"], pairs, f"{key_prefix}Permission"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInterfacePermissionRequest:

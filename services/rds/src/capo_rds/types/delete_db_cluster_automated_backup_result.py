@@ -22,13 +22,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_automated_backup" in value:
         import capo_rds.types.db_cluster_automated_backup
 
         capo_rds.types.db_cluster_automated_backup.serialize_query(
             value["db_cluster_automated_backup"],
             pairs,
-            f"{prefix}.DBClusterAutomatedBackup",
+            f"{key_prefix}DBClusterAutomatedBackup",
         )
 
 

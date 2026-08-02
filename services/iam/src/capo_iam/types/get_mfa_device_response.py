@@ -31,20 +31,21 @@ class GetMFADeviceResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetMFADeviceResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     if "enable_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["enable_date"], pairs, f"{prefix}.EnableDate"
+            value["enable_date"], pairs, f"{key_prefix}EnableDate"
         )
     if "certifications" in value:
         import capo_iam.types.certification_map_type
 
         capo_iam.types.certification_map_type.serialize_query(
-            value["certifications"], pairs, f"{prefix}.Certifications"
+            value["certifications"], pairs, f"{key_prefix}Certifications"
         )
 
 

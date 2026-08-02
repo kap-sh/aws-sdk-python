@@ -39,35 +39,38 @@ class ConversionTask(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ConversionTask, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "conversion_task_id" in value:
-        pairs.append((f"{prefix}.ConversionTaskId", str(value["conversion_task_id"])))
+        pairs.append(
+            (f"{key_prefix}ConversionTaskId", str(value["conversion_task_id"]))
+        )
     if "expiration_time" in value:
-        pairs.append((f"{prefix}.ExpirationTime", str(value["expiration_time"])))
+        pairs.append((f"{key_prefix}ExpirationTime", str(value["expiration_time"])))
     if "import_instance" in value:
         import capo_ec2.types.import_instance_task_details
 
         capo_ec2.types.import_instance_task_details.serialize_ec2_query(
-            value["import_instance"], pairs, f"{prefix}.ImportInstance"
+            value["import_instance"], pairs, f"{key_prefix}ImportInstance"
         )
     if "import_volume" in value:
         import capo_ec2.types.import_volume_task_details
 
         capo_ec2.types.import_volume_task_details.serialize_ec2_query(
-            value["import_volume"], pairs, f"{prefix}.ImportVolume"
+            value["import_volume"], pairs, f"{key_prefix}ImportVolume"
         )
     if "state" in value:
         import capo_ec2.types.conversion_task_state
 
         capo_ec2.types.conversion_task_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

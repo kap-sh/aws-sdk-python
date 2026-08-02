@@ -75,51 +75,54 @@ class CreateIpamPoolRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateIpamPoolRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_scope_id" in value:
-        pairs.append((f"{prefix}.IpamScopeId", str(value["ipam_scope_id"])))
+        pairs.append((f"{key_prefix}IpamScopeId", str(value["ipam_scope_id"])))
     if "locale" in value:
-        pairs.append((f"{prefix}.Locale", str(value["locale"])))
+        pairs.append((f"{key_prefix}Locale", str(value["locale"])))
     if "source_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.SourceIpamPoolId", str(value["source_ipam_pool_id"])))
+        pairs.append(
+            (f"{key_prefix}SourceIpamPoolId", str(value["source_ipam_pool_id"]))
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "address_family" in value:
         import capo_ec2.types.address_family
 
         capo_ec2.types.address_family.serialize_ec2_query(
-            value["address_family"], pairs, f"{prefix}.AddressFamily"
+            value["address_family"], pairs, f"{key_prefix}AddressFamily"
         )
     if "auto_import" in value:
         pairs.append(
-            (f"{prefix}.AutoImport", "true" if value["auto_import"] else "false")
+            (f"{key_prefix}AutoImport", "true" if value["auto_import"] else "false")
         )
     if "publicly_advertisable" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAdvertisable",
+                f"{key_prefix}PubliclyAdvertisable",
                 "true" if value["publicly_advertisable"] else "false",
             )
         )
     if "allocation_min_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.AllocationMinNetmaskLength",
+                f"{key_prefix}AllocationMinNetmaskLength",
                 str(value["allocation_min_netmask_length"]),
             )
         )
     if "allocation_max_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.AllocationMaxNetmaskLength",
+                f"{key_prefix}AllocationMaxNetmaskLength",
                 str(value["allocation_max_netmask_length"]),
             )
         )
     if "allocation_default_netmask_length" in value:
         pairs.append(
             (
-                f"{prefix}.AllocationDefaultNetmaskLength",
+                f"{key_prefix}AllocationDefaultNetmaskLength",
                 str(value["allocation_default_netmask_length"]),
             )
         )
@@ -127,33 +130,35 @@ def serialize_ec2_query(
         import capo_ec2.types.request_ipam_resource_tag_list
 
         capo_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
-            value["allocation_resource_tags"], pairs, f"{prefix}.AllocationResourceTags"
+            value["allocation_resource_tags"],
+            pairs,
+            f"{key_prefix}AllocationResourceTags",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "aws_service" in value:
         import capo_ec2.types.ipam_pool_aws_service
 
         capo_ec2.types.ipam_pool_aws_service.serialize_ec2_query(
-            value["aws_service"], pairs, f"{prefix}.AwsService"
+            value["aws_service"], pairs, f"{key_prefix}AwsService"
         )
     if "public_ip_source" in value:
         import capo_ec2.types.ipam_pool_public_ip_source
 
         capo_ec2.types.ipam_pool_public_ip_source.serialize_ec2_query(
-            value["public_ip_source"], pairs, f"{prefix}.PublicIpSource"
+            value["public_ip_source"], pairs, f"{key_prefix}PublicIpSource"
         )
     if "source_resource" in value:
         import capo_ec2.types.ipam_pool_source_resource_request
 
         capo_ec2.types.ipam_pool_source_resource_request.serialize_ec2_query(
-            value["source_resource"], pairs, f"{prefix}.SourceResource"
+            value["source_resource"], pairs, f"{key_prefix}SourceResource"
         )
 
 

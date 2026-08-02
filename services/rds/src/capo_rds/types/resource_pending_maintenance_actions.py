@@ -24,9 +24,10 @@ class ResourcePendingMaintenanceActions(TypedDict, closed=True):
 def serialize_query(
     value: ResourcePendingMaintenanceActions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_identifier" in value:
         pairs.append(
-            (f"{prefix}.ResourceIdentifier", str(value["resource_identifier"]))
+            (f"{key_prefix}ResourceIdentifier", str(value["resource_identifier"]))
         )
     if "pending_maintenance_action_details" in value:
         import capo_rds.types.pending_maintenance_action_details
@@ -34,7 +35,7 @@ def serialize_query(
         capo_rds.types.pending_maintenance_action_details.serialize_query(
             value["pending_maintenance_action_details"],
             pairs,
-            f"{prefix}.PendingMaintenanceActionDetails",
+            f"{key_prefix}PendingMaintenanceActionDetails",
         )
 
 

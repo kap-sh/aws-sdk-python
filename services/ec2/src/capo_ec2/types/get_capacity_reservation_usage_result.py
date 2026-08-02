@@ -47,37 +47,47 @@ class GetCapacityReservationUsageResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetCapacityReservationUsageResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "total_instance_count" in value:
         pairs.append(
-            (f"{prefix}.TotalInstanceCount", str(value["total_instance_count"]))
+            (f"{key_prefix}TotalInstanceCount", str(value["total_instance_count"]))
         )
     if "available_instance_count" in value:
         pairs.append(
-            (f"{prefix}.AvailableInstanceCount", str(value["available_instance_count"]))
+            (
+                f"{key_prefix}AvailableInstanceCount",
+                str(value["available_instance_count"]),
+            )
         )
     if "state" in value:
         import capo_ec2.types.capacity_reservation_state
 
         capo_ec2.types.capacity_reservation_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "instance_usages" in value:
         import capo_ec2.types.instance_usage_set
 
         capo_ec2.types.instance_usage_set.serialize_ec2_query(
-            value["instance_usages"], pairs, f"{prefix}.InstanceUsageSet"
+            value["instance_usages"], pairs, f"{key_prefix}InstanceUsageSet"
         )
     if "interruptible" in value:
         pairs.append(
-            (f"{prefix}.Interruptible", "true" if value["interruptible"] else "false")
+            (
+                f"{key_prefix}Interruptible",
+                "true" if value["interruptible"] else "false",
+            )
         )
     if "interruptible_capacity_allocation" in value:
         import capo_ec2.types.interruptible_capacity_allocation
@@ -85,13 +95,13 @@ def serialize_ec2_query(
         capo_ec2.types.interruptible_capacity_allocation.serialize_ec2_query(
             value["interruptible_capacity_allocation"],
             pairs,
-            f"{prefix}.InterruptibleCapacityAllocation",
+            f"{key_prefix}InterruptibleCapacityAllocation",
         )
     if "interruption_info" in value:
         import capo_ec2.types.interruption_info
 
         capo_ec2.types.interruption_info.serialize_ec2_query(
-            value["interruption_info"], pairs, f"{prefix}.InterruptionInfo"
+            value["interruption_info"], pairs, f"{key_prefix}InterruptionInfo"
         )
 
 

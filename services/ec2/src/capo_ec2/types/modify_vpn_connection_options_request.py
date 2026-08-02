@@ -36,32 +36,39 @@ class ModifyVpnConnectionOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVpnConnectionOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "local_ipv4_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.LocalIpv4NetworkCidr", str(value["local_ipv4_network_cidr"]))
+            (f"{key_prefix}LocalIpv4NetworkCidr", str(value["local_ipv4_network_cidr"]))
         )
     if "remote_ipv4_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.RemoteIpv4NetworkCidr", str(value["remote_ipv4_network_cidr"]))
+            (
+                f"{key_prefix}RemoteIpv4NetworkCidr",
+                str(value["remote_ipv4_network_cidr"]),
+            )
         )
     if "local_ipv6_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.LocalIpv6NetworkCidr", str(value["local_ipv6_network_cidr"]))
+            (f"{key_prefix}LocalIpv6NetworkCidr", str(value["local_ipv6_network_cidr"]))
         )
     if "remote_ipv6_network_cidr" in value:
         pairs.append(
-            (f"{prefix}.RemoteIpv6NetworkCidr", str(value["remote_ipv6_network_cidr"]))
+            (
+                f"{key_prefix}RemoteIpv6NetworkCidr",
+                str(value["remote_ipv6_network_cidr"]),
+            )
         )
     if "tunnel_bandwidth" in value:
         import capo_ec2.types.vpn_tunnel_bandwidth
 
         capo_ec2.types.vpn_tunnel_bandwidth.serialize_ec2_query(
-            value["tunnel_bandwidth"], pairs, f"{prefix}.TunnelBandwidth"
+            value["tunnel_bandwidth"], pairs, f"{key_prefix}TunnelBandwidth"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyVpnConnectionOptionsRequest:

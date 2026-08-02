@@ -20,8 +20,9 @@ class Position(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Position, pairs: list[tuple[str, str]], prefix: str) -> None:
-    pairs.append((f"{prefix}.Line", str(value.get("line", 0))))
-    pairs.append((f"{prefix}.Column", str(value.get("column", 0))))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Line", str(value.get("line", 0))))
+    pairs.append((f"{key_prefix}Column", str(value.get("column", 0))))
 
 
 def deserialize_query(el: Element) -> Position:

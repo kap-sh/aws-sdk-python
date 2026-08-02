@@ -70,13 +70,14 @@ class ModifyTransitGatewayOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyTransitGatewayOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "add_transit_gateway_cidr_blocks" in value:
         import capo_ec2.types.transit_gateway_cidr_block_string_list
 
         capo_ec2.types.transit_gateway_cidr_block_string_list.serialize_ec2_query(
             value["add_transit_gateway_cidr_blocks"],
             pairs,
-            f"{prefix}.AddTransitGatewayCidrBlocks",
+            f"{key_prefix}AddTransitGatewayCidrBlocks",
         )
     if "remove_transit_gateway_cidr_blocks" in value:
         import capo_ec2.types.transit_gateway_cidr_block_string_list
@@ -84,19 +85,19 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_cidr_block_string_list.serialize_ec2_query(
             value["remove_transit_gateway_cidr_blocks"],
             pairs,
-            f"{prefix}.RemoveTransitGatewayCidrBlocks",
+            f"{key_prefix}RemoveTransitGatewayCidrBlocks",
         )
     if "vpn_ecmp_support" in value:
         import capo_ec2.types.vpn_ecmp_support_value
 
         capo_ec2.types.vpn_ecmp_support_value.serialize_ec2_query(
-            value["vpn_ecmp_support"], pairs, f"{prefix}.VpnEcmpSupport"
+            value["vpn_ecmp_support"], pairs, f"{key_prefix}VpnEcmpSupport"
         )
     if "dns_support" in value:
         import capo_ec2.types.dns_support_value
 
         capo_ec2.types.dns_support_value.serialize_ec2_query(
-            value["dns_support"], pairs, f"{prefix}.DnsSupport"
+            value["dns_support"], pairs, f"{key_prefix}DnsSupport"
         )
     if "security_group_referencing_support" in value:
         import capo_ec2.types.security_group_referencing_support_value
@@ -104,7 +105,7 @@ def serialize_ec2_query(
         capo_ec2.types.security_group_referencing_support_value.serialize_ec2_query(
             value["security_group_referencing_support"],
             pairs,
-            f"{prefix}.SecurityGroupReferencingSupport",
+            f"{key_prefix}SecurityGroupReferencingSupport",
         )
     if "auto_accept_shared_attachments" in value:
         import capo_ec2.types.auto_accept_shared_attachments_value
@@ -112,7 +113,7 @@ def serialize_ec2_query(
         capo_ec2.types.auto_accept_shared_attachments_value.serialize_ec2_query(
             value["auto_accept_shared_attachments"],
             pairs,
-            f"{prefix}.AutoAcceptSharedAttachments",
+            f"{key_prefix}AutoAcceptSharedAttachments",
         )
     if "default_route_table_association" in value:
         import capo_ec2.types.default_route_table_association_value
@@ -120,12 +121,12 @@ def serialize_ec2_query(
         capo_ec2.types.default_route_table_association_value.serialize_ec2_query(
             value["default_route_table_association"],
             pairs,
-            f"{prefix}.DefaultRouteTableAssociation",
+            f"{key_prefix}DefaultRouteTableAssociation",
         )
     if "association_default_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.AssociationDefaultRouteTableId",
+                f"{key_prefix}AssociationDefaultRouteTableId",
                 str(value["association_default_route_table_id"]),
             )
         )
@@ -135,22 +136,22 @@ def serialize_ec2_query(
         capo_ec2.types.default_route_table_propagation_value.serialize_ec2_query(
             value["default_route_table_propagation"],
             pairs,
-            f"{prefix}.DefaultRouteTablePropagation",
+            f"{key_prefix}DefaultRouteTablePropagation",
         )
     if "propagation_default_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.PropagationDefaultRouteTableId",
+                f"{key_prefix}PropagationDefaultRouteTableId",
                 str(value["propagation_default_route_table_id"]),
             )
         )
     if "amazon_side_asn" in value:
-        pairs.append((f"{prefix}.AmazonSideAsn", str(value["amazon_side_asn"])))
+        pairs.append((f"{key_prefix}AmazonSideAsn", str(value["amazon_side_asn"])))
     if "encryption_support" in value:
         import capo_ec2.types.encryption_support_option_value
 
         capo_ec2.types.encryption_support_option_value.serialize_ec2_query(
-            value["encryption_support"], pairs, f"{prefix}.EncryptionSupport"
+            value["encryption_support"], pairs, f"{key_prefix}EncryptionSupport"
         )
 
 

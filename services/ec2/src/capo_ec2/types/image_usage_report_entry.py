@@ -38,21 +38,22 @@ class ImageUsageReportEntry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageUsageReportEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "report_id" in value:
-        pairs.append((f"{prefix}.ReportId", str(value["report_id"])))
+        pairs.append((f"{key_prefix}ReportId", str(value["report_id"])))
     if "usage_count" in value:
-        pairs.append((f"{prefix}.UsageCount", str(value["usage_count"])))
+        pairs.append((f"{key_prefix}UsageCount", str(value["usage_count"])))
     if "account_id" in value:
-        pairs.append((f"{prefix}.AccountId", str(value["account_id"])))
+        pairs.append((f"{key_prefix}AccountId", str(value["account_id"])))
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "report_creation_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["report_creation_time"], pairs, f"{prefix}.ReportCreationTime"
+            value["report_creation_time"], pairs, f"{key_prefix}ReportCreationTime"
         )
 
 

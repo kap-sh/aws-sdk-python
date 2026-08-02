@@ -19,11 +19,12 @@ class ValidationWarning(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ValidationWarning, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "errors" in value:
         import capo_ec2.types.error_set
 
         capo_ec2.types.error_set.serialize_ec2_query(
-            value["errors"], pairs, f"{prefix}.ErrorSet"
+            value["errors"], pairs, f"{key_prefix}ErrorSet"
         )
 
 

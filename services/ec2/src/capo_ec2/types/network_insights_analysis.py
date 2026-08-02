@@ -75,62 +75,66 @@ class NetworkInsightsAnalysis(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInsightsAnalysis, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_analysis_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAnalysisId",
+                f"{key_prefix}NetworkInsightsAnalysisId",
                 str(value["network_insights_analysis_id"]),
             )
         )
     if "network_insights_analysis_arn" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAnalysisArn",
+                f"{key_prefix}NetworkInsightsAnalysisArn",
                 str(value["network_insights_analysis_arn"]),
             )
         )
     if "network_insights_path_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInsightsPathId", str(value["network_insights_path_id"]))
+            (
+                f"{key_prefix}NetworkInsightsPathId",
+                str(value["network_insights_path_id"]),
+            )
         )
     if "additional_accounts" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["additional_accounts"], pairs, f"{prefix}.AdditionalAccountSet"
+            value["additional_accounts"], pairs, f"{key_prefix}AdditionalAccountSet"
         )
     if "filter_in_arns" in value:
         import capo_ec2.types.arn_list
 
         capo_ec2.types.arn_list.serialize_ec2_query(
-            value["filter_in_arns"], pairs, f"{prefix}.FilterInArnSet"
+            value["filter_in_arns"], pairs, f"{key_prefix}FilterInArnSet"
         )
     if "filter_out_arns" in value:
         import capo_ec2.types.arn_list
 
         capo_ec2.types.arn_list.serialize_ec2_query(
-            value["filter_out_arns"], pairs, f"{prefix}.FilterOutArnSet"
+            value["filter_out_arns"], pairs, f"{key_prefix}FilterOutArnSet"
         )
     if "start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["start_date"], pairs, f"{prefix}.StartDate"
+            value["start_date"], pairs, f"{key_prefix}StartDate"
         )
     if "status" in value:
         import capo_ec2.types.analysis_status
 
         capo_ec2.types.analysis_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "warning_message" in value:
-        pairs.append((f"{prefix}.WarningMessage", str(value["warning_message"])))
+        pairs.append((f"{key_prefix}WarningMessage", str(value["warning_message"])))
     if "network_path_found" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkPathFound",
+                f"{key_prefix}NetworkPathFound",
                 "true" if value["network_path_found"] else "false",
             )
         )
@@ -138,37 +142,41 @@ def serialize_ec2_query(
         import capo_ec2.types.path_component_list
 
         capo_ec2.types.path_component_list.serialize_ec2_query(
-            value["forward_path_components"], pairs, f"{prefix}.ForwardPathComponentSet"
+            value["forward_path_components"],
+            pairs,
+            f"{key_prefix}ForwardPathComponentSet",
         )
     if "return_path_components" in value:
         import capo_ec2.types.path_component_list
 
         capo_ec2.types.path_component_list.serialize_ec2_query(
-            value["return_path_components"], pairs, f"{prefix}.ReturnPathComponentSet"
+            value["return_path_components"],
+            pairs,
+            f"{key_prefix}ReturnPathComponentSet",
         )
     if "explanations" in value:
         import capo_ec2.types.explanation_list
 
         capo_ec2.types.explanation_list.serialize_ec2_query(
-            value["explanations"], pairs, f"{prefix}.ExplanationSet"
+            value["explanations"], pairs, f"{key_prefix}ExplanationSet"
         )
     if "alternate_path_hints" in value:
         import capo_ec2.types.alternate_path_hint_list
 
         capo_ec2.types.alternate_path_hint_list.serialize_ec2_query(
-            value["alternate_path_hints"], pairs, f"{prefix}.AlternatePathHintSet"
+            value["alternate_path_hints"], pairs, f"{key_prefix}AlternatePathHintSet"
         )
     if "suggested_accounts" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["suggested_accounts"], pairs, f"{prefix}.SuggestedAccountSet"
+            value["suggested_accounts"], pairs, f"{key_prefix}SuggestedAccountSet"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

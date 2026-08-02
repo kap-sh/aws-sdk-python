@@ -24,17 +24,18 @@ class ReleaseHostsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ReleaseHostsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful" in value:
         import capo_ec2.types.response_host_id_list
 
         capo_ec2.types.response_host_id_list.serialize_ec2_query(
-            value["successful"], pairs, f"{prefix}.Successful"
+            value["successful"], pairs, f"{key_prefix}Successful"
         )
     if "unsuccessful" in value:
         import capo_ec2.types.unsuccessful_item_list
 
         capo_ec2.types.unsuccessful_item_list.serialize_ec2_query(
-            value["unsuccessful"], pairs, f"{prefix}.Unsuccessful"
+            value["unsuccessful"], pairs, f"{key_prefix}Unsuccessful"
         )
 
 

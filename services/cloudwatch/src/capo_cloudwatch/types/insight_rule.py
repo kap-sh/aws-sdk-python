@@ -75,22 +75,23 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRule:
 def serialize_query(
     value: InsightRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "schema" in value:
-        pairs.append((f"{prefix}.Schema", str(value["schema"])))
+        pairs.append((f"{key_prefix}Schema", str(value["schema"])))
     if "definition" in value:
-        pairs.append((f"{prefix}.Definition", str(value["definition"])))
+        pairs.append((f"{key_prefix}Definition", str(value["definition"])))
     if "managed_rule" in value:
         pairs.append(
-            (f"{prefix}.ManagedRule", "true" if value["managed_rule"] else "false")
+            (f"{key_prefix}ManagedRule", "true" if value["managed_rule"] else "false")
         )
     if "apply_on_transformed_logs" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyOnTransformedLogs",
+                f"{key_prefix}ApplyOnTransformedLogs",
                 "true" if value["apply_on_transformed_logs"] else "false",
             )
         )

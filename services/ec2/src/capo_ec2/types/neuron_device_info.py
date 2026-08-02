@@ -32,21 +32,22 @@ class NeuronDeviceInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NeuronDeviceInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "core_info" in value:
         import capo_ec2.types.neuron_device_core_info
 
         capo_ec2.types.neuron_device_core_info.serialize_ec2_query(
-            value["core_info"], pairs, f"{prefix}.CoreInfo"
+            value["core_info"], pairs, f"{key_prefix}CoreInfo"
         )
     if "memory_info" in value:
         import capo_ec2.types.neuron_device_memory_info
 
         capo_ec2.types.neuron_device_memory_info.serialize_ec2_query(
-            value["memory_info"], pairs, f"{prefix}.MemoryInfo"
+            value["memory_info"], pairs, f"{key_prefix}MemoryInfo"
         )
 
 

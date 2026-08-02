@@ -24,13 +24,14 @@ class DescribeImageReferencesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeImageReferencesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "image_references" in value:
         import capo_ec2.types.image_reference_list
 
         capo_ec2.types.image_reference_list.serialize_ec2_query(
-            value["image_references"], pairs, f"{prefix}.ImageReferenceSet"
+            value["image_references"], pairs, f"{key_prefix}ImageReferenceSet"
         )
 
 

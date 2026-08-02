@@ -51,36 +51,45 @@ class CreateTrafficMirrorSessionRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateTrafficMirrorSessionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "traffic_mirror_target_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorTargetId", str(value["traffic_mirror_target_id"]))
+            (
+                f"{key_prefix}TrafficMirrorTargetId",
+                str(value["traffic_mirror_target_id"]),
+            )
         )
     if "traffic_mirror_filter_id" in value:
         pairs.append(
-            (f"{prefix}.TrafficMirrorFilterId", str(value["traffic_mirror_filter_id"]))
+            (
+                f"{key_prefix}TrafficMirrorFilterId",
+                str(value["traffic_mirror_filter_id"]),
+            )
         )
     if "packet_length" in value:
-        pairs.append((f"{prefix}.PacketLength", str(value["packet_length"])))
+        pairs.append((f"{key_prefix}PacketLength", str(value["packet_length"])))
     if "session_number" in value:
-        pairs.append((f"{prefix}.SessionNumber", str(value["session_number"])))
+        pairs.append((f"{key_prefix}SessionNumber", str(value["session_number"])))
     if "virtual_network_id" in value:
-        pairs.append((f"{prefix}.VirtualNetworkId", str(value["virtual_network_id"])))
+        pairs.append(
+            (f"{key_prefix}VirtualNetworkId", str(value["virtual_network_id"]))
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateTrafficMirrorSessionRequest:

@@ -28,13 +28,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_namespace" in value:
-        pairs.append((f"{prefix}.ServiceNamespace", str(value["service_namespace"])))
+        pairs.append((f"{key_prefix}ServiceNamespace", str(value["service_namespace"])))
     if "policies" in value:
         import capo_iam.types.policy_granting_service_access_list_type
 
         capo_iam.types.policy_granting_service_access_list_type.serialize_query(
-            value["policies"], pairs, f"{prefix}.Policies"
+            value["policies"], pairs, f"{key_prefix}Policies"
         )
 
 

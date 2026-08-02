@@ -59,50 +59,53 @@ class ManagedPolicyDetail(TypedDict, closed=True):
 def serialize_query(
     value: ManagedPolicyDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_name" in value:
-        pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+        pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "policy_id" in value:
-        pairs.append((f"{prefix}.PolicyId", str(value["policy_id"])))
+        pairs.append((f"{key_prefix}PolicyId", str(value["policy_id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "default_version_id" in value:
-        pairs.append((f"{prefix}.DefaultVersionId", str(value["default_version_id"])))
+        pairs.append(
+            (f"{key_prefix}DefaultVersionId", str(value["default_version_id"]))
+        )
     if "attachment_count" in value:
-        pairs.append((f"{prefix}.AttachmentCount", str(value["attachment_count"])))
+        pairs.append((f"{key_prefix}AttachmentCount", str(value["attachment_count"])))
     if "permissions_boundary_usage_count" in value:
         pairs.append(
             (
-                f"{prefix}.PermissionsBoundaryUsageCount",
+                f"{key_prefix}PermissionsBoundaryUsageCount",
                 str(value["permissions_boundary_usage_count"]),
             )
         )
     pairs.append(
         (
-            f"{prefix}.IsAttachable",
+            f"{key_prefix}IsAttachable",
             "true" if value.get("is_attachable", False) else "false",
         )
     )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "update_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["update_date"], pairs, f"{prefix}.UpdateDate"
+            value["update_date"], pairs, f"{key_prefix}UpdateDate"
         )
     if "policy_version_list" in value:
         import capo_iam.types.policy_document_version_list_type
 
         capo_iam.types.policy_document_version_list_type.serialize_query(
-            value["policy_version_list"], pairs, f"{prefix}.PolicyVersionList"
+            value["policy_version_list"], pairs, f"{key_prefix}PolicyVersionList"
         )
 
 

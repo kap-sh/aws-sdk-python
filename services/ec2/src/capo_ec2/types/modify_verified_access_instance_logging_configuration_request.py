@@ -34,10 +34,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_instance_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessInstanceId",
+                f"{key_prefix}VerifiedAccessInstanceId",
                 str(value["verified_access_instance_id"]),
             )
         )
@@ -45,12 +46,12 @@ def serialize_ec2_query(
         import capo_ec2.types.verified_access_log_options
 
         capo_ec2.types.verified_access_log_options.serialize_ec2_query(
-            value["access_logs"], pairs, f"{prefix}.AccessLogs"
+            value["access_logs"], pairs, f"{key_prefix}AccessLogs"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(

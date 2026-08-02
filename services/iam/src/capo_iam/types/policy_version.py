@@ -28,13 +28,14 @@ class PolicyVersion(TypedDict, closed=True):
 def serialize_query(
     value: PolicyVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "document" in value:
-        pairs.append((f"{prefix}.Document", str(value["document"])))
+        pairs.append((f"{key_prefix}Document", str(value["document"])))
     if "version_id" in value:
-        pairs.append((f"{prefix}.VersionId", str(value["version_id"])))
+        pairs.append((f"{key_prefix}VersionId", str(value["version_id"])))
     pairs.append(
         (
-            f"{prefix}.IsDefaultVersion",
+            f"{key_prefix}IsDefaultVersion",
             "true" if value.get("is_default_version", False) else "false",
         )
     )
@@ -42,7 +43,7 @@ def serialize_query(
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
 
 

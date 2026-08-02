@@ -21,15 +21,16 @@ class DBClusterOptionGroupStatus(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterOptionGroupStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_option_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterOptionGroupName",
+                f"{key_prefix}DBClusterOptionGroupName",
                 str(value["db_cluster_option_group_name"]),
             )
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> DBClusterOptionGroupStatus:

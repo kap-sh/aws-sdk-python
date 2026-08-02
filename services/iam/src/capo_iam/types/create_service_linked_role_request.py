@@ -26,11 +26,12 @@ class CreateServiceLinkedRoleRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateServiceLinkedRoleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.AWSServiceName", str(value["aws_service_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}AWSServiceName", str(value["aws_service_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "custom_suffix" in value:
-        pairs.append((f"{prefix}.CustomSuffix", str(value["custom_suffix"])))
+        pairs.append((f"{key_prefix}CustomSuffix", str(value["custom_suffix"])))
 
 
 def deserialize_query(el: Element) -> CreateServiceLinkedRoleRequest:

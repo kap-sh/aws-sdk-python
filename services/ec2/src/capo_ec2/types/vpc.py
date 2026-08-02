@@ -54,13 +54,14 @@ class Vpc(TypedDict, closed=True):
 
 # --- ec2Query ser/de ---
 def serialize_ec2_query(value: Vpc, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "instance_tenancy" in value:
         import capo_ec2.types.tenancy
 
         capo_ec2.types.tenancy.serialize_ec2_query(
-            value["instance_tenancy"], pairs, f"{prefix}.InstanceTenancy"
+            value["instance_tenancy"], pairs, f"{key_prefix}InstanceTenancy"
         )
     if "ipv6_cidr_block_association_set" in value:
         import capo_ec2.types.vpc_ipv6_cidr_block_association_set
@@ -68,7 +69,7 @@ def serialize_ec2_query(value: Vpc, pairs: list[tuple[str, str]], prefix: str) -
         capo_ec2.types.vpc_ipv6_cidr_block_association_set.serialize_ec2_query(
             value["ipv6_cidr_block_association_set"],
             pairs,
-            f"{prefix}.Ipv6CidrBlockAssociationSet",
+            f"{key_prefix}Ipv6CidrBlockAssociationSet",
         )
     if "cidr_block_association_set" in value:
         import capo_ec2.types.vpc_cidr_block_association_set
@@ -76,23 +77,23 @@ def serialize_ec2_query(value: Vpc, pairs: list[tuple[str, str]], prefix: str) -
         capo_ec2.types.vpc_cidr_block_association_set.serialize_ec2_query(
             value["cidr_block_association_set"],
             pairs,
-            f"{prefix}.CidrBlockAssociationSet",
+            f"{key_prefix}CidrBlockAssociationSet",
         )
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "encryption_control" in value:
         import capo_ec2.types.vpc_encryption_control
 
         capo_ec2.types.vpc_encryption_control.serialize_ec2_query(
-            value["encryption_control"], pairs, f"{prefix}.EncryptionControl"
+            value["encryption_control"], pairs, f"{key_prefix}EncryptionControl"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "block_public_access_states" in value:
         import capo_ec2.types.block_public_access_states
@@ -100,20 +101,20 @@ def serialize_ec2_query(value: Vpc, pairs: list[tuple[str, str]], prefix: str) -
         capo_ec2.types.block_public_access_states.serialize_ec2_query(
             value["block_public_access_states"],
             pairs,
-            f"{prefix}.BlockPublicAccessStates",
+            f"{key_prefix}BlockPublicAccessStates",
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "state" in value:
         import capo_ec2.types.vpc_state
 
         capo_ec2.types.vpc_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "dhcp_options_id" in value:
-        pairs.append((f"{prefix}.DhcpOptionsId", str(value["dhcp_options_id"])))
+        pairs.append((f"{key_prefix}DhcpOptionsId", str(value["dhcp_options_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> Vpc:

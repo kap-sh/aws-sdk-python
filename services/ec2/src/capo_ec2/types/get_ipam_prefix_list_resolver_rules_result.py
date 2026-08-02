@@ -26,14 +26,15 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rules" in value:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_set
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_set.serialize_ec2_query(
-            value["rules"], pairs, f"{prefix}.RuleSet"
+            value["rules"], pairs, f"{key_prefix}RuleSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetIpamPrefixListResolverRulesResult:

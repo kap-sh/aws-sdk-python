@@ -47,33 +47,36 @@ class CreateImageRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateImageRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "snapshot_location" in value:
         import capo_ec2.types.snapshot_location_enum
 
         capo_ec2.types.snapshot_location_enum.serialize_ec2_query(
-            value["snapshot_location"], pairs, f"{prefix}.SnapshotLocation"
+            value["snapshot_location"], pairs, f"{key_prefix}SnapshotLocation"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "no_reboot" in value:
-        pairs.append((f"{prefix}.NoReboot", "true" if value["no_reboot"] else "false"))
+        pairs.append(
+            (f"{key_prefix}NoReboot", "true" if value["no_reboot"] else "false")
+        )
     if "block_device_mappings" in value:
         import capo_ec2.types.block_device_mapping_request_list
 
         capo_ec2.types.block_device_mapping_request_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMapping"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
 
 

@@ -33,20 +33,21 @@ class TargetCapacitySpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TargetCapacitySpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "total_target_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+            (f"{key_prefix}TotalTargetCapacity", str(value["total_target_capacity"]))
         )
     if "on_demand_target_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandTargetCapacity",
+                f"{key_prefix}OnDemandTargetCapacity",
                 str(value["on_demand_target_capacity"]),
             )
         )
     if "spot_target_capacity" in value:
         pairs.append(
-            (f"{prefix}.SpotTargetCapacity", str(value["spot_target_capacity"]))
+            (f"{key_prefix}SpotTargetCapacity", str(value["spot_target_capacity"]))
         )
     if "default_target_capacity_type" in value:
         import capo_ec2.types.default_target_capacity_type
@@ -54,7 +55,7 @@ def serialize_ec2_query(
         capo_ec2.types.default_target_capacity_type.serialize_ec2_query(
             value["default_target_capacity_type"],
             pairs,
-            f"{prefix}.DefaultTargetCapacityType",
+            f"{key_prefix}DefaultTargetCapacityType",
         )
     if "target_capacity_unit_type" in value:
         import capo_ec2.types.target_capacity_unit_type
@@ -62,7 +63,7 @@ def serialize_ec2_query(
         capo_ec2.types.target_capacity_unit_type.serialize_ec2_query(
             value["target_capacity_unit_type"],
             pairs,
-            f"{prefix}.TargetCapacityUnitType",
+            f"{key_prefix}TargetCapacityUnitType",
         )
 
 

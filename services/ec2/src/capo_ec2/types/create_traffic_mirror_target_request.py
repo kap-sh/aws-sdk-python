@@ -41,33 +41,34 @@ class CreateTrafficMirrorTargetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateTrafficMirrorTargetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "network_load_balancer_arn" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkLoadBalancerArn",
+                f"{key_prefix}NetworkLoadBalancerArn",
                 str(value["network_load_balancer_arn"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "gateway_load_balancer_endpoint_id" in value:
         pairs.append(
             (
-                f"{prefix}.GatewayLoadBalancerEndpointId",
+                f"{key_prefix}GatewayLoadBalancerEndpointId",
                 str(value["gateway_load_balancer_endpoint_id"]),
             )
         )

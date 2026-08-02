@@ -60,17 +60,18 @@ class CapacityReservationFleet(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationFleet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_fleet_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityReservationFleetId",
+                f"{key_prefix}CapacityReservationFleetId",
                 str(value["capacity_reservation_fleet_id"]),
             )
         )
     if "capacity_reservation_fleet_arn" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityReservationFleetArn",
+                f"{key_prefix}CapacityReservationFleetArn",
                 str(value["capacity_reservation_fleet_arn"]),
             )
         )
@@ -78,43 +79,48 @@ def serialize_ec2_query(
         import capo_ec2.types.capacity_reservation_fleet_state
 
         capo_ec2.types.capacity_reservation_fleet_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "total_target_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+            (f"{key_prefix}TotalTargetCapacity", str(value["total_target_capacity"]))
         )
     if "total_fulfilled_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalFulfilledCapacity", str(value["total_fulfilled_capacity"]))
+            (
+                f"{key_prefix}TotalFulfilledCapacity",
+                str(value["total_fulfilled_capacity"]),
+            )
         )
     if "tenancy" in value:
         import capo_ec2.types.fleet_capacity_reservation_tenancy
 
         capo_ec2.types.fleet_capacity_reservation_tenancy.serialize_ec2_query(
-            value["tenancy"], pairs, f"{prefix}.Tenancy"
+            value["tenancy"], pairs, f"{key_prefix}Tenancy"
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "create_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "instance_match_criteria" in value:
         import capo_ec2.types.fleet_instance_match_criteria
 
         capo_ec2.types.fleet_instance_match_criteria.serialize_ec2_query(
-            value["instance_match_criteria"], pairs, f"{prefix}.InstanceMatchCriteria"
+            value["instance_match_criteria"],
+            pairs,
+            f"{key_prefix}InstanceMatchCriteria",
         )
     if "allocation_strategy" in value:
         pairs.append(
-            (f"{prefix}.AllocationStrategy", str(value["allocation_strategy"]))
+            (f"{key_prefix}AllocationStrategy", str(value["allocation_strategy"]))
         )
     if "instance_type_specifications" in value:
         import capo_ec2.types.fleet_capacity_reservation_set
@@ -122,13 +128,13 @@ def serialize_ec2_query(
         capo_ec2.types.fleet_capacity_reservation_set.serialize_ec2_query(
             value["instance_type_specifications"],
             pairs,
-            f"{prefix}.InstanceTypeSpecificationSet",
+            f"{key_prefix}InstanceTypeSpecificationSet",
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

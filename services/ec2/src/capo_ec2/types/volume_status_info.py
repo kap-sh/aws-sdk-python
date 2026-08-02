@@ -26,17 +26,18 @@ class VolumeStatusInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeStatusInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "details" in value:
         import capo_ec2.types.volume_status_details_list
 
         capo_ec2.types.volume_status_details_list.serialize_ec2_query(
-            value["details"], pairs, f"{prefix}.Details"
+            value["details"], pairs, f"{key_prefix}Details"
         )
     if "status" in value:
         import capo_ec2.types.volume_status_info_status
 
         capo_ec2.types.volume_status_info_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

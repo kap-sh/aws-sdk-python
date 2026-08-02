@@ -35,24 +35,25 @@ class DescribeNatGatewaysRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeNatGatewaysRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filter" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filter"], pairs, f"{prefix}.Filter"
+            value["filter"], pairs, f"{key_prefix}Filter"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "nat_gateway_ids" in value:
         import capo_ec2.types.nat_gateway_id_string_list
 
         capo_ec2.types.nat_gateway_id_string_list.serialize_ec2_query(
-            value["nat_gateway_ids"], pairs, f"{prefix}.NatGatewayIds"
+            value["nat_gateway_ids"], pairs, f"{key_prefix}NatGatewayIds"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeNatGatewaysRequest:

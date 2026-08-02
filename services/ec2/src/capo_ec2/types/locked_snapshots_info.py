@@ -51,45 +51,48 @@ class LockedSnapshotsInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LockedSnapshotsInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "lock_state" in value:
         import capo_ec2.types.lock_state
 
         capo_ec2.types.lock_state.serialize_ec2_query(
-            value["lock_state"], pairs, f"{prefix}.LockState"
+            value["lock_state"], pairs, f"{key_prefix}LockState"
         )
     if "lock_duration" in value:
-        pairs.append((f"{prefix}.LockDuration", str(value["lock_duration"])))
+        pairs.append((f"{key_prefix}LockDuration", str(value["lock_duration"])))
     if "cool_off_period" in value:
-        pairs.append((f"{prefix}.CoolOffPeriod", str(value["cool_off_period"])))
+        pairs.append((f"{key_prefix}CoolOffPeriod", str(value["cool_off_period"])))
     if "cool_off_period_expires_on" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["cool_off_period_expires_on"],
             pairs,
-            f"{prefix}.CoolOffPeriodExpiresOn",
+            f"{key_prefix}CoolOffPeriodExpiresOn",
         )
     if "lock_created_on" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["lock_created_on"], pairs, f"{prefix}.LockCreatedOn"
+            value["lock_created_on"], pairs, f"{key_prefix}LockCreatedOn"
         )
     if "lock_duration_start_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["lock_duration_start_time"], pairs, f"{prefix}.LockDurationStartTime"
+            value["lock_duration_start_time"],
+            pairs,
+            f"{key_prefix}LockDurationStartTime",
         )
     if "lock_expires_on" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["lock_expires_on"], pairs, f"{prefix}.LockExpiresOn"
+            value["lock_expires_on"], pairs, f"{key_prefix}LockExpiresOn"
         )
 
 

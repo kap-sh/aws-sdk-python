@@ -34,12 +34,13 @@ class ModifyVpnTunnelOptionsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVpnTunnelOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_id" in value:
-        pairs.append((f"{prefix}.VpnConnectionId", str(value["vpn_connection_id"])))
+        pairs.append((f"{key_prefix}VpnConnectionId", str(value["vpn_connection_id"])))
     if "vpn_tunnel_outside_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.VpnTunnelOutsideIpAddress",
+                f"{key_prefix}VpnTunnelOutsideIpAddress",
                 str(value["vpn_tunnel_outside_ip_address"]),
             )
         )
@@ -47,20 +48,20 @@ def serialize_ec2_query(
         import capo_ec2.types.modify_vpn_tunnel_options_specification
 
         capo_ec2.types.modify_vpn_tunnel_options_specification.serialize_ec2_query(
-            value["tunnel_options"], pairs, f"{prefix}.TunnelOptions"
+            value["tunnel_options"], pairs, f"{key_prefix}TunnelOptions"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "skip_tunnel_replacement" in value:
         pairs.append(
             (
-                f"{prefix}.SkipTunnelReplacement",
+                f"{key_prefix}SkipTunnelReplacement",
                 "true" if value["skip_tunnel_replacement"] else "false",
             )
         )
     if "pre_shared_key_storage" in value:
         pairs.append(
-            (f"{prefix}.PreSharedKeyStorage", str(value["pre_shared_key_storage"]))
+            (f"{key_prefix}PreSharedKeyStorage", str(value["pre_shared_key_storage"]))
         )
 
 

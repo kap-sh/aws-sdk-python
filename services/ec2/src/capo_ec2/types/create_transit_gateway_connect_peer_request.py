@@ -46,39 +46,43 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
     if "transit_gateway_address" in value:
         pairs.append(
-            (f"{prefix}.TransitGatewayAddress", str(value["transit_gateway_address"]))
+            (
+                f"{key_prefix}TransitGatewayAddress",
+                str(value["transit_gateway_address"]),
+            )
         )
     if "peer_address" in value:
-        pairs.append((f"{prefix}.PeerAddress", str(value["peer_address"])))
+        pairs.append((f"{key_prefix}PeerAddress", str(value["peer_address"])))
     if "bgp_options" in value:
         import capo_ec2.types.transit_gateway_connect_request_bgp_options
 
         capo_ec2.types.transit_gateway_connect_request_bgp_options.serialize_ec2_query(
-            value["bgp_options"], pairs, f"{prefix}.BgpOptions"
+            value["bgp_options"], pairs, f"{key_prefix}BgpOptions"
         )
     if "inside_cidr_blocks" in value:
         import capo_ec2.types.inside_cidr_blocks_string_list
 
         capo_ec2.types.inside_cidr_blocks_string_list.serialize_ec2_query(
-            value["inside_cidr_blocks"], pairs, f"{prefix}.InsideCidrBlocks"
+            value["inside_cidr_blocks"], pairs, f"{key_prefix}InsideCidrBlocks"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateTransitGatewayConnectPeerRequest:

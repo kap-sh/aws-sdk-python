@@ -24,14 +24,15 @@ class GetSpotPlacementScoresResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetSpotPlacementScoresResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "spot_placement_scores" in value:
         import capo_ec2.types.spot_placement_scores
 
         capo_ec2.types.spot_placement_scores.serialize_ec2_query(
-            value["spot_placement_scores"], pairs, f"{prefix}.SpotPlacementScoreSet"
+            value["spot_placement_scores"], pairs, f"{key_prefix}SpotPlacementScoreSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresResult:

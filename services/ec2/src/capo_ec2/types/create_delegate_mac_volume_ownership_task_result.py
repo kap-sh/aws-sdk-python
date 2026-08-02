@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "mac_modification_task" in value:
         import capo_ec2.types.mac_modification_task
 
         capo_ec2.types.mac_modification_task.serialize_ec2_query(
-            value["mac_modification_task"], pairs, f"{prefix}.MacModificationTask"
+            value["mac_modification_task"], pairs, f"{key_prefix}MacModificationTask"
         )
 
 

@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_resource_discovery_association" in value:
         import capo_ec2.types.ipam_resource_discovery_association
 
         capo_ec2.types.ipam_resource_discovery_association.serialize_ec2_query(
             value["ipam_resource_discovery_association"],
             pairs,
-            f"{prefix}.IpamResourceDiscoveryAssociation",
+            f"{key_prefix}IpamResourceDiscoveryAssociation",
         )
 
 

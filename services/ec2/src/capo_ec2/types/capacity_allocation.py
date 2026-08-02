@@ -27,19 +27,20 @@ class CapacityAllocation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityAllocation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_type" in value:
         import capo_ec2.types.allocation_type
 
         capo_ec2.types.allocation_type.serialize_ec2_query(
-            value["allocation_type"], pairs, f"{prefix}.AllocationType"
+            value["allocation_type"], pairs, f"{key_prefix}AllocationType"
         )
     if "count" in value:
-        pairs.append((f"{prefix}.Count", str(value["count"])))
+        pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "allocation_metadata" in value:
         import capo_ec2.types.capacity_allocation_metadata_list
 
         capo_ec2.types.capacity_allocation_metadata_list.serialize_ec2_query(
-            value["allocation_metadata"], pairs, f"{prefix}.AllocationMetadataList"
+            value["allocation_metadata"], pairs, f"{key_prefix}AllocationMetadataList"
         )
 
 

@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "associated_roles" in value:
         import capo_ec2.types.associated_roles_list
 
         capo_ec2.types.associated_roles_list.serialize_ec2_query(
-            value["associated_roles"], pairs, f"{prefix}.AssociatedRoleSet"
+            value["associated_roles"], pairs, f"{key_prefix}AssociatedRoleSet"
         )
 
 

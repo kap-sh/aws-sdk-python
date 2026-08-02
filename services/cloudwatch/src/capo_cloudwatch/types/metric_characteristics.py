@@ -34,10 +34,11 @@ def deserialize_aws_json_1_0(data: dict) -> MetricCharacteristics:
 def serialize_query(
     value: MetricCharacteristics, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "periodic_spikes" in value:
         pairs.append(
             (
-                f"{prefix}.PeriodicSpikes",
+                f"{key_prefix}PeriodicSpikes",
                 "true" if value["periodic_spikes"] else "false",
             )
         )

@@ -21,8 +21,9 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "report_id" in value:
-        pairs.append((f"{prefix}.ReportId", str(value["report_id"])))
+        pairs.append((f"{key_prefix}ReportId", str(value["report_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> StartDeclarativePoliciesReportResult:

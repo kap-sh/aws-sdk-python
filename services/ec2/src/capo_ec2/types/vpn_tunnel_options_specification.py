@@ -84,46 +84,61 @@ class VpnTunnelOptionsSpecification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnTunnelOptionsSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tunnel_inside_cidr" in value:
-        pairs.append((f"{prefix}.TunnelInsideCidr", str(value["tunnel_inside_cidr"])))
+        pairs.append(
+            (f"{key_prefix}TunnelInsideCidr", str(value["tunnel_inside_cidr"]))
+        )
     if "tunnel_inside_ipv6_cidr" in value:
         pairs.append(
-            (f"{prefix}.TunnelInsideIpv6Cidr", str(value["tunnel_inside_ipv6_cidr"]))
+            (f"{key_prefix}TunnelInsideIpv6Cidr", str(value["tunnel_inside_ipv6_cidr"]))
         )
     if "pre_shared_key" in value:
-        pairs.append((f"{prefix}.PreSharedKey", str(value["pre_shared_key"])))
+        pairs.append((f"{key_prefix}PreSharedKey", str(value["pre_shared_key"])))
     if "phase1_lifetime_seconds" in value:
         pairs.append(
-            (f"{prefix}.Phase1LifetimeSeconds", str(value["phase1_lifetime_seconds"]))
+            (
+                f"{key_prefix}Phase1LifetimeSeconds",
+                str(value["phase1_lifetime_seconds"]),
+            )
         )
     if "phase2_lifetime_seconds" in value:
         pairs.append(
-            (f"{prefix}.Phase2LifetimeSeconds", str(value["phase2_lifetime_seconds"]))
+            (
+                f"{key_prefix}Phase2LifetimeSeconds",
+                str(value["phase2_lifetime_seconds"]),
+            )
         )
     if "rekey_margin_time_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.RekeyMarginTimeSeconds",
+                f"{key_prefix}RekeyMarginTimeSeconds",
                 str(value["rekey_margin_time_seconds"]),
             )
         )
     if "rekey_fuzz_percentage" in value:
         pairs.append(
-            (f"{prefix}.RekeyFuzzPercentage", str(value["rekey_fuzz_percentage"]))
+            (f"{key_prefix}RekeyFuzzPercentage", str(value["rekey_fuzz_percentage"]))
         )
     if "replay_window_size" in value:
-        pairs.append((f"{prefix}.ReplayWindowSize", str(value["replay_window_size"])))
+        pairs.append(
+            (f"{key_prefix}ReplayWindowSize", str(value["replay_window_size"]))
+        )
     if "dpd_timeout_seconds" in value:
-        pairs.append((f"{prefix}.DPDTimeoutSeconds", str(value["dpd_timeout_seconds"])))
+        pairs.append(
+            (f"{key_prefix}DPDTimeoutSeconds", str(value["dpd_timeout_seconds"]))
+        )
     if "dpd_timeout_action" in value:
-        pairs.append((f"{prefix}.DPDTimeoutAction", str(value["dpd_timeout_action"])))
+        pairs.append(
+            (f"{key_prefix}DPDTimeoutAction", str(value["dpd_timeout_action"]))
+        )
     if "phase1_encryption_algorithms" in value:
         import capo_ec2.types.phase1_encryption_algorithms_request_list
 
         capo_ec2.types.phase1_encryption_algorithms_request_list.serialize_ec2_query(
             value["phase1_encryption_algorithms"],
             pairs,
-            f"{prefix}.Phase1EncryptionAlgorithms",
+            f"{key_prefix}Phase1EncryptionAlgorithms",
         )
     if "phase2_encryption_algorithms" in value:
         import capo_ec2.types.phase2_encryption_algorithms_request_list
@@ -131,7 +146,7 @@ def serialize_ec2_query(
         capo_ec2.types.phase2_encryption_algorithms_request_list.serialize_ec2_query(
             value["phase2_encryption_algorithms"],
             pairs,
-            f"{prefix}.Phase2EncryptionAlgorithms",
+            f"{key_prefix}Phase2EncryptionAlgorithms",
         )
     if "phase1_integrity_algorithms" in value:
         import capo_ec2.types.phase1_integrity_algorithms_request_list
@@ -139,7 +154,7 @@ def serialize_ec2_query(
         capo_ec2.types.phase1_integrity_algorithms_request_list.serialize_ec2_query(
             value["phase1_integrity_algorithms"],
             pairs,
-            f"{prefix}.Phase1IntegrityAlgorithms",
+            f"{key_prefix}Phase1IntegrityAlgorithms",
         )
     if "phase2_integrity_algorithms" in value:
         import capo_ec2.types.phase2_integrity_algorithms_request_list
@@ -147,38 +162,38 @@ def serialize_ec2_query(
         capo_ec2.types.phase2_integrity_algorithms_request_list.serialize_ec2_query(
             value["phase2_integrity_algorithms"],
             pairs,
-            f"{prefix}.Phase2IntegrityAlgorithms",
+            f"{key_prefix}Phase2IntegrityAlgorithms",
         )
     if "phase1_dh_group_numbers" in value:
         import capo_ec2.types.phase1_dh_group_numbers_request_list
 
         capo_ec2.types.phase1_dh_group_numbers_request_list.serialize_ec2_query(
-            value["phase1_dh_group_numbers"], pairs, f"{prefix}.Phase1DHGroupNumbers"
+            value["phase1_dh_group_numbers"], pairs, f"{key_prefix}Phase1DHGroupNumbers"
         )
     if "phase2_dh_group_numbers" in value:
         import capo_ec2.types.phase2_dh_group_numbers_request_list
 
         capo_ec2.types.phase2_dh_group_numbers_request_list.serialize_ec2_query(
-            value["phase2_dh_group_numbers"], pairs, f"{prefix}.Phase2DHGroupNumbers"
+            value["phase2_dh_group_numbers"], pairs, f"{key_prefix}Phase2DHGroupNumbers"
         )
     if "ike_versions" in value:
         import capo_ec2.types.ike_versions_request_list
 
         capo_ec2.types.ike_versions_request_list.serialize_ec2_query(
-            value["ike_versions"], pairs, f"{prefix}.IKEVersions"
+            value["ike_versions"], pairs, f"{key_prefix}IKEVersions"
         )
     if "startup_action" in value:
-        pairs.append((f"{prefix}.StartupAction", str(value["startup_action"])))
+        pairs.append((f"{key_prefix}StartupAction", str(value["startup_action"])))
     if "log_options" in value:
         import capo_ec2.types.vpn_tunnel_log_options_specification
 
         capo_ec2.types.vpn_tunnel_log_options_specification.serialize_ec2_query(
-            value["log_options"], pairs, f"{prefix}.LogOptions"
+            value["log_options"], pairs, f"{key_prefix}LogOptions"
         )
     if "enable_tunnel_lifecycle_control" in value:
         pairs.append(
             (
-                f"{prefix}.EnableTunnelLifecycleControl",
+                f"{key_prefix}EnableTunnelLifecycleControl",
                 "true" if value["enable_tunnel_lifecycle_control"] else "false",
             )
         )

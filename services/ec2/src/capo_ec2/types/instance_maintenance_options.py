@@ -26,17 +26,18 @@ class InstanceMaintenanceOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceMaintenanceOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_recovery" in value:
         import capo_ec2.types.instance_auto_recovery_state
 
         capo_ec2.types.instance_auto_recovery_state.serialize_ec2_query(
-            value["auto_recovery"], pairs, f"{prefix}.AutoRecovery"
+            value["auto_recovery"], pairs, f"{key_prefix}AutoRecovery"
         )
     if "reboot_migration" in value:
         import capo_ec2.types.instance_reboot_migration_state
 
         capo_ec2.types.instance_reboot_migration_state.serialize_ec2_query(
-            value["reboot_migration"], pairs, f"{prefix}.RebootMigration"
+            value["reboot_migration"], pairs, f"{key_prefix}RebootMigration"
         )
 
 

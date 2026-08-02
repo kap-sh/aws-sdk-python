@@ -27,12 +27,13 @@ class DeleteKeyPairRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteKeyPairRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "key_pair_id" in value:
-        pairs.append((f"{prefix}.KeyPairId", str(value["key_pair_id"])))
+        pairs.append((f"{key_prefix}KeyPairId", str(value["key_pair_id"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DeleteKeyPairRequest:

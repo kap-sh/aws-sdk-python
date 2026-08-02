@@ -50,10 +50,11 @@ class LocalGatewayVirtualInterfaceGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LocalGatewayVirtualInterfaceGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_virtual_interface_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceGroupId",
+                f"{key_prefix}LocalGatewayVirtualInterfaceGroupId",
                 str(value["local_gateway_virtual_interface_group_id"]),
             )
         )
@@ -63,22 +64,22 @@ def serialize_ec2_query(
         capo_ec2.types.local_gateway_virtual_interface_id_set.serialize_ec2_query(
             value["local_gateway_virtual_interface_ids"],
             pairs,
-            f"{prefix}.LocalGatewayVirtualInterfaceIdSet",
+            f"{key_prefix}LocalGatewayVirtualInterfaceIdSet",
         )
     if "local_gateway_id" in value:
-        pairs.append((f"{prefix}.LocalGatewayId", str(value["local_gateway_id"])))
+        pairs.append((f"{key_prefix}LocalGatewayId", str(value["local_gateway_id"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "local_bgp_asn" in value:
-        pairs.append((f"{prefix}.LocalBgpAsn", str(value["local_bgp_asn"])))
+        pairs.append((f"{key_prefix}LocalBgpAsn", str(value["local_bgp_asn"])))
     if "local_bgp_asn_extended" in value:
         pairs.append(
-            (f"{prefix}.LocalBgpAsnExtended", str(value["local_bgp_asn_extended"]))
+            (f"{key_prefix}LocalBgpAsnExtended", str(value["local_bgp_asn_extended"]))
         )
     if "local_gateway_virtual_interface_group_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayVirtualInterfaceGroupArn",
+                f"{key_prefix}LocalGatewayVirtualInterfaceGroupArn",
                 str(value["local_gateway_virtual_interface_group_arn"]),
             )
         )
@@ -86,13 +87,13 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "configuration_state" in value:
         import capo_ec2.types.local_gateway_virtual_interface_group_configuration_state
 
         capo_ec2.types.local_gateway_virtual_interface_group_configuration_state.serialize_ec2_query(
-            value["configuration_state"], pairs, f"{prefix}.ConfigurationState"
+            value["configuration_state"], pairs, f"{key_prefix}ConfigurationState"
         )
 
 

@@ -61,16 +61,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ena_srd_specification" in value:
         import capo_ec2.types.ena_srd_specification
 
         capo_ec2.types.ena_srd_specification.serialize_ec2_query(
-            value["ena_srd_specification"], pairs, f"{prefix}.EnaSrdSpecification"
+            value["ena_srd_specification"], pairs, f"{key_prefix}EnaSrdSpecification"
         )
     if "enable_primary_ipv6" in value:
         pairs.append(
             (
-                f"{prefix}.EnablePrimaryIpv6",
+                f"{key_prefix}EnablePrimaryIpv6",
                 "true" if value["enable_primary_ipv6"] else "false",
             )
         )
@@ -80,12 +81,12 @@ def serialize_ec2_query(
         capo_ec2.types.connection_tracking_specification_request.serialize_ec2_query(
             value["connection_tracking_specification"],
             pairs,
-            f"{prefix}.ConnectionTrackingSpecification",
+            f"{key_prefix}ConnectionTrackingSpecification",
         )
     if "associate_public_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.AssociatePublicIpAddress",
+                f"{key_prefix}AssociatePublicIpAddress",
                 "true" if value["associate_public_ip_address"] else "false",
             )
         )
@@ -93,37 +94,37 @@ def serialize_ec2_query(
         import capo_ec2.types.subnet_id_list
 
         capo_ec2.types.subnet_id_list.serialize_ec2_query(
-            value["associated_subnet_ids"], pairs, f"{prefix}.AssociatedSubnetIds"
+            value["associated_subnet_ids"], pairs, f"{key_prefix}AssociatedSubnetIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "description" in value:
         import capo_ec2.types.attribute_value
 
         capo_ec2.types.attribute_value.serialize_ec2_query(
-            value["description"], pairs, f"{prefix}.Description"
+            value["description"], pairs, f"{key_prefix}Description"
         )
     if "source_dest_check" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["source_dest_check"], pairs, f"{prefix}.SourceDestCheck"
+            value["source_dest_check"], pairs, f"{key_prefix}SourceDestCheck"
         )
     if "groups" in value:
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.Groups"
+            value["groups"], pairs, f"{key_prefix}Groups"
         )
     if "attachment" in value:
         import capo_ec2.types.network_interface_attachment_changes
 
         capo_ec2.types.network_interface_attachment_changes.serialize_ec2_query(
-            value["attachment"], pairs, f"{prefix}.Attachment"
+            value["attachment"], pairs, f"{key_prefix}Attachment"
         )
 
 

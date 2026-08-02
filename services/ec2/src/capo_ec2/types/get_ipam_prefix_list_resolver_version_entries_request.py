@@ -35,26 +35,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_prefix_list_resolver_id" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverId",
+                f"{key_prefix}IpamPrefixListResolverId",
                 str(value["ipam_prefix_list_resolver_id"]),
             )
         )
     if "ipam_prefix_list_resolver_version" in value:
         pairs.append(
             (
-                f"{prefix}.IpamPrefixListResolverVersion",
+                f"{key_prefix}IpamPrefixListResolverVersion",
                 str(value["ipam_prefix_list_resolver_version"]),
             )
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(

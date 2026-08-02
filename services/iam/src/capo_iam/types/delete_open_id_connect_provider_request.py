@@ -20,9 +20,10 @@ class DeleteOpenIDConnectProviderRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteOpenIDConnectProviderRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.OpenIDConnectProviderArn",
+            f"{key_prefix}OpenIDConnectProviderArn",
             str(value["open_id_connect_provider_arn"]),
         )
     )

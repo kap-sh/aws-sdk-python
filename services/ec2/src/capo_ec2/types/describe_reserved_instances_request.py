@@ -33,31 +33,32 @@ class DescribeReservedInstancesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeReservedInstancesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "offering_class" in value:
         import capo_ec2.types.offering_class_type
 
         capo_ec2.types.offering_class_type.serialize_ec2_query(
-            value["offering_class"], pairs, f"{prefix}.OfferingClass"
+            value["offering_class"], pairs, f"{key_prefix}OfferingClass"
         )
     if "reserved_instances_ids" in value:
         import capo_ec2.types.reserved_instances_id_string_list
 
         capo_ec2.types.reserved_instances_id_string_list.serialize_ec2_query(
-            value["reserved_instances_ids"], pairs, f"{prefix}.ReservedInstancesIds"
+            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "offering_type" in value:
         import capo_ec2.types.offering_type_values
 
         capo_ec2.types.offering_type_values.serialize_ec2_query(
-            value["offering_type"], pairs, f"{prefix}.OfferingType"
+            value["offering_type"], pairs, f"{key_prefix}OfferingType"
         )
 
 

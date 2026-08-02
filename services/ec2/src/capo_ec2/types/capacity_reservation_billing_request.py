@@ -43,16 +43,20 @@ class CapacityReservationBillingRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityReservationBillingRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "requested_by" in value:
-        pairs.append((f"{prefix}.RequestedBy", str(value["requested_by"])))
+        pairs.append((f"{key_prefix}RequestedBy", str(value["requested_by"])))
     if "unused_reservation_billing_owner_id" in value:
         pairs.append(
             (
-                f"{prefix}.UnusedReservationBillingOwnerId",
+                f"{key_prefix}UnusedReservationBillingOwnerId",
                 str(value["unused_reservation_billing_owner_id"]),
             )
         )
@@ -60,23 +64,23 @@ def serialize_ec2_query(
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["last_update_time"], pairs, f"{prefix}.LastUpdateTime"
+            value["last_update_time"], pairs, f"{key_prefix}LastUpdateTime"
         )
     if "status" in value:
         import capo_ec2.types.capacity_reservation_billing_request_status
 
         capo_ec2.types.capacity_reservation_billing_request_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "capacity_reservation_info" in value:
         import capo_ec2.types.capacity_reservation_info
 
         capo_ec2.types.capacity_reservation_info.serialize_ec2_query(
             value["capacity_reservation_info"],
             pairs,
-            f"{prefix}.CapacityReservationInfo",
+            f"{key_prefix}CapacityReservationInfo",
         )
 
 

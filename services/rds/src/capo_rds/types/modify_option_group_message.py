@@ -30,24 +30,25 @@ class ModifyOptionGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyOptionGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
     if "options_to_include" in value:
         import capo_rds.types.option_configuration_list
 
         capo_rds.types.option_configuration_list.serialize_query(
-            value["options_to_include"], pairs, f"{prefix}.OptionsToInclude"
+            value["options_to_include"], pairs, f"{key_prefix}OptionsToInclude"
         )
     if "options_to_remove" in value:
         import capo_rds.types.option_names_list
 
         capo_rds.types.option_names_list.serialize_query(
-            value["options_to_remove"], pairs, f"{prefix}.OptionsToRemove"
+            value["options_to_remove"], pairs, f"{key_prefix}OptionsToRemove"
         )
     if "apply_immediately" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyImmediately",
+                f"{key_prefix}ApplyImmediately",
                 "true" if value["apply_immediately"] else "false",
             )
         )

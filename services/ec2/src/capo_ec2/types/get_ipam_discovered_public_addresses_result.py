@@ -31,22 +31,23 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_discovered_public_addresses" in value:
         import capo_ec2.types.ipam_discovered_public_address_set
 
         capo_ec2.types.ipam_discovered_public_address_set.serialize_ec2_query(
             value["ipam_discovered_public_addresses"],
             pairs,
-            f"{prefix}.IpamDiscoveredPublicAddressSet",
+            f"{key_prefix}IpamDiscoveredPublicAddressSet",
         )
     if "oldest_sample_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["oldest_sample_time"], pairs, f"{prefix}.OldestSampleTime"
+            value["oldest_sample_time"], pairs, f"{key_prefix}OldestSampleTime"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredPublicAddressesResult:

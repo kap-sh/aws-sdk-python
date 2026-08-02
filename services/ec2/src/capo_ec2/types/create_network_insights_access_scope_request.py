@@ -38,28 +38,29 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "match_paths" in value:
         import capo_ec2.types.access_scope_path_list_request
 
         capo_ec2.types.access_scope_path_list_request.serialize_ec2_query(
-            value["match_paths"], pairs, f"{prefix}.MatchPaths"
+            value["match_paths"], pairs, f"{key_prefix}MatchPaths"
         )
     if "exclude_paths" in value:
         import capo_ec2.types.access_scope_path_list_request
 
         capo_ec2.types.access_scope_path_list_request.serialize_ec2_query(
-            value["exclude_paths"], pairs, f"{prefix}.ExcludePaths"
+            value["exclude_paths"], pairs, f"{key_prefix}ExcludePaths"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInsightsAccessScopeRequest:

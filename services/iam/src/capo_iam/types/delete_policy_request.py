@@ -20,7 +20,8 @@ class DeletePolicyRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeletePolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicyArn", str(value["policy_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyArn", str(value["policy_arn"])))
 
 
 def deserialize_query(el: Element) -> DeletePolicyRequest:

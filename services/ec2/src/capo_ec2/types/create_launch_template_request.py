@@ -42,35 +42,36 @@ class CreateLaunchTemplateRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateLaunchTemplateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "launch_template_name" in value:
         pairs.append(
-            (f"{prefix}.LaunchTemplateName", str(value["launch_template_name"]))
+            (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "version_description" in value:
         pairs.append(
-            (f"{prefix}.VersionDescription", str(value["version_description"]))
+            (f"{key_prefix}VersionDescription", str(value["version_description"]))
         )
     if "launch_template_data" in value:
         import capo_ec2.types.request_launch_template_data
 
         capo_ec2.types.request_launch_template_data.serialize_ec2_query(
-            value["launch_template_data"], pairs, f"{prefix}.LaunchTemplateData"
+            value["launch_template_data"], pairs, f"{key_prefix}LaunchTemplateData"
         )
     if "operator" in value:
         import capo_ec2.types.operator_request
 
         capo_ec2.types.operator_request.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
 
 

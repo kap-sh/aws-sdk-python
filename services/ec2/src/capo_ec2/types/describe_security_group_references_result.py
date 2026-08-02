@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "security_group_reference_set" in value:
         import capo_ec2.types.security_group_references
 
         capo_ec2.types.security_group_references.serialize_ec2_query(
             value["security_group_reference_set"],
             pairs,
-            f"{prefix}.SecurityGroupReferenceSet",
+            f"{key_prefix}SecurityGroupReferenceSet",
         )
 
 

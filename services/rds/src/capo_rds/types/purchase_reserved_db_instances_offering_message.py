@@ -28,23 +28,26 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_db_instances_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedDBInstancesOfferingId",
+                f"{key_prefix}ReservedDBInstancesOfferingId",
                 str(value["reserved_db_instances_offering_id"]),
             )
         )
     if "reserved_db_instance_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedDBInstanceId", str(value["reserved_db_instance_id"]))
+            (f"{key_prefix}ReservedDBInstanceId", str(value["reserved_db_instance_id"]))
         )
     if "db_instance_count" in value:
-        pairs.append((f"{prefix}.DBInstanceCount", str(value["db_instance_count"])))
+        pairs.append((f"{key_prefix}DBInstanceCount", str(value["db_instance_count"])))
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> PurchaseReservedDBInstancesOfferingMessage:

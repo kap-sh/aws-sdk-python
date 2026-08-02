@@ -24,14 +24,15 @@ class PerformanceInsightsMetricQuery(TypedDict, closed=True):
 def serialize_query(
     value: PerformanceInsightsMetricQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_by" in value:
         import capo_rds.types.performance_insights_metric_dimension_group
 
         capo_rds.types.performance_insights_metric_dimension_group.serialize_query(
-            value["group_by"], pairs, f"{prefix}.GroupBy"
+            value["group_by"], pairs, f"{key_prefix}GroupBy"
         )
     if "metric" in value:
-        pairs.append((f"{prefix}.Metric", str(value["metric"])))
+        pairs.append((f"{key_prefix}Metric", str(value["metric"])))
 
 
 def deserialize_query(el: Element) -> PerformanceInsightsMetricQuery:

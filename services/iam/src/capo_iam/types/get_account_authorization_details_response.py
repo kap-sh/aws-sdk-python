@@ -44,38 +44,39 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_detail_list" in value:
         import capo_iam.types.user_detail_list_type
 
         capo_iam.types.user_detail_list_type.serialize_query(
-            value["user_detail_list"], pairs, f"{prefix}.UserDetailList"
+            value["user_detail_list"], pairs, f"{key_prefix}UserDetailList"
         )
     if "group_detail_list" in value:
         import capo_iam.types.group_detail_list_type
 
         capo_iam.types.group_detail_list_type.serialize_query(
-            value["group_detail_list"], pairs, f"{prefix}.GroupDetailList"
+            value["group_detail_list"], pairs, f"{key_prefix}GroupDetailList"
         )
     if "role_detail_list" in value:
         import capo_iam.types.role_detail_list_type
 
         capo_iam.types.role_detail_list_type.serialize_query(
-            value["role_detail_list"], pairs, f"{prefix}.RoleDetailList"
+            value["role_detail_list"], pairs, f"{key_prefix}RoleDetailList"
         )
     if "policies" in value:
         import capo_iam.types.managed_policy_detail_list_type
 
         capo_iam.types.managed_policy_detail_list_type.serialize_query(
-            value["policies"], pairs, f"{prefix}.Policies"
+            value["policies"], pairs, f"{key_prefix}Policies"
         )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> GetAccountAuthorizationDetailsResponse:

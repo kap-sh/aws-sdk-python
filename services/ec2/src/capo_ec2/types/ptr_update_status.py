@@ -23,12 +23,13 @@ class PtrUpdateStatus(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PtrUpdateStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "reason" in value:
-        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+        pairs.append((f"{key_prefix}Reason", str(value["reason"])))
 
 
 def deserialize_ec2_query(el: Element) -> PtrUpdateStatus:

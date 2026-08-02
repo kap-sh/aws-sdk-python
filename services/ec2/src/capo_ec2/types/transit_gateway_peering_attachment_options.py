@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dynamic_routing" in value:
         import capo_ec2.types.dynamic_routing_value
 
         capo_ec2.types.dynamic_routing_value.serialize_ec2_query(
-            value["dynamic_routing"], pairs, f"{prefix}.DynamicRouting"
+            value["dynamic_routing"], pairs, f"{key_prefix}DynamicRouting"
         )
 
 

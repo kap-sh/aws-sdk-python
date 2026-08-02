@@ -26,16 +26,17 @@ class DownloadDBLogFilePortionMessage(TypedDict, closed=True):
 def serialize_query(
     value: DownloadDBLogFilePortionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "log_file_name" in value:
-        pairs.append((f"{prefix}.LogFileName", str(value["log_file_name"])))
+        pairs.append((f"{key_prefix}LogFileName", str(value["log_file_name"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "number_of_lines" in value:
-        pairs.append((f"{prefix}.NumberOfLines", str(value["number_of_lines"])))
+        pairs.append((f"{key_prefix}NumberOfLines", str(value["number_of_lines"])))
 
 
 def deserialize_query(el: Element) -> DownloadDBLogFilePortionMessage:

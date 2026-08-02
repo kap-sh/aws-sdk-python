@@ -30,18 +30,19 @@ class DescribeSpotFleetRequestsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeSpotFleetRequestsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "spot_fleet_request_ids" in value:
         import capo_ec2.types.spot_fleet_request_id_list
 
         capo_ec2.types.spot_fleet_request_id_list.serialize_ec2_query(
-            value["spot_fleet_request_ids"], pairs, f"{prefix}.SpotFleetRequestId"
+            value["spot_fleet_request_ids"], pairs, f"{key_prefix}SpotFleetRequestId"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeSpotFleetRequestsRequest:

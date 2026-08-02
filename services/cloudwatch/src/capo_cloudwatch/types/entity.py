@@ -67,17 +67,18 @@ def deserialize_aws_json_1_0(data: dict) -> Entity:
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Entity, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_attributes" in value:
         import capo_cloudwatch.types.entity_key_attributes_map
 
         capo_cloudwatch.types.entity_key_attributes_map.serialize_query(
-            value["key_attributes"], pairs, f"{prefix}.KeyAttributes"
+            value["key_attributes"], pairs, f"{key_prefix}KeyAttributes"
         )
     if "attributes" in value:
         import capo_cloudwatch.types.entity_attributes_map
 
         capo_cloudwatch.types.entity_attributes_map.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

@@ -22,14 +22,15 @@ class DescribeVpcEndpointsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpcEndpointsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_endpoints" in value:
         import capo_ec2.types.vpc_endpoint_set
 
         capo_ec2.types.vpc_endpoint_set.serialize_ec2_query(
-            value["vpc_endpoints"], pairs, f"{prefix}.VpcEndpointSet"
+            value["vpc_endpoints"], pairs, f"{key_prefix}VpcEndpointSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcEndpointsResult:

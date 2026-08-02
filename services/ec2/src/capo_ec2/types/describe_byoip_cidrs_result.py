@@ -22,14 +22,15 @@ class DescribeByoipCidrsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeByoipCidrsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "byoip_cidrs" in value:
         import capo_ec2.types.byoip_cidr_set
 
         capo_ec2.types.byoip_cidr_set.serialize_ec2_query(
-            value["byoip_cidrs"], pairs, f"{prefix}.ByoipCidrSet"
+            value["byoip_cidrs"], pairs, f"{key_prefix}ByoipCidrSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeByoipCidrsResult:

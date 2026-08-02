@@ -21,11 +21,12 @@ class CreateCapacityReservationResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateCapacityReservationResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation" in value:
         import capo_ec2.types.capacity_reservation
 
         capo_ec2.types.capacity_reservation.serialize_ec2_query(
-            value["capacity_reservation"], pairs, f"{prefix}.CapacityReservation"
+            value["capacity_reservation"], pairs, f"{key_prefix}CapacityReservation"
         )
 
 

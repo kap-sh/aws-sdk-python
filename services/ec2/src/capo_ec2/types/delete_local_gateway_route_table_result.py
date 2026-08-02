@@ -21,13 +21,14 @@ class DeleteLocalGatewayRouteTableResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteLocalGatewayRouteTableResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "local_gateway_route_table" in value:
         import capo_ec2.types.local_gateway_route_table
 
         capo_ec2.types.local_gateway_route_table.serialize_ec2_query(
             value["local_gateway_route_table"],
             pairs,
-            f"{prefix}.LocalGatewayRouteTable",
+            f"{key_prefix}LocalGatewayRouteTable",
         )
 
 

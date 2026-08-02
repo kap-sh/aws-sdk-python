@@ -28,13 +28,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful_queued_purchase_deletions" in value:
         import capo_ec2.types.successful_queued_purchase_deletion_set
 
         capo_ec2.types.successful_queued_purchase_deletion_set.serialize_ec2_query(
             value["successful_queued_purchase_deletions"],
             pairs,
-            f"{prefix}.SuccessfulQueuedPurchaseDeletionSet",
+            f"{key_prefix}SuccessfulQueuedPurchaseDeletionSet",
         )
     if "failed_queued_purchase_deletions" in value:
         import capo_ec2.types.failed_queued_purchase_deletion_set
@@ -42,7 +43,7 @@ def serialize_ec2_query(
         capo_ec2.types.failed_queued_purchase_deletion_set.serialize_ec2_query(
             value["failed_queued_purchase_deletions"],
             pairs,
-            f"{prefix}.FailedQueuedPurchaseDeletionSet",
+            f"{key_prefix}FailedQueuedPurchaseDeletionSet",
         )
 
 

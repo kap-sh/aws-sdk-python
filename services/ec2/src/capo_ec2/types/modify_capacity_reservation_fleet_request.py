@@ -34,28 +34,32 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_fleet_id" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityReservationFleetId",
+                f"{key_prefix}CapacityReservationFleetId",
                 str(value["capacity_reservation_fleet_id"]),
             )
         )
     if "total_target_capacity" in value:
         pairs.append(
-            (f"{prefix}.TotalTargetCapacity", str(value["total_target_capacity"]))
+            (f"{key_prefix}TotalTargetCapacity", str(value["total_target_capacity"]))
         )
     if "end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["end_date"], pairs, f"{prefix}.EndDate"
+            value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "remove_end_date" in value:
         pairs.append(
-            (f"{prefix}.RemoveEndDate", "true" if value["remove_end_date"] else "false")
+            (
+                f"{key_prefix}RemoveEndDate",
+                "true" if value["remove_end_date"] else "false",
+            )
         )
 
 

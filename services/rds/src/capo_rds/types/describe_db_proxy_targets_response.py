@@ -22,14 +22,15 @@ class DescribeDBProxyTargetsResponse(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBProxyTargetsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "targets" in value:
         import capo_rds.types.target_list
 
         capo_rds.types.target_list.serialize_query(
-            value["targets"], pairs, f"{prefix}.Targets"
+            value["targets"], pairs, f"{key_prefix}Targets"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDBProxyTargetsResponse:

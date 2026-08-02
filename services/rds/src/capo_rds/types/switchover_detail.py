@@ -26,12 +26,13 @@ class SwitchoverDetail(TypedDict, closed=True):
 def serialize_query(
     value: SwitchoverDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_member" in value:
-        pairs.append((f"{prefix}.SourceMember", str(value["source_member"])))
+        pairs.append((f"{key_prefix}SourceMember", str(value["source_member"])))
     if "target_member" in value:
-        pairs.append((f"{prefix}.TargetMember", str(value["target_member"])))
+        pairs.append((f"{key_prefix}TargetMember", str(value["target_member"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> SwitchoverDetail:

@@ -32,22 +32,25 @@ class AssumeRoleResponse(TypedDict, closed=True):
 def serialize_query(
     value: AssumeRoleResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "credentials" in value:
         import capo_sts.types.credentials
 
         capo_sts.types.credentials.serialize_query(
-            value["credentials"], pairs, f"{prefix}.Credentials"
+            value["credentials"], pairs, f"{key_prefix}Credentials"
         )
     if "assumed_role_user" in value:
         import capo_sts.types.assumed_role_user
 
         capo_sts.types.assumed_role_user.serialize_query(
-            value["assumed_role_user"], pairs, f"{prefix}.AssumedRoleUser"
+            value["assumed_role_user"], pairs, f"{key_prefix}AssumedRoleUser"
         )
     if "packed_policy_size" in value:
-        pairs.append((f"{prefix}.PackedPolicySize", str(value["packed_policy_size"])))
+        pairs.append(
+            (f"{key_prefix}PackedPolicySize", str(value["packed_policy_size"]))
+        )
     if "source_identity" in value:
-        pairs.append((f"{prefix}.SourceIdentity", str(value["source_identity"])))
+        pairs.append((f"{key_prefix}SourceIdentity", str(value["source_identity"])))
 
 
 def deserialize_query(el: Element) -> AssumeRoleResponse:

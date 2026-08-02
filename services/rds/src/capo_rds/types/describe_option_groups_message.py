@@ -31,23 +31,24 @@ class DescribeOptionGroupsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeOptionGroupsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "engine_name" in value:
-        pairs.append((f"{prefix}.EngineName", str(value["engine_name"])))
+        pairs.append((f"{key_prefix}EngineName", str(value["engine_name"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
 
 

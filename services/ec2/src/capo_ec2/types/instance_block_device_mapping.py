@@ -22,13 +22,14 @@ class InstanceBlockDeviceMapping(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceBlockDeviceMapping, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "device_name" in value:
-        pairs.append((f"{prefix}.DeviceName", str(value["device_name"])))
+        pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "ebs" in value:
         import capo_ec2.types.ebs_instance_block_device
 
         capo_ec2.types.ebs_instance_block_device.serialize_ec2_query(
-            value["ebs"], pairs, f"{prefix}.Ebs"
+            value["ebs"], pairs, f"{key_prefix}Ebs"
         )
 
 

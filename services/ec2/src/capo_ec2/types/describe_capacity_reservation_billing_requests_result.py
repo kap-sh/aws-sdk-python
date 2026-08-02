@@ -26,15 +26,16 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "capacity_reservation_billing_requests" in value:
         import capo_ec2.types.capacity_reservation_billing_request_set
 
         capo_ec2.types.capacity_reservation_billing_request_set.serialize_ec2_query(
             value["capacity_reservation_billing_requests"],
             pairs,
-            f"{prefix}.CapacityReservationBillingRequestSet",
+            f"{key_prefix}CapacityReservationBillingRequestSet",
         )
 
 

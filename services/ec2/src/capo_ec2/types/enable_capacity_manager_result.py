@@ -24,16 +24,19 @@ class EnableCapacityManagerResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EnableCapacityManagerResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_manager_status" in value:
         import capo_ec2.types.capacity_manager_status
 
         capo_ec2.types.capacity_manager_status.serialize_ec2_query(
-            value["capacity_manager_status"], pairs, f"{prefix}.CapacityManagerStatus"
+            value["capacity_manager_status"],
+            pairs,
+            f"{key_prefix}CapacityManagerStatus",
         )
     if "organizations_access" in value:
         pairs.append(
             (
-                f"{prefix}.OrganizationsAccess",
+                f"{key_prefix}OrganizationsAccess",
                 "true" if value["organizations_access"] else "false",
             )
         )

@@ -53,52 +53,57 @@ class ClientVpnConnection(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClientVpnConnection, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "timestamp" in value:
-        pairs.append((f"{prefix}.Timestamp", str(value["timestamp"])))
+        pairs.append((f"{key_prefix}Timestamp", str(value["timestamp"])))
     if "connection_id" in value:
-        pairs.append((f"{prefix}.ConnectionId", str(value["connection_id"])))
+        pairs.append((f"{key_prefix}ConnectionId", str(value["connection_id"])))
     if "username" in value:
-        pairs.append((f"{prefix}.Username", str(value["username"])))
+        pairs.append((f"{key_prefix}Username", str(value["username"])))
     if "connection_established_time" in value:
         pairs.append(
             (
-                f"{prefix}.ConnectionEstablishedTime",
+                f"{key_prefix}ConnectionEstablishedTime",
                 str(value["connection_established_time"]),
             )
         )
     if "ingress_bytes" in value:
-        pairs.append((f"{prefix}.IngressBytes", str(value["ingress_bytes"])))
+        pairs.append((f"{key_prefix}IngressBytes", str(value["ingress_bytes"])))
     if "egress_bytes" in value:
-        pairs.append((f"{prefix}.EgressBytes", str(value["egress_bytes"])))
+        pairs.append((f"{key_prefix}EgressBytes", str(value["egress_bytes"])))
     if "ingress_packets" in value:
-        pairs.append((f"{prefix}.IngressPackets", str(value["ingress_packets"])))
+        pairs.append((f"{key_prefix}IngressPackets", str(value["ingress_packets"])))
     if "egress_packets" in value:
-        pairs.append((f"{prefix}.EgressPackets", str(value["egress_packets"])))
+        pairs.append((f"{key_prefix}EgressPackets", str(value["egress_packets"])))
     if "client_ip" in value:
-        pairs.append((f"{prefix}.ClientIp", str(value["client_ip"])))
+        pairs.append((f"{key_prefix}ClientIp", str(value["client_ip"])))
     if "client_ipv6_address" in value:
-        pairs.append((f"{prefix}.ClientIpv6Address", str(value["client_ipv6_address"])))
+        pairs.append(
+            (f"{key_prefix}ClientIpv6Address", str(value["client_ipv6_address"]))
+        )
     if "common_name" in value:
-        pairs.append((f"{prefix}.CommonName", str(value["common_name"])))
+        pairs.append((f"{key_prefix}CommonName", str(value["common_name"])))
     if "status" in value:
         import capo_ec2.types.client_vpn_connection_status
 
         capo_ec2.types.client_vpn_connection_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "connection_end_time" in value:
-        pairs.append((f"{prefix}.ConnectionEndTime", str(value["connection_end_time"])))
+        pairs.append(
+            (f"{key_prefix}ConnectionEndTime", str(value["connection_end_time"]))
+        )
     if "posture_compliance_statuses" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["posture_compliance_statuses"],
             pairs,
-            f"{prefix}.PostureComplianceStatusSet",
+            f"{key_prefix}PostureComplianceStatusSet",
         )
 
 

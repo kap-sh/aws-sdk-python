@@ -58,61 +58,62 @@ class VolumeRecycleBinInfo(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeRecycleBinInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["volume_type"], pairs, f"{prefix}.VolumeType"
+            value["volume_type"], pairs, f"{key_prefix}VolumeType"
         )
     if "state" in value:
         import capo_ec2.types.volume_state
 
         capo_ec2.types.volume_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "size" in value:
-        pairs.append((f"{prefix}.Size", str(value["size"])))
+        pairs.append((f"{key_prefix}Size", str(value["size"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "throughput" in value:
-        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+        pairs.append((f"{key_prefix}Throughput", str(value["throughput"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "source_volume_id" in value:
-        pairs.append((f"{prefix}.SourceVolumeId", str(value["source_volume_id"])))
+        pairs.append((f"{key_prefix}SourceVolumeId", str(value["source_volume_id"])))
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "recycle_bin_enter_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["recycle_bin_enter_time"], pairs, f"{prefix}.RecycleBinEnterTime"
+            value["recycle_bin_enter_time"], pairs, f"{key_prefix}RecycleBinEnterTime"
         )
     if "recycle_bin_exit_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["recycle_bin_exit_time"], pairs, f"{prefix}.RecycleBinExitTime"
+            value["recycle_bin_exit_time"], pairs, f"{key_prefix}RecycleBinExitTime"
         )
 
 

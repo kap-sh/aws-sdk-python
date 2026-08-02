@@ -46,12 +46,13 @@ def deserialize_aws_json_1_0(data: dict) -> ResourceNotFoundException_:
 def serialize_query(
     value: ResourceNotFoundException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> ResourceNotFoundException_:

@@ -24,15 +24,16 @@ class DBInstanceAutomatedBackupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DBInstanceAutomatedBackupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "db_instance_automated_backups" in value:
         import capo_rds.types.db_instance_automated_backup_list
 
         capo_rds.types.db_instance_automated_backup_list.serialize_query(
             value["db_instance_automated_backups"],
             pairs,
-            f"{prefix}.DBInstanceAutomatedBackups",
+            f"{key_prefix}DBInstanceAutomatedBackups",
         )
 
 

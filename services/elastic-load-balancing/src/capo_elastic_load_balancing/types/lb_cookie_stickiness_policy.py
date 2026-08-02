@@ -24,11 +24,15 @@ class LBCookieStickinessPolicy(TypedDict, closed=True):
 def serialize_query(
     value: LBCookieStickinessPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_name" in value:
-        pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+        pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "cookie_expiration_period" in value:
         pairs.append(
-            (f"{prefix}.CookieExpirationPeriod", str(value["cookie_expiration_period"]))
+            (
+                f"{key_prefix}CookieExpirationPeriod",
+                str(value["cookie_expiration_period"]),
+            )
         )
 
 

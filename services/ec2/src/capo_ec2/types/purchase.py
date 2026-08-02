@@ -40,34 +40,37 @@ class Purchase(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Purchase, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "host_id_set" in value:
         import capo_ec2.types.response_host_id_set
 
         capo_ec2.types.response_host_id_set.serialize_ec2_query(
-            value["host_id_set"], pairs, f"{prefix}.HostIdSet"
+            value["host_id_set"], pairs, f"{key_prefix}HostIdSet"
         )
     if "host_reservation_id" in value:
-        pairs.append((f"{prefix}.HostReservationId", str(value["host_reservation_id"])))
+        pairs.append(
+            (f"{key_prefix}HostReservationId", str(value["host_reservation_id"]))
+        )
     if "hourly_price" in value:
-        pairs.append((f"{prefix}.HourlyPrice", str(value["hourly_price"])))
+        pairs.append((f"{key_prefix}HourlyPrice", str(value["hourly_price"])))
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
     if "payment_option" in value:
         import capo_ec2.types.payment_option
 
         capo_ec2.types.payment_option.serialize_ec2_query(
-            value["payment_option"], pairs, f"{prefix}.PaymentOption"
+            value["payment_option"], pairs, f"{key_prefix}PaymentOption"
         )
     if "upfront_price" in value:
-        pairs.append((f"{prefix}.UpfrontPrice", str(value["upfront_price"])))
+        pairs.append((f"{key_prefix}UpfrontPrice", str(value["upfront_price"])))
 
 
 def deserialize_ec2_query(el: Element) -> Purchase:

@@ -32,20 +32,21 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_instances_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedInstancesId", str(value["reserved_instances_id"]))
+            (f"{key_prefix}ReservedInstancesId", str(value["reserved_instances_id"]))
         )
     if "instance_count" in value:
-        pairs.append((f"{prefix}.InstanceCount", str(value["instance_count"])))
+        pairs.append((f"{key_prefix}InstanceCount", str(value["instance_count"])))
     if "price_schedules" in value:
         import capo_ec2.types.price_schedule_specification_list
 
         capo_ec2.types.price_schedule_specification_list.serialize_ec2_query(
-            value["price_schedules"], pairs, f"{prefix}.PriceSchedules"
+            value["price_schedules"], pairs, f"{key_prefix}PriceSchedules"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateReservedInstancesListingRequest:

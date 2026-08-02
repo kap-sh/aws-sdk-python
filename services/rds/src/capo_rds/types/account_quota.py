@@ -24,12 +24,15 @@ class AccountQuota(TypedDict, closed=True):
 def serialize_query(
     value: AccountQuota, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_quota_name" in value:
-        pairs.append((f"{prefix}.AccountQuotaName", str(value["account_quota_name"])))
+        pairs.append(
+            (f"{key_prefix}AccountQuotaName", str(value["account_quota_name"]))
+        )
     if "used" in value:
-        pairs.append((f"{prefix}.Used", str(value["used"])))
+        pairs.append((f"{key_prefix}Used", str(value["used"])))
     if "max" in value:
-        pairs.append((f"{prefix}.Max", str(value["max"])))
+        pairs.append((f"{key_prefix}Max", str(value["max"])))
 
 
 def deserialize_query(el: Element) -> AccountQuota:

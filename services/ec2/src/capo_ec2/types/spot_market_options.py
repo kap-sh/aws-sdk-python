@@ -35,23 +35,24 @@ class SpotMarketOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotMarketOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "max_price" in value:
-        pairs.append((f"{prefix}.MaxPrice", str(value["max_price"])))
+        pairs.append((f"{key_prefix}MaxPrice", str(value["max_price"])))
     if "spot_instance_type" in value:
         import capo_ec2.types.spot_instance_type
 
         capo_ec2.types.spot_instance_type.serialize_ec2_query(
-            value["spot_instance_type"], pairs, f"{prefix}.SpotInstanceType"
+            value["spot_instance_type"], pairs, f"{key_prefix}SpotInstanceType"
         )
     if "block_duration_minutes" in value:
         pairs.append(
-            (f"{prefix}.BlockDurationMinutes", str(value["block_duration_minutes"]))
+            (f"{key_prefix}BlockDurationMinutes", str(value["block_duration_minutes"]))
         )
     if "valid_until" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+            value["valid_until"], pairs, f"{key_prefix}ValidUntil"
         )
     if "instance_interruption_behavior" in value:
         import capo_ec2.types.instance_interruption_behavior
@@ -59,7 +60,7 @@ def serialize_ec2_query(
         capo_ec2.types.instance_interruption_behavior.serialize_ec2_query(
             value["instance_interruption_behavior"],
             pairs,
-            f"{prefix}.InstanceInterruptionBehavior",
+            f"{key_prefix}InstanceInterruptionBehavior",
         )
 
 

@@ -33,25 +33,26 @@ class AuthorizationRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AuthorizationRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "access_all" in value:
         pairs.append(
-            (f"{prefix}.AccessAll", "true" if value["access_all"] else "false")
+            (f"{key_prefix}AccessAll", "true" if value["access_all"] else "false")
         )
     if "destination_cidr" in value:
-        pairs.append((f"{prefix}.DestinationCidr", str(value["destination_cidr"])))
+        pairs.append((f"{key_prefix}DestinationCidr", str(value["destination_cidr"])))
     if "status" in value:
         import capo_ec2.types.client_vpn_authorization_rule_status
 
         capo_ec2.types.client_vpn_authorization_rule_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

@@ -39,16 +39,17 @@ class DescribeImageReferencesRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeImageReferencesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_ids" in value:
         import capo_ec2.types.describe_image_references_image_id_string_list
 
         capo_ec2.types.describe_image_references_image_id_string_list.serialize_ec2_query(
-            value["image_ids"], pairs, f"{prefix}.ImageIds"
+            value["image_ids"], pairs, f"{key_prefix}ImageIds"
         )
     if "include_all_resource_types" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeAllResourceTypes",
+                f"{key_prefix}IncludeAllResourceTypes",
                 "true" if value["include_all_resource_types"] else "false",
             )
         )
@@ -56,14 +57,14 @@ def serialize_ec2_query(
         import capo_ec2.types.resource_type_request_list
 
         capo_ec2.types.resource_type_request_list.serialize_ec2_query(
-            value["resource_types"], pairs, f"{prefix}.ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeImageReferencesRequest:

@@ -24,21 +24,24 @@ class CreateDBSecurityGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBSecurityGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_security_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSecurityGroupName", str(value["db_security_group_name"]))
+            (f"{key_prefix}DBSecurityGroupName", str(value["db_security_group_name"]))
         )
     if "db_security_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.DBSecurityGroupDescription",
+                f"{key_prefix}DBSecurityGroupDescription",
                 str(value["db_security_group_description"]),
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateDBSecurityGroupMessage:

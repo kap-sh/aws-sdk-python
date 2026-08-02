@@ -24,13 +24,14 @@ class AssociatedTargetNetwork(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociatedTargetNetwork, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_id" in value:
-        pairs.append((f"{prefix}.NetworkId", str(value["network_id"])))
+        pairs.append((f"{key_prefix}NetworkId", str(value["network_id"])))
     if "network_type" in value:
         import capo_ec2.types.associated_network_type
 
         capo_ec2.types.associated_network_type.serialize_ec2_query(
-            value["network_type"], pairs, f"{prefix}.NetworkType"
+            value["network_type"], pairs, f"{key_prefix}NetworkType"
         )
 
 

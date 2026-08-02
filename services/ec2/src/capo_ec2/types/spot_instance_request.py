@@ -76,54 +76,58 @@ class SpotInstanceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SpotInstanceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "actual_block_hourly_price" in value:
         pairs.append(
             (
-                f"{prefix}.ActualBlockHourlyPrice",
+                f"{key_prefix}ActualBlockHourlyPrice",
                 str(value["actual_block_hourly_price"]),
             )
         )
     if "availability_zone_group" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneGroup", str(value["availability_zone_group"]))
+            (
+                f"{key_prefix}AvailabilityZoneGroup",
+                str(value["availability_zone_group"]),
+            )
         )
     if "block_duration_minutes" in value:
         pairs.append(
-            (f"{prefix}.BlockDurationMinutes", str(value["block_duration_minutes"]))
+            (f"{key_prefix}BlockDurationMinutes", str(value["block_duration_minutes"]))
         )
     if "create_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "fault" in value:
         import capo_ec2.types.spot_instance_state_fault
 
         capo_ec2.types.spot_instance_state_fault.serialize_ec2_query(
-            value["fault"], pairs, f"{prefix}.Fault"
+            value["fault"], pairs, f"{key_prefix}Fault"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "launch_group" in value:
-        pairs.append((f"{prefix}.LaunchGroup", str(value["launch_group"])))
+        pairs.append((f"{key_prefix}LaunchGroup", str(value["launch_group"])))
     if "launch_specification" in value:
         import capo_ec2.types.launch_specification
 
         capo_ec2.types.launch_specification.serialize_ec2_query(
-            value["launch_specification"], pairs, f"{prefix}.LaunchSpecification"
+            value["launch_specification"], pairs, f"{key_prefix}LaunchSpecification"
         )
     if "launched_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.LaunchedAvailabilityZone",
+                f"{key_prefix}LaunchedAvailabilityZone",
                 str(value["launched_availability_zone"]),
             )
         )
     if "launched_availability_zone_id" in value:
         pairs.append(
             (
-                f"{prefix}.LaunchedAvailabilityZoneId",
+                f"{key_prefix}LaunchedAvailabilityZoneId",
                 str(value["launched_availability_zone_id"]),
             )
         )
@@ -131,49 +135,52 @@ def serialize_ec2_query(
         import capo_ec2.types.ri_product_description
 
         capo_ec2.types.ri_product_description.serialize_ec2_query(
-            value["product_description"], pairs, f"{prefix}.ProductDescription"
+            value["product_description"], pairs, f"{key_prefix}ProductDescription"
         )
     if "spot_instance_request_id" in value:
         pairs.append(
-            (f"{prefix}.SpotInstanceRequestId", str(value["spot_instance_request_id"]))
+            (
+                f"{key_prefix}SpotInstanceRequestId",
+                str(value["spot_instance_request_id"]),
+            )
         )
     if "spot_price" in value:
-        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+        pairs.append((f"{key_prefix}SpotPrice", str(value["spot_price"])))
     if "state" in value:
         import capo_ec2.types.spot_instance_state
 
         capo_ec2.types.spot_instance_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "status" in value:
         import capo_ec2.types.spot_instance_status
 
         capo_ec2.types.spot_instance_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "type" in value:
         import capo_ec2.types.spot_instance_type
 
         capo_ec2.types.spot_instance_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "valid_from" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+            value["valid_from"], pairs, f"{key_prefix}ValidFrom"
         )
     if "valid_until" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["valid_until"], pairs, f"{prefix}.ValidUntil"
+            value["valid_until"], pairs, f"{key_prefix}ValidUntil"
         )
     if "instance_interruption_behavior" in value:
         import capo_ec2.types.instance_interruption_behavior
@@ -181,7 +188,7 @@ def serialize_ec2_query(
         capo_ec2.types.instance_interruption_behavior.serialize_ec2_query(
             value["instance_interruption_behavior"],
             pairs,
-            f"{prefix}.InstanceInterruptionBehavior",
+            f"{key_prefix}InstanceInterruptionBehavior",
         )
 
 

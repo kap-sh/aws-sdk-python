@@ -31,17 +31,18 @@ class CreateDefaultSubnetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateDefaultSubnetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipv6_native" in value:
         pairs.append(
-            (f"{prefix}.Ipv6Native", "true" if value["ipv6_native"] else "false")
+            (f"{key_prefix}Ipv6Native", "true" if value["ipv6_native"] else "false")
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

@@ -24,10 +24,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "log_group" in value:
-        pairs.append((f"{prefix}.LogGroup", str(value["log_group"])))
+        pairs.append((f"{key_prefix}LogGroup", str(value["log_group"])))
 
 
 def deserialize_ec2_query(

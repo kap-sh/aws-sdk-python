@@ -30,22 +30,23 @@ class AnalysisSecurityGroupRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AnalysisSecurityGroupRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "direction" in value:
-        pairs.append((f"{prefix}.Direction", str(value["direction"])))
+        pairs.append((f"{key_prefix}Direction", str(value["direction"])))
     if "security_group_id" in value:
-        pairs.append((f"{prefix}.SecurityGroupId", str(value["security_group_id"])))
+        pairs.append((f"{key_prefix}SecurityGroupId", str(value["security_group_id"])))
     if "port_range" in value:
         import capo_ec2.types.port_range
 
         capo_ec2.types.port_range.serialize_ec2_query(
-            value["port_range"], pairs, f"{prefix}.PortRange"
+            value["port_range"], pairs, f"{key_prefix}PortRange"
         )
     if "prefix_list_id" in value:
-        pairs.append((f"{prefix}.PrefixListId", str(value["prefix_list_id"])))
+        pairs.append((f"{key_prefix}PrefixListId", str(value["prefix_list_id"])))
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
 
 
 def deserialize_ec2_query(el: Element) -> AnalysisSecurityGroupRule:

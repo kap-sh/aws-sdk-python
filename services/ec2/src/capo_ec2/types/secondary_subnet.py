@@ -59,51 +59,54 @@ class SecondarySubnet(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecondarySubnet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "secondary_subnet_id" in value:
-        pairs.append((f"{prefix}.SecondarySubnetId", str(value["secondary_subnet_id"])))
+        pairs.append(
+            (f"{key_prefix}SecondarySubnetId", str(value["secondary_subnet_id"]))
+        )
     if "secondary_subnet_arn" in value:
         pairs.append(
-            (f"{prefix}.SecondarySubnetArn", str(value["secondary_subnet_arn"]))
+            (f"{key_prefix}SecondarySubnetArn", str(value["secondary_subnet_arn"]))
         )
     if "secondary_network_id" in value:
         pairs.append(
-            (f"{prefix}.SecondaryNetworkId", str(value["secondary_network_id"]))
+            (f"{key_prefix}SecondaryNetworkId", str(value["secondary_network_id"]))
         )
     if "secondary_network_type" in value:
         import capo_ec2.types.secondary_network_type
 
         capo_ec2.types.secondary_network_type.serialize_ec2_query(
-            value["secondary_network_type"], pairs, f"{prefix}.SecondaryNetworkType"
+            value["secondary_network_type"], pairs, f"{key_prefix}SecondaryNetworkType"
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "ipv4_cidr_block_associations" in value:
         import capo_ec2.types.secondary_subnet_ipv4_cidr_block_association_list
 
         capo_ec2.types.secondary_subnet_ipv4_cidr_block_association_list.serialize_ec2_query(
             value["ipv4_cidr_block_associations"],
             pairs,
-            f"{prefix}.Ipv4CidrBlockAssociationSet",
+            f"{key_prefix}Ipv4CidrBlockAssociationSet",
         )
     if "state" in value:
         import capo_ec2.types.secondary_subnet_state
 
         capo_ec2.types.secondary_subnet_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "state_reason" in value:
-        pairs.append((f"{prefix}.StateReason", str(value["state_reason"])))
+        pairs.append((f"{key_prefix}StateReason", str(value["state_reason"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

@@ -27,20 +27,21 @@ class RouteServerRouteInstallationDetail(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RouteServerRouteInstallationDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "route_table_id" in value:
-        pairs.append((f"{prefix}.RouteTableId", str(value["route_table_id"])))
+        pairs.append((f"{key_prefix}RouteTableId", str(value["route_table_id"])))
     if "route_installation_status" in value:
         import capo_ec2.types.route_server_route_installation_status
 
         capo_ec2.types.route_server_route_installation_status.serialize_ec2_query(
             value["route_installation_status"],
             pairs,
-            f"{prefix}.RouteInstallationStatus",
+            f"{key_prefix}RouteInstallationStatus",
         )
     if "route_installation_status_reason" in value:
         pairs.append(
             (
-                f"{prefix}.RouteInstallationStatusReason",
+                f"{key_prefix}RouteInstallationStatusReason",
                 str(value["route_installation_status_reason"]),
             )
         )

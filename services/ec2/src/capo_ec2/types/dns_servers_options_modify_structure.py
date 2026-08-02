@@ -22,14 +22,15 @@ class DnsServersOptionsModifyStructure(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DnsServersOptionsModifyStructure, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "custom_dns_servers" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["custom_dns_servers"], pairs, f"{prefix}.CustomDnsServers"
+            value["custom_dns_servers"], pairs, f"{key_prefix}CustomDnsServers"
         )
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DnsServersOptionsModifyStructure:

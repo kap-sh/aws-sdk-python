@@ -36,23 +36,24 @@ class VerifiedAccessEndpointEniOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VerifiedAccessEndpointEniOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "protocol" in value:
         import capo_ec2.types.verified_access_endpoint_protocol
 
         capo_ec2.types.verified_access_endpoint_protocol.serialize_ec2_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "port_ranges" in value:
         import capo_ec2.types.verified_access_endpoint_port_range_list
 
         capo_ec2.types.verified_access_endpoint_port_range_list.serialize_ec2_query(
-            value["port_ranges"], pairs, f"{prefix}.PortRangeSet"
+            value["port_ranges"], pairs, f"{key_prefix}PortRangeSet"
         )
 
 

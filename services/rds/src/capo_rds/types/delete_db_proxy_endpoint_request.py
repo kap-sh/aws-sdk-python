@@ -21,9 +21,10 @@ class DeleteDBProxyEndpointRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteDBProxyEndpointRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_endpoint_name" in value:
         pairs.append(
-            (f"{prefix}.DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
+            (f"{key_prefix}DBProxyEndpointName", str(value["db_proxy_endpoint_name"]))
         )
 
 

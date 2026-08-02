@@ -29,23 +29,24 @@ class Reservation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Reservation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reservation_id" in value:
-        pairs.append((f"{prefix}.ReservationId", str(value["reservation_id"])))
+        pairs.append((f"{key_prefix}ReservationId", str(value["reservation_id"])))
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "requester_id" in value:
-        pairs.append((f"{prefix}.RequesterId", str(value["requester_id"])))
+        pairs.append((f"{key_prefix}RequesterId", str(value["requester_id"])))
     if "groups" in value:
         import capo_ec2.types.group_identifier_list
 
         capo_ec2.types.group_identifier_list.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.GroupSet"
+            value["groups"], pairs, f"{key_prefix}GroupSet"
         )
     if "instances" in value:
         import capo_ec2.types.instance_list
 
         capo_ec2.types.instance_list.serialize_ec2_query(
-            value["instances"], pairs, f"{prefix}.InstancesSet"
+            value["instances"], pairs, f"{key_prefix}InstancesSet"
         )
 
 

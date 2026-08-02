@@ -22,11 +22,12 @@ class OptionVersion(TypedDict, closed=True):
 def serialize_query(
     value: OptionVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "version" in value:
-        pairs.append((f"{prefix}.Version", str(value["version"])))
+        pairs.append((f"{key_prefix}Version", str(value["version"])))
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
 
 

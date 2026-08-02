@@ -22,14 +22,15 @@ class DescribeAccountLimitsOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAccountLimitsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "limits" in value:
         import capo_elastic_load_balancing.types.limits
 
         capo_elastic_load_balancing.types.limits.serialize_query(
-            value["limits"], pairs, f"{prefix}.Limits"
+            value["limits"], pairs, f"{key_prefix}Limits"
         )
     if "next_marker" in value:
-        pairs.append((f"{prefix}.NextMarker", str(value["next_marker"])))
+        pairs.append((f"{key_prefix}NextMarker", str(value["next_marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeAccountLimitsOutput:

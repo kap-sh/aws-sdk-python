@@ -26,17 +26,18 @@ class AsnAssociation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AsnAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "asn" in value:
-        pairs.append((f"{prefix}.Asn", str(value["asn"])))
+        pairs.append((f"{key_prefix}Asn", str(value["asn"])))
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "state" in value:
         import capo_ec2.types.asn_association_state
 
         capo_ec2.types.asn_association_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
 
 

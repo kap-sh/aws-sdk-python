@@ -40,34 +40,37 @@ class ModifyFleetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyFleetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "excess_capacity_termination_policy" in value:
         import capo_ec2.types.fleet_excess_capacity_termination_policy
 
         capo_ec2.types.fleet_excess_capacity_termination_policy.serialize_ec2_query(
             value["excess_capacity_termination_policy"],
             pairs,
-            f"{prefix}.ExcessCapacityTerminationPolicy",
+            f"{key_prefix}ExcessCapacityTerminationPolicy",
         )
     if "launch_template_configs" in value:
         import capo_ec2.types.fleet_launch_template_config_list_request
 
         capo_ec2.types.fleet_launch_template_config_list_request.serialize_ec2_query(
-            value["launch_template_configs"], pairs, f"{prefix}.LaunchTemplateConfigs"
+            value["launch_template_configs"],
+            pairs,
+            f"{key_prefix}LaunchTemplateConfigs",
         )
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
     if "target_capacity_specification" in value:
         import capo_ec2.types.target_capacity_specification_request
 
         capo_ec2.types.target_capacity_specification_request.serialize_ec2_query(
             value["target_capacity_specification"],
             pairs,
-            f"{prefix}.TargetCapacitySpecification",
+            f"{key_prefix}TargetCapacitySpecification",
         )
     if "context" in value:
-        pairs.append((f"{prefix}.Context", str(value["context"])))
+        pairs.append((f"{key_prefix}Context", str(value["context"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyFleetRequest:

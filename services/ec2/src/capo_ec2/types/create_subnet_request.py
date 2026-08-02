@@ -50,40 +50,45 @@ class CreateSubnetRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateSubnetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "ipv6_cidr_block" in value:
-        pairs.append((f"{prefix}.Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
+        pairs.append((f"{key_prefix}Ipv6CidrBlock", str(value["ipv6_cidr_block"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "ipv6_native" in value:
         pairs.append(
-            (f"{prefix}.Ipv6Native", "true" if value["ipv6_native"] else "false")
+            (f"{key_prefix}Ipv6Native", "true" if value["ipv6_native"] else "false")
         )
     if "ipv4_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
     if "ipv4_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv4NetmaskLength", str(value["ipv4_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv4NetmaskLength", str(value["ipv4_netmask_length"]))
+        )
     if "ipv6_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv6IpamPoolId", str(value["ipv6_ipam_pool_id"])))
     if "ipv6_netmask_length" in value:
-        pairs.append((f"{prefix}.Ipv6NetmaskLength", str(value["ipv6_netmask_length"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6NetmaskLength", str(value["ipv6_netmask_length"]))
+        )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> CreateSubnetRequest:

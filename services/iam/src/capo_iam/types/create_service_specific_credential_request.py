@@ -30,10 +30,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.UserName", str(value["user_name"])))
-    pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
+    pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
     if "credential_age_days" in value:
-        pairs.append((f"{prefix}.CredentialAgeDays", str(value["credential_age_days"])))
+        pairs.append(
+            (f"{key_prefix}CredentialAgeDays", str(value["credential_age_days"]))
+        )
 
 
 def deserialize_query(el: Element) -> CreateServiceSpecificCredentialRequest:

@@ -23,10 +23,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscription_name" in value:
-        pairs.append((f"{prefix}.SubscriptionName", str(value["subscription_name"])))
+        pairs.append((f"{key_prefix}SubscriptionName", str(value["subscription_name"])))
     if "source_identifier" in value:
-        pairs.append((f"{prefix}.SourceIdentifier", str(value["source_identifier"])))
+        pairs.append((f"{key_prefix}SourceIdentifier", str(value["source_identifier"])))
 
 
 def deserialize_query(el: Element) -> RemoveSourceIdentifierFromSubscriptionMessage:

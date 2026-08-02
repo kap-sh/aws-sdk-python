@@ -50,26 +50,27 @@ class GetSpotPlacementScoresRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetSpotPlacementScoresRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_types" in value:
         import capo_ec2.types.instance_types
 
         capo_ec2.types.instance_types.serialize_ec2_query(
-            value["instance_types"], pairs, f"{prefix}.InstanceTypes"
+            value["instance_types"], pairs, f"{key_prefix}InstanceTypes"
         )
     if "target_capacity" in value:
-        pairs.append((f"{prefix}.TargetCapacity", str(value["target_capacity"])))
+        pairs.append((f"{key_prefix}TargetCapacity", str(value["target_capacity"])))
     if "target_capacity_unit_type" in value:
         import capo_ec2.types.target_capacity_unit_type
 
         capo_ec2.types.target_capacity_unit_type.serialize_ec2_query(
             value["target_capacity_unit_type"],
             pairs,
-            f"{prefix}.TargetCapacityUnitType",
+            f"{key_prefix}TargetCapacityUnitType",
         )
     if "single_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.SingleAvailabilityZone",
+                f"{key_prefix}SingleAvailabilityZone",
                 "true" if value["single_availability_zone"] else "false",
             )
         )
@@ -77,7 +78,7 @@ def serialize_ec2_query(
         import capo_ec2.types.region_names
 
         capo_ec2.types.region_names.serialize_ec2_query(
-            value["region_names"], pairs, f"{prefix}.RegionNames"
+            value["region_names"], pairs, f"{key_prefix}RegionNames"
         )
     if "instance_requirements_with_metadata" in value:
         import capo_ec2.types.instance_requirements_with_metadata_request
@@ -85,14 +86,14 @@ def serialize_ec2_query(
         capo_ec2.types.instance_requirements_with_metadata_request.serialize_ec2_query(
             value["instance_requirements_with_metadata"],
             pairs,
-            f"{prefix}.InstanceRequirementsWithMetadata",
+            f"{key_prefix}InstanceRequirementsWithMetadata",
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:

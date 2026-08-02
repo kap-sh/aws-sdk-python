@@ -47,37 +47,41 @@ class InstanceEventWindow(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceEventWindow, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_event_window_id" in value:
         pairs.append(
-            (f"{prefix}.InstanceEventWindowId", str(value["instance_event_window_id"]))
+            (
+                f"{key_prefix}InstanceEventWindowId",
+                str(value["instance_event_window_id"]),
+            )
         )
     if "time_ranges" in value:
         import capo_ec2.types.instance_event_window_time_range_list
 
         capo_ec2.types.instance_event_window_time_range_list.serialize_ec2_query(
-            value["time_ranges"], pairs, f"{prefix}.TimeRangeSet"
+            value["time_ranges"], pairs, f"{key_prefix}TimeRangeSet"
         )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "cron_expression" in value:
-        pairs.append((f"{prefix}.CronExpression", str(value["cron_expression"])))
+        pairs.append((f"{key_prefix}CronExpression", str(value["cron_expression"])))
     if "association_target" in value:
         import capo_ec2.types.instance_event_window_association_target
 
         capo_ec2.types.instance_event_window_association_target.serialize_ec2_query(
-            value["association_target"], pairs, f"{prefix}.AssociationTarget"
+            value["association_target"], pairs, f"{key_prefix}AssociationTarget"
         )
     if "state" in value:
         import capo_ec2.types.instance_event_window_state
 
         capo_ec2.types.instance_event_window_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

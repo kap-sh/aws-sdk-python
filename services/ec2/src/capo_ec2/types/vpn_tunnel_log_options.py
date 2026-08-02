@@ -21,11 +21,12 @@ class VpnTunnelLogOptions(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnTunnelLogOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cloud_watch_log_options" in value:
         import capo_ec2.types.cloud_watch_log_options
 
         capo_ec2.types.cloud_watch_log_options.serialize_ec2_query(
-            value["cloud_watch_log_options"], pairs, f"{prefix}.CloudWatchLogOptions"
+            value["cloud_watch_log_options"], pairs, f"{key_prefix}CloudWatchLogOptions"
         )
 
 

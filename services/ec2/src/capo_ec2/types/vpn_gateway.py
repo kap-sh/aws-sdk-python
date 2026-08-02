@@ -36,35 +36,36 @@ class VpnGateway(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnGateway, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "amazon_side_asn" in value:
-        pairs.append((f"{prefix}.AmazonSideAsn", str(value["amazon_side_asn"])))
+        pairs.append((f"{key_prefix}AmazonSideAsn", str(value["amazon_side_asn"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpn_gateway_id" in value:
-        pairs.append((f"{prefix}.VpnGatewayId", str(value["vpn_gateway_id"])))
+        pairs.append((f"{key_prefix}VpnGatewayId", str(value["vpn_gateway_id"])))
     if "state" in value:
         import capo_ec2.types.vpn_state
 
         capo_ec2.types.vpn_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "type" in value:
         import capo_ec2.types.gateway_type
 
         capo_ec2.types.gateway_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "vpc_attachments" in value:
         import capo_ec2.types.vpc_attachment_list
 
         capo_ec2.types.vpc_attachment_list.serialize_ec2_query(
-            value["vpc_attachments"], pairs, f"{prefix}.Attachments"
+            value["vpc_attachments"], pairs, f"{key_prefix}Attachments"
         )
 
 

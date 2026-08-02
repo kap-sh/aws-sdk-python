@@ -54,48 +54,54 @@ class FleetCapacityReservation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FleetCapacityReservation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_id" in value:
         pairs.append(
-            (f"{prefix}.CapacityReservationId", str(value["capacity_reservation_id"]))
+            (
+                f"{key_prefix}CapacityReservationId",
+                str(value["capacity_reservation_id"]),
+            )
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "instance_type" in value:
         import capo_ec2.types.instance_type
 
         capo_ec2.types.instance_type.serialize_ec2_query(
-            value["instance_type"], pairs, f"{prefix}.InstanceType"
+            value["instance_type"], pairs, f"{key_prefix}InstanceType"
         )
     if "instance_platform" in value:
         import capo_ec2.types.capacity_reservation_instance_platform
 
         capo_ec2.types.capacity_reservation_instance_platform.serialize_ec2_query(
-            value["instance_platform"], pairs, f"{prefix}.InstancePlatform"
+            value["instance_platform"], pairs, f"{key_prefix}InstancePlatform"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "total_instance_count" in value:
         pairs.append(
-            (f"{prefix}.TotalInstanceCount", str(value["total_instance_count"]))
+            (f"{key_prefix}TotalInstanceCount", str(value["total_instance_count"]))
         )
     if "fulfilled_capacity" in value:
-        pairs.append((f"{prefix}.FulfilledCapacity", str(value["fulfilled_capacity"])))
+        pairs.append(
+            (f"{key_prefix}FulfilledCapacity", str(value["fulfilled_capacity"]))
+        )
     if "ebs_optimized" in value:
         pairs.append(
-            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+            (f"{key_prefix}EbsOptimized", "true" if value["ebs_optimized"] else "false")
         )
     if "create_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "weight" in value:
-        pairs.append((f"{prefix}.Weight", str(value["weight"])))
+        pairs.append((f"{key_prefix}Weight", str(value["weight"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
 
 
 def deserialize_ec2_query(el: Element) -> FleetCapacityReservation:

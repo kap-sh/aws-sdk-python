@@ -29,16 +29,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "carrier_ip" in value:
-        pairs.append((f"{prefix}.CarrierIp", str(value["carrier_ip"])))
+        pairs.append((f"{key_prefix}CarrierIp", str(value["carrier_ip"])))
     if "customer_owned_ip" in value:
-        pairs.append((f"{prefix}.CustomerOwnedIp", str(value["customer_owned_ip"])))
+        pairs.append((f"{key_prefix}CustomerOwnedIp", str(value["customer_owned_ip"])))
     if "ip_owner_id" in value:
-        pairs.append((f"{prefix}.IpOwnerId", str(value["ip_owner_id"])))
+        pairs.append((f"{key_prefix}IpOwnerId", str(value["ip_owner_id"])))
     if "public_dns_name" in value:
-        pairs.append((f"{prefix}.PublicDnsName", str(value["public_dns_name"])))
+        pairs.append((f"{key_prefix}PublicDnsName", str(value["public_dns_name"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
 
 
 def deserialize_ec2_query(el: Element) -> InstanceNetworkInterfaceAssociation:

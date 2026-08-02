@@ -23,13 +23,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_specific_credential" in value:
         import capo_iam.types.service_specific_credential
 
         capo_iam.types.service_specific_credential.serialize_query(
             value["service_specific_credential"],
             pairs,
-            f"{prefix}.ServiceSpecificCredential",
+            f"{key_prefix}ServiceSpecificCredential",
         )
 
 

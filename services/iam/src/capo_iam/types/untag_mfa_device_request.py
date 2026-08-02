@@ -23,11 +23,12 @@ class UntagMFADeviceRequest(TypedDict, closed=True):
 def serialize_query(
     value: UntagMFADeviceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SerialNumber", str(value["serial_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SerialNumber", str(value["serial_number"])))
     import capo_iam.types.tag_key_list_type
 
     capo_iam.types.tag_key_list_type.serialize_query(
-        value["tag_keys"], pairs, f"{prefix}.TagKeys"
+        value["tag_keys"], pairs, f"{key_prefix}TagKeys"
     )
 
 

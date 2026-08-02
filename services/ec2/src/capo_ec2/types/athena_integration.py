@@ -33,10 +33,11 @@ class AthenaIntegration(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AthenaIntegration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "integration_result_s3_destination_arn" in value:
         pairs.append(
             (
-                f"{prefix}.IntegrationResultS3DestinationArn",
+                f"{key_prefix}IntegrationResultS3DestinationArn",
                 str(value["integration_result_s3_destination_arn"]),
             )
         )
@@ -44,19 +45,21 @@ def serialize_ec2_query(
         import capo_ec2.types.partition_load_frequency
 
         capo_ec2.types.partition_load_frequency.serialize_ec2_query(
-            value["partition_load_frequency"], pairs, f"{prefix}.PartitionLoadFrequency"
+            value["partition_load_frequency"],
+            pairs,
+            f"{key_prefix}PartitionLoadFrequency",
         )
     if "partition_start_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["partition_start_date"], pairs, f"{prefix}.PartitionStartDate"
+            value["partition_start_date"], pairs, f"{key_prefix}PartitionStartDate"
         )
     if "partition_end_date" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["partition_end_date"], pairs, f"{prefix}.PartitionEndDate"
+            value["partition_end_date"], pairs, f"{key_prefix}PartitionEndDate"
         )
 
 

@@ -69,45 +69,46 @@ class ModifyVpcEndpointRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyVpcEndpointRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "reset_policy" in value:
         pairs.append(
-            (f"{prefix}.ResetPolicy", "true" if value["reset_policy"] else "false")
+            (f"{key_prefix}ResetPolicy", "true" if value["reset_policy"] else "false")
         )
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "add_route_table_ids" in value:
         import capo_ec2.types.vpc_endpoint_route_table_id_list
 
         capo_ec2.types.vpc_endpoint_route_table_id_list.serialize_ec2_query(
-            value["add_route_table_ids"], pairs, f"{prefix}.AddRouteTableIds"
+            value["add_route_table_ids"], pairs, f"{key_prefix}AddRouteTableIds"
         )
     if "remove_route_table_ids" in value:
         import capo_ec2.types.vpc_endpoint_route_table_id_list
 
         capo_ec2.types.vpc_endpoint_route_table_id_list.serialize_ec2_query(
-            value["remove_route_table_ids"], pairs, f"{prefix}.RemoveRouteTableIds"
+            value["remove_route_table_ids"], pairs, f"{key_prefix}RemoveRouteTableIds"
         )
     if "add_subnet_ids" in value:
         import capo_ec2.types.vpc_endpoint_subnet_id_list
 
         capo_ec2.types.vpc_endpoint_subnet_id_list.serialize_ec2_query(
-            value["add_subnet_ids"], pairs, f"{prefix}.AddSubnetIds"
+            value["add_subnet_ids"], pairs, f"{key_prefix}AddSubnetIds"
         )
     if "remove_subnet_ids" in value:
         import capo_ec2.types.vpc_endpoint_subnet_id_list
 
         capo_ec2.types.vpc_endpoint_subnet_id_list.serialize_ec2_query(
-            value["remove_subnet_ids"], pairs, f"{prefix}.RemoveSubnetIds"
+            value["remove_subnet_ids"], pairs, f"{key_prefix}RemoveSubnetIds"
         )
     if "add_security_group_ids" in value:
         import capo_ec2.types.vpc_endpoint_security_group_id_list
 
         capo_ec2.types.vpc_endpoint_security_group_id_list.serialize_ec2_query(
-            value["add_security_group_ids"], pairs, f"{prefix}.AddSecurityGroupIds"
+            value["add_security_group_ids"], pairs, f"{key_prefix}AddSecurityGroupIds"
         )
     if "remove_security_group_ids" in value:
         import capo_ec2.types.vpc_endpoint_security_group_id_list
@@ -115,24 +116,24 @@ def serialize_ec2_query(
         capo_ec2.types.vpc_endpoint_security_group_id_list.serialize_ec2_query(
             value["remove_security_group_ids"],
             pairs,
-            f"{prefix}.RemoveSecurityGroupIds",
+            f"{key_prefix}RemoveSecurityGroupIds",
         )
     if "ip_address_type" in value:
         import capo_ec2.types.ip_address_type
 
         capo_ec2.types.ip_address_type.serialize_ec2_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "dns_options" in value:
         import capo_ec2.types.dns_options_specification
 
         capo_ec2.types.dns_options_specification.serialize_ec2_query(
-            value["dns_options"], pairs, f"{prefix}.DnsOptions"
+            value["dns_options"], pairs, f"{key_prefix}DnsOptions"
         )
     if "private_dns_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.PrivateDnsEnabled",
+                f"{key_prefix}PrivateDnsEnabled",
                 "true" if value["private_dns_enabled"] else "false",
             )
         )
@@ -140,7 +141,7 @@ def serialize_ec2_query(
         import capo_ec2.types.subnet_configurations_list
 
         capo_ec2.types.subnet_configurations_list.serialize_ec2_query(
-            value["subnet_configurations"], pairs, f"{prefix}.SubnetConfigurations"
+            value["subnet_configurations"], pairs, f"{key_prefix}SubnetConfigurations"
         )
 
 

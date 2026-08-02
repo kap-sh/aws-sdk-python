@@ -23,11 +23,12 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "logging_configuration" in value:
         import capo_ec2.types.verified_access_instance_logging_configuration
 
         capo_ec2.types.verified_access_instance_logging_configuration.serialize_ec2_query(
-            value["logging_configuration"], pairs, f"{prefix}.LoggingConfiguration"
+            value["logging_configuration"], pairs, f"{key_prefix}LoggingConfiguration"
         )
 
 

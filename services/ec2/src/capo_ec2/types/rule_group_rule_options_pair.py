@@ -22,13 +22,14 @@ class RuleGroupRuleOptionsPair(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RuleGroupRuleOptionsPair, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_group_arn" in value:
-        pairs.append((f"{prefix}.RuleGroupArn", str(value["rule_group_arn"])))
+        pairs.append((f"{key_prefix}RuleGroupArn", str(value["rule_group_arn"])))
     if "rule_options" in value:
         import capo_ec2.types.rule_option_list
 
         capo_ec2.types.rule_option_list.serialize_ec2_query(
-            value["rule_options"], pairs, f"{prefix}.RuleOptionSet"
+            value["rule_options"], pairs, f"{key_prefix}RuleOptionSet"
         )
 
 

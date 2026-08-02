@@ -24,13 +24,16 @@ class GetWebIdentityTokenResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetWebIdentityTokenResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "web_identity_token" in value:
-        pairs.append((f"{prefix}.WebIdentityToken", str(value["web_identity_token"])))
+        pairs.append(
+            (f"{key_prefix}WebIdentityToken", str(value["web_identity_token"]))
+        )
     if "expiration" in value:
         import capo_sts.types.date_type
 
         capo_sts.types.date_type.serialize_query(
-            value["expiration"], pairs, f"{prefix}.Expiration"
+            value["expiration"], pairs, f"{key_prefix}Expiration"
         )
 
 

@@ -28,17 +28,18 @@ class AddressAttribute(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AddressAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "ptr_record" in value:
-        pairs.append((f"{prefix}.PtrRecord", str(value["ptr_record"])))
+        pairs.append((f"{key_prefix}PtrRecord", str(value["ptr_record"])))
     if "ptr_record_update" in value:
         import capo_ec2.types.ptr_update_status
 
         capo_ec2.types.ptr_update_status.serialize_ec2_query(
-            value["ptr_record_update"], pairs, f"{prefix}.PtrRecordUpdate"
+            value["ptr_record_update"], pairs, f"{key_prefix}PtrRecordUpdate"
         )
 
 

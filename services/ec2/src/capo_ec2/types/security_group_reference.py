@@ -25,19 +25,24 @@ class SecurityGroupReference(TypedDict, closed=True):
 def serialize_ec2_query(
     value: SecurityGroupReference, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "referencing_vpc_id" in value:
-        pairs.append((f"{prefix}.ReferencingVpcId", str(value["referencing_vpc_id"])))
+        pairs.append(
+            (f"{key_prefix}ReferencingVpcId", str(value["referencing_vpc_id"]))
+        )
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> SecurityGroupReference:

@@ -22,13 +22,14 @@ class RoleUsageType(TypedDict, closed=True):
 def serialize_query(
     value: RoleUsageType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "resources" in value:
         import capo_iam.types.arn_list_type
 
         capo_iam.types.arn_list_type.serialize_query(
-            value["resources"], pairs, f"{prefix}.Resources"
+            value["resources"], pairs, f"{key_prefix}Resources"
         )
 
 

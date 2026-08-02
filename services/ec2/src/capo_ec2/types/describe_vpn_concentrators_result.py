@@ -24,14 +24,15 @@ class DescribeVpnConcentratorsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpnConcentratorsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_concentrators" in value:
         import capo_ec2.types.vpn_concentrator_list
 
         capo_ec2.types.vpn_concentrator_list.serialize_ec2_query(
-            value["vpn_concentrators"], pairs, f"{prefix}.VpnConcentratorSet"
+            value["vpn_concentrators"], pairs, f"{key_prefix}VpnConcentratorSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpnConcentratorsResult:

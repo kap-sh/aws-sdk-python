@@ -40,48 +40,54 @@ class CreateGlobalClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateGlobalClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterIdentifier",
+                f"{key_prefix}GlobalClusterIdentifier",
                 str(value["global_cluster_identifier"]),
             )
         )
     if "source_db_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBClusterIdentifier",
+                f"{key_prefix}SourceDBClusterIdentifier",
                 str(value["source_db_cluster_identifier"]),
             )
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "engine_lifecycle_support" in value:
         pairs.append(
-            (f"{prefix}.EngineLifecycleSupport", str(value["engine_lifecycle_support"]))
+            (
+                f"{key_prefix}EngineLifecycleSupport",
+                str(value["engine_lifecycle_support"]),
+            )
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
     if "database_name" in value:
-        pairs.append((f"{prefix}.DatabaseName", str(value["database_name"])))
+        pairs.append((f"{key_prefix}DatabaseName", str(value["database_name"])))
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
     if "tags" in value:
         import capo_rds.types.tag_list
 
-        capo_rds.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_rds.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
 
 
 def deserialize_query(el: Element) -> CreateGlobalClusterMessage:

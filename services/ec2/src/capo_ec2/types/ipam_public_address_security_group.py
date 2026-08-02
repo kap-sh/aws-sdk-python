@@ -21,10 +21,11 @@ class IpamPublicAddressSecurityGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: IpamPublicAddressSecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> IpamPublicAddressSecurityGroup:

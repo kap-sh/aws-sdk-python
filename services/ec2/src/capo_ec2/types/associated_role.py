@@ -26,25 +26,28 @@ class AssociatedRole(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociatedRole, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "associated_role_arn" in value:
-        pairs.append((f"{prefix}.AssociatedRoleArn", str(value["associated_role_arn"])))
+        pairs.append(
+            (f"{key_prefix}AssociatedRoleArn", str(value["associated_role_arn"]))
+        )
     if "certificate_s3_bucket_name" in value:
         pairs.append(
             (
-                f"{prefix}.CertificateS3BucketName",
+                f"{key_prefix}CertificateS3BucketName",
                 str(value["certificate_s3_bucket_name"]),
             )
         )
     if "certificate_s3_object_key" in value:
         pairs.append(
             (
-                f"{prefix}.CertificateS3ObjectKey",
+                f"{key_prefix}CertificateS3ObjectKey",
                 str(value["certificate_s3_object_key"]),
             )
         )
     if "encryption_kms_key_id" in value:
         pairs.append(
-            (f"{prefix}.EncryptionKmsKeyId", str(value["encryption_kms_key_id"]))
+            (f"{key_prefix}EncryptionKmsKeyId", str(value["encryption_kms_key_id"]))
         )
 
 

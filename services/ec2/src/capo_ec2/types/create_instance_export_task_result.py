@@ -19,11 +19,12 @@ class CreateInstanceExportTaskResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateInstanceExportTaskResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "export_task" in value:
         import capo_ec2.types.export_task
 
         capo_ec2.types.export_task.serialize_ec2_query(
-            value["export_task"], pairs, f"{prefix}.ExportTask"
+            value["export_task"], pairs, f"{key_prefix}ExportTask"
         )
 
 

@@ -34,15 +34,16 @@ class AccessLog(TypedDict, closed=True):
 def serialize_query(
     value: AccessLog, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.Enabled", "true" if value.get("enabled", False) else "false")
+        (f"{key_prefix}Enabled", "true" if value.get("enabled", False) else "false")
     )
     if "s3_bucket_name" in value:
-        pairs.append((f"{prefix}.S3BucketName", str(value["s3_bucket_name"])))
+        pairs.append((f"{key_prefix}S3BucketName", str(value["s3_bucket_name"])))
     if "emit_interval" in value:
-        pairs.append((f"{prefix}.EmitInterval", str(value["emit_interval"])))
+        pairs.append((f"{key_prefix}EmitInterval", str(value["emit_interval"])))
     if "s3_bucket_prefix" in value:
-        pairs.append((f"{prefix}.S3BucketPrefix", str(value["s3_bucket_prefix"])))
+        pairs.append((f"{key_prefix}S3BucketPrefix", str(value["s3_bucket_prefix"])))
 
 
 def deserialize_query(el: Element) -> AccessLog:

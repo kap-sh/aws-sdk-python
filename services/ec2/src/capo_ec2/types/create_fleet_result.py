@@ -27,19 +27,20 @@ class CreateFleetResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateFleetResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "fleet_id" in value:
-        pairs.append((f"{prefix}.FleetId", str(value["fleet_id"])))
+        pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
     if "errors" in value:
         import capo_ec2.types.create_fleet_errors_set
 
         capo_ec2.types.create_fleet_errors_set.serialize_ec2_query(
-            value["errors"], pairs, f"{prefix}.ErrorSet"
+            value["errors"], pairs, f"{key_prefix}ErrorSet"
         )
     if "instances" in value:
         import capo_ec2.types.create_fleet_instances_set
 
         capo_ec2.types.create_fleet_instances_set.serialize_ec2_query(
-            value["instances"], pairs, f"{prefix}.FleetInstanceSet"
+            value["instances"], pairs, f"{key_prefix}FleetInstanceSet"
         )
 
 

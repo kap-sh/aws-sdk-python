@@ -127,39 +127,40 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricDataInput:
 def serialize_query(
     value: GetMetricDataInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_data_queries" in value:
         import capo_cloudwatch.types.metric_data_queries
 
         capo_cloudwatch.types.metric_data_queries.serialize_query(
-            value["metric_data_queries"], pairs, f"{prefix}.MetricDataQueries"
+            value["metric_data_queries"], pairs, f"{key_prefix}MetricDataQueries"
         )
     if "start_time" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_cloudwatch.types.timestamp
 
         capo_cloudwatch.types.timestamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "scan_by" in value:
         import capo_cloudwatch.types.scan_by
 
         capo_cloudwatch.types.scan_by.serialize_query(
-            value["scan_by"], pairs, f"{prefix}.ScanBy"
+            value["scan_by"], pairs, f"{key_prefix}ScanBy"
         )
     if "max_datapoints" in value:
-        pairs.append((f"{prefix}.MaxDatapoints", str(value["max_datapoints"])))
+        pairs.append((f"{key_prefix}MaxDatapoints", str(value["max_datapoints"])))
     if "label_options" in value:
         import capo_cloudwatch.types.label_options
 
         capo_cloudwatch.types.label_options.serialize_query(
-            value["label_options"], pairs, f"{prefix}.LabelOptions"
+            value["label_options"], pairs, f"{key_prefix}LabelOptions"
         )
 
 

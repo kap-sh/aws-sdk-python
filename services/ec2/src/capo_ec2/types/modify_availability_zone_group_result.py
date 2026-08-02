@@ -22,8 +22,9 @@ ModifyAvailabilityZoneGroupResult = TypedDict(
 def serialize_ec2_query(
     value: ModifyAvailabilityZoneGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyAvailabilityZoneGroupResult:

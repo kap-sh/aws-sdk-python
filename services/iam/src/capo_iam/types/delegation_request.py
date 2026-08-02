@@ -82,69 +82,70 @@ class DelegationRequest(TypedDict, closed=True):
 def serialize_query(
     value: DelegationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delegation_request_id" in value:
         pairs.append(
-            (f"{prefix}.DelegationRequestId", str(value["delegation_request_id"]))
+            (f"{key_prefix}DelegationRequestId", str(value["delegation_request_id"]))
         )
     if "owner_account_id" in value:
-        pairs.append((f"{prefix}.OwnerAccountId", str(value["owner_account_id"])))
+        pairs.append((f"{key_prefix}OwnerAccountId", str(value["owner_account_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "request_message" in value:
-        pairs.append((f"{prefix}.RequestMessage", str(value["request_message"])))
+        pairs.append((f"{key_prefix}RequestMessage", str(value["request_message"])))
     if "permissions" in value:
         import capo_iam.types.delegation_permission
 
         capo_iam.types.delegation_permission.serialize_query(
-            value["permissions"], pairs, f"{prefix}.Permissions"
+            value["permissions"], pairs, f"{key_prefix}Permissions"
         )
     if "permission_policy" in value:
-        pairs.append((f"{prefix}.PermissionPolicy", str(value["permission_policy"])))
+        pairs.append((f"{key_prefix}PermissionPolicy", str(value["permission_policy"])))
     if "role_permission_restriction_arns" in value:
         import capo_iam.types.role_permission_restriction_arn_list_type
 
         capo_iam.types.role_permission_restriction_arn_list_type.serialize_query(
             value["role_permission_restriction_arns"],
             pairs,
-            f"{prefix}.RolePermissionRestrictionArns",
+            f"{key_prefix}RolePermissionRestrictionArns",
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "approver_id" in value:
-        pairs.append((f"{prefix}.ApproverId", str(value["approver_id"])))
+        pairs.append((f"{key_prefix}ApproverId", str(value["approver_id"])))
     if "state" in value:
         import capo_iam.types.state_type
 
         capo_iam.types.state_type.serialize_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "expiration_time" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["expiration_time"], pairs, f"{prefix}.ExpirationTime"
+            value["expiration_time"], pairs, f"{key_prefix}ExpirationTime"
         )
     if "requestor_id" in value:
-        pairs.append((f"{prefix}.RequestorId", str(value["requestor_id"])))
+        pairs.append((f"{key_prefix}RequestorId", str(value["requestor_id"])))
     if "requestor_name" in value:
-        pairs.append((f"{prefix}.RequestorName", str(value["requestor_name"])))
+        pairs.append((f"{key_prefix}RequestorName", str(value["requestor_name"])))
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "session_duration" in value:
-        pairs.append((f"{prefix}.SessionDuration", str(value["session_duration"])))
+        pairs.append((f"{key_prefix}SessionDuration", str(value["session_duration"])))
     if "redirect_url" in value:
-        pairs.append((f"{prefix}.RedirectUrl", str(value["redirect_url"])))
+        pairs.append((f"{key_prefix}RedirectUrl", str(value["redirect_url"])))
     if "notes" in value:
-        pairs.append((f"{prefix}.Notes", str(value["notes"])))
+        pairs.append((f"{key_prefix}Notes", str(value["notes"])))
     if "rejection_reason" in value:
-        pairs.append((f"{prefix}.RejectionReason", str(value["rejection_reason"])))
+        pairs.append((f"{key_prefix}RejectionReason", str(value["rejection_reason"])))
     pairs.append(
         (
-            f"{prefix}.OnlySendByOwner",
+            f"{key_prefix}OnlySendByOwner",
             "true" if value.get("only_send_by_owner", False) else "false",
         )
     )
@@ -152,7 +153,7 @@ def serialize_query(
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["updated_time"], pairs, f"{prefix}.UpdatedTime"
+            value["updated_time"], pairs, f"{key_prefix}UpdatedTime"
         )
 
 

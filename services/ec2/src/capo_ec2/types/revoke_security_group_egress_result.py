@@ -30,13 +30,16 @@ RevokeSecurityGroupEgressResult = TypedDict(
 def serialize_ec2_query(
     value: RevokeSecurityGroupEgressResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "return" in value:
-        pairs.append((f"{prefix}.Return", "true" if value["return"] else "false"))
+        pairs.append((f"{key_prefix}Return", "true" if value["return"] else "false"))
     if "unknown_ip_permissions" in value:
         import capo_ec2.types.ip_permission_list
 
         capo_ec2.types.ip_permission_list.serialize_ec2_query(
-            value["unknown_ip_permissions"], pairs, f"{prefix}.UnknownIpPermissionSet"
+            value["unknown_ip_permissions"],
+            pairs,
+            f"{key_prefix}UnknownIpPermissionSet",
         )
     if "revoked_security_group_rules" in value:
         import capo_ec2.types.revoked_security_group_rule_list
@@ -44,7 +47,7 @@ def serialize_ec2_query(
         capo_ec2.types.revoked_security_group_rule_list.serialize_ec2_query(
             value["revoked_security_group_rules"],
             pairs,
-            f"{prefix}.RevokedSecurityGroupRuleSet",
+            f"{key_prefix}RevokedSecurityGroupRuleSet",
         )
 
 

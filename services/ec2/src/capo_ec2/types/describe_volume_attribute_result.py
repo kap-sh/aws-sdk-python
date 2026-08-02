@@ -27,20 +27,21 @@ class DescribeVolumeAttributeResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVolumeAttributeResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_enable_io" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["auto_enable_io"], pairs, f"{prefix}.AutoEnableIO"
+            value["auto_enable_io"], pairs, f"{key_prefix}AutoEnableIO"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_list
 
         capo_ec2.types.product_code_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{prefix}.ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
         )
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVolumeAttributeResult:

@@ -45,35 +45,43 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "device_index" in value:
-        pairs.append((f"{prefix}.DeviceIndex", str(value["device_index"])))
+        pairs.append((f"{key_prefix}DeviceIndex", str(value["device_index"])))
     if "private_ip_addresses" in value:
         import capo_ec2.types.secondary_interface_private_ip_address_specification_list_request
 
         capo_ec2.types.secondary_interface_private_ip_address_specification_list_request.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddresses"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddresses"
         )
     if "private_ip_address_count" in value:
         pairs.append(
-            (f"{prefix}.PrivateIpAddressCount", str(value["private_ip_address_count"]))
+            (
+                f"{key_prefix}PrivateIpAddressCount",
+                str(value["private_ip_address_count"]),
+            )
         )
     if "secondary_subnet_id" in value:
-        pairs.append((f"{prefix}.SecondarySubnetId", str(value["secondary_subnet_id"])))
+        pairs.append(
+            (f"{key_prefix}SecondarySubnetId", str(value["secondary_subnet_id"]))
+        )
     if "interface_type" in value:
         import capo_ec2.types.secondary_interface_type
 
         capo_ec2.types.secondary_interface_type.serialize_ec2_query(
-            value["interface_type"], pairs, f"{prefix}.InterfaceType"
+            value["interface_type"], pairs, f"{key_prefix}InterfaceType"
         )
     if "network_card_index" in value:
-        pairs.append((f"{prefix}.NetworkCardIndex", str(value["network_card_index"])))
+        pairs.append(
+            (f"{key_prefix}NetworkCardIndex", str(value["network_card_index"]))
+        )
 
 
 def deserialize_ec2_query(

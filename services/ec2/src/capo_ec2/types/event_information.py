@@ -23,12 +23,13 @@ class EventInformation(TypedDict, closed=True):
 def serialize_ec2_query(
     value: EventInformation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event_description" in value:
-        pairs.append((f"{prefix}.EventDescription", str(value["event_description"])))
+        pairs.append((f"{key_prefix}EventDescription", str(value["event_description"])))
     if "event_sub_type" in value:
-        pairs.append((f"{prefix}.EventSubType", str(value["event_sub_type"])))
+        pairs.append((f"{key_prefix}EventSubType", str(value["event_sub_type"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> EventInformation:

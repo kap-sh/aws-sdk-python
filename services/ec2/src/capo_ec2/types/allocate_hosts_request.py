@@ -55,52 +55,53 @@ class AllocateHostsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AllocateHostsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "host_recovery" in value:
         import capo_ec2.types.host_recovery
 
         capo_ec2.types.host_recovery.serialize_ec2_query(
-            value["host_recovery"], pairs, f"{prefix}.HostRecovery"
+            value["host_recovery"], pairs, f"{key_prefix}HostRecovery"
         )
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "host_maintenance" in value:
         import capo_ec2.types.host_maintenance
 
         capo_ec2.types.host_maintenance.serialize_ec2_query(
-            value["host_maintenance"], pairs, f"{prefix}.HostMaintenance"
+            value["host_maintenance"], pairs, f"{key_prefix}HostMaintenance"
         )
     if "asset_ids" in value:
         import capo_ec2.types.asset_id_list
 
         capo_ec2.types.asset_id_list.serialize_ec2_query(
-            value["asset_ids"], pairs, f"{prefix}.AssetIds"
+            value["asset_ids"], pairs, f"{key_prefix}AssetIds"
         )
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "auto_placement" in value:
         import capo_ec2.types.auto_placement
 
         capo_ec2.types.auto_placement.serialize_ec2_query(
-            value["auto_placement"], pairs, f"{prefix}.AutoPlacement"
+            value["auto_placement"], pairs, f"{key_prefix}AutoPlacement"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "quantity" in value:
-        pairs.append((f"{prefix}.Quantity", str(value["quantity"])))
+        pairs.append((f"{key_prefix}Quantity", str(value["quantity"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
 
 
 def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:

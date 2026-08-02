@@ -26,16 +26,17 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "multicast_domain_associations" in value:
         import capo_ec2.types.transit_gateway_multicast_domain_association_list
 
         capo_ec2.types.transit_gateway_multicast_domain_association_list.serialize_ec2_query(
             value["multicast_domain_associations"],
             pairs,
-            f"{prefix}.MulticastDomainAssociations",
+            f"{key_prefix}MulticastDomainAssociations",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(

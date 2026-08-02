@@ -40,35 +40,36 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_db_instances_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedDBInstancesOfferingId",
+                f"{key_prefix}ReservedDBInstancesOfferingId",
                 str(value["reserved_db_instances_offering_id"]),
             )
         )
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "product_description" in value:
         pairs.append(
-            (f"{prefix}.ProductDescription", str(value["product_description"]))
+            (f"{key_prefix}ProductDescription", str(value["product_description"]))
         )
     if "offering_type" in value:
-        pairs.append((f"{prefix}.OfferingType", str(value["offering_type"])))
+        pairs.append((f"{key_prefix}OfferingType", str(value["offering_type"])))
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "filters" in value:
         import capo_rds.types.filter_list
 
         capo_rds.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeReservedDBInstancesOfferingsMessage:

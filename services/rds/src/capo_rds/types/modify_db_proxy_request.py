@@ -43,39 +43,42 @@ class ModifyDBProxyRequest(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBProxyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "new_db_proxy_name" in value:
-        pairs.append((f"{prefix}.NewDBProxyName", str(value["new_db_proxy_name"])))
+        pairs.append((f"{key_prefix}NewDBProxyName", str(value["new_db_proxy_name"])))
     if "default_auth_scheme" in value:
         import capo_rds.types.default_auth_scheme
 
         capo_rds.types.default_auth_scheme.serialize_query(
-            value["default_auth_scheme"], pairs, f"{prefix}.DefaultAuthScheme"
+            value["default_auth_scheme"], pairs, f"{key_prefix}DefaultAuthScheme"
         )
     if "auth" in value:
         import capo_rds.types.user_auth_config_list
 
         capo_rds.types.user_auth_config_list.serialize_query(
-            value["auth"], pairs, f"{prefix}.Auth"
+            value["auth"], pairs, f"{key_prefix}Auth"
         )
     if "require_tls" in value:
         pairs.append(
-            (f"{prefix}.RequireTLS", "true" if value["require_tls"] else "false")
+            (f"{key_prefix}RequireTLS", "true" if value["require_tls"] else "false")
         )
     if "idle_client_timeout" in value:
-        pairs.append((f"{prefix}.IdleClientTimeout", str(value["idle_client_timeout"])))
+        pairs.append(
+            (f"{key_prefix}IdleClientTimeout", str(value["idle_client_timeout"]))
+        )
     if "debug_logging" in value:
         pairs.append(
-            (f"{prefix}.DebugLogging", "true" if value["debug_logging"] else "false")
+            (f"{key_prefix}DebugLogging", "true" if value["debug_logging"] else "false")
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleArn", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleArn", str(value["role_arn"])))
     if "security_groups" in value:
         import capo_rds.types.string_list
 
         capo_rds.types.string_list.serialize_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
 
 

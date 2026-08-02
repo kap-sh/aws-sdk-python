@@ -21,10 +21,11 @@ class StateReason(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StateReason, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "code" in value:
-        pairs.append((f"{prefix}.Code", str(value["code"])))
+        pairs.append((f"{key_prefix}Code", str(value["code"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_ec2_query(el: Element) -> StateReason:

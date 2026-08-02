@@ -32,18 +32,19 @@ class ModifyDBProxyTargetGroupRequest(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBProxyTargetGroupRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_group_name" in value:
-        pairs.append((f"{prefix}.TargetGroupName", str(value["target_group_name"])))
+        pairs.append((f"{key_prefix}TargetGroupName", str(value["target_group_name"])))
     if "db_proxy_name" in value:
-        pairs.append((f"{prefix}.DBProxyName", str(value["db_proxy_name"])))
+        pairs.append((f"{key_prefix}DBProxyName", str(value["db_proxy_name"])))
     if "connection_pool_config" in value:
         import capo_rds.types.connection_pool_configuration
 
         capo_rds.types.connection_pool_configuration.serialize_query(
-            value["connection_pool_config"], pairs, f"{prefix}.ConnectionPoolConfig"
+            value["connection_pool_config"], pairs, f"{key_prefix}ConnectionPoolConfig"
         )
     if "new_name" in value:
-        pairs.append((f"{prefix}.NewName", str(value["new_name"])))
+        pairs.append((f"{key_prefix}NewName", str(value["new_name"])))
 
 
 def deserialize_query(el: Element) -> ModifyDBProxyTargetGroupRequest:

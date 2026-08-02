@@ -46,11 +46,12 @@ def deserialize_aws_json_1_0(data: dict) -> PutManagedInsightRulesInput:
 def serialize_query(
     value: PutManagedInsightRulesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "managed_rules" in value:
         import capo_cloudwatch.types.managed_rules
 
         capo_cloudwatch.types.managed_rules.serialize_query(
-            value["managed_rules"], pairs, f"{prefix}.ManagedRules"
+            value["managed_rules"], pairs, f"{key_prefix}ManagedRules"
         )
 
 

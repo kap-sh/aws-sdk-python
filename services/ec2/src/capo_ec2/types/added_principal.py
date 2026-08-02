@@ -26,20 +26,21 @@ class AddedPrincipal(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AddedPrincipal, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "principal_type" in value:
         import capo_ec2.types.principal_type
 
         capo_ec2.types.principal_type.serialize_ec2_query(
-            value["principal_type"], pairs, f"{prefix}.PrincipalType"
+            value["principal_type"], pairs, f"{key_prefix}PrincipalType"
         )
     if "principal" in value:
-        pairs.append((f"{prefix}.Principal", str(value["principal"])))
+        pairs.append((f"{key_prefix}Principal", str(value["principal"])))
     if "service_permission_id" in value:
         pairs.append(
-            (f"{prefix}.ServicePermissionId", str(value["service_permission_id"]))
+            (f"{key_prefix}ServicePermissionId", str(value["service_permission_id"]))
         )
     if "service_id" in value:
-        pairs.append((f"{prefix}.ServiceId", str(value["service_id"])))
+        pairs.append((f"{key_prefix}ServiceId", str(value["service_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> AddedPrincipal:

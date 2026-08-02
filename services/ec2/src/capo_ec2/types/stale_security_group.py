@@ -34,17 +34,18 @@ class StaleSecurityGroup(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StaleSecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "group_id" in value:
-        pairs.append((f"{prefix}.GroupId", str(value["group_id"])))
+        pairs.append((f"{key_prefix}GroupId", str(value["group_id"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "stale_ip_permissions" in value:
         import capo_ec2.types.stale_ip_permission_set
 
         capo_ec2.types.stale_ip_permission_set.serialize_ec2_query(
-            value["stale_ip_permissions"], pairs, f"{prefix}.StaleIpPermissions"
+            value["stale_ip_permissions"], pairs, f"{key_prefix}StaleIpPermissions"
         )
     if "stale_ip_permissions_egress" in value:
         import capo_ec2.types.stale_ip_permission_set
@@ -52,10 +53,10 @@ def serialize_ec2_query(
         capo_ec2.types.stale_ip_permission_set.serialize_ec2_query(
             value["stale_ip_permissions_egress"],
             pairs,
-            f"{prefix}.StaleIpPermissionsEgress",
+            f"{key_prefix}StaleIpPermissionsEgress",
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> StaleSecurityGroup:

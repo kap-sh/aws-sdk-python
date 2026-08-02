@@ -25,13 +25,14 @@ class CreateLoginProfileRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateLoginProfileRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "password" in value:
-        pairs.append((f"{prefix}.Password", str(value["password"])))
+        pairs.append((f"{key_prefix}Password", str(value["password"])))
     pairs.append(
         (
-            f"{prefix}.PasswordResetRequired",
+            f"{key_prefix}PasswordResetRequired",
             "true" if value.get("password_reset_required", False) else "false",
         )
     )

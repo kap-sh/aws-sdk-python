@@ -115,40 +115,41 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsInput:
 def serialize_query(
     value: DescribeAlarmsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_names" in value:
         import capo_cloudwatch.types.alarm_names
 
         capo_cloudwatch.types.alarm_names.serialize_query(
-            value["alarm_names"], pairs, f"{prefix}.AlarmNames"
+            value["alarm_names"], pairs, f"{key_prefix}AlarmNames"
         )
     if "alarm_name_prefix" in value:
-        pairs.append((f"{prefix}.AlarmNamePrefix", str(value["alarm_name_prefix"])))
+        pairs.append((f"{key_prefix}AlarmNamePrefix", str(value["alarm_name_prefix"])))
     if "alarm_types" in value:
         import capo_cloudwatch.types.alarm_types
 
         capo_cloudwatch.types.alarm_types.serialize_query(
-            value["alarm_types"], pairs, f"{prefix}.AlarmTypes"
+            value["alarm_types"], pairs, f"{key_prefix}AlarmTypes"
         )
     if "children_of_alarm_name" in value:
         pairs.append(
-            (f"{prefix}.ChildrenOfAlarmName", str(value["children_of_alarm_name"]))
+            (f"{key_prefix}ChildrenOfAlarmName", str(value["children_of_alarm_name"]))
         )
     if "parents_of_alarm_name" in value:
         pairs.append(
-            (f"{prefix}.ParentsOfAlarmName", str(value["parents_of_alarm_name"]))
+            (f"{key_prefix}ParentsOfAlarmName", str(value["parents_of_alarm_name"]))
         )
     if "state_value" in value:
         import capo_cloudwatch.types.state_value
 
         capo_cloudwatch.types.state_value.serialize_query(
-            value["state_value"], pairs, f"{prefix}.StateValue"
+            value["state_value"], pairs, f"{key_prefix}StateValue"
         )
     if "action_prefix" in value:
-        pairs.append((f"{prefix}.ActionPrefix", str(value["action_prefix"])))
+        pairs.append((f"{key_prefix}ActionPrefix", str(value["action_prefix"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeAlarmsInput:

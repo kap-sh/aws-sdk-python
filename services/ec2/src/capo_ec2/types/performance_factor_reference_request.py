@@ -19,8 +19,9 @@ class PerformanceFactorReferenceRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PerformanceFactorReferenceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_family" in value:
-        pairs.append((f"{prefix}.InstanceFamily", str(value["instance_family"])))
+        pairs.append((f"{key_prefix}InstanceFamily", str(value["instance_family"])))
 
 
 def deserialize_ec2_query(el: Element) -> PerformanceFactorReferenceRequest:

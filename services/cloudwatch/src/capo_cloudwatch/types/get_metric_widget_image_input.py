@@ -41,10 +41,11 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricWidgetImageInput:
 def serialize_query(
     value: GetMetricWidgetImageInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_widget" in value:
-        pairs.append((f"{prefix}.MetricWidget", str(value["metric_widget"])))
+        pairs.append((f"{key_prefix}MetricWidget", str(value["metric_widget"])))
     if "output_format" in value:
-        pairs.append((f"{prefix}.OutputFormat", str(value["output_format"])))
+        pairs.append((f"{key_prefix}OutputFormat", str(value["output_format"])))
 
 
 def deserialize_query(el: Element) -> GetMetricWidgetImageInput:

@@ -21,11 +21,12 @@ class PurchaseScheduledInstancesResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PurchaseScheduledInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_instance_set" in value:
         import capo_ec2.types.purchased_scheduled_instance_set
 
         capo_ec2.types.purchased_scheduled_instance_set.serialize_ec2_query(
-            value["scheduled_instance_set"], pairs, f"{prefix}.ScheduledInstanceSet"
+            value["scheduled_instance_set"], pairs, f"{key_prefix}ScheduledInstanceSet"
         )
 
 

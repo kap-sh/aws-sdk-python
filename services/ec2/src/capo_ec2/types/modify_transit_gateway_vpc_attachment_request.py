@@ -40,10 +40,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_attachment_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayAttachmentId",
+                f"{key_prefix}TransitGatewayAttachmentId",
                 str(value["transit_gateway_attachment_id"]),
             )
         )
@@ -51,22 +52,22 @@ def serialize_ec2_query(
         import capo_ec2.types.transit_gateway_subnet_id_list
 
         capo_ec2.types.transit_gateway_subnet_id_list.serialize_ec2_query(
-            value["add_subnet_ids"], pairs, f"{prefix}.AddSubnetIds"
+            value["add_subnet_ids"], pairs, f"{key_prefix}AddSubnetIds"
         )
     if "remove_subnet_ids" in value:
         import capo_ec2.types.transit_gateway_subnet_id_list
 
         capo_ec2.types.transit_gateway_subnet_id_list.serialize_ec2_query(
-            value["remove_subnet_ids"], pairs, f"{prefix}.RemoveSubnetIds"
+            value["remove_subnet_ids"], pairs, f"{key_prefix}RemoveSubnetIds"
         )
     if "options" in value:
         import capo_ec2.types.modify_transit_gateway_vpc_attachment_request_options
 
         capo_ec2.types.modify_transit_gateway_vpc_attachment_request_options.serialize_ec2_query(
-            value["options"], pairs, f"{prefix}.Options"
+            value["options"], pairs, f"{key_prefix}Options"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyTransitGatewayVpcAttachmentRequest:

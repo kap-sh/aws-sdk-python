@@ -20,10 +20,11 @@ class GetServerCertificateResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetServerCertificateResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_iam.types.server_certificate
 
     capo_iam.types.server_certificate.serialize_query(
-        value["server_certificate"], pairs, f"{prefix}.ServerCertificate"
+        value["server_certificate"], pairs, f"{key_prefix}ServerCertificate"
     )
 
 

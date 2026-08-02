@@ -24,18 +24,19 @@ class DeleteFleetsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteFleetsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "fleet_ids" in value:
         import capo_ec2.types.fleet_id_set
 
         capo_ec2.types.fleet_id_set.serialize_ec2_query(
-            value["fleet_ids"], pairs, f"{prefix}.FleetIds"
+            value["fleet_ids"], pairs, f"{key_prefix}FleetIds"
         )
     if "terminate_instances" in value:
         pairs.append(
             (
-                f"{prefix}.TerminateInstances",
+                f"{key_prefix}TerminateInstances",
                 "true" if value["terminate_instances"] else "false",
             )
         )

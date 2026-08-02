@@ -29,22 +29,27 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 
         capo_ec2.types.currency_code_values.serialize_ec2_query(
-            value["currency_code"], pairs, f"{prefix}.CurrencyCode"
+            value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
     if "purchase" in value:
         import capo_ec2.types.purchase_set
 
         capo_ec2.types.purchase_set.serialize_ec2_query(
-            value["purchase"], pairs, f"{prefix}.Purchase"
+            value["purchase"], pairs, f"{key_prefix}Purchase"
         )
     if "total_hourly_price" in value:
-        pairs.append((f"{prefix}.TotalHourlyPrice", str(value["total_hourly_price"])))
+        pairs.append(
+            (f"{key_prefix}TotalHourlyPrice", str(value["total_hourly_price"]))
+        )
     if "total_upfront_price" in value:
-        pairs.append((f"{prefix}.TotalUpfrontPrice", str(value["total_upfront_price"])))
+        pairs.append(
+            (f"{key_prefix}TotalUpfrontPrice", str(value["total_upfront_price"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> GetHostReservationPurchasePreviewResult:

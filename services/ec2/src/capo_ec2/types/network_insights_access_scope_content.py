@@ -30,10 +30,11 @@ class NetworkInsightsAccessScopeContent(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NetworkInsightsAccessScopeContent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_access_scope_id" in value:
         pairs.append(
             (
-                f"{prefix}.NetworkInsightsAccessScopeId",
+                f"{key_prefix}NetworkInsightsAccessScopeId",
                 str(value["network_insights_access_scope_id"]),
             )
         )
@@ -41,13 +42,13 @@ def serialize_ec2_query(
         import capo_ec2.types.access_scope_path_list
 
         capo_ec2.types.access_scope_path_list.serialize_ec2_query(
-            value["match_paths"], pairs, f"{prefix}.MatchPathSet"
+            value["match_paths"], pairs, f"{key_prefix}MatchPathSet"
         )
     if "exclude_paths" in value:
         import capo_ec2.types.access_scope_path_list
 
         capo_ec2.types.access_scope_path_list.serialize_ec2_query(
-            value["exclude_paths"], pairs, f"{prefix}.ExcludePathSet"
+            value["exclude_paths"], pairs, f"{key_prefix}ExcludePathSet"
         )
 
 

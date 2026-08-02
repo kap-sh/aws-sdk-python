@@ -19,11 +19,12 @@ class ElasticGpuHealth(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ElasticGpuHealth, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_ec2.types.elastic_gpu_status
 
         capo_ec2.types.elastic_gpu_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

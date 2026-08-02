@@ -24,13 +24,14 @@ class AssociateRouteTableResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AssociateRouteTableResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "association_state" in value:
         import capo_ec2.types.route_table_association_state
 
         capo_ec2.types.route_table_association_state.serialize_ec2_query(
-            value["association_state"], pairs, f"{prefix}.AssociationState"
+            value["association_state"], pairs, f"{key_prefix}AssociationState"
         )
 
 

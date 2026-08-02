@@ -44,32 +44,33 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "architecture_types" in value:
         import capo_ec2.types.architecture_type_set
 
         capo_ec2.types.architecture_type_set.serialize_ec2_query(
-            value["architecture_types"], pairs, f"{prefix}.ArchitectureTypes"
+            value["architecture_types"], pairs, f"{key_prefix}ArchitectureTypes"
         )
     if "virtualization_types" in value:
         import capo_ec2.types.virtualization_type_set
 
         capo_ec2.types.virtualization_type_set.serialize_ec2_query(
-            value["virtualization_types"], pairs, f"{prefix}.VirtualizationTypes"
+            value["virtualization_types"], pairs, f"{key_prefix}VirtualizationTypes"
         )
     if "instance_requirements" in value:
         import capo_ec2.types.instance_requirements_request
 
         capo_ec2.types.instance_requirements_request.serialize_ec2_query(
-            value["instance_requirements"], pairs, f"{prefix}.InstanceRequirements"
+            value["instance_requirements"], pairs, f"{key_prefix}InstanceRequirements"
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "context" in value:
-        pairs.append((f"{prefix}.Context", str(value["context"])))
+        pairs.append((f"{key_prefix}Context", str(value["context"])))
 
 
 def deserialize_ec2_query(

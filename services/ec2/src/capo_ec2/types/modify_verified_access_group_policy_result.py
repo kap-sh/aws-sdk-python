@@ -29,17 +29,21 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_enabled" in value:
         pairs.append(
-            (f"{prefix}.PolicyEnabled", "true" if value["policy_enabled"] else "false")
+            (
+                f"{key_prefix}PolicyEnabled",
+                "true" if value["policy_enabled"] else "false",
+            )
         )
     if "policy_document" in value:
-        pairs.append((f"{prefix}.PolicyDocument", str(value["policy_document"])))
+        pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
     if "sse_specification" in value:
         import capo_ec2.types.verified_access_sse_specification_response
 
         capo_ec2.types.verified_access_sse_specification_response.serialize_ec2_query(
-            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+            value["sse_specification"], pairs, f"{key_prefix}SseSpecification"
         )
 
 

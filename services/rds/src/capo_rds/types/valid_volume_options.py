@@ -24,13 +24,14 @@ class ValidVolumeOptions(TypedDict, closed=True):
 def serialize_query(
     value: ValidVolumeOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_name" in value:
-        pairs.append((f"{prefix}.VolumeName", str(value["volume_name"])))
+        pairs.append((f"{key_prefix}VolumeName", str(value["volume_name"])))
     if "storage" in value:
         import capo_rds.types.valid_storage_options_list
 
         capo_rds.types.valid_storage_options_list.serialize_query(
-            value["storage"], pairs, f"{prefix}.Storage"
+            value["storage"], pairs, f"{key_prefix}Storage"
         )
 
 

@@ -22,13 +22,14 @@ class SAMLPrivateKey(TypedDict, closed=True):
 def serialize_query(
     value: SAMLPrivateKey, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "key_id" in value:
-        pairs.append((f"{prefix}.KeyId", str(value["key_id"])))
+        pairs.append((f"{key_prefix}KeyId", str(value["key_id"])))
     if "timestamp" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
 
 

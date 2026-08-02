@@ -61,26 +61,29 @@ class VerifiedAccessTrustProvider(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VerifiedAccessTrustProvider, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_access_trust_provider_id" in value:
         pairs.append(
             (
-                f"{prefix}.VerifiedAccessTrustProviderId",
+                f"{key_prefix}VerifiedAccessTrustProviderId",
                 str(value["verified_access_trust_provider_id"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "trust_provider_type" in value:
         import capo_ec2.types.trust_provider_type
 
         capo_ec2.types.trust_provider_type.serialize_ec2_query(
-            value["trust_provider_type"], pairs, f"{prefix}.TrustProviderType"
+            value["trust_provider_type"], pairs, f"{key_prefix}TrustProviderType"
         )
     if "user_trust_provider_type" in value:
         import capo_ec2.types.user_trust_provider_type
 
         capo_ec2.types.user_trust_provider_type.serialize_ec2_query(
-            value["user_trust_provider_type"], pairs, f"{prefix}.UserTrustProviderType"
+            value["user_trust_provider_type"],
+            pairs,
+            f"{key_prefix}UserTrustProviderType",
         )
     if "device_trust_provider_type" in value:
         import capo_ec2.types.device_trust_provider_type
@@ -88,39 +91,39 @@ def serialize_ec2_query(
         capo_ec2.types.device_trust_provider_type.serialize_ec2_query(
             value["device_trust_provider_type"],
             pairs,
-            f"{prefix}.DeviceTrustProviderType",
+            f"{key_prefix}DeviceTrustProviderType",
         )
     if "oidc_options" in value:
         import capo_ec2.types.oidc_options
 
         capo_ec2.types.oidc_options.serialize_ec2_query(
-            value["oidc_options"], pairs, f"{prefix}.OidcOptions"
+            value["oidc_options"], pairs, f"{key_prefix}OidcOptions"
         )
     if "device_options" in value:
         import capo_ec2.types.device_options
 
         capo_ec2.types.device_options.serialize_ec2_query(
-            value["device_options"], pairs, f"{prefix}.DeviceOptions"
+            value["device_options"], pairs, f"{key_prefix}DeviceOptions"
         )
     if "policy_reference_name" in value:
         pairs.append(
-            (f"{prefix}.PolicyReferenceName", str(value["policy_reference_name"]))
+            (f"{key_prefix}PolicyReferenceName", str(value["policy_reference_name"]))
         )
     if "creation_time" in value:
-        pairs.append((f"{prefix}.CreationTime", str(value["creation_time"])))
+        pairs.append((f"{key_prefix}CreationTime", str(value["creation_time"])))
     if "last_updated_time" in value:
-        pairs.append((f"{prefix}.LastUpdatedTime", str(value["last_updated_time"])))
+        pairs.append((f"{key_prefix}LastUpdatedTime", str(value["last_updated_time"])))
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "sse_specification" in value:
         import capo_ec2.types.verified_access_sse_specification_response
 
         capo_ec2.types.verified_access_sse_specification_response.serialize_ec2_query(
-            value["sse_specification"], pairs, f"{prefix}.SseSpecification"
+            value["sse_specification"], pairs, f"{key_prefix}SseSpecification"
         )
     if "native_application_oidc_options" in value:
         import capo_ec2.types.native_application_oidc_options
@@ -128,7 +131,7 @@ def serialize_ec2_query(
         capo_ec2.types.native_application_oidc_options.serialize_ec2_query(
             value["native_application_oidc_options"],
             pairs,
-            f"{prefix}.NativeApplicationOidcOptions",
+            f"{key_prefix}NativeApplicationOidcOptions",
         )
 
 

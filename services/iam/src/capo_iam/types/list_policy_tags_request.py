@@ -26,11 +26,12 @@ class ListPolicyTagsRequest(TypedDict, closed=True):
 def serialize_query(
     value: ListPolicyTagsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PolicyArn", str(value["policy_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyArn", str(value["policy_arn"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
 
 
 def deserialize_query(el: Element) -> ListPolicyTagsRequest:

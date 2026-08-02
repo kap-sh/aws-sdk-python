@@ -35,29 +35,30 @@ class StaleIpPermission(TypedDict, closed=True):
 def serialize_ec2_query(
     value: StaleIpPermission, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "from_port" in value:
-        pairs.append((f"{prefix}.FromPort", str(value["from_port"])))
+        pairs.append((f"{key_prefix}FromPort", str(value["from_port"])))
     if "ip_protocol" in value:
-        pairs.append((f"{prefix}.IpProtocol", str(value["ip_protocol"])))
+        pairs.append((f"{key_prefix}IpProtocol", str(value["ip_protocol"])))
     if "ip_ranges" in value:
         import capo_ec2.types.ip_ranges
 
         capo_ec2.types.ip_ranges.serialize_ec2_query(
-            value["ip_ranges"], pairs, f"{prefix}.IpRanges"
+            value["ip_ranges"], pairs, f"{key_prefix}IpRanges"
         )
     if "prefix_list_ids" in value:
         import capo_ec2.types.prefix_list_id_set
 
         capo_ec2.types.prefix_list_id_set.serialize_ec2_query(
-            value["prefix_list_ids"], pairs, f"{prefix}.PrefixListIds"
+            value["prefix_list_ids"], pairs, f"{key_prefix}PrefixListIds"
         )
     if "to_port" in value:
-        pairs.append((f"{prefix}.ToPort", str(value["to_port"])))
+        pairs.append((f"{key_prefix}ToPort", str(value["to_port"])))
     if "user_id_group_pairs" in value:
         import capo_ec2.types.user_id_group_pair_set
 
         capo_ec2.types.user_id_group_pair_set.serialize_ec2_query(
-            value["user_id_group_pairs"], pairs, f"{prefix}.Groups"
+            value["user_id_group_pairs"], pairs, f"{key_prefix}Groups"
         )
 
 

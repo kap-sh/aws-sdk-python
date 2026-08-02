@@ -56,61 +56,66 @@ class ScheduledInstancesNetworkInterface(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ScheduledInstancesNetworkInterface, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "associate_public_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.AssociatePublicIpAddress",
+                f"{key_prefix}AssociatePublicIpAddress",
                 "true" if value["associate_public_ip_address"] else "false",
             )
         )
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "device_index" in value:
-        pairs.append((f"{prefix}.DeviceIndex", str(value["device_index"])))
+        pairs.append((f"{key_prefix}DeviceIndex", str(value["device_index"])))
     if "groups" in value:
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         capo_ec2.types.scheduled_instances_security_group_id_set.serialize_ec2_query(
-            value["groups"], pairs, f"{prefix}.Groups"
+            value["groups"], pairs, f"{key_prefix}Groups"
         )
     if "ipv6_address_count" in value:
-        pairs.append((f"{prefix}.Ipv6AddressCount", str(value["ipv6_address_count"])))
+        pairs.append(
+            (f"{key_prefix}Ipv6AddressCount", str(value["ipv6_address_count"]))
+        )
     if "ipv6_addresses" in value:
         import capo_ec2.types.scheduled_instances_ipv6_address_list
 
         capo_ec2.types.scheduled_instances_ipv6_address_list.serialize_ec2_query(
-            value["ipv6_addresses"], pairs, f"{prefix}.Ipv6Addresses"
+            value["ipv6_addresses"], pairs, f"{key_prefix}Ipv6Addresses"
         )
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIpAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIpAddress", str(value["private_ip_address"]))
+        )
     if "private_ip_address_configs" in value:
         import capo_ec2.types.private_ip_address_config_set
 
         capo_ec2.types.private_ip_address_config_set.serialize_ec2_query(
             value["private_ip_address_configs"],
             pairs,
-            f"{prefix}.PrivateIpAddressConfigs",
+            f"{key_prefix}PrivateIpAddressConfigs",
         )
     if "secondary_private_ip_address_count" in value:
         pairs.append(
             (
-                f"{prefix}.SecondaryPrivateIpAddressCount",
+                f"{key_prefix}SecondaryPrivateIpAddressCount",
                 str(value["secondary_private_ip_address_count"]),
             )
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstancesNetworkInterface:

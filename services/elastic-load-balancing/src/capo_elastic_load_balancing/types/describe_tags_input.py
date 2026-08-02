@@ -20,10 +20,11 @@ class DescribeTagsInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTagsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_elastic_load_balancing.types.load_balancer_names_max20
 
     capo_elastic_load_balancing.types.load_balancer_names_max20.serialize_query(
-        value["load_balancer_names"], pairs, f"{prefix}.LoadBalancerNames"
+        value["load_balancer_names"], pairs, f"{key_prefix}LoadBalancerNames"
     )
 
 

@@ -19,10 +19,11 @@ class DeleteTrafficMirrorSessionResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteTrafficMirrorSessionResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_mirror_session_id" in value:
         pairs.append(
             (
-                f"{prefix}.TrafficMirrorSessionId",
+                f"{key_prefix}TrafficMirrorSessionId",
                 str(value["traffic_mirror_session_id"]),
             )
         )

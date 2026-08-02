@@ -22,10 +22,11 @@ class GetSerialConsoleAccessStatusResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetSerialConsoleAccessStatusResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serial_console_access_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.SerialConsoleAccessEnabled",
+                f"{key_prefix}SerialConsoleAccessEnabled",
                 "true" if value["serial_console_access_enabled"] else "false",
             )
         )
@@ -33,7 +34,7 @@ def serialize_ec2_query(
         import capo_ec2.types.managed_by
 
         capo_ec2.types.managed_by.serialize_ec2_query(
-            value["managed_by"], pairs, f"{prefix}.ManagedBy"
+            value["managed_by"], pairs, f"{key_prefix}ManagedBy"
         )
 
 

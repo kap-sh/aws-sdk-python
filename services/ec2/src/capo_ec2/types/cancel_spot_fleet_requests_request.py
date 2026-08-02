@@ -26,18 +26,19 @@ class CancelSpotFleetRequestsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CancelSpotFleetRequestsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "spot_fleet_request_ids" in value:
         import capo_ec2.types.spot_fleet_request_id_list
 
         capo_ec2.types.spot_fleet_request_id_list.serialize_ec2_query(
-            value["spot_fleet_request_ids"], pairs, f"{prefix}.SpotFleetRequestId"
+            value["spot_fleet_request_ids"], pairs, f"{key_prefix}SpotFleetRequestId"
         )
     if "terminate_instances" in value:
         pairs.append(
             (
-                f"{prefix}.TerminateInstances",
+                f"{key_prefix}TerminateInstances",
                 "true" if value["terminate_instances"] else "false",
             )
         )

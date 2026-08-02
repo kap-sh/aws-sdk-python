@@ -40,32 +40,33 @@ class NatGatewayAttachedAppliance(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NatGatewayAttachedAppliance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_ec2.types.nat_gateway_appliance_type
 
         capo_ec2.types.nat_gateway_appliance_type.serialize_ec2_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "appliance_arn" in value:
-        pairs.append((f"{prefix}.ApplianceArn", str(value["appliance_arn"])))
+        pairs.append((f"{key_prefix}ApplianceArn", str(value["appliance_arn"])))
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "attachment_state" in value:
         import capo_ec2.types.nat_gateway_appliance_state
 
         capo_ec2.types.nat_gateway_appliance_state.serialize_ec2_query(
-            value["attachment_state"], pairs, f"{prefix}.AttachmentState"
+            value["attachment_state"], pairs, f"{key_prefix}AttachmentState"
         )
     if "modification_state" in value:
         import capo_ec2.types.nat_gateway_appliance_modify_state
 
         capo_ec2.types.nat_gateway_appliance_modify_state.serialize_ec2_query(
-            value["modification_state"], pairs, f"{prefix}.ModificationState"
+            value["modification_state"], pairs, f"{key_prefix}ModificationState"
         )
     if "failure_code" in value:
-        pairs.append((f"{prefix}.FailureCode", str(value["failure_code"])))
+        pairs.append((f"{key_prefix}FailureCode", str(value["failure_code"])))
     if "failure_message" in value:
-        pairs.append((f"{prefix}.FailureMessage", str(value["failure_message"])))
+        pairs.append((f"{key_prefix}FailureMessage", str(value["failure_message"])))
 
 
 def deserialize_ec2_query(el: Element) -> NatGatewayAttachedAppliance:

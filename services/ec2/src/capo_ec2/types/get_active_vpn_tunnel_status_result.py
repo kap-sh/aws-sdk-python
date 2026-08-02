@@ -21,11 +21,14 @@ class GetActiveVpnTunnelStatusResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetActiveVpnTunnelStatusResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "active_vpn_tunnel_status" in value:
         import capo_ec2.types.active_vpn_tunnel_status
 
         capo_ec2.types.active_vpn_tunnel_status.serialize_ec2_query(
-            value["active_vpn_tunnel_status"], pairs, f"{prefix}.ActiveVpnTunnelStatus"
+            value["active_vpn_tunnel_status"],
+            pairs,
+            f"{key_prefix}ActiveVpnTunnelStatus",
         )
 
 

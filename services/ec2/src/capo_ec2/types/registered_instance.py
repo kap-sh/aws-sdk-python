@@ -40,37 +40,40 @@ class RegisteredInstance(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RegisteredInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "sql_server_license_usage" in value:
         import capo_ec2.types.sql_server_license_usage
 
         capo_ec2.types.sql_server_license_usage.serialize_ec2_query(
-            value["sql_server_license_usage"], pairs, f"{prefix}.SqlServerLicenseUsage"
+            value["sql_server_license_usage"],
+            pairs,
+            f"{key_prefix}SqlServerLicenseUsage",
         )
     if "ha_status" in value:
         import capo_ec2.types.ha_status
 
         capo_ec2.types.ha_status.serialize_ec2_query(
-            value["ha_status"], pairs, f"{prefix}.HaStatus"
+            value["ha_status"], pairs, f"{key_prefix}HaStatus"
         )
     if "processing_status" in value:
-        pairs.append((f"{prefix}.ProcessingStatus", str(value["processing_status"])))
+        pairs.append((f"{key_prefix}ProcessingStatus", str(value["processing_status"])))
     if "last_updated_time" in value:
         import capo_ec2.types.millisecond_date_time
 
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
-            value["last_updated_time"], pairs, f"{prefix}.LastUpdatedTime"
+            value["last_updated_time"], pairs, f"{key_prefix}LastUpdatedTime"
         )
     if "sql_server_credentials" in value:
         pairs.append(
-            (f"{prefix}.SqlServerCredentials", str(value["sql_server_credentials"]))
+            (f"{key_prefix}SqlServerCredentials", str(value["sql_server_credentials"]))
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

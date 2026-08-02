@@ -21,11 +21,12 @@ class ModifyDBProxyTargetGroupResponse(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBProxyTargetGroupResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_proxy_target_group" in value:
         import capo_rds.types.db_proxy_target_group
 
         capo_rds.types.db_proxy_target_group.serialize_query(
-            value["db_proxy_target_group"], pairs, f"{prefix}.DBProxyTargetGroup"
+            value["db_proxy_target_group"], pairs, f"{key_prefix}DBProxyTargetGroup"
         )
 
 

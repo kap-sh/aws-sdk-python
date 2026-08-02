@@ -19,11 +19,12 @@ class AttachVpnGatewayResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: AttachVpnGatewayResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_attachment" in value:
         import capo_ec2.types.vpc_attachment
 
         capo_ec2.types.vpc_attachment.serialize_ec2_query(
-            value["vpc_attachment"], pairs, f"{prefix}.Attachment"
+            value["vpc_attachment"], pairs, f"{key_prefix}Attachment"
         )
 
 

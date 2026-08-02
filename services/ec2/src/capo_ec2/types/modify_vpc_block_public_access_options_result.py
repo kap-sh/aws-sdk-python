@@ -23,13 +23,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_block_public_access_options" in value:
         import capo_ec2.types.vpc_block_public_access_options
 
         capo_ec2.types.vpc_block_public_access_options.serialize_ec2_query(
             value["vpc_block_public_access_options"],
             pairs,
-            f"{prefix}.VpcBlockPublicAccessOptions",
+            f"{key_prefix}VpcBlockPublicAccessOptions",
         )
 
 

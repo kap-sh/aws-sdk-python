@@ -47,35 +47,36 @@ class NatGatewayAddress(TypedDict, closed=True):
 def serialize_ec2_query(
     value: NatGatewayAddress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "network_interface_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInterfaceId", str(value["network_interface_id"]))
+            (f"{key_prefix}NetworkInterfaceId", str(value["network_interface_id"]))
         )
     if "private_ip" in value:
-        pairs.append((f"{prefix}.PrivateIp", str(value["private_ip"])))
+        pairs.append((f"{key_prefix}PrivateIp", str(value["private_ip"])))
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "association_id" in value:
-        pairs.append((f"{prefix}.AssociationId", str(value["association_id"])))
+        pairs.append((f"{key_prefix}AssociationId", str(value["association_id"])))
     if "is_primary" in value:
         pairs.append(
-            (f"{prefix}.IsPrimary", "true" if value["is_primary"] else "false")
+            (f"{key_prefix}IsPrimary", "true" if value["is_primary"] else "false")
         )
     if "failure_message" in value:
-        pairs.append((f"{prefix}.FailureMessage", str(value["failure_message"])))
+        pairs.append((f"{key_prefix}FailureMessage", str(value["failure_message"])))
     if "status" in value:
         import capo_ec2.types.nat_gateway_address_status
 
         capo_ec2.types.nat_gateway_address_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
 
 

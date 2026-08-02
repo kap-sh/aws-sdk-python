@@ -81,59 +81,60 @@ class ModifyClientVpnEndpointRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifyClientVpnEndpointRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_vpn_endpoint_id" in value:
         pairs.append(
-            (f"{prefix}.ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
+            (f"{key_prefix}ClientVpnEndpointId", str(value["client_vpn_endpoint_id"]))
         )
     if "server_certificate_arn" in value:
         pairs.append(
-            (f"{prefix}.ServerCertificateArn", str(value["server_certificate_arn"]))
+            (f"{key_prefix}ServerCertificateArn", str(value["server_certificate_arn"]))
         )
     if "connection_log_options" in value:
         import capo_ec2.types.connection_log_options
 
         capo_ec2.types.connection_log_options.serialize_ec2_query(
-            value["connection_log_options"], pairs, f"{prefix}.ConnectionLogOptions"
+            value["connection_log_options"], pairs, f"{key_prefix}ConnectionLogOptions"
         )
     if "dns_servers" in value:
         import capo_ec2.types.dns_servers_options_modify_structure
 
         capo_ec2.types.dns_servers_options_modify_structure.serialize_ec2_query(
-            value["dns_servers"], pairs, f"{prefix}.DnsServers"
+            value["dns_servers"], pairs, f"{key_prefix}DnsServers"
         )
     if "vpn_port" in value:
-        pairs.append((f"{prefix}.VpnPort", str(value["vpn_port"])))
+        pairs.append((f"{key_prefix}VpnPort", str(value["vpn_port"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "split_tunnel" in value:
         pairs.append(
-            (f"{prefix}.SplitTunnel", "true" if value["split_tunnel"] else "false")
+            (f"{key_prefix}SplitTunnel", "true" if value["split_tunnel"] else "false")
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "security_group_ids" in value:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         capo_ec2.types.client_vpn_security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "self_service_portal" in value:
         import capo_ec2.types.self_service_portal
 
         capo_ec2.types.self_service_portal.serialize_ec2_query(
-            value["self_service_portal"], pairs, f"{prefix}.SelfServicePortal"
+            value["self_service_portal"], pairs, f"{key_prefix}SelfServicePortal"
         )
     if "client_connect_options" in value:
         import capo_ec2.types.client_connect_options
 
         capo_ec2.types.client_connect_options.serialize_ec2_query(
-            value["client_connect_options"], pairs, f"{prefix}.ClientConnectOptions"
+            value["client_connect_options"], pairs, f"{key_prefix}ClientConnectOptions"
         )
     if "session_timeout_hours" in value:
         pairs.append(
-            (f"{prefix}.SessionTimeoutHours", str(value["session_timeout_hours"]))
+            (f"{key_prefix}SessionTimeoutHours", str(value["session_timeout_hours"]))
         )
     if "client_login_banner_options" in value:
         import capo_ec2.types.client_login_banner_options
@@ -141,7 +142,7 @@ def serialize_ec2_query(
         capo_ec2.types.client_login_banner_options.serialize_ec2_query(
             value["client_login_banner_options"],
             pairs,
-            f"{prefix}.ClientLoginBannerOptions",
+            f"{key_prefix}ClientLoginBannerOptions",
         )
     if "client_route_enforcement_options" in value:
         import capo_ec2.types.client_route_enforcement_options
@@ -149,12 +150,12 @@ def serialize_ec2_query(
         capo_ec2.types.client_route_enforcement_options.serialize_ec2_query(
             value["client_route_enforcement_options"],
             pairs,
-            f"{prefix}.ClientRouteEnforcementOptions",
+            f"{key_prefix}ClientRouteEnforcementOptions",
         )
     if "disconnect_on_session_timeout" in value:
         pairs.append(
             (
-                f"{prefix}.DisconnectOnSessionTimeout",
+                f"{key_prefix}DisconnectOnSessionTimeout",
                 "true" if value["disconnect_on_session_timeout"] else "false",
             )
         )
@@ -164,7 +165,7 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_configuration_input_structure.serialize_ec2_query(
             value["transit_gateway_configuration"],
             pairs,
-            f"{prefix}.TransitGatewayConfiguration",
+            f"{key_prefix}TransitGatewayConfiguration",
         )
 
 

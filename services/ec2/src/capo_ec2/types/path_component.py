@@ -86,85 +86,86 @@ class PathComponent(TypedDict, closed=True):
 def serialize_ec2_query(
     value: PathComponent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "sequence_number" in value:
-        pairs.append((f"{prefix}.SequenceNumber", str(value["sequence_number"])))
+        pairs.append((f"{key_prefix}SequenceNumber", str(value["sequence_number"])))
     if "acl_rule" in value:
         import capo_ec2.types.analysis_acl_rule
 
         capo_ec2.types.analysis_acl_rule.serialize_ec2_query(
-            value["acl_rule"], pairs, f"{prefix}.AclRule"
+            value["acl_rule"], pairs, f"{key_prefix}AclRule"
         )
     if "attached_to" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["attached_to"], pairs, f"{prefix}.AttachedTo"
+            value["attached_to"], pairs, f"{key_prefix}AttachedTo"
         )
     if "component" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["component"], pairs, f"{prefix}.Component"
+            value["component"], pairs, f"{key_prefix}Component"
         )
     if "destination_vpc" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["destination_vpc"], pairs, f"{prefix}.DestinationVpc"
+            value["destination_vpc"], pairs, f"{key_prefix}DestinationVpc"
         )
     if "outbound_header" in value:
         import capo_ec2.types.analysis_packet_header
 
         capo_ec2.types.analysis_packet_header.serialize_ec2_query(
-            value["outbound_header"], pairs, f"{prefix}.OutboundHeader"
+            value["outbound_header"], pairs, f"{key_prefix}OutboundHeader"
         )
     if "inbound_header" in value:
         import capo_ec2.types.analysis_packet_header
 
         capo_ec2.types.analysis_packet_header.serialize_ec2_query(
-            value["inbound_header"], pairs, f"{prefix}.InboundHeader"
+            value["inbound_header"], pairs, f"{key_prefix}InboundHeader"
         )
     if "route_table_route" in value:
         import capo_ec2.types.analysis_route_table_route
 
         capo_ec2.types.analysis_route_table_route.serialize_ec2_query(
-            value["route_table_route"], pairs, f"{prefix}.RouteTableRoute"
+            value["route_table_route"], pairs, f"{key_prefix}RouteTableRoute"
         )
     if "security_group_rule" in value:
         import capo_ec2.types.analysis_security_group_rule
 
         capo_ec2.types.analysis_security_group_rule.serialize_ec2_query(
-            value["security_group_rule"], pairs, f"{prefix}.SecurityGroupRule"
+            value["security_group_rule"], pairs, f"{key_prefix}SecurityGroupRule"
         )
     if "source_vpc" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["source_vpc"], pairs, f"{prefix}.SourceVpc"
+            value["source_vpc"], pairs, f"{key_prefix}SourceVpc"
         )
     if "subnet" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["subnet"], pairs, f"{prefix}.Subnet"
+            value["subnet"], pairs, f"{key_prefix}Subnet"
         )
     if "vpc" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["vpc"], pairs, f"{prefix}.Vpc"
+            value["vpc"], pairs, f"{key_prefix}Vpc"
         )
     if "additional_details" in value:
         import capo_ec2.types.additional_detail_list
 
         capo_ec2.types.additional_detail_list.serialize_ec2_query(
-            value["additional_details"], pairs, f"{prefix}.AdditionalDetailSet"
+            value["additional_details"], pairs, f"{key_prefix}AdditionalDetailSet"
         )
     if "transit_gateway" in value:
         import capo_ec2.types.analysis_component
 
         capo_ec2.types.analysis_component.serialize_ec2_query(
-            value["transit_gateway"], pairs, f"{prefix}.TransitGateway"
+            value["transit_gateway"], pairs, f"{key_prefix}TransitGateway"
         )
     if "transit_gateway_route_table_route" in value:
         import capo_ec2.types.transit_gateway_route_table_route
@@ -172,13 +173,13 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_route_table_route.serialize_ec2_query(
             value["transit_gateway_route_table_route"],
             pairs,
-            f"{prefix}.TransitGatewayRouteTableRoute",
+            f"{key_prefix}TransitGatewayRouteTableRoute",
         )
     if "explanations" in value:
         import capo_ec2.types.explanation_list
 
         capo_ec2.types.explanation_list.serialize_ec2_query(
-            value["explanations"], pairs, f"{prefix}.ExplanationSet"
+            value["explanations"], pairs, f"{key_prefix}ExplanationSet"
         )
     if "elastic_load_balancer_listener" in value:
         import capo_ec2.types.analysis_component
@@ -186,22 +187,24 @@ def serialize_ec2_query(
         capo_ec2.types.analysis_component.serialize_ec2_query(
             value["elastic_load_balancer_listener"],
             pairs,
-            f"{prefix}.ElasticLoadBalancerListener",
+            f"{key_prefix}ElasticLoadBalancerListener",
         )
     if "firewall_stateless_rule" in value:
         import capo_ec2.types.firewall_stateless_rule
 
         capo_ec2.types.firewall_stateless_rule.serialize_ec2_query(
-            value["firewall_stateless_rule"], pairs, f"{prefix}.FirewallStatelessRule"
+            value["firewall_stateless_rule"],
+            pairs,
+            f"{key_prefix}FirewallStatelessRule",
         )
     if "firewall_stateful_rule" in value:
         import capo_ec2.types.firewall_stateful_rule
 
         capo_ec2.types.firewall_stateful_rule.serialize_ec2_query(
-            value["firewall_stateful_rule"], pairs, f"{prefix}.FirewallStatefulRule"
+            value["firewall_stateful_rule"], pairs, f"{key_prefix}FirewallStatefulRule"
         )
     if "service_name" in value:
-        pairs.append((f"{prefix}.ServiceName", str(value["service_name"])))
+        pairs.append((f"{key_prefix}ServiceName", str(value["service_name"])))
 
 
 def deserialize_ec2_query(el: Element) -> PathComponent:

@@ -31,12 +31,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.JobId", str(value["job_id"])))
-    pairs.append((f"{prefix}.ServiceNamespace", str(value["service_namespace"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}JobId", str(value["job_id"])))
+    pairs.append((f"{key_prefix}ServiceNamespace", str(value["service_namespace"])))
     if "max_items" in value:
-        pairs.append((f"{prefix}.MaxItems", str(value["max_items"])))
+        pairs.append((f"{key_prefix}MaxItems", str(value["max_items"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> GetServiceLastAccessedDetailsWithEntitiesRequest:

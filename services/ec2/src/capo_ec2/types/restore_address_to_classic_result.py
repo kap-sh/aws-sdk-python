@@ -22,13 +22,14 @@ class RestoreAddressToClassicResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RestoreAddressToClassicResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "public_ip" in value:
-        pairs.append((f"{prefix}.PublicIp", str(value["public_ip"])))
+        pairs.append((f"{key_prefix}PublicIp", str(value["public_ip"])))
     if "status" in value:
         import capo_ec2.types.status
 
         capo_ec2.types.status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

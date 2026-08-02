@@ -35,30 +35,33 @@ class ByoipCidr(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ByoipCidr, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "asn_associations" in value:
         import capo_ec2.types.asn_association_set
 
         capo_ec2.types.asn_association_set.serialize_ec2_query(
-            value["asn_associations"], pairs, f"{prefix}.AsnAssociationSet"
+            value["asn_associations"], pairs, f"{key_prefix}AsnAssociationSet"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "state" in value:
         import capo_ec2.types.byoip_cidr_state
 
         capo_ec2.types.byoip_cidr_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "network_border_group" in value:
         pairs.append(
-            (f"{prefix}.NetworkBorderGroup", str(value["network_border_group"]))
+            (f"{key_prefix}NetworkBorderGroup", str(value["network_border_group"]))
         )
     if "advertisement_type" in value:
-        pairs.append((f"{prefix}.AdvertisementType", str(value["advertisement_type"])))
+        pairs.append(
+            (f"{key_prefix}AdvertisementType", str(value["advertisement_type"]))
+        )
 
 
 def deserialize_ec2_query(el: Element) -> ByoipCidr:

@@ -51,31 +51,32 @@ class UserDetail(TypedDict, closed=True):
 def serialize_query(
     value: UserDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "create_date" in value:
         import capo_iam.types.date_type
 
         capo_iam.types.date_type.serialize_query(
-            value["create_date"], pairs, f"{prefix}.CreateDate"
+            value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "user_policy_list" in value:
         import capo_iam.types.policy_detail_list_type
 
         capo_iam.types.policy_detail_list_type.serialize_query(
-            value["user_policy_list"], pairs, f"{prefix}.UserPolicyList"
+            value["user_policy_list"], pairs, f"{key_prefix}UserPolicyList"
         )
     if "group_list" in value:
         import capo_iam.types.group_name_list_type
 
         capo_iam.types.group_name_list_type.serialize_query(
-            value["group_list"], pairs, f"{prefix}.GroupList"
+            value["group_list"], pairs, f"{key_prefix}GroupList"
         )
     if "attached_managed_policies" in value:
         import capo_iam.types.attached_policies_list_type
@@ -83,19 +84,19 @@ def serialize_query(
         capo_iam.types.attached_policies_list_type.serialize_query(
             value["attached_managed_policies"],
             pairs,
-            f"{prefix}.AttachedManagedPolicies",
+            f"{key_prefix}AttachedManagedPolicies",
         )
     if "permissions_boundary" in value:
         import capo_iam.types.attached_permissions_boundary
 
         capo_iam.types.attached_permissions_boundary.serialize_query(
-            value["permissions_boundary"], pairs, f"{prefix}.PermissionsBoundary"
+            value["permissions_boundary"], pairs, f"{key_prefix}PermissionsBoundary"
         )
     if "tags" in value:
         import capo_iam.types.tag_list_type
 
         capo_iam.types.tag_list_type.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

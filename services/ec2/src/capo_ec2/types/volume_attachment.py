@@ -39,40 +39,44 @@ class VolumeAttachment(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeAttachment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "associated_resource" in value:
         pairs.append(
-            (f"{prefix}.AssociatedResource", str(value["associated_resource"]))
+            (f"{key_prefix}AssociatedResource", str(value["associated_resource"]))
         )
     if "instance_owning_service" in value:
         pairs.append(
-            (f"{prefix}.InstanceOwningService", str(value["instance_owning_service"]))
+            (
+                f"{key_prefix}InstanceOwningService",
+                str(value["instance_owning_service"]),
+            )
         )
     if "ebs_card_index" in value:
-        pairs.append((f"{prefix}.EbsCardIndex", str(value["ebs_card_index"])))
+        pairs.append((f"{key_prefix}EbsCardIndex", str(value["ebs_card_index"])))
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "device" in value:
-        pairs.append((f"{prefix}.Device", str(value["device"])))
+        pairs.append((f"{key_prefix}Device", str(value["device"])))
     if "state" in value:
         import capo_ec2.types.volume_attachment_state
 
         capo_ec2.types.volume_attachment_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.Status"
+            value["state"], pairs, f"{key_prefix}Status"
         )
     if "attach_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["attach_time"], pairs, f"{prefix}.AttachTime"
+            value["attach_time"], pairs, f"{key_prefix}AttachTime"
         )
 
 

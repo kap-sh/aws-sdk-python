@@ -34,20 +34,21 @@ class CapacityManagerMonitoredTagKey(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CapacityManagerMonitoredTagKey, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tag_key" in value:
-        pairs.append((f"{prefix}.TagKey", str(value["tag_key"])))
+        pairs.append((f"{key_prefix}TagKey", str(value["tag_key"])))
     if "status" in value:
         import capo_ec2.types.capacity_manager_monitored_tag_key_status
 
         capo_ec2.types.capacity_manager_monitored_tag_key_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "capacity_manager_provided" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityManagerProvided",
+                f"{key_prefix}CapacityManagerProvided",
                 "true" if value["capacity_manager_provided"] else "false",
             )
         )
@@ -57,7 +58,7 @@ def serialize_ec2_query(
         capo_ec2.types.millisecond_date_time.serialize_ec2_query(
             value["earliest_datapoint_timestamp"],
             pairs,
-            f"{prefix}.EarliestDatapointTimestamp",
+            f"{key_prefix}EarliestDatapointTimestamp",
         )
 
 

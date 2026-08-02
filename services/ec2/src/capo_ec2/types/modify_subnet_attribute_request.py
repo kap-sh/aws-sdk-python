@@ -59,39 +59,43 @@ class ModifySubnetAttributeRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ModifySubnetAttributeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "assign_ipv6_address_on_creation" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["assign_ipv6_address_on_creation"],
             pairs,
-            f"{prefix}.AssignIpv6AddressOnCreation",
+            f"{key_prefix}AssignIpv6AddressOnCreation",
         )
     if "map_public_ip_on_launch" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["map_public_ip_on_launch"], pairs, f"{prefix}.MapPublicIpOnLaunch"
+            value["map_public_ip_on_launch"], pairs, f"{key_prefix}MapPublicIpOnLaunch"
         )
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "map_customer_owned_ip_on_launch" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["map_customer_owned_ip_on_launch"],
             pairs,
-            f"{prefix}.MapCustomerOwnedIpOnLaunch",
+            f"{key_prefix}MapCustomerOwnedIpOnLaunch",
         )
     if "customer_owned_ipv4_pool" in value:
         pairs.append(
-            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+            (
+                f"{key_prefix}CustomerOwnedIpv4Pool",
+                str(value["customer_owned_ipv4_pool"]),
+            )
         )
     if "enable_dns64" in value:
         import capo_ec2.types.attribute_boolean_value
 
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
-            value["enable_dns64"], pairs, f"{prefix}.EnableDns64"
+            value["enable_dns64"], pairs, f"{key_prefix}EnableDns64"
         )
     if "private_dns_hostname_type_on_launch" in value:
         import capo_ec2.types.hostname_type
@@ -99,7 +103,7 @@ def serialize_ec2_query(
         capo_ec2.types.hostname_type.serialize_ec2_query(
             value["private_dns_hostname_type_on_launch"],
             pairs,
-            f"{prefix}.PrivateDnsHostnameTypeOnLaunch",
+            f"{key_prefix}PrivateDnsHostnameTypeOnLaunch",
         )
     if "enable_resource_name_dns_a_record_on_launch" in value:
         import capo_ec2.types.attribute_boolean_value
@@ -107,7 +111,7 @@ def serialize_ec2_query(
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["enable_resource_name_dns_a_record_on_launch"],
             pairs,
-            f"{prefix}.EnableResourceNameDnsARecordOnLaunch",
+            f"{key_prefix}EnableResourceNameDnsARecordOnLaunch",
         )
     if "enable_resource_name_dns_aaaa_record_on_launch" in value:
         import capo_ec2.types.attribute_boolean_value
@@ -115,12 +119,12 @@ def serialize_ec2_query(
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["enable_resource_name_dns_aaaa_record_on_launch"],
             pairs,
-            f"{prefix}.EnableResourceNameDnsAAAARecordOnLaunch",
+            f"{key_prefix}EnableResourceNameDnsAAAARecordOnLaunch",
         )
     if "enable_lni_at_device_index" in value:
         pairs.append(
             (
-                f"{prefix}.EnableLniAtDeviceIndex",
+                f"{key_prefix}EnableLniAtDeviceIndex",
                 str(value["enable_lni_at_device_index"]),
             )
         )
@@ -130,7 +134,7 @@ def serialize_ec2_query(
         capo_ec2.types.attribute_boolean_value.serialize_ec2_query(
             value["disable_lni_at_device_index"],
             pairs,
-            f"{prefix}.DisableLniAtDeviceIndex",
+            f"{key_prefix}DisableLniAtDeviceIndex",
         )
 
 

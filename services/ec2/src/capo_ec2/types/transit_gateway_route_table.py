@@ -37,32 +37,35 @@ class TransitGatewayRouteTable(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TransitGatewayRouteTable, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "transit_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.TransitGatewayRouteTableId",
+                f"{key_prefix}TransitGatewayRouteTableId",
                 str(value["transit_gateway_route_table_id"]),
             )
         )
     if "transit_gateway_id" in value:
-        pairs.append((f"{prefix}.TransitGatewayId", str(value["transit_gateway_id"])))
+        pairs.append(
+            (f"{key_prefix}TransitGatewayId", str(value["transit_gateway_id"]))
+        )
     if "state" in value:
         import capo_ec2.types.transit_gateway_route_table_state
 
         capo_ec2.types.transit_gateway_route_table_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "default_association_route_table" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultAssociationRouteTable",
+                f"{key_prefix}DefaultAssociationRouteTable",
                 "true" if value["default_association_route_table"] else "false",
             )
         )
     if "default_propagation_route_table" in value:
         pairs.append(
             (
-                f"{prefix}.DefaultPropagationRouteTable",
+                f"{key_prefix}DefaultPropagationRouteTable",
                 "true" if value["default_propagation_route_table"] else "false",
             )
         )
@@ -70,13 +73,13 @@ def serialize_ec2_query(
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
 
 

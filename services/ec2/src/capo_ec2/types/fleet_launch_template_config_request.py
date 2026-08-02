@@ -26,19 +26,20 @@ class FleetLaunchTemplateConfigRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FleetLaunchTemplateConfigRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_specification" in value:
         import capo_ec2.types.fleet_launch_template_specification_request
 
         capo_ec2.types.fleet_launch_template_specification_request.serialize_ec2_query(
             value["launch_template_specification"],
             pairs,
-            f"{prefix}.LaunchTemplateSpecification",
+            f"{key_prefix}LaunchTemplateSpecification",
         )
     if "overrides" in value:
         import capo_ec2.types.fleet_launch_template_overrides_list_request
 
         capo_ec2.types.fleet_launch_template_overrides_list_request.serialize_ec2_query(
-            value["overrides"], pairs, f"{prefix}.Overrides"
+            value["overrides"], pairs, f"{key_prefix}Overrides"
         )
 
 

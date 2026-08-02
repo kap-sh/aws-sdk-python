@@ -24,19 +24,20 @@ class RegionalSummary(TypedDict, closed=True):
 def serialize_ec2_query(
     value: RegionalSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region_name" in value:
-        pairs.append((f"{prefix}.RegionName", str(value["region_name"])))
+        pairs.append((f"{key_prefix}RegionName", str(value["region_name"])))
     if "number_of_matched_accounts" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfMatchedAccounts",
+                f"{key_prefix}NumberOfMatchedAccounts",
                 str(value["number_of_matched_accounts"]),
             )
         )
     if "number_of_unmatched_accounts" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfUnmatchedAccounts",
+                f"{key_prefix}NumberOfUnmatchedAccounts",
                 str(value["number_of_unmatched_accounts"]),
             )
         )

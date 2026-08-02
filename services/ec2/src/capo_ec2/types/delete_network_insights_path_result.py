@@ -21,9 +21,13 @@ class DeleteNetworkInsightsPathResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteNetworkInsightsPathResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "network_insights_path_id" in value:
         pairs.append(
-            (f"{prefix}.NetworkInsightsPathId", str(value["network_insights_path_id"]))
+            (
+                f"{key_prefix}NetworkInsightsPathId",
+                str(value["network_insights_path_id"]),
+            )
         )
 
 

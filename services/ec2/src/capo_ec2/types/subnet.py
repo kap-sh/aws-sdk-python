@@ -77,34 +77,38 @@ class Subnet(TypedDict, closed=True):
 def serialize_ec2_query(
     value: Subnet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "enable_lni_at_device_index" in value:
         pairs.append(
             (
-                f"{prefix}.EnableLniAtDeviceIndex",
+                f"{key_prefix}EnableLniAtDeviceIndex",
                 str(value["enable_lni_at_device_index"]),
             )
         )
     if "map_customer_owned_ip_on_launch" in value:
         pairs.append(
             (
-                f"{prefix}.MapCustomerOwnedIpOnLaunch",
+                f"{key_prefix}MapCustomerOwnedIpOnLaunch",
                 "true" if value["map_customer_owned_ip_on_launch"] else "false",
             )
         )
     if "customer_owned_ipv4_pool" in value:
         pairs.append(
-            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+            (
+                f"{key_prefix}CustomerOwnedIpv4Pool",
+                str(value["customer_owned_ipv4_pool"]),
+            )
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "assign_ipv6_address_on_creation" in value:
         pairs.append(
             (
-                f"{prefix}.AssignIpv6AddressOnCreation",
+                f"{key_prefix}AssignIpv6AddressOnCreation",
                 "true" if value["assign_ipv6_address_on_creation"] else "false",
             )
         )
@@ -114,25 +118,25 @@ def serialize_ec2_query(
         capo_ec2.types.subnet_ipv6_cidr_block_association_set.serialize_ec2_query(
             value["ipv6_cidr_block_association_set"],
             pairs,
-            f"{prefix}.Ipv6CidrBlockAssociationSet",
+            f"{key_prefix}Ipv6CidrBlockAssociationSet",
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "subnet_arn" in value:
-        pairs.append((f"{prefix}.SubnetArn", str(value["subnet_arn"])))
+        pairs.append((f"{key_prefix}SubnetArn", str(value["subnet_arn"])))
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "enable_dns64" in value:
         pairs.append(
-            (f"{prefix}.EnableDns64", "true" if value["enable_dns64"] else "false")
+            (f"{key_prefix}EnableDns64", "true" if value["enable_dns64"] else "false")
         )
     if "ipv6_native" in value:
         pairs.append(
-            (f"{prefix}.Ipv6Native", "true" if value["ipv6_native"] else "false")
+            (f"{key_prefix}Ipv6Native", "true" if value["ipv6_native"] else "false")
         )
     if "private_dns_name_options_on_launch" in value:
         import capo_ec2.types.private_dns_name_options_on_launch
@@ -140,7 +144,7 @@ def serialize_ec2_query(
         capo_ec2.types.private_dns_name_options_on_launch.serialize_ec2_query(
             value["private_dns_name_options_on_launch"],
             pairs,
-            f"{prefix}.PrivateDnsNameOptionsOnLaunch",
+            f"{key_prefix}PrivateDnsNameOptionsOnLaunch",
         )
     if "block_public_access_states" in value:
         import capo_ec2.types.block_public_access_states
@@ -148,39 +152,42 @@ def serialize_ec2_query(
         capo_ec2.types.block_public_access_states.serialize_ec2_query(
             value["block_public_access_states"],
             pairs,
-            f"{prefix}.BlockPublicAccessStates",
+            f"{key_prefix}BlockPublicAccessStates",
         )
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "state" in value:
         import capo_ec2.types.subnet_state
 
         capo_ec2.types.subnet_state.serialize_ec2_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "cidr_block" in value:
-        pairs.append((f"{prefix}.CidrBlock", str(value["cidr_block"])))
+        pairs.append((f"{key_prefix}CidrBlock", str(value["cidr_block"])))
     if "available_ip_address_count" in value:
         pairs.append(
             (
-                f"{prefix}.AvailableIpAddressCount",
+                f"{key_prefix}AvailableIpAddressCount",
                 str(value["available_ip_address_count"]),
             )
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "default_for_az" in value:
         pairs.append(
-            (f"{prefix}.DefaultForAz", "true" if value["default_for_az"] else "false")
+            (
+                f"{key_prefix}DefaultForAz",
+                "true" if value["default_for_az"] else "false",
+            )
         )
     if "map_public_ip_on_launch" in value:
         pairs.append(
             (
-                f"{prefix}.MapPublicIpOnLaunch",
+                f"{key_prefix}MapPublicIpOnLaunch",
                 "true" if value["map_public_ip_on_launch"] else "false",
             )
         )

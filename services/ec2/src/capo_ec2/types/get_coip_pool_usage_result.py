@@ -28,23 +28,24 @@ class GetCoipPoolUsageResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetCoipPoolUsageResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "coip_pool_id" in value:
-        pairs.append((f"{prefix}.CoipPoolId", str(value["coip_pool_id"])))
+        pairs.append((f"{key_prefix}CoipPoolId", str(value["coip_pool_id"])))
     if "coip_address_usages" in value:
         import capo_ec2.types.coip_address_usage_set
 
         capo_ec2.types.coip_address_usage_set.serialize_ec2_query(
-            value["coip_address_usages"], pairs, f"{prefix}.CoipAddressUsageSet"
+            value["coip_address_usages"], pairs, f"{key_prefix}CoipAddressUsageSet"
         )
     if "local_gateway_route_table_id" in value:
         pairs.append(
             (
-                f"{prefix}.LocalGatewayRouteTableId",
+                f"{key_prefix}LocalGatewayRouteTableId",
                 str(value["local_gateway_route_table_id"]),
             )
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetCoipPoolUsageResult:

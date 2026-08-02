@@ -22,13 +22,14 @@ class MetricReference(TypedDict, closed=True):
 def serialize_query(
     value: MetricReference, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "reference_details" in value:
         import capo_rds.types.reference_details
 
         capo_rds.types.reference_details.serialize_query(
-            value["reference_details"], pairs, f"{prefix}.ReferenceDetails"
+            value["reference_details"], pairs, f"{key_prefix}ReferenceDetails"
         )
 
 

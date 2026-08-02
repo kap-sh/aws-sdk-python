@@ -37,28 +37,29 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "operation" in value:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_condition_operation
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_condition_operation.serialize_ec2_query(
-            value["operation"], pairs, f"{prefix}.Operation"
+            value["operation"], pairs, f"{key_prefix}Operation"
         )
     if "ipam_pool_id" in value:
-        pairs.append((f"{prefix}.IpamPoolId", str(value["ipam_pool_id"])))
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
     if "resource_id" in value:
-        pairs.append((f"{prefix}.ResourceId", str(value["resource_id"])))
+        pairs.append((f"{key_prefix}ResourceId", str(value["resource_id"])))
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
     if "resource_region" in value:
-        pairs.append((f"{prefix}.ResourceRegion", str(value["resource_region"])))
+        pairs.append((f"{key_prefix}ResourceRegion", str(value["resource_region"])))
     if "resource_tag" in value:
         import capo_ec2.types.ipam_resource_tag
 
         capo_ec2.types.ipam_resource_tag.serialize_ec2_query(
-            value["resource_tag"], pairs, f"{prefix}.ResourceTag"
+            value["resource_tag"], pairs, f"{key_prefix}ResourceTag"
         )
     if "cidr" in value:
-        pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+        pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
 
 
 def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRuleCondition:

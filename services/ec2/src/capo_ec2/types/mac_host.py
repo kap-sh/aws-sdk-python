@@ -24,15 +24,16 @@ class MacHost(TypedDict, closed=True):
 def serialize_ec2_query(
     value: MacHost, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "host_id" in value:
-        pairs.append((f"{prefix}.HostId", str(value["host_id"])))
+        pairs.append((f"{key_prefix}HostId", str(value["host_id"])))
     if "mac_os_latest_supported_versions" in value:
         import capo_ec2.types.mac_os_version_string_list
 
         capo_ec2.types.mac_os_version_string_list.serialize_ec2_query(
             value["mac_os_latest_supported_versions"],
             pairs,
-            f"{prefix}.MacOSLatestSupportedVersionSet",
+            f"{key_prefix}MacOSLatestSupportedVersionSet",
         )
 
 

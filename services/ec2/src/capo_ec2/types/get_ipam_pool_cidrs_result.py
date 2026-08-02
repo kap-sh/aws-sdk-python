@@ -22,14 +22,15 @@ class GetIpamPoolCidrsResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: GetIpamPoolCidrsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_pool_cidrs" in value:
         import capo_ec2.types.ipam_pool_cidr_set
 
         capo_ec2.types.ipam_pool_cidr_set.serialize_ec2_query(
-            value["ipam_pool_cidrs"], pairs, f"{prefix}.IpamPoolCidrSet"
+            value["ipam_pool_cidrs"], pairs, f"{key_prefix}IpamPoolCidrSet"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> GetIpamPoolCidrsResult:

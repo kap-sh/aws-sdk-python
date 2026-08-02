@@ -25,19 +25,20 @@ class VpnConnectionDeviceType(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpnConnectionDeviceType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpn_connection_device_type_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpnConnectionDeviceTypeId",
+                f"{key_prefix}VpnConnectionDeviceTypeId",
                 str(value["vpn_connection_device_type_id"]),
             )
         )
     if "vendor" in value:
-        pairs.append((f"{prefix}.Vendor", str(value["vendor"])))
+        pairs.append((f"{key_prefix}Vendor", str(value["vendor"])))
     if "platform" in value:
-        pairs.append((f"{prefix}.Platform", str(value["platform"])))
+        pairs.append((f"{key_prefix}Platform", str(value["platform"])))
     if "software" in value:
-        pairs.append((f"{prefix}.Software", str(value["software"])))
+        pairs.append((f"{key_prefix}Software", str(value["software"])))
 
 
 def deserialize_ec2_query(el: Element) -> VpnConnectionDeviceType:

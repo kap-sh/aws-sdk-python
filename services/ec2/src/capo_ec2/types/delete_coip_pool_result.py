@@ -19,11 +19,12 @@ class DeleteCoipPoolResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DeleteCoipPoolResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "coip_pool" in value:
         import capo_ec2.types.coip_pool
 
         capo_ec2.types.coip_pool.serialize_ec2_query(
-            value["coip_pool"], pairs, f"{prefix}.CoipPool"
+            value["coip_pool"], pairs, f"{key_prefix}CoipPool"
         )
 
 

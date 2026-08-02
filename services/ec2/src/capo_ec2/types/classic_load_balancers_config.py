@@ -21,11 +21,12 @@ class ClassicLoadBalancersConfig(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ClassicLoadBalancersConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "classic_load_balancers" in value:
         import capo_ec2.types.classic_load_balancers
 
         capo_ec2.types.classic_load_balancers.serialize_ec2_query(
-            value["classic_load_balancers"], pairs, f"{prefix}.ClassicLoadBalancers"
+            value["classic_load_balancers"], pairs, f"{key_prefix}ClassicLoadBalancers"
         )
 
 

@@ -39,40 +39,41 @@ class VpcPeeringConnection(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VpcPeeringConnection, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accepter_vpc_info" in value:
         import capo_ec2.types.vpc_peering_connection_vpc_info
 
         capo_ec2.types.vpc_peering_connection_vpc_info.serialize_ec2_query(
-            value["accepter_vpc_info"], pairs, f"{prefix}.AccepterVpcInfo"
+            value["accepter_vpc_info"], pairs, f"{key_prefix}AccepterVpcInfo"
         )
     if "expiration_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["expiration_time"], pairs, f"{prefix}.ExpirationTime"
+            value["expiration_time"], pairs, f"{key_prefix}ExpirationTime"
         )
     if "requester_vpc_info" in value:
         import capo_ec2.types.vpc_peering_connection_vpc_info
 
         capo_ec2.types.vpc_peering_connection_vpc_info.serialize_ec2_query(
-            value["requester_vpc_info"], pairs, f"{prefix}.RequesterVpcInfo"
+            value["requester_vpc_info"], pairs, f"{key_prefix}RequesterVpcInfo"
         )
     if "status" in value:
         import capo_ec2.types.vpc_peering_connection_state_reason
 
         capo_ec2.types.vpc_peering_connection_state_reason.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["tags"], pairs, f"{prefix}.TagSet"
+            value["tags"], pairs, f"{key_prefix}TagSet"
         )
     if "vpc_peering_connection_id" in value:
         pairs.append(
             (
-                f"{prefix}.VpcPeeringConnectionId",
+                f"{key_prefix}VpcPeeringConnectionId",
                 str(value["vpc_peering_connection_id"]),
             )
         )

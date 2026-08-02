@@ -52,45 +52,53 @@ class TenantDatabase(TypedDict, closed=True):
 def serialize_query(
     value: TenantDatabase, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tenant_database_create_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
             value["tenant_database_create_time"],
             pairs,
-            f"{prefix}.TenantDatabaseCreateTime",
+            f"{key_prefix}TenantDatabaseCreateTime",
         )
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "tenant_db_name" in value:
-        pairs.append((f"{prefix}.TenantDBName", str(value["tenant_db_name"])))
+        pairs.append((f"{key_prefix}TenantDBName", str(value["tenant_db_name"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
     if "tenant_database_resource_id" in value:
         pairs.append(
             (
-                f"{prefix}.TenantDatabaseResourceId",
+                f"{key_prefix}TenantDatabaseResourceId",
                 str(value["tenant_database_resource_id"]),
             )
         )
     if "tenant_database_arn" in value:
-        pairs.append((f"{prefix}.TenantDatabaseARN", str(value["tenant_database_arn"])))
+        pairs.append(
+            (f"{key_prefix}TenantDatabaseARN", str(value["tenant_database_arn"]))
+        )
     if "character_set_name" in value:
-        pairs.append((f"{prefix}.CharacterSetName", str(value["character_set_name"])))
+        pairs.append(
+            (f"{key_prefix}CharacterSetName", str(value["character_set_name"]))
+        )
     if "nchar_character_set_name" in value:
         pairs.append(
-            (f"{prefix}.NcharCharacterSetName", str(value["nchar_character_set_name"]))
+            (
+                f"{key_prefix}NcharCharacterSetName",
+                str(value["nchar_character_set_name"]),
+            )
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
@@ -98,19 +106,21 @@ def serialize_query(
         import capo_rds.types.tenant_database_pending_modified_values
 
         capo_rds.types.tenant_database_pending_modified_values.serialize_query(
-            value["pending_modified_values"], pairs, f"{prefix}.PendingModifiedValues"
+            value["pending_modified_values"],
+            pairs,
+            f"{key_prefix}PendingModifiedValues",
         )
     if "master_user_secret" in value:
         import capo_rds.types.master_user_secret
 
         capo_rds.types.master_user_secret.serialize_query(
-            value["master_user_secret"], pairs, f"{prefix}.MasterUserSecret"
+            value["master_user_secret"], pairs, f"{key_prefix}MasterUserSecret"
         )
     if "tag_list" in value:
         import capo_rds.types.tag_list
 
         capo_rds.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
 
 

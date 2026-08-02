@@ -24,17 +24,18 @@ class TargetReservationValue(TypedDict, closed=True):
 def serialize_ec2_query(
     value: TargetReservationValue, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reservation_value" in value:
         import capo_ec2.types.reservation_value
 
         capo_ec2.types.reservation_value.serialize_ec2_query(
-            value["reservation_value"], pairs, f"{prefix}.ReservationValue"
+            value["reservation_value"], pairs, f"{key_prefix}ReservationValue"
         )
     if "target_configuration" in value:
         import capo_ec2.types.target_configuration
 
         capo_ec2.types.target_configuration.serialize_ec2_query(
-            value["target_configuration"], pairs, f"{prefix}.TargetConfiguration"
+            value["target_configuration"], pairs, f"{key_prefix}TargetConfiguration"
         )
 
 

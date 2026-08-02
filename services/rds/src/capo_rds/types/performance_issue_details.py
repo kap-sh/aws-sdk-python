@@ -27,26 +27,27 @@ class PerformanceIssueDetails(TypedDict, closed=True):
 def serialize_query(
     value: PerformanceIssueDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "start_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_rds.types.t_stamp
 
         capo_rds.types.t_stamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "metrics" in value:
         import capo_rds.types.metric_list
 
         capo_rds.types.metric_list.serialize_query(
-            value["metrics"], pairs, f"{prefix}.Metrics"
+            value["metrics"], pairs, f"{key_prefix}Metrics"
         )
     if "analysis" in value:
-        pairs.append((f"{prefix}.Analysis", str(value["analysis"])))
+        pairs.append((f"{key_prefix}Analysis", str(value["analysis"])))
 
 
 def deserialize_query(el: Element) -> PerformanceIssueDetails:

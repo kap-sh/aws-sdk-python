@@ -26,13 +26,14 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "default_visibility" in value:
         import capo_ec2.types.managed_resource_default_visibility
 
         capo_ec2.types.managed_resource_default_visibility.serialize_ec2_query(
-            value["default_visibility"], pairs, f"{prefix}.DefaultVisibility"
+            value["default_visibility"], pairs, f"{key_prefix}DefaultVisibility"
         )
 
 

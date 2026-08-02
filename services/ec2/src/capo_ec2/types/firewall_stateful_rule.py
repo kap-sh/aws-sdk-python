@@ -36,38 +36,39 @@ class FirewallStatefulRule(TypedDict, closed=True):
 def serialize_ec2_query(
     value: FirewallStatefulRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_group_arn" in value:
-        pairs.append((f"{prefix}.RuleGroupArn", str(value["rule_group_arn"])))
+        pairs.append((f"{key_prefix}RuleGroupArn", str(value["rule_group_arn"])))
     if "sources" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["sources"], pairs, f"{prefix}.SourceSet"
+            value["sources"], pairs, f"{key_prefix}SourceSet"
         )
     if "destinations" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["destinations"], pairs, f"{prefix}.DestinationSet"
+            value["destinations"], pairs, f"{key_prefix}DestinationSet"
         )
     if "source_ports" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["source_ports"], pairs, f"{prefix}.SourcePortSet"
+            value["source_ports"], pairs, f"{key_prefix}SourcePortSet"
         )
     if "destination_ports" in value:
         import capo_ec2.types.port_range_list
 
         capo_ec2.types.port_range_list.serialize_ec2_query(
-            value["destination_ports"], pairs, f"{prefix}.DestinationPortSet"
+            value["destination_ports"], pairs, f"{key_prefix}DestinationPortSet"
         )
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "rule_action" in value:
-        pairs.append((f"{prefix}.RuleAction", str(value["rule_action"])))
+        pairs.append((f"{key_prefix}RuleAction", str(value["rule_action"])))
     if "direction" in value:
-        pairs.append((f"{prefix}.Direction", str(value["direction"])))
+        pairs.append((f"{key_prefix}Direction", str(value["direction"])))
 
 
 def deserialize_ec2_query(el: Element) -> FirewallStatefulRule:

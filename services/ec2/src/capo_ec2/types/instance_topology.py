@@ -32,24 +32,25 @@ class InstanceTopology(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceTopology, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "network_nodes" in value:
         import capo_ec2.types.network_nodes_list
 
         capo_ec2.types.network_nodes_list.serialize_ec2_query(
-            value["network_nodes"], pairs, f"{prefix}.NetworkNodeSet"
+            value["network_nodes"], pairs, f"{key_prefix}NetworkNodeSet"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "zone_id" in value:
-        pairs.append((f"{prefix}.ZoneId", str(value["zone_id"])))
+        pairs.append((f"{key_prefix}ZoneId", str(value["zone_id"])))
     if "capacity_block_id" in value:
-        pairs.append((f"{prefix}.CapacityBlockId", str(value["capacity_block_id"])))
+        pairs.append((f"{key_prefix}CapacityBlockId", str(value["capacity_block_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> InstanceTopology:

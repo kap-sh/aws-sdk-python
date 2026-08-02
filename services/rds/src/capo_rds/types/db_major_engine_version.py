@@ -26,11 +26,12 @@ class DBMajorEngineVersion(TypedDict, closed=True):
 def serialize_query(
     value: DBMajorEngineVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
     if "supported_engine_lifecycles" in value:
         import capo_rds.types.supported_engine_lifecycle_list
@@ -38,7 +39,7 @@ def serialize_query(
         capo_rds.types.supported_engine_lifecycle_list.serialize_query(
             value["supported_engine_lifecycles"],
             pairs,
-            f"{prefix}.SupportedEngineLifecycles",
+            f"{key_prefix}SupportedEngineLifecycles",
         )
 
 

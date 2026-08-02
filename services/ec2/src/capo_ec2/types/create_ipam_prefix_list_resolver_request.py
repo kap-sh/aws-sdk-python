@@ -42,32 +42,33 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "ipam_id" in value:
-        pairs.append((f"{prefix}.IpamId", str(value["ipam_id"])))
+        pairs.append((f"{key_prefix}IpamId", str(value["ipam_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "address_family" in value:
         import capo_ec2.types.address_family
 
         capo_ec2.types.address_family.serialize_ec2_query(
-            value["address_family"], pairs, f"{prefix}.AddressFamily"
+            value["address_family"], pairs, f"{key_prefix}AddressFamily"
         )
     if "rules" in value:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.serialize_ec2_query(
-            value["rules"], pairs, f"{prefix}.Rules"
+            value["rules"], pairs, f"{key_prefix}Rules"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
 
 
 def deserialize_ec2_query(el: Element) -> CreateIpamPrefixListResolverRequest:

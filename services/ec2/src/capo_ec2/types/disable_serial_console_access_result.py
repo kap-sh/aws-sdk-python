@@ -19,10 +19,11 @@ class DisableSerialConsoleAccessResult(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DisableSerialConsoleAccessResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serial_console_access_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.SerialConsoleAccessEnabled",
+                f"{key_prefix}SerialConsoleAccessEnabled",
                 "true" if value["serial_console_access_enabled"] else "false",
             )
         )

@@ -32,28 +32,31 @@ class VgwTelemetry(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VgwTelemetry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accepted_route_count" in value:
         pairs.append(
-            (f"{prefix}.AcceptedRouteCount", str(value["accepted_route_count"]))
+            (f"{key_prefix}AcceptedRouteCount", str(value["accepted_route_count"]))
         )
     if "last_status_change" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["last_status_change"], pairs, f"{prefix}.LastStatusChange"
+            value["last_status_change"], pairs, f"{key_prefix}LastStatusChange"
         )
     if "outside_ip_address" in value:
-        pairs.append((f"{prefix}.OutsideIpAddress", str(value["outside_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}OutsideIpAddress", str(value["outside_ip_address"]))
+        )
     if "status" in value:
         import capo_ec2.types.telemetry_status
 
         capo_ec2.types.telemetry_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "certificate_arn" in value:
-        pairs.append((f"{prefix}.CertificateArn", str(value["certificate_arn"])))
+        pairs.append((f"{key_prefix}CertificateArn", str(value["certificate_arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> VgwTelemetry:

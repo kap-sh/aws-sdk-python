@@ -27,20 +27,21 @@ class DescribeVpnGatewaysRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: DescribeVpnGatewaysRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "vpn_gateway_ids" in value:
         import capo_ec2.types.vpn_gateway_id_string_list
 
         capo_ec2.types.vpn_gateway_id_string_list.serialize_ec2_query(
-            value["vpn_gateway_ids"], pairs, f"{prefix}.VpnGatewayIds"
+            value["vpn_gateway_ids"], pairs, f"{key_prefix}VpnGatewayIds"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVpnGatewaysRequest:

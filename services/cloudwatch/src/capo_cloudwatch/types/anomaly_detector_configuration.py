@@ -57,14 +57,15 @@ def deserialize_aws_json_1_0(data: dict) -> AnomalyDetectorConfiguration:
 def serialize_query(
     value: AnomalyDetectorConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "excluded_time_ranges" in value:
         import capo_cloudwatch.types.anomaly_detector_excluded_time_ranges
 
         capo_cloudwatch.types.anomaly_detector_excluded_time_ranges.serialize_query(
-            value["excluded_time_ranges"], pairs, f"{prefix}.ExcludedTimeRanges"
+            value["excluded_time_ranges"], pairs, f"{key_prefix}ExcludedTimeRanges"
         )
     if "metric_timezone" in value:
-        pairs.append((f"{prefix}.MetricTimezone", str(value["metric_timezone"])))
+        pairs.append((f"{key_prefix}MetricTimezone", str(value["metric_timezone"])))
 
 
 def deserialize_query(el: Element) -> AnomalyDetectorConfiguration:

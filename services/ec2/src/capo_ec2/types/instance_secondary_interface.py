@@ -59,30 +59,31 @@ class InstanceSecondaryInterface(TypedDict, closed=True):
 def serialize_ec2_query(
     value: InstanceSecondaryInterface, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attachment" in value:
         import capo_ec2.types.instance_secondary_interface_attachment
 
         capo_ec2.types.instance_secondary_interface_attachment.serialize_ec2_query(
-            value["attachment"], pairs, f"{prefix}.Attachment"
+            value["attachment"], pairs, f"{key_prefix}Attachment"
         )
     if "mac_address" in value:
-        pairs.append((f"{prefix}.MacAddress", str(value["mac_address"])))
+        pairs.append((f"{key_prefix}MacAddress", str(value["mac_address"])))
     if "secondary_interface_id" in value:
         pairs.append(
-            (f"{prefix}.SecondaryInterfaceId", str(value["secondary_interface_id"]))
+            (f"{key_prefix}SecondaryInterfaceId", str(value["secondary_interface_id"]))
         )
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "private_ip_addresses" in value:
         import capo_ec2.types.instance_secondary_interface_private_ip_address_list
 
         capo_ec2.types.instance_secondary_interface_private_ip_address_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{prefix}.PrivateIpAddressSet"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddressSet"
         )
     if "source_dest_check" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDestCheck",
+                f"{key_prefix}SourceDestCheck",
                 "true" if value["source_dest_check"] else "false",
             )
         )
@@ -90,19 +91,21 @@ def serialize_ec2_query(
         import capo_ec2.types.secondary_interface_status
 
         capo_ec2.types.secondary_interface_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "secondary_subnet_id" in value:
-        pairs.append((f"{prefix}.SecondarySubnetId", str(value["secondary_subnet_id"])))
+        pairs.append(
+            (f"{key_prefix}SecondarySubnetId", str(value["secondary_subnet_id"]))
+        )
     if "secondary_network_id" in value:
         pairs.append(
-            (f"{prefix}.SecondaryNetworkId", str(value["secondary_network_id"]))
+            (f"{key_prefix}SecondaryNetworkId", str(value["secondary_network_id"]))
         )
     if "interface_type" in value:
         import capo_ec2.types.secondary_interface_type
 
         capo_ec2.types.secondary_interface_type.serialize_ec2_query(
-            value["interface_type"], pairs, f"{prefix}.InterfaceType"
+            value["interface_type"], pairs, f"{key_prefix}InterfaceType"
         )
 
 

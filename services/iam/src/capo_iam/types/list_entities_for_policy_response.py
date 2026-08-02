@@ -33,32 +33,33 @@ class ListEntitiesForPolicyResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListEntitiesForPolicyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_groups" in value:
         import capo_iam.types.policy_group_list_type
 
         capo_iam.types.policy_group_list_type.serialize_query(
-            value["policy_groups"], pairs, f"{prefix}.PolicyGroups"
+            value["policy_groups"], pairs, f"{key_prefix}PolicyGroups"
         )
     if "policy_users" in value:
         import capo_iam.types.policy_user_list_type
 
         capo_iam.types.policy_user_list_type.serialize_query(
-            value["policy_users"], pairs, f"{prefix}.PolicyUsers"
+            value["policy_users"], pairs, f"{key_prefix}PolicyUsers"
         )
     if "policy_roles" in value:
         import capo_iam.types.policy_role_list_type
 
         capo_iam.types.policy_role_list_type.serialize_query(
-            value["policy_roles"], pairs, f"{prefix}.PolicyRoles"
+            value["policy_roles"], pairs, f"{key_prefix}PolicyRoles"
         )
     pairs.append(
         (
-            f"{prefix}.IsTruncated",
+            f"{key_prefix}IsTruncated",
             "true" if value.get("is_truncated", False) else "false",
         )
     )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListEntitiesForPolicyResponse:

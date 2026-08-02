@@ -27,16 +27,17 @@ class ImageReference(TypedDict, closed=True):
 def serialize_ec2_query(
     value: ImageReference, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "resource_type" in value:
         import capo_ec2.types.image_reference_resource_type
 
         capo_ec2.types.image_reference_resource_type.serialize_ec2_query(
-            value["resource_type"], pairs, f"{prefix}.ResourceType"
+            value["resource_type"], pairs, f"{key_prefix}ResourceType"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
 
 
 def deserialize_ec2_query(el: Element) -> ImageReference:

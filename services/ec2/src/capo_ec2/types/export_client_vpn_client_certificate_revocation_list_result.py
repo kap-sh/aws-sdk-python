@@ -26,10 +26,11 @@ def serialize_ec2_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate_revocation_list" in value:
         pairs.append(
             (
-                f"{prefix}.CertificateRevocationList",
+                f"{key_prefix}CertificateRevocationList",
                 str(value["certificate_revocation_list"]),
             )
         )
@@ -37,7 +38,7 @@ def serialize_ec2_query(
         import capo_ec2.types.client_certificate_revocation_list_status
 
         capo_ec2.types.client_certificate_revocation_list_status.serialize_ec2_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

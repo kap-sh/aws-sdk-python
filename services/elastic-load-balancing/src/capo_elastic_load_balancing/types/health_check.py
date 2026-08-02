@@ -38,11 +38,12 @@ class HealthCheck(TypedDict, closed=True):
 def serialize_query(
     value: HealthCheck, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Target", str(value["target"])))
-    pairs.append((f"{prefix}.Interval", str(value["interval"])))
-    pairs.append((f"{prefix}.Timeout", str(value["timeout"])))
-    pairs.append((f"{prefix}.UnhealthyThreshold", str(value["unhealthy_threshold"])))
-    pairs.append((f"{prefix}.HealthyThreshold", str(value["healthy_threshold"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Target", str(value["target"])))
+    pairs.append((f"{key_prefix}Interval", str(value["interval"])))
+    pairs.append((f"{key_prefix}Timeout", str(value["timeout"])))
+    pairs.append((f"{key_prefix}UnhealthyThreshold", str(value["unhealthy_threshold"])))
+    pairs.append((f"{key_prefix}HealthyThreshold", str(value["healthy_threshold"])))
 
 
 def deserialize_query(el: Element) -> HealthCheck:

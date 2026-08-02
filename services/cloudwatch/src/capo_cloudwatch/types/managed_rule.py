@@ -58,15 +58,16 @@ def deserialize_aws_json_1_0(data: dict) -> ManagedRule:
 def serialize_query(
     value: ManagedRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "template_name" in value:
-        pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+        pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceARN", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceARN", str(value["resource_arn"])))
     if "tags" in value:
         import capo_cloudwatch.types.tag_list
 
         capo_cloudwatch.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

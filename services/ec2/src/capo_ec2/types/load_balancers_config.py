@@ -26,19 +26,20 @@ class LoadBalancersConfig(TypedDict, closed=True):
 def serialize_ec2_query(
     value: LoadBalancersConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "classic_load_balancers_config" in value:
         import capo_ec2.types.classic_load_balancers_config
 
         capo_ec2.types.classic_load_balancers_config.serialize_ec2_query(
             value["classic_load_balancers_config"],
             pairs,
-            f"{prefix}.ClassicLoadBalancersConfig",
+            f"{key_prefix}ClassicLoadBalancersConfig",
         )
     if "target_groups_config" in value:
         import capo_ec2.types.target_groups_config
 
         capo_ec2.types.target_groups_config.serialize_ec2_query(
-            value["target_groups_config"], pairs, f"{prefix}.TargetGroupsConfig"
+            value["target_groups_config"], pairs, f"{key_prefix}TargetGroupsConfig"
         )
 
 

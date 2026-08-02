@@ -42,35 +42,36 @@ class CreateSnapshotsRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreateSnapshotsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "instance_specification" in value:
         import capo_ec2.types.instance_specification
 
         capo_ec2.types.instance_specification.serialize_ec2_query(
-            value["instance_specification"], pairs, f"{prefix}.InstanceSpecification"
+            value["instance_specification"], pairs, f"{key_prefix}InstanceSpecification"
         )
     if "outpost_arn" in value:
-        pairs.append((f"{prefix}.OutpostArn", str(value["outpost_arn"])))
+        pairs.append((f"{key_prefix}OutpostArn", str(value["outpost_arn"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "copy_tags_from_source" in value:
         import capo_ec2.types.copy_tags_from_source
 
         capo_ec2.types.copy_tags_from_source.serialize_ec2_query(
-            value["copy_tags_from_source"], pairs, f"{prefix}.CopyTagsFromSource"
+            value["copy_tags_from_source"], pairs, f"{key_prefix}CopyTagsFromSource"
         )
     if "location" in value:
         import capo_ec2.types.snapshot_location_enum
 
         capo_ec2.types.snapshot_location_enum.serialize_ec2_query(
-            value["location"], pairs, f"{prefix}.Location"
+            value["location"], pairs, f"{key_prefix}Location"
         )
 
 

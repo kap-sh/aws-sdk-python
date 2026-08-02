@@ -42,37 +42,38 @@ class CreatePlacementGroupRequest(TypedDict, closed=True):
 def serialize_ec2_query(
     value: CreatePlacementGroupRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "partition_count" in value:
-        pairs.append((f"{prefix}.PartitionCount", str(value["partition_count"])))
+        pairs.append((f"{key_prefix}PartitionCount", str(value["partition_count"])))
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{prefix}.TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
     if "spread_level" in value:
         import capo_ec2.types.spread_level
 
         capo_ec2.types.spread_level.serialize_ec2_query(
-            value["spread_level"], pairs, f"{prefix}.SpreadLevel"
+            value["spread_level"], pairs, f"{key_prefix}SpreadLevel"
         )
     if "linked_group_id" in value:
-        pairs.append((f"{prefix}.LinkedGroupId", str(value["linked_group_id"])))
+        pairs.append((f"{key_prefix}LinkedGroupId", str(value["linked_group_id"])))
     if "operator" in value:
         import capo_ec2.types.operator_request
 
         capo_ec2.types.operator_request.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "strategy" in value:
         import capo_ec2.types.placement_strategy
 
         capo_ec2.types.placement_strategy.serialize_ec2_query(
-            value["strategy"], pairs, f"{prefix}.Strategy"
+            value["strategy"], pairs, f"{key_prefix}Strategy"
         )
 
 

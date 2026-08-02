@@ -59,75 +59,76 @@ class VolumeModification(TypedDict, closed=True):
 def serialize_ec2_query(
     value: VolumeModification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "volume_id" in value:
-        pairs.append((f"{prefix}.VolumeId", str(value["volume_id"])))
+        pairs.append((f"{key_prefix}VolumeId", str(value["volume_id"])))
     if "modification_state" in value:
         import capo_ec2.types.volume_modification_state
 
         capo_ec2.types.volume_modification_state.serialize_ec2_query(
-            value["modification_state"], pairs, f"{prefix}.ModificationState"
+            value["modification_state"], pairs, f"{key_prefix}ModificationState"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "target_size" in value:
-        pairs.append((f"{prefix}.TargetSize", str(value["target_size"])))
+        pairs.append((f"{key_prefix}TargetSize", str(value["target_size"])))
     if "target_iops" in value:
-        pairs.append((f"{prefix}.TargetIops", str(value["target_iops"])))
+        pairs.append((f"{key_prefix}TargetIops", str(value["target_iops"])))
     if "target_volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["target_volume_type"], pairs, f"{prefix}.TargetVolumeType"
+            value["target_volume_type"], pairs, f"{key_prefix}TargetVolumeType"
         )
     if "target_throughput" in value:
-        pairs.append((f"{prefix}.TargetThroughput", str(value["target_throughput"])))
+        pairs.append((f"{key_prefix}TargetThroughput", str(value["target_throughput"])))
     if "target_multi_attach_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.TargetMultiAttachEnabled",
+                f"{key_prefix}TargetMultiAttachEnabled",
                 "true" if value["target_multi_attach_enabled"] else "false",
             )
         )
     if "original_size" in value:
-        pairs.append((f"{prefix}.OriginalSize", str(value["original_size"])))
+        pairs.append((f"{key_prefix}OriginalSize", str(value["original_size"])))
     if "original_iops" in value:
-        pairs.append((f"{prefix}.OriginalIops", str(value["original_iops"])))
+        pairs.append((f"{key_prefix}OriginalIops", str(value["original_iops"])))
     if "original_volume_type" in value:
         import capo_ec2.types.volume_type
 
         capo_ec2.types.volume_type.serialize_ec2_query(
-            value["original_volume_type"], pairs, f"{prefix}.OriginalVolumeType"
+            value["original_volume_type"], pairs, f"{key_prefix}OriginalVolumeType"
         )
     if "original_throughput" in value:
         pairs.append(
-            (f"{prefix}.OriginalThroughput", str(value["original_throughput"]))
+            (f"{key_prefix}OriginalThroughput", str(value["original_throughput"]))
         )
     if "original_multi_attach_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.OriginalMultiAttachEnabled",
+                f"{key_prefix}OriginalMultiAttachEnabled",
                 "true" if value["original_multi_attach_enabled"] else "false",
             )
         )
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "start_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_ec2.types.date_time
 
         capo_ec2.types.date_time.serialize_ec2_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "operator" in value:
         import capo_ec2.types.operator_response
 
         capo_ec2.types.operator_response.serialize_ec2_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
 
 
