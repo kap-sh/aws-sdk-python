@@ -2513,9 +2513,9 @@ class EC2Client:
 
     def accept_address_transfer(
         self,
-        address: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        address: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -2548,7 +2548,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.accept_address_transfer_request.AcceptAddressTransferRequest = {}  # type: ignore[typeddict-item]
-        input_["address"] = address
+        if address is not None:
+            input_["address"] = address
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -2563,10 +2564,12 @@ class EC2Client:
 
     def accept_capacity_reservation_billing_ownership(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
     ) -> "capo_ec2.types.accept_capacity_reservation_billing_ownership_result.AcceptCapacityReservationBillingOwnershipResult":
         r"""<p>Accepts a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
@@ -2596,7 +2599,8 @@ class EC2Client:
         input_: capo_ec2.types.accept_capacity_reservation_billing_ownership_request.AcceptCapacityReservationBillingOwnershipRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2607,10 +2611,12 @@ class EC2Client:
 
     def accept_reserved_instances_exchange_quote(
         self,
-        reserved_instance_ids: "capo_ec2.types.reserved_instance_id_set.ReservedInstanceIdSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        reserved_instance_ids: Optional[
+            "capo_ec2.types.reserved_instance_id_set.ReservedInstanceIdSet"
+        ] = None,
         target_configurations: Optional[
             "capo_ec2.types.target_configuration_request_set.TargetConfigurationRequestSet"
         ] = None,
@@ -2644,7 +2650,8 @@ class EC2Client:
         input_: capo_ec2.types.accept_reserved_instances_exchange_quote_request.AcceptReservedInstancesExchangeQuoteRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["reserved_instance_ids"] = reserved_instance_ids
+        if reserved_instance_ids is not None:
+            input_["reserved_instance_ids"] = reserved_instance_ids
         if target_configurations is not None:
             input_["target_configurations"] = target_configurations
 
@@ -2657,9 +2664,11 @@ class EC2Client:
 
     def accept_transit_gateway_client_vpn_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.accept_transit_gateway_client_vpn_attachment_result.AcceptTransitGatewayClientVpnAttachmentResult":
         """<p>Accepts a Transit Gateway attachment request for a Client VPN endpoint. The Transit Gateway owner must accept the attachment request before the Client VPN endpoint can route traffic through the Transit Gateway.</p>
@@ -2688,7 +2697,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.accept_transit_gateway_client_vpn_attachment_request.AcceptTransitGatewayClientVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -2760,9 +2770,11 @@ class EC2Client:
 
     def accept_transit_gateway_peering_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.accept_transit_gateway_peering_attachment_result.AcceptTransitGatewayPeeringAttachmentResult":
         """<p>Accepts a transit gateway peering attachment request. The peering attachment must be in the <code>pendingAcceptance</code> state.</p>
@@ -2791,7 +2803,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.accept_transit_gateway_peering_attachment_request.AcceptTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -2804,9 +2817,11 @@ class EC2Client:
 
     def accept_transit_gateway_vpc_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.accept_transit_gateway_vpc_attachment_result.AcceptTransitGatewayVpcAttachmentResult":
         """<p>Accepts a request to attach a VPC to a transit gateway.</p> <p>The VPC attachment must be in the <code>pendingAcceptance</code> state. Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests. Use <a>RejectTransitGatewayVpcAttachment</a> to reject a VPC attachment request.</p>
@@ -2835,7 +2850,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.accept_transit_gateway_vpc_attachment_request.AcceptTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -2848,11 +2864,15 @@ class EC2Client:
 
     def accept_vpc_endpoint_connections(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
-        vpc_endpoint_ids: "capo_ec2.types.vpc_endpoint_id_list.VpcEndpointIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
+        vpc_endpoint_ids: Optional[
+            "capo_ec2.types.vpc_endpoint_id_list.VpcEndpointIdList"
+        ] = None,
     ) -> "capo_ec2.types.accept_vpc_endpoint_connections_result.AcceptVpcEndpointConnectionsResult":
         """<p>Accepts connection requests to your VPC endpoint service.</p>
 
@@ -2883,8 +2903,10 @@ class EC2Client:
         input_: capo_ec2.types.accept_vpc_endpoint_connections_request.AcceptVpcEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
-        input_["vpc_endpoint_ids"] = vpc_endpoint_ids
+        if service_id is not None:
+            input_["service_id"] = service_id
+        if vpc_endpoint_ids is not None:
+            input_["vpc_endpoint_ids"] = vpc_endpoint_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2895,10 +2917,12 @@ class EC2Client:
 
     def accept_vpc_peering_connection(
         self,
-        vpc_peering_connection_id: "capo_ec2.types.vpc_peering_connection_id_with_resolver.VpcPeeringConnectionIdWithResolver",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_peering_connection_id: Optional[
+            "capo_ec2.types.vpc_peering_connection_id_with_resolver.VpcPeeringConnectionIdWithResolver"
+        ] = None,
     ) -> "capo_ec2.types.accept_vpc_peering_connection_result.AcceptVpcPeeringConnectionResult":
         """<p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC. Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC peering connection requests.</p> <p>For an inter-Region VPC peering connection request, you must accept the VPC peering connection in the Region of the accepter VPC.</p>
 
@@ -2928,7 +2952,8 @@ class EC2Client:
         input_: capo_ec2.types.accept_vpc_peering_connection_request.AcceptVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_peering_connection_id"] = vpc_peering_connection_id
+        if vpc_peering_connection_id is not None:
+            input_["vpc_peering_connection_id"] = vpc_peering_connection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2939,9 +2964,9 @@ class EC2Client:
 
     def advertise_byoip_cidr(
         self,
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
         asn: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         network_border_group: Optional["capo_ec2.types.string.String"] = None,
@@ -2974,7 +2999,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.advertise_byoip_cidr_request.AdvertiseByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input_["cidr"] = cidr
+        if cidr is not None:
+            input_["cidr"] = cidr
         if asn is not None:
             input_["asn"] = asn
         if dry_run is not None:
@@ -3163,10 +3189,10 @@ class EC2Client:
 
     def allocate_ipam_pool_cidr(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         cidr: Optional["capo_ec2.types.string.String"] = None,
         netmask_length: Optional["capo_ec2.types.integer.Integer"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -3218,7 +3244,8 @@ class EC2Client:
         input_: capo_ec2.types.allocate_ipam_pool_cidr_request.AllocateIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if cidr is not None:
             input_["cidr"] = cidr
         if netmask_length is not None:
@@ -3245,11 +3272,15 @@ class EC2Client:
 
     def apply_security_groups_to_client_vpn_target_network(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
-        security_group_ids: "capo_ec2.types.client_vpn_security_group_id_set.ClientVpnSecurityGroupIdSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        security_group_ids: Optional[
+            "capo_ec2.types.client_vpn_security_group_id_set.ClientVpnSecurityGroupIdSet"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.apply_security_groups_to_client_vpn_target_network_result.ApplySecurityGroupsToClientVpnTargetNetworkResult":
         """<p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing security groups with the specified security groups.</p>
@@ -3280,9 +3311,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.apply_security_groups_to_client_vpn_target_network_request.ApplySecurityGroupsToClientVpnTargetNetworkRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
-        input_["vpc_id"] = vpc_id
-        input_["security_group_ids"] = security_group_ids
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if security_group_ids is not None:
+            input_["security_group_ids"] = security_group_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -3295,11 +3329,13 @@ class EC2Client:
 
     def assign_ipv6_addresses(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ipv6_prefix_count: Optional["capo_ec2.types.integer.Integer"] = None,
         ipv6_prefixes: Optional["capo_ec2.types.ip_prefix_list.IpPrefixList"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         ipv6_addresses: Optional[
             "capo_ec2.types.ipv6_address_list.Ipv6AddressList"
         ] = None,
@@ -3338,7 +3374,8 @@ class EC2Client:
             input_["ipv6_prefix_count"] = ipv6_prefix_count
         if ipv6_prefixes is not None:
             input_["ipv6_prefixes"] = ipv6_prefixes
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if ipv6_addresses is not None:
             input_["ipv6_addresses"] = ipv6_addresses
         if ipv6_address_count is not None:
@@ -3353,11 +3390,13 @@ class EC2Client:
 
     def assign_private_ip_addresses(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ipv4_prefixes: Optional["capo_ec2.types.ip_prefix_list.IpPrefixList"] = None,
         ipv4_prefix_count: Optional["capo_ec2.types.integer.Integer"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         private_ip_addresses: Optional[
             "capo_ec2.types.private_ip_address_string_list.PrivateIpAddressStringList"
         ] = None,
@@ -3410,7 +3449,8 @@ class EC2Client:
             input_["ipv4_prefixes"] = ipv4_prefixes
         if ipv4_prefix_count is not None:
             input_["ipv4_prefix_count"] = ipv4_prefix_count
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if private_ip_addresses is not None:
             input_["private_ip_addresses"] = private_ip_addresses
         if secondary_private_ip_address_count is not None:
@@ -3429,9 +3469,9 @@ class EC2Client:
 
     def assign_private_nat_gateway_address(
         self,
-        nat_gateway_id: "capo_ec2.types.nat_gateway_id.NatGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        nat_gateway_id: Optional["capo_ec2.types.nat_gateway_id.NatGatewayId"] = None,
         private_ip_addresses: Optional["capo_ec2.types.ip_list.IpList"] = None,
         private_ip_address_count: Optional[
             "capo_ec2.types.private_ip_address_count.PrivateIpAddressCount"
@@ -3466,7 +3506,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.assign_private_nat_gateway_address_request.AssignPrivateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
-        input_["nat_gateway_id"] = nat_gateway_id
+        if nat_gateway_id is not None:
+            input_["nat_gateway_id"] = nat_gateway_id
         if private_ip_addresses is not None:
             input_["private_ip_addresses"] = private_ip_addresses
         if private_ip_address_count is not None:
@@ -3562,11 +3603,15 @@ class EC2Client:
 
     def associate_capacity_reservation_billing_owner(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        unused_reservation_billing_owner_id: "capo_ec2.types.account_id.AccountID",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        unused_reservation_billing_owner_id: Optional[
+            "capo_ec2.types.account_id.AccountID"
+        ] = None,
     ) -> "capo_ec2.types.associate_capacity_reservation_billing_owner_result.AssociateCapacityReservationBillingOwnerResult":
         r"""<p>Initiates a request to assign billing of the unused capacity of a shared Capacity Reservation to a consumer account that is consolidated under the same Amazon Web Services organizations payer account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\">Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
@@ -3597,10 +3642,12 @@ class EC2Client:
         input_: capo_ec2.types.associate_capacity_reservation_billing_owner_request.AssociateCapacityReservationBillingOwnerRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["capacity_reservation_id"] = capacity_reservation_id
-        input_["unused_reservation_billing_owner_id"] = (
-            unused_reservation_billing_owner_id
-        )
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
+        if unused_reservation_billing_owner_id is not None:
+            input_["unused_reservation_billing_owner_id"] = (
+                unused_reservation_billing_owner_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3611,9 +3658,11 @@ class EC2Client:
 
     def associate_client_vpn_target_network(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -3654,7 +3703,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_client_vpn_target_network_request.AssociateClientVpnTargetNetworkRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
         if client_token is not None:
@@ -3675,10 +3725,12 @@ class EC2Client:
 
     def associate_dhcp_options(
         self,
-        dhcp_options_id: "capo_ec2.types.defaulting_dhcp_options_id.DefaultingDhcpOptionsId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        dhcp_options_id: Optional[
+            "capo_ec2.types.defaulting_dhcp_options_id.DefaultingDhcpOptionsId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p> <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP option sets</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -3716,8 +3768,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_dhcp_options_request.AssociateDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["dhcp_options_id"] = dhcp_options_id
-        input_["vpc_id"] = vpc_id
+        if dhcp_options_id is not None:
+            input_["dhcp_options_id"] = dhcp_options_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -3730,10 +3784,10 @@ class EC2Client:
 
     def associate_enclave_certificate_iam_role(
         self,
-        certificate_arn: "capo_ec2.types.certificate_id.CertificateId",
-        role_arn: "capo_ec2.types.role_id.RoleId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        certificate_arn: Optional["capo_ec2.types.certificate_id.CertificateId"] = None,
+        role_arn: Optional["capo_ec2.types.role_id.RoleId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.associate_enclave_certificate_iam_role_result.AssociateEnclaveCertificateIamRoleResult":
         r"""<p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html\">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p> <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p> <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command. For more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy\"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
@@ -3763,8 +3817,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_enclave_certificate_iam_role_request.AssociateEnclaveCertificateIamRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["certificate_arn"] = certificate_arn
-        input_["role_arn"] = role_arn
+        if certificate_arn is not None:
+            input_["certificate_arn"] = certificate_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -3777,10 +3833,12 @@ class EC2Client:
 
     def associate_iam_instance_profile(
         self,
-        iam_instance_profile: "capo_ec2.types.iam_instance_profile_specification.IamInstanceProfileSpecification",
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        iam_instance_profile: Optional[
+            "capo_ec2.types.iam_instance_profile_specification.IamInstanceProfileSpecification"
+        ] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
     ) -> "capo_ec2.types.associate_iam_instance_profile_result.AssociateIamInstanceProfileResult":
         """<p>Associates an IAM instance profile with a running or stopped instance. You cannot associate more than one IAM instance profile with an instance.</p>
 
@@ -3814,8 +3872,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_iam_instance_profile_request.AssociateIamInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["iam_instance_profile"] = iam_instance_profile
-        input_["instance_id"] = instance_id
+        if iam_instance_profile is not None:
+            input_["iam_instance_profile"] = iam_instance_profile
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3826,11 +3886,15 @@ class EC2Client:
 
     def associate_instance_event_window(
         self,
-        instance_event_window_id: "capo_ec2.types.instance_event_window_id.InstanceEventWindowId",
-        association_target: "capo_ec2.types.instance_event_window_association_request.InstanceEventWindowAssociationRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_event_window_id: Optional[
+            "capo_ec2.types.instance_event_window_id.InstanceEventWindowId"
+        ] = None,
+        association_target: Optional[
+            "capo_ec2.types.instance_event_window_association_request.InstanceEventWindowAssociationRequest"
+        ] = None,
     ) -> "capo_ec2.types.associate_instance_event_window_result.AssociateInstanceEventWindowResult":
         r"""<p>Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -3861,8 +3925,10 @@ class EC2Client:
         input_: capo_ec2.types.associate_instance_event_window_request.AssociateInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_event_window_id"] = instance_event_window_id
-        input_["association_target"] = association_target
+        if instance_event_window_id is not None:
+            input_["instance_event_window_id"] = instance_event_window_id
+        if association_target is not None:
+            input_["association_target"] = association_target
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3873,11 +3939,11 @@ class EC2Client:
 
     def associate_ipam_byoasn(
         self,
-        asn: "capo_ec2.types.string.String",
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        asn: Optional["capo_ec2.types.string.String"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.associate_ipam_byoasn_result.AssociateIpamByoasnResult":
         r"""<p>Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p> <p>After the association succeeds, the ASN is eligible for advertisement. You can view the association with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html\">DescribeByoipCidrs</a>. You can advertise the CIDR with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AdvertiseByoipCidr.html\">AdvertiseByoipCidr</a>.</p>
 
@@ -3908,8 +3974,10 @@ class EC2Client:
         input_: capo_ec2.types.associate_ipam_byoasn_request.AssociateIpamByoasnRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["asn"] = asn
-        input_["cidr"] = cidr
+        if asn is not None:
+            input_["asn"] = asn
+        if cidr is not None:
+            input_["cidr"] = cidr
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3920,11 +3988,13 @@ class EC2Client:
 
     def associate_ipam_resource_discovery(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -3961,8 +4031,10 @@ class EC2Client:
         input_: capo_ec2.types.associate_ipam_resource_discovery_request.AssociateIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
-        input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if client_token is not None:
@@ -3977,10 +4049,12 @@ class EC2Client:
 
     def associate_nat_gateway_address(
         self,
-        nat_gateway_id: "capo_ec2.types.nat_gateway_id.NatGatewayId",
-        allocation_ids: "capo_ec2.types.allocation_id_list.AllocationIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        nat_gateway_id: Optional["capo_ec2.types.nat_gateway_id.NatGatewayId"] = None,
+        allocation_ids: Optional[
+            "capo_ec2.types.allocation_id_list.AllocationIdList"
+        ] = None,
         private_ip_addresses: Optional["capo_ec2.types.ip_list.IpList"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         availability_zone: Optional[
@@ -4020,8 +4094,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_nat_gateway_address_request.AssociateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
-        input_["nat_gateway_id"] = nat_gateway_id
-        input_["allocation_ids"] = allocation_ids
+        if nat_gateway_id is not None:
+            input_["nat_gateway_id"] = nat_gateway_id
+        if allocation_ids is not None:
+            input_["allocation_ids"] = allocation_ids
         if private_ip_addresses is not None:
             input_["private_ip_addresses"] = private_ip_addresses
         if dry_run is not None:
@@ -4040,10 +4116,12 @@ class EC2Client:
 
     def associate_route_server(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.associate_route_server_result.AssociateRouteServerResult":
         r"""<p>Associates a route server with a VPC to enable dynamic route updates.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -4073,8 +4151,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_route_server_request.AssociateRouteServerRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
-        input_["vpc_id"] = vpc_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4087,7 +4167,6 @@ class EC2Client:
 
     def associate_route_table(
         self,
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         gateway_id: Optional["capo_ec2.types.route_gateway_id.RouteGatewayId"] = None,
@@ -4096,6 +4175,7 @@ class EC2Client:
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
     ) -> "capo_ec2.types.associate_route_table_result.AssociateRouteTableResult":
         r"""<p>Associates a subnet in your VPC or an internet gateway or virtual private gateway attached to your VPC with a route table in your VPC. This association causes traffic from the subnet or gateway to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table later. A route table can be associated with multiple subnets.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -4140,7 +4220,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
-        input_["route_table_id"] = route_table_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4151,10 +4232,10 @@ class EC2Client:
 
     def associate_security_group_vpc(
         self,
-        group_id: "capo_ec2.types.security_group_id.SecurityGroupId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        group_id: Optional["capo_ec2.types.security_group_id.SecurityGroupId"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.associate_security_group_vpc_result.AssociateSecurityGroupVpcResult":
         """<p>Associates a security group with another VPC in the same Region. This enables you to use the same security group with network interfaces and instances in the specified VPC.</p> <note> <ul> <li> <p>The VPC you want to associate the security group with must be in the same Region.</p> </li> <li> <p>You can associate the security group with another VPC if your account owns the VPC or if the VPC was shared with you.</p> </li> <li> <p>You must own the security group.</p> </li> <li> <p>You cannot use this feature with default security groups.</p> </li> <li> <p>You cannot use this feature with the default VPC.</p> </li> </ul> </note>
@@ -4184,8 +4265,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_security_group_vpc_request.AssociateSecurityGroupVpcRequest = {}  # type: ignore[typeddict-item]
-        input_["group_id"] = group_id
-        input_["vpc_id"] = vpc_id
+        if group_id is not None:
+            input_["group_id"] = group_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4198,13 +4281,13 @@ class EC2Client:
 
     def associate_subnet_cidr_block(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ipv6_ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         ipv6_netmask_length: Optional[
             "capo_ec2.types.netmask_length.NetmaskLength"
         ] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.associate_subnet_cidr_block_result.AssociateSubnetCidrBlockResult":
         """<p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet.</p>
@@ -4239,7 +4322,8 @@ class EC2Client:
             input_["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
         if ipv6_netmask_length is not None:
             input_["ipv6_netmask_length"] = ipv6_netmask_length
-        input_["subnet_id"] = subnet_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if ipv6_cidr_block is not None:
             input_["ipv6_cidr_block"] = ipv6_cidr_block
 
@@ -4252,11 +4336,17 @@ class EC2Client:
 
     def associate_transit_gateway_multicast_domain(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
-        subnet_ids: "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
+        subnet_ids: Optional[
+            "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.associate_transit_gateway_multicast_domain_result.AssociateTransitGatewayMulticastDomainResult":
         r"""<p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p> <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html\">DescribeTransitGatewayAttachments</a> to see the state of the attachment.</p>
@@ -4287,11 +4377,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_transit_gateway_multicast_domain_request.AssociateTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
-        input_["subnet_ids"] = subnet_ids
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4304,10 +4397,14 @@ class EC2Client:
 
     def associate_transit_gateway_policy_table(
         self,
-        transit_gateway_policy_table_id: "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId",
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.associate_transit_gateway_policy_table_result.AssociateTransitGatewayPolicyTableResult":
         """<p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
@@ -4337,8 +4434,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_transit_gateway_policy_table_request.AssociateTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4351,10 +4450,14 @@ class EC2Client:
 
     def associate_transit_gateway_route_table(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.associate_transit_gateway_route_table_result.AssociateTransitGatewayRouteTableResult":
         """<p>Associates the specified attachment with the specified transit gateway route table. You can associate only one route table with an attachment.</p>
@@ -4384,8 +4487,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_transit_gateway_route_table_request.AssociateTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4398,10 +4503,14 @@ class EC2Client:
 
     def associate_trunk_interface(
         self,
-        branch_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
-        trunk_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        branch_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
+        trunk_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         vlan_id: Optional["capo_ec2.types.integer.Integer"] = None,
         gre_key: Optional["capo_ec2.types.integer.Integer"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -4439,8 +4548,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.associate_trunk_interface_request.AssociateTrunkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input_["branch_interface_id"] = branch_interface_id
-        input_["trunk_interface_id"] = trunk_interface_id
+        if branch_interface_id is not None:
+            input_["branch_interface_id"] = branch_interface_id
+        if trunk_interface_id is not None:
+            input_["trunk_interface_id"] = trunk_interface_id
         if vlan_id is not None:
             input_["vlan_id"] = vlan_id
         if gre_key is not None:
@@ -4459,7 +4570,6 @@ class EC2Client:
 
     def associate_vpc_cidr_block(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         cidr_block: Optional["capo_ec2.types.string.String"] = None,
@@ -4476,6 +4586,7 @@ class EC2Client:
         ipv6_netmask_length: Optional[
             "capo_ec2.types.netmask_length.NetmaskLength"
         ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         amazon_provided_ipv6_cidr_block: Optional[
             "capo_ec2.types.boolean.Boolean"
         ] = None,
@@ -4532,7 +4643,8 @@ class EC2Client:
             input_["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
         if ipv6_netmask_length is not None:
             input_["ipv6_netmask_length"] = ipv6_netmask_length
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if amazon_provided_ipv6_cidr_block is not None:
             input_["amazon_provided_ipv6_cidr_block"] = amazon_provided_ipv6_cidr_block
 
@@ -4545,12 +4657,14 @@ class EC2Client:
 
     def attach_classic_link_vpc(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
-        groups: "capo_ec2.types.group_id_string_list.GroupIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        groups: Optional[
+            "capo_ec2.types.group_id_string_list.GroupIdStringList"
+        ] = None,
     ) -> "capo_ec2.types.attach_classic_link_vpc_result.AttachClassicLinkVpcResult":
         """<note> <p>This action is deprecated.</p> </note> <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You can only link an instance that's in the <code>running</code> state. An instance is automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when you restart it.</p> <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p> <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
 
@@ -4582,9 +4696,12 @@ class EC2Client:
         input_: capo_ec2.types.attach_classic_link_vpc_request.AttachClassicLinkVpcRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["vpc_id"] = vpc_id
-        input_["groups"] = groups
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if groups is not None:
+            input_["groups"] = groups
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4595,11 +4712,13 @@ class EC2Client:
 
     def attach_internet_gateway(
         self,
-        internet_gateway_id: "capo_ec2.types.internet_gateway_id.InternetGatewayId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        internet_gateway_id: Optional[
+            "capo_ec2.types.internet_gateway_id.InternetGatewayId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> None:
         r"""<p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html\">Internet gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -4634,8 +4753,10 @@ class EC2Client:
         input_: capo_ec2.types.attach_internet_gateway_request.AttachInternetGatewayRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["internet_gateway_id"] = internet_gateway_id
-        input_["vpc_id"] = vpc_id
+        if internet_gateway_id is not None:
+            input_["internet_gateway_id"] = internet_gateway_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4646,9 +4767,6 @@ class EC2Client:
 
     def attach_network_interface(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        device_index: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         network_card_index: Optional["capo_ec2.types.integer.Integer"] = None,
@@ -4657,6 +4775,11 @@ class EC2Client:
         ] = None,
         ena_queue_count: Optional["capo_ec2.types.integer.Integer"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        device_index: Optional["capo_ec2.types.integer.Integer"] = None,
     ) -> "capo_ec2.types.attach_network_interface_result.AttachNetworkInterfaceResult":
         """<p>Attaches a network interface to an instance.</p>
 
@@ -4703,9 +4826,12 @@ class EC2Client:
             input_["ena_queue_count"] = ena_queue_count
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_interface_id"] = network_interface_id
-        input_["instance_id"] = instance_id
-        input_["device_index"] = device_index
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if device_index is not None:
+            input_["device_index"] = device_index
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4716,10 +4842,14 @@ class EC2Client:
 
     def attach_verified_access_trust_provider(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
-        verified_access_trust_provider_id: "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
+        verified_access_trust_provider_id: Optional[
+            "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId"
+        ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.attach_verified_access_trust_provider_result.AttachVerifiedAccessTrustProviderResult":
@@ -4751,8 +4881,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.attach_verified_access_trust_provider_request.AttachVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
-        input_["verified_access_trust_provider_id"] = verified_access_trust_provider_id
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
+        if verified_access_trust_provider_id is not None:
+            input_["verified_access_trust_provider_id"] = (
+                verified_access_trust_provider_id
+            )
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -4767,11 +4901,11 @@ class EC2Client:
 
     def attach_volume(
         self,
-        device: "capo_ec2.types.string.String",
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        device: Optional["capo_ec2.types.string.String"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         ebs_card_index: Optional["capo_ec2.types.boxed_integer.BoxedInteger"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.volume_attachment.VolumeAttachment":
@@ -4808,9 +4942,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.attach_volume_request.AttachVolumeRequest = {}  # type: ignore[typeddict-item]
-        input_["device"] = device
-        input_["instance_id"] = instance_id
-        input_["volume_id"] = volume_id
+        if device is not None:
+            input_["device"] = device
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if ebs_card_index is not None:
             input_["ebs_card_index"] = ebs_card_index
         if dry_run is not None:
@@ -4825,10 +4962,10 @@ class EC2Client:
 
     def attach_vpn_gateway(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
-        vpn_gateway_id: "capo_ec2.types.vpn_gateway_id.VpnGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        vpn_gateway_id: Optional["capo_ec2.types.vpn_gateway_id.VpnGatewayId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.attach_vpn_gateway_result.AttachVpnGatewayResult":
         r"""<p>Attaches an available virtual private gateway to a VPC. You can attach one virtual private gateway to one VPC at a time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
@@ -4858,8 +4995,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.attach_vpn_gateway_request.AttachVpnGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
-        input_["vpn_gateway_id"] = vpn_gateway_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if vpn_gateway_id is not None:
+            input_["vpn_gateway_id"] = vpn_gateway_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4872,10 +5011,12 @@ class EC2Client:
 
     def authorize_client_vpn_ingress(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        target_network_cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
+        target_network_cidr: Optional["capo_ec2.types.string.String"] = None,
         access_group_id: Optional["capo_ec2.types.string.String"] = None,
         authorize_all_groups: Optional["capo_ec2.types.boolean.Boolean"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
@@ -4913,8 +5054,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.authorize_client_vpn_ingress_request.AuthorizeClientVpnIngressRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
-        input_["target_network_cidr"] = target_network_cidr
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if target_network_cidr is not None:
+            input_["target_network_cidr"] = target_network_cidr
         if access_group_id is not None:
             input_["access_group_id"] = access_group_id
         if authorize_all_groups is not None:
@@ -4935,13 +5078,13 @@ class EC2Client:
 
     def authorize_security_group_egress(
         self,
-        group_id: "capo_ec2.types.security_group_id.SecurityGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        group_id: Optional["capo_ec2.types.security_group_id.SecurityGroupId"] = None,
         source_security_group_name: Optional["capo_ec2.types.string.String"] = None,
         source_security_group_owner_id: Optional["capo_ec2.types.string.String"] = None,
         ip_protocol: Optional["capo_ec2.types.string.String"] = None,
@@ -5000,7 +5143,8 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["group_id"] = group_id
+        if group_id is not None:
+            input_["group_id"] = group_id
         if source_security_group_name is not None:
             input_["source_security_group_name"] = source_security_group_name
         if source_security_group_owner_id is not None:
@@ -5126,10 +5270,10 @@ class EC2Client:
 
     def bundle_instance(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        storage: "capo_ec2.types.storage.Storage",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        storage: Optional["capo_ec2.types.storage.Storage"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.bundle_instance_result.BundleInstanceResult":
         r"""<p>Bundles an Amazon instance store-backed Windows instance.</p> <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p> <note> <p>This action is no longer supported. To create an AMI, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\"> Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
@@ -5159,8 +5303,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.bundle_instance_request.BundleInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["storage"] = storage
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if storage is not None:
+            input_["storage"] = storage
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -5173,9 +5319,9 @@ class EC2Client:
 
     def cancel_bundle_task(
         self,
-        bundle_id: "capo_ec2.types.bundle_id.BundleId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        bundle_id: Optional["capo_ec2.types.bundle_id.BundleId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.cancel_bundle_task_result.CancelBundleTaskResult":
         """<p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
@@ -5204,7 +5350,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.cancel_bundle_task_request.CancelBundleTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        if bundle_id is not None:
+            input_["bundle_id"] = bundle_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -5217,9 +5364,11 @@ class EC2Client:
 
     def cancel_capacity_reservation(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.cancel_capacity_reservation_result.CancelCapacityReservationResult":
         r"""<p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to <code>cancelled</code>.</p> <p>You can cancel a Capacity Reservation that is in the following states:</p> <ul> <li> <p> <code>assessing</code> </p> </li> <li> <p> <code>active</code> and there is no commitment duration or the commitment duration has elapsed. You can't cancel a future-dated Capacity Reservation during the commitment duration.</p> </li> </ul> <note> <p>You can't modify or cancel a Capacity Block. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html\">Capacity Blocks for ML</a>.</p> </note> <p>If a future-dated Capacity Reservation enters the <code>delayed</code> state, the commitment duration is waived, and you can cancel it as soon as it enters the <code>active</code> state.</p> <p>Instances running in the reserved capacity continue running until you stop them. Stopped instances that target the Capacity Reservation can no longer launch. Modify these instances to either target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation that has matching attributes and sufficient capacity.</p>
@@ -5248,7 +5397,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.cancel_capacity_reservation_request.CancelCapacityReservationRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -5261,10 +5411,12 @@ class EC2Client:
 
     def cancel_capacity_reservation_fleets(
         self,
-        capacity_reservation_fleet_ids: "capo_ec2.types.capacity_reservation_fleet_id_set.CapacityReservationFleetIdSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_reservation_fleet_ids: Optional[
+            "capo_ec2.types.capacity_reservation_fleet_id_set.CapacityReservationFleetIdSet"
+        ] = None,
     ) -> "capo_ec2.types.cancel_capacity_reservation_fleets_result.CancelCapacityReservationFleetsResult":
         """<p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation Fleet, the following happens:</p> <ul> <li> <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p> </li> <li> <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running in the Capacity Reservations at the time of cancelling the Fleet continue to run in shared capacity.</p> </li> <li> <p>The Fleet stops creating new Capacity Reservations.</p> </li> </ul>
 
@@ -5294,7 +5446,8 @@ class EC2Client:
         input_: capo_ec2.types.cancel_capacity_reservation_fleets_request.CancelCapacityReservationFleetsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["capacity_reservation_fleet_ids"] = capacity_reservation_fleet_ids
+        if capacity_reservation_fleet_ids is not None:
+            input_["capacity_reservation_fleet_ids"] = capacity_reservation_fleet_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5305,10 +5458,12 @@ class EC2Client:
 
     def cancel_conversion_task(
         self,
-        conversion_task_id: "capo_ec2.types.conversion_task_id.ConversionTaskId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        conversion_task_id: Optional[
+            "capo_ec2.types.conversion_task_id.ConversionTaskId"
+        ] = None,
         reason_message: Optional["capo_ec2.types.string.String"] = None,
     ) -> None:
         """<p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.</p>
@@ -5338,7 +5493,8 @@ class EC2Client:
         input_: capo_ec2.types.cancel_conversion_request.CancelConversionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["conversion_task_id"] = conversion_task_id
+        if conversion_task_id is not None:
+            input_["conversion_task_id"] = conversion_task_id
         if reason_message is not None:
             input_["reason_message"] = reason_message
 
@@ -5351,10 +5507,12 @@ class EC2Client:
 
     def cancel_declarative_policies_report(
         self,
-        report_id: "capo_ec2.types.declarative_policies_report_id.DeclarativePoliciesReportId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        report_id: Optional[
+            "capo_ec2.types.declarative_policies_report_id.DeclarativePoliciesReportId"
+        ] = None,
     ) -> "capo_ec2.types.cancel_declarative_policies_report_result.CancelDeclarativePoliciesReportResult":
         r"""<p>Cancels the generation of an account status report.</p> <p>You can only cancel a report while it has the <code>running</code> status. Reports with other statuses (<code>complete</code>, <code>cancelled</code>, or <code>error</code>) can't be canceled.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
 
@@ -5384,7 +5542,8 @@ class EC2Client:
         input_: capo_ec2.types.cancel_declarative_policies_report_request.CancelDeclarativePoliciesReportRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["report_id"] = report_id
+        if report_id is not None:
+            input_["report_id"] = report_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5395,9 +5554,11 @@ class EC2Client:
 
     def cancel_export_task(
         self,
-        export_task_id: "capo_ec2.types.export_vm_task_id.ExportVmTaskId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        export_task_id: Optional[
+            "capo_ec2.types.export_vm_task_id.ExportVmTaskId"
+        ] = None,
     ) -> None:
         """<p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the command fails and returns an error.</p>
 
@@ -5422,7 +5583,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.cancel_export_task_request.CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["export_task_id"] = export_task_id
+        if export_task_id is not None:
+            input_["export_task_id"] = export_task_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5433,9 +5595,9 @@ class EC2Client:
 
     def cancel_image_launch_permission(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.cancel_image_launch_permission_result.CancelImageLaunchPermissionResult":
         r"""<p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html\">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -5464,7 +5626,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.cancel_image_launch_permission_request.CancelImageLaunchPermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -5526,9 +5689,11 @@ class EC2Client:
 
     def cancel_reserved_instances_listing(
         self,
-        reserved_instances_listing_id: "capo_ec2.types.reserved_instances_listing_id.ReservedInstancesListingId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        reserved_instances_listing_id: Optional[
+            "capo_ec2.types.reserved_instances_listing_id.ReservedInstancesListingId"
+        ] = None,
     ) -> "capo_ec2.types.cancel_reserved_instances_listing_result.CancelReservedInstancesListingResult":
         r"""<p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -5555,7 +5720,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.cancel_reserved_instances_listing_request.CancelReservedInstancesListingRequest = {}  # type: ignore[typeddict-item]
-        input_["reserved_instances_listing_id"] = reserved_instances_listing_id
+        if reserved_instances_listing_id is not None:
+            input_["reserved_instances_listing_id"] = reserved_instances_listing_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5566,11 +5732,13 @@ class EC2Client:
 
     def cancel_spot_fleet_requests(
         self,
-        spot_fleet_request_ids: "capo_ec2.types.spot_fleet_request_id_list.SpotFleetRequestIdList",
-        terminate_instances: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        spot_fleet_request_ids: Optional[
+            "capo_ec2.types.spot_fleet_request_id_list.SpotFleetRequestIdList"
+        ] = None,
+        terminate_instances: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.cancel_spot_fleet_requests_response.CancelSpotFleetRequestsResponse":
         r"""<p>Cancels the specified Spot Fleet requests.</p> <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p> <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you choose to terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters the <code>cancelled_running</code> state and the instances continue to run until they are interrupted or you terminate them manually.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p class=\"title\"> <b>Restrictions</b> </p> <ul> <li> <p>You can delete up to 100 fleets in a single request. If you exceed the specified number, no fleets are deleted.</p> </li> </ul>
 
@@ -5611,8 +5779,10 @@ class EC2Client:
         input_: capo_ec2.types.cancel_spot_fleet_requests_request.CancelSpotFleetRequestsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["spot_fleet_request_ids"] = spot_fleet_request_ids
-        input_["terminate_instances"] = terminate_instances
+        if spot_fleet_request_ids is not None:
+            input_["spot_fleet_request_ids"] = spot_fleet_request_ids
+        if terminate_instances is not None:
+            input_["terminate_instances"] = terminate_instances
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5623,10 +5793,12 @@ class EC2Client:
 
     def cancel_spot_instance_requests(
         self,
-        spot_instance_request_ids: "capo_ec2.types.spot_instance_request_id_list.SpotInstanceRequestIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        spot_instance_request_ids: Optional[
+            "capo_ec2.types.spot_instance_request_id_list.SpotInstanceRequestIdList"
+        ] = None,
     ) -> "capo_ec2.types.cancel_spot_instance_requests_result.CancelSpotInstanceRequestsResult":
         """<p>Cancels one or more Spot Instance requests.</p> <important> <p>Canceling a Spot Instance request does not terminate running Spot Instances associated with the request.</p> </important>
 
@@ -5662,7 +5834,8 @@ class EC2Client:
         input_: capo_ec2.types.cancel_spot_instance_requests_request.CancelSpotInstanceRequestsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["spot_instance_request_ids"] = spot_instance_request_ids
+        if spot_instance_request_ids is not None:
+            input_["spot_instance_request_ids"] = spot_instance_request_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5673,10 +5846,10 @@ class EC2Client:
 
     def confirm_product_instance(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        product_code: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        product_code: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.confirm_product_instance_result.ConfirmProductInstanceResult":
         """<p>Determines whether a product code is associated with an instance. This action can only be used by the owner of the product code. It is useful when a product code owner must verify whether another user's instance is eligible for support.</p>
@@ -5712,8 +5885,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.confirm_product_instance_request.ConfirmProductInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["product_code"] = product_code
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if product_code is not None:
+            input_["product_code"] = product_code
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -5726,13 +5901,13 @@ class EC2Client:
 
     def copy_fpga_image(
         self,
-        source_fpga_image_id: "capo_ec2.types.string.String",
-        source_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        source_fpga_image_id: Optional["capo_ec2.types.string.String"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         name: Optional["capo_ec2.types.string.String"] = None,
+        source_region: Optional["capo_ec2.types.string.String"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.copy_fpga_image_result.CopyFpgaImageResult":
         r"""<p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
@@ -5767,12 +5942,14 @@ class EC2Client:
         input_: capo_ec2.types.copy_fpga_image_request.CopyFpgaImageRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["source_fpga_image_id"] = source_fpga_image_id
+        if source_fpga_image_id is not None:
+            input_["source_fpga_image_id"] = source_fpga_image_id
         if description is not None:
             input_["description"] = description
         if name is not None:
             input_["name"] = name
-        input_["source_region"] = source_region
+        if source_region is not None:
+            input_["source_region"] = source_region
         if client_token is not None:
             input_["client_token"] = client_token
 
@@ -5785,9 +5962,6 @@ class EC2Client:
 
     def copy_image(
         self,
-        name: "capo_ec2.types.image_name_request.ImageNameRequest",
-        source_image_id: "capo_ec2.types.string.String",
-        source_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional[
@@ -5798,6 +5972,9 @@ class EC2Client:
         ] = None,
         encrypted: Optional["capo_ec2.types.boolean.Boolean"] = None,
         kms_key_id: Optional["capo_ec2.types.kms_key_id.KmsKeyId"] = None,
+        name: Optional["capo_ec2.types.image_name_request.ImageNameRequest"] = None,
+        source_image_id: Optional["capo_ec2.types.string.String"] = None,
+        source_region: Optional["capo_ec2.types.string.String"] = None,
         destination_outpost_arn: Optional["capo_ec2.types.string.String"] = None,
         copy_image_tags: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
@@ -5862,9 +6039,12 @@ class EC2Client:
             input_["encrypted"] = encrypted
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
-        input_["name"] = name
-        input_["source_image_id"] = source_image_id
-        input_["source_region"] = source_region
+        if name is not None:
+            input_["name"] = name
+        if source_image_id is not None:
+            input_["source_image_id"] = source_image_id
+        if source_region is not None:
+            input_["source_region"] = source_region
         if destination_outpost_arn is not None:
             input_["destination_outpost_arn"] = destination_outpost_arn
         if copy_image_tags is not None:
@@ -5893,8 +6073,6 @@ class EC2Client:
 
     def copy_snapshot(
         self,
-        source_region: "capo_ec2.types.string.String",
-        source_snapshot_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
@@ -5905,6 +6083,8 @@ class EC2Client:
         presigned_url: Optional[
             "capo_ec2.types.copy_snapshot_request_psu.CopySnapshotRequestPSU"
         ] = None,
+        source_region: Optional["capo_ec2.types.string.String"] = None,
+        source_snapshot_id: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -5968,8 +6148,10 @@ class EC2Client:
             input_["kms_key_id"] = kms_key_id
         if presigned_url is not None:
             input_["presigned_url"] = presigned_url
-        input_["source_region"] = source_region
-        input_["source_snapshot_id"] = source_snapshot_id
+        if source_region is not None:
+            input_["source_region"] = source_region
+        if source_snapshot_id is not None:
+            input_["source_snapshot_id"] = source_snapshot_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if completion_duration_minutes is not None:
@@ -5988,9 +6170,9 @@ class EC2Client:
 
     def copy_volumes(
         self,
-        source_volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        source_volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         iops: Optional["capo_ec2.types.integer.Integer"] = None,
         size: Optional["capo_ec2.types.integer.Integer"] = None,
         volume_type: Optional["capo_ec2.types.volume_type.VolumeType"] = None,
@@ -6033,7 +6215,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.copy_volumes_request.CopyVolumesRequest = {}  # type: ignore[typeddict-item]
-        input_["source_volume_id"] = source_volume_id
+        if source_volume_id is not None:
+            input_["source_volume_id"] = source_volume_id
         if iops is not None:
             input_["iops"] = iops
         if size is not None:
@@ -6060,12 +6243,12 @@ class EC2Client:
 
     def create_capacity_manager_data_export(
         self,
-        s3_bucket_name: "capo_ec2.types.string.String",
-        schedule: "capo_ec2.types.schedule.Schedule",
-        output_format: "capo_ec2.types.output_format.OutputFormat",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        s3_bucket_name: Optional["capo_ec2.types.string.String"] = None,
         s3_bucket_prefix: Optional["capo_ec2.types.string.String"] = None,
+        schedule: Optional["capo_ec2.types.schedule.Schedule"] = None,
+        output_format: Optional["capo_ec2.types.output_format.OutputFormat"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
@@ -6103,11 +6286,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_capacity_manager_data_export_request.CreateCapacityManagerDataExportRequest = {}  # type: ignore[typeddict-item]
-        input_["s3_bucket_name"] = s3_bucket_name
+        if s3_bucket_name is not None:
+            input_["s3_bucket_name"] = s3_bucket_name
         if s3_bucket_prefix is not None:
             input_["s3_bucket_prefix"] = s3_bucket_prefix
-        input_["schedule"] = schedule
-        input_["output_format"] = output_format
+        if schedule is not None:
+            input_["schedule"] = schedule
+        if output_format is not None:
+            input_["output_format"] = output_format
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -6124,12 +6310,13 @@ class EC2Client:
 
     def create_capacity_reservation(
         self,
-        instance_type: "capo_ec2.types.string.String",
-        instance_platform: "capo_ec2.types.capacity_reservation_instance_platform.CapacityReservationInstancePlatform",
-        instance_count: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        instance_type: Optional["capo_ec2.types.string.String"] = None,
+        instance_platform: Optional[
+            "capo_ec2.types.capacity_reservation_instance_platform.CapacityReservationInstancePlatform"
+        ] = None,
         availability_zone: Optional[
             "capo_ec2.types.availability_zone_name.AvailabilityZoneName"
         ] = None,
@@ -6139,6 +6326,7 @@ class EC2Client:
         tenancy: Optional[
             "capo_ec2.types.capacity_reservation_tenancy.CapacityReservationTenancy"
         ] = None,
+        instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
         ebs_optimized: Optional["capo_ec2.types.boolean.Boolean"] = None,
         ephemeral_storage: Optional["capo_ec2.types.boolean.Boolean"] = None,
         end_date: Optional["capo_ec2.types.date_time.DateTime"] = None,
@@ -6209,15 +6397,18 @@ class EC2Client:
         input_: capo_ec2.types.create_capacity_reservation_request.CreateCapacityReservationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["instance_type"] = instance_type
-        input_["instance_platform"] = instance_platform
+        if instance_type is not None:
+            input_["instance_type"] = instance_type
+        if instance_platform is not None:
+            input_["instance_platform"] = instance_platform
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
             input_["availability_zone_id"] = availability_zone_id
         if tenancy is not None:
             input_["tenancy"] = tenancy
-        input_["instance_count"] = instance_count
+        if instance_count is not None:
+            input_["instance_count"] = instance_count
         if ebs_optimized is not None:
             input_["ebs_optimized"] = ebs_optimized
         if ephemeral_storage is not None:
@@ -6252,12 +6443,14 @@ class EC2Client:
 
     def create_capacity_reservation_by_splitting(
         self,
-        source_capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        instance_count: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        source_capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -6295,8 +6488,10 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["source_capacity_reservation_id"] = source_capacity_reservation_id
-        input_["instance_count"] = instance_count
+        if source_capacity_reservation_id is not None:
+            input_["source_capacity_reservation_id"] = source_capacity_reservation_id
+        if instance_count is not None:
+            input_["instance_count"] = instance_count
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -6309,15 +6504,17 @@ class EC2Client:
 
     def create_capacity_reservation_fleet(
         self,
-        instance_type_specifications: "capo_ec2.types.reservation_fleet_instance_specification_list.ReservationFleetInstanceSpecificationList",
-        total_target_capacity: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         allocation_strategy: Optional["capo_ec2.types.string.String"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        instance_type_specifications: Optional[
+            "capo_ec2.types.reservation_fleet_instance_specification_list.ReservationFleetInstanceSpecificationList"
+        ] = None,
         tenancy: Optional[
             "capo_ec2.types.fleet_capacity_reservation_tenancy.FleetCapacityReservationTenancy"
         ] = None,
+        total_target_capacity: Optional["capo_ec2.types.integer.Integer"] = None,
         end_date: Optional[
             "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
         ] = None,
@@ -6366,10 +6563,12 @@ class EC2Client:
             input_["allocation_strategy"] = allocation_strategy
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["instance_type_specifications"] = instance_type_specifications
+        if instance_type_specifications is not None:
+            input_["instance_type_specifications"] = instance_type_specifications
         if tenancy is not None:
             input_["tenancy"] = tenancy
-        input_["total_target_capacity"] = total_target_capacity
+        if total_target_capacity is not None:
+            input_["total_target_capacity"] = total_target_capacity
         if end_date is not None:
             input_["end_date"] = end_date
         if instance_match_criteria is not None:
@@ -6388,9 +6587,9 @@ class EC2Client:
 
     def create_carrier_gateway(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -6425,7 +6624,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_carrier_gateway_request.CreateCarrierGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -6442,12 +6642,16 @@ class EC2Client:
 
     def create_client_vpn_endpoint(
         self,
-        server_certificate_arn: "capo_ec2.types.string.String",
-        authentication_options: "capo_ec2.types.client_vpn_authentication_request_list.ClientVpnAuthenticationRequestList",
-        connection_log_options: "capo_ec2.types.connection_log_options.ConnectionLogOptions",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        server_certificate_arn: Optional["capo_ec2.types.string.String"] = None,
+        authentication_options: Optional[
+            "capo_ec2.types.client_vpn_authentication_request_list.ClientVpnAuthenticationRequestList"
+        ] = None,
+        connection_log_options: Optional[
+            "capo_ec2.types.connection_log_options.ConnectionLogOptions"
+        ] = None,
         dns_servers: Optional[
             "capo_ec2.types.value_string_list.ValueStringList"
         ] = None,
@@ -6543,9 +6747,12 @@ class EC2Client:
         input_: capo_ec2.types.create_client_vpn_endpoint_request.CreateClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
         if client_cidr_block is not None:
             input_["client_cidr_block"] = client_cidr_block
-        input_["server_certificate_arn"] = server_certificate_arn
-        input_["authentication_options"] = authentication_options
-        input_["connection_log_options"] = connection_log_options
+        if server_certificate_arn is not None:
+            input_["server_certificate_arn"] = server_certificate_arn
+        if authentication_options is not None:
+            input_["authentication_options"] = authentication_options
+        if connection_log_options is not None:
+            input_["connection_log_options"] = connection_log_options
         if dns_servers is not None:
             input_["dns_servers"] = dns_servers
         if transport_protocol is not None:
@@ -6596,10 +6803,12 @@ class EC2Client:
 
     def create_client_vpn_route(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        destination_cidr_block: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         target_vpc_subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -6635,8 +6844,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_client_vpn_route_request.CreateClientVpnRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
-        input_["destination_cidr_block"] = destination_cidr_block
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
         if target_vpc_subnet_id is not None:
             input_["target_vpc_subnet_id"] = target_vpc_subnet_id
         if description is not None:
@@ -6655,10 +6866,12 @@ class EC2Client:
 
     def create_coip_cidr(
         self,
-        cidr: "capo_ec2.types.string.String",
-        coip_pool_id: "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        coip_pool_id: Optional[
+            "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.create_coip_cidr_result.CreateCoipCidrResult":
         """<p> Creates a range of customer-owned IP addresses. </p>
@@ -6688,8 +6901,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_coip_cidr_request.CreateCoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input_["cidr"] = cidr
-        input_["coip_pool_id"] = coip_pool_id
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if coip_pool_id is not None:
+            input_["coip_pool_id"] = coip_pool_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -6702,9 +6917,11 @@ class EC2Client:
 
     def create_coip_pool(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -6737,7 +6954,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_coip_pool_request.CreateCoipPoolRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -6752,12 +6970,12 @@ class EC2Client:
 
     def create_customer_gateway(
         self,
-        type: "capo_ec2.types.gateway_type.GatewayType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         bgp_asn: Optional["capo_ec2.types.integer.Integer"] = None,
         public_ip: Optional["capo_ec2.types.string.String"] = None,
         certificate_arn: Optional["capo_ec2.types.string.String"] = None,
+        type: Optional["capo_ec2.types.gateway_type.GatewayType"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -6811,7 +7029,8 @@ class EC2Client:
             input_["public_ip"] = public_ip
         if certificate_arn is not None:
             input_["certificate_arn"] = certificate_arn
-        input_["type"] = type
+        if type is not None:
+            input_["type"] = type
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if device_name is not None:
@@ -6930,12 +7149,14 @@ class EC2Client:
 
     def create_delegate_mac_volume_ownership_task(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        mac_credentials: "capo_ec2.types.sensitive_mac_credentials.SensitiveMacCredentials",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        mac_credentials: Optional[
+            "capo_ec2.types.sensitive_mac_credentials.SensitiveMacCredentials"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -6973,8 +7194,10 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["mac_credentials"] = mac_credentials
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if mac_credentials is not None:
+            input_["mac_credentials"] = mac_credentials
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -6987,9 +7210,11 @@ class EC2Client:
 
     def create_dhcp_options(
         self,
-        dhcp_configurations: "capo_ec2.types.new_dhcp_configuration_list.NewDhcpConfigurationList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        dhcp_configurations: Optional[
+            "capo_ec2.types.new_dhcp_configuration_list.NewDhcpConfigurationList"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -7028,7 +7253,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_dhcp_options_request.CreateDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["dhcp_configurations"] = dhcp_configurations
+        if dhcp_configurations is not None:
+            input_["dhcp_configurations"] = dhcp_configurations
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -7043,11 +7269,11 @@ class EC2Client:
 
     def create_egress_only_internet_gateway(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -7084,7 +7310,8 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -7097,8 +7324,6 @@ class EC2Client:
 
     def create_fleet(
         self,
-        launch_template_configs: "capo_ec2.types.fleet_launch_template_config_list_request.FleetLaunchTemplateConfigListRequest",
-        target_capacity_specification: "capo_ec2.types.target_capacity_specification_request.TargetCapacitySpecificationRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -7114,6 +7339,12 @@ class EC2Client:
         ] = None,
         excess_capacity_termination_policy: Optional[
             "capo_ec2.types.fleet_excess_capacity_termination_policy.FleetExcessCapacityTerminationPolicy"
+        ] = None,
+        launch_template_configs: Optional[
+            "capo_ec2.types.fleet_launch_template_config_list_request.FleetLaunchTemplateConfigListRequest"
+        ] = None,
+        target_capacity_specification: Optional[
+            "capo_ec2.types.target_capacity_specification_request.TargetCapacitySpecificationRequest"
         ] = None,
         terminate_instances_with_expiration: Optional[
             "capo_ec2.types.boolean.Boolean"
@@ -7178,8 +7409,10 @@ class EC2Client:
             input_["excess_capacity_termination_policy"] = (
                 excess_capacity_termination_policy
             )
-        input_["launch_template_configs"] = launch_template_configs
-        input_["target_capacity_specification"] = target_capacity_specification
+        if launch_template_configs is not None:
+            input_["launch_template_configs"] = launch_template_configs
+        if target_capacity_specification is not None:
+            input_["target_capacity_specification"] = target_capacity_specification
         if terminate_instances_with_expiration is not None:
             input_["terminate_instances_with_expiration"] = (
                 terminate_instances_with_expiration
@@ -7206,8 +7439,6 @@ class EC2Client:
 
     def create_flow_logs(
         self,
-        resource_ids: "capo_ec2.types.flow_log_resource_ids.FlowLogResourceIds",
-        resource_type: "capo_ec2.types.flow_logs_resource_type.FlowLogsResourceType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -7215,6 +7446,12 @@ class EC2Client:
         deliver_logs_permission_arn: Optional["capo_ec2.types.string.String"] = None,
         deliver_cross_account_role: Optional["capo_ec2.types.string.String"] = None,
         log_group_name: Optional["capo_ec2.types.string.String"] = None,
+        resource_ids: Optional[
+            "capo_ec2.types.flow_log_resource_ids.FlowLogResourceIds"
+        ] = None,
+        resource_type: Optional[
+            "capo_ec2.types.flow_logs_resource_type.FlowLogsResourceType"
+        ] = None,
         traffic_type: Optional["capo_ec2.types.traffic_type.TrafficType"] = None,
         log_destination_type: Optional[
             "capo_ec2.types.log_destination_type.LogDestinationType"
@@ -7277,8 +7514,10 @@ class EC2Client:
             input_["deliver_cross_account_role"] = deliver_cross_account_role
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
-        input_["resource_ids"] = resource_ids
-        input_["resource_type"] = resource_type
+        if resource_ids is not None:
+            input_["resource_ids"] = resource_ids
+        if resource_type is not None:
+            input_["resource_type"] = resource_type
         if traffic_type is not None:
             input_["traffic_type"] = traffic_type
         if log_destination_type is not None:
@@ -7303,10 +7542,12 @@ class EC2Client:
 
     def create_fpga_image(
         self,
-        input_storage_location: "capo_ec2.types.storage_location.StorageLocation",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        input_storage_location: Optional[
+            "capo_ec2.types.storage_location.StorageLocation"
+        ] = None,
         logs_storage_location: Optional[
             "capo_ec2.types.storage_location.StorageLocation"
         ] = None,
@@ -7350,7 +7591,8 @@ class EC2Client:
         input_: capo_ec2.types.create_fpga_image_request.CreateFpgaImageRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["input_storage_location"] = input_storage_location
+        if input_storage_location is not None:
+            input_["input_storage_location"] = input_storage_location
         if logs_storage_location is not None:
             input_["logs_storage_location"] = logs_storage_location
         if description is not None:
@@ -7371,8 +7613,6 @@ class EC2Client:
 
     def create_image(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        name: "capo_ec2.types.image_name_request.ImageNameRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
@@ -7382,6 +7622,8 @@ class EC2Client:
             "capo_ec2.types.snapshot_location_enum.SnapshotLocationEnum"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        name: Optional["capo_ec2.types.image_name_request.ImageNameRequest"] = None,
         description: Optional[
             "capo_ec2.types.image_description_request.ImageDescriptionRequest"
         ] = None,
@@ -7426,8 +7668,10 @@ class EC2Client:
             input_["snapshot_location"] = snapshot_location
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["name"] = name
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if no_reboot is not None:
@@ -7444,11 +7688,13 @@ class EC2Client:
 
     def create_image_usage_report(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
-        resource_types: "capo_ec2.types.image_usage_resource_type_request_list.ImageUsageResourceTypeRequestList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        resource_types: Optional[
+            "capo_ec2.types.image_usage_resource_type_request_list.ImageUsageResourceTypeRequestList"
+        ] = None,
         account_ids: Optional[
             "capo_ec2.types.image_usage_report_user_id_string_list.ImageUsageReportUserIdStringList"
         ] = None,
@@ -7489,10 +7735,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_image_usage_report_request.CreateImageUsageReportRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["resource_types"] = resource_types
+        if resource_types is not None:
+            input_["resource_types"] = resource_types
         if account_ids is not None:
             input_["account_ids"] = account_ids
         if client_token is not None:
@@ -7509,10 +7757,10 @@ class EC2Client:
 
     def create_instance_connect_endpoint(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         security_group_ids: Optional[
             "capo_ec2.types.security_group_id_string_list_request.SecurityGroupIdStringListRequest"
         ] = None,
@@ -7558,7 +7806,8 @@ class EC2Client:
         input_: capo_ec2.types.create_instance_connect_endpoint_request.CreateInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["subnet_id"] = subnet_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if security_group_ids is not None:
             input_["security_group_ids"] = security_group_ids
         if preserve_client_ip is not None:
@@ -7642,15 +7891,19 @@ class EC2Client:
 
     def create_instance_export_task(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        target_environment: "capo_ec2.types.export_environment.ExportEnvironment",
-        export_to_s3_task: "capo_ec2.types.export_to_s3_task_specification.ExportToS3TaskSpecification",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        target_environment: Optional[
+            "capo_ec2.types.export_environment.ExportEnvironment"
+        ] = None,
+        export_to_s3_task: Optional[
+            "capo_ec2.types.export_to_s3_task_specification.ExportToS3TaskSpecification"
+        ] = None,
     ) -> "capo_ec2.types.create_instance_export_task_result.CreateInstanceExportTaskResult":
         r"""<p>Exports a running or stopped instance to an Amazon S3 bucket.</p> <p>For information about the prerequisites for your Amazon S3 bucket, supported operating systems, image formats, and known limitations for the types of instances you can export, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html\">Exporting an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
 
@@ -7685,9 +7938,12 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if description is not None:
             input_["description"] = description
-        input_["instance_id"] = instance_id
-        input_["target_environment"] = target_environment
-        input_["export_to_s3_task"] = export_to_s3_task
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if target_environment is not None:
+            input_["target_environment"] = target_environment
+        if export_to_s3_task is not None:
+            input_["export_to_s3_task"] = export_to_s3_task
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7751,10 +8007,12 @@ class EC2Client:
 
     def create_interruptible_capacity_reservation_allocation(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        instance_count: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
@@ -7790,8 +8048,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_interruptible_capacity_reservation_allocation_request.CreateInterruptibleCapacityReservationAllocationRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_id"] = capacity_reservation_id
-        input_["instance_count"] = instance_count
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
+        if instance_count is not None:
+            input_["instance_count"] = instance_count
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -7881,10 +8141,10 @@ class EC2Client:
 
     def create_ipam_external_resource_verification_token(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -7920,7 +8180,8 @@ class EC2Client:
         input_: capo_ec2.types.create_ipam_external_resource_verification_token_request.CreateIpamExternalResourceVerificationTokenRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if client_token is not None:
@@ -7935,7 +8196,6 @@ class EC2Client:
 
     def create_ipam_policy(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -7943,6 +8203,7 @@ class EC2Client:
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
     ) -> "capo_ec2.types.create_ipam_policy_result.CreateIpamPolicyResult":
         r"""<p>Creates an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html\">Define public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
@@ -7978,7 +8239,8 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["ipam_id"] = ipam_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7989,14 +8251,14 @@ class EC2Client:
 
     def create_ipam_pool(
         self,
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
-        address_family: "capo_ec2.types.address_family.AddressFamily",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
         locale: Optional["capo_ec2.types.string.String"] = None,
         source_ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
+        address_family: Optional["capo_ec2.types.address_family.AddressFamily"] = None,
         auto_import: Optional["capo_ec2.types.boolean.Boolean"] = None,
         publicly_advertisable: Optional["capo_ec2.types.boolean.Boolean"] = None,
         allocation_min_netmask_length: Optional[
@@ -8068,14 +8330,16 @@ class EC2Client:
         input_: capo_ec2.types.create_ipam_pool_request.CreateIpamPoolRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_scope_id"] = ipam_scope_id
+        if ipam_scope_id is not None:
+            input_["ipam_scope_id"] = ipam_scope_id
         if locale is not None:
             input_["locale"] = locale
         if source_ipam_pool_id is not None:
             input_["source_ipam_pool_id"] = source_ipam_pool_id
         if description is not None:
             input_["description"] = description
-        input_["address_family"] = address_family
+        if address_family is not None:
+            input_["address_family"] = address_family
         if auto_import is not None:
             input_["auto_import"] = auto_import
         if publicly_advertisable is not None:
@@ -8110,12 +8374,12 @@ class EC2Client:
 
     def create_ipam_prefix_list_resolver(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
-        address_family: "capo_ec2.types.address_family.AddressFamily",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
+        address_family: Optional["capo_ec2.types.address_family.AddressFamily"] = None,
         rules: Optional[
             "capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.IpamPrefixListResolverRuleRequestSet"
         ] = None,
@@ -8157,10 +8421,12 @@ class EC2Client:
         input_: capo_ec2.types.create_ipam_prefix_list_resolver_request.CreateIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
         if description is not None:
             input_["description"] = description
-        input_["address_family"] = address_family
+        if address_family is not None:
+            input_["address_family"] = address_family
         if rules is not None:
             input_["rules"] = rules
         if tag_specifications is not None:
@@ -8177,14 +8443,16 @@ class EC2Client:
 
     def create_ipam_prefix_list_resolver_target(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
-        prefix_list_id: "capo_ec2.types.string.String",
-        prefix_list_region: "capo_ec2.types.string.String",
-        track_latest_version: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
+        prefix_list_id: Optional["capo_ec2.types.string.String"] = None,
+        prefix_list_region: Optional["capo_ec2.types.string.String"] = None,
         desired_version: Optional["capo_ec2.types.boxed_long.BoxedLong"] = None,
+        track_latest_version: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -8224,12 +8492,16 @@ class EC2Client:
         input_: capo_ec2.types.create_ipam_prefix_list_resolver_target_request.CreateIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
-        input_["prefix_list_id"] = prefix_list_id
-        input_["prefix_list_region"] = prefix_list_region
+        if ipam_prefix_list_resolver_id is not None:
+            input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
+        if prefix_list_region is not None:
+            input_["prefix_list_region"] = prefix_list_region
         if desired_version is not None:
             input_["desired_version"] = desired_version
-        input_["track_latest_version"] = track_latest_version
+        if track_latest_version is not None:
+            input_["track_latest_version"] = track_latest_version
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if client_token is not None:
@@ -8305,10 +8577,10 @@ class EC2Client:
 
     def create_ipam_scope(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -8350,7 +8622,8 @@ class EC2Client:
         input_: capo_ec2.types.create_ipam_scope_request.CreateIpamScopeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
         if description is not None:
             input_["description"] = description
         if tag_specifications is not None:
@@ -8371,9 +8644,9 @@ class EC2Client:
 
     def create_key_pair(
         self,
-        key_name: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        key_name: Optional["capo_ec2.types.string.String"] = None,
         key_type: Optional["capo_ec2.types.key_type.KeyType"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -8414,7 +8687,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_key_pair_request.CreateKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input_["key_name"] = key_name
+        if key_name is not None:
+            input_["key_name"] = key_name
         if key_type is not None:
             input_["key_type"] = key_type
         if tag_specifications is not None:
@@ -8433,14 +8707,16 @@ class EC2Client:
 
     def create_launch_template(
         self,
-        launch_template_name: "capo_ec2.types.string.String",
-        launch_template_data: "capo_ec2.types.request_launch_template_data.RequestLaunchTemplateData",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        launch_template_name: Optional["capo_ec2.types.string.String"] = None,
         version_description: Optional[
             "capo_ec2.types.version_description.VersionDescription"
+        ] = None,
+        launch_template_data: Optional[
+            "capo_ec2.types.request_launch_template_data.RequestLaunchTemplateData"
         ] = None,
         operator: Optional["capo_ec2.types.operator_request.OperatorRequest"] = None,
         tag_specifications: Optional[
@@ -8488,10 +8764,12 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["launch_template_name"] = launch_template_name
+        if launch_template_name is not None:
+            input_["launch_template_name"] = launch_template_name
         if version_description is not None:
             input_["version_description"] = version_description
-        input_["launch_template_data"] = launch_template_data
+        if launch_template_data is not None:
+            input_["launch_template_data"] = launch_template_data
         if operator is not None:
             input_["operator"] = operator
         if tag_specifications is not None:
@@ -8506,7 +8784,6 @@ class EC2Client:
 
     def create_launch_template_version(
         self,
-        launch_template_data: "capo_ec2.types.request_launch_template_data.RequestLaunchTemplateData",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -8520,6 +8797,9 @@ class EC2Client:
         source_version: Optional["capo_ec2.types.string.String"] = None,
         version_description: Optional[
             "capo_ec2.types.version_description.VersionDescription"
+        ] = None,
+        launch_template_data: Optional[
+            "capo_ec2.types.request_launch_template_data.RequestLaunchTemplateData"
         ] = None,
         resolve_alias: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.create_launch_template_version_result.CreateLaunchTemplateVersionResult":
@@ -8573,7 +8853,8 @@ class EC2Client:
             input_["source_version"] = source_version
         if version_description is not None:
             input_["version_description"] = version_description
-        input_["launch_template_data"] = launch_template_data
+        if launch_template_data is not None:
+            input_["launch_template_data"] = launch_template_data
         if resolve_alias is not None:
             input_["resolve_alias"] = resolve_alias
 
@@ -8586,10 +8867,12 @@ class EC2Client:
 
     def create_local_gateway_route(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         local_gateway_virtual_interface_group_id: Optional[
             "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId"
         ] = None,
@@ -8635,7 +8918,8 @@ class EC2Client:
         input_: capo_ec2.types.create_local_gateway_route_request.CreateLocalGatewayRouteRequest = {}  # type: ignore[typeddict-item]
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if local_gateway_virtual_interface_group_id is not None:
             input_["local_gateway_virtual_interface_group_id"] = (
                 local_gateway_virtual_interface_group_id
@@ -8656,9 +8940,11 @@ class EC2Client:
 
     def create_local_gateway_route_table(
         self,
-        local_gateway_id: "capo_ec2.types.local_gateway_id.LocalGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_id: Optional[
+            "capo_ec2.types.local_gateway_id.LocalGatewayId"
+        ] = None,
         mode: Optional[
             "capo_ec2.types.local_gateway_route_table_mode.LocalGatewayRouteTableMode"
         ] = None,
@@ -8695,7 +8981,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_local_gateway_route_table_request.CreateLocalGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_id"] = local_gateway_id
+        if local_gateway_id is not None:
+            input_["local_gateway_id"] = local_gateway_id
         if mode is not None:
             input_["mode"] = mode
         if tag_specifications is not None:
@@ -8712,10 +8999,14 @@ class EC2Client:
 
     def create_local_gateway_route_table_virtual_interface_group_association(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
-        local_gateway_virtual_interface_group_id: "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
+        local_gateway_virtual_interface_group_id: Optional[
+            "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -8749,10 +9040,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_local_gateway_route_table_virtual_interface_group_association_request.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
-        input_["local_gateway_virtual_interface_group_id"] = (
-            local_gateway_virtual_interface_group_id
-        )
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_virtual_interface_group_id is not None:
+            input_["local_gateway_virtual_interface_group_id"] = (
+                local_gateway_virtual_interface_group_id
+            )
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -8767,10 +9060,12 @@ class EC2Client:
 
     def create_local_gateway_route_table_vpc_association(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -8804,8 +9099,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_local_gateway_route_table_vpc_association_request.CreateLocalGatewayRouteTableVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
-        input_["vpc_id"] = vpc_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -8820,13 +9117,15 @@ class EC2Client:
 
     def create_local_gateway_virtual_interface(
         self,
-        local_gateway_virtual_interface_group_id: "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId",
-        outpost_lag_id: "capo_ec2.types.outpost_lag_id.OutpostLagId",
-        vlan: "capo_ec2.types.integer.Integer",
-        local_address: "capo_ec2.types.string.String",
-        peer_address: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_virtual_interface_group_id: Optional[
+            "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId"
+        ] = None,
+        outpost_lag_id: Optional["capo_ec2.types.outpost_lag_id.OutpostLagId"] = None,
+        vlan: Optional["capo_ec2.types.integer.Integer"] = None,
+        local_address: Optional["capo_ec2.types.string.String"] = None,
+        peer_address: Optional["capo_ec2.types.string.String"] = None,
         peer_bgp_asn: Optional["capo_ec2.types.integer.Integer"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -8867,13 +9166,18 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_local_gateway_virtual_interface_request.CreateLocalGatewayVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_virtual_interface_group_id"] = (
-            local_gateway_virtual_interface_group_id
-        )
-        input_["outpost_lag_id"] = outpost_lag_id
-        input_["vlan"] = vlan
-        input_["local_address"] = local_address
-        input_["peer_address"] = peer_address
+        if local_gateway_virtual_interface_group_id is not None:
+            input_["local_gateway_virtual_interface_group_id"] = (
+                local_gateway_virtual_interface_group_id
+            )
+        if outpost_lag_id is not None:
+            input_["outpost_lag_id"] = outpost_lag_id
+        if vlan is not None:
+            input_["vlan"] = vlan
+        if local_address is not None:
+            input_["local_address"] = local_address
+        if peer_address is not None:
+            input_["peer_address"] = peer_address
         if peer_bgp_asn is not None:
             input_["peer_bgp_asn"] = peer_bgp_asn
         if tag_specifications is not None:
@@ -8892,9 +9196,11 @@ class EC2Client:
 
     def create_local_gateway_virtual_interface_group(
         self,
-        local_gateway_id: "capo_ec2.types.local_gateway_id.LocalGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_id: Optional[
+            "capo_ec2.types.local_gateway_id.LocalGatewayId"
+        ] = None,
         local_bgp_asn: Optional["capo_ec2.types.integer.Integer"] = None,
         local_bgp_asn_extended: Optional["capo_ec2.types.long.Long"] = None,
         tag_specifications: Optional[
@@ -8931,7 +9237,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_local_gateway_virtual_interface_group_request.CreateLocalGatewayVirtualInterfaceGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_id"] = local_gateway_id
+        if local_gateway_id is not None:
+            input_["local_gateway_id"] = local_gateway_id
         if local_bgp_asn is not None:
             input_["local_bgp_asn"] = local_bgp_asn
         if local_bgp_asn_extended is not None:
@@ -8950,17 +9257,19 @@ class EC2Client:
 
     def create_mac_system_integrity_protection_modification_task(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        mac_system_integrity_protection_status: "capo_ec2.types.mac_system_integrity_protection_setting_status.MacSystemIntegrityProtectionSettingStatus",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         mac_credentials: Optional[
             "capo_ec2.types.sensitive_mac_credentials.SensitiveMacCredentials"
         ] = None,
         mac_system_integrity_protection_configuration: Optional[
             "capo_ec2.types.mac_system_integrity_protection_configuration_request.MacSystemIntegrityProtectionConfigurationRequest"
+        ] = None,
+        mac_system_integrity_protection_status: Optional[
+            "capo_ec2.types.mac_system_integrity_protection_setting_status.MacSystemIntegrityProtectionSettingStatus"
         ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -9001,16 +9310,18 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if mac_credentials is not None:
             input_["mac_credentials"] = mac_credentials
         if mac_system_integrity_protection_configuration is not None:
             input_["mac_system_integrity_protection_configuration"] = (
                 mac_system_integrity_protection_configuration
             )
-        input_["mac_system_integrity_protection_status"] = (
-            mac_system_integrity_protection_status
-        )
+        if mac_system_integrity_protection_status is not None:
+            input_["mac_system_integrity_protection_status"] = (
+                mac_system_integrity_protection_status
+            )
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -9023,18 +9334,18 @@ class EC2Client:
 
     def create_managed_prefix_list(
         self,
-        prefix_list_name: "capo_ec2.types.string.String",
-        max_entries: "capo_ec2.types.integer.Integer",
-        address_family: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_name: Optional["capo_ec2.types.string.String"] = None,
         entries: Optional[
             "capo_ec2.types.add_prefix_list_entries.AddPrefixListEntries"
         ] = None,
+        max_entries: Optional["capo_ec2.types.integer.Integer"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
+        address_family: Optional["capo_ec2.types.string.String"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> (
         "capo_ec2.types.create_managed_prefix_list_result.CreateManagedPrefixListResult"
@@ -9072,13 +9383,16 @@ class EC2Client:
         input_: capo_ec2.types.create_managed_prefix_list_request.CreateManagedPrefixListRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["prefix_list_name"] = prefix_list_name
+        if prefix_list_name is not None:
+            input_["prefix_list_name"] = prefix_list_name
         if entries is not None:
             input_["entries"] = entries
-        input_["max_entries"] = max_entries
+        if max_entries is not None:
+            input_["max_entries"] = max_entries
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        input_["address_family"] = address_family
+        if address_family is not None:
+            input_["address_family"] = address_family
         if client_token is not None:
             input_["client_token"] = client_token
 
@@ -9202,7 +9516,6 @@ class EC2Client:
 
     def create_network_acl(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
@@ -9210,6 +9523,7 @@ class EC2Client:
         ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "capo_ec2.types.create_network_acl_result.CreateNetworkAclResult":
         r"""<p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -9251,7 +9565,8 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9262,14 +9577,14 @@ class EC2Client:
 
     def create_network_acl_entry(
         self,
-        network_acl_id: "capo_ec2.types.network_acl_id.NetworkAclId",
-        rule_number: "capo_ec2.types.integer.Integer",
-        protocol: "capo_ec2.types.string.String",
-        rule_action: "capo_ec2.types.rule_action.RuleAction",
-        egress: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_acl_id: Optional["capo_ec2.types.network_acl_id.NetworkAclId"] = None,
+        rule_number: Optional["capo_ec2.types.integer.Integer"] = None,
+        protocol: Optional["capo_ec2.types.string.String"] = None,
+        rule_action: Optional["capo_ec2.types.rule_action.RuleAction"] = None,
+        egress: Optional["capo_ec2.types.boolean.Boolean"] = None,
         cidr_block: Optional["capo_ec2.types.string.String"] = None,
         ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         icmp_type_code: Optional["capo_ec2.types.icmp_type_code.IcmpTypeCode"] = None,
@@ -9315,11 +9630,16 @@ class EC2Client:
         input_: capo_ec2.types.create_network_acl_entry_request.CreateNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_acl_id"] = network_acl_id
-        input_["rule_number"] = rule_number
-        input_["protocol"] = protocol
-        input_["rule_action"] = rule_action
-        input_["egress"] = egress
+        if network_acl_id is not None:
+            input_["network_acl_id"] = network_acl_id
+        if rule_number is not None:
+            input_["rule_number"] = rule_number
+        if protocol is not None:
+            input_["protocol"] = protocol
+        if rule_action is not None:
+            input_["rule_action"] = rule_action
+        if egress is not None:
+            input_["egress"] = egress
         if cidr_block is not None:
             input_["cidr_block"] = cidr_block
         if ipv6_cidr_block is not None:
@@ -9338,7 +9658,6 @@ class EC2Client:
 
     def create_network_insights_access_scope(
         self,
-        client_token: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         match_paths: Optional[
@@ -9347,6 +9666,7 @@ class EC2Client:
         exclude_paths: Optional[
             "capo_ec2.types.access_scope_path_list_request.AccessScopePathListRequest"
         ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -9385,7 +9705,8 @@ class EC2Client:
             input_["match_paths"] = match_paths
         if exclude_paths is not None:
             input_["exclude_paths"] = exclude_paths
-        input_["client_token"] = client_token
+        if client_token is not None:
+            input_["client_token"] = client_token
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -9400,21 +9721,23 @@ class EC2Client:
 
     def create_network_insights_path(
         self,
-        source: "capo_ec2.types.network_insights_resource_id.NetworkInsightsResourceId",
-        protocol: "capo_ec2.types.protocol.Protocol",
-        client_token: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         source_ip: Optional["capo_ec2.types.ip_address.IpAddress"] = None,
         destination_ip: Optional["capo_ec2.types.ip_address.IpAddress"] = None,
+        source: Optional[
+            "capo_ec2.types.network_insights_resource_id.NetworkInsightsResourceId"
+        ] = None,
         destination: Optional[
             "capo_ec2.types.network_insights_resource_id.NetworkInsightsResourceId"
         ] = None,
+        protocol: Optional["capo_ec2.types.protocol.Protocol"] = None,
         destination_port: Optional["capo_ec2.types.port.Port"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
         filter_at_source: Optional[
             "capo_ec2.types.path_request_filter.PathRequestFilter"
         ] = None,
@@ -9461,17 +9784,20 @@ class EC2Client:
             input_["source_ip"] = source_ip
         if destination_ip is not None:
             input_["destination_ip"] = destination_ip
-        input_["source"] = source
+        if source is not None:
+            input_["source"] = source
         if destination is not None:
             input_["destination"] = destination
-        input_["protocol"] = protocol
+        if protocol is not None:
+            input_["protocol"] = protocol
         if destination_port is not None:
             input_["destination_port"] = destination_port
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["client_token"] = client_token
+        if client_token is not None:
+            input_["client_token"] = client_token
         if filter_at_source is not None:
             input_["filter_at_source"] = filter_at_source
         if filter_at_destination is not None:
@@ -9486,7 +9812,6 @@ class EC2Client:
 
     def create_network_interface(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ipv4_prefixes: Optional[
@@ -9509,6 +9834,7 @@ class EC2Client:
             "capo_ec2.types.connection_tracking_specification_request.ConnectionTrackingSpecificationRequest"
         ] = None,
         operator: Optional["capo_ec2.types.operator_request.OperatorRequest"] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         private_ip_address: Optional["capo_ec2.types.string.String"] = None,
         groups: Optional[
@@ -9591,7 +9917,8 @@ class EC2Client:
             )
         if operator is not None:
             input_["operator"] = operator
-        input_["subnet_id"] = subnet_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if description is not None:
             input_["description"] = description
         if private_ip_address is not None:
@@ -9620,12 +9947,16 @@ class EC2Client:
 
     def create_network_interface_permission(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
-        permission: "capo_ec2.types.interface_permission_type.InterfacePermissionType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         aws_account_id: Optional["capo_ec2.types.string.String"] = None,
         aws_service: Optional["capo_ec2.types.string.String"] = None,
+        permission: Optional[
+            "capo_ec2.types.interface_permission_type.InterfacePermissionType"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.create_network_interface_permission_result.CreateNetworkInterfacePermissionResult":
         """<p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to an instance in their account.</p> <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
@@ -9657,12 +9988,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_network_interface_permission_request.CreateNetworkInterfacePermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if aws_account_id is not None:
             input_["aws_account_id"] = aws_account_id
         if aws_service is not None:
             input_["aws_service"] = aws_service
-        input_["permission"] = permission
+        if permission is not None:
+            input_["permission"] = permission
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -9807,9 +10140,9 @@ class EC2Client:
 
     def create_replace_root_volume_task(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -9852,7 +10185,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_replace_root_volume_task_request.CreateReplaceRootVolumeTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if client_token is not None:
@@ -9877,12 +10211,16 @@ class EC2Client:
 
     def create_reserved_instances_listing(
         self,
-        reserved_instances_id: "capo_ec2.types.reservation_id.ReservationId",
-        instance_count: "capo_ec2.types.integer.Integer",
-        price_schedules: "capo_ec2.types.price_schedule_specification_list.PriceScheduleSpecificationList",
-        client_token: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        reserved_instances_id: Optional[
+            "capo_ec2.types.reservation_id.ReservationId"
+        ] = None,
+        instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
+        price_schedules: Optional[
+            "capo_ec2.types.price_schedule_specification_list.PriceScheduleSpecificationList"
+        ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.create_reserved_instances_listing_result.CreateReservedInstancesListingResult":
         r"""<p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p> <note> <p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances cannot be sold.</p> </note> <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p> <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the <a>DescribeReservedInstancesListings</a> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Sell in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -9912,10 +10250,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_reserved_instances_listing_request.CreateReservedInstancesListingRequest = {}  # type: ignore[typeddict-item]
-        input_["reserved_instances_id"] = reserved_instances_id
-        input_["instance_count"] = instance_count
-        input_["price_schedules"] = price_schedules
-        input_["client_token"] = client_token
+        if reserved_instances_id is not None:
+            input_["reserved_instances_id"] = reserved_instances_id
+        if instance_count is not None:
+            input_["instance_count"] = instance_count
+        if price_schedules is not None:
+            input_["price_schedules"] = price_schedules
+        if client_token is not None:
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9926,10 +10268,10 @@ class EC2Client:
 
     def create_restore_image_task(
         self,
-        bucket: "capo_ec2.types.string.String",
-        object_key: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        bucket: Optional["capo_ec2.types.string.String"] = None,
+        object_key: Optional["capo_ec2.types.string.String"] = None,
         name: Optional["capo_ec2.types.image_name_request.ImageNameRequest"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -9965,8 +10307,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_restore_image_task_request.CreateRestoreImageTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["object_key"] = object_key
+        if bucket is not None:
+            input_["bucket"] = bucket
+        if object_key is not None:
+            input_["object_key"] = object_key
         if name is not None:
             input_["name"] = name
         if tag_specifications is not None:
@@ -9983,7 +10327,6 @@ class EC2Client:
 
     def create_route(
         self,
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         destination_prefix_list_id: Optional[
@@ -10008,6 +10351,7 @@ class EC2Client:
             "capo_ec2.types.odb_network_arn.OdbNetworkArn"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         gateway_id: Optional["capo_ec2.types.route_gateway_id.RouteGatewayId"] = None,
         destination_ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
@@ -10084,7 +10428,8 @@ class EC2Client:
             input_["odb_network_arn"] = odb_network_arn
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["route_table_id"] = route_table_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if gateway_id is not None:
@@ -10111,9 +10456,9 @@ class EC2Client:
 
     def create_route_server(
         self,
-        amazon_side_asn: "capo_ec2.types.long.Long",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        amazon_side_asn: Optional["capo_ec2.types.long.Long"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         persist_routes: Optional[
@@ -10156,7 +10501,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_route_server_request.CreateRouteServerRequest = {}  # type: ignore[typeddict-item]
-        input_["amazon_side_asn"] = amazon_side_asn
+        if amazon_side_asn is not None:
+            input_["amazon_side_asn"] = amazon_side_asn
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -10179,10 +10525,12 @@ class EC2Client:
 
     def create_route_server_endpoint(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
@@ -10218,8 +10566,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_route_server_endpoint_request.CreateRouteServerEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
-        input_["subnet_id"] = subnet_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -10236,11 +10586,15 @@ class EC2Client:
 
     def create_route_server_peer(
         self,
-        route_server_endpoint_id: "capo_ec2.types.route_server_endpoint_id.RouteServerEndpointId",
-        peer_address: "capo_ec2.types.string.String",
-        bgp_options: "capo_ec2.types.route_server_bgp_options_request.RouteServerBgpOptionsRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_endpoint_id: Optional[
+            "capo_ec2.types.route_server_endpoint_id.RouteServerEndpointId"
+        ] = None,
+        peer_address: Optional["capo_ec2.types.string.String"] = None,
+        bgp_options: Optional[
+            "capo_ec2.types.route_server_bgp_options_request.RouteServerBgpOptionsRequest"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -10275,9 +10629,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_route_server_peer_request.CreateRouteServerPeerRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_endpoint_id"] = route_server_endpoint_id
-        input_["peer_address"] = peer_address
-        input_["bgp_options"] = bgp_options
+        if route_server_endpoint_id is not None:
+            input_["route_server_endpoint_id"] = route_server_endpoint_id
+        if peer_address is not None:
+            input_["peer_address"] = peer_address
+        if bgp_options is not None:
+            input_["bgp_options"] = bgp_options
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -10292,7 +10649,6 @@ class EC2Client:
 
     def create_route_table(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
@@ -10300,6 +10656,7 @@ class EC2Client:
         ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "capo_ec2.types.create_route_table_result.CreateRouteTableResult":
         r"""<p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -10341,7 +10698,8 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10352,12 +10710,14 @@ class EC2Client:
 
     def create_secondary_network(
         self,
-        ipv4_cidr_block: "capo_ec2.types.string.String",
-        network_type: "capo_ec2.types.secondary_network_type.SecondaryNetworkType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipv4_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        network_type: Optional[
+            "capo_ec2.types.secondary_network_type.SecondaryNetworkType"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -10401,8 +10761,10 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipv4_cidr_block"] = ipv4_cidr_block
-        input_["network_type"] = network_type
+        if ipv4_cidr_block is not None:
+            input_["ipv4_cidr_block"] = ipv4_cidr_block
+        if network_type is not None:
+            input_["network_type"] = network_type
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -10415,8 +10777,6 @@ class EC2Client:
 
     def create_secondary_subnet(
         self,
-        ipv4_cidr_block: "capo_ec2.types.string.String",
-        secondary_network_id: "capo_ec2.types.secondary_network_id.SecondaryNetworkId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -10427,6 +10787,10 @@ class EC2Client:
             "capo_ec2.types.availability_zone_id.AvailabilityZoneId"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipv4_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        secondary_network_id: Optional[
+            "capo_ec2.types.secondary_network_id.SecondaryNetworkId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -10476,8 +10840,10 @@ class EC2Client:
             input_["availability_zone_id"] = availability_zone_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipv4_cidr_block"] = ipv4_cidr_block
-        input_["secondary_network_id"] = secondary_network_id
+        if ipv4_cidr_block is not None:
+            input_["ipv4_cidr_block"] = ipv4_cidr_block
+        if secondary_network_id is not None:
+            input_["secondary_network_id"] = secondary_network_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -10490,10 +10856,10 @@ class EC2Client:
 
     def create_security_group(
         self,
-        description: "capo_ec2.types.string.String",
-        group_name: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        description: Optional["capo_ec2.types.string.String"] = None,
+        group_name: Optional["capo_ec2.types.string.String"] = None,
         vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -10535,8 +10901,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_security_group_request.CreateSecurityGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["description"] = description
-        input_["group_name"] = group_name
+        if description is not None:
+            input_["description"] = description
+        if group_name is not None:
+            input_["group_name"] = group_name
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if tag_specifications is not None:
@@ -10553,11 +10921,11 @@ class EC2Client:
 
     def create_snapshot(
         self,
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         outpost_arn: Optional["capo_ec2.types.string.String"] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -10604,7 +10972,8 @@ class EC2Client:
             input_["description"] = description
         if outpost_arn is not None:
             input_["outpost_arn"] = outpost_arn
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if location is not None:
@@ -10621,10 +10990,12 @@ class EC2Client:
 
     def create_snapshots(
         self,
-        instance_specification: "capo_ec2.types.instance_specification.InstanceSpecification",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
+        instance_specification: Optional[
+            "capo_ec2.types.instance_specification.InstanceSpecification"
+        ] = None,
         outpost_arn: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -10670,7 +11041,8 @@ class EC2Client:
         input_: capo_ec2.types.create_snapshots_request.CreateSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["instance_specification"] = instance_specification
+        if instance_specification is not None:
+            input_["instance_specification"] = instance_specification
         if outpost_arn is not None:
             input_["outpost_arn"] = outpost_arn
         if tag_specifications is not None:
@@ -10691,10 +11063,10 @@ class EC2Client:
 
     def create_spot_datafeed_subscription(
         self,
-        bucket: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        bucket: Optional["capo_ec2.types.string.String"] = None,
         prefix: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.create_spot_datafeed_subscription_result.CreateSpotDatafeedSubscriptionResult":
         r"""<p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs. You can create one data feed per Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html\">Spot Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -10732,7 +11104,8 @@ class EC2Client:
         input_: capo_ec2.types.create_spot_datafeed_subscription_request.CreateSpotDatafeedSubscriptionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["bucket"] = bucket
+        if bucket is not None:
+            input_["bucket"] = bucket
         if prefix is not None:
             input_["prefix"] = prefix
 
@@ -10745,10 +11118,10 @@ class EC2Client:
 
     def create_store_image_task(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
-        bucket: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
+        bucket: Optional["capo_ec2.types.string.String"] = None,
         s3_object_tags: Optional[
             "capo_ec2.types.s3_object_tag_list.S3ObjectTagList"
         ] = None,
@@ -10782,8 +11155,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_store_image_task_request.CreateStoreImageTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
-        input_["bucket"] = bucket
+        if image_id is not None:
+            input_["image_id"] = image_id
+        if bucket is not None:
+            input_["bucket"] = bucket
         if s3_object_tags is not None:
             input_["s3_object_tags"] = s3_object_tags
         if dry_run is not None:
@@ -10798,7 +11173,6 @@ class EC2Client:
 
     def create_subnet(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
@@ -10809,6 +11183,7 @@ class EC2Client:
         cidr_block: Optional["capo_ec2.types.string.String"] = None,
         ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         outpost_arn: Optional["capo_ec2.types.string.String"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         ipv6_native: Optional["capo_ec2.types.boolean.Boolean"] = None,
         ipv4_ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         ipv4_netmask_length: Optional[
@@ -10875,7 +11250,8 @@ class EC2Client:
             input_["ipv6_cidr_block"] = ipv6_cidr_block
         if outpost_arn is not None:
             input_["outpost_arn"] = outpost_arn
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if ipv6_native is not None:
             input_["ipv6_native"] = ipv6_native
         if ipv4_ipam_pool_id is not None:
@@ -10898,11 +11274,13 @@ class EC2Client:
 
     def create_subnet_cidr_reservation(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
-        cidr: "capo_ec2.types.string.String",
-        reservation_type: "capo_ec2.types.subnet_cidr_reservation_type.SubnetCidrReservationType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        reservation_type: Optional[
+            "capo_ec2.types.subnet_cidr_reservation_type.SubnetCidrReservationType"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
@@ -10939,9 +11317,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_subnet_cidr_reservation_request.CreateSubnetCidrReservationRequest = {}  # type: ignore[typeddict-item]
-        input_["subnet_id"] = subnet_id
-        input_["cidr"] = cidr
-        input_["reservation_type"] = reservation_type
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if reservation_type is not None:
+            input_["reservation_type"] = reservation_type
         if description is not None:
             input_["description"] = description
         if dry_run is not None:
@@ -10958,11 +11339,11 @@ class EC2Client:
 
     def create_tags(
         self,
-        resources: "capo_ec2.types.resource_id_list.ResourceIdList",
-        tags: "capo_ec2.types.tag_list.TagList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        resources: Optional["capo_ec2.types.resource_id_list.ResourceIdList"] = None,
+        tags: Optional["capo_ec2.types.tag_list.TagList"] = None,
     ) -> None:
         r"""<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\">Supported resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
@@ -10997,8 +11378,10 @@ class EC2Client:
         input_: capo_ec2.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["resources"] = resources
-        input_["tags"] = tags
+        if resources is not None:
+            input_["resources"] = resources
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11064,14 +11447,18 @@ class EC2Client:
 
     def create_traffic_mirror_filter_rule(
         self,
-        traffic_mirror_filter_id: "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId",
-        traffic_direction: "capo_ec2.types.traffic_direction.TrafficDirection",
-        rule_number: "capo_ec2.types.integer.Integer",
-        rule_action: "capo_ec2.types.traffic_mirror_rule_action.TrafficMirrorRuleAction",
-        destination_cidr_block: "capo_ec2.types.string.String",
-        source_cidr_block: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_filter_id: Optional[
+            "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId"
+        ] = None,
+        traffic_direction: Optional[
+            "capo_ec2.types.traffic_direction.TrafficDirection"
+        ] = None,
+        rule_number: Optional["capo_ec2.types.integer.Integer"] = None,
+        rule_action: Optional[
+            "capo_ec2.types.traffic_mirror_rule_action.TrafficMirrorRuleAction"
+        ] = None,
         destination_port_range: Optional[
             "capo_ec2.types.traffic_mirror_port_range_request.TrafficMirrorPortRangeRequest"
         ] = None,
@@ -11079,6 +11466,8 @@ class EC2Client:
             "capo_ec2.types.traffic_mirror_port_range_request.TrafficMirrorPortRangeRequest"
         ] = None,
         protocol: Optional["capo_ec2.types.integer.Integer"] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        source_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -11123,18 +11512,24 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_traffic_mirror_filter_rule_request.CreateTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
-        input_["traffic_direction"] = traffic_direction
-        input_["rule_number"] = rule_number
-        input_["rule_action"] = rule_action
+        if traffic_mirror_filter_id is not None:
+            input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
+        if traffic_direction is not None:
+            input_["traffic_direction"] = traffic_direction
+        if rule_number is not None:
+            input_["rule_number"] = rule_number
+        if rule_action is not None:
+            input_["rule_action"] = rule_action
         if destination_port_range is not None:
             input_["destination_port_range"] = destination_port_range
         if source_port_range is not None:
             input_["source_port_range"] = source_port_range
         if protocol is not None:
             input_["protocol"] = protocol
-        input_["destination_cidr_block"] = destination_cidr_block
-        input_["source_cidr_block"] = source_cidr_block
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
+        if source_cidr_block is not None:
+            input_["source_cidr_block"] = source_cidr_block
         if description is not None:
             input_["description"] = description
         if dry_run is not None:
@@ -11153,13 +11548,19 @@ class EC2Client:
 
     def create_traffic_mirror_session(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
-        traffic_mirror_target_id: "capo_ec2.types.traffic_mirror_target_id.TrafficMirrorTargetId",
-        traffic_mirror_filter_id: "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId",
-        session_number: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
+        traffic_mirror_target_id: Optional[
+            "capo_ec2.types.traffic_mirror_target_id.TrafficMirrorTargetId"
+        ] = None,
+        traffic_mirror_filter_id: Optional[
+            "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId"
+        ] = None,
         packet_length: Optional["capo_ec2.types.integer.Integer"] = None,
+        session_number: Optional["capo_ec2.types.integer.Integer"] = None,
         virtual_network_id: Optional["capo_ec2.types.integer.Integer"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
@@ -11202,12 +11603,16 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_traffic_mirror_session_request.CreateTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["network_interface_id"] = network_interface_id
-        input_["traffic_mirror_target_id"] = traffic_mirror_target_id
-        input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
+        if traffic_mirror_target_id is not None:
+            input_["traffic_mirror_target_id"] = traffic_mirror_target_id
+        if traffic_mirror_filter_id is not None:
+            input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
         if packet_length is not None:
             input_["packet_length"] = packet_length
-        input_["session_number"] = session_number
+        if session_number is not None:
+            input_["session_number"] = session_number
         if virtual_network_id is not None:
             input_["virtual_network_id"] = virtual_network_id
         if description is not None:
@@ -11358,10 +11763,14 @@ class EC2Client:
 
     def create_transit_gateway_connect(
         self,
-        transport_transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
-        options: "capo_ec2.types.create_transit_gateway_connect_request_options.CreateTransitGatewayConnectRequestOptions",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transport_transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
+        options: Optional[
+            "capo_ec2.types.create_transit_gateway_connect_request_options.CreateTransitGatewayConnectRequestOptions"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -11395,10 +11804,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_connect_request.CreateTransitGatewayConnectRequest = {}  # type: ignore[typeddict-item]
-        input_["transport_transit_gateway_attachment_id"] = (
-            transport_transit_gateway_attachment_id
-        )
-        input_["options"] = options
+        if transport_transit_gateway_attachment_id is not None:
+            input_["transport_transit_gateway_attachment_id"] = (
+                transport_transit_gateway_attachment_id
+            )
+        if options is not None:
+            input_["options"] = options
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -11413,14 +11824,18 @@ class EC2Client:
 
     def create_transit_gateway_connect_peer(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
-        peer_address: "capo_ec2.types.string.String",
-        inside_cidr_blocks: "capo_ec2.types.inside_cidr_blocks_string_list.InsideCidrBlocksStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         transit_gateway_address: Optional["capo_ec2.types.string.String"] = None,
+        peer_address: Optional["capo_ec2.types.string.String"] = None,
         bgp_options: Optional[
             "capo_ec2.types.transit_gateway_connect_request_bgp_options.TransitGatewayConnectRequestBgpOptions"
+        ] = None,
+        inside_cidr_blocks: Optional[
+            "capo_ec2.types.inside_cidr_blocks_string_list.InsideCidrBlocksStringList"
         ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -11458,13 +11873,16 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_connect_peer_request.CreateTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if transit_gateway_address is not None:
             input_["transit_gateway_address"] = transit_gateway_address
-        input_["peer_address"] = peer_address
+        if peer_address is not None:
+            input_["peer_address"] = peer_address
         if bgp_options is not None:
             input_["bgp_options"] = bgp_options
-        input_["inside_cidr_blocks"] = inside_cidr_blocks
+        if inside_cidr_blocks is not None:
+            input_["inside_cidr_blocks"] = inside_cidr_blocks
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -11479,9 +11897,11 @@ class EC2Client:
 
     def create_transit_gateway_metering_policy(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
         middlebox_attachment_ids: Optional[
             "capo_ec2.types.transit_gateway_attachment_id_string_list.TransitGatewayAttachmentIdStringList"
         ] = None,
@@ -11518,7 +11938,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_metering_policy_request.CreateTransitGatewayMeteringPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
         if middlebox_attachment_ids is not None:
             input_["middlebox_attachment_ids"] = middlebox_attachment_ids
         if tag_specifications is not None:
@@ -11535,11 +11956,12 @@ class EC2Client:
 
     def create_transit_gateway_metering_policy_entry(
         self,
-        transit_gateway_metering_policy_id: "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId",
-        policy_rule_number: "capo_ec2.types.integer.Integer",
-        metered_account: "capo_ec2.types.transit_gateway_metering_payer_type.TransitGatewayMeteringPayerType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_metering_policy_id: Optional[
+            "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId"
+        ] = None,
+        policy_rule_number: Optional["capo_ec2.types.integer.Integer"] = None,
         source_transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -11557,6 +11979,9 @@ class EC2Client:
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         destination_port_range: Optional["capo_ec2.types.string.String"] = None,
         protocol: Optional["capo_ec2.types.string.String"] = None,
+        metered_account: Optional[
+            "capo_ec2.types.transit_gateway_metering_payer_type.TransitGatewayMeteringPayerType"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.create_transit_gateway_metering_policy_entry_result.CreateTransitGatewayMeteringPolicyEntryResult":
         """<p>Creates an entry in a transit gateway metering policy to define traffic measurement rules.</p>
@@ -11596,10 +12021,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_metering_policy_entry_request.CreateTransitGatewayMeteringPolicyEntryRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_metering_policy_id"] = (
-            transit_gateway_metering_policy_id
-        )
-        input_["policy_rule_number"] = policy_rule_number
+        if transit_gateway_metering_policy_id is not None:
+            input_["transit_gateway_metering_policy_id"] = (
+                transit_gateway_metering_policy_id
+            )
+        if policy_rule_number is not None:
+            input_["policy_rule_number"] = policy_rule_number
         if source_transit_gateway_attachment_id is not None:
             input_["source_transit_gateway_attachment_id"] = (
                 source_transit_gateway_attachment_id
@@ -11626,7 +12053,8 @@ class EC2Client:
             input_["destination_port_range"] = destination_port_range
         if protocol is not None:
             input_["protocol"] = protocol
-        input_["metered_account"] = metered_account
+        if metered_account is not None:
+            input_["metered_account"] = metered_account
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -11639,9 +12067,11 @@ class EC2Client:
 
     def create_transit_gateway_multicast_domain(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
         options: Optional[
             "capo_ec2.types.create_transit_gateway_multicast_domain_request_options.CreateTransitGatewayMulticastDomainRequestOptions"
         ] = None,
@@ -11678,7 +12108,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_multicast_domain_request.CreateTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
         if options is not None:
             input_["options"] = options
         if tag_specifications is not None:
@@ -11695,12 +12126,16 @@ class EC2Client:
 
     def create_transit_gateway_peering_attachment(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
-        peer_transit_gateway_id: "capo_ec2.types.transit_association_gateway_id.TransitAssociationGatewayId",
-        peer_account_id: "capo_ec2.types.string.String",
-        peer_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
+        peer_transit_gateway_id: Optional[
+            "capo_ec2.types.transit_association_gateway_id.TransitAssociationGatewayId"
+        ] = None,
+        peer_account_id: Optional["capo_ec2.types.string.String"] = None,
+        peer_region: Optional["capo_ec2.types.string.String"] = None,
         options: Optional[
             "capo_ec2.types.create_transit_gateway_peering_attachment_request_options.CreateTransitGatewayPeeringAttachmentRequestOptions"
         ] = None,
@@ -11740,10 +12175,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_peering_attachment_request.CreateTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
-        input_["peer_transit_gateway_id"] = peer_transit_gateway_id
-        input_["peer_account_id"] = peer_account_id
-        input_["peer_region"] = peer_region
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
+        if peer_transit_gateway_id is not None:
+            input_["peer_transit_gateway_id"] = peer_transit_gateway_id
+        if peer_account_id is not None:
+            input_["peer_account_id"] = peer_account_id
+        if peer_region is not None:
+            input_["peer_region"] = peer_region
         if options is not None:
             input_["options"] = options
         if tag_specifications is not None:
@@ -11760,9 +12199,11 @@ class EC2Client:
 
     def create_transit_gateway_policy_table(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -11795,7 +12236,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_policy_table_request.CreateTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -11810,10 +12252,14 @@ class EC2Client:
 
     def create_transit_gateway_prefix_list_reference(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -11849,8 +12295,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_prefix_list_reference_request.CreateTransitGatewayPrefixListReferenceRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["prefix_list_id"] = prefix_list_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if blackhole is not None:
@@ -11867,10 +12315,12 @@ class EC2Client:
 
     def create_transit_gateway_route(
         self,
-        destination_cidr_block: "capo_ec2.types.string.String",
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -11906,8 +12356,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_route_request.CreateTransitGatewayRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_cidr_block"] = destination_cidr_block
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if blackhole is not None:
@@ -11924,9 +12376,11 @@ class EC2Client:
 
     def create_transit_gateway_route_table(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -11959,7 +12413,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_route_table_request.CreateTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -11974,10 +12429,14 @@ class EC2Client:
 
     def create_transit_gateway_route_table_announcement(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        peering_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        peering_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -12011,8 +12470,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_route_table_announcement_request.CreateTransitGatewayRouteTableAnnouncementRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["peering_attachment_id"] = peering_attachment_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if peering_attachment_id is not None:
+            input_["peering_attachment_id"] = peering_attachment_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -12027,11 +12488,15 @@ class EC2Client:
 
     def create_transit_gateway_vpc_attachment(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
-        subnet_ids: "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        subnet_ids: Optional[
+            "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList"
+        ] = None,
         options: Optional[
             "capo_ec2.types.create_transit_gateway_vpc_attachment_request_options.CreateTransitGatewayVpcAttachmentRequestOptions"
         ] = None,
@@ -12070,9 +12535,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_transit_gateway_vpc_attachment_request.CreateTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
-        input_["vpc_id"] = vpc_id
-        input_["subnet_ids"] = subnet_ids
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if options is not None:
             input_["options"] = options
         if tag_specifications is not None:
@@ -12089,11 +12557,17 @@ class EC2Client:
 
     def create_verified_access_endpoint(
         self,
-        verified_access_group_id: "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId",
-        endpoint_type: "capo_ec2.types.verified_access_endpoint_type.VerifiedAccessEndpointType",
-        attachment_type: "capo_ec2.types.verified_access_endpoint_attachment_type.VerifiedAccessEndpointAttachmentType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_group_id: Optional[
+            "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId"
+        ] = None,
+        endpoint_type: Optional[
+            "capo_ec2.types.verified_access_endpoint_type.VerifiedAccessEndpointType"
+        ] = None,
+        attachment_type: Optional[
+            "capo_ec2.types.verified_access_endpoint_attachment_type.VerifiedAccessEndpointAttachmentType"
+        ] = None,
         domain_certificate_arn: Optional[
             "capo_ec2.types.certificate_arn.CertificateArn"
         ] = None,
@@ -12166,9 +12640,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_verified_access_endpoint_request.CreateVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_group_id"] = verified_access_group_id
-        input_["endpoint_type"] = endpoint_type
-        input_["attachment_type"] = attachment_type
+        if verified_access_group_id is not None:
+            input_["verified_access_group_id"] = verified_access_group_id
+        if endpoint_type is not None:
+            input_["endpoint_type"] = endpoint_type
+        if attachment_type is not None:
+            input_["attachment_type"] = attachment_type
         if domain_certificate_arn is not None:
             input_["domain_certificate_arn"] = domain_certificate_arn
         if application_domain is not None:
@@ -12207,9 +12684,11 @@ class EC2Client:
 
     def create_verified_access_group(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         policy_document: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
@@ -12252,7 +12731,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_verified_access_group_request.CreateVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
         if description is not None:
             input_["description"] = description
         if policy_document is not None:
@@ -12342,10 +12822,11 @@ class EC2Client:
 
     def create_verified_access_trust_provider(
         self,
-        trust_provider_type: "capo_ec2.types.trust_provider_type.TrustProviderType",
-        policy_reference_name: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        trust_provider_type: Optional[
+            "capo_ec2.types.trust_provider_type.TrustProviderType"
+        ] = None,
         user_trust_provider_type: Optional[
             "capo_ec2.types.user_trust_provider_type.UserTrustProviderType"
         ] = None,
@@ -12358,6 +12839,7 @@ class EC2Client:
         device_options: Optional[
             "capo_ec2.types.create_verified_access_trust_provider_device_options.CreateVerifiedAccessTrustProviderDeviceOptions"
         ] = None,
+        policy_reference_name: Optional["capo_ec2.types.string.String"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -12407,7 +12889,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_verified_access_trust_provider_request.CreateVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["trust_provider_type"] = trust_provider_type
+        if trust_provider_type is not None:
+            input_["trust_provider_type"] = trust_provider_type
         if user_trust_provider_type is not None:
             input_["user_trust_provider_type"] = user_trust_provider_type
         if device_trust_provider_type is not None:
@@ -12416,7 +12899,8 @@ class EC2Client:
             input_["oidc_options"] = oidc_options
         if device_options is not None:
             input_["device_options"] = device_options
-        input_["policy_reference_name"] = policy_reference_name
+        if policy_reference_name is not None:
+            input_["policy_reference_name"] = policy_reference_name
         if description is not None:
             input_["description"] = description
         if tag_specifications is not None:
@@ -12661,12 +13145,14 @@ class EC2Client:
 
     def create_vpc_block_public_access_exclusion(
         self,
-        internet_gateway_exclusion_mode: "capo_ec2.types.internet_gateway_exclusion_mode.InternetGatewayExclusionMode",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        internet_gateway_exclusion_mode: Optional[
+            "capo_ec2.types.internet_gateway_exclusion_mode.InternetGatewayExclusionMode"
+        ] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -12706,7 +13192,8 @@ class EC2Client:
             input_["subnet_id"] = subnet_id
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
-        input_["internet_gateway_exclusion_mode"] = internet_gateway_exclusion_mode
+        if internet_gateway_exclusion_mode is not None:
+            input_["internet_gateway_exclusion_mode"] = internet_gateway_exclusion_mode
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -12719,10 +13206,10 @@ class EC2Client:
 
     def create_vpc_encryption_control(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -12756,7 +13243,8 @@ class EC2Client:
         input_: capo_ec2.types.create_vpc_encryption_control_request.CreateVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -12769,13 +13257,13 @@ class EC2Client:
 
     def create_vpc_endpoint(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         vpc_endpoint_type: Optional[
             "capo_ec2.types.vpc_endpoint_type.VpcEndpointType"
         ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         service_name: Optional["capo_ec2.types.string.String"] = None,
         policy_document: Optional["capo_ec2.types.string.String"] = None,
         route_table_ids: Optional[
@@ -12854,7 +13342,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if vpc_endpoint_type is not None:
             input_["vpc_endpoint_type"] = vpc_endpoint_type
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if service_name is not None:
             input_["service_name"] = service_name
         if policy_document is not None:
@@ -12893,8 +13382,6 @@ class EC2Client:
 
     def create_vpc_endpoint_connection_notification(
         self,
-        connection_notification_arn: "capo_ec2.types.string.String",
-        connection_events: "capo_ec2.types.value_string_list.ValueStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -12903,6 +13390,10 @@ class EC2Client:
         ] = None,
         vpc_endpoint_id: Optional[
             "capo_ec2.types.vpc_endpoint_id.VpcEndpointId"
+        ] = None,
+        connection_notification_arn: Optional["capo_ec2.types.string.String"] = None,
+        connection_events: Optional[
+            "capo_ec2.types.value_string_list.ValueStringList"
         ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.create_vpc_endpoint_connection_notification_result.CreateVpcEndpointConnectionNotificationResult":
@@ -12942,8 +13433,10 @@ class EC2Client:
             input_["service_id"] = service_id
         if vpc_endpoint_id is not None:
             input_["vpc_endpoint_id"] = vpc_endpoint_id
-        input_["connection_notification_arn"] = connection_notification_arn
-        input_["connection_events"] = connection_events
+        if connection_notification_arn is not None:
+            input_["connection_notification_arn"] = connection_notification_arn
+        if connection_events is not None:
+            input_["connection_events"] = connection_events
         if client_token is not None:
             input_["client_token"] = client_token
 
@@ -13039,7 +13532,6 @@ class EC2Client:
 
     def create_vpc_peering_connection(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         peer_region: Optional["capo_ec2.types.string.String"] = None,
@@ -13047,6 +13539,7 @@ class EC2Client:
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         peer_vpc_id: Optional["capo_ec2.types.string.String"] = None,
         peer_owner_id: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.create_vpc_peering_connection_result.CreateVpcPeeringConnectionResult":
@@ -13086,7 +13579,8 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if peer_vpc_id is not None:
             input_["peer_vpc_id"] = peer_vpc_id
         if peer_owner_id is not None:
@@ -13101,9 +13595,11 @@ class EC2Client:
 
     def create_vpn_concentrator(
         self,
-        type: "capo_ec2.types.vpn_concentrator_type.VpnConcentratorType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        type: Optional[
+            "capo_ec2.types.vpn_concentrator_type.VpnConcentratorType"
+        ] = None,
         transit_gateway_id: Optional[
             "capo_ec2.types.transit_gateway_id.TransitGatewayId"
         ] = None,
@@ -13140,7 +13636,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_vpn_concentrator_request.CreateVpnConcentratorRequest = {}  # type: ignore[typeddict-item]
-        input_["type"] = type
+        if type is not None:
+            input_["type"] = type
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if tag_specifications is not None:
@@ -13157,10 +13654,12 @@ class EC2Client:
 
     def create_vpn_connection(
         self,
-        customer_gateway_id: "capo_ec2.types.customer_gateway_id.CustomerGatewayId",
-        type: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        customer_gateway_id: Optional[
+            "capo_ec2.types.customer_gateway_id.CustomerGatewayId"
+        ] = None,
+        type: Optional["capo_ec2.types.string.String"] = None,
         vpn_gateway_id: Optional["capo_ec2.types.vpn_gateway_id.VpnGatewayId"] = None,
         transit_gateway_id: Optional[
             "capo_ec2.types.transit_gateway_id.TransitGatewayId"
@@ -13210,8 +13709,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_vpn_connection_request.CreateVpnConnectionRequest = {}  # type: ignore[typeddict-item]
-        input_["customer_gateway_id"] = customer_gateway_id
-        input_["type"] = type
+        if customer_gateway_id is not None:
+            input_["customer_gateway_id"] = customer_gateway_id
+        if type is not None:
+            input_["type"] = type
         if vpn_gateway_id is not None:
             input_["vpn_gateway_id"] = vpn_gateway_id
         if transit_gateway_id is not None:
@@ -13236,10 +13737,12 @@ class EC2Client:
 
     def create_vpn_connection_route(
         self,
-        destination_cidr_block: "capo_ec2.types.string.String",
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
     ) -> None:
         r"""<p>Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
 
@@ -13265,8 +13768,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_vpn_connection_route_request.CreateVpnConnectionRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_cidr_block"] = destination_cidr_block
-        input_["vpn_connection_id"] = vpn_connection_id
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13277,10 +13782,10 @@ class EC2Client:
 
     def create_vpn_gateway(
         self,
-        type: "capo_ec2.types.gateway_type.GatewayType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         availability_zone: Optional["capo_ec2.types.string.String"] = None,
+        type: Optional["capo_ec2.types.gateway_type.GatewayType"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -13318,7 +13823,8 @@ class EC2Client:
         input_: capo_ec2.types.create_vpn_gateway_request.CreateVpnGatewayRequest = {}  # type: ignore[typeddict-item]
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
-        input_["type"] = type
+        if type is not None:
+            input_["type"] = type
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if amazon_side_asn is not None:
@@ -13335,9 +13841,11 @@ class EC2Client:
 
     def delete_capacity_manager_data_export(
         self,
-        capacity_manager_data_export_id: "capo_ec2.types.capacity_manager_data_export_id.CapacityManagerDataExportId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_manager_data_export_id: Optional[
+            "capo_ec2.types.capacity_manager_data_export_id.CapacityManagerDataExportId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_capacity_manager_data_export_result.DeleteCapacityManagerDataExportResult":
         """<p> Deletes an existing Capacity Manager data export configuration. This stops future scheduled exports but does not delete previously exported files from S3. </p>
@@ -13366,7 +13874,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_capacity_manager_data_export_request.DeleteCapacityManagerDataExportRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_manager_data_export_id"] = capacity_manager_data_export_id
+        if capacity_manager_data_export_id is not None:
+            input_["capacity_manager_data_export_id"] = capacity_manager_data_export_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13379,9 +13888,11 @@ class EC2Client:
 
     def delete_carrier_gateway(
         self,
-        carrier_gateway_id: "capo_ec2.types.carrier_gateway_id.CarrierGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        carrier_gateway_id: Optional[
+            "capo_ec2.types.carrier_gateway_id.CarrierGatewayId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_carrier_gateway_result.DeleteCarrierGatewayResult":
         r"""<p>Deletes a carrier gateway.</p> <important> <p>If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html\">DeleteRoute</a>.</p> </important>
@@ -13410,7 +13921,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_carrier_gateway_request.DeleteCarrierGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["carrier_gateway_id"] = carrier_gateway_id
+        if carrier_gateway_id is not None:
+            input_["carrier_gateway_id"] = carrier_gateway_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13423,9 +13935,11 @@ class EC2Client:
 
     def delete_client_vpn_endpoint(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> (
         "capo_ec2.types.delete_client_vpn_endpoint_result.DeleteClientVpnEndpointResult"
@@ -13456,7 +13970,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_client_vpn_endpoint_request.DeleteClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13469,11 +13984,13 @@ class EC2Client:
 
     def delete_client_vpn_route(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        destination_cidr_block: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         target_vpc_subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_client_vpn_route_result.DeleteClientVpnRouteResult":
         """<p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint.</p>
@@ -13504,10 +14021,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_client_vpn_route_request.DeleteClientVpnRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if target_vpc_subnet_id is not None:
             input_["target_vpc_subnet_id"] = target_vpc_subnet_id
-        input_["destination_cidr_block"] = destination_cidr_block
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13520,10 +14039,12 @@ class EC2Client:
 
     def delete_coip_cidr(
         self,
-        cidr: "capo_ec2.types.string.String",
-        coip_pool_id: "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        coip_pool_id: Optional[
+            "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_coip_cidr_result.DeleteCoipCidrResult":
         """<p> Deletes a range of customer-owned IP addresses. </p>
@@ -13553,8 +14074,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_coip_cidr_request.DeleteCoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input_["cidr"] = cidr
-        input_["coip_pool_id"] = coip_pool_id
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if coip_pool_id is not None:
+            input_["coip_pool_id"] = coip_pool_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13567,9 +14090,11 @@ class EC2Client:
 
     def delete_coip_pool(
         self,
-        coip_pool_id: "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        coip_pool_id: Optional[
+            "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_coip_pool_result.DeleteCoipPoolResult":
         """<p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
@@ -13598,7 +14123,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_coip_pool_request.DeleteCoipPoolRequest = {}  # type: ignore[typeddict-item]
-        input_["coip_pool_id"] = coip_pool_id
+        if coip_pool_id is not None:
+            input_["coip_pool_id"] = coip_pool_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13611,9 +14137,11 @@ class EC2Client:
 
     def delete_customer_gateway(
         self,
-        customer_gateway_id: "capo_ec2.types.customer_gateway_id.CustomerGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        customer_gateway_id: Optional[
+            "capo_ec2.types.customer_gateway_id.CustomerGatewayId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
@@ -13646,7 +14174,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_customer_gateway_request.DeleteCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["customer_gateway_id"] = customer_gateway_id
+        if customer_gateway_id is not None:
+            input_["customer_gateway_id"] = customer_gateway_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13659,9 +14188,11 @@ class EC2Client:
 
     def delete_dhcp_options(
         self,
-        dhcp_options_id: "capo_ec2.types.dhcp_options_id.DhcpOptionsId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        dhcp_options_id: Optional[
+            "capo_ec2.types.dhcp_options_id.DhcpOptionsId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>
@@ -13694,7 +14225,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_dhcp_options_request.DeleteDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["dhcp_options_id"] = dhcp_options_id
+        if dhcp_options_id is not None:
+            input_["dhcp_options_id"] = dhcp_options_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13707,10 +14239,12 @@ class EC2Client:
 
     def delete_egress_only_internet_gateway(
         self,
-        egress_only_internet_gateway_id: "capo_ec2.types.egress_only_internet_gateway_id.EgressOnlyInternetGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        egress_only_internet_gateway_id: Optional[
+            "capo_ec2.types.egress_only_internet_gateway_id.EgressOnlyInternetGatewayId"
+        ] = None,
     ) -> "capo_ec2.types.delete_egress_only_internet_gateway_result.DeleteEgressOnlyInternetGatewayResult":
         """<p>Deletes an egress-only internet gateway.</p>
 
@@ -13740,7 +14274,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_egress_only_internet_gateway_request.DeleteEgressOnlyInternetGatewayRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["egress_only_internet_gateway_id"] = egress_only_internet_gateway_id
+        if egress_only_internet_gateway_id is not None:
+            input_["egress_only_internet_gateway_id"] = egress_only_internet_gateway_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13751,11 +14286,11 @@ class EC2Client:
 
     def delete_fleets(
         self,
-        fleet_ids: "capo_ec2.types.fleet_id_set.FleetIdSet",
-        terminate_instances: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        fleet_ids: Optional["capo_ec2.types.fleet_id_set.FleetIdSet"] = None,
+        terminate_instances: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_fleets_result.DeleteFleetsResult":
         r"""<p>Deletes the specified EC2 Fleet request.</p> <p>After you delete an EC2 Fleet request, it launches no new instances.</p> <p>You must also specify whether a deleted EC2 Fleet request should terminate its instances. If you choose to terminate the instances, the EC2 Fleet request enters the <code>deleted_terminating</code> state. Otherwise, it enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p> <p>A deleted <code>instant</code> fleet with running instances is not supported. When you delete an <code>instant</code> fleet, Amazon EC2 automatically terminates all its instances. For fleets with more than 1000 instances, the deletion request might fail. If your fleet has more than 1000 instances, first terminate most of the instances manually, leaving 1000 or fewer. Then delete the fleet, and the remaining instances will be terminated automatically.</p> <important> <p> <b>Terminating an instance is permanent and irreversible.</b> </p> <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html\"> How instance termination works</a>.</p> <p>Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.</p> </important> <p class=\"title\"> <b>Restrictions</b> </p> <ul> <li> <p>You can delete up to 25 fleets of type <code>instant</code> in a single request.</p> </li> <li> <p>You can delete up to 100 fleets of type <code>maintain</code> or <code>request</code> in a single request.</p> </li> <li> <p>You can delete up to 125 fleets in a single request, provided you do not exceed the quota for each fleet type, as specified above.</p> </li> <li> <p>If you exceed the specified number of fleets to delete, no fleets are deleted.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html\">Delete an EC2 Fleet request and the instances in the fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -13786,8 +14321,10 @@ class EC2Client:
         input_: capo_ec2.types.delete_fleets_request.DeleteFleetsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["fleet_ids"] = fleet_ids
-        input_["terminate_instances"] = terminate_instances
+        if fleet_ids is not None:
+            input_["fleet_ids"] = fleet_ids
+        if terminate_instances is not None:
+            input_["terminate_instances"] = terminate_instances
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13798,10 +14335,10 @@ class EC2Client:
 
     def delete_flow_logs(
         self,
-        flow_log_ids: "capo_ec2.types.flow_log_id_list.FlowLogIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        flow_log_ids: Optional["capo_ec2.types.flow_log_id_list.FlowLogIdList"] = None,
     ) -> "capo_ec2.types.delete_flow_logs_result.DeleteFlowLogsResult":
         """<p>Deletes one or more flow logs.</p>
 
@@ -13831,7 +14368,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_flow_logs_request.DeleteFlowLogsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["flow_log_ids"] = flow_log_ids
+        if flow_log_ids is not None:
+            input_["flow_log_ids"] = flow_log_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13842,10 +14380,10 @@ class EC2Client:
 
     def delete_fpga_image(
         self,
-        fpga_image_id: "capo_ec2.types.fpga_image_id.FpgaImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        fpga_image_id: Optional["capo_ec2.types.fpga_image_id.FpgaImageId"] = None,
     ) -> "capo_ec2.types.delete_fpga_image_result.DeleteFpgaImageResult":
         """<p>Deletes the specified Amazon FPGA Image (AFI).</p>
 
@@ -13875,7 +14413,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_fpga_image_request.DeleteFpgaImageRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["fpga_image_id"] = fpga_image_id
+        if fpga_image_id is not None:
+            input_["fpga_image_id"] = fpga_image_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13886,9 +14425,11 @@ class EC2Client:
 
     def delete_image_usage_report(
         self,
-        report_id: "capo_ec2.types.image_usage_report_id.ImageUsageReportId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        report_id: Optional[
+            "capo_ec2.types.image_usage_report_id.ImageUsageReportId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_image_usage_report_result.DeleteImageUsageReportResult":
         r"""<p>Deletes the specified image usage report.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html\">View your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -13917,7 +14458,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_image_usage_report_request.DeleteImageUsageReportRequest = {}  # type: ignore[typeddict-item]
-        input_["report_id"] = report_id
+        if report_id is not None:
+            input_["report_id"] = report_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -13930,10 +14472,12 @@ class EC2Client:
 
     def delete_instance_connect_endpoint(
         self,
-        instance_connect_endpoint_id: "capo_ec2.types.instance_connect_endpoint_id.InstanceConnectEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_connect_endpoint_id: Optional[
+            "capo_ec2.types.instance_connect_endpoint_id.InstanceConnectEndpointId"
+        ] = None,
     ) -> "capo_ec2.types.delete_instance_connect_endpoint_result.DeleteInstanceConnectEndpointResult":
         """<p>Deletes the specified EC2 Instance Connect Endpoint.</p>
 
@@ -13963,7 +14507,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_instance_connect_endpoint_request.DeleteInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_connect_endpoint_id"] = instance_connect_endpoint_id
+        if instance_connect_endpoint_id is not None:
+            input_["instance_connect_endpoint_id"] = instance_connect_endpoint_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13974,11 +14519,13 @@ class EC2Client:
 
     def delete_instance_event_window(
         self,
-        instance_event_window_id: "capo_ec2.types.instance_event_window_id.InstanceEventWindowId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         force_delete: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_event_window_id: Optional[
+            "capo_ec2.types.instance_event_window_id.InstanceEventWindowId"
+        ] = None,
     ) -> "capo_ec2.types.delete_instance_event_window_result.DeleteInstanceEventWindowResult":
         r"""<p>Deletes the specified event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -14011,7 +14558,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if force_delete is not None:
             input_["force_delete"] = force_delete
-        input_["instance_event_window_id"] = instance_event_window_id
+        if instance_event_window_id is not None:
+            input_["instance_event_window_id"] = instance_event_window_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14022,10 +14570,12 @@ class EC2Client:
 
     def delete_internet_gateway(
         self,
-        internet_gateway_id: "capo_ec2.types.internet_gateway_id.InternetGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        internet_gateway_id: Optional[
+            "capo_ec2.types.internet_gateway_id.InternetGatewayId"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified internet gateway. You must detach the internet gateway from the VPC before you can delete it.</p>
 
@@ -14059,7 +14609,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_internet_gateway_request.DeleteInternetGatewayRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["internet_gateway_id"] = internet_gateway_id
+        if internet_gateway_id is not None:
+            input_["internet_gateway_id"] = internet_gateway_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14070,10 +14621,10 @@ class EC2Client:
 
     def delete_ipam(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
         cascade: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_ipam_result.DeleteIpamResult":
         r"""<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
@@ -14103,7 +14654,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_request.DeleteIpamRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
         if cascade is not None:
             input_["cascade"] = cascade
 
@@ -14116,10 +14668,12 @@ class EC2Client:
 
     def delete_ipam_external_resource_verification_token(
         self,
-        ipam_external_resource_verification_token_id: "capo_ec2.types.ipam_external_resource_verification_token_id.IpamExternalResourceVerificationTokenId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_external_resource_verification_token_id: Optional[
+            "capo_ec2.types.ipam_external_resource_verification_token_id.IpamExternalResourceVerificationTokenId"
+        ] = None,
     ) -> "capo_ec2.types.delete_ipam_external_resource_verification_token_result.DeleteIpamExternalResourceVerificationTokenResult":
         """<p>Delete a verification token.</p> <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP). </p>
 
@@ -14149,9 +14703,10 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_external_resource_verification_token_request.DeleteIpamExternalResourceVerificationTokenRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_external_resource_verification_token_id"] = (
-            ipam_external_resource_verification_token_id
-        )
+        if ipam_external_resource_verification_token_id is not None:
+            input_["ipam_external_resource_verification_token_id"] = (
+                ipam_external_resource_verification_token_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14162,10 +14717,10 @@ class EC2Client:
 
     def delete_ipam_policy(
         self,
-        ipam_policy_id: "capo_ec2.types.ipam_policy_id.IpamPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_policy_id: Optional["capo_ec2.types.ipam_policy_id.IpamPolicyId"] = None,
     ) -> "capo_ec2.types.delete_ipam_policy_result.DeleteIpamPolicyResult":
         """<p>Deletes an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
 
@@ -14195,7 +14750,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_policy_request.DeleteIpamPolicyRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_policy_id"] = ipam_policy_id
+        if ipam_policy_id is not None:
+            input_["ipam_policy_id"] = ipam_policy_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14206,10 +14762,10 @@ class EC2Client:
 
     def delete_ipam_pool(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         cascade: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_ipam_pool_result.DeleteIpamPoolResult":
         r"""<p>Delete an IPAM pool.</p> <note> <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\">DeprovisionIpamPoolCidr</a>.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
@@ -14241,7 +14797,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_pool_request.DeleteIpamPoolRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if cascade is not None:
             input_["cascade"] = cascade
 
@@ -14254,10 +14811,12 @@ class EC2Client:
 
     def delete_ipam_prefix_list_resolver(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
     ) -> "capo_ec2.types.delete_ipam_prefix_list_resolver_result.DeleteIpamPrefixListResolverResult":
         """<p>Deletes an IPAM prefix list resolver. Before deleting a resolver, you must first delete all resolver targets associated with it.</p>
 
@@ -14287,7 +14846,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_prefix_list_resolver_request.DeleteIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
+        if ipam_prefix_list_resolver_id is not None:
+            input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14298,10 +14858,12 @@ class EC2Client:
 
     def delete_ipam_prefix_list_resolver_target(
         self,
-        ipam_prefix_list_resolver_target_id: "capo_ec2.types.ipam_prefix_list_resolver_target_id.IpamPrefixListResolverTargetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_target_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_target_id.IpamPrefixListResolverTargetId"
+        ] = None,
     ) -> "capo_ec2.types.delete_ipam_prefix_list_resolver_target_result.DeleteIpamPrefixListResolverTargetResult":
         r"""<p>Deletes an IPAM prefix list resolver target. This removes the association between the resolver and the managed prefix list, stopping automatic CIDR synchronization.</p> <p>For more information about IPAM prefix list resolver, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/automate-prefix-list-updates.html\">Automate prefix list updates with IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
@@ -14331,9 +14893,10 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_prefix_list_resolver_target_request.DeleteIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_target_id"] = (
-            ipam_prefix_list_resolver_target_id
-        )
+        if ipam_prefix_list_resolver_target_id is not None:
+            input_["ipam_prefix_list_resolver_target_id"] = (
+                ipam_prefix_list_resolver_target_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14344,10 +14907,12 @@ class EC2Client:
 
     def delete_ipam_resource_discovery(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
     ) -> "capo_ec2.types.delete_ipam_resource_discovery_result.DeleteIpamResourceDiscoveryResult":
         """<p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
 
@@ -14377,7 +14942,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_resource_discovery_request.DeleteIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14388,10 +14954,10 @@ class EC2Client:
 
     def delete_ipam_scope(
         self,
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
     ) -> "capo_ec2.types.delete_ipam_scope_result.DeleteIpamScopeResult":
         r"""<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
@@ -14421,7 +14987,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_ipam_scope_request.DeleteIpamScopeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_scope_id"] = ipam_scope_id
+        if ipam_scope_id is not None:
+            input_["ipam_scope_id"] = ipam_scope_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14548,7 +15115,6 @@ class EC2Client:
 
     def delete_launch_template_versions(
         self,
-        versions: "capo_ec2.types.version_string_list.VersionStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -14557,6 +15123,9 @@ class EC2Client:
         ] = None,
         launch_template_name: Optional[
             "capo_ec2.types.launch_template_name.LaunchTemplateName"
+        ] = None,
+        versions: Optional[
+            "capo_ec2.types.version_string_list.VersionStringList"
         ] = None,
     ) -> "capo_ec2.types.delete_launch_template_versions_result.DeleteLaunchTemplateVersionsResult":
         r"""<p>Deletes one or more versions of a launch template.</p> <p>You can't delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p> <p>You can delete up to 200 launch template versions in a single request. To delete more than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which deletes the launch template and all of its versions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version\">Delete a launch template version</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -14599,7 +15168,8 @@ class EC2Client:
             input_["launch_template_id"] = launch_template_id
         if launch_template_name is not None:
             input_["launch_template_name"] = launch_template_name
-        input_["versions"] = versions
+        if versions is not None:
+            input_["versions"] = versions
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14610,10 +15180,12 @@ class EC2Client:
 
     def delete_local_gateway_route(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         destination_prefix_list_id: Optional[
             "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
@@ -14651,7 +15223,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_local_gateway_route_request.DeleteLocalGatewayRouteRequest = {}  # type: ignore[typeddict-item]
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if destination_prefix_list_id is not None:
@@ -14666,9 +15239,11 @@ class EC2Client:
 
     def delete_local_gateway_route_table(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_local_gateway_route_table_result.DeleteLocalGatewayRouteTableResult":
         """<p> Deletes a local gateway route table. </p>
@@ -14697,7 +15272,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_local_gateway_route_table_request.DeleteLocalGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -14710,9 +15286,11 @@ class EC2Client:
 
     def delete_local_gateway_route_table_virtual_interface_group_association(
         self,
-        local_gateway_route_table_virtual_interface_group_association_id: "capo_ec2.types.local_gateway_route_table_virtual_interface_group_association_id.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_virtual_interface_group_association_id: Optional[
+            "capo_ec2.types.local_gateway_route_table_virtual_interface_group_association_id.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_local_gateway_route_table_virtual_interface_group_association_result.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult":
         """<p> Deletes a local gateway route table virtual interface group association. </p>
@@ -14741,9 +15319,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_local_gateway_route_table_virtual_interface_group_association_request.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_virtual_interface_group_association_id"] = (
-            local_gateway_route_table_virtual_interface_group_association_id
-        )
+        if local_gateway_route_table_virtual_interface_group_association_id is not None:
+            input_[
+                "local_gateway_route_table_virtual_interface_group_association_id"
+            ] = local_gateway_route_table_virtual_interface_group_association_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -14756,9 +15335,11 @@ class EC2Client:
 
     def delete_local_gateway_route_table_vpc_association(
         self,
-        local_gateway_route_table_vpc_association_id: "capo_ec2.types.local_gateway_route_table_vpc_association_id.LocalGatewayRouteTableVpcAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_vpc_association_id: Optional[
+            "capo_ec2.types.local_gateway_route_table_vpc_association_id.LocalGatewayRouteTableVpcAssociationId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_local_gateway_route_table_vpc_association_result.DeleteLocalGatewayRouteTableVpcAssociationResult":
         """<p>Deletes the specified association between a VPC and local gateway route table.</p>
@@ -14787,9 +15368,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_local_gateway_route_table_vpc_association_request.DeleteLocalGatewayRouteTableVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_vpc_association_id"] = (
-            local_gateway_route_table_vpc_association_id
-        )
+        if local_gateway_route_table_vpc_association_id is not None:
+            input_["local_gateway_route_table_vpc_association_id"] = (
+                local_gateway_route_table_vpc_association_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -14802,9 +15384,11 @@ class EC2Client:
 
     def delete_local_gateway_virtual_interface(
         self,
-        local_gateway_virtual_interface_id: "capo_ec2.types.local_gateway_virtual_interface_id.LocalGatewayVirtualInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_virtual_interface_id: Optional[
+            "capo_ec2.types.local_gateway_virtual_interface_id.LocalGatewayVirtualInterfaceId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_local_gateway_virtual_interface_result.DeleteLocalGatewayVirtualInterfaceResult":
         """<p>Deletes the specified local gateway virtual interface.</p>
@@ -14833,9 +15417,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_local_gateway_virtual_interface_request.DeleteLocalGatewayVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_virtual_interface_id"] = (
-            local_gateway_virtual_interface_id
-        )
+        if local_gateway_virtual_interface_id is not None:
+            input_["local_gateway_virtual_interface_id"] = (
+                local_gateway_virtual_interface_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -14848,9 +15433,11 @@ class EC2Client:
 
     def delete_local_gateway_virtual_interface_group(
         self,
-        local_gateway_virtual_interface_group_id: "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_virtual_interface_group_id: Optional[
+            "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_local_gateway_virtual_interface_group_result.DeleteLocalGatewayVirtualInterfaceGroupResult":
         """<p>Delete the specified local gateway interface group.</p>
@@ -14879,9 +15466,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_local_gateway_virtual_interface_group_request.DeleteLocalGatewayVirtualInterfaceGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_virtual_interface_group_id"] = (
-            local_gateway_virtual_interface_group_id
-        )
+        if local_gateway_virtual_interface_group_id is not None:
+            input_["local_gateway_virtual_interface_group_id"] = (
+                local_gateway_virtual_interface_group_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -14894,10 +15482,12 @@ class EC2Client:
 
     def delete_managed_prefix_list(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
     ) -> (
         "capo_ec2.types.delete_managed_prefix_list_result.DeleteManagedPrefixListResult"
     ):
@@ -14929,7 +15519,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_managed_prefix_list_request.DeleteManagedPrefixListRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["prefix_list_id"] = prefix_list_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14940,10 +15531,10 @@ class EC2Client:
 
     def delete_nat_gateway(
         self,
-        nat_gateway_id: "capo_ec2.types.nat_gateway_id.NatGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        nat_gateway_id: Optional["capo_ec2.types.nat_gateway_id.NatGatewayId"] = None,
     ) -> "capo_ec2.types.delete_nat_gateway_result.DeleteNatGatewayResult":
         """<p>Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.</p>
 
@@ -14979,7 +15570,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_nat_gateway_request.DeleteNatGatewayRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["nat_gateway_id"] = nat_gateway_id
+        if nat_gateway_id is not None:
+            input_["nat_gateway_id"] = nat_gateway_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14990,10 +15582,10 @@ class EC2Client:
 
     def delete_network_acl(
         self,
-        network_acl_id: "capo_ec2.types.network_acl_id.NetworkAclId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_acl_id: Optional["capo_ec2.types.network_acl_id.NetworkAclId"] = None,
     ) -> None:
         """<p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>
 
@@ -15027,7 +15619,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_network_acl_request.DeleteNetworkAclRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_acl_id"] = network_acl_id
+        if network_acl_id is not None:
+            input_["network_acl_id"] = network_acl_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15038,12 +15631,12 @@ class EC2Client:
 
     def delete_network_acl_entry(
         self,
-        network_acl_id: "capo_ec2.types.network_acl_id.NetworkAclId",
-        rule_number: "capo_ec2.types.integer.Integer",
-        egress: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_acl_id: Optional["capo_ec2.types.network_acl_id.NetworkAclId"] = None,
+        rule_number: Optional["capo_ec2.types.integer.Integer"] = None,
+        egress: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
 
@@ -15079,9 +15672,12 @@ class EC2Client:
         input_: capo_ec2.types.delete_network_acl_entry_request.DeleteNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_acl_id"] = network_acl_id
-        input_["rule_number"] = rule_number
-        input_["egress"] = egress
+        if network_acl_id is not None:
+            input_["network_acl_id"] = network_acl_id
+        if rule_number is not None:
+            input_["rule_number"] = rule_number
+        if egress is not None:
+            input_["egress"] = egress
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15092,10 +15688,12 @@ class EC2Client:
 
     def delete_network_insights_access_scope(
         self,
-        network_insights_access_scope_id: "capo_ec2.types.network_insights_access_scope_id.NetworkInsightsAccessScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_insights_access_scope_id: Optional[
+            "capo_ec2.types.network_insights_access_scope_id.NetworkInsightsAccessScopeId"
+        ] = None,
     ) -> "capo_ec2.types.delete_network_insights_access_scope_result.DeleteNetworkInsightsAccessScopeResult":
         """<p>Deletes the specified Network Access Scope.</p>
 
@@ -15125,7 +15723,10 @@ class EC2Client:
         input_: capo_ec2.types.delete_network_insights_access_scope_request.DeleteNetworkInsightsAccessScopeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_insights_access_scope_id"] = network_insights_access_scope_id
+        if network_insights_access_scope_id is not None:
+            input_["network_insights_access_scope_id"] = (
+                network_insights_access_scope_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15136,9 +15737,11 @@ class EC2Client:
 
     def delete_network_insights_access_scope_analysis(
         self,
-        network_insights_access_scope_analysis_id: "capo_ec2.types.network_insights_access_scope_analysis_id.NetworkInsightsAccessScopeAnalysisId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_insights_access_scope_analysis_id: Optional[
+            "capo_ec2.types.network_insights_access_scope_analysis_id.NetworkInsightsAccessScopeAnalysisId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_network_insights_access_scope_analysis_result.DeleteNetworkInsightsAccessScopeAnalysisResult":
         """<p>Deletes the specified Network Access Scope analysis.</p>
@@ -15167,9 +15770,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_network_insights_access_scope_analysis_request.DeleteNetworkInsightsAccessScopeAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input_["network_insights_access_scope_analysis_id"] = (
-            network_insights_access_scope_analysis_id
-        )
+        if network_insights_access_scope_analysis_id is not None:
+            input_["network_insights_access_scope_analysis_id"] = (
+                network_insights_access_scope_analysis_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -15182,10 +15786,12 @@ class EC2Client:
 
     def delete_network_insights_analysis(
         self,
-        network_insights_analysis_id: "capo_ec2.types.network_insights_analysis_id.NetworkInsightsAnalysisId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_insights_analysis_id: Optional[
+            "capo_ec2.types.network_insights_analysis_id.NetworkInsightsAnalysisId"
+        ] = None,
     ) -> "capo_ec2.types.delete_network_insights_analysis_result.DeleteNetworkInsightsAnalysisResult":
         """<p>Deletes the specified network insights analysis.</p>
 
@@ -15215,7 +15821,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_network_insights_analysis_request.DeleteNetworkInsightsAnalysisRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_insights_analysis_id"] = network_insights_analysis_id
+        if network_insights_analysis_id is not None:
+            input_["network_insights_analysis_id"] = network_insights_analysis_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15226,10 +15833,12 @@ class EC2Client:
 
     def delete_network_insights_path(
         self,
-        network_insights_path_id: "capo_ec2.types.network_insights_path_id.NetworkInsightsPathId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_insights_path_id: Optional[
+            "capo_ec2.types.network_insights_path_id.NetworkInsightsPathId"
+        ] = None,
     ) -> "capo_ec2.types.delete_network_insights_path_result.DeleteNetworkInsightsPathResult":
         """<p>Deletes the specified path.</p>
 
@@ -15259,7 +15868,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_network_insights_path_request.DeleteNetworkInsightsPathRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_insights_path_id"] = network_insights_path_id
+        if network_insights_path_id is not None:
+            input_["network_insights_path_id"] = network_insights_path_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15270,10 +15880,12 @@ class EC2Client:
 
     def delete_network_interface(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
 
@@ -15307,7 +15919,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_network_interface_request.DeleteNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15318,9 +15931,11 @@ class EC2Client:
 
     def delete_network_interface_permission(
         self,
-        network_interface_permission_id: "capo_ec2.types.network_interface_permission_id.NetworkInterfacePermissionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_interface_permission_id: Optional[
+            "capo_ec2.types.network_interface_permission_id.NetworkInterfacePermissionId"
+        ] = None,
         force: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_network_interface_permission_result.DeleteNetworkInterfacePermissionResult":
@@ -15351,7 +15966,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_network_interface_permission_request.DeleteNetworkInterfacePermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["network_interface_permission_id"] = network_interface_permission_id
+        if network_interface_permission_id is not None:
+            input_["network_interface_permission_id"] = network_interface_permission_id
         if force is not None:
             input_["force"] = force
         if dry_run is not None:
@@ -15366,10 +15982,12 @@ class EC2Client:
 
     def delete_placement_group(
         self,
-        group_name: "capo_ec2.types.placement_group_name_with_resolver.PlacementGroupNameWithResolver",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        group_name: Optional[
+            "capo_ec2.types.placement_group_name_with_resolver.PlacementGroupNameWithResolver"
+        ] = None,
     ) -> None:
         r"""<p>Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -15404,7 +16022,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_placement_group_request.DeletePlacementGroupRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["group_name"] = group_name
+        if group_name is not None:
+            input_["group_name"] = group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15415,10 +16034,10 @@ class EC2Client:
 
     def delete_public_ipv4_pool(
         self,
-        pool_id: "capo_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        pool_id: Optional["capo_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id"] = None,
         network_border_group: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.delete_public_ipv4_pool_result.DeletePublicIpv4PoolResult":
         r"""<p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
@@ -15450,7 +16069,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_public_ipv4_pool_request.DeletePublicIpv4PoolRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["pool_id"] = pool_id
+        if pool_id is not None:
+            input_["pool_id"] = pool_id
         if network_border_group is not None:
             input_["network_border_group"] = network_border_group
 
@@ -15463,10 +16083,12 @@ class EC2Client:
 
     def delete_queued_reserved_instances(
         self,
-        reserved_instances_ids: "capo_ec2.types.delete_queued_reserved_instances_id_list.DeleteQueuedReservedInstancesIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        reserved_instances_ids: Optional[
+            "capo_ec2.types.delete_queued_reserved_instances_id_list.DeleteQueuedReservedInstancesIdList"
+        ] = None,
     ) -> "capo_ec2.types.delete_queued_reserved_instances_result.DeleteQueuedReservedInstancesResult":
         """<p>Deletes the queued purchases for the specified Reserved Instances.</p>
 
@@ -15496,7 +16118,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_queued_reserved_instances_request.DeleteQueuedReservedInstancesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["reserved_instances_ids"] = reserved_instances_ids
+        if reserved_instances_ids is not None:
+            input_["reserved_instances_ids"] = reserved_instances_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15507,13 +16130,13 @@ class EC2Client:
 
     def delete_route(
         self,
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         destination_prefix_list_id: Optional[
             "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         destination_ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
     ) -> None:
@@ -15554,7 +16177,8 @@ class EC2Client:
             input_["destination_prefix_list_id"] = destination_prefix_list_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["route_table_id"] = route_table_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if destination_ipv6_cidr_block is not None:
@@ -15569,9 +16193,11 @@ class EC2Client:
 
     def delete_route_server(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_route_server_result.DeleteRouteServerResult":
         r"""<p>Deletes the specified route server.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -15600,7 +16226,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_route_server_request.DeleteRouteServerRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -15613,9 +16240,11 @@ class EC2Client:
 
     def delete_route_server_endpoint(
         self,
-        route_server_endpoint_id: "capo_ec2.types.route_server_endpoint_id.RouteServerEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_endpoint_id: Optional[
+            "capo_ec2.types.route_server_endpoint_id.RouteServerEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_route_server_endpoint_result.DeleteRouteServerEndpointResult":
         r"""<p>Deletes the specified route server endpoint.</p> <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href=\"https://en.wikipedia.org/wiki/Border_Gateway_Protocol\">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p>
@@ -15644,7 +16273,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_route_server_endpoint_request.DeleteRouteServerEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_endpoint_id"] = route_server_endpoint_id
+        if route_server_endpoint_id is not None:
+            input_["route_server_endpoint_id"] = route_server_endpoint_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -15657,9 +16287,11 @@ class EC2Client:
 
     def delete_route_server_peer(
         self,
-        route_server_peer_id: "capo_ec2.types.route_server_peer_id.RouteServerPeerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_peer_id: Optional[
+            "capo_ec2.types.route_server_peer_id.RouteServerPeerId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_route_server_peer_result.DeleteRouteServerPeerResult":
         """<p>Deletes the specified BGP peer from a route server.</p> <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p> <ul> <li> <p>Have an elastic network interface in the VPC</p> </li> <li> <p>Support BGP (Border Gateway Protocol)</p> </li> <li> <p>Can initiate BGP sessions</p> </li> </ul>
@@ -15688,7 +16320,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_route_server_peer_request.DeleteRouteServerPeerRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_peer_id"] = route_server_peer_id
+        if route_server_peer_id is not None:
+            input_["route_server_peer_id"] = route_server_peer_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -15701,10 +16334,10 @@ class EC2Client:
 
     def delete_route_table(
         self,
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
     ) -> None:
         """<p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>
 
@@ -15738,7 +16371,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_route_table_request.DeleteRouteTableRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["route_table_id"] = route_table_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15749,11 +16383,13 @@ class EC2Client:
 
     def delete_secondary_network(
         self,
-        secondary_network_id: "capo_ec2.types.secondary_network_id.SecondaryNetworkId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        secondary_network_id: Optional[
+            "capo_ec2.types.secondary_network_id.SecondaryNetworkId"
+        ] = None,
     ) -> "capo_ec2.types.delete_secondary_network_result.DeleteSecondaryNetworkResult":
         r"""<p>Deletes a secondary network. You must delete all secondary subnets in the secondary network before you can delete the secondary network.</p>
 
@@ -15792,7 +16428,8 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["secondary_network_id"] = secondary_network_id
+        if secondary_network_id is not None:
+            input_["secondary_network_id"] = secondary_network_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15803,11 +16440,13 @@ class EC2Client:
 
     def delete_secondary_subnet(
         self,
-        secondary_subnet_id: "capo_ec2.types.secondary_subnet_id.SecondarySubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        secondary_subnet_id: Optional[
+            "capo_ec2.types.secondary_subnet_id.SecondarySubnetId"
+        ] = None,
     ) -> "capo_ec2.types.delete_secondary_subnet_result.DeleteSecondarySubnetResult":
         r"""<p>Deletes a secondary subnet. A secondary subnet must not contain any secondary interfaces prior to deletion.</p>
 
@@ -15846,7 +16485,8 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["secondary_subnet_id"] = secondary_subnet_id
+        if secondary_subnet_id is not None:
+            input_["secondary_subnet_id"] = secondary_subnet_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -15914,9 +16554,9 @@ class EC2Client:
 
     def delete_snapshot(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Deletes the specified snapshot.</p> <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.</p> <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI. You must first deregister the AMI before you can delete the snapshot.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html\">Delete an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -15949,7 +16589,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16007,9 +16648,9 @@ class EC2Client:
 
     def delete_subnet(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>
@@ -16042,7 +16683,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_subnet_request.DeleteSubnetRequest = {}  # type: ignore[typeddict-item]
-        input_["subnet_id"] = subnet_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16055,9 +16697,11 @@ class EC2Client:
 
     def delete_subnet_cidr_reservation(
         self,
-        subnet_cidr_reservation_id: "capo_ec2.types.subnet_cidr_reservation_id.SubnetCidrReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        subnet_cidr_reservation_id: Optional[
+            "capo_ec2.types.subnet_cidr_reservation_id.SubnetCidrReservationId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_subnet_cidr_reservation_result.DeleteSubnetCidrReservationResult":
         """<p>Deletes a subnet CIDR reservation.</p>
@@ -16086,7 +16730,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_subnet_cidr_reservation_request.DeleteSubnetCidrReservationRequest = {}  # type: ignore[typeddict-item]
-        input_["subnet_cidr_reservation_id"] = subnet_cidr_reservation_id
+        if subnet_cidr_reservation_id is not None:
+            input_["subnet_cidr_reservation_id"] = subnet_cidr_reservation_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16099,10 +16744,10 @@ class EC2Client:
 
     def delete_tags(
         self,
-        resources: "capo_ec2.types.resource_id_list.ResourceIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        resources: Optional["capo_ec2.types.resource_id_list.ResourceIdList"] = None,
         tags: Optional["capo_ec2.types.tag_list.TagList"] = None,
     ) -> None:
         r"""<p>Deletes the specified set of tags from the specified set of resources.</p> <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -16138,7 +16783,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["resources"] = resources
+        if resources is not None:
+            input_["resources"] = resources
         if tags is not None:
             input_["tags"] = tags
 
@@ -16151,9 +16797,11 @@ class EC2Client:
 
     def delete_traffic_mirror_filter(
         self,
-        traffic_mirror_filter_id: "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_filter_id: Optional[
+            "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_traffic_mirror_filter_result.DeleteTrafficMirrorFilterResult":
         """<p>Deletes the specified Traffic Mirror filter.</p> <p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
@@ -16182,7 +16830,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_traffic_mirror_filter_request.DeleteTrafficMirrorFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
+        if traffic_mirror_filter_id is not None:
+            input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16195,9 +16844,11 @@ class EC2Client:
 
     def delete_traffic_mirror_filter_rule(
         self,
-        traffic_mirror_filter_rule_id: "capo_ec2.types.traffic_mirror_filter_rule_id_with_resolver.TrafficMirrorFilterRuleIdWithResolver",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_filter_rule_id: Optional[
+            "capo_ec2.types.traffic_mirror_filter_rule_id_with_resolver.TrafficMirrorFilterRuleIdWithResolver"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_traffic_mirror_filter_rule_result.DeleteTrafficMirrorFilterRuleResult":
         """<p>Deletes the specified Traffic Mirror rule.</p>
@@ -16226,7 +16877,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_traffic_mirror_filter_rule_request.DeleteTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_filter_rule_id"] = traffic_mirror_filter_rule_id
+        if traffic_mirror_filter_rule_id is not None:
+            input_["traffic_mirror_filter_rule_id"] = traffic_mirror_filter_rule_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16239,9 +16891,11 @@ class EC2Client:
 
     def delete_traffic_mirror_session(
         self,
-        traffic_mirror_session_id: "capo_ec2.types.traffic_mirror_session_id.TrafficMirrorSessionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_session_id: Optional[
+            "capo_ec2.types.traffic_mirror_session_id.TrafficMirrorSessionId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_traffic_mirror_session_result.DeleteTrafficMirrorSessionResult":
         """<p>Deletes the specified Traffic Mirror session.</p>
@@ -16270,7 +16924,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_traffic_mirror_session_request.DeleteTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_session_id"] = traffic_mirror_session_id
+        if traffic_mirror_session_id is not None:
+            input_["traffic_mirror_session_id"] = traffic_mirror_session_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16283,9 +16938,11 @@ class EC2Client:
 
     def delete_traffic_mirror_target(
         self,
-        traffic_mirror_target_id: "capo_ec2.types.traffic_mirror_target_id.TrafficMirrorTargetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_target_id: Optional[
+            "capo_ec2.types.traffic_mirror_target_id.TrafficMirrorTargetId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_traffic_mirror_target_result.DeleteTrafficMirrorTargetResult":
         """<p>Deletes the specified Traffic Mirror target.</p> <p>You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror session.</p>
@@ -16314,7 +16971,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_traffic_mirror_target_request.DeleteTrafficMirrorTargetRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_target_id"] = traffic_mirror_target_id
+        if traffic_mirror_target_id is not None:
+            input_["traffic_mirror_target_id"] = traffic_mirror_target_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16327,9 +16985,11 @@ class EC2Client:
 
     def delete_transit_gateway(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_result.DeleteTransitGatewayResult":
         """<p>Deletes the specified transit gateway.</p>
@@ -16358,7 +17018,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_request.DeleteTransitGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16371,9 +17032,11 @@ class EC2Client:
 
     def delete_transit_gateway_client_vpn_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_client_vpn_attachment_result.DeleteTransitGatewayClientVpnAttachmentResult":
         """<p>Deletes a Transit Gateway attachment for a Client VPN endpoint. The Transit Gateway owner can delete the attachment to remove the association between the Client VPN endpoint and the Transit Gateway.</p>
@@ -16402,7 +17065,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_client_vpn_attachment_request.DeleteTransitGatewayClientVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16415,9 +17079,11 @@ class EC2Client:
 
     def delete_transit_gateway_connect(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_connect_result.DeleteTransitGatewayConnectResult":
         """<p>Deletes the specified Connect attachment. You must first delete any Connect peers for the attachment.</p>
@@ -16446,7 +17112,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_connect_request.DeleteTransitGatewayConnectRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16459,9 +17126,11 @@ class EC2Client:
 
     def delete_transit_gateway_connect_peer(
         self,
-        transit_gateway_connect_peer_id: "capo_ec2.types.transit_gateway_connect_peer_id.TransitGatewayConnectPeerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_connect_peer_id: Optional[
+            "capo_ec2.types.transit_gateway_connect_peer_id.TransitGatewayConnectPeerId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_connect_peer_result.DeleteTransitGatewayConnectPeerResult":
         """<p>Deletes the specified Connect peer.</p>
@@ -16490,7 +17159,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_connect_peer_request.DeleteTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_connect_peer_id"] = transit_gateway_connect_peer_id
+        if transit_gateway_connect_peer_id is not None:
+            input_["transit_gateway_connect_peer_id"] = transit_gateway_connect_peer_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16503,9 +17173,11 @@ class EC2Client:
 
     def delete_transit_gateway_metering_policy(
         self,
-        transit_gateway_metering_policy_id: "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_metering_policy_id: Optional[
+            "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_metering_policy_result.DeleteTransitGatewayMeteringPolicyResult":
         """<p>Deletes a transit gateway metering policy.</p>
@@ -16534,9 +17206,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_metering_policy_request.DeleteTransitGatewayMeteringPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_metering_policy_id"] = (
-            transit_gateway_metering_policy_id
-        )
+        if transit_gateway_metering_policy_id is not None:
+            input_["transit_gateway_metering_policy_id"] = (
+                transit_gateway_metering_policy_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16549,10 +17222,12 @@ class EC2Client:
 
     def delete_transit_gateway_metering_policy_entry(
         self,
-        transit_gateway_metering_policy_id: "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId",
-        policy_rule_number: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_metering_policy_id: Optional[
+            "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId"
+        ] = None,
+        policy_rule_number: Optional["capo_ec2.types.integer.Integer"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_metering_policy_entry_result.DeleteTransitGatewayMeteringPolicyEntryResult":
         """<p>Deletes an entry from a transit gateway metering policy.</p>
@@ -16582,10 +17257,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_metering_policy_entry_request.DeleteTransitGatewayMeteringPolicyEntryRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_metering_policy_id"] = (
-            transit_gateway_metering_policy_id
-        )
-        input_["policy_rule_number"] = policy_rule_number
+        if transit_gateway_metering_policy_id is not None:
+            input_["transit_gateway_metering_policy_id"] = (
+                transit_gateway_metering_policy_id
+            )
+        if policy_rule_number is not None:
+            input_["policy_rule_number"] = policy_rule_number
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16598,9 +17275,11 @@ class EC2Client:
 
     def delete_transit_gateway_multicast_domain(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_multicast_domain_result.DeleteTransitGatewayMulticastDomainResult":
         """<p>Deletes the specified transit gateway multicast domain.</p>
@@ -16629,9 +17308,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_multicast_domain_request.DeleteTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16644,9 +17324,11 @@ class EC2Client:
 
     def delete_transit_gateway_peering_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_peering_attachment_result.DeleteTransitGatewayPeeringAttachmentResult":
         """<p>Deletes a transit gateway peering attachment.</p>
@@ -16675,7 +17357,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_peering_attachment_request.DeleteTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16688,9 +17371,11 @@ class EC2Client:
 
     def delete_transit_gateway_policy_table(
         self,
-        transit_gateway_policy_table_id: "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_policy_table_result.DeleteTransitGatewayPolicyTableResult":
         """<p>Deletes the specified transit gateway policy table.</p>
@@ -16719,7 +17404,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_policy_table_request.DeleteTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16732,10 +17418,14 @@ class EC2Client:
 
     def delete_transit_gateway_prefix_list_reference(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_prefix_list_reference_result.DeleteTransitGatewayPrefixListReferenceResult":
         """<p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
@@ -16765,8 +17455,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_prefix_list_reference_request.DeleteTransitGatewayPrefixListReferenceRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["prefix_list_id"] = prefix_list_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16779,10 +17471,12 @@ class EC2Client:
 
     def delete_transit_gateway_route(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        destination_cidr_block: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_route_result.DeleteTransitGatewayRouteResult":
         """<p>Deletes the specified route from the specified transit gateway route table.</p>
@@ -16812,8 +17506,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_route_request.DeleteTransitGatewayRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["destination_cidr_block"] = destination_cidr_block
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16826,9 +17522,11 @@ class EC2Client:
 
     def delete_transit_gateway_route_table(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_route_table_result.DeleteTransitGatewayRouteTableResult":
         """<p>Deletes the specified transit gateway route table. If there are any route tables associated with the transit gateway route table, you must first run <a>DisassociateRouteTable</a> before you can delete the transit gateway route table. This removes any route tables associated with the transit gateway route table.</p>
@@ -16857,7 +17555,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_route_table_request.DeleteTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16870,9 +17569,11 @@ class EC2Client:
 
     def delete_transit_gateway_route_table_announcement(
         self,
-        transit_gateway_route_table_announcement_id: "capo_ec2.types.transit_gateway_route_table_announcement_id.TransitGatewayRouteTableAnnouncementId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_announcement_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_announcement_id.TransitGatewayRouteTableAnnouncementId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_route_table_announcement_result.DeleteTransitGatewayRouteTableAnnouncementResult":
         """<p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
@@ -16901,9 +17602,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_route_table_announcement_request.DeleteTransitGatewayRouteTableAnnouncementRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_announcement_id"] = (
-            transit_gateway_route_table_announcement_id
-        )
+        if transit_gateway_route_table_announcement_id is not None:
+            input_["transit_gateway_route_table_announcement_id"] = (
+                transit_gateway_route_table_announcement_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16916,9 +17618,11 @@ class EC2Client:
 
     def delete_transit_gateway_vpc_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_transit_gateway_vpc_attachment_result.DeleteTransitGatewayVpcAttachmentResult":
         """<p>Deletes the specified VPC attachment.</p>
@@ -16947,7 +17651,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_transit_gateway_vpc_attachment_request.DeleteTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -16960,9 +17665,11 @@ class EC2Client:
 
     def delete_verified_access_endpoint(
         self,
-        verified_access_endpoint_id: "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_endpoint_id: Optional[
+            "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId"
+        ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_verified_access_endpoint_result.DeleteVerifiedAccessEndpointResult":
@@ -16993,7 +17700,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_verified_access_endpoint_request.DeleteVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_endpoint_id"] = verified_access_endpoint_id
+        if verified_access_endpoint_id is not None:
+            input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -17008,9 +17716,11 @@ class EC2Client:
 
     def delete_verified_access_group(
         self,
-        verified_access_group_id: "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_group_id: Optional[
+            "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId"
+        ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_verified_access_group_result.DeleteVerifiedAccessGroupResult":
@@ -17041,7 +17751,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_verified_access_group_request.DeleteVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_group_id"] = verified_access_group_id
+        if verified_access_group_id is not None:
+            input_["verified_access_group_id"] = verified_access_group_id
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -17056,9 +17767,11 @@ class EC2Client:
 
     def delete_verified_access_instance(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.delete_verified_access_instance_result.DeleteVerifiedAccessInstanceResult":
@@ -17089,7 +17802,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_verified_access_instance_request.DeleteVerifiedAccessInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is not None:
@@ -17104,9 +17818,11 @@ class EC2Client:
 
     def delete_verified_access_trust_provider(
         self,
-        verified_access_trust_provider_id: "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_trust_provider_id: Optional[
+            "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.delete_verified_access_trust_provider_result.DeleteVerifiedAccessTrustProviderResult":
@@ -17137,7 +17853,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_verified_access_trust_provider_request.DeleteVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_trust_provider_id"] = verified_access_trust_provider_id
+        if verified_access_trust_provider_id is not None:
+            input_["verified_access_trust_provider_id"] = (
+                verified_access_trust_provider_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is not None:
@@ -17152,9 +17871,9 @@ class EC2Client:
 
     def delete_volume(
         self,
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state (not attached to an instance).</p> <p>The volume can remain in the <code>deleting</code> state for several minutes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html\">Delete an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -17187,7 +17906,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17200,9 +17920,9 @@ class EC2Client:
 
     def delete_vpc(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the default security group, network ACL, and route table for the VPC.</p> <p>If you created a flow log for the VPC that you are deleting, note that flow logs for deleted VPCs are eventually automatically removed.</p>
@@ -17235,7 +17955,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_vpc_request.DeleteVpcRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17248,10 +17969,12 @@ class EC2Client:
 
     def delete_vpc_block_public_access_exclusion(
         self,
-        exclusion_id: "capo_ec2.types.vpc_block_public_access_exclusion_id.VpcBlockPublicAccessExclusionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        exclusion_id: Optional[
+            "capo_ec2.types.vpc_block_public_access_exclusion_id.VpcBlockPublicAccessExclusionId"
+        ] = None,
     ) -> "capo_ec2.types.delete_vpc_block_public_access_exclusion_result.DeleteVpcBlockPublicAccessExclusionResult":
         r"""<p>Delete a VPC Block Public Access (BPA) exclusion. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -17281,7 +18004,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_vpc_block_public_access_exclusion_request.DeleteVpcBlockPublicAccessExclusionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["exclusion_id"] = exclusion_id
+        if exclusion_id is not None:
+            input_["exclusion_id"] = exclusion_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17292,10 +18016,12 @@ class EC2Client:
 
     def delete_vpc_encryption_control(
         self,
-        vpc_encryption_control_id: "capo_ec2.types.vpc_encryption_control_id.VpcEncryptionControlId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_encryption_control_id: Optional[
+            "capo_ec2.types.vpc_encryption_control_id.VpcEncryptionControlId"
+        ] = None,
     ) -> "capo_ec2.types.delete_vpc_encryption_control_result.DeleteVpcEncryptionControlResult":
         r"""<p>Deletes a VPC Encryption Control configuration. This removes the encryption policy enforcement from the specified VPC.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -17325,7 +18051,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_vpc_encryption_control_request.DeleteVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_encryption_control_id"] = vpc_encryption_control_id
+        if vpc_encryption_control_id is not None:
+            input_["vpc_encryption_control_id"] = vpc_encryption_control_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17336,10 +18063,12 @@ class EC2Client:
 
     def delete_vpc_endpoint_connection_notifications(
         self,
-        connection_notification_ids: "capo_ec2.types.connection_notification_ids_list.ConnectionNotificationIdsList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        connection_notification_ids: Optional[
+            "capo_ec2.types.connection_notification_ids_list.ConnectionNotificationIdsList"
+        ] = None,
     ) -> "capo_ec2.types.delete_vpc_endpoint_connection_notifications_result.DeleteVpcEndpointConnectionNotificationsResult":
         """<p>Deletes the specified VPC endpoint connection notifications.</p>
 
@@ -17369,7 +18098,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_vpc_endpoint_connection_notifications_request.DeleteVpcEndpointConnectionNotificationsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["connection_notification_ids"] = connection_notification_ids
+        if connection_notification_ids is not None:
+            input_["connection_notification_ids"] = connection_notification_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17380,10 +18110,12 @@ class EC2Client:
 
     def delete_vpc_endpoints(
         self,
-        vpc_endpoint_ids: "capo_ec2.types.vpc_endpoint_id_list.VpcEndpointIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_endpoint_ids: Optional[
+            "capo_ec2.types.vpc_endpoint_id_list.VpcEndpointIdList"
+        ] = None,
     ) -> "capo_ec2.types.delete_vpc_endpoints_result.DeleteVpcEndpointsResult":
         """<p>Deletes the specified VPC endpoints.</p> <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p> <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces. You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p> <p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
 
@@ -17413,7 +18145,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_vpc_endpoints_request.DeleteVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_endpoint_ids"] = vpc_endpoint_ids
+        if vpc_endpoint_ids is not None:
+            input_["vpc_endpoint_ids"] = vpc_endpoint_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17424,10 +18157,12 @@ class EC2Client:
 
     def delete_vpc_endpoint_service_configurations(
         self,
-        service_ids: "capo_ec2.types.vpc_endpoint_service_id_list.VpcEndpointServiceIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_ids: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id_list.VpcEndpointServiceIdList"
+        ] = None,
     ) -> "capo_ec2.types.delete_vpc_endpoint_service_configurations_result.DeleteVpcEndpointServiceConfigurationsResult":
         """<p>Deletes the specified VPC endpoint service configurations. Before you can delete an endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code> interface endpoint connections that are attached to the service.</p>
 
@@ -17457,7 +18192,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_vpc_endpoint_service_configurations_request.DeleteVpcEndpointServiceConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_ids"] = service_ids
+        if service_ids is not None:
+            input_["service_ids"] = service_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17468,10 +18204,12 @@ class EC2Client:
 
     def delete_vpc_peering_connection(
         self,
-        vpc_peering_connection_id: "capo_ec2.types.vpc_peering_connection_id.VpcPeeringConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_peering_connection_id: Optional[
+            "capo_ec2.types.vpc_peering_connection_id.VpcPeeringConnectionId"
+        ] = None,
     ) -> "capo_ec2.types.delete_vpc_peering_connection_result.DeleteVpcPeeringConnectionResult":
         """<p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code> state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering connection that's in the <code>failed</code> or <code>rejected</code> state.</p>
 
@@ -17501,7 +18239,8 @@ class EC2Client:
         input_: capo_ec2.types.delete_vpc_peering_connection_request.DeleteVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_peering_connection_id"] = vpc_peering_connection_id
+        if vpc_peering_connection_id is not None:
+            input_["vpc_peering_connection_id"] = vpc_peering_connection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17512,9 +18251,11 @@ class EC2Client:
 
     def delete_vpn_concentrator(
         self,
-        vpn_concentrator_id: "capo_ec2.types.vpn_concentrator_id.VpnConcentratorId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_concentrator_id: Optional[
+            "capo_ec2.types.vpn_concentrator_id.VpnConcentratorId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.delete_vpn_concentrator_result.DeleteVpnConcentratorResult":
         """<p>Deletes the specified VPN concentrator.</p>
@@ -17543,7 +18284,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_vpn_concentrator_request.DeleteVpnConcentratorRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_concentrator_id"] = vpn_concentrator_id
+        if vpn_concentrator_id is not None:
+            input_["vpn_concentrator_id"] = vpn_concentrator_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17556,9 +18298,11 @@ class EC2Client:
 
     def delete_vpn_connection(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified VPN connection.</p> <p>If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway device using the new configuration information returned with the new VPN connection ID.</p> <p>For certificate-based authentication, delete all Certificate Manager (ACM) private certificates used for the Amazon Web Services-side tunnel endpoints for the VPN connection before deleting the VPN connection.</p>
@@ -17585,7 +18329,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_vpn_connection_request.DeleteVpnConnectionRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17598,10 +18343,12 @@ class EC2Client:
 
     def delete_vpn_connection_route(
         self,
-        destination_cidr_block: "capo_ec2.types.string.String",
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
 
@@ -17627,8 +18374,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_vpn_connection_route_request.DeleteVpnConnectionRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_cidr_block"] = destination_cidr_block
-        input_["vpn_connection_id"] = vpn_connection_id
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17639,9 +18388,9 @@ class EC2Client:
 
     def delete_vpn_gateway(
         self,
-        vpn_gateway_id: "capo_ec2.types.vpn_gateway_id.VpnGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_gateway_id: Optional["capo_ec2.types.vpn_gateway_id.VpnGatewayId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Deletes the specified virtual private gateway. You must first detach the virtual private gateway from the VPC. Note that you don't need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
@@ -17668,7 +18417,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_vpn_gateway_request.DeleteVpnGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_gateway_id"] = vpn_gateway_id
+        if vpn_gateway_id is not None:
+            input_["vpn_gateway_id"] = vpn_gateway_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17681,9 +18431,9 @@ class EC2Client:
 
     def deprovision_byoip_cidr(
         self,
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.deprovision_byoip_cidr_result.DeprovisionByoipCidrResult":
         """<p>Releases the specified address range that you provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p> <p>Before you can release an address range, you must stop advertising it and you must not have any IP addresses allocated from its address range.</p>
@@ -17712,7 +18462,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.deprovision_byoip_cidr_request.DeprovisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input_["cidr"] = cidr
+        if cidr is not None:
+            input_["cidr"] = cidr
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17725,11 +18476,11 @@ class EC2Client:
 
     def deprovision_ipam_byoasn(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
-        asn: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
+        asn: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.deprovision_ipam_byoasn_result.DeprovisionIpamByoasnResult":
         r"""<p>Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services account. This action can only be called after any BYOIP CIDR associations are removed from your Amazon Web Services account with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html\">DisassociateIpamByoasn</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
@@ -17760,8 +18511,10 @@ class EC2Client:
         input_: capo_ec2.types.deprovision_ipam_byoasn_request.DeprovisionIpamByoasnRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
-        input_["asn"] = asn
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
+        if asn is not None:
+            input_["asn"] = asn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17772,10 +18525,10 @@ class EC2Client:
 
     def deprovision_ipam_pool_cidr(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         cidr: Optional["capo_ec2.types.string.String"] = None,
     ) -> (
         "capo_ec2.types.deprovision_ipam_pool_cidr_result.DeprovisionIpamPoolCidrResult"
@@ -17809,7 +18562,8 @@ class EC2Client:
         input_: capo_ec2.types.deprovision_ipam_pool_cidr_request.DeprovisionIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if cidr is not None:
             input_["cidr"] = cidr
 
@@ -17822,11 +18576,11 @@ class EC2Client:
 
     def deprovision_public_ipv4_pool_cidr(
         self,
-        pool_id: "capo_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id",
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        pool_id: Optional["capo_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.deprovision_public_ipv4_pool_cidr_result.DeprovisionPublicIpv4PoolCidrResult":
         """<p>Deprovision a CIDR from a public IPv4 pool.</p>
 
@@ -17857,8 +18611,10 @@ class EC2Client:
         input_: capo_ec2.types.deprovision_public_ipv4_pool_cidr_request.DeprovisionPublicIpv4PoolCidrRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["pool_id"] = pool_id
-        input_["cidr"] = cidr
+        if pool_id is not None:
+            input_["pool_id"] = pool_id
+        if cidr is not None:
+            input_["cidr"] = cidr
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17869,9 +18625,9 @@ class EC2Client:
 
     def deregister_image(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         delete_associated_snapshots: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.deregister_image_result.DeregisterImageResult":
@@ -17902,7 +18658,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.deregister_image_request.DeregisterImageRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if delete_associated_snapshots is not None:
             input_["delete_associated_snapshots"] = delete_associated_snapshots
         if dry_run is not None:
@@ -17917,10 +18674,12 @@ class EC2Client:
 
     def deregister_instance_event_notification_attributes(
         self,
-        instance_tag_attribute: "capo_ec2.types.deregister_instance_tag_attribute_request.DeregisterInstanceTagAttributeRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_tag_attribute: Optional[
+            "capo_ec2.types.deregister_instance_tag_attribute_request.DeregisterInstanceTagAttributeRequest"
+        ] = None,
     ) -> "capo_ec2.types.deregister_instance_event_notification_attributes_result.DeregisterInstanceEventNotificationAttributesResult":
         """<p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
 
@@ -17950,7 +18709,8 @@ class EC2Client:
         input_: capo_ec2.types.deregister_instance_event_notification_attributes_request.DeregisterInstanceEventNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_tag_attribute"] = instance_tag_attribute
+        if instance_tag_attribute is not None:
+            input_["instance_tag_attribute"] = instance_tag_attribute
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -18618,10 +19378,12 @@ class EC2Client:
 
     def describe_byoip_cidrs(
         self,
-        max_results: "capo_ec2.types.describe_byoip_cidrs_max_results.DescribeByoipCidrsMaxResults",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        max_results: Optional[
+            "capo_ec2.types.describe_byoip_cidrs_max_results.DescribeByoipCidrsMaxResults"
+        ] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
     ) -> "capo_ec2.types.describe_byoip_cidrs_result.DescribeByoipCidrsResult":
         """<p>Describes the IP address ranges that were provisioned for use with Amazon Web Services resources through through bring your own IP addresses (BYOIP).</p>
@@ -18653,7 +19415,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_byoip_cidrs_request.DescribeByoipCidrsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["max_results"] = max_results
+        if max_results is not None:
+            input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -18666,18 +19429,20 @@ class EC2Client:
 
     def iter_describe_byoip_cidrs(
         self,
-        max_results: "capo_ec2.types.describe_byoip_cidrs_max_results.DescribeByoipCidrsMaxResults",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        max_results: Optional[
+            "capo_ec2.types.describe_byoip_cidrs_max_results.DescribeByoipCidrsMaxResults"
+        ] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_ec2.types.byoip_cidr.ByoipCidr]":
         _token = next_token
         while True:
             _response = self.describe_byoip_cidrs(
-                max_results,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                max_results=max_results,
                 next_token=_token,
             )
             _page = _resolve_path(_response, ("byoip_cidrs",))
@@ -18781,11 +19546,15 @@ class EC2Client:
 
     def describe_capacity_block_extension_offerings(
         self,
-        capacity_block_extension_duration_hours: "capo_ec2.types.integer.Integer",
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_block_extension_duration_hours: Optional[
+            "capo_ec2.types.integer.Integer"
+        ] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_capacity_block_extension_offerings_max_results.DescribeCapacityBlockExtensionOfferingsMaxResults"
@@ -18822,10 +19591,12 @@ class EC2Client:
         input_: capo_ec2.types.describe_capacity_block_extension_offerings_request.DescribeCapacityBlockExtensionOfferingsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["capacity_block_extension_duration_hours"] = (
-            capacity_block_extension_duration_hours
-        )
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_block_extension_duration_hours is not None:
+            input_["capacity_block_extension_duration_hours"] = (
+                capacity_block_extension_duration_hours
+            )
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -18840,11 +19611,15 @@ class EC2Client:
 
     def iter_describe_capacity_block_extension_offerings(
         self,
-        capacity_block_extension_duration_hours: "capo_ec2.types.integer.Integer",
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_block_extension_duration_hours: Optional[
+            "capo_ec2.types.integer.Integer"
+        ] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_capacity_block_extension_offerings_max_results.DescribeCapacityBlockExtensionOfferingsMaxResults"
@@ -18853,10 +19628,10 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_capacity_block_extension_offerings(
-                capacity_block_extension_duration_hours,
-                capacity_reservation_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                capacity_block_extension_duration_hours=capacity_block_extension_duration_hours,
+                capacity_reservation_id=capacity_reservation_id,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -18869,7 +19644,6 @@ class EC2Client:
 
     def describe_capacity_block_offerings(
         self,
-        capacity_duration_hours: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -18881,6 +19655,7 @@ class EC2Client:
         end_date_range: Optional[
             "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
         ] = None,
+        capacity_duration_hours: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_capacity_block_offerings_max_results.DescribeCapacityBlockOfferingsMaxResults"
@@ -18934,7 +19709,8 @@ class EC2Client:
             input_["start_date_range"] = start_date_range
         if end_date_range is not None:
             input_["end_date_range"] = end_date_range
-        input_["capacity_duration_hours"] = capacity_duration_hours
+        if capacity_duration_hours is not None:
+            input_["capacity_duration_hours"] = capacity_duration_hours
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -18955,7 +19731,6 @@ class EC2Client:
 
     def iter_describe_capacity_block_offerings(
         self,
-        capacity_duration_hours: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -18967,6 +19742,7 @@ class EC2Client:
         end_date_range: Optional[
             "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
         ] = None,
+        capacity_duration_hours: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_capacity_block_offerings_max_results.DescribeCapacityBlockOfferingsMaxResults"
@@ -18978,13 +19754,13 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_capacity_block_offerings(
-                capacity_duration_hours,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
                 instance_type=instance_type,
                 instance_count=instance_count,
                 start_date_range=start_date_range,
                 end_date_range=end_date_range,
+                capacity_duration_hours=capacity_duration_hours,
                 next_token=_token,
                 max_results=max_results,
                 ultraserver_type=ultraserver_type,
@@ -19278,12 +20054,12 @@ class EC2Client:
 
     def describe_capacity_reservation_billing_requests(
         self,
-        role: "capo_ec2.types.caller_role.CallerRole",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         capacity_reservation_ids: Optional[
             "capo_ec2.types.capacity_reservation_id_set.CapacityReservationIdSet"
         ] = None,
+        role: Optional["capo_ec2.types.caller_role.CallerRole"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_capacity_reservation_billing_requests_request_max_results.DescribeCapacityReservationBillingRequestsRequestMaxResults"
@@ -19323,7 +20099,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_capacity_reservation_billing_requests_request.DescribeCapacityReservationBillingRequestsRequest = {}  # type: ignore[typeddict-item]
         if capacity_reservation_ids is not None:
             input_["capacity_reservation_ids"] = capacity_reservation_ids
-        input_["role"] = role
+        if role is not None:
+            input_["role"] = role
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -19342,12 +20119,12 @@ class EC2Client:
 
     def iter_describe_capacity_reservation_billing_requests(
         self,
-        role: "capo_ec2.types.caller_role.CallerRole",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         capacity_reservation_ids: Optional[
             "capo_ec2.types.capacity_reservation_id_set.CapacityReservationIdSet"
         ] = None,
+        role: Optional["capo_ec2.types.caller_role.CallerRole"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_capacity_reservation_billing_requests_request_max_results.DescribeCapacityReservationBillingRequestsRequestMaxResults"
@@ -19358,9 +20135,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_capacity_reservation_billing_requests(
-                role,
                 config_overrides=config_overrides,
                 capacity_reservation_ids=capacity_reservation_ids,
+                role=role,
                 next_token=_token,
                 max_results=max_results,
                 filters=filters,
@@ -19806,9 +20583,11 @@ class EC2Client:
 
     def describe_client_vpn_authorization_rules(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
@@ -19845,7 +20624,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_client_vpn_authorization_rules_request.DescribeClientVpnAuthorizationRulesRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if next_token is not None:
@@ -19864,9 +20644,11 @@ class EC2Client:
 
     def iter_describe_client_vpn_authorization_rules(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
@@ -19877,8 +20659,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_client_vpn_authorization_rules(
-                client_vpn_endpoint_id,
                 config_overrides=config_overrides,
+                client_vpn_endpoint_id=client_vpn_endpoint_id,
                 dry_run=dry_run,
                 next_token=_token,
                 filters=filters,
@@ -19893,9 +20675,11 @@ class EC2Client:
 
     def describe_client_vpn_connections(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional[
@@ -19932,7 +20716,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_client_vpn_connections_request.DescribeClientVpnConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -19951,9 +20736,11 @@ class EC2Client:
 
     def iter_describe_client_vpn_connections(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional[
@@ -19964,8 +20751,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_client_vpn_connections(
-                client_vpn_endpoint_id,
                 config_overrides=config_overrides,
+                client_vpn_endpoint_id=client_vpn_endpoint_id,
                 filters=filters,
                 next_token=_token,
                 max_results=max_results,
@@ -20072,9 +20859,11 @@ class EC2Client:
 
     def describe_client_vpn_routes(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_client_vpn_routes_max_results.DescribeClientVpnRoutesMaxResults"
@@ -20113,7 +20902,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_client_vpn_routes_request.DescribeClientVpnRoutesRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -20132,9 +20922,11 @@ class EC2Client:
 
     def iter_describe_client_vpn_routes(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_client_vpn_routes_max_results.DescribeClientVpnRoutesMaxResults"
@@ -20145,8 +20937,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_client_vpn_routes(
-                client_vpn_endpoint_id,
                 config_overrides=config_overrides,
+                client_vpn_endpoint_id=client_vpn_endpoint_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -20161,9 +20953,11 @@ class EC2Client:
 
     def describe_client_vpn_target_networks(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         association_ids: Optional[
             "capo_ec2.types.value_string_list.ValueStringList"
         ] = None,
@@ -20204,7 +20998,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_client_vpn_target_networks_request.DescribeClientVpnTargetNetworksRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if association_ids is not None:
             input_["association_ids"] = association_ids
         if max_results is not None:
@@ -20225,9 +21020,11 @@ class EC2Client:
 
     def iter_describe_client_vpn_target_networks(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         association_ids: Optional[
             "capo_ec2.types.value_string_list.ValueStringList"
         ] = None,
@@ -20241,8 +21038,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_client_vpn_target_networks(
-                client_vpn_endpoint_id,
                 config_overrides=config_overrides,
+                client_vpn_endpoint_id=client_vpn_endpoint_id,
                 association_ids=association_ids,
                 max_results=max_results,
                 next_token=_token,
@@ -21073,14 +21870,14 @@ class EC2Client:
 
     def describe_fleet_history(
         self,
-        fleet_id: "capo_ec2.types.fleet_id.FleetId",
-        start_time: "capo_ec2.types.date_time.DateTime",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         event_type: Optional["capo_ec2.types.fleet_event_type.FleetEventType"] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
+        fleet_id: Optional["capo_ec2.types.fleet_id.FleetId"] = None,
+        start_time: Optional["capo_ec2.types.date_time.DateTime"] = None,
     ) -> "capo_ec2.types.describe_fleet_history_result.DescribeFleetHistoryResult":
         r"""<p>Describes the events for the specified EC2 Fleet during the specified time.</p> <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html\">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -21120,8 +21917,10 @@ class EC2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["fleet_id"] = fleet_id
-        input_["start_time"] = start_time
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if start_time is not None:
+            input_["start_time"] = start_time
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -21132,12 +21931,12 @@ class EC2Client:
 
     def describe_fleet_instances(
         self,
-        fleet_id: "capo_ec2.types.fleet_id.FleetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
+        fleet_id: Optional["capo_ec2.types.fleet_id.FleetId"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
     ) -> "capo_ec2.types.describe_fleet_instances_result.DescribeFleetInstancesResult":
         r"""<p>Describes the running instances for the specified EC2 Fleet.</p> <note> <p>Currently, <code>DescribeFleetInstances</code> does not support fleets of type <code>instant</code>. Instead, use <code>DescribeFleets</code>, specifying the <code>instant</code> fleet ID in the request.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet\">Describe your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -21175,7 +21974,8 @@ class EC2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if filters is not None:
             input_["filters"] = filters
 
@@ -21356,11 +22156,13 @@ class EC2Client:
 
     def describe_fpga_image_attribute(
         self,
-        fpga_image_id: "capo_ec2.types.fpga_image_id.FpgaImageId",
-        attribute: "capo_ec2.types.fpga_image_attribute_name.FpgaImageAttributeName",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        fpga_image_id: Optional["capo_ec2.types.fpga_image_id.FpgaImageId"] = None,
+        attribute: Optional[
+            "capo_ec2.types.fpga_image_attribute_name.FpgaImageAttributeName"
+        ] = None,
     ) -> "capo_ec2.types.describe_fpga_image_attribute_result.DescribeFpgaImageAttributeResult":
         """<p>Describes the specified attribute of the specified Amazon FPGA Image (AFI).</p>
 
@@ -21391,8 +22193,10 @@ class EC2Client:
         input_: capo_ec2.types.describe_fpga_image_attribute_request.DescribeFpgaImageAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["fpga_image_id"] = fpga_image_id
-        input_["attribute"] = attribute
+        if fpga_image_id is not None:
+            input_["fpga_image_id"] = fpga_image_id
+        if attribute is not None:
+            input_["attribute"] = attribute
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -21851,10 +22655,10 @@ class EC2Client:
 
     def describe_identity_id_format(
         self,
-        principal_arn: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         resource: Optional["capo_ec2.types.string.String"] = None,
+        principal_arn: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.describe_identity_id_format_result.DescribeIdentityIdFormatResult":
         r"""<p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p> <p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p> <p>These settings apply to the principal specified in the request. They do not apply to the principal that makes the request.</p>
 
@@ -21884,7 +22688,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_identity_id_format_request.DescribeIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
         if resource is not None:
             input_["resource"] = resource
-        input_["principal_arn"] = principal_arn
+        if principal_arn is not None:
+            input_["principal_arn"] = principal_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -21936,10 +22741,12 @@ class EC2Client:
 
     def describe_image_attribute(
         self,
-        attribute: "capo_ec2.types.image_attribute_name.ImageAttributeName",
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        attribute: Optional[
+            "capo_ec2.types.image_attribute_name.ImageAttributeName"
+        ] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.image_attribute.ImageAttribute":
         """<p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
@@ -21973,8 +22780,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_image_attribute_request.DescribeImageAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["attribute"] = attribute
-        input_["image_id"] = image_id
+        if attribute is not None:
+            input_["attribute"] = attribute
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -21987,9 +22796,11 @@ class EC2Client:
 
     def describe_image_references(
         self,
-        image_ids: "capo_ec2.types.describe_image_references_image_id_string_list.DescribeImageReferencesImageIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_ids: Optional[
+            "capo_ec2.types.describe_image_references_image_id_string_list.DescribeImageReferencesImageIdStringList"
+        ] = None,
         include_all_resource_types: Optional["capo_ec2.types.boolean.Boolean"] = None,
         resource_types: Optional[
             "capo_ec2.types.resource_type_request_list.ResourceTypeRequestList"
@@ -22032,7 +22843,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_image_references_request.DescribeImageReferencesRequest = {}  # type: ignore[typeddict-item]
-        input_["image_ids"] = image_ids
+        if image_ids is not None:
+            input_["image_ids"] = image_ids
         if include_all_resource_types is not None:
             input_["include_all_resource_types"] = include_all_resource_types
         if resource_types is not None:
@@ -22053,9 +22865,11 @@ class EC2Client:
 
     def iter_describe_image_references(
         self,
-        image_ids: "capo_ec2.types.describe_image_references_image_id_string_list.DescribeImageReferencesImageIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_ids: Optional[
+            "capo_ec2.types.describe_image_references_image_id_string_list.DescribeImageReferencesImageIdStringList"
+        ] = None,
         include_all_resource_types: Optional["capo_ec2.types.boolean.Boolean"] = None,
         resource_types: Optional[
             "capo_ec2.types.resource_type_request_list.ResourceTypeRequestList"
@@ -22069,8 +22883,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_image_references(
-                image_ids,
                 config_overrides=config_overrides,
+                image_ids=image_ids,
                 include_all_resource_types=include_all_resource_types,
                 resource_types=resource_types,
                 next_token=_token,
@@ -22588,11 +23402,13 @@ class EC2Client:
 
     def describe_instance_attribute(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        attribute: "capo_ec2.types.instance_attribute_name.InstanceAttributeName",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        attribute: Optional[
+            "capo_ec2.types.instance_attribute_name.InstanceAttributeName"
+        ] = None,
     ) -> "capo_ec2.types.instance_attribute.InstanceAttribute":
         """<p>Describes the specified attribute of the specified instance. You can specify only one attribute at a time. Available attributes include SQL license exemption configuration for instances registered with the SQL LE service. </p>
 
@@ -22633,8 +23449,10 @@ class EC2Client:
         input_: capo_ec2.types.describe_instance_attribute_request.DescribeInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["attribute"] = attribute
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if attribute is not None:
+            input_["attribute"] = attribute
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -26709,10 +27527,12 @@ class EC2Client:
 
     def describe_network_interface_attribute(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         attribute: Optional[
             "capo_ec2.types.network_interface_attribute.NetworkInterfaceAttribute"
         ] = None,
@@ -26764,7 +27584,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_network_interface_attribute_request.DescribeNetworkInterfaceAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if attribute is not None:
             input_["attribute"] = attribute
 
@@ -28235,18 +29056,22 @@ class EC2Client:
 
     def describe_scheduled_instance_availability(
         self,
-        first_slot_start_time_range: "capo_ec2.types.slot_date_time_range_request.SlotDateTimeRangeRequest",
-        recurrence: "capo_ec2.types.scheduled_instance_recurrence_request.ScheduledInstanceRecurrenceRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        first_slot_start_time_range: Optional[
+            "capo_ec2.types.slot_date_time_range_request.SlotDateTimeRangeRequest"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.describe_scheduled_instance_availability_max_results.DescribeScheduledInstanceAvailabilityMaxResults"
         ] = None,
         max_slot_duration_in_hours: Optional["capo_ec2.types.integer.Integer"] = None,
         min_slot_duration_in_hours: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
+        recurrence: Optional[
+            "capo_ec2.types.scheduled_instance_recurrence_request.ScheduledInstanceRecurrenceRequest"
+        ] = None,
     ) -> "capo_ec2.types.describe_scheduled_instance_availability_result.DescribeScheduledInstanceAvailabilityResult":
         """<p>Finds available schedules that meet the specified criteria.</p> <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p> <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p>
 
@@ -28284,7 +29109,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if filters is not None:
             input_["filters"] = filters
-        input_["first_slot_start_time_range"] = first_slot_start_time_range
+        if first_slot_start_time_range is not None:
+            input_["first_slot_start_time_range"] = first_slot_start_time_range
         if max_results is not None:
             input_["max_results"] = max_results
         if max_slot_duration_in_hours is not None:
@@ -28293,7 +29119,8 @@ class EC2Client:
             input_["min_slot_duration_in_hours"] = min_slot_duration_in_hours
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["recurrence"] = recurrence
+        if recurrence is not None:
+            input_["recurrence"] = recurrence
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -28304,31 +29131,35 @@ class EC2Client:
 
     def iter_describe_scheduled_instance_availability(
         self,
-        first_slot_start_time_range: "capo_ec2.types.slot_date_time_range_request.SlotDateTimeRangeRequest",
-        recurrence: "capo_ec2.types.scheduled_instance_recurrence_request.ScheduledInstanceRecurrenceRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        first_slot_start_time_range: Optional[
+            "capo_ec2.types.slot_date_time_range_request.SlotDateTimeRangeRequest"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.describe_scheduled_instance_availability_max_results.DescribeScheduledInstanceAvailabilityMaxResults"
         ] = None,
         max_slot_duration_in_hours: Optional["capo_ec2.types.integer.Integer"] = None,
         min_slot_duration_in_hours: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
+        recurrence: Optional[
+            "capo_ec2.types.scheduled_instance_recurrence_request.ScheduledInstanceRecurrenceRequest"
+        ] = None,
     ) -> "Iterator[capo_ec2.types.scheduled_instance_availability.ScheduledInstanceAvailability]":
         _token = next_token
         while True:
             _response = self.describe_scheduled_instance_availability(
-                first_slot_start_time_range,
-                recurrence,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
                 filters=filters,
+                first_slot_start_time_range=first_slot_start_time_range,
                 max_results=max_results,
                 max_slot_duration_in_hours=max_slot_duration_in_hours,
                 min_slot_duration_in_hours=min_slot_duration_in_hours,
                 next_token=_token,
+                recurrence=recurrence,
             )
             _page = _resolve_path(_response, ("scheduled_instance_availability_set",))
             for _item in _page or []:
@@ -28739,10 +29570,10 @@ class EC2Client:
 
     def describe_security_group_references(
         self,
-        group_id: "capo_ec2.types.group_ids.GroupIds",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        group_id: Optional["capo_ec2.types.group_ids.GroupIds"] = None,
     ) -> "capo_ec2.types.describe_security_group_references_result.DescribeSecurityGroupReferencesResult":
         """<p>Describes the VPCs on the other side of a VPC peering or Transit Gateway connection that are referencing the security groups you've specified in this request.</p>
 
@@ -28778,7 +29609,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_security_group_references_request.DescribeSecurityGroupReferencesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["group_id"] = group_id
+        if group_id is not None:
+            input_["group_id"] = group_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -29138,10 +29970,12 @@ class EC2Client:
 
     def describe_snapshot_attribute(
         self,
-        attribute: "capo_ec2.types.snapshot_attribute_name.SnapshotAttributeName",
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        attribute: Optional[
+            "capo_ec2.types.snapshot_attribute_name.SnapshotAttributeName"
+        ] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.describe_snapshot_attribute_result.DescribeSnapshotAttributeResult":
         r"""<p>Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.</p> <p>For more information about EBS snapshots, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html\">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -29177,8 +30011,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_snapshot_attribute_request.DescribeSnapshotAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["attribute"] = attribute
-        input_["snapshot_id"] = snapshot_id
+        if attribute is not None:
+            input_["attribute"] = attribute
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -29434,10 +30270,12 @@ class EC2Client:
 
     def describe_spot_fleet_instances(
         self,
-        spot_fleet_request_id: "capo_ec2.types.spot_fleet_request_id.SpotFleetRequestId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        spot_fleet_request_id: Optional[
+            "capo_ec2.types.spot_fleet_request_id.SpotFleetRequestId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_spot_fleet_instances_max_results.DescribeSpotFleetInstancesMaxResults"
@@ -29479,7 +30317,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_spot_fleet_instances_request.DescribeSpotFleetInstancesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["spot_fleet_request_id"] = spot_fleet_request_id
+        if spot_fleet_request_id is not None:
+            input_["spot_fleet_request_id"] = spot_fleet_request_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -29494,12 +30333,14 @@ class EC2Client:
 
     def describe_spot_fleet_request_history(
         self,
-        spot_fleet_request_id: "capo_ec2.types.spot_fleet_request_id.SpotFleetRequestId",
-        start_time: "capo_ec2.types.date_time.DateTime",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        spot_fleet_request_id: Optional[
+            "capo_ec2.types.spot_fleet_request_id.SpotFleetRequestId"
+        ] = None,
         event_type: Optional["capo_ec2.types.event_type.EventType"] = None,
+        start_time: Optional["capo_ec2.types.date_time.DateTime"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.describe_spot_fleet_request_history_max_results.DescribeSpotFleetRequestHistoryMaxResults"
@@ -29543,10 +30384,12 @@ class EC2Client:
         input_: capo_ec2.types.describe_spot_fleet_request_history_request.DescribeSpotFleetRequestHistoryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["spot_fleet_request_id"] = spot_fleet_request_id
+        if spot_fleet_request_id is not None:
+            input_["spot_fleet_request_id"] = spot_fleet_request_id
         if event_type is not None:
             input_["event_type"] = event_type
-        input_["start_time"] = start_time
+        if start_time is not None:
+            input_["start_time"] = start_time
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -29875,7 +30718,6 @@ class EC2Client:
 
     def describe_stale_security_groups(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -29885,6 +30727,7 @@ class EC2Client:
         next_token: Optional[
             "capo_ec2.types.describe_stale_security_groups_next_token.DescribeStaleSecurityGroupsNextToken"
         ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "capo_ec2.types.describe_stale_security_groups_result.DescribeStaleSecurityGroupsResult":
         r"""<p>Describes the stale security group rules for security groups referenced across a VPC peering connection, transit gateway connection, or with a security group VPC association. Rules are stale when they reference a deleted security group. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has been deleted, across a transit gateway where the transit gateway has been deleted (or <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security\">the transit gateway security group referencing feature</a> has been disabled), or if a security group VPC association has been disassociated.</p>
 
@@ -29920,7 +30763,8 @@ class EC2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -29931,7 +30775,6 @@ class EC2Client:
 
     def iter_describe_stale_security_groups(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -29941,15 +30784,16 @@ class EC2Client:
         next_token: Optional[
             "capo_ec2.types.describe_stale_security_groups_next_token.DescribeStaleSecurityGroupsNextToken"
         ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "Iterator[capo_ec2.types.stale_security_group.StaleSecurityGroup]":
         _token = next_token
         while True:
             _response = self.describe_stale_security_groups(
-                vpc_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
                 max_results=max_results,
                 next_token=_token,
+                vpc_id=vpc_id,
             )
             _page = _resolve_path(_response, ("stale_security_group_set",))
             for _item in _page or []:
@@ -32158,10 +33002,12 @@ class EC2Client:
 
     def describe_volume_attribute(
         self,
-        attribute: "capo_ec2.types.volume_attribute_name.VolumeAttributeName",
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        attribute: Optional[
+            "capo_ec2.types.volume_attribute_name.VolumeAttributeName"
+        ] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> (
         "capo_ec2.types.describe_volume_attribute_result.DescribeVolumeAttributeResult"
@@ -32199,8 +33045,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_volume_attribute_request.DescribeVolumeAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["attribute"] = attribute
-        input_["volume_id"] = volume_id
+        if attribute is not None:
+            input_["attribute"] = attribute
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -32509,10 +33357,12 @@ class EC2Client:
 
     def describe_vpc_attribute(
         self,
-        attribute: "capo_ec2.types.vpc_attribute_name.VpcAttributeName",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        attribute: Optional[
+            "capo_ec2.types.vpc_attribute_name.VpcAttributeName"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.describe_vpc_attribute_result.DescribeVpcAttributeResult":
         """<p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>
@@ -32552,8 +33402,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_vpc_attribute_request.DescribeVpcAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["attribute"] = attribute
-        input_["vpc_id"] = vpc_id
+        if attribute is not None:
+            input_["attribute"] = attribute
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -33269,10 +34121,12 @@ class EC2Client:
 
     def describe_vpc_endpoint_service_permissions(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
@@ -33308,7 +34162,8 @@ class EC2Client:
         input_: capo_ec2.types.describe_vpc_endpoint_service_permissions_request.DescribeVpcEndpointServicePermissionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
+        if service_id is not None:
+            input_["service_id"] = service_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -33325,10 +34180,12 @@ class EC2Client:
 
     def iter_describe_vpc_endpoint_service_permissions(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
@@ -33336,9 +34193,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.describe_vpc_endpoint_service_permissions(
-                service_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                service_id=service_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -33912,11 +34769,11 @@ class EC2Client:
 
     def detach_classic_link_vpc(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "capo_ec2.types.detach_classic_link_vpc_result.DetachClassicLinkVpcResult":
         """<note> <p>This action is deprecated.</p> </note> <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>
 
@@ -33947,8 +34804,10 @@ class EC2Client:
         input_: capo_ec2.types.detach_classic_link_vpc_request.DetachClassicLinkVpcRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["vpc_id"] = vpc_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -33959,11 +34818,13 @@ class EC2Client:
 
     def detach_internet_gateway(
         self,
-        internet_gateway_id: "capo_ec2.types.internet_gateway_id.InternetGatewayId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        internet_gateway_id: Optional[
+            "capo_ec2.types.internet_gateway_id.InternetGatewayId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> None:
         """<p>Detaches an internet gateway from a VPC, disabling connectivity between the internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses or public IPv4 addresses.</p>
 
@@ -33998,8 +34859,10 @@ class EC2Client:
         input_: capo_ec2.types.detach_internet_gateway_request.DetachInternetGatewayRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["internet_gateway_id"] = internet_gateway_id
-        input_["vpc_id"] = vpc_id
+        if internet_gateway_id is not None:
+            input_["internet_gateway_id"] = internet_gateway_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -34010,10 +34873,12 @@ class EC2Client:
 
     def detach_network_interface(
         self,
-        attachment_id: "capo_ec2.types.network_interface_attachment_id.NetworkInterfaceAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        attachment_id: Optional[
+            "capo_ec2.types.network_interface_attachment_id.NetworkInterfaceAttachmentId"
+        ] = None,
         force: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Detaches a network interface from an instance.</p>
@@ -34049,7 +34914,8 @@ class EC2Client:
         input_: capo_ec2.types.detach_network_interface_request.DetachNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["attachment_id"] = attachment_id
+        if attachment_id is not None:
+            input_["attachment_id"] = attachment_id
         if force is not None:
             input_["force"] = force
 
@@ -34062,10 +34928,14 @@ class EC2Client:
 
     def detach_verified_access_trust_provider(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
-        verified_access_trust_provider_id: "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
+        verified_access_trust_provider_id: Optional[
+            "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId"
+        ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.detach_verified_access_trust_provider_result.DetachVerifiedAccessTrustProviderResult":
@@ -34097,8 +34967,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.detach_verified_access_trust_provider_request.DetachVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
-        input_["verified_access_trust_provider_id"] = verified_access_trust_provider_id
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
+        if verified_access_trust_provider_id is not None:
+            input_["verified_access_trust_provider_id"] = (
+                verified_access_trust_provider_id
+            )
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -34113,13 +34987,15 @@ class EC2Client:
 
     def detach_volume(
         self,
-        volume_id: "capo_ec2.types.volume_id_with_resolver.VolumeIdWithResolver",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         device: Optional["capo_ec2.types.string.String"] = None,
         force: Optional["capo_ec2.types.boolean.Boolean"] = None,
         instance_id: Optional[
             "capo_ec2.types.instance_id_for_resolver.InstanceIdForResolver"
+        ] = None,
+        volume_id: Optional[
+            "capo_ec2.types.volume_id_with_resolver.VolumeIdWithResolver"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.volume_attachment.VolumeAttachment":
@@ -34162,7 +35038,8 @@ class EC2Client:
             input_["force"] = force
         if instance_id is not None:
             input_["instance_id"] = instance_id
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34175,10 +35052,10 @@ class EC2Client:
 
     def detach_vpn_gateway(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
-        vpn_gateway_id: "capo_ec2.types.vpn_gateway_id.VpnGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        vpn_gateway_id: Optional["capo_ec2.types.vpn_gateway_id.VpnGatewayId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).</p> <p>You must wait for the attachment's state to switch to <code>detached</code> before you can delete the VPC or attach a different VPC to the virtual private gateway.</p>
@@ -34206,8 +35083,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.detach_vpn_gateway_request.DetachVpnGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
-        input_["vpn_gateway_id"] = vpn_gateway_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if vpn_gateway_id is not None:
+            input_["vpn_gateway_id"] = vpn_gateway_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34220,9 +35099,9 @@ class EC2Client:
 
     def disable_address_transfer(
         self,
-        allocation_id: "capo_ec2.types.allocation_id.AllocationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        allocation_id: Optional["capo_ec2.types.allocation_id.AllocationId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_address_transfer_result.DisableAddressTransferResult":
         r"""<p>Disables Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -34251,7 +35130,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_address_transfer_request.DisableAddressTransferRequest = {}  # type: ignore[typeddict-item]
-        input_["allocation_id"] = allocation_id
+        if allocation_id is not None:
+            input_["allocation_id"] = allocation_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34448,9 +35328,9 @@ class EC2Client:
 
     def disable_fast_launch(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         force: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_fast_launch_result.DisableFastLaunchResult":
@@ -34481,7 +35361,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_fast_launch_request.DisableFastLaunchRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if force is not None:
             input_["force"] = force
         if dry_run is not None:
@@ -34496,7 +35377,6 @@ class EC2Client:
 
     def disable_fast_snapshot_restores(
         self,
-        source_snapshot_ids: "capo_ec2.types.snapshot_id_string_list.SnapshotIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         availability_zones: Optional[
@@ -34504,6 +35384,9 @@ class EC2Client:
         ] = None,
         availability_zone_ids: Optional[
             "capo_ec2.types.availability_zone_id_string_list.AvailabilityZoneIdStringList"
+        ] = None,
+        source_snapshot_ids: Optional[
+            "capo_ec2.types.snapshot_id_string_list.SnapshotIdStringList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_fast_snapshot_restores_result.DisableFastSnapshotRestoresResult":
@@ -34539,7 +35422,8 @@ class EC2Client:
             input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
             input_["availability_zone_ids"] = availability_zone_ids
-        input_["source_snapshot_ids"] = source_snapshot_ids
+        if source_snapshot_ids is not None:
+            input_["source_snapshot_ids"] = source_snapshot_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34552,9 +35436,9 @@ class EC2Client:
 
     def disable_image(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_image_result.DisableImageResult":
         r"""<p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the AMI. A disabled AMI can't be used for instance launches.</p> <p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made private. If an AMI was shared with an Amazon Web Services account, organization, or Organizational Unit, they lose access to the disabled AMI. </p> <p>A disabled AMI does not appear in <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html\">DescribeImages</a> API calls by default.</p> <p>Only the AMI owner can disable an AMI.</p> <p>You can re-enable a disabled AMI using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html\">EnableImage</a>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\">Disable an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -34583,7 +35467,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_image_request.DisableImageRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34637,9 +35522,9 @@ class EC2Client:
 
     def disable_image_deprecation(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> (
         "capo_ec2.types.disable_image_deprecation_result.DisableImageDeprecationResult"
@@ -34670,7 +35555,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_image_deprecation_request.DisableImageDeprecationRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34683,9 +35569,9 @@ class EC2Client:
 
     def disable_image_deregistration_protection(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_image_deregistration_protection_result.DisableImageDeregistrationProtectionResult":
         r"""<p>Disables deregistration protection for an AMI. When deregistration protection is disabled, the AMI can be deregistered.</p> <p>If you chose to include a 24-hour cooldown period when you enabled deregistration protection for the AMI, then, when you disable deregistration protection, you won’t immediately be able to deregister the AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html\">Protect an Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -34714,7 +35600,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_image_deregistration_protection_request.DisableImageDeregistrationProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34727,9 +35614,11 @@ class EC2Client:
 
     def disable_instance_sql_ha_standby_detections(
         self,
-        instance_ids: "capo_ec2.types.instance_id_update_string_list.InstanceIdUpdateStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_update_string_list.InstanceIdUpdateStringList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_instance_sql_ha_standby_detections_result.DisableInstanceSqlHaStandbyDetectionsResult":
         """<p>Disable Amazon EC2 instances running in an SQL Server High Availability cluster from SQL Server High Availability instance standby detection monitoring. Once disabled, Amazon Web Services no longer monitors the metadata for the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster.</p>
@@ -34758,7 +35647,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_instance_sql_ha_standby_detections_request.DisableInstanceSqlHaStandbyDetectionsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34771,10 +35661,10 @@ class EC2Client:
 
     def disable_ipam_organization_admin_account(
         self,
-        delegated_admin_account_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        delegated_admin_account_id: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.disable_ipam_organization_admin_account_result.DisableIpamOrganizationAdminAccountResult":
         r"""<p>Disable the IPAM account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
@@ -34804,7 +35694,8 @@ class EC2Client:
         input_: capo_ec2.types.disable_ipam_organization_admin_account_request.DisableIpamOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["delegated_admin_account_id"] = delegated_admin_account_id
+        if delegated_admin_account_id is not None:
+            input_["delegated_admin_account_id"] = delegated_admin_account_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -34815,10 +35706,10 @@ class EC2Client:
 
     def disable_ipam_policy(
         self,
-        ipam_policy_id: "capo_ec2.types.ipam_policy_id.IpamPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_policy_id: Optional["capo_ec2.types.ipam_policy_id.IpamPolicyId"] = None,
         organization_target_id: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.disable_ipam_policy_result.DisableIpamPolicyResult":
         """<p>Disables an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
@@ -34850,7 +35741,8 @@ class EC2Client:
         input_: capo_ec2.types.disable_ipam_policy_request.DisableIpamPolicyRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_policy_id"] = ipam_policy_id
+        if ipam_policy_id is not None:
+            input_["ipam_policy_id"] = ipam_policy_id
         if organization_target_id is not None:
             input_["organization_target_id"] = organization_target_id
 
@@ -34863,10 +35755,12 @@ class EC2Client:
 
     def disable_route_server_propagation(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disable_route_server_propagation_result.DisableRouteServerPropagationResult":
         r"""<p>Disables route propagation from a route server to a specified route table.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p> <p>Route server supports the follow route table types:</p> <ul> <li> <p>VPC route tables not associated with subnets</p> </li> <li> <p>Subnet route tables</p> </li> <li> <p>Internet gateway route tables</p> </li> </ul> <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html\">Transit Gateway Connect</a>.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -34896,8 +35790,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_route_server_propagation_request.DisableRouteServerPropagationRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
-        input_["route_table_id"] = route_table_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -34992,9 +35888,11 @@ class EC2Client:
 
     def disable_transit_gateway_route_table_propagation(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -35031,7 +35929,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_transit_gateway_route_table_propagation_request.DisableTransitGatewayRouteTablePropagationRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -35050,10 +35949,10 @@ class EC2Client:
 
     def disable_vgw_route_propagation(
         self,
-        gateway_id: "capo_ec2.types.vpn_gateway_id.VpnGatewayId",
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        gateway_id: Optional["capo_ec2.types.vpn_gateway_id.VpnGatewayId"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.</p>
@@ -35087,8 +35986,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_vgw_route_propagation_request.DisableVgwRoutePropagationRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_id"] = gateway_id
-        input_["route_table_id"] = route_table_id
+        if gateway_id is not None:
+            input_["gateway_id"] = gateway_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35101,10 +36002,10 @@ class EC2Client:
 
     def disable_vpc_classic_link(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "capo_ec2.types.disable_vpc_classic_link_result.DisableVpcClassicLinkResult":
         """<note> <p>This action is deprecated.</p> </note> <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>
 
@@ -35134,7 +36035,8 @@ class EC2Client:
         input_: capo_ec2.types.disable_vpc_classic_link_request.DisableVpcClassicLinkRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35243,11 +36145,15 @@ class EC2Client:
 
     def disassociate_capacity_reservation_billing_owner(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        unused_reservation_billing_owner_id: "capo_ec2.types.account_id.AccountID",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        unused_reservation_billing_owner_id: Optional[
+            "capo_ec2.types.account_id.AccountID"
+        ] = None,
     ) -> "capo_ec2.types.disassociate_capacity_reservation_billing_owner_result.DisassociateCapacityReservationBillingOwnerResult":
         r"""<p>Cancels a pending request to assign billing of the unused capacity of a Capacity Reservation to a consumer account, or revokes a request that has already been accepted. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\">Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
@@ -35278,10 +36184,12 @@ class EC2Client:
         input_: capo_ec2.types.disassociate_capacity_reservation_billing_owner_request.DisassociateCapacityReservationBillingOwnerRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["capacity_reservation_id"] = capacity_reservation_id
-        input_["unused_reservation_billing_owner_id"] = (
-            unused_reservation_billing_owner_id
-        )
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
+        if unused_reservation_billing_owner_id is not None:
+            input_["unused_reservation_billing_owner_id"] = (
+                unused_reservation_billing_owner_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35292,10 +36200,12 @@ class EC2Client:
 
     def disassociate_client_vpn_target_network(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        association_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
+        association_id: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_client_vpn_target_network_result.DisassociateClientVpnTargetNetworkResult":
         """<p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the last target network from a Client VPN, the following happens:</p> <ul> <li> <p>The route that was automatically added for the VPC is deleted</p> </li> <li> <p>All active client connections are terminated</p> </li> <li> <p>New client connections are disallowed</p> </li> <li> <p>The Client VPN endpoint's status changes to <code>pending-associate</code> </p> </li> </ul>
@@ -35325,8 +36235,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_client_vpn_target_network_request.DisassociateClientVpnTargetNetworkRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
-        input_["association_id"] = association_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if association_id is not None:
+            input_["association_id"] = association_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35339,10 +36251,10 @@ class EC2Client:
 
     def disassociate_enclave_certificate_iam_role(
         self,
-        certificate_arn: "capo_ec2.types.certificate_id.CertificateId",
-        role_arn: "capo_ec2.types.role_id.RoleId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        certificate_arn: Optional["capo_ec2.types.certificate_id.CertificateId"] = None,
+        role_arn: Optional["capo_ec2.types.role_id.RoleId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_enclave_certificate_iam_role_result.DisassociateEnclaveCertificateIamRoleResult":
         """<p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the KMS key used to encrypt the private key. This effectively revokes the role's permission to use the certificate.</p>
@@ -35372,8 +36284,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_enclave_certificate_iam_role_request.DisassociateEnclaveCertificateIamRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["certificate_arn"] = certificate_arn
-        input_["role_arn"] = role_arn
+        if certificate_arn is not None:
+            input_["certificate_arn"] = certificate_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35386,9 +36300,11 @@ class EC2Client:
 
     def disassociate_iam_instance_profile(
         self,
-        association_id: "capo_ec2.types.iam_instance_profile_association_id.IamInstanceProfileAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        association_id: Optional[
+            "capo_ec2.types.iam_instance_profile_association_id.IamInstanceProfileAssociationId"
+        ] = None,
     ) -> "capo_ec2.types.disassociate_iam_instance_profile_result.DisassociateIamInstanceProfileResult":
         """<p>Disassociates an IAM instance profile from a running or stopped instance.</p> <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association ID.</p>
 
@@ -35421,7 +36337,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_iam_instance_profile_request.DisassociateIamInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35432,11 +36349,15 @@ class EC2Client:
 
     def disassociate_instance_event_window(
         self,
-        instance_event_window_id: "capo_ec2.types.instance_event_window_id.InstanceEventWindowId",
-        association_target: "capo_ec2.types.instance_event_window_disassociation_request.InstanceEventWindowDisassociationRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_event_window_id: Optional[
+            "capo_ec2.types.instance_event_window_id.InstanceEventWindowId"
+        ] = None,
+        association_target: Optional[
+            "capo_ec2.types.instance_event_window_disassociation_request.InstanceEventWindowDisassociationRequest"
+        ] = None,
     ) -> "capo_ec2.types.disassociate_instance_event_window_result.DisassociateInstanceEventWindowResult":
         r"""<p>Disassociates one or more targets from an event window.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -35467,8 +36388,10 @@ class EC2Client:
         input_: capo_ec2.types.disassociate_instance_event_window_request.DisassociateInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_event_window_id"] = instance_event_window_id
-        input_["association_target"] = association_target
+        if instance_event_window_id is not None:
+            input_["instance_event_window_id"] = instance_event_window_id
+        if association_target is not None:
+            input_["association_target"] = association_target
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35479,11 +36402,11 @@ class EC2Client:
 
     def disassociate_ipam_byoasn(
         self,
-        asn: "capo_ec2.types.string.String",
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        asn: Optional["capo_ec2.types.string.String"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.disassociate_ipam_byoasn_result.DisassociateIpamByoasnResult":
         r"""<p>Remove the association between your Autonomous System Number (ASN) and your BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR or if you want to swap ASNs. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
@@ -35514,8 +36437,10 @@ class EC2Client:
         input_: capo_ec2.types.disassociate_ipam_byoasn_request.DisassociateIpamByoasnRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["asn"] = asn
-        input_["cidr"] = cidr
+        if asn is not None:
+            input_["asn"] = asn
+        if cidr is not None:
+            input_["cidr"] = cidr
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35526,10 +36451,12 @@ class EC2Client:
 
     def disassociate_ipam_resource_discovery(
         self,
-        ipam_resource_discovery_association_id: "capo_ec2.types.ipam_resource_discovery_association_id.IpamResourceDiscoveryAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_association_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_association_id.IpamResourceDiscoveryAssociationId"
+        ] = None,
     ) -> "capo_ec2.types.disassociate_ipam_resource_discovery_result.DisassociateIpamResourceDiscoveryResult":
         """<p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
 
@@ -35559,9 +36486,10 @@ class EC2Client:
         input_: capo_ec2.types.disassociate_ipam_resource_discovery_request.DisassociateIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_resource_discovery_association_id"] = (
-            ipam_resource_discovery_association_id
-        )
+        if ipam_resource_discovery_association_id is not None:
+            input_["ipam_resource_discovery_association_id"] = (
+                ipam_resource_discovery_association_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35572,10 +36500,12 @@ class EC2Client:
 
     def disassociate_nat_gateway_address(
         self,
-        nat_gateway_id: "capo_ec2.types.nat_gateway_id.NatGatewayId",
-        association_ids: "capo_ec2.types.eip_association_id_list.EipAssociationIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        nat_gateway_id: Optional["capo_ec2.types.nat_gateway_id.NatGatewayId"] = None,
+        association_ids: Optional[
+            "capo_ec2.types.eip_association_id_list.EipAssociationIdList"
+        ] = None,
         max_drain_duration_seconds: Optional[
             "capo_ec2.types.drain_seconds.DrainSeconds"
         ] = None,
@@ -35609,8 +36539,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_nat_gateway_address_request.DisassociateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
-        input_["nat_gateway_id"] = nat_gateway_id
-        input_["association_ids"] = association_ids
+        if nat_gateway_id is not None:
+            input_["nat_gateway_id"] = nat_gateway_id
+        if association_ids is not None:
+            input_["association_ids"] = association_ids
         if max_drain_duration_seconds is not None:
             input_["max_drain_duration_seconds"] = max_drain_duration_seconds
         if dry_run is not None:
@@ -35625,10 +36557,12 @@ class EC2Client:
 
     def disassociate_route_server(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> (
         "capo_ec2.types.disassociate_route_server_result.DisassociateRouteServerResult"
@@ -35660,8 +36594,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_route_server_request.DisassociateRouteServerRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
-        input_["vpc_id"] = vpc_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35674,10 +36610,12 @@ class EC2Client:
 
     def disassociate_route_table(
         self,
-        association_id: "capo_ec2.types.route_table_association_id.RouteTableAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        association_id: Optional[
+            "capo_ec2.types.route_table_association_id.RouteTableAssociationId"
+        ] = None,
     ) -> None:
         r"""<p>Disassociates a subnet or gateway from a route table.</p> <p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -35711,7 +36649,8 @@ class EC2Client:
         input_: capo_ec2.types.disassociate_route_table_request.DisassociateRouteTableRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35722,10 +36661,12 @@ class EC2Client:
 
     def disassociate_security_group_vpc(
         self,
-        group_id: "capo_ec2.types.disassociate_security_group_vpc_security_group_id.DisassociateSecurityGroupVpcSecurityGroupId",
-        vpc_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        group_id: Optional[
+            "capo_ec2.types.disassociate_security_group_vpc_security_group_id.DisassociateSecurityGroupVpcSecurityGroupId"
+        ] = None,
+        vpc_id: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_security_group_vpc_result.DisassociateSecurityGroupVpcResult":
         r"""<p>Disassociates a security group from a VPC. You cannot disassociate the security group if any Elastic network interfaces in the associated VPC are still associated with the security group. Note that the disassociation is asynchronous and you can check the status of the request with <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupVpcAssociations.html\">DescribeSecurityGroupVpcAssociations</a>.</p>
@@ -35755,8 +36696,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_security_group_vpc_request.DisassociateSecurityGroupVpcRequest = {}  # type: ignore[typeddict-item]
-        input_["group_id"] = group_id
-        input_["vpc_id"] = vpc_id
+        if group_id is not None:
+            input_["group_id"] = group_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35769,9 +36712,11 @@ class EC2Client:
 
     def disassociate_subnet_cidr_block(
         self,
-        association_id: "capo_ec2.types.subnet_cidr_association_id.SubnetCidrAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        association_id: Optional[
+            "capo_ec2.types.subnet_cidr_association_id.SubnetCidrAssociationId"
+        ] = None,
     ) -> "capo_ec2.types.disassociate_subnet_cidr_block_result.DisassociateSubnetCidrBlockResult":
         """<p>Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p>
 
@@ -35798,7 +36743,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_subnet_cidr_block_request.DisassociateSubnetCidrBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -35809,11 +36755,17 @@ class EC2Client:
 
     def disassociate_transit_gateway_multicast_domain(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
-        subnet_ids: "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
+        subnet_ids: Optional[
+            "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_transit_gateway_multicast_domain_result.DisassociateTransitGatewayMulticastDomainResult":
         """<p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
@@ -35844,11 +36796,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_transit_gateway_multicast_domain_request.DisassociateTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
-        input_["subnet_ids"] = subnet_ids
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35861,10 +36816,14 @@ class EC2Client:
 
     def disassociate_transit_gateway_policy_table(
         self,
-        transit_gateway_policy_table_id: "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId",
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_transit_gateway_policy_table_result.DisassociateTransitGatewayPolicyTableResult":
         """<p>Removes the association between an an attachment and a policy table.</p>
@@ -35894,8 +36853,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_transit_gateway_policy_table_request.DisassociateTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35908,10 +36869,14 @@ class EC2Client:
 
     def disassociate_transit_gateway_route_table(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_transit_gateway_route_table_result.DisassociateTransitGatewayRouteTableResult":
         """<p>Disassociates a resource attachment from a transit gateway route table.</p>
@@ -35941,8 +36906,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_transit_gateway_route_table_request.DisassociateTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35955,9 +36922,11 @@ class EC2Client:
 
     def disassociate_trunk_interface(
         self,
-        association_id: "capo_ec2.types.trunk_interface_association_id.TrunkInterfaceAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        association_id: Optional[
+            "capo_ec2.types.trunk_interface_association_id.TrunkInterfaceAssociationId"
+        ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.disassociate_trunk_interface_result.DisassociateTrunkInterfaceResult":
@@ -35988,7 +36957,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_trunk_interface_request.DisassociateTrunkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -36003,9 +36973,11 @@ class EC2Client:
 
     def disassociate_vpc_cidr_block(
         self,
-        association_id: "capo_ec2.types.vpc_cidr_association_id.VpcCidrAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        association_id: Optional[
+            "capo_ec2.types.vpc_cidr_association_id.VpcCidrAssociationId"
+        ] = None,
     ) -> "capo_ec2.types.disassociate_vpc_cidr_block_result.DisassociateVpcCidrBlockResult":
         """<p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must specify its association ID. You can get the association ID by using <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p> <p>You cannot disassociate the CIDR block with which you originally created the VPC (the primary CIDR block).</p>
 
@@ -36032,7 +37004,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disassociate_vpc_cidr_block_request.DisassociateVpcCidrBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -36043,10 +37016,10 @@ class EC2Client:
 
     def enable_address_transfer(
         self,
-        allocation_id: "capo_ec2.types.allocation_id.AllocationId",
-        transfer_account_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        allocation_id: Optional["capo_ec2.types.allocation_id.AllocationId"] = None,
+        transfer_account_id: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_address_transfer_result.EnableAddressTransferResult":
         r"""<p>Enables Elastic IP address transfer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro\">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -36076,8 +37049,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_address_transfer_request.EnableAddressTransferRequest = {}  # type: ignore[typeddict-item]
-        input_["allocation_id"] = allocation_id
-        input_["transfer_account_id"] = transfer_account_id
+        if allocation_id is not None:
+            input_["allocation_id"] = allocation_id
+        if transfer_account_id is not None:
+            input_["transfer_account_id"] = transfer_account_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36090,9 +37065,11 @@ class EC2Client:
 
     def enable_allowed_images_settings(
         self,
-        allowed_images_settings_state: "capo_ec2.types.allowed_images_settings_enabled_state.AllowedImagesSettingsEnabledState",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        allowed_images_settings_state: Optional[
+            "capo_ec2.types.allowed_images_settings_enabled_state.AllowedImagesSettingsEnabledState"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_allowed_images_settings_result.EnableAllowedImagesSettingsResult":
         r"""<p>Enables Allowed AMIs for your account in the specified Amazon Web Services Region. Two values are accepted:</p> <ul> <li> <p> <code>enabled</code>: The image criteria in your Allowed AMIs settings are applied. As a result, only AMIs matching these criteria are discoverable and can be used by your account to launch instances.</p> </li> <li> <p> <code>audit-mode</code>: The image criteria in your Allowed AMIs settings are not applied. No restrictions are placed on AMI discoverability or usage. Users in your account can launch instances using any public AMI or AMI shared with your account.</p> <p>The purpose of <code>audit-mode</code> is to indicate which AMIs will be affected when Allowed AMIs is <code>enabled</code>. In <code>audit-mode</code>, each AMI displays either <code>\"ImageAllowed\": true</code> or <code>\"ImageAllowed\": false</code> to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled.</p> </li> </ul> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
@@ -36121,7 +37098,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_allowed_images_settings_request.EnableAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
-        input_["allowed_images_settings_state"] = allowed_images_settings_state
+        if allowed_images_settings_state is not None:
+            input_["allowed_images_settings_state"] = allowed_images_settings_state
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36281,9 +37259,9 @@ class EC2Client:
 
     def enable_fast_launch(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         resource_type: Optional["capo_ec2.types.string.String"] = None,
         snapshot_configuration: Optional[
             "capo_ec2.types.fast_launch_snapshot_configuration_request.FastLaunchSnapshotConfigurationRequest"
@@ -36324,7 +37302,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_fast_launch_request.EnableFastLaunchRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if resource_type is not None:
             input_["resource_type"] = resource_type
         if snapshot_configuration is not None:
@@ -36345,7 +37324,6 @@ class EC2Client:
 
     def enable_fast_snapshot_restores(
         self,
-        source_snapshot_ids: "capo_ec2.types.snapshot_id_string_list.SnapshotIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         availability_zones: Optional[
@@ -36353,6 +37331,9 @@ class EC2Client:
         ] = None,
         availability_zone_ids: Optional[
             "capo_ec2.types.availability_zone_id_string_list.AvailabilityZoneIdStringList"
+        ] = None,
+        source_snapshot_ids: Optional[
+            "capo_ec2.types.snapshot_id_string_list.SnapshotIdStringList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_fast_snapshot_restores_result.EnableFastSnapshotRestoresResult":
@@ -36388,7 +37369,8 @@ class EC2Client:
             input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
             input_["availability_zone_ids"] = availability_zone_ids
-        input_["source_snapshot_ids"] = source_snapshot_ids
+        if source_snapshot_ids is not None:
+            input_["source_snapshot_ids"] = source_snapshot_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36401,9 +37383,9 @@ class EC2Client:
 
     def enable_image(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_image_result.EnableImageResult":
         r"""<p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services accounts, organizations, and Organizational Units that lost access to the AMI when it was disabled do not regain access automatically. Once the AMI is available, it can be shared with them again.</p> <p>Only the AMI owner can re-enable a disabled AMI.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html\">Disable an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -36430,7 +37412,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_image_request.EnableImageRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36443,9 +37426,11 @@ class EC2Client:
 
     def enable_image_block_public_access(
         self,
-        image_block_public_access_state: "capo_ec2.types.image_block_public_access_enabled_state.ImageBlockPublicAccessEnabledState",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_block_public_access_state: Optional[
+            "capo_ec2.types.image_block_public_access_enabled_state.ImageBlockPublicAccessEnabledState"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_image_block_public_access_result.EnableImageBlockPublicAccessResult":
         r"""<p>Enables <i>block public access for AMIs</i> at the account level in the specified Amazon Web Services Region. This prevents the public sharing of your AMIs. However, if you already have public AMIs, they will remain publicly available.</p> <p>The API can take up to 10 minutes to configure this setting. During this time, if you run <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html\">GetImageBlockPublicAccessState</a>, the response will be <code>unblocked</code>. When the API has completed the configuration, the response will be <code>block-new-sharing</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html\">Block public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -36474,7 +37459,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_image_block_public_access_request.EnableImageBlockPublicAccessRequest = {}  # type: ignore[typeddict-item]
-        input_["image_block_public_access_state"] = image_block_public_access_state
+        if image_block_public_access_state is not None:
+            input_["image_block_public_access_state"] = image_block_public_access_state
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36487,10 +37473,12 @@ class EC2Client:
 
     def enable_image_deprecation(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
-        deprecate_at: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
+        deprecate_at: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_image_deprecation_result.EnableImageDeprecationResult":
         r"""<p>Enables deprecation of the specified AMI at the specified date and time.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html\">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -36520,8 +37508,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_image_deprecation_request.EnableImageDeprecationRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
-        input_["deprecate_at"] = deprecate_at
+        if image_id is not None:
+            input_["image_id"] = image_id
+        if deprecate_at is not None:
+            input_["deprecate_at"] = deprecate_at
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36534,9 +37524,9 @@ class EC2Client:
 
     def enable_image_deregistration_protection(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         with_cooldown: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_image_deregistration_protection_result.EnableImageDeregistrationProtectionResult":
@@ -36567,7 +37557,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_image_deregistration_protection_request.EnableImageDeregistrationProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if with_cooldown is not None:
             input_["with_cooldown"] = with_cooldown
         if dry_run is not None:
@@ -36582,9 +37573,11 @@ class EC2Client:
 
     def enable_instance_sql_ha_standby_detections(
         self,
-        instance_ids: "capo_ec2.types.instance_id_update_string_list.InstanceIdUpdateStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_update_string_list.InstanceIdUpdateStringList"
+        ] = None,
         sql_server_credentials: Optional["capo_ec2.types.secret_arn.SecretArn"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_instance_sql_ha_standby_detections_result.EnableInstanceSqlHaStandbyDetectionsResult":
@@ -36615,7 +37608,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_instance_sql_ha_standby_detections_request.EnableInstanceSqlHaStandbyDetectionsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if sql_server_credentials is not None:
             input_["sql_server_credentials"] = sql_server_credentials
         if dry_run is not None:
@@ -36630,10 +37624,10 @@ class EC2Client:
 
     def enable_ipam_organization_admin_account(
         self,
-        delegated_admin_account_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        delegated_admin_account_id: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.enable_ipam_organization_admin_account_result.EnableIpamOrganizationAdminAccountResult":
         r"""<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
 
@@ -36663,7 +37657,8 @@ class EC2Client:
         input_: capo_ec2.types.enable_ipam_organization_admin_account_request.EnableIpamOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["delegated_admin_account_id"] = delegated_admin_account_id
+        if delegated_admin_account_id is not None:
+            input_["delegated_admin_account_id"] = delegated_admin_account_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -36674,10 +37669,10 @@ class EC2Client:
 
     def enable_ipam_policy(
         self,
-        ipam_policy_id: "capo_ec2.types.ipam_policy_id.IpamPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_policy_id: Optional["capo_ec2.types.ipam_policy_id.IpamPolicyId"] = None,
         organization_target_id: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.enable_ipam_policy_result.EnableIpamPolicyResult":
         r"""<p>Enables an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html\">Define public IPv4 allocation strategy with IPAM policies</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
@@ -36709,7 +37704,8 @@ class EC2Client:
         input_: capo_ec2.types.enable_ipam_policy_request.EnableIpamPolicyRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_policy_id"] = ipam_policy_id
+        if ipam_policy_id is not None:
+            input_["ipam_policy_id"] = ipam_policy_id
         if organization_target_id is not None:
             input_["organization_target_id"] = organization_target_id
 
@@ -36763,10 +37759,12 @@ class EC2Client:
 
     def enable_route_server_propagation(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_route_server_propagation_result.EnableRouteServerPropagationResult":
         r"""<p>Defines which route tables the route server can update with routes.</p> <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -36796,8 +37794,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_route_server_propagation_request.EnableRouteServerPropagationRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
-        input_["route_table_id"] = route_table_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36851,9 +37851,11 @@ class EC2Client:
 
     def enable_snapshot_block_public_access(
         self,
-        state: "capo_ec2.types.snapshot_block_public_access_state.SnapshotBlockPublicAccessState",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        state: Optional[
+            "capo_ec2.types.snapshot_block_public_access_state.SnapshotBlockPublicAccessState"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.enable_snapshot_block_public_access_result.EnableSnapshotBlockPublicAccessResult":
         r"""<p>Enables or modifies the <i>block public access for snapshots</i> setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the <b>State</b> that you specify.</p> <important> <p>Enabling block public access for snapshots in <i>block all sharing</i> mode does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p> <p>If you later disable block public access or change the mode to <i>block new sharing</i>, these snapshots will become publicly available again.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html\"> Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -36882,7 +37884,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_snapshot_block_public_access_request.EnableSnapshotBlockPublicAccessRequest = {}  # type: ignore[typeddict-item]
-        input_["state"] = state
+        if state is not None:
+            input_["state"] = state
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36895,9 +37898,11 @@ class EC2Client:
 
     def enable_transit_gateway_route_table_propagation(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -36934,7 +37939,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_transit_gateway_route_table_propagation_request.EnableTransitGatewayRouteTablePropagationRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -36953,10 +37959,10 @@ class EC2Client:
 
     def enable_vgw_route_propagation(
         self,
-        gateway_id: "capo_ec2.types.vpn_gateway_id.VpnGatewayId",
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        gateway_id: Optional["capo_ec2.types.vpn_gateway_id.VpnGatewayId"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.</p>
@@ -36990,8 +37996,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.enable_vgw_route_propagation_request.EnableVgwRoutePropagationRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_id"] = gateway_id
-        input_["route_table_id"] = route_table_id
+        if gateway_id is not None:
+            input_["gateway_id"] = gateway_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37004,10 +38012,10 @@ class EC2Client:
 
     def enable_volume_io(
         self,
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
     ) -> None:
         """<p>Enables I/O operations for a volume that had I/O operations disabled because the data on the volume was potentially inconsistent.</p>
 
@@ -37041,7 +38049,8 @@ class EC2Client:
         input_: capo_ec2.types.enable_volume_io_request.EnableVolumeIORequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -37052,10 +38061,10 @@ class EC2Client:
 
     def enable_vpc_classic_link(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
     ) -> "capo_ec2.types.enable_vpc_classic_link_result.EnableVpcClassicLinkResult":
         """<note> <p>This action is deprecated.</p> </note> <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC route tables have existing routes for address ranges within the <code>10.0.0.0/8</code> IP address range, excluding local routes for VPCs in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address ranges.</p>
 
@@ -37085,7 +38094,8 @@ class EC2Client:
         input_: capo_ec2.types.enable_vpc_classic_link_request.EnableVpcClassicLinkRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -37137,9 +38147,11 @@ class EC2Client:
 
     def export_client_vpn_client_certificate_revocation_list(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.export_client_vpn_client_certificate_revocation_list_result.ExportClientVpnClientCertificateRevocationListResult":
         """<p>Downloads the client certificate revocation list for the specified Client VPN endpoint.</p>
@@ -37168,7 +38180,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.export_client_vpn_client_certificate_revocation_list_request.ExportClientVpnClientCertificateRevocationListRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37181,9 +38194,11 @@ class EC2Client:
 
     def export_client_vpn_client_configuration(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.export_client_vpn_client_configuration_result.ExportClientVpnClientConfigurationResult":
         """<p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration file includes the Client VPN endpoint and certificate information clients need to establish a connection with the Client VPN endpoint.</p>
@@ -37212,7 +38227,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.export_client_vpn_client_configuration_request.ExportClientVpnClientConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37225,14 +38241,18 @@ class EC2Client:
 
     def export_image(
         self,
-        disk_image_format: "capo_ec2.types.disk_image_format.DiskImageFormat",
-        image_id: "capo_ec2.types.image_id.ImageId",
-        s3_export_location: "capo_ec2.types.export_task_s3_location_request.ExportTaskS3LocationRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
+        disk_image_format: Optional[
+            "capo_ec2.types.disk_image_format.DiskImageFormat"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
+        s3_export_location: Optional[
+            "capo_ec2.types.export_task_s3_location_request.ExportTaskS3LocationRequest"
+        ] = None,
         role_name: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
@@ -37272,11 +38292,14 @@ class EC2Client:
             input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["disk_image_format"] = disk_image_format
+        if disk_image_format is not None:
+            input_["disk_image_format"] = disk_image_format
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["image_id"] = image_id
-        input_["s3_export_location"] = s3_export_location
+        if image_id is not None:
+            input_["image_id"] = image_id
+        if s3_export_location is not None:
+            input_["s3_export_location"] = s3_export_location
         if role_name is not None:
             input_["role_name"] = role_name
         if tag_specifications is not None:
@@ -37291,11 +38314,13 @@ class EC2Client:
 
     def export_transit_gateway_routes(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        s3_bucket: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        s3_bucket: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.export_transit_gateway_routes_result.ExportTransitGatewayRoutesResult":
         r"""<p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p> <p>The routes are saved to the specified bucket in a JSON file. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables\">Export route tables to Amazon S3</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
@@ -37326,10 +38351,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.export_transit_gateway_routes_request.ExportTransitGatewayRoutesRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
             input_["filters"] = filters
-        input_["s3_bucket"] = s3_bucket
+        if s3_bucket is not None:
+            input_["s3_bucket"] = s3_bucket
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37342,9 +38369,11 @@ class EC2Client:
 
     def export_verified_access_instance_client_configuration(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.export_verified_access_instance_client_configuration_result.ExportVerifiedAccessInstanceClientConfigurationResult":
         """<p>Exports the client configuration for a Verified Access instance.</p>
@@ -37373,7 +38402,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.export_verified_access_instance_client_configuration_request.ExportVerifiedAccessInstanceClientConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37386,10 +38416,12 @@ class EC2Client:
 
     def get_active_vpn_tunnel_status(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
-        vpn_tunnel_outside_ip_address: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
+        vpn_tunnel_outside_ip_address: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_active_vpn_tunnel_status_result.GetActiveVpnTunnelStatusResult":
         """<p>Returns the currently negotiated security parameters for an active VPN tunnel, including IKE version, DH groups, encryption algorithms, and integrity algorithms.</p>
@@ -37419,8 +38451,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_active_vpn_tunnel_status_request.GetActiveVpnTunnelStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
-        input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_tunnel_outside_ip_address is not None:
+            input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37474,9 +38508,9 @@ class EC2Client:
 
     def get_associated_enclave_certificate_iam_roles(
         self,
-        certificate_arn: "capo_ec2.types.certificate_id.CertificateId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        certificate_arn: Optional["capo_ec2.types.certificate_id.CertificateId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_associated_enclave_certificate_iam_roles_result.GetAssociatedEnclaveCertificateIamRolesResult":
         """<p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key that's used to encrypt the private key.</p>
@@ -37505,7 +38539,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_associated_enclave_certificate_iam_roles_request.GetAssociatedEnclaveCertificateIamRolesRequest = {}  # type: ignore[typeddict-item]
-        input_["certificate_arn"] = certificate_arn
+        if certificate_arn is not None:
+            input_["certificate_arn"] = certificate_arn
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37518,9 +38553,9 @@ class EC2Client:
 
     def get_associated_ipv6_pool_cidrs(
         self,
-        pool_id: "capo_ec2.types.ipv6_pool_ec2_id.Ipv6PoolEc2Id",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        pool_id: Optional["capo_ec2.types.ipv6_pool_ec2_id.Ipv6PoolEc2Id"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_ec2.types.ipv6_pool_max_results.Ipv6PoolMaxResults"
@@ -37555,7 +38590,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_associated_ipv6_pool_cidrs_request.GetAssociatedIpv6PoolCidrsRequest = {}  # type: ignore[typeddict-item]
-        input_["pool_id"] = pool_id
+        if pool_id is not None:
+            input_["pool_id"] = pool_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -37572,9 +38608,9 @@ class EC2Client:
 
     def iter_get_associated_ipv6_pool_cidrs(
         self,
-        pool_id: "capo_ec2.types.ipv6_pool_ec2_id.Ipv6PoolEc2Id",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        pool_id: Optional["capo_ec2.types.ipv6_pool_ec2_id.Ipv6PoolEc2Id"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_ec2.types.ipv6_pool_max_results.Ipv6PoolMaxResults"
@@ -37584,8 +38620,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_associated_ipv6_pool_cidrs(
-                pool_id,
                 config_overrides=config_overrides,
+                pool_id=pool_id,
                 next_token=_token,
                 max_results=max_results,
                 dry_run=dry_run,
@@ -37738,12 +38774,16 @@ class EC2Client:
 
     def get_capacity_manager_metric_data(
         self,
-        metric_names: "capo_ec2.types.metric_set.MetricSet",
-        start_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        end_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        period: "capo_ec2.types.period.Period",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        metric_names: Optional["capo_ec2.types.metric_set.MetricSet"] = None,
+        start_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        end_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        period: Optional["capo_ec2.types.period.Period"] = None,
         group_by: Optional["capo_ec2.types.group_by_set.GroupBySet"] = None,
         filter_by: Optional[
             "capo_ec2.types.capacity_manager_condition_set.CapacityManagerConditionSet"
@@ -37785,10 +38825,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_capacity_manager_metric_data_request.GetCapacityManagerMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input_["metric_names"] = metric_names
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
-        input_["period"] = period
+        if metric_names is not None:
+            input_["metric_names"] = metric_names
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if period is not None:
+            input_["period"] = period
         if group_by is not None:
             input_["group_by"] = group_by
         if filter_by is not None:
@@ -37809,12 +38853,16 @@ class EC2Client:
 
     def iter_get_capacity_manager_metric_data(
         self,
-        metric_names: "capo_ec2.types.metric_set.MetricSet",
-        start_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        end_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        period: "capo_ec2.types.period.Period",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        metric_names: Optional["capo_ec2.types.metric_set.MetricSet"] = None,
+        start_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        end_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        period: Optional["capo_ec2.types.period.Period"] = None,
         group_by: Optional["capo_ec2.types.group_by_set.GroupBySet"] = None,
         filter_by: Optional[
             "capo_ec2.types.capacity_manager_condition_set.CapacityManagerConditionSet"
@@ -37826,11 +38874,11 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_capacity_manager_metric_data(
-                metric_names,
-                start_time,
-                end_time,
-                period,
                 config_overrides=config_overrides,
+                metric_names=metric_names,
+                start_time=start_time,
+                end_time=end_time,
+                period=period,
                 group_by=group_by,
                 filter_by=filter_by,
                 max_results=max_results,
@@ -37846,15 +38894,19 @@ class EC2Client:
 
     def get_capacity_manager_metric_dimensions(
         self,
-        group_by: "capo_ec2.types.group_by_set.GroupBySet",
-        start_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        end_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        metric_names: "capo_ec2.types.metric_set.MetricSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        group_by: Optional["capo_ec2.types.group_by_set.GroupBySet"] = None,
         filter_by: Optional[
             "capo_ec2.types.capacity_manager_condition_set.CapacityManagerConditionSet"
         ] = None,
+        start_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        end_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        metric_names: Optional["capo_ec2.types.metric_set.MetricSet"] = None,
         max_results: Optional["capo_ec2.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -37891,12 +38943,16 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_capacity_manager_metric_dimensions_request.GetCapacityManagerMetricDimensionsRequest = {}  # type: ignore[typeddict-item]
-        input_["group_by"] = group_by
+        if group_by is not None:
+            input_["group_by"] = group_by
         if filter_by is not None:
             input_["filter_by"] = filter_by
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
-        input_["metric_names"] = metric_names
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if metric_names is not None:
+            input_["metric_names"] = metric_names
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -37913,15 +38969,19 @@ class EC2Client:
 
     def iter_get_capacity_manager_metric_dimensions(
         self,
-        group_by: "capo_ec2.types.group_by_set.GroupBySet",
-        start_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        end_time: "capo_ec2.types.millisecond_date_time.MillisecondDateTime",
-        metric_names: "capo_ec2.types.metric_set.MetricSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        group_by: Optional["capo_ec2.types.group_by_set.GroupBySet"] = None,
         filter_by: Optional[
             "capo_ec2.types.capacity_manager_condition_set.CapacityManagerConditionSet"
         ] = None,
+        start_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        end_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        metric_names: Optional["capo_ec2.types.metric_set.MetricSet"] = None,
         max_results: Optional["capo_ec2.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -37929,12 +38989,12 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_capacity_manager_metric_dimensions(
-                group_by,
-                start_time,
-                end_time,
-                metric_names,
                 config_overrides=config_overrides,
+                group_by=group_by,
                 filter_by=filter_by,
+                start_time=start_time,
+                end_time=end_time,
+                metric_names=metric_names,
                 max_results=max_results,
                 next_token=_token,
                 dry_run=dry_run,
@@ -38024,9 +39084,11 @@ class EC2Client:
 
     def get_capacity_reservation_usage(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.get_capacity_reservation_usage_request_max_results.GetCapacityReservationUsageRequestMaxResults"
@@ -38061,7 +39123,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_capacity_reservation_usage_request.GetCapacityReservationUsageRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -38078,9 +39141,9 @@ class EC2Client:
 
     def get_coip_pool_usage(
         self,
-        pool_id: "capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        pool_id: Optional["capo_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.coip_pool_max_results.CoipPoolMaxResults"
@@ -38117,7 +39180,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_coip_pool_usage_request.GetCoipPoolUsageRequest = {}  # type: ignore[typeddict-item]
-        input_["pool_id"] = pool_id
+        if pool_id is not None:
+            input_["pool_id"] = pool_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -38136,9 +39200,9 @@ class EC2Client:
 
     def get_console_output(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         latest: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_console_output_result.GetConsoleOutputResult":
@@ -38175,7 +39239,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_console_output_request.GetConsoleOutputRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if latest is not None:
             input_["latest"] = latest
         if dry_run is not None:
@@ -38190,10 +39255,10 @@ class EC2Client:
 
     def get_console_screenshot(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         wake_up: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_console_screenshot_result.GetConsoleScreenshotResult":
         r"""<p>Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.</p> <p>The returned content is Base64-encoded.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output\">Instance console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -38225,7 +39290,8 @@ class EC2Client:
         input_: capo_ec2.types.get_console_screenshot_request.GetConsoleScreenshotRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if wake_up is not None:
             input_["wake_up"] = wake_up
 
@@ -38238,10 +39304,12 @@ class EC2Client:
 
     def get_declarative_policies_report_summary(
         self,
-        report_id: "capo_ec2.types.declarative_policies_report_id.DeclarativePoliciesReportId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        report_id: Optional[
+            "capo_ec2.types.declarative_policies_report_id.DeclarativePoliciesReportId"
+        ] = None,
     ) -> "capo_ec2.types.get_declarative_policies_report_summary_result.GetDeclarativePoliciesReportSummaryResult":
         r"""<p>Retrieves a summary of the account status report.</p> <p>To view the full report, download it from the Amazon S3 bucket where it was saved. Reports are accessible only when they have the <code>complete</code> status. Reports with other statuses (<code>running</code>, <code>cancelled</code>, or <code>error</code>) are not available in the S3 bucket. For more information about downloading objects from an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html\">Downloading objects</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html\">Generating the account status report for declarative policies</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
 
@@ -38271,7 +39339,8 @@ class EC2Client:
         input_: capo_ec2.types.get_declarative_policies_report_summary_request.GetDeclarativePoliciesReportSummaryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["report_id"] = report_id
+        if report_id is not None:
+            input_["report_id"] = report_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -38282,10 +39351,12 @@ class EC2Client:
 
     def get_default_credit_specification(
         self,
-        instance_family: "capo_ec2.types.unlimited_supported_instance_family.UnlimitedSupportedInstanceFamily",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_family: Optional[
+            "capo_ec2.types.unlimited_supported_instance_family.UnlimitedSupportedInstanceFamily"
+        ] = None,
     ) -> "capo_ec2.types.get_default_credit_specification_result.GetDefaultCreditSpecificationResult":
         r"""<p>Describes the default credit option for CPU usage of a burstable performance instance family.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -38315,7 +39386,8 @@ class EC2Client:
         input_: capo_ec2.types.get_default_credit_specification_request.GetDefaultCreditSpecificationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_family"] = instance_family
+        if instance_family is not None:
+            input_["instance_family"] = instance_family
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -38449,12 +39521,16 @@ class EC2Client:
 
     def get_flow_logs_integration_template(
         self,
-        flow_log_id: "capo_ec2.types.vpc_flow_log_id.VpcFlowLogId",
-        config_delivery_s3_destination_arn: "capo_ec2.types.string.String",
-        integrate_services: "capo_ec2.types.integrate_services.IntegrateServices",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        flow_log_id: Optional["capo_ec2.types.vpc_flow_log_id.VpcFlowLogId"] = None,
+        config_delivery_s3_destination_arn: Optional[
+            "capo_ec2.types.string.String"
+        ] = None,
+        integrate_services: Optional[
+            "capo_ec2.types.integrate_services.IntegrateServices"
+        ] = None,
     ) -> "capo_ec2.types.get_flow_logs_integration_template_result.GetFlowLogsIntegrationTemplateResult":
         """<p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data. Based on the information that you provide, we configure resources in the template to do the following:</p> <ul> <li> <p>Create a table in Athena that maps fields to a custom log format</p> </li> <li> <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or monthly basis</p> </li> <li> <p>Create a table partitioned between two timestamps in the past</p> </li> <li> <p>Create a set of named queries in Athena that you can use to get started quickly</p> </li> </ul> <note> <p> <code>GetFlowLogsIntegrationTemplate</code> does not support integration between Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.</p> </note>
 
@@ -38486,11 +39562,14 @@ class EC2Client:
         input_: capo_ec2.types.get_flow_logs_integration_template_request.GetFlowLogsIntegrationTemplateRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["flow_log_id"] = flow_log_id
-        input_["config_delivery_s3_destination_arn"] = (
-            config_delivery_s3_destination_arn
-        )
-        input_["integrate_services"] = integrate_services
+        if flow_log_id is not None:
+            input_["flow_log_id"] = flow_log_id
+        if config_delivery_s3_destination_arn is not None:
+            input_["config_delivery_s3_destination_arn"] = (
+                config_delivery_s3_destination_arn
+            )
+        if integrate_services is not None:
+            input_["integrate_services"] = integrate_services
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -38501,9 +39580,11 @@ class EC2Client:
 
     def get_groups_for_capacity_reservation(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.get_groups_for_capacity_reservation_request_max_results.GetGroupsForCapacityReservationRequestMaxResults"
@@ -38538,7 +39619,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_groups_for_capacity_reservation_request.GetGroupsForCapacityReservationRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -38555,9 +39637,11 @@ class EC2Client:
 
     def iter_get_groups_for_capacity_reservation(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.get_groups_for_capacity_reservation_request_max_results.GetGroupsForCapacityReservationRequestMaxResults"
@@ -38567,8 +39651,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_groups_for_capacity_reservation(
-                capacity_reservation_id,
                 config_overrides=config_overrides,
+                capacity_reservation_id=capacity_reservation_id,
                 next_token=_token,
                 max_results=max_results,
                 dry_run=dry_run,
@@ -38582,10 +39666,12 @@ class EC2Client:
 
     def get_host_reservation_purchase_preview(
         self,
-        host_id_set: "capo_ec2.types.request_host_id_set.RequestHostIdSet",
-        offering_id: "capo_ec2.types.offering_id.OfferingId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        host_id_set: Optional[
+            "capo_ec2.types.request_host_id_set.RequestHostIdSet"
+        ] = None,
+        offering_id: Optional["capo_ec2.types.offering_id.OfferingId"] = None,
     ) -> "capo_ec2.types.get_host_reservation_purchase_preview_result.GetHostReservationPurchasePreviewResult":
         """<p>Preview a reservation purchase with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation.</p> <p>This is a preview of the <a>PurchaseHostReservation</a> action and does not result in the offering being purchased.</p>
 
@@ -38613,8 +39699,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_host_reservation_purchase_preview_request.GetHostReservationPurchasePreviewRequest = {}  # type: ignore[typeddict-item]
-        input_["host_id_set"] = host_id_set
-        input_["offering_id"] = offering_id
+        if host_id_set is not None:
+            input_["host_id_set"] = host_id_set
+        if offering_id is not None:
+            input_["offering_id"] = offering_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -38625,9 +39713,9 @@ class EC2Client:
 
     def get_image_ancestry(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_image_ancestry_result.GetImageAncestryResult":
         r"""<p>Retrieves the ancestry chain of the specified AMI, tracing its lineage back to the root AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html\">AMI ancestry</a> in <i>Amazon EC2 User Guide</i>.</p>
@@ -38656,7 +39744,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_image_ancestry_request.GetImageAncestryRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -38751,11 +39840,11 @@ class EC2Client:
 
     def get_instance_tpm_ek_pub(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        key_type: "capo_ec2.types.ek_pub_key_type.EkPubKeyType",
-        key_format: "capo_ec2.types.ek_pub_key_format.EkPubKeyFormat",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        key_type: Optional["capo_ec2.types.ek_pub_key_type.EkPubKeyType"] = None,
+        key_format: Optional["capo_ec2.types.ek_pub_key_format.EkPubKeyFormat"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_instance_tpm_ek_pub_result.GetInstanceTpmEkPubResult":
         """<p>Gets the public endorsement key associated with the Nitro Trusted Platform Module (NitroTPM) for the specified instance.</p>
@@ -38786,9 +39875,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_instance_tpm_ek_pub_request.GetInstanceTpmEkPubRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["key_type"] = key_type
-        input_["key_format"] = key_format
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if key_type is not None:
+            input_["key_type"] = key_type
+        if key_format is not None:
+            input_["key_format"] = key_format
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -38801,12 +39893,18 @@ class EC2Client:
 
     def get_instance_types_from_instance_requirements(
         self,
-        architecture_types: "capo_ec2.types.architecture_type_set.ArchitectureTypeSet",
-        virtualization_types: "capo_ec2.types.virtualization_type_set.VirtualizationTypeSet",
-        instance_requirements: "capo_ec2.types.instance_requirements_request.InstanceRequirementsRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        architecture_types: Optional[
+            "capo_ec2.types.architecture_type_set.ArchitectureTypeSet"
+        ] = None,
+        virtualization_types: Optional[
+            "capo_ec2.types.virtualization_type_set.VirtualizationTypeSet"
+        ] = None,
+        instance_requirements: Optional[
+            "capo_ec2.types.instance_requirements_request.InstanceRequirementsRequest"
+        ] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         context: Optional["capo_ec2.types.string.String"] = None,
@@ -38844,9 +39942,12 @@ class EC2Client:
         input_: capo_ec2.types.get_instance_types_from_instance_requirements_request.GetInstanceTypesFromInstanceRequirementsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["architecture_types"] = architecture_types
-        input_["virtualization_types"] = virtualization_types
-        input_["instance_requirements"] = instance_requirements
+        if architecture_types is not None:
+            input_["architecture_types"] = architecture_types
+        if virtualization_types is not None:
+            input_["virtualization_types"] = virtualization_types
+        if instance_requirements is not None:
+            input_["instance_requirements"] = instance_requirements
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -38863,12 +39964,18 @@ class EC2Client:
 
     def iter_get_instance_types_from_instance_requirements(
         self,
-        architecture_types: "capo_ec2.types.architecture_type_set.ArchitectureTypeSet",
-        virtualization_types: "capo_ec2.types.virtualization_type_set.VirtualizationTypeSet",
-        instance_requirements: "capo_ec2.types.instance_requirements_request.InstanceRequirementsRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        architecture_types: Optional[
+            "capo_ec2.types.architecture_type_set.ArchitectureTypeSet"
+        ] = None,
+        virtualization_types: Optional[
+            "capo_ec2.types.virtualization_type_set.VirtualizationTypeSet"
+        ] = None,
+        instance_requirements: Optional[
+            "capo_ec2.types.instance_requirements_request.InstanceRequirementsRequest"
+        ] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         context: Optional["capo_ec2.types.string.String"] = None,
@@ -38876,11 +39983,11 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_instance_types_from_instance_requirements(
-                architecture_types,
-                virtualization_types,
-                instance_requirements,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                architecture_types=architecture_types,
+                virtualization_types=virtualization_types,
+                instance_requirements=instance_requirements,
                 max_results=max_results,
                 next_token=_token,
                 context=context,
@@ -38894,9 +40001,9 @@ class EC2Client:
 
     def get_instance_uefi_data(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_instance_uefi_data_result.GetInstanceUefiDataResult":
         r"""<p>A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.</p> <p>When you use <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html\">register-image</a> to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a> on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -38925,7 +40032,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_instance_uefi_data_request.GetInstanceUefiDataRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -38938,11 +40046,11 @@ class EC2Client:
 
     def get_ipam_address_history(
         self,
-        cidr: "capo_ec2.types.string.String",
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
         vpc_id: Optional["capo_ec2.types.string.String"] = None,
         start_time: Optional[
             "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
@@ -38989,8 +40097,10 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_address_history_request.GetIpamAddressHistoryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["cidr"] = cidr
-        input_["ipam_scope_id"] = ipam_scope_id
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if ipam_scope_id is not None:
+            input_["ipam_scope_id"] = ipam_scope_id
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if start_time is not None:
@@ -39011,11 +40121,11 @@ class EC2Client:
 
     def iter_get_ipam_address_history(
         self,
-        cidr: "capo_ec2.types.string.String",
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
         vpc_id: Optional["capo_ec2.types.string.String"] = None,
         start_time: Optional[
             "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
@@ -39033,10 +40143,10 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_address_history(
-                cidr,
-                ipam_scope_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                cidr=cidr,
+                ipam_scope_id=ipam_scope_id,
                 vpc_id=vpc_id,
                 start_time=start_time,
                 end_time=end_time,
@@ -39052,11 +40162,13 @@ class EC2Client:
 
     def get_ipam_discovered_accounts(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
-        discovery_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
+        discovery_region: Optional["capo_ec2.types.string.String"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
@@ -39093,8 +40205,10 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_discovered_accounts_request.GetIpamDiscoveredAccountsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
-        input_["discovery_region"] = discovery_region
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if discovery_region is not None:
+            input_["discovery_region"] = discovery_region
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -39111,11 +40225,13 @@ class EC2Client:
 
     def iter_get_ipam_discovered_accounts(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
-        discovery_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
+        discovery_region: Optional["capo_ec2.types.string.String"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
@@ -39123,10 +40239,10 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_discovered_accounts(
-                ipam_resource_discovery_id,
-                discovery_region,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_resource_discovery_id=ipam_resource_discovery_id,
+                discovery_region=discovery_region,
                 filters=filters,
                 next_token=_token,
                 max_results=max_results,
@@ -39140,11 +40256,13 @@ class EC2Client:
 
     def get_ipam_discovered_public_addresses(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
-        address_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
+        address_region: Optional["capo_ec2.types.string.String"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
@@ -39181,8 +40299,10 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_discovered_public_addresses_request.GetIpamDiscoveredPublicAddressesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
-        input_["address_region"] = address_region
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if address_region is not None:
+            input_["address_region"] = address_region
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -39199,11 +40319,13 @@ class EC2Client:
 
     def get_ipam_discovered_resource_cidrs(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
-        resource_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
+        resource_region: Optional["capo_ec2.types.string.String"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
@@ -39240,8 +40362,10 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_discovered_resource_cidrs_request.GetIpamDiscoveredResourceCidrsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
-        input_["resource_region"] = resource_region
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if resource_region is not None:
+            input_["resource_region"] = resource_region
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -39258,11 +40382,13 @@ class EC2Client:
 
     def iter_get_ipam_discovered_resource_cidrs(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
-        resource_region: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
+        resource_region: Optional["capo_ec2.types.string.String"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
@@ -39270,10 +40396,10 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_discovered_resource_cidrs(
-                ipam_resource_discovery_id,
-                resource_region,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_resource_discovery_id=ipam_resource_discovery_id,
+                resource_region=resource_region,
                 filters=filters,
                 next_token=_token,
                 max_results=max_results,
@@ -39287,10 +40413,10 @@ class EC2Client:
 
     def get_ipam_policy_allocation_rules(
         self,
-        ipam_policy_id: "capo_ec2.types.ipam_policy_id.IpamPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_policy_id: Optional["capo_ec2.types.ipam_policy_id.IpamPolicyId"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         locale: Optional["capo_ec2.types.string.String"] = None,
         resource_type: Optional[
@@ -39332,7 +40458,8 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_policy_allocation_rules_request.GetIpamPolicyAllocationRulesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_policy_id"] = ipam_policy_id
+        if ipam_policy_id is not None:
+            input_["ipam_policy_id"] = ipam_policy_id
         if filters is not None:
             input_["filters"] = filters
         if locale is not None:
@@ -39353,12 +40480,12 @@ class EC2Client:
 
     def get_ipam_policy_organization_targets(
         self,
-        ipam_policy_id: "capo_ec2.types.ipam_policy_id.IpamPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        ipam_policy_id: Optional["capo_ec2.types.ipam_policy_id.IpamPolicyId"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
     ) -> "capo_ec2.types.get_ipam_policy_organization_targets_result.GetIpamPolicyOrganizationTargetsResult":
         """<p>Gets the Amazon Web Services Organizations targets for an IPAM policy.</p> <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p> <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
@@ -39396,7 +40523,8 @@ class EC2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["ipam_policy_id"] = ipam_policy_id
+        if ipam_policy_id is not None:
+            input_["ipam_policy_id"] = ipam_policy_id
         if filters is not None:
             input_["filters"] = filters
 
@@ -39409,10 +40537,10 @@ class EC2Client:
 
     def get_ipam_pool_allocations(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         ipam_pool_allocation_id: Optional[
             "capo_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId"
         ] = None,
@@ -39454,7 +40582,8 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_pool_allocations_request.GetIpamPoolAllocationsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if ipam_pool_allocation_id is not None:
             input_["ipam_pool_allocation_id"] = ipam_pool_allocation_id
         if filters is not None:
@@ -39473,10 +40602,10 @@ class EC2Client:
 
     def iter_get_ipam_pool_allocations(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         ipam_pool_allocation_id: Optional[
             "capo_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId"
         ] = None,
@@ -39489,9 +40618,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_pool_allocations(
-                ipam_pool_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_pool_id=ipam_pool_id,
                 ipam_pool_allocation_id=ipam_pool_allocation_id,
                 filters=filters,
                 max_results=max_results,
@@ -39506,10 +40635,10 @@ class EC2Client:
 
     def get_ipam_pool_cidrs(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
@@ -39545,7 +40674,8 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_pool_cidrs_request.GetIpamPoolCidrsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -39562,10 +40692,10 @@ class EC2Client:
 
     def iter_get_ipam_pool_cidrs(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
@@ -39573,9 +40703,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_pool_cidrs(
-                ipam_pool_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_pool_id=ipam_pool_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -39589,10 +40719,12 @@ class EC2Client:
 
     def get_ipam_prefix_list_resolver_rules(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
@@ -39628,7 +40760,8 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_prefix_list_resolver_rules_request.GetIpamPrefixListResolverRulesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
+        if ipam_prefix_list_resolver_id is not None:
+            input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -39645,10 +40778,12 @@ class EC2Client:
 
     def iter_get_ipam_prefix_list_resolver_rules(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
@@ -39656,9 +40791,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_prefix_list_resolver_rules(
-                ipam_prefix_list_resolver_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_prefix_list_resolver_id=ipam_prefix_list_resolver_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -39672,11 +40807,13 @@ class EC2Client:
 
     def get_ipam_prefix_list_resolver_version_entries(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
-        ipam_prefix_list_resolver_version: "capo_ec2.types.long.Long",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
+        ipam_prefix_list_resolver_version: Optional["capo_ec2.types.long.Long"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
     ) -> "capo_ec2.types.get_ipam_prefix_list_resolver_version_entries_result.GetIpamPrefixListResolverVersionEntriesResult":
@@ -39711,8 +40848,12 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_prefix_list_resolver_version_entries_request.GetIpamPrefixListResolverVersionEntriesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
-        input_["ipam_prefix_list_resolver_version"] = ipam_prefix_list_resolver_version
+        if ipam_prefix_list_resolver_id is not None:
+            input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
+        if ipam_prefix_list_resolver_version is not None:
+            input_["ipam_prefix_list_resolver_version"] = (
+                ipam_prefix_list_resolver_version
+            )
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -39727,21 +40868,23 @@ class EC2Client:
 
     def iter_get_ipam_prefix_list_resolver_version_entries(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
-        ipam_prefix_list_resolver_version: "capo_ec2.types.long.Long",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
+        ipam_prefix_list_resolver_version: Optional["capo_ec2.types.long.Long"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_ec2.types.ipam_prefix_list_resolver_version_entry.IpamPrefixListResolverVersionEntry]":
         _token = next_token
         while True:
             _response = self.get_ipam_prefix_list_resolver_version_entries(
-                ipam_prefix_list_resolver_id,
-                ipam_prefix_list_resolver_version,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_prefix_list_resolver_id=ipam_prefix_list_resolver_id,
+                ipam_prefix_list_resolver_version=ipam_prefix_list_resolver_version,
                 max_results=max_results,
                 next_token=_token,
             )
@@ -39754,10 +40897,12 @@ class EC2Client:
 
     def get_ipam_prefix_list_resolver_versions(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
         ipam_prefix_list_resolver_versions: Optional[
             "capo_ec2.types.ipam_prefix_list_resolver_version_number_set.IpamPrefixListResolverVersionNumberSet"
         ] = None,
@@ -39797,7 +40942,8 @@ class EC2Client:
         input_: capo_ec2.types.get_ipam_prefix_list_resolver_versions_request.GetIpamPrefixListResolverVersionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
+        if ipam_prefix_list_resolver_id is not None:
+            input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
         if ipam_prefix_list_resolver_versions is not None:
             input_["ipam_prefix_list_resolver_versions"] = (
                 ipam_prefix_list_resolver_versions
@@ -39818,10 +40964,12 @@ class EC2Client:
 
     def iter_get_ipam_prefix_list_resolver_versions(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
         ipam_prefix_list_resolver_versions: Optional[
             "capo_ec2.types.ipam_prefix_list_resolver_version_number_set.IpamPrefixListResolverVersionNumberSet"
         ] = None,
@@ -39832,9 +40980,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_prefix_list_resolver_versions(
-                ipam_prefix_list_resolver_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                ipam_prefix_list_resolver_id=ipam_prefix_list_resolver_id,
                 ipam_prefix_list_resolver_versions=ipam_prefix_list_resolver_versions,
                 max_results=max_results,
                 filters=filters,
@@ -39849,13 +40997,13 @@ class EC2Client:
 
     def get_ipam_resource_cidrs(
         self,
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
         ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         resource_id: Optional["capo_ec2.types.string.String"] = None,
         resource_type: Optional[
@@ -39908,7 +41056,8 @@ class EC2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["ipam_scope_id"] = ipam_scope_id
+        if ipam_scope_id is not None:
+            input_["ipam_scope_id"] = ipam_scope_id
         if ipam_pool_id is not None:
             input_["ipam_pool_id"] = ipam_pool_id
         if resource_id is not None:
@@ -39929,13 +41078,13 @@ class EC2Client:
 
     def iter_get_ipam_resource_cidrs(
         self,
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
         next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
         ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         resource_id: Optional["capo_ec2.types.string.String"] = None,
         resource_type: Optional[
@@ -39949,12 +41098,12 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_ipam_resource_cidrs(
-                ipam_scope_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
+                ipam_scope_id=ipam_scope_id,
                 ipam_pool_id=ipam_pool_id,
                 resource_id=resource_id,
                 resource_type=resource_type,
@@ -39970,10 +41119,10 @@ class EC2Client:
 
     def get_launch_template_data(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
     ) -> "capo_ec2.types.get_launch_template_data_result.GetLaunchTemplateDataResult":
         """<p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p> <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>, and <code>DescribeInstanceAttribute</code>. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
 
@@ -40009,7 +41158,8 @@ class EC2Client:
         input_: capo_ec2.types.get_launch_template_data_request.GetLaunchTemplateDataRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -40020,10 +41170,12 @@ class EC2Client:
 
     def get_managed_prefix_list_associations(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.get_managed_prefix_list_associations_max_results.GetManagedPrefixListAssociationsMaxResults"
         ] = None,
@@ -40059,7 +41211,8 @@ class EC2Client:
         input_: capo_ec2.types.get_managed_prefix_list_associations_request.GetManagedPrefixListAssociationsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["prefix_list_id"] = prefix_list_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -40074,10 +41227,12 @@ class EC2Client:
 
     def iter_get_managed_prefix_list_associations(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.get_managed_prefix_list_associations_max_results.GetManagedPrefixListAssociationsMaxResults"
         ] = None,
@@ -40086,9 +41241,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_managed_prefix_list_associations(
-                prefix_list_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                prefix_list_id=prefix_list_id,
                 max_results=max_results,
                 next_token=_token,
             )
@@ -40101,10 +41256,12 @@ class EC2Client:
 
     def get_managed_prefix_list_entries(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         target_version: Optional["capo_ec2.types.long.Long"] = None,
         max_results: Optional[
             "capo_ec2.types.prefix_list_max_results.PrefixListMaxResults"
@@ -40142,7 +41299,8 @@ class EC2Client:
         input_: capo_ec2.types.get_managed_prefix_list_entries_request.GetManagedPrefixListEntriesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["prefix_list_id"] = prefix_list_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
         if target_version is not None:
             input_["target_version"] = target_version
         if max_results is not None:
@@ -40159,10 +41317,12 @@ class EC2Client:
 
     def iter_get_managed_prefix_list_entries(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         target_version: Optional["capo_ec2.types.long.Long"] = None,
         max_results: Optional[
             "capo_ec2.types.prefix_list_max_results.PrefixListMaxResults"
@@ -40172,9 +41332,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_managed_prefix_list_entries(
-                prefix_list_id,
                 config_overrides=config_overrides,
                 dry_run=dry_run,
+                prefix_list_id=prefix_list_id,
                 target_version=target_version,
                 max_results=max_results,
                 next_token=_token,
@@ -40229,9 +41389,11 @@ class EC2Client:
 
     def get_network_insights_access_scope_analysis_findings(
         self,
-        network_insights_access_scope_analysis_id: "capo_ec2.types.network_insights_access_scope_analysis_id.NetworkInsightsAccessScopeAnalysisId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_insights_access_scope_analysis_id: Optional[
+            "capo_ec2.types.network_insights_access_scope_analysis_id.NetworkInsightsAccessScopeAnalysisId"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.get_network_insights_access_scope_analysis_findings_max_results.GetNetworkInsightsAccessScopeAnalysisFindingsMaxResults"
         ] = None,
@@ -40266,9 +41428,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_network_insights_access_scope_analysis_findings_request.GetNetworkInsightsAccessScopeAnalysisFindingsRequest = {}  # type: ignore[typeddict-item]
-        input_["network_insights_access_scope_analysis_id"] = (
-            network_insights_access_scope_analysis_id
-        )
+        if network_insights_access_scope_analysis_id is not None:
+            input_["network_insights_access_scope_analysis_id"] = (
+                network_insights_access_scope_analysis_id
+            )
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -40285,9 +41448,11 @@ class EC2Client:
 
     def iter_get_network_insights_access_scope_analysis_findings(
         self,
-        network_insights_access_scope_analysis_id: "capo_ec2.types.network_insights_access_scope_analysis_id.NetworkInsightsAccessScopeAnalysisId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_insights_access_scope_analysis_id: Optional[
+            "capo_ec2.types.network_insights_access_scope_analysis_id.NetworkInsightsAccessScopeAnalysisId"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.get_network_insights_access_scope_analysis_findings_max_results.GetNetworkInsightsAccessScopeAnalysisFindingsMaxResults"
         ] = None,
@@ -40297,8 +41462,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_network_insights_access_scope_analysis_findings(
-                network_insights_access_scope_analysis_id,
                 config_overrides=config_overrides,
+                network_insights_access_scope_analysis_id=network_insights_access_scope_analysis_id,
                 max_results=max_results,
                 next_token=_token,
                 dry_run=dry_run,
@@ -40312,9 +41477,11 @@ class EC2Client:
 
     def get_network_insights_access_scope_content(
         self,
-        network_insights_access_scope_id: "capo_ec2.types.network_insights_access_scope_id.NetworkInsightsAccessScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_insights_access_scope_id: Optional[
+            "capo_ec2.types.network_insights_access_scope_id.NetworkInsightsAccessScopeId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_network_insights_access_scope_content_result.GetNetworkInsightsAccessScopeContentResult":
         """<p>Gets the content for the specified Network Access Scope.</p>
@@ -40343,7 +41510,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_network_insights_access_scope_content_request.GetNetworkInsightsAccessScopeContentRequest = {}  # type: ignore[typeddict-item]
-        input_["network_insights_access_scope_id"] = network_insights_access_scope_id
+        if network_insights_access_scope_id is not None:
+            input_["network_insights_access_scope_id"] = (
+                network_insights_access_scope_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -40356,9 +41526,9 @@ class EC2Client:
 
     def get_password_data(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_password_data_result.GetPasswordDataResult":
         r"""<p>Retrieves the encrypted administrator password for a running Windows instance.</p> <p>The Windows password is generated at boot by the <code>EC2Config</code> service or <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only happens the first time an instance is launched. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html\">EC2Config</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html\">EC2Launch</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>For the <code>EC2Config</code> service, the password is not generated for rebundled AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p> <p>The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.</p> <p>When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.</p>
@@ -40387,7 +41557,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_password_data_request.GetPasswordDataRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -40400,10 +41571,12 @@ class EC2Client:
 
     def get_reserved_instances_exchange_quote(
         self,
-        reserved_instance_ids: "capo_ec2.types.reserved_instance_id_set.ReservedInstanceIdSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        reserved_instance_ids: Optional[
+            "capo_ec2.types.reserved_instance_id_set.ReservedInstanceIdSet"
+        ] = None,
         target_configurations: Optional[
             "capo_ec2.types.target_configuration_request_set.TargetConfigurationRequestSet"
         ] = None,
@@ -40437,7 +41610,8 @@ class EC2Client:
         input_: capo_ec2.types.get_reserved_instances_exchange_quote_request.GetReservedInstancesExchangeQuoteRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["reserved_instance_ids"] = reserved_instance_ids
+        if reserved_instance_ids is not None:
+            input_["reserved_instance_ids"] = reserved_instance_ids
         if target_configurations is not None:
             input_["target_configurations"] = target_configurations
 
@@ -40450,9 +41624,11 @@ class EC2Client:
 
     def get_route_server_associations(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_route_server_associations_result.GetRouteServerAssociationsResult":
         r"""<p>Gets information about the associations for the specified route server.</p> <p>A route server association is the connection established between a route server and a VPC.</p> <p>For more information see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html\">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -40481,7 +41657,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_route_server_associations_request.GetRouteServerAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -40494,9 +41671,11 @@ class EC2Client:
 
     def get_route_server_propagations(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
         route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_route_server_propagations_result.GetRouteServerPropagationsResult":
@@ -40527,7 +41706,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_route_server_propagations_request.GetRouteServerPropagationsRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
         if route_table_id is not None:
             input_["route_table_id"] = route_table_id
         if dry_run is not None:
@@ -40542,9 +41722,11 @@ class EC2Client:
 
     def get_route_server_routing_database(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.route_server_max_results.RouteServerMaxResults"
@@ -40581,7 +41763,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_route_server_routing_database_request.GetRouteServerRoutingDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -40600,9 +41783,9 @@ class EC2Client:
 
     def get_security_groups_for_vpc(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.get_security_groups_for_vpc_request_max_results.GetSecurityGroupsForVpcRequestMaxResults"
@@ -40639,7 +41822,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_security_groups_for_vpc_request.GetSecurityGroupsForVpcRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -40658,9 +41842,9 @@ class EC2Client:
 
     def iter_get_security_groups_for_vpc(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
             "capo_ec2.types.get_security_groups_for_vpc_request_max_results.GetSecurityGroupsForVpcRequestMaxResults"
@@ -40671,8 +41855,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_security_groups_for_vpc(
-                vpc_id,
                 config_overrides=config_overrides,
+                vpc_id=vpc_id,
                 next_token=_token,
                 max_results=max_results,
                 filters=filters,
@@ -40769,10 +41953,12 @@ class EC2Client:
 
     def get_spot_placement_scores(
         self,
-        target_capacity: "capo_ec2.types.spot_placement_scores_target_capacity.SpotPlacementScoresTargetCapacity",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         instance_types: Optional["capo_ec2.types.instance_types.InstanceTypes"] = None,
+        target_capacity: Optional[
+            "capo_ec2.types.spot_placement_scores_target_capacity.SpotPlacementScoresTargetCapacity"
+        ] = None,
         target_capacity_unit_type: Optional[
             "capo_ec2.types.target_capacity_unit_type.TargetCapacityUnitType"
         ] = None,
@@ -40822,7 +42008,8 @@ class EC2Client:
         input_: capo_ec2.types.get_spot_placement_scores_request.GetSpotPlacementScoresRequest = {}  # type: ignore[typeddict-item]
         if instance_types is not None:
             input_["instance_types"] = instance_types
-        input_["target_capacity"] = target_capacity
+        if target_capacity is not None:
+            input_["target_capacity"] = target_capacity
         if target_capacity_unit_type is not None:
             input_["target_capacity_unit_type"] = target_capacity_unit_type
         if single_availability_zone is not None:
@@ -40849,10 +42036,12 @@ class EC2Client:
 
     def iter_get_spot_placement_scores(
         self,
-        target_capacity: "capo_ec2.types.spot_placement_scores_target_capacity.SpotPlacementScoresTargetCapacity",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         instance_types: Optional["capo_ec2.types.instance_types.InstanceTypes"] = None,
+        target_capacity: Optional[
+            "capo_ec2.types.spot_placement_scores_target_capacity.SpotPlacementScoresTargetCapacity"
+        ] = None,
         target_capacity_unit_type: Optional[
             "capo_ec2.types.target_capacity_unit_type.TargetCapacityUnitType"
         ] = None,
@@ -40870,9 +42059,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_spot_placement_scores(
-                target_capacity,
                 config_overrides=config_overrides,
                 instance_types=instance_types,
+                target_capacity=target_capacity,
                 target_capacity_unit_type=target_capacity_unit_type,
                 single_availability_zone=single_availability_zone,
                 region_names=region_names,
@@ -40890,10 +42079,10 @@ class EC2Client:
 
     def get_subnet_cidr_reservations(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional[
@@ -40931,7 +42120,8 @@ class EC2Client:
         input_: capo_ec2.types.get_subnet_cidr_reservations_request.GetSubnetCidrReservationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
             input_["filters"] = filters
-        input_["subnet_id"] = subnet_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if next_token is not None:
@@ -40948,9 +42138,11 @@ class EC2Client:
 
     def get_transit_gateway_attachment_propagations(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -40987,7 +42179,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_attachment_propagations_request.GetTransitGatewayAttachmentPropagationsRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41006,9 +42199,11 @@ class EC2Client:
 
     def iter_get_transit_gateway_attachment_propagations(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41019,8 +42214,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_transit_gateway_attachment_propagations(
-                transit_gateway_attachment_id,
                 config_overrides=config_overrides,
+                transit_gateway_attachment_id=transit_gateway_attachment_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -41037,9 +42232,11 @@ class EC2Client:
 
     def get_transit_gateway_metering_policy_entries(
         self,
-        transit_gateway_metering_policy_id: "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_metering_policy_id: Optional[
+            "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41076,9 +42273,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_metering_policy_entries_request.GetTransitGatewayMeteringPolicyEntriesRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_metering_policy_id"] = (
-            transit_gateway_metering_policy_id
-        )
+        if transit_gateway_metering_policy_id is not None:
+            input_["transit_gateway_metering_policy_id"] = (
+                transit_gateway_metering_policy_id
+            )
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41097,9 +42295,11 @@ class EC2Client:
 
     def get_transit_gateway_multicast_domain_associations(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41136,9 +42336,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_multicast_domain_associations_request.GetTransitGatewayMulticastDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41157,9 +42358,11 @@ class EC2Client:
 
     def iter_get_transit_gateway_multicast_domain_associations(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41170,8 +42373,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_transit_gateway_multicast_domain_associations(
-                transit_gateway_multicast_domain_id,
                 config_overrides=config_overrides,
+                transit_gateway_multicast_domain_id=transit_gateway_multicast_domain_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -41186,9 +42389,11 @@ class EC2Client:
 
     def get_transit_gateway_policy_table_associations(
         self,
-        transit_gateway_policy_table_id: "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41225,7 +42430,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_policy_table_associations_request.GetTransitGatewayPolicyTableAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41244,9 +42450,11 @@ class EC2Client:
 
     def iter_get_transit_gateway_policy_table_associations(
         self,
-        transit_gateway_policy_table_id: "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41257,8 +42465,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_transit_gateway_policy_table_associations(
-                transit_gateway_policy_table_id,
                 config_overrides=config_overrides,
+                transit_gateway_policy_table_id=transit_gateway_policy_table_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -41273,9 +42481,11 @@ class EC2Client:
 
     def get_transit_gateway_policy_table_entries(
         self,
-        transit_gateway_policy_table_id: "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41312,7 +42522,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_policy_table_entries_request.GetTransitGatewayPolicyTableEntriesRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41331,9 +42542,11 @@ class EC2Client:
 
     def get_transit_gateway_prefix_list_references(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41370,7 +42583,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_prefix_list_references_request.GetTransitGatewayPrefixListReferencesRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41389,9 +42603,11 @@ class EC2Client:
 
     def iter_get_transit_gateway_prefix_list_references(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41402,8 +42618,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_transit_gateway_prefix_list_references(
-                transit_gateway_route_table_id,
                 config_overrides=config_overrides,
+                transit_gateway_route_table_id=transit_gateway_route_table_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -41420,9 +42636,11 @@ class EC2Client:
 
     def get_transit_gateway_route_table_associations(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41459,7 +42677,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_route_table_associations_request.GetTransitGatewayRouteTableAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41478,9 +42697,11 @@ class EC2Client:
 
     def iter_get_transit_gateway_route_table_associations(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41491,8 +42712,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_transit_gateway_route_table_associations(
-                transit_gateway_route_table_id,
                 config_overrides=config_overrides,
+                transit_gateway_route_table_id=transit_gateway_route_table_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -41507,9 +42728,11 @@ class EC2Client:
 
     def get_transit_gateway_route_table_propagations(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41546,7 +42769,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_transit_gateway_route_table_propagations_request.GetTransitGatewayRouteTablePropagationsRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -41565,9 +42789,11 @@ class EC2Client:
 
     def iter_get_transit_gateway_route_table_propagations(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -41578,8 +42804,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.get_transit_gateway_route_table_propagations(
-                transit_gateway_route_table_id,
                 config_overrides=config_overrides,
+                transit_gateway_route_table_id=transit_gateway_route_table_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -41596,9 +42822,11 @@ class EC2Client:
 
     def get_verified_access_endpoint_policy(
         self,
-        verified_access_endpoint_id: "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_endpoint_id: Optional[
+            "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_verified_access_endpoint_policy_result.GetVerifiedAccessEndpointPolicyResult":
         """<p>Get the Verified Access policy associated with the endpoint.</p>
@@ -41627,7 +42855,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_verified_access_endpoint_policy_request.GetVerifiedAccessEndpointPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_endpoint_id"] = verified_access_endpoint_id
+        if verified_access_endpoint_id is not None:
+            input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41640,9 +42869,11 @@ class EC2Client:
 
     def get_verified_access_endpoint_targets(
         self,
-        verified_access_endpoint_id: "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_endpoint_id: Optional[
+            "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId"
+        ] = None,
         max_results: Optional[
             "capo_ec2.types.get_verified_access_endpoint_targets_max_results.GetVerifiedAccessEndpointTargetsMaxResults"
         ] = None,
@@ -41677,7 +42908,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_verified_access_endpoint_targets_request.GetVerifiedAccessEndpointTargetsRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_endpoint_id"] = verified_access_endpoint_id
+        if verified_access_endpoint_id is not None:
+            input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -41694,9 +42926,11 @@ class EC2Client:
 
     def get_verified_access_group_policy(
         self,
-        verified_access_group_id: "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_group_id: Optional[
+            "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_verified_access_group_policy_result.GetVerifiedAccessGroupPolicyResult":
         """<p>Shows the contents of the Verified Access policy associated with the group.</p>
@@ -41725,7 +42959,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_verified_access_group_policy_request.GetVerifiedAccessGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_group_id"] = verified_access_group_id
+        if verified_access_group_id is not None:
+            input_["verified_access_group_id"] = verified_access_group_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41738,9 +42973,9 @@ class EC2Client:
 
     def get_vpc_resources_blocking_encryption_enforcement(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         max_results: Optional[
             "capo_ec2.types.get_vpc_resources_blocking_encryption_enforcement_max_results.GetVpcResourcesBlockingEncryptionEnforcementMaxResults"
         ] = None,
@@ -41775,7 +43010,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_vpc_resources_blocking_encryption_enforcement_request.GetVpcResourcesBlockingEncryptionEnforcementRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -41792,10 +43028,14 @@ class EC2Client:
 
     def get_vpn_connection_device_sample_configuration(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
-        vpn_connection_device_type_id: "capo_ec2.types.vpn_connection_device_type_id.VpnConnectionDeviceTypeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
+        vpn_connection_device_type_id: Optional[
+            "capo_ec2.types.vpn_connection_device_type_id.VpnConnectionDeviceTypeId"
+        ] = None,
         internet_key_exchange_version: Optional["capo_ec2.types.string.String"] = None,
         sample_type: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -41829,8 +43069,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_vpn_connection_device_sample_configuration_request.GetVpnConnectionDeviceSampleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
-        input_["vpn_connection_device_type_id"] = vpn_connection_device_type_id
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_connection_device_type_id is not None:
+            input_["vpn_connection_device_type_id"] = vpn_connection_device_type_id
         if internet_key_exchange_version is not None:
             input_["internet_key_exchange_version"] = internet_key_exchange_version
         if sample_type is not None:
@@ -41919,10 +43161,12 @@ class EC2Client:
 
     def get_vpn_tunnel_replacement_status(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
-        vpn_tunnel_outside_ip_address: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
+        vpn_tunnel_outside_ip_address: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_vpn_tunnel_replacement_status_result.GetVpnTunnelReplacementStatusResult":
         """<p>Get details of available tunnel endpoint maintenance.</p>
@@ -41952,8 +43196,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.get_vpn_tunnel_replacement_status_request.GetVpnTunnelReplacementStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
-        input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_tunnel_outside_ip_address is not None:
+            input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41966,10 +43212,12 @@ class EC2Client:
 
     def import_client_vpn_client_certificate_revocation_list(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        certificate_revocation_list: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
+        certificate_revocation_list: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.import_client_vpn_client_certificate_revocation_list_result.ImportClientVpnClientCertificateRevocationListResult":
         r"""<p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p> <p>Uploading a client certificate revocation list resets existing client connections.</p>
@@ -41999,8 +43247,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.import_client_vpn_client_certificate_revocation_list_request.ImportClientVpnClientCertificateRevocationListRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
-        input_["certificate_revocation_list"] = certificate_revocation_list
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if certificate_revocation_list is not None:
+            input_["certificate_revocation_list"] = certificate_revocation_list
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -42118,7 +43368,6 @@ class EC2Client:
 
     def import_instance(
         self,
-        platform: "capo_ec2.types.platform_values.PlatformValues",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -42127,6 +43376,7 @@ class EC2Client:
             "capo_ec2.types.import_instance_launch_specification.ImportInstanceLaunchSpecification"
         ] = None,
         disk_images: Optional["capo_ec2.types.disk_image_list.DiskImageList"] = None,
+        platform: Optional["capo_ec2.types.platform_values.PlatformValues"] = None,
     ) -> "capo_ec2.types.import_instance_result.ImportInstanceResult":
         r"""<note> <p>We recommend that you use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html\"> <code>ImportImage</code> </a> API instead. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p> </note> <p>Creates an import instance task using metadata from the specified disk image.</p> <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a> instead.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p> <p>This API action is not supported by the Command Line Interface (CLI).</p>
 
@@ -42165,7 +43415,8 @@ class EC2Client:
             input_["launch_specification"] = launch_specification
         if disk_images is not None:
             input_["disk_images"] = disk_images
-        input_["platform"] = platform
+        if platform is not None:
+            input_["platform"] = platform
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -42176,14 +43427,14 @@ class EC2Client:
 
     def import_key_pair(
         self,
-        key_name: "capo_ec2.types.string.String",
-        public_key_material: "capo_ec2.types.blob.Blob",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        key_name: Optional["capo_ec2.types.string.String"] = None,
+        public_key_material: Optional["capo_ec2.types.blob.Blob"] = None,
     ) -> "capo_ec2.types.import_key_pair_result.ImportKeyPairResult":
         r"""<p>Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool. You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.</p> <p>For more information about the requirements for importing a key pair, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws\">Create a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -42217,8 +43468,10 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["key_name"] = key_name
-        input_["public_key_material"] = public_key_material
+        if key_name is not None:
+            input_["key_name"] = key_name
+        if public_key_material is not None:
+            input_["public_key_material"] = public_key_material
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -42306,8 +43559,6 @@ class EC2Client:
 
     def import_volume(
         self,
-        image: "capo_ec2.types.disk_image_detail.DiskImageDetail",
-        volume: "capo_ec2.types.volume_detail.VolumeDetail",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         availability_zone_id: Optional[
@@ -42315,7 +43566,9 @@ class EC2Client:
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         availability_zone: Optional["capo_ec2.types.string.String"] = None,
+        image: Optional["capo_ec2.types.disk_image_detail.DiskImageDetail"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
+        volume: Optional["capo_ec2.types.volume_detail.VolumeDetail"] = None,
     ) -> "capo_ec2.types.import_volume_result.ImportVolumeResult":
         r"""<note> <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a> instead. To import a disk to a snapshot, use <a>ImportSnapshot</a> instead.</p> </note> <p>Creates an import volume task using metadata from the specified disk image.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p> <p>This API action is not supported by the Command Line Interface (CLI).</p>
 
@@ -42353,10 +43606,12 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
-        input_["image"] = image
+        if image is not None:
+            input_["image"] = image
         if description is not None:
             input_["description"] = description
-        input_["volume"] = volume
+        if volume is not None:
+            input_["volume"] = volume
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -42596,11 +43851,11 @@ class EC2Client:
 
     def lock_snapshot(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
-        lock_mode: "capo_ec2.types.lock_mode.LockMode",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        lock_mode: Optional["capo_ec2.types.lock_mode.LockMode"] = None,
         cool_off_period: Optional[
             "capo_ec2.types.cool_off_period_request_hours.CoolOffPeriodRequestHours"
         ] = None,
@@ -42641,10 +43896,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.lock_snapshot_request.LockSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["lock_mode"] = lock_mode
+        if lock_mode is not None:
+            input_["lock_mode"] = lock_mode
         if cool_off_period is not None:
             input_["cool_off_period"] = cool_off_period
         if lock_duration is not None:
@@ -42661,9 +43918,9 @@ class EC2Client:
 
     def modify_address_attribute(
         self,
-        allocation_id: "capo_ec2.types.allocation_id.AllocationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        allocation_id: Optional["capo_ec2.types.allocation_id.AllocationId"] = None,
         domain_name: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_address_attribute_result.ModifyAddressAttributeResult":
@@ -42694,7 +43951,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_address_attribute_request.ModifyAddressAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["allocation_id"] = allocation_id
+        if allocation_id is not None:
+            input_["allocation_id"] = allocation_id
         if domain_name is not None:
             input_["domain_name"] = domain_name
         if dry_run is not None:
@@ -42709,10 +43967,12 @@ class EC2Client:
 
     def modify_availability_zone_group(
         self,
-        group_name: "capo_ec2.types.string.String",
-        opt_in_status: "capo_ec2.types.modify_availability_zone_opt_in_status.ModifyAvailabilityZoneOptInStatus",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        group_name: Optional["capo_ec2.types.string.String"] = None,
+        opt_in_status: Optional[
+            "capo_ec2.types.modify_availability_zone_opt_in_status.ModifyAvailabilityZoneOptInStatus"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_availability_zone_group_result.ModifyAvailabilityZoneGroupResult":
         """<p>Changes the opt-in status of the specified zone group for your account.</p>
@@ -42742,8 +44002,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_availability_zone_group_request.ModifyAvailabilityZoneGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["opt_in_status"] = opt_in_status
+        if group_name is not None:
+            input_["group_name"] = group_name
+        if opt_in_status is not None:
+            input_["opt_in_status"] = opt_in_status
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -42756,9 +44018,11 @@ class EC2Client:
 
     def modify_capacity_reservation(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
         end_date: Optional["capo_ec2.types.date_time.DateTime"] = None,
         end_date_type: Optional["capo_ec2.types.end_date_type.EndDateType"] = None,
@@ -42801,7 +44065,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_capacity_reservation_request.ModifyCapacityReservationRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
         if instance_count is not None:
             input_["instance_count"] = instance_count
         if end_date is not None:
@@ -42826,9 +44091,11 @@ class EC2Client:
 
     def modify_capacity_reservation_fleet(
         self,
-        capacity_reservation_fleet_id: "capo_ec2.types.capacity_reservation_fleet_id.CapacityReservationFleetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_fleet_id: Optional[
+            "capo_ec2.types.capacity_reservation_fleet_id.CapacityReservationFleetId"
+        ] = None,
         total_target_capacity: Optional["capo_ec2.types.integer.Integer"] = None,
         end_date: Optional[
             "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
@@ -42865,7 +44132,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_capacity_reservation_fleet_request.ModifyCapacityReservationFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_fleet_id"] = capacity_reservation_fleet_id
+        if capacity_reservation_fleet_id is not None:
+            input_["capacity_reservation_fleet_id"] = capacity_reservation_fleet_id
         if total_target_capacity is not None:
             input_["total_target_capacity"] = total_target_capacity
         if end_date is not None:
@@ -42884,9 +44152,11 @@ class EC2Client:
 
     def modify_client_vpn_endpoint(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         server_certificate_arn: Optional["capo_ec2.types.string.String"] = None,
         connection_log_options: Optional[
             "capo_ec2.types.connection_log_options.ConnectionLogOptions"
@@ -42965,7 +44235,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_client_vpn_endpoint_request.ModifyClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if server_certificate_arn is not None:
             input_["server_certificate_arn"] = server_certificate_arn
         if connection_log_options is not None:
@@ -43010,11 +44281,13 @@ class EC2Client:
 
     def modify_default_credit_specification(
         self,
-        instance_family: "capo_ec2.types.unlimited_supported_instance_family.UnlimitedSupportedInstanceFamily",
-        cpu_credits: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_family: Optional[
+            "capo_ec2.types.unlimited_supported_instance_family.UnlimitedSupportedInstanceFamily"
+        ] = None,
+        cpu_credits: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.modify_default_credit_specification_result.ModifyDefaultCreditSpecificationResult":
         r"""<p>Modifies the default credit option for CPU usage of burstable performance instances. The default credit option is set at the account level per Amazon Web Services Region, and is specified per instance family. All new burstable performance instances in the account launch using the default credit option.</p> <p> <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an Amazon Web Services Region level and modifies the credit option for each Availability Zone. All zones in a Region are updated within five minutes. But if instances are launched during this operation, they might not get the new credit option until the zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check <code>DefaultCreditSpecification</code> for updates.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -43045,8 +44318,10 @@ class EC2Client:
         input_: capo_ec2.types.modify_default_credit_specification_request.ModifyDefaultCreditSpecificationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_family"] = instance_family
-        input_["cpu_credits"] = cpu_credits
+        if instance_family is not None:
+            input_["instance_family"] = instance_family
+        if cpu_credits is not None:
+            input_["cpu_credits"] = cpu_credits
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -43057,9 +44332,9 @@ class EC2Client:
 
     def modify_ebs_default_kms_key_id(
         self,
-        kms_key_id: "capo_ec2.types.kms_key_id.KmsKeyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        kms_key_id: Optional["capo_ec2.types.kms_key_id.KmsKeyId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_ebs_default_kms_key_id_result.ModifyEbsDefaultKmsKeyIdResult":
         r"""<p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p> <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services managed KMS key. Amazon EBS does not support asymmetric KMS keys.</p> <p>If you delete or disable the customer managed KMS key that you specified for use with encryption by default, your instances will fail to launch.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html\">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -43088,7 +44363,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_ebs_default_kms_key_id_request.ModifyEbsDefaultKmsKeyIdRequest = {}  # type: ignore[typeddict-item]
-        input_["kms_key_id"] = kms_key_id
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -43101,7 +44377,6 @@ class EC2Client:
 
     def modify_fleet(
         self,
-        fleet_id: "capo_ec2.types.fleet_id.FleetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -43111,6 +44386,7 @@ class EC2Client:
         launch_template_configs: Optional[
             "capo_ec2.types.fleet_launch_template_config_list_request.FleetLaunchTemplateConfigListRequest"
         ] = None,
+        fleet_id: Optional["capo_ec2.types.fleet_id.FleetId"] = None,
         target_capacity_specification: Optional[
             "capo_ec2.types.target_capacity_specification_request.TargetCapacitySpecificationRequest"
         ] = None,
@@ -43152,7 +44428,8 @@ class EC2Client:
             )
         if launch_template_configs is not None:
             input_["launch_template_configs"] = launch_template_configs
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if target_capacity_specification is not None:
             input_["target_capacity_specification"] = target_capacity_specification
         if context is not None:
@@ -43167,10 +44444,10 @@ class EC2Client:
 
     def modify_fpga_image_attribute(
         self,
-        fpga_image_id: "capo_ec2.types.fpga_image_id.FpgaImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        fpga_image_id: Optional["capo_ec2.types.fpga_image_id.FpgaImageId"] = None,
         attribute: Optional[
             "capo_ec2.types.fpga_image_attribute_name.FpgaImageAttributeName"
         ] = None,
@@ -43226,7 +44503,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_fpga_image_attribute_request.ModifyFpgaImageAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["fpga_image_id"] = fpga_image_id
+        if fpga_image_id is not None:
+            input_["fpga_image_id"] = fpga_image_id
         if attribute is not None:
             input_["attribute"] = attribute
         if operation_type is not None:
@@ -43253,7 +44531,6 @@ class EC2Client:
 
     def modify_hosts(
         self,
-        host_ids: "capo_ec2.types.request_host_id_list.RequestHostIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         host_recovery: Optional["capo_ec2.types.host_recovery.HostRecovery"] = None,
@@ -43261,6 +44538,9 @@ class EC2Client:
         instance_family: Optional["capo_ec2.types.string.String"] = None,
         host_maintenance: Optional[
             "capo_ec2.types.host_maintenance.HostMaintenance"
+        ] = None,
+        host_ids: Optional[
+            "capo_ec2.types.request_host_id_list.RequestHostIdList"
         ] = None,
         auto_placement: Optional["capo_ec2.types.auto_placement.AutoPlacement"] = None,
     ) -> "capo_ec2.types.modify_hosts_result.ModifyHostsResult":
@@ -43300,7 +44580,8 @@ class EC2Client:
             input_["instance_family"] = instance_family
         if host_maintenance is not None:
             input_["host_maintenance"] = host_maintenance
-        input_["host_ids"] = host_ids
+        if host_ids is not None:
+            input_["host_ids"] = host_ids
         if auto_placement is not None:
             input_["auto_placement"] = auto_placement
 
@@ -43313,11 +44594,11 @@ class EC2Client:
 
     def modify_identity_id_format(
         self,
-        resource: "capo_ec2.types.string.String",
-        use_long_ids: "capo_ec2.types.boolean.Boolean",
-        principal_arn: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        resource: Optional["capo_ec2.types.string.String"] = None,
+        use_long_ids: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        principal_arn: Optional["capo_ec2.types.string.String"] = None,
     ) -> None:
         r"""<p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root user for an account; or all IAM users, IAM roles, and the root user for an account. You can specify that resources should receive longer IDs (17-character IDs) when they are created. </p> <p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p> <p>This setting applies to the principal specified in the request; it does not apply to the principal that makes the request. </p> <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
 
@@ -43344,9 +44625,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_identity_id_format_request.ModifyIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
-        input_["use_long_ids"] = use_long_ids
-        input_["principal_arn"] = principal_arn
+        if resource is not None:
+            input_["resource"] = resource
+        if use_long_ids is not None:
+            input_["use_long_ids"] = use_long_ids
+        if principal_arn is not None:
+            input_["principal_arn"] = principal_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -43357,10 +44641,10 @@ class EC2Client:
 
     def modify_id_format(
         self,
-        resource: "capo_ec2.types.string.String",
-        use_long_ids: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        resource: Optional["capo_ec2.types.string.String"] = None,
+        use_long_ids: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p> <p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>This setting applies to the IAM user who makes the request; it does not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
 
@@ -43386,8 +44670,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_id_format_request.ModifyIdFormatRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
-        input_["use_long_ids"] = use_long_ids
+        if resource is not None:
+            input_["resource"] = resource
+        if use_long_ids is not None:
+            input_["use_long_ids"] = use_long_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -43398,11 +44684,11 @@ class EC2Client:
 
     def modify_image_attribute(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         attribute: Optional["capo_ec2.types.string.String"] = None,
         description: Optional["capo_ec2.types.attribute_value.AttributeValue"] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         launch_permission: Optional[
             "capo_ec2.types.launch_permission_modifications.LaunchPermissionModifications"
         ] = None,
@@ -43475,7 +44761,8 @@ class EC2Client:
             input_["attribute"] = attribute
         if description is not None:
             input_["description"] = description
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if launch_permission is not None:
             input_["launch_permission"] = launch_permission
         if operation_type is not None:
@@ -43506,7 +44793,6 @@ class EC2Client:
 
     def modify_instance_attribute(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         source_dest_check: Optional[
@@ -43519,6 +44805,7 @@ class EC2Client:
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         attribute: Optional[
             "capo_ec2.types.instance_attribute_name.InstanceAttributeName"
         ] = None,
@@ -43611,7 +44898,8 @@ class EC2Client:
             input_["disable_api_stop"] = disable_api_stop
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if attribute is not None:
             input_["attribute"] = attribute
         if value is not None:
@@ -43650,10 +44938,12 @@ class EC2Client:
 
     def modify_instance_capacity_reservation_attributes(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        capacity_reservation_specification: "capo_ec2.types.capacity_reservation_specification.CapacityReservationSpecification",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        capacity_reservation_specification: Optional[
+            "capo_ec2.types.capacity_reservation_specification.CapacityReservationSpecification"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_instance_capacity_reservation_attributes_result.ModifyInstanceCapacityReservationAttributesResult":
         """<p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching attributes, run in On-Demand Instance capacity, or only run in a Capacity Reservation.</p>
@@ -43683,10 +44973,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_instance_capacity_reservation_attributes_request.ModifyInstanceCapacityReservationAttributesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["capacity_reservation_specification"] = (
-            capacity_reservation_specification
-        )
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if capacity_reservation_specification is not None:
+            input_["capacity_reservation_specification"] = (
+                capacity_reservation_specification
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -43699,10 +44991,12 @@ class EC2Client:
 
     def modify_instance_connect_endpoint(
         self,
-        instance_connect_endpoint_id: "capo_ec2.types.instance_connect_endpoint_id.InstanceConnectEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_connect_endpoint_id: Optional[
+            "capo_ec2.types.instance_connect_endpoint_id.InstanceConnectEndpointId"
+        ] = None,
         ip_address_type: Optional[
             "capo_ec2.types.ip_address_type.IpAddressType"
         ] = None,
@@ -43742,7 +45036,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_instance_connect_endpoint_request.ModifyInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_connect_endpoint_id"] = instance_connect_endpoint_id
+        if instance_connect_endpoint_id is not None:
+            input_["instance_connect_endpoint_id"] = instance_connect_endpoint_id
         if ip_address_type is not None:
             input_["ip_address_type"] = ip_address_type
         if security_group_ids is not None:
@@ -43759,9 +45054,9 @@ class EC2Client:
 
     def modify_instance_cpu_options(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         core_count: Optional["capo_ec2.types.integer.Integer"] = None,
         threads_per_core: Optional["capo_ec2.types.integer.Integer"] = None,
         nested_virtualization: Optional[
@@ -43798,7 +45093,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_instance_cpu_options_request.ModifyInstanceCpuOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if core_count is not None:
             input_["core_count"] = core_count
         if threads_per_core is not None:
@@ -43817,11 +45113,13 @@ class EC2Client:
 
     def modify_instance_credit_specification(
         self,
-        instance_credit_specifications: "capo_ec2.types.instance_credit_specification_list_request.InstanceCreditSpecificationListRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        instance_credit_specifications: Optional[
+            "capo_ec2.types.instance_credit_specification_list_request.InstanceCreditSpecificationListRequest"
+        ] = None,
     ) -> "capo_ec2.types.modify_instance_credit_specification_result.ModifyInstanceCreditSpecificationResult":
         r"""<p>Modifies the credit option for CPU usage on a running or stopped burstable performance instance. The credit options are <code>standard</code> and <code>unlimited</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -43854,7 +45152,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["instance_credit_specifications"] = instance_credit_specifications
+        if instance_credit_specifications is not None:
+            input_["instance_credit_specifications"] = instance_credit_specifications
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -43865,12 +45164,12 @@ class EC2Client:
 
     def modify_instance_event_start_time(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        instance_event_id: "capo_ec2.types.string.String",
-        not_before: "capo_ec2.types.date_time.DateTime",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        instance_event_id: Optional["capo_ec2.types.string.String"] = None,
+        not_before: Optional["capo_ec2.types.date_time.DateTime"] = None,
     ) -> "capo_ec2.types.modify_instance_event_start_time_result.ModifyInstanceEventStartTimeResult":
         """<p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>
 
@@ -43902,9 +45201,12 @@ class EC2Client:
         input_: capo_ec2.types.modify_instance_event_start_time_request.ModifyInstanceEventStartTimeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["instance_event_id"] = instance_event_id
-        input_["not_before"] = not_before
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if instance_event_id is not None:
+            input_["instance_event_id"] = instance_event_id
+        if not_before is not None:
+            input_["not_before"] = not_before
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -43915,11 +45217,13 @@ class EC2Client:
 
     def modify_instance_event_window(
         self,
-        instance_event_window_id: "capo_ec2.types.instance_event_window_id.InstanceEventWindowId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         name: Optional["capo_ec2.types.string.String"] = None,
+        instance_event_window_id: Optional[
+            "capo_ec2.types.instance_event_window_id.InstanceEventWindowId"
+        ] = None,
         time_ranges: Optional[
             "capo_ec2.types.instance_event_window_time_range_request_set.InstanceEventWindowTimeRangeRequestSet"
         ] = None,
@@ -43960,7 +45264,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if name is not None:
             input_["name"] = name
-        input_["instance_event_window_id"] = instance_event_window_id
+        if instance_event_window_id is not None:
+            input_["instance_event_window_id"] = instance_event_window_id
         if time_ranges is not None:
             input_["time_ranges"] = time_ranges
         if cron_expression is not None:
@@ -43975,9 +45280,9 @@ class EC2Client:
 
     def modify_instance_maintenance_options(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         auto_recovery: Optional[
             "capo_ec2.types.instance_auto_recovery_state.InstanceAutoRecoveryState"
         ] = None,
@@ -44014,7 +45319,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_instance_maintenance_options_request.ModifyInstanceMaintenanceOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if auto_recovery is not None:
             input_["auto_recovery"] = auto_recovery
         if reboot_migration is not None:
@@ -44102,9 +45408,9 @@ class EC2Client:
 
     def modify_instance_metadata_options(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         http_tokens: Optional[
             "capo_ec2.types.http_tokens_state.HttpTokensState"
         ] = None,
@@ -44151,7 +45457,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_instance_metadata_options_request.ModifyInstanceMetadataOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if http_tokens is not None:
             input_["http_tokens"] = http_tokens
         if http_put_response_hop_limit is not None:
@@ -44174,10 +45481,12 @@ class EC2Client:
 
     def modify_instance_network_performance_options(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        bandwidth_weighting: "capo_ec2.types.instance_bandwidth_weighting.InstanceBandwidthWeighting",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        bandwidth_weighting: Optional[
+            "capo_ec2.types.instance_bandwidth_weighting.InstanceBandwidthWeighting"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_instance_network_performance_result.ModifyInstanceNetworkPerformanceResult":
         """<p>Change the configuration of the network performance options for an existing instance.</p>
@@ -44207,8 +45516,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_instance_network_performance_request.ModifyInstanceNetworkPerformanceRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["bandwidth_weighting"] = bandwidth_weighting
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if bandwidth_weighting is not None:
+            input_["bandwidth_weighting"] = bandwidth_weighting
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -44221,7 +45532,6 @@ class EC2Client:
 
     def modify_instance_placement(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         group_name: Optional[
@@ -44230,6 +45540,7 @@ class EC2Client:
         partition_number: Optional["capo_ec2.types.integer.Integer"] = None,
         host_resource_group_arn: Optional["capo_ec2.types.string.String"] = None,
         group_id: Optional["capo_ec2.types.placement_group_id.PlacementGroupId"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         tenancy: Optional["capo_ec2.types.host_tenancy.HostTenancy"] = None,
         affinity: Optional["capo_ec2.types.affinity.Affinity"] = None,
         host_id: Optional["capo_ec2.types.dedicated_host_id.DedicatedHostId"] = None,
@@ -44276,7 +45587,8 @@ class EC2Client:
             input_["host_resource_group_arn"] = host_resource_group_arn
         if group_id is not None:
             input_["group_id"] = group_id
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if tenancy is not None:
             input_["tenancy"] = tenancy
         if affinity is not None:
@@ -44293,10 +45605,10 @@ class EC2Client:
 
     def modify_ipam(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         add_operating_regions: Optional[
             "capo_ec2.types.add_ipam_operating_region_set.AddIpamOperatingRegionSet"
@@ -44342,7 +45654,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_request.ModifyIpamRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
         if description is not None:
             input_["description"] = description
         if add_operating_regions is not None:
@@ -44365,12 +45678,14 @@ class EC2Client:
 
     def modify_ipam_policy_allocation_rules(
         self,
-        ipam_policy_id: "capo_ec2.types.ipam_policy_id.IpamPolicyId",
-        locale: "capo_ec2.types.string.String",
-        resource_type: "capo_ec2.types.ipam_policy_resource_type.IpamPolicyResourceType",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_policy_id: Optional["capo_ec2.types.ipam_policy_id.IpamPolicyId"] = None,
+        locale: Optional["capo_ec2.types.string.String"] = None,
+        resource_type: Optional[
+            "capo_ec2.types.ipam_policy_resource_type.IpamPolicyResourceType"
+        ] = None,
         allocation_rules: Optional[
             "capo_ec2.types.ipam_policy_allocation_rule_list_request.IpamPolicyAllocationRuleListRequest"
         ] = None,
@@ -44406,9 +45721,12 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_policy_allocation_rules_request.ModifyIpamPolicyAllocationRulesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_policy_id"] = ipam_policy_id
-        input_["locale"] = locale
-        input_["resource_type"] = resource_type
+        if ipam_policy_id is not None:
+            input_["ipam_policy_id"] = ipam_policy_id
+        if locale is not None:
+            input_["locale"] = locale
+        if resource_type is not None:
+            input_["resource_type"] = resource_type
         if allocation_rules is not None:
             input_["allocation_rules"] = allocation_rules
 
@@ -44421,10 +45739,10 @@ class EC2Client:
 
     def modify_ipam_pool(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         auto_import: Optional["capo_ec2.types.boolean.Boolean"] = None,
         allocation_min_netmask_length: Optional[
@@ -44482,7 +45800,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_pool_request.ModifyIpamPoolRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if description is not None:
             input_["description"] = description
         if auto_import is not None:
@@ -44513,10 +45832,12 @@ class EC2Client:
 
     def modify_ipam_pool_allocation(
         self,
-        ipam_pool_allocation_id: "capo_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_allocation_id: Optional[
+            "capo_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.modify_ipam_pool_allocation_result.ModifyIpamPoolAllocationResult":
         r"""<p>Modifies the description of an IPAM pool allocation. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/modify-alloc-ipam.html\">Modify an IPAM pool allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
@@ -44548,7 +45869,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_pool_allocation_request.ModifyIpamPoolAllocationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_allocation_id"] = ipam_pool_allocation_id
+        if ipam_pool_allocation_id is not None:
+            input_["ipam_pool_allocation_id"] = ipam_pool_allocation_id
         if description is not None:
             input_["description"] = description
 
@@ -44561,10 +45883,12 @@ class EC2Client:
 
     def modify_ipam_prefix_list_resolver(
         self,
-        ipam_prefix_list_resolver_id: "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_id.IpamPrefixListResolverId"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         rules: Optional[
             "capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.IpamPrefixListResolverRuleRequestSet"
@@ -44600,7 +45924,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_prefix_list_resolver_request.ModifyIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
+        if ipam_prefix_list_resolver_id is not None:
+            input_["ipam_prefix_list_resolver_id"] = ipam_prefix_list_resolver_id
         if description is not None:
             input_["description"] = description
         if rules is not None:
@@ -44615,10 +45940,12 @@ class EC2Client:
 
     def modify_ipam_prefix_list_resolver_target(
         self,
-        ipam_prefix_list_resolver_target_id: "capo_ec2.types.ipam_prefix_list_resolver_target_id.IpamPrefixListResolverTargetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_prefix_list_resolver_target_id: Optional[
+            "capo_ec2.types.ipam_prefix_list_resolver_target_id.IpamPrefixListResolverTargetId"
+        ] = None,
         desired_version: Optional["capo_ec2.types.boxed_long.BoxedLong"] = None,
         track_latest_version: Optional[
             "capo_ec2.types.boxed_boolean.BoxedBoolean"
@@ -44656,9 +45983,10 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_prefix_list_resolver_target_request.ModifyIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_prefix_list_resolver_target_id"] = (
-            ipam_prefix_list_resolver_target_id
-        )
+        if ipam_prefix_list_resolver_target_id is not None:
+            input_["ipam_prefix_list_resolver_target_id"] = (
+                ipam_prefix_list_resolver_target_id
+            )
         if desired_version is not None:
             input_["desired_version"] = desired_version
         if track_latest_version is not None:
@@ -44675,17 +46003,19 @@ class EC2Client:
 
     def modify_ipam_resource_cidr(
         self,
-        resource_id: "capo_ec2.types.string.String",
-        resource_cidr: "capo_ec2.types.string.String",
-        resource_region: "capo_ec2.types.string.String",
-        current_ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
-        monitored: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        resource_id: Optional["capo_ec2.types.string.String"] = None,
+        resource_cidr: Optional["capo_ec2.types.string.String"] = None,
+        resource_region: Optional["capo_ec2.types.string.String"] = None,
+        current_ipam_scope_id: Optional[
+            "capo_ec2.types.ipam_scope_id.IpamScopeId"
+        ] = None,
         destination_ipam_scope_id: Optional[
             "capo_ec2.types.ipam_scope_id.IpamScopeId"
         ] = None,
+        monitored: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_ipam_resource_cidr_result.ModifyIpamResourceCidrResult":
         r"""<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html\">Move resource CIDRs between scopes</a> and <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
 
@@ -44720,13 +46050,18 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_resource_cidr_request.ModifyIpamResourceCidrRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["resource_id"] = resource_id
-        input_["resource_cidr"] = resource_cidr
-        input_["resource_region"] = resource_region
-        input_["current_ipam_scope_id"] = current_ipam_scope_id
+        if resource_id is not None:
+            input_["resource_id"] = resource_id
+        if resource_cidr is not None:
+            input_["resource_cidr"] = resource_cidr
+        if resource_region is not None:
+            input_["resource_region"] = resource_region
+        if current_ipam_scope_id is not None:
+            input_["current_ipam_scope_id"] = current_ipam_scope_id
         if destination_ipam_scope_id is not None:
             input_["destination_ipam_scope_id"] = destination_ipam_scope_id
-        input_["monitored"] = monitored
+        if monitored is not None:
+            input_["monitored"] = monitored
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -44737,10 +46072,12 @@ class EC2Client:
 
     def modify_ipam_resource_discovery(
         self,
-        ipam_resource_discovery_id: "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         add_operating_regions: Optional[
             "capo_ec2.types.add_ipam_operating_region_set.AddIpamOperatingRegionSet"
@@ -44788,7 +46125,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_resource_discovery_request.ModifyIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
         if description is not None:
             input_["description"] = description
         if add_operating_regions is not None:
@@ -44813,10 +46151,10 @@ class EC2Client:
 
     def modify_ipam_scope(
         self,
-        ipam_scope_id: "capo_ec2.types.ipam_scope_id.IpamScopeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_scope_id: Optional["capo_ec2.types.ipam_scope_id.IpamScopeId"] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         external_authority_configuration: Optional[
             "capo_ec2.types.external_authority_configuration.ExternalAuthorityConfiguration"
@@ -44856,7 +46194,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_ipam_scope_request.ModifyIpamScopeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_scope_id"] = ipam_scope_id
+        if ipam_scope_id is not None:
+            input_["ipam_scope_id"] = ipam_scope_id
         if description is not None:
             input_["description"] = description
         if external_authority_configuration is not None:
@@ -44944,10 +46283,12 @@ class EC2Client:
 
     def modify_local_gateway_route(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         local_gateway_virtual_interface_group_id: Optional[
             "capo_ec2.types.local_gateway_virtual_interface_group_id.LocalGatewayVirtualInterfaceGroupId"
         ] = None,
@@ -44993,7 +46334,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_local_gateway_route_request.ModifyLocalGatewayRouteRequest = {}  # type: ignore[typeddict-item]
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if local_gateway_virtual_interface_group_id is not None:
             input_["local_gateway_virtual_interface_group_id"] = (
                 local_gateway_virtual_interface_group_id
@@ -45014,10 +46356,12 @@ class EC2Client:
 
     def modify_managed_prefix_list(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         current_version: Optional["capo_ec2.types.long.Long"] = None,
         prefix_list_name: Optional["capo_ec2.types.string.String"] = None,
         add_entries: Optional[
@@ -45067,7 +46411,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_managed_prefix_list_request.ModifyManagedPrefixListRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["prefix_list_id"] = prefix_list_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
         if current_version is not None:
             input_["current_version"] = current_version
         if prefix_list_name is not None:
@@ -45092,10 +46437,12 @@ class EC2Client:
 
     def modify_managed_resource_visibility(
         self,
-        default_visibility: "capo_ec2.types.managed_resource_default_visibility.ManagedResourceDefaultVisibility",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        default_visibility: Optional[
+            "capo_ec2.types.managed_resource_default_visibility.ManagedResourceDefaultVisibility"
+        ] = None,
     ) -> "capo_ec2.types.modify_managed_resource_visibility_result.ModifyManagedResourceVisibilityResult":
         """<p>Modifies the managed resource visibility configuration for the account. Use this operation to control whether managed resources are hidden or visible by default. Visibility settings are account-wide and affect all IAM principals uniformly. Hidden resources remain fully operational and billable.</p>
 
@@ -45125,7 +46472,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_managed_resource_visibility_request.ModifyManagedResourceVisibilityRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["default_visibility"] = default_visibility
+        if default_visibility is not None:
+            input_["default_visibility"] = default_visibility
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -45136,7 +46484,6 @@ class EC2Client:
 
     def modify_network_interface_attribute(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ena_srd_specification: Optional[
@@ -45151,6 +46498,9 @@ class EC2Client:
             "capo_ec2.types.subnet_id_list.SubnetIdList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         description: Optional["capo_ec2.types.attribute_value.AttributeValue"] = None,
         source_dest_check: Optional[
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
@@ -45227,7 +46577,8 @@ class EC2Client:
             input_["associated_subnet_ids"] = associated_subnet_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if description is not None:
             input_["description"] = description
         if source_dest_check is not None:
@@ -45246,10 +46597,10 @@ class EC2Client:
 
     def modify_private_dns_name_options(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         private_dns_hostname_type: Optional[
             "capo_ec2.types.hostname_type.HostnameType"
         ] = None,
@@ -45291,7 +46642,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_private_dns_name_options_request.ModifyPrivateDnsNameOptionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if private_dns_hostname_type is not None:
             input_["private_dns_hostname_type"] = private_dns_hostname_type
         if enable_resource_name_dns_a_record is not None:
@@ -45312,10 +46664,14 @@ class EC2Client:
 
     def modify_public_ip_dns_name_options(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
-        hostname_type: "capo_ec2.types.public_ip_dns_option.PublicIpDnsOption",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
+        hostname_type: Optional[
+            "capo_ec2.types.public_ip_dns_option.PublicIpDnsOption"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_public_ip_dns_name_options_result.ModifyPublicIpDnsNameOptionsResult":
         r"""<p>Modify public hostname options for a network interface. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html\">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -45345,8 +46701,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_public_ip_dns_name_options_request.ModifyPublicIpDnsNameOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["network_interface_id"] = network_interface_id
-        input_["hostname_type"] = hostname_type
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
+        if hostname_type is not None:
+            input_["hostname_type"] = hostname_type
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -45359,11 +46717,15 @@ class EC2Client:
 
     def modify_reserved_instances(
         self,
-        reserved_instances_ids: "capo_ec2.types.reserved_instances_id_string_list.ReservedInstancesIdStringList",
-        target_configurations: "capo_ec2.types.reserved_instances_configuration_list.ReservedInstancesConfigurationList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        reserved_instances_ids: Optional[
+            "capo_ec2.types.reserved_instances_id_string_list.ReservedInstancesIdStringList"
+        ] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        target_configurations: Optional[
+            "capo_ec2.types.reserved_instances_configuration_list.ReservedInstancesConfigurationList"
+        ] = None,
     ) -> (
         "capo_ec2.types.modify_reserved_instances_result.ModifyReservedInstancesResult"
     ):
@@ -45394,10 +46756,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_reserved_instances_request.ModifyReservedInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["reserved_instances_ids"] = reserved_instances_ids
+        if reserved_instances_ids is not None:
+            input_["reserved_instances_ids"] = reserved_instances_ids
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["target_configurations"] = target_configurations
+        if target_configurations is not None:
+            input_["target_configurations"] = target_configurations
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -45408,9 +46772,11 @@ class EC2Client:
 
     def modify_route_server(
         self,
-        route_server_id: "capo_ec2.types.route_server_id.RouteServerId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        route_server_id: Optional[
+            "capo_ec2.types.route_server_id.RouteServerId"
+        ] = None,
         persist_routes: Optional[
             "capo_ec2.types.route_server_persist_routes_action.RouteServerPersistRoutesAction"
         ] = None,
@@ -45447,7 +46813,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_route_server_request.ModifyRouteServerRequest = {}  # type: ignore[typeddict-item]
-        input_["route_server_id"] = route_server_id
+        if route_server_id is not None:
+            input_["route_server_id"] = route_server_id
         if persist_routes is not None:
             input_["persist_routes"] = persist_routes
         if persist_routes_duration is not None:
@@ -45466,10 +46833,12 @@ class EC2Client:
 
     def modify_security_group_rules(
         self,
-        group_id: "capo_ec2.types.security_group_id.SecurityGroupId",
-        security_group_rules: "capo_ec2.types.security_group_rule_update_list.SecurityGroupRuleUpdateList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        group_id: Optional["capo_ec2.types.security_group_id.SecurityGroupId"] = None,
+        security_group_rules: Optional[
+            "capo_ec2.types.security_group_rule_update_list.SecurityGroupRuleUpdateList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_security_group_rules_result.ModifySecurityGroupRulesResult":
         """<p>Modifies the rules of a security group.</p>
@@ -45499,8 +46868,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_security_group_rules_request.ModifySecurityGroupRulesRequest = {}  # type: ignore[typeddict-item]
-        input_["group_id"] = group_id
-        input_["security_group_rules"] = security_group_rules
+        if group_id is not None:
+            input_["group_id"] = group_id
+        if security_group_rules is not None:
+            input_["security_group_rules"] = security_group_rules
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -45513,7 +46884,6 @@ class EC2Client:
 
     def modify_snapshot_attribute(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         attribute: Optional[
@@ -45526,6 +46896,7 @@ class EC2Client:
             "capo_ec2.types.group_name_string_list.GroupNameStringList"
         ] = None,
         operation_type: Optional["capo_ec2.types.operation_type.OperationType"] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         user_ids: Optional[
             "capo_ec2.types.user_id_string_list.UserIdStringList"
         ] = None,
@@ -45578,7 +46949,8 @@ class EC2Client:
             input_["group_names"] = group_names
         if operation_type is not None:
             input_["operation_type"] = operation_type
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if user_ids is not None:
             input_["user_ids"] = user_ids
         if dry_run is not None:
@@ -45593,9 +46965,9 @@ class EC2Client:
 
     def modify_snapshot_tier(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         storage_tier: Optional[
             "capo_ec2.types.target_storage_tier.TargetStorageTier"
         ] = None,
@@ -45628,7 +47000,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_snapshot_tier_request.ModifySnapshotTierRequest = {}  # type: ignore[typeddict-item]
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if storage_tier is not None:
             input_["storage_tier"] = storage_tier
         if dry_run is not None:
@@ -45643,7 +47016,6 @@ class EC2Client:
 
     def modify_spot_fleet_request(
         self,
-        spot_fleet_request_id: "capo_ec2.types.spot_fleet_request_id.SpotFleetRequestId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         launch_template_configs: Optional[
@@ -45651,6 +47023,9 @@ class EC2Client:
         ] = None,
         on_demand_target_capacity: Optional["capo_ec2.types.integer.Integer"] = None,
         context: Optional["capo_ec2.types.string.String"] = None,
+        spot_fleet_request_id: Optional[
+            "capo_ec2.types.spot_fleet_request_id.SpotFleetRequestId"
+        ] = None,
         target_capacity: Optional["capo_ec2.types.integer.Integer"] = None,
         excess_capacity_termination_policy: Optional[
             "capo_ec2.types.excess_capacity_termination_policy.ExcessCapacityTerminationPolicy"
@@ -45698,7 +47073,8 @@ class EC2Client:
             input_["on_demand_target_capacity"] = on_demand_target_capacity
         if context is not None:
             input_["context"] = context
-        input_["spot_fleet_request_id"] = spot_fleet_request_id
+        if spot_fleet_request_id is not None:
+            input_["spot_fleet_request_id"] = spot_fleet_request_id
         if target_capacity is not None:
             input_["target_capacity"] = target_capacity
         if excess_capacity_termination_policy is not None:
@@ -45715,7 +47091,6 @@ class EC2Client:
 
     def modify_subnet_attribute(
         self,
-        subnet_id: "capo_ec2.types.subnet_id.SubnetId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         assign_ipv6_address_on_creation: Optional[
@@ -45724,6 +47099,7 @@ class EC2Client:
         map_public_ip_on_launch: Optional[
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
+        subnet_id: Optional["capo_ec2.types.subnet_id.SubnetId"] = None,
         map_customer_owned_ip_on_launch: Optional[
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
@@ -45790,7 +47166,8 @@ class EC2Client:
             input_["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
         if map_public_ip_on_launch is not None:
             input_["map_public_ip_on_launch"] = map_public_ip_on_launch
-        input_["subnet_id"] = subnet_id
+        if subnet_id is not None:
+            input_["subnet_id"] = subnet_id
         if map_customer_owned_ip_on_launch is not None:
             input_["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
         if customer_owned_ipv4_pool is not None:
@@ -45823,9 +47200,11 @@ class EC2Client:
 
     def modify_traffic_mirror_filter_network_services(
         self,
-        traffic_mirror_filter_id: "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_filter_id: Optional[
+            "capo_ec2.types.traffic_mirror_filter_id.TrafficMirrorFilterId"
+        ] = None,
         add_network_services: Optional[
             "capo_ec2.types.traffic_mirror_network_service_list.TrafficMirrorNetworkServiceList"
         ] = None,
@@ -45862,7 +47241,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_traffic_mirror_filter_network_services_request.ModifyTrafficMirrorFilterNetworkServicesRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
+        if traffic_mirror_filter_id is not None:
+            input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
         if add_network_services is not None:
             input_["add_network_services"] = add_network_services
         if remove_network_services is not None:
@@ -45879,9 +47259,11 @@ class EC2Client:
 
     def modify_traffic_mirror_filter_rule(
         self,
-        traffic_mirror_filter_rule_id: "capo_ec2.types.traffic_mirror_filter_rule_id_with_resolver.TrafficMirrorFilterRuleIdWithResolver",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_filter_rule_id: Optional[
+            "capo_ec2.types.traffic_mirror_filter_rule_id_with_resolver.TrafficMirrorFilterRuleIdWithResolver"
+        ] = None,
         traffic_direction: Optional[
             "capo_ec2.types.traffic_direction.TrafficDirection"
         ] = None,
@@ -45940,7 +47322,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_traffic_mirror_filter_rule_request.ModifyTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_filter_rule_id"] = traffic_mirror_filter_rule_id
+        if traffic_mirror_filter_rule_id is not None:
+            input_["traffic_mirror_filter_rule_id"] = traffic_mirror_filter_rule_id
         if traffic_direction is not None:
             input_["traffic_direction"] = traffic_direction
         if rule_number is not None:
@@ -45973,9 +47356,11 @@ class EC2Client:
 
     def modify_traffic_mirror_session(
         self,
-        traffic_mirror_session_id: "capo_ec2.types.traffic_mirror_session_id.TrafficMirrorSessionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        traffic_mirror_session_id: Optional[
+            "capo_ec2.types.traffic_mirror_session_id.TrafficMirrorSessionId"
+        ] = None,
         traffic_mirror_target_id: Optional[
             "capo_ec2.types.traffic_mirror_target_id.TrafficMirrorTargetId"
         ] = None,
@@ -46024,7 +47409,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_traffic_mirror_session_request.ModifyTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_mirror_session_id"] = traffic_mirror_session_id
+        if traffic_mirror_session_id is not None:
+            input_["traffic_mirror_session_id"] = traffic_mirror_session_id
         if traffic_mirror_target_id is not None:
             input_["traffic_mirror_target_id"] = traffic_mirror_target_id
         if traffic_mirror_filter_id is not None:
@@ -46051,9 +47437,11 @@ class EC2Client:
 
     def modify_transit_gateway(
         self,
-        transit_gateway_id: "capo_ec2.types.transit_gateway_id.TransitGatewayId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_id: Optional[
+            "capo_ec2.types.transit_gateway_id.TransitGatewayId"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         options: Optional[
             "capo_ec2.types.modify_transit_gateway_options.ModifyTransitGatewayOptions"
@@ -46088,7 +47476,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_transit_gateway_request.ModifyTransitGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_id"] = transit_gateway_id
+        if transit_gateway_id is not None:
+            input_["transit_gateway_id"] = transit_gateway_id
         if description is not None:
             input_["description"] = description
         if options is not None:
@@ -46105,9 +47494,11 @@ class EC2Client:
 
     def modify_transit_gateway_metering_policy(
         self,
-        transit_gateway_metering_policy_id: "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_metering_policy_id: Optional[
+            "capo_ec2.types.transit_gateway_metering_policy_id.TransitGatewayMeteringPolicyId"
+        ] = None,
         add_middlebox_attachment_ids: Optional[
             "capo_ec2.types.transit_gateway_attachment_id_string_list.TransitGatewayAttachmentIdStringList"
         ] = None,
@@ -46144,9 +47535,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_transit_gateway_metering_policy_request.ModifyTransitGatewayMeteringPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_metering_policy_id"] = (
-            transit_gateway_metering_policy_id
-        )
+        if transit_gateway_metering_policy_id is not None:
+            input_["transit_gateway_metering_policy_id"] = (
+                transit_gateway_metering_policy_id
+            )
         if add_middlebox_attachment_ids is not None:
             input_["add_middlebox_attachment_ids"] = add_middlebox_attachment_ids
         if remove_middlebox_attachment_ids is not None:
@@ -46163,10 +47555,14 @@ class EC2Client:
 
     def modify_transit_gateway_prefix_list_reference(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
         transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -46202,8 +47598,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_transit_gateway_prefix_list_reference_request.ModifyTransitGatewayPrefixListReferenceRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["prefix_list_id"] = prefix_list_id
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if blackhole is not None:
@@ -46220,9 +47618,11 @@ class EC2Client:
 
     def modify_transit_gateway_vpc_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         add_subnet_ids: Optional[
             "capo_ec2.types.transit_gateway_subnet_id_list.TransitGatewaySubnetIdList"
         ] = None,
@@ -46263,7 +47663,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_transit_gateway_vpc_attachment_request.ModifyTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if add_subnet_ids is not None:
             input_["add_subnet_ids"] = add_subnet_ids
         if remove_subnet_ids is not None:
@@ -46282,9 +47683,11 @@ class EC2Client:
 
     def modify_verified_access_endpoint(
         self,
-        verified_access_endpoint_id: "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_endpoint_id: Optional[
+            "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId"
+        ] = None,
         verified_access_group_id: Optional[
             "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId"
         ] = None,
@@ -46337,7 +47740,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_endpoint_request.ModifyVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_endpoint_id"] = verified_access_endpoint_id
+        if verified_access_endpoint_id is not None:
+            input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
         if load_balancer_options is not None:
@@ -46364,9 +47768,11 @@ class EC2Client:
 
     def modify_verified_access_endpoint_policy(
         self,
-        verified_access_endpoint_id: "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_endpoint_id: Optional[
+            "capo_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId"
+        ] = None,
         policy_enabled: Optional["capo_ec2.types.boolean.Boolean"] = None,
         policy_document: Optional["capo_ec2.types.string.String"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -46405,7 +47811,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_endpoint_policy_request.ModifyVerifiedAccessEndpointPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_endpoint_id"] = verified_access_endpoint_id
+        if verified_access_endpoint_id is not None:
+            input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if policy_enabled is not None:
             input_["policy_enabled"] = policy_enabled
         if policy_document is not None:
@@ -46426,9 +47833,11 @@ class EC2Client:
 
     def modify_verified_access_group(
         self,
-        verified_access_group_id: "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_group_id: Optional[
+            "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId"
+        ] = None,
         verified_access_instance_id: Optional[
             "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
         ] = None,
@@ -46465,7 +47874,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_group_request.ModifyVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_group_id"] = verified_access_group_id
+        if verified_access_group_id is not None:
+            input_["verified_access_group_id"] = verified_access_group_id
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if description is not None:
@@ -46484,9 +47894,11 @@ class EC2Client:
 
     def modify_verified_access_group_policy(
         self,
-        verified_access_group_id: "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_group_id: Optional[
+            "capo_ec2.types.verified_access_group_id.VerifiedAccessGroupId"
+        ] = None,
         policy_enabled: Optional["capo_ec2.types.boolean.Boolean"] = None,
         policy_document: Optional["capo_ec2.types.string.String"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -46525,7 +47937,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_group_policy_request.ModifyVerifiedAccessGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_group_id"] = verified_access_group_id
+        if verified_access_group_id is not None:
+            input_["verified_access_group_id"] = verified_access_group_id
         if policy_enabled is not None:
             input_["policy_enabled"] = policy_enabled
         if policy_document is not None:
@@ -46546,9 +47959,11 @@ class EC2Client:
 
     def modify_verified_access_instance(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
         description: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
@@ -46585,7 +48000,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_instance_request.ModifyVerifiedAccessInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
         if description is not None:
             input_["description"] = description
         if dry_run is not None:
@@ -46606,10 +48022,14 @@ class EC2Client:
 
     def modify_verified_access_instance_logging_configuration(
         self,
-        verified_access_instance_id: "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId",
-        access_logs: "capo_ec2.types.verified_access_log_options.VerifiedAccessLogOptions",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_instance_id: Optional[
+            "capo_ec2.types.verified_access_instance_id.VerifiedAccessInstanceId"
+        ] = None,
+        access_logs: Optional[
+            "capo_ec2.types.verified_access_log_options.VerifiedAccessLogOptions"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.modify_verified_access_instance_logging_configuration_result.ModifyVerifiedAccessInstanceLoggingConfigurationResult":
@@ -46641,8 +48061,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_instance_logging_configuration_request.ModifyVerifiedAccessInstanceLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_instance_id"] = verified_access_instance_id
-        input_["access_logs"] = access_logs
+        if verified_access_instance_id is not None:
+            input_["verified_access_instance_id"] = verified_access_instance_id
+        if access_logs is not None:
+            input_["access_logs"] = access_logs
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is not None:
@@ -46657,9 +48079,11 @@ class EC2Client:
 
     def modify_verified_access_trust_provider(
         self,
-        verified_access_trust_provider_id: "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        verified_access_trust_provider_id: Optional[
+            "capo_ec2.types.verified_access_trust_provider_id.VerifiedAccessTrustProviderId"
+        ] = None,
         oidc_options: Optional[
             "capo_ec2.types.modify_verified_access_trust_provider_oidc_options.ModifyVerifiedAccessTrustProviderOidcOptions"
         ] = None,
@@ -46708,7 +48132,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_verified_access_trust_provider_request.ModifyVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["verified_access_trust_provider_id"] = verified_access_trust_provider_id
+        if verified_access_trust_provider_id is not None:
+            input_["verified_access_trust_provider_id"] = (
+                verified_access_trust_provider_id
+            )
         if oidc_options is not None:
             input_["oidc_options"] = oidc_options
         if device_options is not None:
@@ -46733,10 +48160,10 @@ class EC2Client:
 
     def modify_volume(
         self,
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         size: Optional["capo_ec2.types.integer.Integer"] = None,
         volume_type: Optional["capo_ec2.types.volume_type.VolumeType"] = None,
         iops: Optional["capo_ec2.types.integer.Integer"] = None,
@@ -46776,7 +48203,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_volume_request.ModifyVolumeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if size is not None:
             input_["size"] = size
         if volume_type is not None:
@@ -46797,12 +48225,12 @@ class EC2Client:
 
     def modify_volume_attribute(
         self,
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         auto_enable_io: Optional[
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Modifies a volume attribute.</p> <p>By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.</p> <p>You can change the default behavior to resume I/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.</p>
@@ -46838,7 +48266,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_volume_attribute_request.ModifyVolumeAttributeRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_io is not None:
             input_["auto_enable_io"] = auto_enable_io
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -46851,7 +48280,6 @@ class EC2Client:
 
     def modify_vpc_attribute(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         enable_dns_hostnames: Optional[
@@ -46860,6 +48288,7 @@ class EC2Client:
         enable_dns_support: Optional[
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
         enable_network_address_usage_metrics: Optional[
             "capo_ec2.types.attribute_boolean_value.AttributeBooleanValue"
         ] = None,
@@ -46904,7 +48333,8 @@ class EC2Client:
             input_["enable_dns_hostnames"] = enable_dns_hostnames
         if enable_dns_support is not None:
             input_["enable_dns_support"] = enable_dns_support
-        input_["vpc_id"] = vpc_id
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
         if enable_network_address_usage_metrics is not None:
             input_["enable_network_address_usage_metrics"] = (
                 enable_network_address_usage_metrics
@@ -46919,11 +48349,15 @@ class EC2Client:
 
     def modify_vpc_block_public_access_exclusion(
         self,
-        exclusion_id: "capo_ec2.types.vpc_block_public_access_exclusion_id.VpcBlockPublicAccessExclusionId",
-        internet_gateway_exclusion_mode: "capo_ec2.types.internet_gateway_exclusion_mode.InternetGatewayExclusionMode",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        exclusion_id: Optional[
+            "capo_ec2.types.vpc_block_public_access_exclusion_id.VpcBlockPublicAccessExclusionId"
+        ] = None,
+        internet_gateway_exclusion_mode: Optional[
+            "capo_ec2.types.internet_gateway_exclusion_mode.InternetGatewayExclusionMode"
+        ] = None,
     ) -> "capo_ec2.types.modify_vpc_block_public_access_exclusion_result.ModifyVpcBlockPublicAccessExclusionResult":
         """<p>Modify VPC Block Public Access (BPA) exclusions. A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on.</p>
 
@@ -46954,8 +48388,10 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_block_public_access_exclusion_request.ModifyVpcBlockPublicAccessExclusionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["exclusion_id"] = exclusion_id
-        input_["internet_gateway_exclusion_mode"] = internet_gateway_exclusion_mode
+        if exclusion_id is not None:
+            input_["exclusion_id"] = exclusion_id
+        if internet_gateway_exclusion_mode is not None:
+            input_["internet_gateway_exclusion_mode"] = internet_gateway_exclusion_mode
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -46966,10 +48402,12 @@ class EC2Client:
 
     def modify_vpc_block_public_access_options(
         self,
-        internet_gateway_block_mode: "capo_ec2.types.internet_gateway_block_mode.InternetGatewayBlockMode",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        internet_gateway_block_mode: Optional[
+            "capo_ec2.types.internet_gateway_block_mode.InternetGatewayBlockMode"
+        ] = None,
     ) -> "capo_ec2.types.modify_vpc_block_public_access_options_result.ModifyVpcBlockPublicAccessOptionsResult":
         r"""<p>Modify VPC Block Public Access (BPA) options. VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -46999,7 +48437,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_block_public_access_options_request.ModifyVpcBlockPublicAccessOptionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["internet_gateway_block_mode"] = internet_gateway_block_mode
+        if internet_gateway_block_mode is not None:
+            input_["internet_gateway_block_mode"] = internet_gateway_block_mode
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -47010,10 +48449,12 @@ class EC2Client:
 
     def modify_vpc_encryption_control(
         self,
-        vpc_encryption_control_id: "capo_ec2.types.vpc_encryption_control_id.VpcEncryptionControlId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_encryption_control_id: Optional[
+            "capo_ec2.types.vpc_encryption_control_id.VpcEncryptionControlId"
+        ] = None,
         mode: Optional[
             "capo_ec2.types.vpc_encryption_control_mode.VpcEncryptionControlMode"
         ] = None,
@@ -47079,7 +48520,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_encryption_control_request.ModifyVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_encryption_control_id"] = vpc_encryption_control_id
+        if vpc_encryption_control_id is not None:
+            input_["vpc_encryption_control_id"] = vpc_encryption_control_id
         if mode is not None:
             input_["mode"] = mode
         if internet_gateway_exclusion is not None:
@@ -47112,10 +48554,12 @@ class EC2Client:
 
     def modify_vpc_endpoint(
         self,
-        vpc_endpoint_id: "capo_ec2.types.vpc_endpoint_id.VpcEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_endpoint_id: Optional[
+            "capo_ec2.types.vpc_endpoint_id.VpcEndpointId"
+        ] = None,
         reset_policy: Optional["capo_ec2.types.boolean.Boolean"] = None,
         policy_document: Optional["capo_ec2.types.string.String"] = None,
         add_route_table_ids: Optional[
@@ -47187,7 +48631,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_endpoint_request.ModifyVpcEndpointRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_endpoint_id"] = vpc_endpoint_id
+        if vpc_endpoint_id is not None:
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if reset_policy is not None:
             input_["reset_policy"] = reset_policy
         if policy_document is not None:
@@ -47222,10 +48667,12 @@ class EC2Client:
 
     def modify_vpc_endpoint_connection_notification(
         self,
-        connection_notification_id: "capo_ec2.types.connection_notification_id.ConnectionNotificationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        connection_notification_id: Optional[
+            "capo_ec2.types.connection_notification_id.ConnectionNotificationId"
+        ] = None,
         connection_notification_arn: Optional["capo_ec2.types.string.String"] = None,
         connection_events: Optional[
             "capo_ec2.types.value_string_list.ValueStringList"
@@ -47261,7 +48708,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_endpoint_connection_notification_request.ModifyVpcEndpointConnectionNotificationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["connection_notification_id"] = connection_notification_id
+        if connection_notification_id is not None:
+            input_["connection_notification_id"] = connection_notification_id
         if connection_notification_arn is not None:
             input_["connection_notification_arn"] = connection_notification_arn
         if connection_events is not None:
@@ -47276,10 +48724,12 @@ class EC2Client:
 
     def modify_vpc_endpoint_service_configuration(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
         private_dns_name: Optional["capo_ec2.types.string.String"] = None,
         remove_private_dns_name: Optional["capo_ec2.types.boolean.Boolean"] = None,
         acceptance_required: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -47347,7 +48797,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_endpoint_service_configuration_request.ModifyVpcEndpointServiceConfigurationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
+        if service_id is not None:
+            input_["service_id"] = service_id
         if private_dns_name is not None:
             input_["private_dns_name"] = private_dns_name
         if remove_private_dns_name is not None:
@@ -47386,11 +48837,15 @@ class EC2Client:
 
     def modify_vpc_endpoint_service_payer_responsibility(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
-        payer_responsibility: "capo_ec2.types.payer_responsibility.PayerResponsibility",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
+        payer_responsibility: Optional[
+            "capo_ec2.types.payer_responsibility.PayerResponsibility"
+        ] = None,
     ) -> "capo_ec2.types.modify_vpc_endpoint_service_payer_responsibility_result.ModifyVpcEndpointServicePayerResponsibilityResult":
         """<p>Modifies the payer responsibility for your VPC endpoint service.</p>
 
@@ -47421,8 +48876,10 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_endpoint_service_payer_responsibility_request.ModifyVpcEndpointServicePayerResponsibilityRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
-        input_["payer_responsibility"] = payer_responsibility
+        if service_id is not None:
+            input_["service_id"] = service_id
+        if payer_responsibility is not None:
+            input_["payer_responsibility"] = payer_responsibility
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -47433,10 +48890,12 @@ class EC2Client:
 
     def modify_vpc_endpoint_service_permissions(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
         add_allowed_principals: Optional[
             "capo_ec2.types.value_string_list.ValueStringList"
         ] = None,
@@ -47474,7 +48933,8 @@ class EC2Client:
         input_: capo_ec2.types.modify_vpc_endpoint_service_permissions_request.ModifyVpcEndpointServicePermissionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
+        if service_id is not None:
+            input_["service_id"] = service_id
         if add_allowed_principals is not None:
             input_["add_allowed_principals"] = add_allowed_principals
         if remove_allowed_principals is not None:
@@ -47489,7 +48949,6 @@ class EC2Client:
 
     def modify_vpc_peering_connection_options(
         self,
-        vpc_peering_connection_id: "capo_ec2.types.vpc_peering_connection_id.VpcPeeringConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         accepter_peering_connection_options: Optional[
@@ -47498,6 +48957,9 @@ class EC2Client:
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         requester_peering_connection_options: Optional[
             "capo_ec2.types.peering_connection_options_request.PeeringConnectionOptionsRequest"
+        ] = None,
+        vpc_peering_connection_id: Optional[
+            "capo_ec2.types.vpc_peering_connection_id.VpcPeeringConnectionId"
         ] = None,
     ) -> "capo_ec2.types.modify_vpc_peering_connection_options_result.ModifyVpcPeeringConnectionOptionsResult":
         """<p>Modifies the VPC peering connection options on one side of a VPC peering connection.</p> <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS resolution for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP addresses in the peer VPC. This option is not available if the peered VPCs are in different Amazon Web Services accounts or different Regions. For peered VPCs in different Amazon Web Services accounts, each Amazon Web Services account owner must initiate a separate request to modify the peering connection options. For inter-region peering connections, you must use the Region for the requester VPC to modify the requester VPC peering options and the Region for the accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>
@@ -47538,7 +49000,8 @@ class EC2Client:
             input_["requester_peering_connection_options"] = (
                 requester_peering_connection_options
             )
-        input_["vpc_peering_connection_id"] = vpc_peering_connection_id
+        if vpc_peering_connection_id is not None:
+            input_["vpc_peering_connection_id"] = vpc_peering_connection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -47549,10 +49012,10 @@ class EC2Client:
 
     def modify_vpc_tenancy(
         self,
-        vpc_id: "capo_ec2.types.vpc_id.VpcId",
-        instance_tenancy: "capo_ec2.types.vpc_tenancy.VpcTenancy",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpc_id: Optional["capo_ec2.types.vpc_id.VpcId"] = None,
+        instance_tenancy: Optional["capo_ec2.types.vpc_tenancy.VpcTenancy"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_vpc_tenancy_result.ModifyVpcTenancyResult":
         r"""<p>Modifies the instance tenancy attribute of the specified VPC. You can change the instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the instance tenancy attribute to <code>dedicated</code>.</p> <p>After you modify the tenancy of the VPC, any new instances that you launch into the VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch. The tenancy of any existing instances in the VPC is not affected.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html\">Dedicated Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -47582,8 +49045,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_vpc_tenancy_request.ModifyVpcTenancyRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
-        input_["instance_tenancy"] = instance_tenancy
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if instance_tenancy is not None:
+            input_["instance_tenancy"] = instance_tenancy
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -47596,9 +49061,11 @@ class EC2Client:
 
     def modify_vpn_connection(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
         transit_gateway_id: Optional[
             "capo_ec2.types.transit_gateway_id.TransitGatewayId"
         ] = None,
@@ -47637,7 +49104,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_vpn_connection_request.ModifyVpnConnectionRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if customer_gateway_id is not None:
@@ -47656,9 +49124,11 @@ class EC2Client:
 
     def modify_vpn_connection_options(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
         local_ipv4_network_cidr: Optional["capo_ec2.types.string.String"] = None,
         remote_ipv4_network_cidr: Optional["capo_ec2.types.string.String"] = None,
         local_ipv6_network_cidr: Optional["capo_ec2.types.string.String"] = None,
@@ -47699,7 +49169,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_vpn_connection_options_request.ModifyVpnConnectionOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
         if local_ipv4_network_cidr is not None:
             input_["local_ipv4_network_cidr"] = local_ipv4_network_cidr
         if remote_ipv4_network_cidr is not None:
@@ -47722,10 +49193,12 @@ class EC2Client:
 
     def modify_vpn_tunnel_certificate(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
-        vpn_tunnel_outside_ip_address: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
+        vpn_tunnel_outside_ip_address: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.modify_vpn_tunnel_certificate_result.ModifyVpnTunnelCertificateResult":
         """<p>Modifies the VPN tunnel endpoint certificate.</p>
@@ -47755,8 +49228,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_vpn_tunnel_certificate_request.ModifyVpnTunnelCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
-        input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_tunnel_outside_ip_address is not None:
+            input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -47769,11 +49244,15 @@ class EC2Client:
 
     def modify_vpn_tunnel_options(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
-        vpn_tunnel_outside_ip_address: "capo_ec2.types.string.String",
-        tunnel_options: "capo_ec2.types.modify_vpn_tunnel_options_specification.ModifyVpnTunnelOptionsSpecification",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
+        vpn_tunnel_outside_ip_address: Optional["capo_ec2.types.string.String"] = None,
+        tunnel_options: Optional[
+            "capo_ec2.types.modify_vpn_tunnel_options_specification.ModifyVpnTunnelOptionsSpecification"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         skip_tunnel_replacement: Optional["capo_ec2.types.boolean.Boolean"] = None,
         pre_shared_key_storage: Optional["capo_ec2.types.string.String"] = None,
@@ -47808,9 +49287,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.modify_vpn_tunnel_options_request.ModifyVpnTunnelOptionsRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
-        input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
-        input_["tunnel_options"] = tunnel_options
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_tunnel_outside_ip_address is not None:
+            input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
+        if tunnel_options is not None:
+            input_["tunnel_options"] = tunnel_options
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if skip_tunnel_replacement is not None:
@@ -47827,9 +49309,11 @@ class EC2Client:
 
     def monitor_instances(
         self,
-        instance_ids: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.monitor_instances_result.MonitorInstancesResult":
         r"""<p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\">Monitor your instances using CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>To disable detailed monitoring, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html\">UnmonitorInstances</a>.</p>
@@ -47858,7 +49342,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.monitor_instances_request.MonitorInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -47871,10 +49356,10 @@ class EC2Client:
 
     def move_address_to_vpc(
         self,
-        public_ip: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        public_ip: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.move_address_to_vpc_result.MoveAddressToVpcResult":
         """<note> <p>This action is deprecated.</p> </note> <p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.</p>
 
@@ -47910,7 +49395,8 @@ class EC2Client:
         input_: capo_ec2.types.move_address_to_vpc_request.MoveAddressToVpcRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["public_ip"] = public_ip
+        if public_ip is not None:
+            input_["public_ip"] = public_ip
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -47921,12 +49407,12 @@ class EC2Client:
 
     def move_byoip_cidr_to_ipam(
         self,
-        cidr: "capo_ec2.types.string.String",
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
-        ipam_pool_owner: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
+        ipam_pool_owner: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.move_byoip_cidr_to_ipam_result.MoveByoipCidrToIpamResult":
         r"""<p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
 
@@ -47958,9 +49444,12 @@ class EC2Client:
         input_: capo_ec2.types.move_byoip_cidr_to_ipam_request.MoveByoipCidrToIpamRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["cidr"] = cidr
-        input_["ipam_pool_id"] = ipam_pool_id
-        input_["ipam_pool_owner"] = ipam_pool_owner
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_owner is not None:
+            input_["ipam_pool_owner"] = ipam_pool_owner
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -47971,13 +49460,17 @@ class EC2Client:
 
     def move_capacity_reservation_instances(
         self,
-        source_capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        destination_capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        instance_count: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
+        source_capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        destination_capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
     ) -> "capo_ec2.types.move_capacity_reservation_instances_result.MoveCapacityReservationInstancesResult":
         r"""<p>Move available capacity from a source Capacity Reservation to a destination Capacity Reservation. The source Capacity Reservation and the destination Capacity Reservation must be <code>active</code>, owned by your Amazon Web Services account, and share the following: </p> <ul> <li> <p>Instance type</p> </li> <li> <p>Platform</p> </li> <li> <p>Availability Zone</p> </li> <li> <p>Tenancy</p> </li> <li> <p>Placement group</p> </li> <li> <p>Capacity Reservation end time - <code>At specific time</code> or <code>Manually</code>.</p> </li> </ul>
 
@@ -48012,11 +49505,14 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["source_capacity_reservation_id"] = source_capacity_reservation_id
-        input_["destination_capacity_reservation_id"] = (
-            destination_capacity_reservation_id
-        )
-        input_["instance_count"] = instance_count
+        if source_capacity_reservation_id is not None:
+            input_["source_capacity_reservation_id"] = source_capacity_reservation_id
+        if destination_capacity_reservation_id is not None:
+            input_["destination_capacity_reservation_id"] = (
+                destination_capacity_reservation_id
+            )
+        if instance_count is not None:
+            input_["instance_count"] = instance_count
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48027,9 +49523,9 @@ class EC2Client:
 
     def provision_byoip_cidr(
         self,
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
         cidr_authorization_context: Optional[
             "capo_ec2.types.cidr_authorization_context.CidrAuthorizationContext"
         ] = None,
@@ -48074,7 +49570,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.provision_byoip_cidr_request.ProvisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input_["cidr"] = cidr
+        if cidr is not None:
+            input_["cidr"] = cidr
         if cidr_authorization_context is not None:
             input_["cidr_authorization_context"] = cidr_authorization_context
         if publicly_advertisable is not None:
@@ -48099,12 +49596,14 @@ class EC2Client:
 
     def provision_ipam_byoasn(
         self,
-        ipam_id: "capo_ec2.types.ipam_id.IpamId",
-        asn: "capo_ec2.types.string.String",
-        asn_authorization_context: "capo_ec2.types.asn_authorization_context.AsnAuthorizationContext",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
+        asn: Optional["capo_ec2.types.string.String"] = None,
+        asn_authorization_context: Optional[
+            "capo_ec2.types.asn_authorization_context.AsnAuthorizationContext"
+        ] = None,
     ) -> "capo_ec2.types.provision_ipam_byoasn_result.ProvisionIpamByoasnResult":
         r"""<p>Provisions your Autonomous System Number (ASN) for use in your Amazon Web Services account. This action requires authorization context for Amazon to bring the ASN to an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html\">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
 
@@ -48136,9 +49635,12 @@ class EC2Client:
         input_: capo_ec2.types.provision_ipam_byoasn_request.ProvisionIpamByoasnRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_id"] = ipam_id
-        input_["asn"] = asn
-        input_["asn_authorization_context"] = asn_authorization_context
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
+        if asn is not None:
+            input_["asn"] = asn
+        if asn_authorization_context is not None:
+            input_["asn_authorization_context"] = asn_authorization_context
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48149,10 +49651,10 @@ class EC2Client:
 
     def provision_ipam_pool_cidr(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
         cidr: Optional["capo_ec2.types.string.String"] = None,
         cidr_authorization_context: Optional[
             "capo_ec2.types.ipam_cidr_authorization_context.IpamCidrAuthorizationContext"
@@ -48200,7 +49702,8 @@ class EC2Client:
         input_: capo_ec2.types.provision_ipam_pool_cidr_request.ProvisionIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
         if cidr is not None:
             input_["cidr"] = cidr
         if cidr_authorization_context is not None:
@@ -48225,12 +49728,12 @@ class EC2Client:
 
     def provision_public_ipv4_pool_cidr(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
-        pool_id: "capo_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id",
-        netmask_length: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
+        pool_id: Optional["capo_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id"] = None,
+        netmask_length: Optional["capo_ec2.types.integer.Integer"] = None,
         network_border_group: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.provision_public_ipv4_pool_cidr_result.ProvisionPublicIpv4PoolCidrResult":
         r"""<p>Provision a CIDR to a public IPv4 pool.</p> <p>For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
@@ -48264,9 +49767,12 @@ class EC2Client:
         input_: capo_ec2.types.provision_public_ipv4_pool_cidr_request.ProvisionPublicIpv4PoolCidrRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
-        input_["pool_id"] = pool_id
-        input_["netmask_length"] = netmask_length
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
+        if pool_id is not None:
+            input_["pool_id"] = pool_id
+        if netmask_length is not None:
+            input_["netmask_length"] = netmask_length
         if network_border_group is not None:
             input_["network_border_group"] = network_border_group
 
@@ -48279,13 +49785,17 @@ class EC2Client:
 
     def purchase_capacity_block(
         self,
-        capacity_block_offering_id: "capo_ec2.types.offering_id.OfferingId",
-        instance_platform: "capo_ec2.types.capacity_reservation_instance_platform.CapacityReservationInstancePlatform",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
+        ] = None,
+        capacity_block_offering_id: Optional[
+            "capo_ec2.types.offering_id.OfferingId"
+        ] = None,
+        instance_platform: Optional[
+            "capo_ec2.types.capacity_reservation_instance_platform.CapacityReservationInstancePlatform"
         ] = None,
     ) -> "capo_ec2.types.purchase_capacity_block_result.PurchaseCapacityBlockResult":
         """<p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
@@ -48320,8 +49830,10 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        input_["capacity_block_offering_id"] = capacity_block_offering_id
-        input_["instance_platform"] = instance_platform
+        if capacity_block_offering_id is not None:
+            input_["capacity_block_offering_id"] = capacity_block_offering_id
+        if instance_platform is not None:
+            input_["instance_platform"] = instance_platform
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48332,10 +49844,14 @@ class EC2Client:
 
     def purchase_capacity_block_extension(
         self,
-        capacity_block_extension_offering_id: "capo_ec2.types.offering_id.OfferingId",
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_block_extension_offering_id: Optional[
+            "capo_ec2.types.offering_id.OfferingId"
+        ] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.purchase_capacity_block_extension_result.PurchaseCapacityBlockExtensionResult":
         """<p>Purchase the Capacity Block extension for use with your account. You must specify the ID of the Capacity Block extension offering you are purchasing.</p>
@@ -48365,10 +49881,12 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.purchase_capacity_block_extension_request.PurchaseCapacityBlockExtensionRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_block_extension_offering_id"] = (
-            capacity_block_extension_offering_id
-        )
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_block_extension_offering_id is not None:
+            input_["capacity_block_extension_offering_id"] = (
+                capacity_block_extension_offering_id
+            )
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -48381,15 +49899,17 @@ class EC2Client:
 
     def purchase_host_reservation(
         self,
-        host_id_set: "capo_ec2.types.request_host_id_set.RequestHostIdSet",
-        offering_id: "capo_ec2.types.offering_id.OfferingId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         currency_code: Optional[
             "capo_ec2.types.currency_code_values.CurrencyCodeValues"
         ] = None,
+        host_id_set: Optional[
+            "capo_ec2.types.request_host_id_set.RequestHostIdSet"
+        ] = None,
         limit_price: Optional["capo_ec2.types.string.String"] = None,
+        offering_id: Optional["capo_ec2.types.offering_id.OfferingId"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -48430,10 +49950,12 @@ class EC2Client:
             input_["client_token"] = client_token
         if currency_code is not None:
             input_["currency_code"] = currency_code
-        input_["host_id_set"] = host_id_set
+        if host_id_set is not None:
+            input_["host_id_set"] = host_id_set
         if limit_price is not None:
             input_["limit_price"] = limit_price
-        input_["offering_id"] = offering_id
+        if offering_id is not None:
+            input_["offering_id"] = offering_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -48446,10 +49968,12 @@ class EC2Client:
 
     def purchase_reserved_instances_offering(
         self,
-        instance_count: "capo_ec2.types.integer.Integer",
-        reserved_instances_offering_id: "capo_ec2.types.reserved_instances_offering_id.ReservedInstancesOfferingId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
+        reserved_instances_offering_id: Optional[
+            "capo_ec2.types.reserved_instances_offering_id.ReservedInstancesOfferingId"
+        ] = None,
         purchase_time: Optional["capo_ec2.types.date_time.DateTime"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         limit_price: Optional[
@@ -48485,8 +50009,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.purchase_reserved_instances_offering_request.PurchaseReservedInstancesOfferingRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_count"] = instance_count
-        input_["reserved_instances_offering_id"] = reserved_instances_offering_id
+        if instance_count is not None:
+            input_["instance_count"] = instance_count
+        if reserved_instances_offering_id is not None:
+            input_["reserved_instances_offering_id"] = reserved_instances_offering_id
         if purchase_time is not None:
             input_["purchase_time"] = purchase_time
         if dry_run is not None:
@@ -48503,11 +50029,13 @@ class EC2Client:
 
     def purchase_scheduled_instances(
         self,
-        purchase_requests: "capo_ec2.types.purchase_request_set.PurchaseRequestSet",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        purchase_requests: Optional[
+            "capo_ec2.types.purchase_request_set.PurchaseRequestSet"
+        ] = None,
     ) -> "capo_ec2.types.purchase_scheduled_instances_result.PurchaseScheduledInstancesResult":
         r"""<note> <p>You can no longer purchase Scheduled Instances.</p> </note> <p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
 
@@ -48540,7 +50068,8 @@ class EC2Client:
             input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["purchase_requests"] = purchase_requests
+        if purchase_requests is not None:
+            input_["purchase_requests"] = purchase_requests
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48551,9 +50080,11 @@ class EC2Client:
 
     def reboot_instances(
         self,
-        instance_ids: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p> <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p> <p>For more information about troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html\">Troubleshoot an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -48586,7 +50117,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reboot_instances_request.RebootInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -48599,7 +50131,6 @@ class EC2Client:
 
     def register_image(
         self,
-        name: "capo_ec2.types.image_name_request.ImageNameRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         image_location: Optional["capo_ec2.types.string.String"] = None,
@@ -48620,6 +50151,7 @@ class EC2Client:
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        name: Optional["capo_ec2.types.image_name_request.ImageNameRequest"] = None,
         description: Optional[
             "capo_ec2.types.image_description_request.ImageDescriptionRequest"
         ] = None,
@@ -48694,7 +50226,8 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if architecture is not None:
@@ -48723,10 +50256,12 @@ class EC2Client:
 
     def register_instance_event_notification_attributes(
         self,
-        instance_tag_attribute: "capo_ec2.types.register_instance_tag_attribute_request.RegisterInstanceTagAttributeRequest",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_tag_attribute: Optional[
+            "capo_ec2.types.register_instance_tag_attribute_request.RegisterInstanceTagAttributeRequest"
+        ] = None,
     ) -> "capo_ec2.types.register_instance_event_notification_attributes_result.RegisterInstanceEventNotificationAttributesResult":
         r"""<p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p> <p>To remove tags, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html\">DeregisterInstanceEventNotificationAttributes</a>.</p>
 
@@ -48756,7 +50291,8 @@ class EC2Client:
         input_: capo_ec2.types.register_instance_event_notification_attributes_request.RegisterInstanceEventNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_tag_attribute"] = instance_tag_attribute
+        if instance_tag_attribute is not None:
+            input_["instance_tag_attribute"] = instance_tag_attribute
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48767,11 +50303,15 @@ class EC2Client:
 
     def register_transit_gateway_multicast_group_members(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
-        network_interface_ids: "capo_ec2.types.transit_gateway_network_interface_id_list.TransitGatewayNetworkInterfaceIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         group_ip_address: Optional["capo_ec2.types.string.String"] = None,
+        network_interface_ids: Optional[
+            "capo_ec2.types.transit_gateway_network_interface_id_list.TransitGatewayNetworkInterfaceIdList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.register_transit_gateway_multicast_group_members_result.RegisterTransitGatewayMulticastGroupMembersResult":
         r"""<p>Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html\">Multicast on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p> <p>After you add the members, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html\">SearchTransitGatewayMulticastGroups</a> to verify that the members were added to the transit gateway multicast group.</p>
@@ -48802,12 +50342,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.register_transit_gateway_multicast_group_members_request.RegisterTransitGatewayMulticastGroupMembersRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
         if group_ip_address is not None:
             input_["group_ip_address"] = group_ip_address
-        input_["network_interface_ids"] = network_interface_ids
+        if network_interface_ids is not None:
+            input_["network_interface_ids"] = network_interface_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -48820,11 +50362,15 @@ class EC2Client:
 
     def register_transit_gateway_multicast_group_sources(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
-        network_interface_ids: "capo_ec2.types.transit_gateway_network_interface_id_list.TransitGatewayNetworkInterfaceIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         group_ip_address: Optional["capo_ec2.types.string.String"] = None,
+        network_interface_ids: Optional[
+            "capo_ec2.types.transit_gateway_network_interface_id_list.TransitGatewayNetworkInterfaceIdList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.register_transit_gateway_multicast_group_sources_result.RegisterTransitGatewayMulticastGroupSourcesResult":
         r"""<p>Registers sources (network interfaces) with the specified transit gateway multicast group.</p> <p>A multicast source is a network interface attached to a supported instance that sends multicast traffic. For more information about supported instances, see <a href=\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html\">Multicast on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p> <p>After you add the source, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html\">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast group.</p>
@@ -48855,12 +50401,14 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.register_transit_gateway_multicast_group_sources_request.RegisterTransitGatewayMulticastGroupSourcesRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
         if group_ip_address is not None:
             input_["group_ip_address"] = group_ip_address
-        input_["network_interface_ids"] = network_interface_ids
+        if network_interface_ids is not None:
+            input_["network_interface_ids"] = network_interface_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -48873,10 +50421,12 @@ class EC2Client:
 
     def reject_capacity_reservation_billing_ownership(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
     ) -> "capo_ec2.types.reject_capacity_reservation_billing_ownership_result.RejectCapacityReservationBillingOwnershipResult":
         r"""<p>Rejects a request to assign billing of the available capacity of a shared Capacity Reservation to your account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html\"> Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
 
@@ -48906,7 +50456,8 @@ class EC2Client:
         input_: capo_ec2.types.reject_capacity_reservation_billing_ownership_request.RejectCapacityReservationBillingOwnershipRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["capacity_reservation_id"] = capacity_reservation_id
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48917,9 +50468,11 @@ class EC2Client:
 
     def reject_transit_gateway_client_vpn_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.reject_transit_gateway_client_vpn_attachment_result.RejectTransitGatewayClientVpnAttachmentResult":
         """<p>Rejects a Transit Gateway attachment request for a Client VPN endpoint. The Transit Gateway owner can reject the attachment request to prevent the Client VPN endpoint from routing traffic through the Transit Gateway.</p>
@@ -48948,7 +50501,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reject_transit_gateway_client_vpn_attachment_request.RejectTransitGatewayClientVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -49020,9 +50574,11 @@ class EC2Client:
 
     def reject_transit_gateway_peering_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.reject_transit_gateway_peering_attachment_result.RejectTransitGatewayPeeringAttachmentResult":
         """<p>Rejects a transit gateway peering attachment request.</p>
@@ -49051,7 +50607,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reject_transit_gateway_peering_attachment_request.RejectTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -49064,9 +50621,11 @@ class EC2Client:
 
     def reject_transit_gateway_vpc_attachment(
         self,
-        transit_gateway_attachment_id: "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_attachment_id: Optional[
+            "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.reject_transit_gateway_vpc_attachment_result.RejectTransitGatewayVpcAttachmentResult":
         """<p>Rejects a request to attach a VPC to a transit gateway.</p> <p>The VPC attachment must be in the <code>pendingAcceptance</code> state. Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests. Use <a>AcceptTransitGatewayVpcAttachment</a> to accept a VPC attachment request.</p>
@@ -49095,7 +50654,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reject_transit_gateway_vpc_attachment_request.RejectTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        if transit_gateway_attachment_id is not None:
+            input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -49108,11 +50668,15 @@ class EC2Client:
 
     def reject_vpc_endpoint_connections(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
-        vpc_endpoint_ids: "capo_ec2.types.vpc_endpoint_id_list.VpcEndpointIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
+        vpc_endpoint_ids: Optional[
+            "capo_ec2.types.vpc_endpoint_id_list.VpcEndpointIdList"
+        ] = None,
     ) -> "capo_ec2.types.reject_vpc_endpoint_connections_result.RejectVpcEndpointConnectionsResult":
         """<p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
 
@@ -49143,8 +50707,10 @@ class EC2Client:
         input_: capo_ec2.types.reject_vpc_endpoint_connections_request.RejectVpcEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
-        input_["vpc_endpoint_ids"] = vpc_endpoint_ids
+        if service_id is not None:
+            input_["service_id"] = service_id
+        if vpc_endpoint_ids is not None:
+            input_["vpc_endpoint_ids"] = vpc_endpoint_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49155,10 +50721,12 @@ class EC2Client:
 
     def reject_vpc_peering_connection(
         self,
-        vpc_peering_connection_id: "capo_ec2.types.vpc_peering_connection_id.VpcPeeringConnectionId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        vpc_peering_connection_id: Optional[
+            "capo_ec2.types.vpc_peering_connection_id.VpcPeeringConnectionId"
+        ] = None,
     ) -> "capo_ec2.types.reject_vpc_peering_connection_result.RejectVpcPeeringConnectionResult":
         """<p>Rejects a VPC peering connection request. The VPC peering connection must be in the <code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use <a>DeleteVpcPeeringConnection</a>.</p>
 
@@ -49188,7 +50756,8 @@ class EC2Client:
         input_: capo_ec2.types.reject_vpc_peering_connection_request.RejectVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["vpc_peering_connection_id"] = vpc_peering_connection_id
+        if vpc_peering_connection_id is not None:
+            input_["vpc_peering_connection_id"] = vpc_peering_connection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49256,9 +50825,11 @@ class EC2Client:
 
     def release_hosts(
         self,
-        host_ids: "capo_ec2.types.request_host_id_list.RequestHostIdList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        host_ids: Optional[
+            "capo_ec2.types.request_host_id_list.RequestHostIdList"
+        ] = None,
     ) -> "capo_ec2.types.release_hosts_result.ReleaseHostsResult":
         """<p>When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into <code>released</code> state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, for example, to modify the host. You must stop or terminate all instances on a host before it can be released.</p> <p>When Dedicated Hosts are released, it may take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated Hosts. Wait a few minutes and then try again.</p> <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
 
@@ -49285,7 +50856,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.release_hosts_request.ReleaseHostsRequest = {}  # type: ignore[typeddict-item]
-        input_["host_ids"] = host_ids
+        if host_ids is not None:
+            input_["host_ids"] = host_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49296,12 +50868,14 @@ class EC2Client:
 
     def release_ipam_pool_allocation(
         self,
-        ipam_pool_id: "capo_ec2.types.ipam_pool_id.IpamPoolId",
-        cidr: "capo_ec2.types.string.String",
-        ipam_pool_allocation_id: "capo_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_pool_id: Optional["capo_ec2.types.ipam_pool_id.IpamPoolId"] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        ipam_pool_allocation_id: Optional[
+            "capo_ec2.types.ipam_pool_allocation_id.IpamPoolAllocationId"
+        ] = None,
     ) -> "capo_ec2.types.release_ipam_pool_allocation_result.ReleaseIpamPoolAllocationResult":
         r"""<p>Release an allocation within an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\">ModifyIpamResourceCidr</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/release-alloc-ipam.html\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p> <note> <p>All EC2 API actions follow an <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">eventual consistency</a> model.</p> </note>
 
@@ -49333,9 +50907,12 @@ class EC2Client:
         input_: capo_ec2.types.release_ipam_pool_allocation_request.ReleaseIpamPoolAllocationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["ipam_pool_id"] = ipam_pool_id
-        input_["cidr"] = cidr
-        input_["ipam_pool_allocation_id"] = ipam_pool_allocation_id
+        if ipam_pool_id is not None:
+            input_["ipam_pool_id"] = ipam_pool_id
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if ipam_pool_allocation_id is not None:
+            input_["ipam_pool_allocation_id"] = ipam_pool_allocation_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49346,10 +50923,14 @@ class EC2Client:
 
     def replace_iam_instance_profile_association(
         self,
-        iam_instance_profile: "capo_ec2.types.iam_instance_profile_specification.IamInstanceProfileSpecification",
-        association_id: "capo_ec2.types.iam_instance_profile_association_id.IamInstanceProfileAssociationId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        iam_instance_profile: Optional[
+            "capo_ec2.types.iam_instance_profile_specification.IamInstanceProfileSpecification"
+        ] = None,
+        association_id: Optional[
+            "capo_ec2.types.iam_instance_profile_association_id.IamInstanceProfileAssociationId"
+        ] = None,
     ) -> "capo_ec2.types.replace_iam_instance_profile_association_result.ReplaceIamInstanceProfileAssociationResult":
         """<p>Replaces an IAM instance profile for the specified running instance. You can use this action to change the IAM instance profile that's associated with an instance without having to disassociate the existing IAM instance profile first.</p> <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association ID.</p>
 
@@ -49377,8 +50958,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.replace_iam_instance_profile_association_request.ReplaceIamInstanceProfileAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["iam_instance_profile"] = iam_instance_profile
-        input_["association_id"] = association_id
+        if iam_instance_profile is not None:
+            input_["iam_instance_profile"] = iam_instance_profile
+        if association_id is not None:
+            input_["association_id"] = association_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49436,11 +51019,13 @@ class EC2Client:
 
     def replace_network_acl_association(
         self,
-        association_id: "capo_ec2.types.network_acl_association_id.NetworkAclAssociationId",
-        network_acl_id: "capo_ec2.types.network_acl_id.NetworkAclId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        association_id: Optional[
+            "capo_ec2.types.network_acl_association_id.NetworkAclAssociationId"
+        ] = None,
+        network_acl_id: Optional["capo_ec2.types.network_acl_id.NetworkAclId"] = None,
     ) -> "capo_ec2.types.replace_network_acl_association_result.ReplaceNetworkAclAssociationResult":
         r"""<p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html\">Network ACLs</a> in the <i>Amazon VPC User Guide</i>.</p> <p>This is an idempotent operation.</p>
 
@@ -49477,8 +51062,10 @@ class EC2Client:
         input_: capo_ec2.types.replace_network_acl_association_request.ReplaceNetworkAclAssociationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["association_id"] = association_id
-        input_["network_acl_id"] = network_acl_id
+        if association_id is not None:
+            input_["association_id"] = association_id
+        if network_acl_id is not None:
+            input_["network_acl_id"] = network_acl_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49489,14 +51076,14 @@ class EC2Client:
 
     def replace_network_acl_entry(
         self,
-        network_acl_id: "capo_ec2.types.network_acl_id.NetworkAclId",
-        rule_number: "capo_ec2.types.integer.Integer",
-        protocol: "capo_ec2.types.string.String",
-        rule_action: "capo_ec2.types.rule_action.RuleAction",
-        egress: "capo_ec2.types.boolean.Boolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_acl_id: Optional["capo_ec2.types.network_acl_id.NetworkAclId"] = None,
+        rule_number: Optional["capo_ec2.types.integer.Integer"] = None,
+        protocol: Optional["capo_ec2.types.string.String"] = None,
+        rule_action: Optional["capo_ec2.types.rule_action.RuleAction"] = None,
+        egress: Optional["capo_ec2.types.boolean.Boolean"] = None,
         cidr_block: Optional["capo_ec2.types.string.String"] = None,
         ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         icmp_type_code: Optional["capo_ec2.types.icmp_type_code.IcmpTypeCode"] = None,
@@ -49542,11 +51129,16 @@ class EC2Client:
         input_: capo_ec2.types.replace_network_acl_entry_request.ReplaceNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_acl_id"] = network_acl_id
-        input_["rule_number"] = rule_number
-        input_["protocol"] = protocol
-        input_["rule_action"] = rule_action
-        input_["egress"] = egress
+        if network_acl_id is not None:
+            input_["network_acl_id"] = network_acl_id
+        if rule_number is not None:
+            input_["rule_number"] = rule_number
+        if protocol is not None:
+            input_["protocol"] = protocol
+        if rule_action is not None:
+            input_["rule_action"] = rule_action
+        if egress is not None:
+            input_["egress"] = egress
         if cidr_block is not None:
             input_["cidr_block"] = cidr_block
         if ipv6_cidr_block is not None:
@@ -49565,7 +51157,6 @@ class EC2Client:
 
     def replace_route(
         self,
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         destination_prefix_list_id: Optional[
@@ -49591,6 +51182,7 @@ class EC2Client:
             "capo_ec2.types.odb_network_arn.OdbNetworkArn"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
         destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
         gateway_id: Optional["capo_ec2.types.route_gateway_id.RouteGatewayId"] = None,
         destination_ipv6_cidr_block: Optional["capo_ec2.types.string.String"] = None,
@@ -49670,7 +51262,8 @@ class EC2Client:
             input_["odb_network_arn"] = odb_network_arn
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["route_table_id"] = route_table_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if gateway_id is not None:
@@ -49697,11 +51290,13 @@ class EC2Client:
 
     def replace_route_table_association(
         self,
-        association_id: "capo_ec2.types.route_table_association_id.RouteTableAssociationId",
-        route_table_id: "capo_ec2.types.route_table_id.RouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        association_id: Optional[
+            "capo_ec2.types.route_table_association_id.RouteTableAssociationId"
+        ] = None,
+        route_table_id: Optional["capo_ec2.types.route_table_id.RouteTableId"] = None,
     ) -> "capo_ec2.types.replace_route_table_association_result.ReplaceRouteTableAssociationResult":
         r"""<p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation completes, the subnet or gateway uses the routes in the new route table. For more information about route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the <i>Amazon VPC User Guide</i>.</p> <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
 
@@ -49738,8 +51333,10 @@ class EC2Client:
         input_: capo_ec2.types.replace_route_table_association_request.ReplaceRouteTableAssociationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["association_id"] = association_id
-        input_["route_table_id"] = route_table_id
+        if association_id is not None:
+            input_["association_id"] = association_id
+        if route_table_id is not None:
+            input_["route_table_id"] = route_table_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -49750,10 +51347,12 @@ class EC2Client:
 
     def replace_transit_gateway_route(
         self,
-        destination_cidr_block: "capo_ec2.types.string.String",
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        destination_cidr_block: Optional["capo_ec2.types.string.String"] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
         transit_gateway_attachment_id: Optional[
             "capo_ec2.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
         ] = None,
@@ -49789,8 +51388,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.replace_transit_gateway_route_request.ReplaceTransitGatewayRouteRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_cidr_block"] = destination_cidr_block
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if destination_cidr_block is not None:
+            input_["destination_cidr_block"] = destination_cidr_block
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if blackhole is not None:
@@ -49807,10 +51408,12 @@ class EC2Client:
 
     def replace_vpn_tunnel(
         self,
-        vpn_connection_id: "capo_ec2.types.vpn_connection_id.VpnConnectionId",
-        vpn_tunnel_outside_ip_address: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        vpn_connection_id: Optional[
+            "capo_ec2.types.vpn_connection_id.VpnConnectionId"
+        ] = None,
+        vpn_tunnel_outside_ip_address: Optional["capo_ec2.types.string.String"] = None,
         apply_pending_maintenance: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.replace_vpn_tunnel_result.ReplaceVpnTunnelResult":
@@ -49842,8 +51445,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.replace_vpn_tunnel_request.ReplaceVpnTunnelRequest = {}  # type: ignore[typeddict-item]
-        input_["vpn_connection_id"] = vpn_connection_id
-        input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
+        if vpn_connection_id is not None:
+            input_["vpn_connection_id"] = vpn_connection_id
+        if vpn_tunnel_outside_ip_address is not None:
+            input_["vpn_tunnel_outside_ip_address"] = vpn_tunnel_outside_ip_address
         if apply_pending_maintenance is not None:
             input_["apply_pending_maintenance"] = apply_pending_maintenance
         if dry_run is not None:
@@ -49858,14 +51463,18 @@ class EC2Client:
 
     def report_instance_status(
         self,
-        instances: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
-        status: "capo_ec2.types.report_status_type.ReportStatusType",
-        reason_codes: "capo_ec2.types.reason_codes_list.ReasonCodesList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instances: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
+        status: Optional["capo_ec2.types.report_status_type.ReportStatusType"] = None,
         start_time: Optional["capo_ec2.types.date_time.DateTime"] = None,
         end_time: Optional["capo_ec2.types.date_time.DateTime"] = None,
+        reason_codes: Optional[
+            "capo_ec2.types.reason_codes_list.ReasonCodesList"
+        ] = None,
         description: Optional[
             "capo_ec2.types.report_instance_status_request_description.ReportInstanceStatusRequestDescription"
         ] = None,
@@ -49901,13 +51510,16 @@ class EC2Client:
         input_: capo_ec2.types.report_instance_status_request.ReportInstanceStatusRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instances"] = instances
-        input_["status"] = status
+        if instances is not None:
+            input_["instances"] = instances
+        if status is not None:
+            input_["status"] = status
         if start_time is not None:
             input_["start_time"] = start_time
         if end_time is not None:
             input_["end_time"] = end_time
-        input_["reason_codes"] = reason_codes
+        if reason_codes is not None:
+            input_["reason_codes"] = reason_codes
         if description is not None:
             input_["description"] = description
 
@@ -49920,10 +51532,12 @@ class EC2Client:
 
     def request_spot_fleet(
         self,
-        spot_fleet_request_config: "capo_ec2.types.spot_fleet_request_config_data.SpotFleetRequestConfigData",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        spot_fleet_request_config: Optional[
+            "capo_ec2.types.spot_fleet_request_config_data.SpotFleetRequestConfigData"
+        ] = None,
     ) -> "capo_ec2.types.request_spot_fleet_response.RequestSpotFleetResponse":
         r"""<p>Creates a Spot Fleet request.</p> <p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p> <p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p> <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p> <p>You can specify tags for the Spot Fleet request and instances launched by the fleet. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html\">Spot Fleet requests</a> in the <i>Amazon EC2 User Guide</i>.</p> <important> <p>We strongly discourage using the RequestSpotFleet API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.</p> </important>
 
@@ -49971,7 +51585,8 @@ class EC2Client:
         input_: capo_ec2.types.request_spot_fleet_request.RequestSpotFleetRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["spot_fleet_request_config"] = spot_fleet_request_config
+        if spot_fleet_request_config is not None:
+            input_["spot_fleet_request_config"] = spot_fleet_request_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -50087,10 +51702,12 @@ class EC2Client:
 
     def reset_address_attribute(
         self,
-        allocation_id: "capo_ec2.types.allocation_id.AllocationId",
-        attribute: "capo_ec2.types.address_attribute_name.AddressAttributeName",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        allocation_id: Optional["capo_ec2.types.allocation_id.AllocationId"] = None,
+        attribute: Optional[
+            "capo_ec2.types.address_attribute_name.AddressAttributeName"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.reset_address_attribute_result.ResetAddressAttributeResult":
         r"""<p>Resets the attribute of the specified IP address. For requirements, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS\">Using reverse DNS for email applications</a>.</p>
@@ -50120,8 +51737,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reset_address_attribute_request.ResetAddressAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["allocation_id"] = allocation_id
-        input_["attribute"] = attribute
+        if allocation_id is not None:
+            input_["allocation_id"] = allocation_id
+        if attribute is not None:
+            input_["attribute"] = attribute
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -50175,10 +51794,10 @@ class EC2Client:
 
     def reset_fpga_image_attribute(
         self,
-        fpga_image_id: "capo_ec2.types.fpga_image_id.FpgaImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        fpga_image_id: Optional["capo_ec2.types.fpga_image_id.FpgaImageId"] = None,
         attribute: Optional[
             "capo_ec2.types.reset_fpga_image_attribute_name.ResetFpgaImageAttributeName"
         ] = None,
@@ -50214,7 +51833,8 @@ class EC2Client:
         input_: capo_ec2.types.reset_fpga_image_attribute_request.ResetFpgaImageAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["fpga_image_id"] = fpga_image_id
+        if fpga_image_id is not None:
+            input_["fpga_image_id"] = fpga_image_id
         if attribute is not None:
             input_["attribute"] = attribute
 
@@ -50227,10 +51847,12 @@ class EC2Client:
 
     def reset_image_attribute(
         self,
-        attribute: "capo_ec2.types.reset_image_attribute_name.ResetImageAttributeName",
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        attribute: Optional[
+            "capo_ec2.types.reset_image_attribute_name.ResetImageAttributeName"
+        ] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         """<p>Resets an attribute of an AMI to its default value.</p>
@@ -50264,8 +51886,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reset_image_attribute_request.ResetImageAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["attribute"] = attribute
-        input_["image_id"] = image_id
+        if attribute is not None:
+            input_["attribute"] = attribute
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -50278,11 +51902,13 @@ class EC2Client:
 
     def reset_instance_attribute(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
-        attribute: "capo_ec2.types.instance_attribute_name.InstanceAttributeName",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
+        attribute: Optional[
+            "capo_ec2.types.instance_attribute_name.InstanceAttributeName"
+        ] = None,
     ) -> None:
         r"""<p>Resets an attribute of an instance to its default value. To reset the <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped state. To reset the <code>sourceDestCheck</code>, the instance can be either running or stopped.</p> <p>The <code>sourceDestCheck</code> attribute controls whether source/destination checking is enabled. The default value is <code>true</code>, which means checking is enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html\">NAT instances</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -50317,8 +51943,10 @@ class EC2Client:
         input_: capo_ec2.types.reset_instance_attribute_request.ResetInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["instance_id"] = instance_id
-        input_["attribute"] = attribute
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if attribute is not None:
+            input_["attribute"] = attribute
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -50329,10 +51957,12 @@ class EC2Client:
 
     def reset_network_interface_attribute(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         source_dest_check: Optional["capo_ec2.types.string.String"] = None,
     ) -> None:
         """<p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
@@ -50362,7 +51992,8 @@ class EC2Client:
         input_: capo_ec2.types.reset_network_interface_attribute_request.ResetNetworkInterfaceAttributeRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if source_dest_check is not None:
             input_["source_dest_check"] = source_dest_check
 
@@ -50375,10 +52006,12 @@ class EC2Client:
 
     def reset_snapshot_attribute(
         self,
-        attribute: "capo_ec2.types.snapshot_attribute_name.SnapshotAttributeName",
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        attribute: Optional[
+            "capo_ec2.types.snapshot_attribute_name.SnapshotAttributeName"
+        ] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Resets permission settings for the specified snapshot.</p> <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -50412,8 +52045,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.reset_snapshot_attribute_request.ResetSnapshotAttributeRequest = {}  # type: ignore[typeddict-item]
-        input_["attribute"] = attribute
-        input_["snapshot_id"] = snapshot_id
+        if attribute is not None:
+            input_["attribute"] = attribute
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -50426,10 +52061,10 @@ class EC2Client:
 
     def restore_address_to_classic(
         self,
-        public_ip: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        public_ip: Optional["capo_ec2.types.string.String"] = None,
     ) -> (
         "capo_ec2.types.restore_address_to_classic_result.RestoreAddressToClassicResult"
     ):
@@ -50461,7 +52096,8 @@ class EC2Client:
         input_: capo_ec2.types.restore_address_to_classic_request.RestoreAddressToClassicRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["public_ip"] = public_ip
+        if public_ip is not None:
+            input_["public_ip"] = public_ip
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -50472,9 +52108,9 @@ class EC2Client:
 
     def restore_image_from_recycle_bin(
         self,
-        image_id: "capo_ec2.types.image_id.ImageId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.restore_image_from_recycle_bin_result.RestoreImageFromRecycleBinResult":
         r"""<p>Restores an AMI from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recover deleted Amazon EBS snapshots and EBS-back AMIs with Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -50503,7 +52139,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.restore_image_from_recycle_bin_request.RestoreImageFromRecycleBinRequest = {}  # type: ignore[typeddict-item]
-        input_["image_id"] = image_id
+        if image_id is not None:
+            input_["image_id"] = image_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -50516,12 +52153,14 @@ class EC2Client:
 
     def restore_managed_prefix_list_version(
         self,
-        prefix_list_id: "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId",
-        previous_version: "capo_ec2.types.long.Long",
-        current_version: "capo_ec2.types.long.Long",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        prefix_list_id: Optional[
+            "capo_ec2.types.prefix_list_resource_id.PrefixListResourceId"
+        ] = None,
+        previous_version: Optional["capo_ec2.types.long.Long"] = None,
+        current_version: Optional["capo_ec2.types.long.Long"] = None,
     ) -> "capo_ec2.types.restore_managed_prefix_list_version_result.RestoreManagedPrefixListVersionResult":
         """<p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
 
@@ -50553,9 +52192,12 @@ class EC2Client:
         input_: capo_ec2.types.restore_managed_prefix_list_version_request.RestoreManagedPrefixListVersionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["prefix_list_id"] = prefix_list_id
-        input_["previous_version"] = previous_version
-        input_["current_version"] = current_version
+        if prefix_list_id is not None:
+            input_["prefix_list_id"] = prefix_list_id
+        if previous_version is not None:
+            input_["previous_version"] = previous_version
+        if current_version is not None:
+            input_["current_version"] = current_version
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -50566,9 +52208,9 @@ class EC2Client:
 
     def restore_snapshot_from_recycle_bin(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.restore_snapshot_from_recycle_bin_result.RestoreSnapshotFromRecycleBinResult":
         r"""<p>Restores a snapshot from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps\">Restore snapshots from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -50597,7 +52239,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.restore_snapshot_from_recycle_bin_request.RestoreSnapshotFromRecycleBinRequest = {}  # type: ignore[typeddict-item]
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -50610,9 +52253,9 @@ class EC2Client:
 
     def restore_snapshot_tier(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         temporary_restore_days: Optional[
             "capo_ec2.types.restore_snapshot_tier_request_temporary_restore_days.RestoreSnapshotTierRequestTemporaryRestoreDays"
         ] = None,
@@ -50647,7 +52290,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.restore_snapshot_tier_request.RestoreSnapshotTierRequest = {}  # type: ignore[typeddict-item]
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if temporary_restore_days is not None:
             input_["temporary_restore_days"] = temporary_restore_days
         if permanent_restore is not None:
@@ -50664,9 +52308,9 @@ class EC2Client:
 
     def restore_volume_from_recycle_bin(
         self,
-        volume_id: "capo_ec2.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.restore_volume_from_recycle_bin_result.RestoreVolumeFromRecycleBinResult":
         r"""<p>Restores a volume from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-volumes.html#recycle-bin-restore-volumes\">Restore volumes from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -50695,7 +52339,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.restore_volume_from_recycle_bin_request.RestoreVolumeFromRecycleBinRequest = {}  # type: ignore[typeddict-item]
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -50708,10 +52353,12 @@ class EC2Client:
 
     def revoke_client_vpn_ingress(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
-        target_network_cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
+        target_network_cidr: Optional["capo_ec2.types.string.String"] = None,
         access_group_id: Optional["capo_ec2.types.string.String"] = None,
         revoke_all_groups: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -50745,8 +52392,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.revoke_client_vpn_ingress_request.RevokeClientVpnIngressRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
-        input_["target_network_cidr"] = target_network_cidr
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if target_network_cidr is not None:
+            input_["target_network_cidr"] = target_network_cidr
         if access_group_id is not None:
             input_["access_group_id"] = access_group_id
         if revoke_all_groups is not None:
@@ -50763,13 +52412,13 @@ class EC2Client:
 
     def revoke_security_group_egress(
         self,
-        group_id: "capo_ec2.types.security_group_id.SecurityGroupId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         security_group_rule_ids: Optional[
             "capo_ec2.types.security_group_rule_id_list.SecurityGroupRuleIdList"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        group_id: Optional["capo_ec2.types.security_group_id.SecurityGroupId"] = None,
         source_security_group_name: Optional["capo_ec2.types.string.String"] = None,
         source_security_group_owner_id: Optional["capo_ec2.types.string.String"] = None,
         ip_protocol: Optional["capo_ec2.types.string.String"] = None,
@@ -50818,7 +52467,8 @@ class EC2Client:
             input_["security_group_rule_ids"] = security_group_rule_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["group_id"] = group_id
+        if group_id is not None:
+            input_["group_id"] = group_id
         if source_security_group_name is not None:
             input_["source_security_group_name"] = source_security_group_name
         if source_security_group_owner_id is not None:
@@ -50930,8 +52580,6 @@ class EC2Client:
 
     def run_instances(
         self,
-        max_count: "capo_ec2.types.integer.Integer",
-        min_count: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         block_device_mappings: Optional[
@@ -50945,6 +52593,8 @@ class EC2Client:
         ] = None,
         kernel_id: Optional["capo_ec2.types.kernel_id.KernelId"] = None,
         key_name: Optional["capo_ec2.types.key_pair_name.KeyPairName"] = None,
+        max_count: Optional["capo_ec2.types.integer.Integer"] = None,
+        min_count: Optional["capo_ec2.types.integer.Integer"] = None,
         monitoring: Optional[
             "capo_ec2.types.run_instances_monitoring_enabled.RunInstancesMonitoringEnabled"
         ] = None,
@@ -51113,8 +52763,10 @@ class EC2Client:
             input_["kernel_id"] = kernel_id
         if key_name is not None:
             input_["key_name"] = key_name
-        input_["max_count"] = max_count
-        input_["min_count"] = min_count
+        if max_count is not None:
+            input_["max_count"] = max_count
+        if min_count is not None:
+            input_["min_count"] = min_count
         if monitoring is not None:
             input_["monitoring"] = monitoring
         if placement is not None:
@@ -51199,13 +52851,17 @@ class EC2Client:
 
     def run_scheduled_instances(
         self,
-        launch_specification: "capo_ec2.types.scheduled_instances_launch_specification.ScheduledInstancesLaunchSpecification",
-        scheduled_instance_id: "capo_ec2.types.scheduled_instance_id.ScheduledInstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
+        launch_specification: Optional[
+            "capo_ec2.types.scheduled_instances_launch_specification.ScheduledInstancesLaunchSpecification"
+        ] = None,
+        scheduled_instance_id: Optional[
+            "capo_ec2.types.scheduled_instance_id.ScheduledInstanceId"
+        ] = None,
     ) -> "capo_ec2.types.run_scheduled_instances_result.RunScheduledInstancesResult":
         r"""<p>Launches the specified Scheduled Instances.</p> <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p> <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes.</p>
 
@@ -51242,8 +52898,10 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if instance_count is not None:
             input_["instance_count"] = instance_count
-        input_["launch_specification"] = launch_specification
-        input_["scheduled_instance_id"] = scheduled_instance_id
+        if launch_specification is not None:
+            input_["launch_specification"] = launch_specification
+        if scheduled_instance_id is not None:
+            input_["scheduled_instance_id"] = scheduled_instance_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -51254,9 +52912,11 @@ class EC2Client:
 
     def search_local_gateway_routes(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
@@ -51291,7 +52951,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.search_local_gateway_routes_request.SearchLocalGatewayRoutesRequest = {}  # type: ignore[typeddict-item]
-        input_["local_gateway_route_table_id"] = local_gateway_route_table_id
+        if local_gateway_route_table_id is not None:
+            input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -51310,9 +52971,11 @@ class EC2Client:
 
     def iter_search_local_gateway_routes(
         self,
-        local_gateway_route_table_id: "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        local_gateway_route_table_id: Optional[
+            "capo_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional["capo_ec2.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
@@ -51321,8 +52984,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.search_local_gateway_routes(
-                local_gateway_route_table_id,
                 config_overrides=config_overrides,
+                local_gateway_route_table_id=local_gateway_route_table_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -51337,9 +53000,11 @@ class EC2Client:
 
     def search_transit_gateway_multicast_groups(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -51376,9 +53041,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.search_transit_gateway_multicast_groups_request.SearchTransitGatewayMulticastGroupsRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_multicast_domain_id"] = (
-            transit_gateway_multicast_domain_id
-        )
+        if transit_gateway_multicast_domain_id is not None:
+            input_["transit_gateway_multicast_domain_id"] = (
+                transit_gateway_multicast_domain_id
+            )
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -51397,9 +53063,11 @@ class EC2Client:
 
     def iter_search_transit_gateway_multicast_groups(
         self,
-        transit_gateway_multicast_domain_id: "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_multicast_domain_id: Optional[
+            "capo_ec2.types.transit_gateway_multicast_domain_id.TransitGatewayMulticastDomainId"
+        ] = None,
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
@@ -51410,8 +53078,8 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.search_transit_gateway_multicast_groups(
-                transit_gateway_multicast_domain_id,
                 config_overrides=config_overrides,
+                transit_gateway_multicast_domain_id=transit_gateway_multicast_domain_id,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -51426,10 +53094,12 @@ class EC2Client:
 
     def search_transit_gateway_routes(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        filters: "capo_ec2.types.filter_list.FilterList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
         ] = None,
@@ -51465,8 +53135,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.search_transit_gateway_routes_request.SearchTransitGatewayRoutesRequest = {}  # type: ignore[typeddict-item]
-        input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-        input_["filters"] = filters
+        if transit_gateway_route_table_id is not None:
+            input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        if filters is not None:
+            input_["filters"] = filters
         if max_results is not None:
             input_["max_results"] = max_results
         if dry_run is not None:
@@ -51483,10 +53155,12 @@ class EC2Client:
 
     def iter_search_transit_gateway_routes(
         self,
-        transit_gateway_route_table_id: "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId",
-        filters: "capo_ec2.types.filter_list.FilterList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         max_results: Optional[
             "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
         ] = None,
@@ -51496,9 +53170,9 @@ class EC2Client:
         _token = next_token
         while True:
             _response = self.search_transit_gateway_routes(
-                transit_gateway_route_table_id,
-                filters,
                 config_overrides=config_overrides,
+                transit_gateway_route_table_id=transit_gateway_route_table_id,
+                filters=filters,
                 max_results=max_results,
                 dry_run=dry_run,
                 next_token=_token,
@@ -51512,9 +53186,9 @@ class EC2Client:
 
     def send_diagnostic_interrupt(
         self,
-        instance_id: "capo_ec2.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_id: Optional["capo_ec2.types.instance_id.InstanceId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p> <p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p> <p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p> <p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html\">Send a diagnostic interrupt (for advanced users)</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -51541,7 +53215,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.send_diagnostic_interrupt_request.SendDiagnosticInterruptRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -51554,12 +53229,12 @@ class EC2Client:
 
     def start_declarative_policies_report(
         self,
-        s3_bucket: "capo_ec2.types.string.String",
-        target_id: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        s3_bucket: Optional["capo_ec2.types.string.String"] = None,
         s3_prefix: Optional["capo_ec2.types.string.String"] = None,
+        target_id: Optional["capo_ec2.types.string.String"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
@@ -51595,10 +53270,12 @@ class EC2Client:
         input_: capo_ec2.types.start_declarative_policies_report_request.StartDeclarativePoliciesReportRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["s3_bucket"] = s3_bucket
+        if s3_bucket is not None:
+            input_["s3_bucket"] = s3_bucket
         if s3_prefix is not None:
             input_["s3_prefix"] = s3_prefix
-        input_["target_id"] = target_id
+        if target_id is not None:
+            input_["target_id"] = target_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -51611,9 +53288,11 @@ class EC2Client:
 
     def start_instances(
         self,
-        instance_ids: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
         additional_info: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.start_instances_result.StartInstancesResult":
@@ -51650,7 +53329,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.start_instances_request.StartInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if additional_info is not None:
             input_["additional_info"] = additional_info
         if dry_run is not None:
@@ -51665,14 +53345,16 @@ class EC2Client:
 
     def start_network_insights_access_scope_analysis(
         self,
-        network_insights_access_scope_id: "capo_ec2.types.network_insights_access_scope_id.NetworkInsightsAccessScopeId",
-        client_token: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_insights_access_scope_id: Optional[
+            "capo_ec2.types.network_insights_access_scope_id.NetworkInsightsAccessScopeId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.start_network_insights_access_scope_analysis_result.StartNetworkInsightsAccessScopeAnalysisResult":
         r"""<p>Starts analyzing the specified Network Access Scope.</p>
 
@@ -51702,12 +53384,16 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.start_network_insights_access_scope_analysis_request.StartNetworkInsightsAccessScopeAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input_["network_insights_access_scope_id"] = network_insights_access_scope_id
+        if network_insights_access_scope_id is not None:
+            input_["network_insights_access_scope_id"] = (
+                network_insights_access_scope_id
+            )
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        input_["client_token"] = client_token
+        if client_token is not None:
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -51718,10 +53404,11 @@ class EC2Client:
 
     def start_network_insights_analysis(
         self,
-        network_insights_path_id: "capo_ec2.types.network_insights_path_id.NetworkInsightsPathId",
-        client_token: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        network_insights_path_id: Optional[
+            "capo_ec2.types.network_insights_path_id.NetworkInsightsPathId"
+        ] = None,
         additional_accounts: Optional[
             "capo_ec2.types.value_string_list.ValueStringList"
         ] = None,
@@ -51731,6 +53418,7 @@ class EC2Client:
         tag_specifications: Optional[
             "capo_ec2.types.tag_specification_list.TagSpecificationList"
         ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.start_network_insights_analysis_result.StartNetworkInsightsAnalysisResult":
         r"""<p>Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path.</p>
 
@@ -51763,7 +53451,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.start_network_insights_analysis_request.StartNetworkInsightsAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input_["network_insights_path_id"] = network_insights_path_id
+        if network_insights_path_id is not None:
+            input_["network_insights_path_id"] = network_insights_path_id
         if additional_accounts is not None:
             input_["additional_accounts"] = additional_accounts
         if filter_in_arns is not None:
@@ -51774,7 +53463,8 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        input_["client_token"] = client_token
+        if client_token is not None:
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -51785,10 +53475,12 @@ class EC2Client:
 
     def start_vpc_endpoint_service_private_dns_verification(
         self,
-        service_id: "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
     ) -> "capo_ec2.types.start_vpc_endpoint_service_private_dns_verification_result.StartVpcEndpointServicePrivateDnsVerificationResult":
         """<p>Initiates the verification process to prove that the service provider owns the private DNS name domain for the endpoint service.</p> <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p> <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
 
@@ -51818,7 +53510,8 @@ class EC2Client:
         input_: capo_ec2.types.start_vpc_endpoint_service_private_dns_verification_request.StartVpcEndpointServicePrivateDnsVerificationRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        input_["service_id"] = service_id
+        if service_id is not None:
+            input_["service_id"] = service_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -51829,9 +53522,11 @@ class EC2Client:
 
     def stop_instances(
         self,
-        instance_ids: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
         hibernate: Optional["capo_ec2.types.boolean.Boolean"] = None,
         skip_os_shutdown: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -51872,7 +53567,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.stop_instances_request.StopInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if hibernate is not None:
             input_["hibernate"] = hibernate
         if skip_os_shutdown is not None:
@@ -51891,9 +53587,11 @@ class EC2Client:
 
     def terminate_client_vpn_connections(
         self,
-        client_vpn_endpoint_id: "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        client_vpn_endpoint_id: Optional[
+            "capo_ec2.types.client_vpn_endpoint_id.ClientVpnEndpointId"
+        ] = None,
         connection_id: Optional["capo_ec2.types.string.String"] = None,
         username: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -51926,7 +53624,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.terminate_client_vpn_connections_request.TerminateClientVpnConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
+        if client_vpn_endpoint_id is not None:
+            input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if connection_id is not None:
             input_["connection_id"] = connection_id
         if username is not None:
@@ -51943,9 +53642,11 @@ class EC2Client:
 
     def terminate_instances(
         self,
-        instance_ids: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
         force: Optional["capo_ec2.types.boolean.Boolean"] = None,
         skip_os_shutdown: Optional["capo_ec2.types.boolean.Boolean"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
@@ -51984,7 +53685,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.terminate_instances_request.TerminateInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if force is not None:
             input_["force"] = force
         if skip_os_shutdown is not None:
@@ -52001,10 +53703,12 @@ class EC2Client:
 
     def unassign_ipv6_addresses(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ipv6_prefixes: Optional["capo_ec2.types.ip_prefix_list.IpPrefixList"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         ipv6_addresses: Optional[
             "capo_ec2.types.ipv6_address_list.Ipv6AddressList"
         ] = None,
@@ -52038,7 +53742,8 @@ class EC2Client:
         input_: capo_ec2.types.unassign_ipv6_addresses_request.UnassignIpv6AddressesRequest = {}  # type: ignore[typeddict-item]
         if ipv6_prefixes is not None:
             input_["ipv6_prefixes"] = ipv6_prefixes
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if ipv6_addresses is not None:
             input_["ipv6_addresses"] = ipv6_addresses
 
@@ -52051,10 +53756,12 @@ class EC2Client:
 
     def unassign_private_ip_addresses(
         self,
-        network_interface_id: "capo_ec2.types.network_interface_id.NetworkInterfaceId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
         ipv4_prefixes: Optional["capo_ec2.types.ip_prefix_list.IpPrefixList"] = None,
+        network_interface_id: Optional[
+            "capo_ec2.types.network_interface_id.NetworkInterfaceId"
+        ] = None,
         private_ip_addresses: Optional[
             "capo_ec2.types.private_ip_address_string_list.PrivateIpAddressStringList"
         ] = None,
@@ -52092,7 +53799,8 @@ class EC2Client:
         input_: capo_ec2.types.unassign_private_ip_addresses_request.UnassignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
         if ipv4_prefixes is not None:
             input_["ipv4_prefixes"] = ipv4_prefixes
-        input_["network_interface_id"] = network_interface_id
+        if network_interface_id is not None:
+            input_["network_interface_id"] = network_interface_id
         if private_ip_addresses is not None:
             input_["private_ip_addresses"] = private_ip_addresses
 
@@ -52105,10 +53813,10 @@ class EC2Client:
 
     def unassign_private_nat_gateway_address(
         self,
-        nat_gateway_id: "capo_ec2.types.nat_gateway_id.NatGatewayId",
-        private_ip_addresses: "capo_ec2.types.ip_list.IpList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        nat_gateway_id: Optional["capo_ec2.types.nat_gateway_id.NatGatewayId"] = None,
+        private_ip_addresses: Optional["capo_ec2.types.ip_list.IpList"] = None,
         max_drain_duration_seconds: Optional[
             "capo_ec2.types.drain_seconds.DrainSeconds"
         ] = None,
@@ -52142,8 +53850,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.unassign_private_nat_gateway_address_request.UnassignPrivateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
-        input_["nat_gateway_id"] = nat_gateway_id
-        input_["private_ip_addresses"] = private_ip_addresses
+        if nat_gateway_id is not None:
+            input_["nat_gateway_id"] = nat_gateway_id
+        if private_ip_addresses is not None:
+            input_["private_ip_addresses"] = private_ip_addresses
         if max_drain_duration_seconds is not None:
             input_["max_drain_duration_seconds"] = max_drain_duration_seconds
         if dry_run is not None:
@@ -52158,9 +53868,9 @@ class EC2Client:
 
     def unlock_snapshot(
         self,
-        snapshot_id: "capo_ec2.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        snapshot_id: Optional["capo_ec2.types.snapshot_id.SnapshotId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.unlock_snapshot_result.UnlockSnapshotResult":
         """<p>Unlocks a snapshot that is locked in governance mode or that is locked in compliance mode but still in the cooling-off period. You can't unlock a snapshot that is locked in compliance mode after the cooling-off period has expired.</p>
@@ -52189,7 +53899,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.unlock_snapshot_request.UnlockSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -52202,9 +53913,11 @@ class EC2Client:
 
     def unmonitor_instances(
         self,
-        instance_ids: "capo_ec2.types.instance_id_string_list.InstanceIdStringList",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional[
+            "capo_ec2.types.instance_id_string_list.InstanceIdStringList"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.unmonitor_instances_result.UnmonitorInstancesResult":
         r"""<p>Disables detailed monitoring for a running instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html\">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -52233,7 +53946,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.unmonitor_instances_request.UnmonitorInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -52303,9 +54017,11 @@ class EC2Client:
 
     def update_capacity_manager_organizations_access(
         self,
-        organizations_access: "capo_ec2.types.boxed_boolean.BoxedBoolean",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        organizations_access: Optional[
+            "capo_ec2.types.boxed_boolean.BoxedBoolean"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.update_capacity_manager_organizations_access_result.UpdateCapacityManagerOrganizationsAccessResult":
@@ -52336,7 +54052,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.update_capacity_manager_organizations_access_request.UpdateCapacityManagerOrganizationsAccessRequest = {}  # type: ignore[typeddict-item]
-        input_["organizations_access"] = organizations_access
+        if organizations_access is not None:
+            input_["organizations_access"] = organizations_access
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is not None:
@@ -52351,10 +54068,12 @@ class EC2Client:
 
     def update_interruptible_capacity_reservation_allocation(
         self,
-        capacity_reservation_id: "capo_ec2.types.capacity_reservation_id.CapacityReservationId",
-        target_instance_count: "capo_ec2.types.integer.Integer",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        target_instance_count: Optional["capo_ec2.types.integer.Integer"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.update_interruptible_capacity_reservation_allocation_result.UpdateInterruptibleCapacityReservationAllocationResult":
         """<p> Modifies the number of instances allocated to an interruptible reservation, allowing you to add more capacity or reclaim capacity to your source Capacity Reservation. </p>
@@ -52384,8 +54103,10 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.update_interruptible_capacity_reservation_allocation_request.UpdateInterruptibleCapacityReservationAllocationRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_reservation_id"] = capacity_reservation_id
-        input_["target_instance_count"] = target_instance_count
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
+        if target_instance_count is not None:
+            input_["target_instance_count"] = target_instance_count
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -52540,9 +54261,9 @@ class EC2Client:
 
     def withdraw_byoip_cidr(
         self,
-        cidr: "capo_ec2.types.string.String",
         *,
         config_overrides: Optional[EC2ClientConfig] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.withdraw_byoip_cidr_result.WithdrawByoipCidrResult":
         """<p>Stops advertising an address range that is provisioned as an address pool.</p> <p>You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.</p> <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of BGP propagation delays.</p>
@@ -52571,7 +54292,8 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.withdraw_byoip_cidr_request.WithdrawByoipCidrRequest = {}  # type: ignore[typeddict-item]
-        input_["cidr"] = cidr
+        if cidr is not None:
+            input_["cidr"] = cidr
         if dry_run is not None:
             input_["dry_run"] = dry_run
 

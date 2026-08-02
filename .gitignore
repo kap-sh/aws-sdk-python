@@ -9,6 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+# Lockfiles of generated service SDKs
+uv.lock
+
 # Node
 node_modules/
 

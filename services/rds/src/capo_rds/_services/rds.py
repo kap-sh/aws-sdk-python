@@ -549,10 +549,10 @@ class RDSClient:
 
     def add_role_to_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        role_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
+        role_arn: Optional["capo_rds.types.string.String"] = None,
         feature_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         """<p>Associates an Identity and Access Management (IAM) role with a DB cluster.</p>
@@ -590,8 +590,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.add_role_to_db_cluster_message.AddRoleToDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["role_arn"] = role_arn
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if feature_name is not None:
             input_["feature_name"] = feature_name
 
@@ -604,11 +606,11 @@ class RDSClient:
 
     def add_role_to_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        role_arn: "capo_rds.types.string.String",
-        feature_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        role_arn: Optional["capo_rds.types.string.String"] = None,
+        feature_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         """<p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p> <note> <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p> </note> <p>This command doesn't apply to RDS Custom.</p>
 
@@ -645,9 +647,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.add_role_to_db_instance_message.AddRoleToDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["role_arn"] = role_arn
-        input_["feature_name"] = feature_name
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if feature_name is not None:
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -658,10 +663,10 @@ class RDSClient:
 
     def add_source_identifier_to_subscription(
         self,
-        subscription_name: "capo_rds.types.string.String",
-        source_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        subscription_name: Optional["capo_rds.types.string.String"] = None,
+        source_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.add_source_identifier_to_subscription_result.AddSourceIdentifierToSubscriptionResult":
         """<p>Adds a source identifier to an existing RDS event notification subscription.</p>
 
@@ -697,8 +702,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["source_identifier"] = source_identifier
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if source_identifier is not None:
+            input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -709,10 +716,10 @@ class RDSClient:
 
     def add_tags_to_resource(
         self,
-        resource_name: "capo_rds.types.string.String",
-        tags: "capo_rds.types.tag_list.TagList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_name: Optional["capo_rds.types.string.String"] = None,
+        tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> None:
         r"""<p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p> <p>For an overview on tagging your relational database resources, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html\">Tagging Amazon RDS Resources</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html\">Tagging Amazon Aurora and Amazon RDS Resources</a>. </p>
 
@@ -758,8 +765,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tags"] = tags
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -770,11 +779,11 @@ class RDSClient:
 
     def apply_pending_maintenance_action(
         self,
-        resource_identifier: "capo_rds.types.string.String",
-        apply_action: "capo_rds.types.string.String",
-        opt_in_type: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_identifier: Optional["capo_rds.types.string.String"] = None,
+        apply_action: Optional["capo_rds.types.string.String"] = None,
+        opt_in_type: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.apply_pending_maintenance_action_result.ApplyPendingMaintenanceActionResult":
         r"""<p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
 
@@ -812,9 +821,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_identifier"] = resource_identifier
-        input_["apply_action"] = apply_action
-        input_["opt_in_type"] = opt_in_type
+        if resource_identifier is not None:
+            input_["resource_identifier"] = resource_identifier
+        if apply_action is not None:
+            input_["apply_action"] = apply_action
+        if opt_in_type is not None:
+            input_["opt_in_type"] = opt_in_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -825,9 +837,9 @@ class RDSClient:
 
     def authorize_db_security_group_ingress(
         self,
-        db_security_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_security_group_name: Optional["capo_rds.types.string.String"] = None,
         cidrip: Optional["capo_rds.types.string.String"] = None,
         ec2_security_group_name: Optional["capo_rds.types.string.String"] = None,
         ec2_security_group_id: Optional["capo_rds.types.string.String"] = None,
@@ -872,7 +884,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.authorize_db_security_group_ingress_message.AuthorizeDBSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input_["db_security_group_name"] = db_security_group_name
+        if db_security_group_name is not None:
+            input_["db_security_group_name"] = db_security_group_name
         if cidrip is not None:
             input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
@@ -891,10 +904,10 @@ class RDSClient:
 
     def backtrack_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        backtrack_to: "capo_rds.types.t_stamp.TStamp",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
+        backtrack_to: Optional["capo_rds.types.t_stamp.TStamp"] = None,
         force: Optional["capo_rds.types.boolean_optional.BooleanOptional"] = None,
         use_earliest_time_on_point_in_time_unavailable: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
@@ -930,8 +943,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.backtrack_db_cluster_message.BacktrackDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["backtrack_to"] = backtrack_to
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if backtrack_to is not None:
+            input_["backtrack_to"] = backtrack_to
         if force is not None:
             input_["force"] = force
         if use_earliest_time_on_point_in_time_unavailable is not None:
@@ -948,9 +963,9 @@ class RDSClient:
 
     def cancel_export_task(
         self,
-        export_task_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        export_task_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.export_task.ExportTask":
         """<p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3. Any data that has already been written to the S3 bucket isn't removed.</p>
 
@@ -983,7 +998,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.cancel_export_task_message.CancelExportTaskMessage = {}  # type: ignore[typeddict-item]
-        input_["export_task_identifier"] = export_task_identifier
+        if export_task_identifier is not None:
+            input_["export_task_identifier"] = export_task_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -994,11 +1010,17 @@ class RDSClient:
 
     def copy_db_cluster_parameter_group(
         self,
-        source_db_cluster_parameter_group_identifier: "capo_rds.types.string.String",
-        target_db_cluster_parameter_group_identifier: "capo_rds.types.string.String",
-        target_db_cluster_parameter_group_description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_db_cluster_parameter_group_identifier: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        target_db_cluster_parameter_group_identifier: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        target_db_cluster_parameter_group_description: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.copy_db_cluster_parameter_group_result.CopyDBClusterParameterGroupResult":
         r"""<p>Copies the specified DB cluster parameter group.</p> <note> <p>You can't copy a default DB cluster parameter group. Instead, create a new custom DB cluster parameter group, which copies the default parameters and values for the specified DB cluster parameter group family.</p> </note>
@@ -1037,15 +1059,18 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_cluster_parameter_group_identifier"] = (
-            source_db_cluster_parameter_group_identifier
-        )
-        input_["target_db_cluster_parameter_group_identifier"] = (
-            target_db_cluster_parameter_group_identifier
-        )
-        input_["target_db_cluster_parameter_group_description"] = (
-            target_db_cluster_parameter_group_description
-        )
+        if source_db_cluster_parameter_group_identifier is not None:
+            input_["source_db_cluster_parameter_group_identifier"] = (
+                source_db_cluster_parameter_group_identifier
+            )
+        if target_db_cluster_parameter_group_identifier is not None:
+            input_["target_db_cluster_parameter_group_identifier"] = (
+                target_db_cluster_parameter_group_identifier
+            )
+        if target_db_cluster_parameter_group_description is not None:
+            input_["target_db_cluster_parameter_group_description"] = (
+                target_db_cluster_parameter_group_description
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -1058,10 +1083,14 @@ class RDSClient:
 
     def copy_db_cluster_snapshot(
         self,
-        source_db_cluster_snapshot_identifier: "capo_rds.types.string.String",
-        target_db_cluster_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_db_cluster_snapshot_identifier: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        target_db_cluster_snapshot_identifier: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         kms_key_id: Optional["capo_rds.types.string.String"] = None,
         pre_signed_url: Optional[
             "capo_rds.types.sensitive_string.SensitiveString"
@@ -1110,12 +1139,14 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_cluster_snapshot_identifier"] = (
-            source_db_cluster_snapshot_identifier
-        )
-        input_["target_db_cluster_snapshot_identifier"] = (
-            target_db_cluster_snapshot_identifier
-        )
+        if source_db_cluster_snapshot_identifier is not None:
+            input_["source_db_cluster_snapshot_identifier"] = (
+                source_db_cluster_snapshot_identifier
+            )
+        if target_db_cluster_snapshot_identifier is not None:
+            input_["target_db_cluster_snapshot_identifier"] = (
+                target_db_cluster_snapshot_identifier
+            )
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
@@ -1134,11 +1165,17 @@ class RDSClient:
 
     def copy_db_parameter_group(
         self,
-        source_db_parameter_group_identifier: "capo_rds.types.string.String",
-        target_db_parameter_group_identifier: "capo_rds.types.string.String",
-        target_db_parameter_group_description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_db_parameter_group_identifier: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        target_db_parameter_group_identifier: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        target_db_parameter_group_description: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.copy_db_parameter_group_result.CopyDBParameterGroupResult":
         r"""<p>Copies the specified DB parameter group.</p> <note> <p>You can't copy a default DB parameter group. Instead, create a new custom DB parameter group, which copies the default parameters and values for the specified DB parameter group family.</p> </note>
@@ -1177,15 +1214,18 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.copy_db_parameter_group_message.CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_parameter_group_identifier"] = (
-            source_db_parameter_group_identifier
-        )
-        input_["target_db_parameter_group_identifier"] = (
-            target_db_parameter_group_identifier
-        )
-        input_["target_db_parameter_group_description"] = (
-            target_db_parameter_group_description
-        )
+        if source_db_parameter_group_identifier is not None:
+            input_["source_db_parameter_group_identifier"] = (
+                source_db_parameter_group_identifier
+            )
+        if target_db_parameter_group_identifier is not None:
+            input_["target_db_parameter_group_identifier"] = (
+                target_db_parameter_group_identifier
+            )
+        if target_db_parameter_group_description is not None:
+            input_["target_db_parameter_group_description"] = (
+                target_db_parameter_group_description
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -1198,10 +1238,10 @@ class RDSClient:
 
     def copy_db_snapshot(
         self,
-        source_db_snapshot_identifier: "capo_rds.types.string.String",
-        target_db_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
+        target_db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
         kms_key_id: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
         copy_tags: Optional["capo_rds.types.boolean_optional.BooleanOptional"] = None,
@@ -1264,8 +1304,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.copy_db_snapshot_message.CopyDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_snapshot_identifier"] = source_db_snapshot_identifier
-        input_["target_db_snapshot_identifier"] = target_db_snapshot_identifier
+        if source_db_snapshot_identifier is not None:
+            input_["source_db_snapshot_identifier"] = source_db_snapshot_identifier
+        if target_db_snapshot_identifier is not None:
+            input_["target_db_snapshot_identifier"] = target_db_snapshot_identifier
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -1294,11 +1336,13 @@ class RDSClient:
 
     def copy_option_group(
         self,
-        source_option_group_identifier: "capo_rds.types.string.String",
-        target_option_group_identifier: "capo_rds.types.string.String",
-        target_option_group_description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_option_group_identifier: Optional["capo_rds.types.string.String"] = None,
+        target_option_group_identifier: Optional["capo_rds.types.string.String"] = None,
+        target_option_group_description: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.copy_option_group_result.CopyOptionGroupResult":
         """<p>Copies the specified option group.</p>
@@ -1337,9 +1381,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.copy_option_group_message.CopyOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["source_option_group_identifier"] = source_option_group_identifier
-        input_["target_option_group_identifier"] = target_option_group_identifier
-        input_["target_option_group_description"] = target_option_group_description
+        if source_option_group_identifier is not None:
+            input_["source_option_group_identifier"] = source_option_group_identifier
+        if target_option_group_identifier is not None:
+            input_["target_option_group_identifier"] = target_option_group_identifier
+        if target_option_group_description is not None:
+            input_["target_option_group_description"] = target_option_group_description
         if tags is not None:
             input_["tags"] = tags
 
@@ -1352,10 +1399,12 @@ class RDSClient:
 
     def create_blue_green_deployment(
         self,
-        blue_green_deployment_name: "capo_rds.types.blue_green_deployment_name.BlueGreenDeploymentName",
-        source: "capo_rds.types.database_arn.DatabaseArn",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        blue_green_deployment_name: Optional[
+            "capo_rds.types.blue_green_deployment_name.BlueGreenDeploymentName"
+        ] = None,
+        source: Optional["capo_rds.types.database_arn.DatabaseArn"] = None,
         target_engine_version: Optional[
             "capo_rds.types.target_engine_version.TargetEngineVersion"
         ] = None,
@@ -1441,8 +1490,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_blue_green_deployment_request.CreateBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input_["blue_green_deployment_name"] = blue_green_deployment_name
-        input_["source"] = source
+        if blue_green_deployment_name is not None:
+            input_["blue_green_deployment_name"] = blue_green_deployment_name
+        if source is not None:
+            input_["source"] = source
         if target_engine_version is not None:
             input_["target_engine_version"] = target_engine_version
         if target_db_parameter_group_name is not None:
@@ -1475,10 +1526,12 @@ class RDSClient:
 
     def create_custom_db_engine_version(
         self,
-        engine: "capo_rds.types.custom_engine_name.CustomEngineName",
-        engine_version: "capo_rds.types.custom_engine_version.CustomEngineVersion",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine: Optional["capo_rds.types.custom_engine_name.CustomEngineName"] = None,
+        engine_version: Optional[
+            "capo_rds.types.custom_engine_version.CustomEngineVersion"
+        ] = None,
         database_installation_files_s3_bucket_name: Optional[
             "capo_rds.types.bucket_name.BucketName"
         ] = None,
@@ -1542,8 +1595,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_custom_db_engine_version_message.CreateCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
-        input_["engine"] = engine
-        input_["engine_version"] = engine_version
+        if engine is not None:
+            input_["engine"] = engine
+        if engine_version is not None:
+            input_["engine_version"] = engine_version
         if database_installation_files_s3_bucket_name is not None:
             input_["database_installation_files_s3_bucket_name"] = (
                 database_installation_files_s3_bucket_name
@@ -1580,8 +1635,6 @@ class RDSClient:
 
     def create_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        engine: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
         availability_zones: Optional[
@@ -1592,6 +1645,7 @@ class RDSClient:
         ] = None,
         character_set_name: Optional["capo_rds.types.string.String"] = None,
         database_name: Optional["capo_rds.types.string.String"] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         db_cluster_parameter_group_name: Optional[
             "capo_rds.types.string.String"
         ] = None,
@@ -1599,6 +1653,7 @@ class RDSClient:
             "capo_rds.types.vpc_security_group_id_list.VpcSecurityGroupIdList"
         ] = None,
         db_subnet_group_name: Optional["capo_rds.types.string.String"] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
         port: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         master_username: Optional["capo_rds.types.string.String"] = None,
@@ -1834,14 +1889,16 @@ class RDSClient:
             input_["character_set_name"] = character_set_name
         if database_name is not None:
             input_["database_name"] = database_name
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
             input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
             input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
@@ -1960,11 +2017,11 @@ class RDSClient:
 
     def create_db_cluster_endpoint(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        db_cluster_endpoint_identifier: "capo_rds.types.string.String",
-        endpoint_type: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
+        db_cluster_endpoint_identifier: Optional["capo_rds.types.string.String"] = None,
+        endpoint_type: Optional["capo_rds.types.string.String"] = None,
         static_members: Optional["capo_rds.types.string_list.StringList"] = None,
         excluded_members: Optional["capo_rds.types.string_list.StringList"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
@@ -2009,9 +2066,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_cluster_endpoint_message.CreateDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
-        input_["endpoint_type"] = endpoint_type
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_endpoint_identifier is not None:
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        if endpoint_type is not None:
+            input_["endpoint_type"] = endpoint_type
         if static_members is not None:
             input_["static_members"] = static_members
         if excluded_members is not None:
@@ -2028,11 +2088,13 @@ class RDSClient:
 
     def create_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_rds.types.string.String",
-        db_parameter_group_family: "capo_rds.types.string.String",
-        description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        db_parameter_group_family: Optional["capo_rds.types.string.String"] = None,
+        description: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.create_db_cluster_parameter_group_result.CreateDBClusterParameterGroupResult":
         r"""<p>Creates a new DB cluster parameter group.</p> <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p> <p>A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using <code>ModifyDBClusterParameterGroup</code>. Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using <code>ModifyDBCluster</code>.</p> <p>When you associate a new DB cluster parameter group with a running Aurora DB cluster, reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.</p> <p>When you associate a new DB cluster parameter group with a running Multi-AZ DB cluster, reboot the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.</p> <important> <p>After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the <a href=\"https://console.aws.amazon.com/rds/\">Amazon RDS console</a> or the <code>DescribeDBClusterParameters</code> operation to verify that your DB cluster parameter group has been created or modified.</p> </important> <p>For more information on Amazon Aurora, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
@@ -2071,9 +2133,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input_["db_parameter_group_family"] = db_parameter_group_family
-        input_["description"] = description
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -2086,10 +2151,10 @@ class RDSClient:
 
     def create_db_cluster_snapshot(
         self,
-        db_cluster_snapshot_identifier: "capo_rds.types.string.String",
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> (
         "capo_rds.types.create_db_cluster_snapshot_result.CreateDBClusterSnapshotResult"
@@ -2132,8 +2197,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if tags is not None:
             input_["tags"] = tags
 
@@ -2146,15 +2213,15 @@ class RDSClient:
 
     def create_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        db_instance_class: "capo_rds.types.string.String",
-        engine: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
         db_name: Optional["capo_rds.types.string.String"] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         allocated_storage: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
         ] = None,
+        db_instance_class: Optional["capo_rds.types.string.String"] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         master_username: Optional["capo_rds.types.string.String"] = None,
         master_user_password: Optional[
             "capo_rds.types.sensitive_string.SensitiveString"
@@ -2396,11 +2463,14 @@ class RDSClient:
         input_: capo_rds.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
             input_["db_name"] = db_name
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
             input_["allocated_storage"] = allocated_storage
-        input_["db_instance_class"] = db_instance_class
-        input_["engine"] = engine
+        if db_instance_class is not None:
+            input_["db_instance_class"] = db_instance_class
+        if engine is not None:
+            input_["engine"] = engine
         if master_username is not None:
             input_["master_username"] = master_username
         if master_user_password is not None:
@@ -2539,9 +2609,9 @@ class RDSClient:
 
     def create_db_instance_read_replica(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         source_db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         db_instance_class: Optional["capo_rds.types.string.String"] = None,
         availability_zone: Optional["capo_rds.types.string.String"] = None,
@@ -2740,7 +2810,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_instance_read_replica_message.CreateDBInstanceReadReplicaMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if source_db_instance_identifier is not None:
             input_["source_db_instance_identifier"] = source_db_instance_identifier
         if db_instance_class is not None:
@@ -2851,11 +2922,11 @@ class RDSClient:
 
     def create_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_rds.types.string.String",
-        db_parameter_group_family: "capo_rds.types.string.String",
-        description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_name: Optional["capo_rds.types.string.String"] = None,
+        db_parameter_group_family: Optional["capo_rds.types.string.String"] = None,
+        description: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.create_db_parameter_group_result.CreateDBParameterGroupResult":
         r"""<p>Creates a new DB parameter group.</p> <p>A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using <code>ModifyDBParameterGroup</code>. Once you've created a DB parameter group, you need to associate it with your DB instance using <code>ModifyDBInstance</code>. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect.</p> <p>This command doesn't apply to RDS Custom.</p>
@@ -2894,9 +2965,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_parameter_group_message.CreateDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
-        input_["db_parameter_group_family"] = db_parameter_group_family
-        input_["description"] = description
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -2909,18 +2983,18 @@ class RDSClient:
 
     def create_db_proxy(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
-        engine_family: "capo_rds.types.engine_family.EngineFamily",
-        role_arn: "capo_rds.types.arn.Arn",
-        vpc_subnet_ids: "capo_rds.types.string_list.StringList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
+        engine_family: Optional["capo_rds.types.engine_family.EngineFamily"] = None,
         default_auth_scheme: Optional[
             "capo_rds.types.default_auth_scheme.DefaultAuthScheme"
         ] = None,
         auth: Optional[
             "capo_rds.types.user_auth_config_list.UserAuthConfigList"
         ] = None,
+        role_arn: Optional["capo_rds.types.arn.Arn"] = None,
+        vpc_subnet_ids: Optional["capo_rds.types.string_list.StringList"] = None,
         vpc_security_group_ids: Optional[
             "capo_rds.types.string_list.StringList"
         ] = None,
@@ -2977,14 +3051,18 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_proxy_request.CreateDBProxyRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
-        input_["engine_family"] = engine_family
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
+        if engine_family is not None:
+            input_["engine_family"] = engine_family
         if default_auth_scheme is not None:
             input_["default_auth_scheme"] = default_auth_scheme
         if auth is not None:
             input_["auth"] = auth
-        input_["role_arn"] = role_arn
-        input_["vpc_subnet_ids"] = vpc_subnet_ids
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if vpc_subnet_ids is not None:
+            input_["vpc_subnet_ids"] = vpc_subnet_ids
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
         if require_tls is not None:
@@ -3009,11 +3087,13 @@ class RDSClient:
 
     def create_db_proxy_endpoint(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
-        db_proxy_endpoint_name: "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName",
-        vpc_subnet_ids: "capo_rds.types.string_list.StringList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
+        db_proxy_endpoint_name: Optional[
+            "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName"
+        ] = None,
+        vpc_subnet_ids: Optional["capo_rds.types.string_list.StringList"] = None,
         vpc_security_group_ids: Optional[
             "capo_rds.types.string_list.StringList"
         ] = None,
@@ -3062,9 +3142,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_proxy_endpoint_request.CreateDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
-        input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
-        input_["vpc_subnet_ids"] = vpc_subnet_ids
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_endpoint_name is not None:
+            input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+        if vpc_subnet_ids is not None:
+            input_["vpc_subnet_ids"] = vpc_subnet_ids
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
         if target_role is not None:
@@ -3083,10 +3166,10 @@ class RDSClient:
 
     def create_db_security_group(
         self,
-        db_security_group_name: "capo_rds.types.string.String",
-        db_security_group_description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_security_group_name: Optional["capo_rds.types.string.String"] = None,
+        db_security_group_description: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.create_db_security_group_result.CreateDBSecurityGroupResult":
         r"""<p>Creates a new DB security group. DB security groups control access to a DB instance.</p> <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p> <note> <p>EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>, the blog <a href=\"http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/\">EC2-Classic Networking is Retiring – Here’s How to Prepare</a>, and <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html\">Moving a DB instance not in a VPC into a VPC</a> in the <i>Amazon RDS User Guide</i>.</p> </note>
@@ -3125,8 +3208,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_security_group_message.CreateDBSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_security_group_name"] = db_security_group_name
-        input_["db_security_group_description"] = db_security_group_description
+        if db_security_group_name is not None:
+            input_["db_security_group_name"] = db_security_group_name
+        if db_security_group_description is not None:
+            input_["db_security_group_description"] = db_security_group_description
         if tags is not None:
             input_["tags"] = tags
 
@@ -3139,14 +3224,14 @@ class RDSClient:
 
     def create_db_shard_group(
         self,
-        db_shard_group_identifier: "capo_rds.types.string.String",
-        db_cluster_identifier: "capo_rds.types.string.String",
-        max_acu: "capo_rds.types.double_optional.DoubleOptional",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_shard_group_identifier: Optional["capo_rds.types.string.String"] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         compute_redundancy: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
         ] = None,
+        max_acu: Optional["capo_rds.types.double_optional.DoubleOptional"] = None,
         min_acu: Optional["capo_rds.types.double_optional.DoubleOptional"] = None,
         publicly_accessible: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
@@ -3188,11 +3273,14 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_shard_group_message.CreateDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_shard_group_identifier"] = db_shard_group_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_shard_group_identifier is not None:
+            input_["db_shard_group_identifier"] = db_shard_group_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if compute_redundancy is not None:
             input_["compute_redundancy"] = compute_redundancy
-        input_["max_acu"] = max_acu
+        if max_acu is not None:
+            input_["max_acu"] = max_acu
         if min_acu is not None:
             input_["min_acu"] = min_acu
         if publicly_accessible is not None:
@@ -3209,10 +3297,10 @@ class RDSClient:
 
     def create_db_snapshot(
         self,
-        db_snapshot_identifier: "capo_rds.types.string.String",
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.create_db_snapshot_result.CreateDBSnapshotResult":
         """<p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or <code>storage-optimization</code> state.</p>
@@ -3251,8 +3339,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_snapshot_message.CreateDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_snapshot_identifier"] = db_snapshot_identifier
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_snapshot_identifier is not None:
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if tags is not None:
             input_["tags"] = tags
 
@@ -3265,11 +3355,13 @@ class RDSClient:
 
     def create_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_rds.types.string.String",
-        db_subnet_group_description: "capo_rds.types.string.String",
-        subnet_ids: "capo_rds.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_subnet_group_name: Optional["capo_rds.types.string.String"] = None,
+        db_subnet_group_description: Optional["capo_rds.types.string.String"] = None,
+        subnet_ids: Optional[
+            "capo_rds.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.create_db_subnet_group_result.CreateDBSubnetGroupResult":
         """<p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
@@ -3311,9 +3403,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["db_subnet_group_description"] = db_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_description is not None:
+            input_["db_subnet_group_description"] = db_subnet_group_description
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
             input_["tags"] = tags
 
@@ -3326,10 +3421,10 @@ class RDSClient:
 
     def create_event_subscription(
         self,
-        subscription_name: "capo_rds.types.string.String",
-        sns_topic_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        subscription_name: Optional["capo_rds.types.string.String"] = None,
+        sns_topic_arn: Optional["capo_rds.types.string.String"] = None,
         source_type: Optional["capo_rds.types.string.String"] = None,
         event_categories: Optional[
             "capo_rds.types.event_categories_list.EventCategoriesList"
@@ -3383,8 +3478,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["sns_topic_arn"] = sns_topic_arn
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if sns_topic_arn is not None:
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
             input_["source_type"] = source_type
         if event_categories is not None:
@@ -3405,9 +3502,11 @@ class RDSClient:
 
     def create_global_cluster(
         self,
-        global_cluster_identifier: "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
         source_db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         engine: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
@@ -3466,7 +3565,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if source_db_cluster_identifier is not None:
             input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if engine is not None:
@@ -3493,11 +3593,13 @@ class RDSClient:
 
     def create_integration(
         self,
-        source_arn: "capo_rds.types.source_arn.SourceArn",
-        target_arn: "capo_rds.types.arn.Arn",
-        integration_name: "capo_rds.types.integration_name.IntegrationName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_arn: Optional["capo_rds.types.source_arn.SourceArn"] = None,
+        target_arn: Optional["capo_rds.types.arn.Arn"] = None,
+        integration_name: Optional[
+            "capo_rds.types.integration_name.IntegrationName"
+        ] = None,
         kms_key_id: Optional["capo_rds.types.string.String"] = None,
         additional_encryption_context: Optional[
             "capo_rds.types.encryption_context_map.EncryptionContextMap"
@@ -3549,9 +3651,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_integration_message.CreateIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input_["source_arn"] = source_arn
-        input_["target_arn"] = target_arn
-        input_["integration_name"] = integration_name
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
+        if target_arn is not None:
+            input_["target_arn"] = target_arn
+        if integration_name is not None:
+            input_["integration_name"] = integration_name
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if additional_encryption_context is not None:
@@ -3572,12 +3677,12 @@ class RDSClient:
 
     def create_option_group(
         self,
-        option_group_name: "capo_rds.types.string.String",
-        engine_name: "capo_rds.types.string.String",
-        major_engine_version: "capo_rds.types.string.String",
-        option_group_description: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        option_group_name: Optional["capo_rds.types.string.String"] = None,
+        engine_name: Optional["capo_rds.types.string.String"] = None,
+        major_engine_version: Optional["capo_rds.types.string.String"] = None,
+        option_group_description: Optional["capo_rds.types.string.String"] = None,
         tags: Optional["capo_rds.types.tag_list.TagList"] = None,
     ) -> "capo_rds.types.create_option_group_result.CreateOptionGroupResult":
         """<p>Creates a new option group. You can create up to 20 option groups.</p> <p>This command doesn't apply to RDS Custom.</p>
@@ -3617,10 +3722,14 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_option_group_message.CreateOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["option_group_name"] = option_group_name
-        input_["engine_name"] = engine_name
-        input_["major_engine_version"] = major_engine_version
-        input_["option_group_description"] = option_group_description
+        if option_group_name is not None:
+            input_["option_group_name"] = option_group_name
+        if engine_name is not None:
+            input_["engine_name"] = engine_name
+        if major_engine_version is not None:
+            input_["major_engine_version"] = major_engine_version
+        if option_group_description is not None:
+            input_["option_group_description"] = option_group_description
         if tags is not None:
             input_["tags"] = tags
 
@@ -3633,11 +3742,11 @@ class RDSClient:
 
     def create_tenant_database(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        tenant_db_name: "capo_rds.types.string.String",
-        master_username: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        tenant_db_name: Optional["capo_rds.types.string.String"] = None,
+        master_username: Optional["capo_rds.types.string.String"] = None,
         master_user_password: Optional[
             "capo_rds.types.sensitive_string.SensitiveString"
         ] = None,
@@ -3686,9 +3795,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.create_tenant_database_message.CreateTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["tenant_db_name"] = tenant_db_name
-        input_["master_username"] = master_username
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if tenant_db_name is not None:
+            input_["tenant_db_name"] = tenant_db_name
+        if master_username is not None:
+            input_["master_username"] = master_username
         if master_user_password is not None:
             input_["master_user_password"] = master_user_password
         if character_set_name is not None:
@@ -3711,9 +3823,11 @@ class RDSClient:
 
     def delete_blue_green_deployment(
         self,
-        blue_green_deployment_identifier: "capo_rds.types.blue_green_deployment_identifier.BlueGreenDeploymentIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        blue_green_deployment_identifier: Optional[
+            "capo_rds.types.blue_green_deployment_identifier.BlueGreenDeploymentIdentifier"
+        ] = None,
         delete_target: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -3756,7 +3870,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_blue_green_deployment_request.DeleteBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input_["blue_green_deployment_identifier"] = blue_green_deployment_identifier
+        if blue_green_deployment_identifier is not None:
+            input_["blue_green_deployment_identifier"] = (
+                blue_green_deployment_identifier
+            )
         if delete_target is not None:
             input_["delete_target"] = delete_target
 
@@ -3769,10 +3886,12 @@ class RDSClient:
 
     def delete_custom_db_engine_version(
         self,
-        engine: "capo_rds.types.custom_engine_name.CustomEngineName",
-        engine_version: "capo_rds.types.custom_engine_version.CustomEngineVersion",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine: Optional["capo_rds.types.custom_engine_name.CustomEngineName"] = None,
+        engine_version: Optional[
+            "capo_rds.types.custom_engine_version.CustomEngineVersion"
+        ] = None,
     ) -> "capo_rds.types.db_engine_version.DBEngineVersion":
         r"""<p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p> <ul> <li> <p>The CEV must not be the default for RDS Custom. If it is, change the default before running this command.</p> </li> <li> <p>The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance snapshot, or automated backup of your RDS Custom instance.</p> </li> </ul> <p>Typically, deletion takes a few minutes.</p> <note> <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the <code>DeleteCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for the <code>DeleteCustomDbEngineVersion</code> event.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete\">Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
 
@@ -3800,8 +3919,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_custom_db_engine_version_message.DeleteCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
-        input_["engine"] = engine
-        input_["engine_version"] = engine_version
+        if engine is not None:
+            input_["engine"] = engine
+        if engine_version is not None:
+            input_["engine_version"] = engine_version
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3812,9 +3933,9 @@ class RDSClient:
 
     def delete_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         skip_final_snapshot: Optional["capo_rds.types.boolean.Boolean"] = None,
         final_db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
         delete_automated_backups: Optional[
@@ -3863,7 +3984,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if skip_final_snapshot is not None:
             input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
@@ -3880,9 +4002,9 @@ class RDSClient:
 
     def delete_db_cluster_automated_backup(
         self,
-        db_cluster_resource_id: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_resource_id: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.delete_db_cluster_automated_backup_result.DeleteDBClusterAutomatedBackupResult":
         """<p>Deletes automated backups using the <code>DbClusterResourceId</code> value of the source DB cluster or the Amazon Resource Name (ARN) of the automated backups.</p>
 
@@ -3911,7 +4033,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_cluster_automated_backup_message.DeleteDBClusterAutomatedBackupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_resource_id"] = db_cluster_resource_id
+        if db_cluster_resource_id is not None:
+            input_["db_cluster_resource_id"] = db_cluster_resource_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3922,9 +4045,9 @@ class RDSClient:
 
     def delete_db_cluster_endpoint(
         self,
-        db_cluster_endpoint_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_endpoint_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.db_cluster_endpoint.DBClusterEndpoint":
         """<p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>
 
@@ -3958,7 +4081,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_cluster_endpoint_message.DeleteDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        if db_cluster_endpoint_identifier is not None:
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3969,9 +4093,11 @@ class RDSClient:
 
     def delete_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
     ) -> None:
         r"""<p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p> <p>For more information on Amazon Aurora, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
 
@@ -4004,7 +4130,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4015,9 +4142,9 @@ class RDSClient:
 
     def delete_db_cluster_snapshot(
         self,
-        db_cluster_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> (
         "capo_rds.types.delete_db_cluster_snapshot_result.DeleteDBClusterSnapshotResult"
     ):
@@ -4053,7 +4180,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4064,9 +4192,9 @@ class RDSClient:
 
     def delete_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         skip_final_snapshot: Optional["capo_rds.types.boolean.Boolean"] = None,
         final_db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
         delete_automated_backups: Optional[
@@ -4114,7 +4242,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if skip_final_snapshot is not None:
             input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
@@ -4188,9 +4317,9 @@ class RDSClient:
 
     def delete_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
 
@@ -4223,7 +4352,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_parameter_group_message.DeleteDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4234,9 +4364,9 @@ class RDSClient:
 
     def delete_db_proxy(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
     ) -> "capo_rds.types.delete_db_proxy_response.DeleteDBProxyResponse":
         """<p>Deletes an existing DB proxy.</p>
 
@@ -4265,7 +4395,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_proxy_request.DeleteDBProxyRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4276,9 +4407,11 @@ class RDSClient:
 
     def delete_db_proxy_endpoint(
         self,
-        db_proxy_endpoint_name: "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_endpoint_name: Optional[
+            "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName"
+        ] = None,
     ) -> (
         "capo_rds.types.delete_db_proxy_endpoint_response.DeleteDBProxyEndpointResponse"
     ):
@@ -4309,7 +4442,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_proxy_endpoint_request.DeleteDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+        if db_proxy_endpoint_name is not None:
+            input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4320,9 +4454,9 @@ class RDSClient:
 
     def delete_db_security_group(
         self,
-        db_security_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_security_group_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         r"""<p>Deletes a DB security group.</p> <p>The specified DB security group must not be associated with any DB instances.</p> <note> <p>EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that you migrate as soon as possible. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>, the blog <a href=\"http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/\">EC2-Classic Networking is Retiring – Here’s How to Prepare</a>, and <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html\">Moving a DB instance not in a VPC into a VPC</a> in the <i>Amazon RDS User Guide</i>.</p> </note>
 
@@ -4355,7 +4489,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_security_group_message.DeleteDBSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_security_group_name"] = db_security_group_name
+        if db_security_group_name is not None:
+            input_["db_security_group_name"] = db_security_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4366,9 +4501,11 @@ class RDSClient:
 
     def delete_db_shard_group(
         self,
-        db_shard_group_identifier: "capo_rds.types.db_shard_group_identifier.DBShardGroupIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_shard_group_identifier: Optional[
+            "capo_rds.types.db_shard_group_identifier.DBShardGroupIdentifier"
+        ] = None,
     ) -> "capo_rds.types.db_shard_group.DBShardGroup":
         """<p>Deletes an Aurora Limitless Database DB shard group.</p>
 
@@ -4396,7 +4533,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_shard_group_message.DeleteDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_shard_group_identifier"] = db_shard_group_identifier
+        if db_shard_group_identifier is not None:
+            input_["db_shard_group_identifier"] = db_shard_group_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4407,9 +4545,9 @@ class RDSClient:
 
     def delete_db_snapshot(
         self,
-        db_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.delete_db_snapshot_result.DeleteDBSnapshotResult":
         """<p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated.</p> <note> <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p> </note>
 
@@ -4444,7 +4582,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_snapshot_message.DeleteDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_snapshot_identifier"] = db_snapshot_identifier
+        if db_snapshot_identifier is not None:
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4455,9 +4594,9 @@ class RDSClient:
 
     def delete_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_subnet_group_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a DB subnet group.</p> <note> <p>The specified database subnet group must not be associated with any DB instances.</p> </note>
 
@@ -4491,7 +4630,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4502,9 +4642,9 @@ class RDSClient:
 
     def delete_event_subscription(
         self,
-        subscription_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        subscription_name: Optional["capo_rds.types.string.String"] = None,
     ) -> (
         "capo_rds.types.delete_event_subscription_result.DeleteEventSubscriptionResult"
     ):
@@ -4541,7 +4681,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4552,9 +4693,11 @@ class RDSClient:
 
     def delete_global_cluster(
         self,
-        global_cluster_identifier: "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
     ) -> "capo_rds.types.delete_global_cluster_result.DeleteGlobalClusterResult":
         """<p>Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first.</p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>
 
@@ -4589,7 +4732,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4600,9 +4744,11 @@ class RDSClient:
 
     def delete_integration(
         self,
-        integration_identifier: "capo_rds.types.integration_identifier.IntegrationIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        integration_identifier: Optional[
+            "capo_rds.types.integration_identifier.IntegrationIdentifier"
+        ] = None,
     ) -> "capo_rds.types.integration.Integration":
         """<p>Deletes a zero-ETL integration with Amazon Redshift.</p>
 
@@ -4636,7 +4782,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_integration_message.DeleteIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input_["integration_identifier"] = integration_identifier
+        if integration_identifier is not None:
+            input_["integration_identifier"] = integration_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4647,9 +4794,9 @@ class RDSClient:
 
     def delete_option_group(
         self,
-        option_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        option_group_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         """<p>Deletes an existing option group.</p>
 
@@ -4682,7 +4829,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_option_group_message.DeleteOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["option_group_name"] = option_group_name
+        if option_group_name is not None:
+            input_["option_group_name"] = option_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4693,10 +4841,10 @@ class RDSClient:
 
     def delete_tenant_database(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        tenant_db_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        tenant_db_name: Optional["capo_rds.types.string.String"] = None,
         skip_final_snapshot: Optional["capo_rds.types.boolean.Boolean"] = None,
         final_db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.delete_tenant_database_result.DeleteTenantDatabaseResult":
@@ -4732,8 +4880,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.delete_tenant_database_message.DeleteTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["tenant_db_name"] = tenant_db_name
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if tenant_db_name is not None:
+            input_["tenant_db_name"] = tenant_db_name
         if skip_final_snapshot is not None:
             input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
@@ -4748,9 +4898,9 @@ class RDSClient:
 
     def deregister_db_proxy_targets(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         target_group_name: Optional[
             "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
         ] = None,
@@ -4793,7 +4943,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.deregister_db_proxy_targets_request.DeregisterDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
             input_["target_group_name"] = target_group_name
         if db_instance_identifiers is not None:
@@ -5118,9 +5269,9 @@ class RDSClient:
 
     def describe_db_cluster_backtracks(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         backtrack_identifier: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -5163,7 +5314,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_cluster_backtracks_message.DescribeDBClusterBacktracksMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if backtrack_identifier is not None:
             input_["backtrack_identifier"] = backtrack_identifier
         if filters is not None:
@@ -5182,9 +5334,9 @@ class RDSClient:
 
     def iter_describe_db_cluster_backtracks(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         backtrack_identifier: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -5193,8 +5345,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_db_cluster_backtracks(
-                db_cluster_identifier,
                 config_overrides=config_overrides,
+                db_cluster_identifier=db_cluster_identifier,
                 backtrack_identifier=backtrack_identifier,
                 filters=filters,
                 max_records=max_records,
@@ -5393,9 +5545,11 @@ class RDSClient:
 
     def describe_db_cluster_parameters(
         self,
-        db_cluster_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         source: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -5437,7 +5591,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if source is not None:
             input_["source"] = source
         if filters is not None:
@@ -5456,9 +5611,11 @@ class RDSClient:
 
     def iter_describe_db_cluster_parameters(
         self,
-        db_cluster_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         source: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -5467,8 +5624,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_db_cluster_parameters(
-                db_cluster_parameter_group_name,
                 config_overrides=config_overrides,
+                db_cluster_parameter_group_name=db_cluster_parameter_group_name,
                 source=source,
                 filters=filters,
                 max_records=max_records,
@@ -5576,9 +5733,9 @@ class RDSClient:
 
     def describe_db_cluster_snapshot_attributes(
         self,
-        db_cluster_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.describe_db_cluster_snapshot_attributes_result.DescribeDBClusterSnapshotAttributesResult":
         """<p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p> <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual DB cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual DB cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p> <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB cluster snapshot, or to make the manual DB cluster snapshot public or private, use the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
 
@@ -5612,7 +5769,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6052,9 +6210,9 @@ class RDSClient:
 
     def describe_db_log_files(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         filename_contains: Optional["capo_rds.types.string.String"] = None,
         file_last_written: Optional["capo_rds.types.long.Long"] = None,
         file_size: Optional["capo_rds.types.long.Long"] = None,
@@ -6101,7 +6259,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_log_files_message.DescribeDBLogFilesMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if filename_contains is not None:
             input_["filename_contains"] = filename_contains
         if file_last_written is not None:
@@ -6124,9 +6283,9 @@ class RDSClient:
 
     def iter_describe_db_log_files(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         filename_contains: Optional["capo_rds.types.string.String"] = None,
         file_last_written: Optional["capo_rds.types.long.Long"] = None,
         file_size: Optional["capo_rds.types.long.Long"] = None,
@@ -6137,8 +6296,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_db_log_files(
-                db_instance_identifier,
                 config_overrides=config_overrides,
+                db_instance_identifier=db_instance_identifier,
                 filename_contains=filename_contains,
                 file_last_written=file_last_written,
                 file_size=file_size,
@@ -6322,9 +6481,9 @@ class RDSClient:
 
     def describe_db_parameters(
         self,
-        db_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_name: Optional["capo_rds.types.string.String"] = None,
         source: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -6366,7 +6525,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_parameters_message.DescribeDBParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if source is not None:
             input_["source"] = source
         if filters is not None:
@@ -6385,9 +6545,9 @@ class RDSClient:
 
     def iter_describe_db_parameters(
         self,
-        db_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_name: Optional["capo_rds.types.string.String"] = None,
         source: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -6396,8 +6556,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_db_parameters(
-                db_parameter_group_name,
                 config_overrides=config_overrides,
+                db_parameter_group_name=db_parameter_group_name,
                 source=source,
                 filters=filters,
                 max_records=max_records,
@@ -6581,9 +6741,9 @@ class RDSClient:
 
     def describe_db_proxy_target_groups(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         target_group_name: Optional[
             "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
         ] = None,
@@ -6623,7 +6783,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_proxy_target_groups_request.DescribeDBProxyTargetGroupsRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
             input_["target_group_name"] = target_group_name
         if filters is not None:
@@ -6642,9 +6803,9 @@ class RDSClient:
 
     def iter_describe_db_proxy_target_groups(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         target_group_name: Optional[
             "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
         ] = None,
@@ -6655,8 +6816,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_db_proxy_target_groups(
-                db_proxy_name,
                 config_overrides=config_overrides,
+                db_proxy_name=db_proxy_name,
                 target_group_name=target_group_name,
                 filters=filters,
                 marker=_token,
@@ -6671,9 +6832,9 @@ class RDSClient:
 
     def describe_db_proxy_targets(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         target_group_name: Optional[
             "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
         ] = None,
@@ -6714,7 +6875,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_proxy_targets_request.DescribeDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
             input_["target_group_name"] = target_group_name
         if filters is not None:
@@ -6733,9 +6895,9 @@ class RDSClient:
 
     def iter_describe_db_proxy_targets(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         target_group_name: Optional[
             "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
         ] = None,
@@ -6746,8 +6908,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_db_proxy_targets(
-                db_proxy_name,
                 config_overrides=config_overrides,
+                db_proxy_name=db_proxy_name,
                 target_group_name=target_group_name,
                 filters=filters,
                 marker=_token,
@@ -6996,9 +7158,9 @@ class RDSClient:
 
     def describe_db_snapshot_attributes(
         self,
-        db_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.describe_db_snapshot_attributes_result.DescribeDBSnapshotAttributesResult":
         """<p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p> <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual DB snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual DB snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p> <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB snapshot, or to make the manual DB snapshot public or private, use the <code>ModifyDBSnapshotAttribute</code> API action.</p>
 
@@ -7032,7 +7194,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_db_snapshot_attributes_message.DescribeDBSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input_["db_snapshot_identifier"] = db_snapshot_identifier
+        if db_snapshot_identifier is not None:
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7340,9 +7503,9 @@ class RDSClient:
 
     def describe_engine_default_cluster_parameters(
         self,
-        db_parameter_group_family: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_family: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         marker: Optional["capo_rds.types.string.String"] = None,
@@ -7381,7 +7544,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_family"] = db_parameter_group_family
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
             input_["filters"] = filters
         if max_records is not None:
@@ -7398,9 +7562,9 @@ class RDSClient:
 
     def iter_describe_engine_default_cluster_parameters(
         self,
-        db_parameter_group_family: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_family: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         marker: Optional["capo_rds.types.string.String"] = None,
@@ -7408,8 +7572,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_engine_default_cluster_parameters(
-                db_parameter_group_family,
                 config_overrides=config_overrides,
+                db_parameter_group_family=db_parameter_group_family,
                 filters=filters,
                 max_records=max_records,
                 marker=_token,
@@ -7423,9 +7587,9 @@ class RDSClient:
 
     def describe_engine_default_parameters(
         self,
-        db_parameter_group_family: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_family: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         marker: Optional["capo_rds.types.string.String"] = None,
@@ -7464,7 +7628,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_family"] = db_parameter_group_family
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
             input_["filters"] = filters
         if max_records is not None:
@@ -7481,9 +7646,9 @@ class RDSClient:
 
     def iter_describe_engine_default_parameters(
         self,
-        db_parameter_group_family: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_family: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         marker: Optional["capo_rds.types.string.String"] = None,
@@ -7491,8 +7656,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_engine_default_parameters(
-                db_parameter_group_family,
                 config_overrides=config_overrides,
+                db_parameter_group_family=db_parameter_group_family,
                 filters=filters,
                 max_records=max_records,
                 marker=_token,
@@ -8037,9 +8202,9 @@ class RDSClient:
 
     def describe_option_group_options(
         self,
-        engine_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine_name: Optional["capo_rds.types.string.String"] = None,
         major_engine_version: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -8080,7 +8245,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_option_group_options_message.DescribeOptionGroupOptionsMessage = {}  # type: ignore[typeddict-item]
-        input_["engine_name"] = engine_name
+        if engine_name is not None:
+            input_["engine_name"] = engine_name
         if major_engine_version is not None:
             input_["major_engine_version"] = major_engine_version
         if filters is not None:
@@ -8099,9 +8265,9 @@ class RDSClient:
 
     def iter_describe_option_group_options(
         self,
-        engine_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine_name: Optional["capo_rds.types.string.String"] = None,
         major_engine_version: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
         max_records: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -8110,8 +8276,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_option_group_options(
-                engine_name,
                 config_overrides=config_overrides,
+                engine_name=engine_name,
                 major_engine_version=major_engine_version,
                 filters=filters,
                 max_records=max_records,
@@ -8221,9 +8387,9 @@ class RDSClient:
 
     def describe_orderable_db_instance_options(
         self,
-        engine: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
         db_instance_class: Optional["capo_rds.types.string.String"] = None,
         license_model: Optional["capo_rds.types.string.String"] = None,
@@ -8272,7 +8438,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if db_instance_class is not None:
@@ -8299,9 +8466,9 @@ class RDSClient:
 
     def iter_describe_orderable_db_instance_options(
         self,
-        engine: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
         db_instance_class: Optional["capo_rds.types.string.String"] = None,
         license_model: Optional["capo_rds.types.string.String"] = None,
@@ -8314,8 +8481,8 @@ class RDSClient:
         _token = marker
         while True:
             _response = self.describe_orderable_db_instance_options(
-                engine,
                 config_overrides=config_overrides,
+                engine=engine,
                 engine_version=engine_version,
                 db_instance_class=db_instance_class,
                 license_model=license_model,
@@ -8948,9 +9115,9 @@ class RDSClient:
 
     def describe_valid_db_instance_modifications(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.describe_valid_db_instance_modifications_result.DescribeValidDBInstanceModificationsResult":
         """<p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p> <p>This command doesn't apply to RDS Custom.</p>
 
@@ -8985,7 +9152,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.describe_valid_db_instance_modifications_message.DescribeValidDBInstanceModificationsMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8996,9 +9164,9 @@ class RDSClient:
 
     def disable_http_endpoint(
         self,
-        resource_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_arn: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.disable_http_endpoint_response.DisableHttpEndpointResponse":
         r"""<p>Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint disables RDS Data API.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters, use the <code>EnableHttpEndpoint</code> parameter of the <code>ModifyDBCluster</code> operation.</p> </note>
 
@@ -9027,7 +9195,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.disable_http_endpoint_request.DisableHttpEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9038,10 +9207,10 @@ class RDSClient:
 
     def download_db_log_file_portion(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        log_file_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        log_file_name: Optional["capo_rds.types.string.String"] = None,
         marker: Optional["capo_rds.types.string.String"] = None,
         number_of_lines: Optional["capo_rds.types.integer.Integer"] = None,
     ) -> "capo_rds.types.download_db_log_file_portion_details.DownloadDBLogFilePortionDetails":
@@ -9082,8 +9251,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.download_db_log_file_portion_message.DownloadDBLogFilePortionMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["log_file_name"] = log_file_name
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if log_file_name is not None:
+            input_["log_file_name"] = log_file_name
         if marker is not None:
             input_["marker"] = marker
         if number_of_lines is not None:
@@ -9098,9 +9269,9 @@ class RDSClient:
 
     def enable_http_endpoint(
         self,
-        resource_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_arn: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.enable_http_endpoint_response.EnableHttpEndpointResponse":
         r"""<p>Enables the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.</p> <p>When enabled, this endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the Aurora DB cluster. You can also query your database from inside the RDS console with the RDS query editor.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To enable the HTTP endpoint for Aurora Serverless v1 DB clusters, use the <code>EnableHttpEndpoint</code> parameter of the <code>ModifyDBCluster</code> operation.</p> </note>
 
@@ -9129,7 +9300,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.enable_http_endpoint_request.EnableHttpEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9140,9 +9312,9 @@ class RDSClient:
 
     def failover_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         target_db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.failover_db_cluster_result.FailoverDBClusterResult":
         r"""<p>Forces a failover for a DB cluster.</p> <p>For an Aurora DB cluster, failover for a DB cluster promotes one of the Aurora Replicas (read-only instances) in the DB cluster to be the primary DB instance (the cluster writer).</p> <p>For a Multi-AZ DB cluster, after RDS terminates the primary DB instance, the internal monitoring system detects that the primary DB instance is unhealthy and promotes a readable standby (read-only instances) in the DB cluster to be the primary DB instance (the cluster writer). Failover times are typically less than 35 seconds.</p> <p>An Amazon Aurora DB cluster automatically fails over to an Aurora Replica, if one exists, when the primary DB instance fails. A Multi-AZ DB cluster automatically fails over to a readable standby DB instance when the primary DB instance fails.</p> <p>To simulate a failure of a primary instance for testing, you can force a failover. Because each instance in a DB cluster has its own endpoint address, make sure to clean up and re-establish any existing connections that use those endpoint addresses when the failover is complete.</p> <p>For more information on Amazon Aurora DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
@@ -9180,7 +9352,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if target_db_instance_identifier is not None:
             input_["target_db_instance_identifier"] = target_db_instance_identifier
 
@@ -9193,10 +9366,14 @@ class RDSClient:
 
     def failover_global_cluster(
         self,
-        global_cluster_identifier: "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier",
-        target_db_cluster_identifier: "capo_rds.types.db_cluster_identifier.DBClusterIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        target_db_cluster_identifier: Optional[
+            "capo_rds.types.db_cluster_identifier.DBClusterIdentifier"
+        ] = None,
         allow_data_loss: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -9234,8 +9411,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if target_db_cluster_identifier is not None:
+            input_["target_db_cluster_identifier"] = target_db_cluster_identifier
         if allow_data_loss is not None:
             input_["allow_data_loss"] = allow_data_loss
         if switchover is not None:
@@ -9250,9 +9429,9 @@ class RDSClient:
 
     def list_tags_for_resource(
         self,
-        resource_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_name: Optional["capo_rds.types.string.String"] = None,
         filters: Optional["capo_rds.types.filter_list.FilterList"] = None,
     ) -> "capo_rds.types.tag_list_message.TagListMessage":
         r"""<p>Lists all tags on an Amazon RDS resource.</p> <p>For an overview on tagging an Amazon RDS resource, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html\">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html\">Tagging Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.</p>
@@ -9296,7 +9475,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
         if filters is not None:
             input_["filters"] = filters
 
@@ -9413,9 +9593,9 @@ class RDSClient:
 
     def modify_current_db_cluster_capacity(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         capacity: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         seconds_before_timeout: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
@@ -9459,7 +9639,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_current_db_cluster_capacity_message.ModifyCurrentDBClusterCapacityMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if capacity is not None:
             input_["capacity"] = capacity
         if seconds_before_timeout is not None:
@@ -9476,10 +9657,12 @@ class RDSClient:
 
     def modify_custom_db_engine_version(
         self,
-        engine: "capo_rds.types.custom_engine_name.CustomEngineName",
-        engine_version: "capo_rds.types.custom_engine_version.CustomEngineVersion",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        engine: Optional["capo_rds.types.custom_engine_name.CustomEngineName"] = None,
+        engine_version: Optional[
+            "capo_rds.types.custom_engine_version.CustomEngineVersion"
+        ] = None,
         description: Optional["capo_rds.types.description.Description"] = None,
         status: Optional[
             "capo_rds.types.custom_engine_version_status.CustomEngineVersionStatus"
@@ -9513,8 +9696,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_custom_db_engine_version_message.ModifyCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
-        input_["engine"] = engine
-        input_["engine_version"] = engine_version
+        if engine is not None:
+            input_["engine"] = engine
+        if engine_version is not None:
+            input_["engine_version"] = engine_version
         if description is not None:
             input_["description"] = description
         if status is not None:
@@ -9529,9 +9714,9 @@ class RDSClient:
 
     def modify_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         new_db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         apply_immediately: Optional["capo_rds.types.boolean.Boolean"] = None,
         backup_retention_period: Optional[
@@ -9728,7 +9913,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if new_db_cluster_identifier is not None:
             input_["new_db_cluster_identifier"] = new_db_cluster_identifier
         if apply_immediately is not None:
@@ -9841,9 +10027,9 @@ class RDSClient:
 
     def modify_db_cluster_endpoint(
         self,
-        db_cluster_endpoint_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_endpoint_identifier: Optional["capo_rds.types.string.String"] = None,
         endpoint_type: Optional["capo_rds.types.string.String"] = None,
         static_members: Optional["capo_rds.types.string_list.StringList"] = None,
         excluded_members: Optional["capo_rds.types.string_list.StringList"] = None,
@@ -9885,7 +10071,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_cluster_endpoint_message.ModifyDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        if db_cluster_endpoint_identifier is not None:
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
         if endpoint_type is not None:
             input_["endpoint_type"] = endpoint_type
         if static_members is not None:
@@ -9902,10 +10089,12 @@ class RDSClient:
 
     def modify_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_rds.types.string.String",
-        parameters: "capo_rds.types.parameters_list.ParametersList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
+        parameters: Optional["capo_rds.types.parameters_list.ParametersList"] = None,
     ) -> "capo_rds.types.db_cluster_parameter_group_name_message.DBClusterParameterGroupNameMessage":
         r"""<p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p> <important> <p>There are two types of parameters - dynamic parameters and static parameters. Changes to dynamic parameters are applied to the DB cluster immediately without a reboot. Changes to static parameters are applied only after the DB cluster is rebooted, which can be done using <code>RebootDBCluster</code> operation. You can use the <i>Parameter Groups</i> option of the <a href=\"https://console.aws.amazon.com/rds/\">Amazon RDS console</a> or the <code>DescribeDBClusterParameters</code> operation to verify that your DB cluster parameter group has been created or modified.</p> </important> <p>For more information on Amazon Aurora DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
 
@@ -9941,8 +10130,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input_["parameters"] = parameters
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if parameters is not None:
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9953,10 +10144,10 @@ class RDSClient:
 
     def modify_db_cluster_snapshot_attribute(
         self,
-        db_cluster_snapshot_identifier: "capo_rds.types.string.String",
-        attribute_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
+        attribute_name: Optional["capo_rds.types.string.String"] = None,
         values_to_add: Optional[
             "capo_rds.types.attribute_value_list.AttributeValueList"
         ] = None,
@@ -10001,8 +10192,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input_["attribute_name"] = attribute_name
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if attribute_name is not None:
+            input_["attribute_name"] = attribute_name
         if values_to_add is not None:
             input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
@@ -10017,9 +10210,9 @@ class RDSClient:
 
     def modify_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         allocated_storage: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
         ] = None,
@@ -10272,7 +10465,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
             input_["allocated_storage"] = allocated_storage
         if db_instance_class is not None:
@@ -10417,10 +10611,10 @@ class RDSClient:
 
     def modify_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_rds.types.string.String",
-        parameters: "capo_rds.types.parameters_list.ParametersList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_name: Optional["capo_rds.types.string.String"] = None,
+        parameters: Optional["capo_rds.types.parameters_list.ParametersList"] = None,
     ) -> "capo_rds.types.db_parameter_group_name_message.DBParameterGroupNameMessage":
         r"""<p>Modifies the parameters of a DB parameter group. To modify more than one parameter, submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p> <important> <p>After you modify a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon RDS to fully complete the modify operation before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the <a href=\"https://console.aws.amazon.com/rds/\">Amazon RDS console</a> or the <i>DescribeDBParameters</i> command to verify that your DB parameter group has been created or modified.</p> </important>
 
@@ -10456,8 +10650,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_parameter_group_message.ModifyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
-        input_["parameters"] = parameters
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
+        if parameters is not None:
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10468,9 +10664,9 @@ class RDSClient:
 
     def modify_db_proxy(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         new_db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         default_auth_scheme: Optional[
             "capo_rds.types.default_auth_scheme.DefaultAuthScheme"
@@ -10524,7 +10720,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_proxy_request.ModifyDBProxyRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
         if new_db_proxy_name is not None:
             input_["new_db_proxy_name"] = new_db_proxy_name
         if default_auth_scheme is not None:
@@ -10551,9 +10748,11 @@ class RDSClient:
 
     def modify_db_proxy_endpoint(
         self,
-        db_proxy_endpoint_name: "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_endpoint_name: Optional[
+            "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName"
+        ] = None,
         new_db_proxy_endpoint_name: Optional[
             "capo_rds.types.db_proxy_endpoint_name.DBProxyEndpointName"
         ] = None,
@@ -10594,7 +10793,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_proxy_endpoint_request.ModifyDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+        if db_proxy_endpoint_name is not None:
+            input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
         if new_db_proxy_endpoint_name is not None:
             input_["new_db_proxy_endpoint_name"] = new_db_proxy_endpoint_name
         if vpc_security_group_ids is not None:
@@ -10609,10 +10809,12 @@ class RDSClient:
 
     def modify_db_proxy_target_group(
         self,
-        target_group_name: "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName",
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        target_group_name: Optional[
+            "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
+        ] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         connection_pool_config: Optional[
             "capo_rds.types.connection_pool_configuration.ConnectionPoolConfiguration"
         ] = None,
@@ -10649,8 +10851,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_proxy_target_group_request.ModifyDBProxyTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["target_group_name"] = target_group_name
-        input_["db_proxy_name"] = db_proxy_name
+        if target_group_name is not None:
+            input_["target_group_name"] = target_group_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
         if connection_pool_config is not None:
             input_["connection_pool_config"] = connection_pool_config
         if new_name is not None:
@@ -10665,9 +10869,9 @@ class RDSClient:
 
     def modify_db_recommendation(
         self,
-        recommendation_id: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        recommendation_id: Optional["capo_rds.types.string.String"] = None,
         locale: Optional["capo_rds.types.string.String"] = None,
         status: Optional["capo_rds.types.string.String"] = None,
         recommended_action_updates: Optional[
@@ -10702,7 +10906,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_recommendation_message.ModifyDBRecommendationMessage = {}  # type: ignore[typeddict-item]
-        input_["recommendation_id"] = recommendation_id
+        if recommendation_id is not None:
+            input_["recommendation_id"] = recommendation_id
         if locale is not None:
             input_["locale"] = locale
         if status is not None:
@@ -10719,9 +10924,11 @@ class RDSClient:
 
     def modify_db_shard_group(
         self,
-        db_shard_group_identifier: "capo_rds.types.db_shard_group_identifier.DBShardGroupIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_shard_group_identifier: Optional[
+            "capo_rds.types.db_shard_group_identifier.DBShardGroupIdentifier"
+        ] = None,
         max_acu: Optional["capo_rds.types.double_optional.DoubleOptional"] = None,
         min_acu: Optional["capo_rds.types.double_optional.DoubleOptional"] = None,
         compute_redundancy: Optional[
@@ -10757,7 +10964,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_shard_group_message.ModifyDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_shard_group_identifier"] = db_shard_group_identifier
+        if db_shard_group_identifier is not None:
+            input_["db_shard_group_identifier"] = db_shard_group_identifier
         if max_acu is not None:
             input_["max_acu"] = max_acu
         if min_acu is not None:
@@ -10774,9 +10982,9 @@ class RDSClient:
 
     def modify_db_snapshot(
         self,
-        db_snapshot_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
         option_group_name: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.modify_db_snapshot_result.ModifyDBSnapshotResult":
@@ -10816,7 +11024,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_snapshot_message.ModifyDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_snapshot_identifier"] = db_snapshot_identifier
+        if db_snapshot_identifier is not None:
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if option_group_name is not None:
@@ -10831,10 +11040,10 @@ class RDSClient:
 
     def modify_db_snapshot_attribute(
         self,
-        db_snapshot_identifier: "capo_rds.types.string.String",
-        attribute_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
+        attribute_name: Optional["capo_rds.types.string.String"] = None,
         values_to_add: Optional[
             "capo_rds.types.attribute_value_list.AttributeValueList"
         ] = None,
@@ -10883,8 +11092,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_snapshot_attribute_message.ModifyDBSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_snapshot_identifier"] = db_snapshot_identifier
-        input_["attribute_name"] = attribute_name
+        if db_snapshot_identifier is not None:
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
+        if attribute_name is not None:
+            input_["attribute_name"] = attribute_name
         if values_to_add is not None:
             input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
@@ -10899,11 +11110,13 @@ class RDSClient:
 
     def modify_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_rds.types.string.String",
-        subnet_ids: "capo_rds.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_subnet_group_name: Optional["capo_rds.types.string.String"] = None,
         db_subnet_group_description: Optional["capo_rds.types.string.String"] = None,
+        subnet_ids: Optional[
+            "capo_rds.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
     ) -> "capo_rds.types.modify_db_subnet_group_result.ModifyDBSubnetGroupResult":
         """<p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
 
@@ -10944,10 +11157,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if db_subnet_group_description is not None:
             input_["db_subnet_group_description"] = db_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10958,9 +11173,9 @@ class RDSClient:
 
     def modify_event_subscription(
         self,
-        subscription_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        subscription_name: Optional["capo_rds.types.string.String"] = None,
         sns_topic_arn: Optional["capo_rds.types.string.String"] = None,
         source_type: Optional["capo_rds.types.string.String"] = None,
         event_categories: Optional[
@@ -11011,7 +11226,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
             input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
@@ -11030,9 +11246,11 @@ class RDSClient:
 
     def modify_global_cluster(
         self,
-        global_cluster_identifier: "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
         new_global_cluster_identifier: Optional[
             "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
         ] = None,
@@ -11084,7 +11302,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if new_global_cluster_identifier is not None:
             input_["new_global_cluster_identifier"] = new_global_cluster_identifier
         if deletion_protection is not None:
@@ -11103,9 +11322,11 @@ class RDSClient:
 
     def modify_integration(
         self,
-        integration_identifier: "capo_rds.types.integration_identifier.IntegrationIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        integration_identifier: Optional[
+            "capo_rds.types.integration_identifier.IntegrationIdentifier"
+        ] = None,
         integration_name: Optional[
             "capo_rds.types.integration_name.IntegrationName"
         ] = None,
@@ -11149,7 +11370,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_integration_message.ModifyIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input_["integration_identifier"] = integration_identifier
+        if integration_identifier is not None:
+            input_["integration_identifier"] = integration_identifier
         if integration_name is not None:
             input_["integration_name"] = integration_name
         if data_filter is not None:
@@ -11166,9 +11388,9 @@ class RDSClient:
 
     def modify_option_group(
         self,
-        option_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        option_group_name: Optional["capo_rds.types.string.String"] = None,
         options_to_include: Optional[
             "capo_rds.types.option_configuration_list.OptionConfigurationList"
         ] = None,
@@ -11213,7 +11435,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_option_group_message.ModifyOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["option_group_name"] = option_group_name
+        if option_group_name is not None:
+            input_["option_group_name"] = option_group_name
         if options_to_include is not None:
             input_["options_to_include"] = options_to_include
         if options_to_remove is not None:
@@ -11230,10 +11453,10 @@ class RDSClient:
 
     def modify_tenant_database(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        tenant_db_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        tenant_db_name: Optional["capo_rds.types.string.String"] = None,
         master_user_password: Optional[
             "capo_rds.types.sensitive_string.SensitiveString"
         ] = None,
@@ -11282,8 +11505,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.modify_tenant_database_message.ModifyTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["tenant_db_name"] = tenant_db_name
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if tenant_db_name is not None:
+            input_["tenant_db_name"] = tenant_db_name
         if master_user_password is not None:
             input_["master_user_password"] = master_user_password
         if new_tenant_db_name is not None:
@@ -11304,9 +11529,9 @@ class RDSClient:
 
     def promote_read_replica(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         backup_retention_period: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
         ] = None,
@@ -11351,7 +11576,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.promote_read_replica_message.PromoteReadReplicaMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if backup_retention_period is not None:
             input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
@@ -11368,9 +11594,9 @@ class RDSClient:
 
     def promote_read_replica_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.promote_read_replica_db_cluster_result.PromoteReadReplicaDBClusterResult":
         """<p>Promotes a read replica DB cluster to a standalone DB cluster.</p>
 
@@ -11399,7 +11625,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.promote_read_replica_db_cluster_message.PromoteReadReplicaDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11410,9 +11637,11 @@ class RDSClient:
 
     def purchase_reserved_db_instances_offering(
         self,
-        reserved_db_instances_offering_id: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        reserved_db_instances_offering_id: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         reserved_db_instance_id: Optional["capo_rds.types.string.String"] = None,
         db_instance_count: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
@@ -11455,7 +11684,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.purchase_reserved_db_instances_offering_message.PurchaseReservedDBInstancesOfferingMessage = {}  # type: ignore[typeddict-item]
-        input_["reserved_db_instances_offering_id"] = reserved_db_instances_offering_id
+        if reserved_db_instances_offering_id is not None:
+            input_["reserved_db_instances_offering_id"] = (
+                reserved_db_instances_offering_id
+            )
         if reserved_db_instance_id is not None:
             input_["reserved_db_instance_id"] = reserved_db_instance_id
         if db_instance_count is not None:
@@ -11472,9 +11704,9 @@ class RDSClient:
 
     def reboot_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.reboot_db_cluster_result.RebootDBClusterResult":
         r"""<p>You might need to reboot your DB cluster, usually for maintenance reasons. For example, if you make certain modifications, or if you change the DB cluster parameter group associated with the DB cluster, reboot the DB cluster for the changes to take effect.</p> <p>Rebooting a DB cluster restarts the database engine service. Rebooting a DB cluster results in a momentary outage, during which the DB cluster status is set to rebooting.</p> <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
 
@@ -11504,7 +11736,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.reboot_db_cluster_message.RebootDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11515,9 +11748,9 @@ class RDSClient:
 
     def reboot_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         force_failover: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -11557,7 +11790,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if force_failover is not None:
             input_["force_failover"] = force_failover
 
@@ -11570,9 +11804,11 @@ class RDSClient:
 
     def reboot_db_shard_group(
         self,
-        db_shard_group_identifier: "capo_rds.types.db_shard_group_identifier.DBShardGroupIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_shard_group_identifier: Optional[
+            "capo_rds.types.db_shard_group_identifier.DBShardGroupIdentifier"
+        ] = None,
     ) -> "capo_rds.types.db_shard_group.DBShardGroup":
         """<p>You might need to reboot your DB shard group, usually for maintenance reasons. For example, if you make certain modifications, reboot the DB shard group for the changes to take effect.</p> <p>This operation applies only to Aurora Limitless Database DBb shard groups.</p>
 
@@ -11599,7 +11835,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.reboot_db_shard_group_message.RebootDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_shard_group_identifier"] = db_shard_group_identifier
+        if db_shard_group_identifier is not None:
+            input_["db_shard_group_identifier"] = db_shard_group_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11610,9 +11847,9 @@ class RDSClient:
 
     def register_db_proxy_targets(
         self,
-        db_proxy_name: "capo_rds.types.db_proxy_name.DBProxyName",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_proxy_name: Optional["capo_rds.types.db_proxy_name.DBProxyName"] = None,
         target_group_name: Optional[
             "capo_rds.types.db_proxy_target_group_name.DBProxyTargetGroupName"
         ] = None,
@@ -11660,7 +11897,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.register_db_proxy_targets_request.RegisterDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
-        input_["db_proxy_name"] = db_proxy_name
+        if db_proxy_name is not None:
+            input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
             input_["target_group_name"] = target_group_name
         if db_instance_identifiers is not None:
@@ -11677,10 +11915,12 @@ class RDSClient:
 
     def remove_from_global_cluster(
         self,
-        global_cluster_identifier: "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier",
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> (
         "capo_rds.types.remove_from_global_cluster_result.RemoveFromGlobalClusterResult"
     ):
@@ -11720,8 +11960,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11732,10 +11974,10 @@ class RDSClient:
 
     def remove_role_from_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        role_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
+        role_arn: Optional["capo_rds.types.string.String"] = None,
         feature_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         r"""<p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a DB cluster.</p> <p>For more information on Amazon Aurora DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html\"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
@@ -11772,8 +12014,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.remove_role_from_db_cluster_message.RemoveRoleFromDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["role_arn"] = role_arn
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if feature_name is not None:
             input_["feature_name"] = feature_name
 
@@ -11786,11 +12030,11 @@ class RDSClient:
 
     def remove_role_from_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        role_arn: "capo_rds.types.string.String",
-        feature_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        role_arn: Optional["capo_rds.types.string.String"] = None,
+        feature_name: Optional["capo_rds.types.string.String"] = None,
     ) -> None:
         """<p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.</p>
 
@@ -11820,9 +12064,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.remove_role_from_db_instance_message.RemoveRoleFromDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["role_arn"] = role_arn
-        input_["feature_name"] = feature_name
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if feature_name is not None:
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11833,10 +12080,10 @@ class RDSClient:
 
     def remove_source_identifier_from_subscription(
         self,
-        subscription_name: "capo_rds.types.string.String",
-        source_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        subscription_name: Optional["capo_rds.types.string.String"] = None,
+        source_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.remove_source_identifier_from_subscription_result.RemoveSourceIdentifierFromSubscriptionResult":
         """<p>Removes a source identifier from an existing RDS event notification subscription.</p>
 
@@ -11872,8 +12119,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["source_identifier"] = source_identifier
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if source_identifier is not None:
+            input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11884,10 +12133,10 @@ class RDSClient:
 
     def remove_tags_from_resource(
         self,
-        resource_name: "capo_rds.types.string.String",
-        tag_keys: "capo_rds.types.key_list.KeyList",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_name: Optional["capo_rds.types.string.String"] = None,
+        tag_keys: Optional["capo_rds.types.key_list.KeyList"] = None,
     ) -> None:
         r"""<p>Removes metadata tags from an Amazon RDS resource.</p> <p>For an overview on tagging an Amazon RDS resource, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html\">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html\">Tagging Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.</p>
 
@@ -11933,8 +12182,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tag_keys"] = tag_keys
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11945,9 +12196,11 @@ class RDSClient:
 
     def reset_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_rds.types.string.String"
+        ] = None,
         reset_all_parameters: Optional["capo_rds.types.boolean.Boolean"] = None,
         parameters: Optional["capo_rds.types.parameters_list.ParametersList"] = None,
     ) -> "capo_rds.types.db_cluster_parameter_group_name_message.DBClusterParameterGroupNameMessage":
@@ -11986,7 +12239,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
@@ -12001,9 +12255,9 @@ class RDSClient:
 
     def reset_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_parameter_group_name: Optional["capo_rds.types.string.String"] = None,
         reset_all_parameters: Optional["capo_rds.types.boolean.Boolean"] = None,
         parameters: Optional["capo_rds.types.parameters_list.ParametersList"] = None,
     ) -> "capo_rds.types.db_parameter_group_name_message.DBParameterGroupNameMessage":
@@ -12042,7 +12296,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.reset_db_parameter_group_message.ResetDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
@@ -12057,13 +12312,6 @@ class RDSClient:
 
     def restore_db_cluster_from_s3(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        engine: "capo_rds.types.string.String",
-        master_username: "capo_rds.types.string.String",
-        source_engine: "capo_rds.types.string.String",
-        source_engine_version: "capo_rds.types.string.String",
-        s3_bucket_name: "capo_rds.types.string.String",
-        s3_ingestion_role_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
         availability_zones: Optional[
@@ -12074,6 +12322,7 @@ class RDSClient:
         ] = None,
         character_set_name: Optional["capo_rds.types.string.String"] = None,
         database_name: Optional["capo_rds.types.string.String"] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         db_cluster_parameter_group_name: Optional[
             "capo_rds.types.string.String"
         ] = None,
@@ -12081,8 +12330,10 @@ class RDSClient:
             "capo_rds.types.vpc_security_group_id_list.VpcSecurityGroupIdList"
         ] = None,
         db_subnet_group_name: Optional["capo_rds.types.string.String"] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
         port: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
+        master_username: Optional["capo_rds.types.string.String"] = None,
         master_user_password: Optional[
             "capo_rds.types.sensitive_string.SensitiveString"
         ] = None,
@@ -12097,7 +12348,11 @@ class RDSClient:
         enable_iam_database_authentication: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
+        source_engine: Optional["capo_rds.types.string.String"] = None,
+        source_engine_version: Optional["capo_rds.types.string.String"] = None,
+        s3_bucket_name: Optional["capo_rds.types.string.String"] = None,
         s3_prefix: Optional["capo_rds.types.string.String"] = None,
+        s3_ingestion_role_arn: Optional["capo_rds.types.string.String"] = None,
         backtrack_window: Optional["capo_rds.types.long_optional.LongOptional"] = None,
         enable_cloudwatch_logs_exports: Optional[
             "capo_rds.types.log_type_list.LogTypeList"
@@ -12216,19 +12471,22 @@ class RDSClient:
             input_["character_set_name"] = character_set_name
         if database_name is not None:
             input_["database_name"] = database_name
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
             input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
             input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
             input_["port"] = port
-        input_["master_username"] = master_username
+        if master_username is not None:
+            input_["master_username"] = master_username
         if master_user_password is not None:
             input_["master_user_password"] = master_user_password
         if option_group_name is not None:
@@ -12247,12 +12505,16 @@ class RDSClient:
             input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
-        input_["source_engine"] = source_engine
-        input_["source_engine_version"] = source_engine_version
-        input_["s3_bucket_name"] = s3_bucket_name
+        if source_engine is not None:
+            input_["source_engine"] = source_engine
+        if source_engine_version is not None:
+            input_["source_engine_version"] = source_engine_version
+        if s3_bucket_name is not None:
+            input_["s3_bucket_name"] = s3_bucket_name
         if s3_prefix is not None:
             input_["s3_prefix"] = s3_prefix
-        input_["s3_ingestion_role_arn"] = s3_ingestion_role_arn
+        if s3_ingestion_role_arn is not None:
+            input_["s3_ingestion_role_arn"] = s3_ingestion_role_arn
         if backtrack_window is not None:
             input_["backtrack_window"] = backtrack_window
         if enable_cloudwatch_logs_exports is not None:
@@ -12291,14 +12553,14 @@ class RDSClient:
 
     def restore_db_cluster_from_snapshot(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
-        snapshot_identifier: "capo_rds.types.string.String",
-        engine: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
         availability_zones: Optional[
             "capo_rds.types.availability_zones.AvailabilityZones"
         ] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
+        snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         engine_version: Optional["capo_rds.types.string.String"] = None,
         port: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
         db_subnet_group_name: Optional["capo_rds.types.string.String"] = None,
@@ -12470,9 +12732,12 @@ class RDSClient:
         input_: capo_rds.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["snapshot_identifier"] = snapshot_identifier
-        input_["engine"] = engine
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
@@ -12563,9 +12828,9 @@ class RDSClient:
 
     def restore_db_cluster_to_point_in_time(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         restore_type: Optional["capo_rds.types.string.String"] = None,
         source_db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
         restore_to_time: Optional["capo_rds.types.t_stamp.TStamp"] = None,
@@ -12737,7 +13002,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if restore_type is not None:
             input_["restore_type"] = restore_type
         if source_db_cluster_identifier is not None:
@@ -12834,9 +13100,9 @@ class RDSClient:
 
     def restore_db_instance_from_db_snapshot(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
         db_instance_class: Optional["capo_rds.types.string.String"] = None,
         port: Optional["capo_rds.types.integer_optional.IntegerOptional"] = None,
@@ -13023,7 +13289,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.restore_db_instance_from_db_snapshot_message.RestoreDBInstanceFromDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if db_snapshot_identifier is not None:
             input_["db_snapshot_identifier"] = db_snapshot_identifier
         if db_instance_class is not None:
@@ -13130,19 +13397,15 @@ class RDSClient:
 
     def restore_db_instance_from_s3(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
-        db_instance_class: "capo_rds.types.string.String",
-        engine: "capo_rds.types.string.String",
-        source_engine: "capo_rds.types.string.String",
-        source_engine_version: "capo_rds.types.string.String",
-        s3_bucket_name: "capo_rds.types.string.String",
-        s3_ingestion_role_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
         db_name: Optional["capo_rds.types.string.String"] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         allocated_storage: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
         ] = None,
+        db_instance_class: Optional["capo_rds.types.string.String"] = None,
+        engine: Optional["capo_rds.types.string.String"] = None,
         master_username: Optional["capo_rds.types.string.String"] = None,
         master_user_password: Optional[
             "capo_rds.types.sensitive_string.SensitiveString"
@@ -13192,7 +13455,11 @@ class RDSClient:
         enable_iam_database_authentication: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
+        source_engine: Optional["capo_rds.types.string.String"] = None,
+        source_engine_version: Optional["capo_rds.types.string.String"] = None,
+        s3_bucket_name: Optional["capo_rds.types.string.String"] = None,
         s3_prefix: Optional["capo_rds.types.string.String"] = None,
+        s3_ingestion_role_arn: Optional["capo_rds.types.string.String"] = None,
         database_insights_mode: Optional[
             "capo_rds.types.database_insights_mode.DatabaseInsightsMode"
         ] = None,
@@ -13337,11 +13604,14 @@ class RDSClient:
         input_: capo_rds.types.restore_db_instance_from_s3_message.RestoreDBInstanceFromS3Message = {}  # type: ignore[typeddict-item]
         if db_name is not None:
             input_["db_name"] = db_name
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
             input_["allocated_storage"] = allocated_storage
-        input_["db_instance_class"] = db_instance_class
-        input_["engine"] = engine
+        if db_instance_class is not None:
+            input_["db_instance_class"] = db_instance_class
+        if engine is not None:
+            input_["engine"] = engine
         if master_username is not None:
             input_["master_username"] = master_username
         if master_user_password is not None:
@@ -13398,12 +13668,16 @@ class RDSClient:
             input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
-        input_["source_engine"] = source_engine
-        input_["source_engine_version"] = source_engine_version
-        input_["s3_bucket_name"] = s3_bucket_name
+        if source_engine is not None:
+            input_["source_engine"] = source_engine
+        if source_engine_version is not None:
+            input_["source_engine_version"] = source_engine_version
+        if s3_bucket_name is not None:
+            input_["s3_bucket_name"] = s3_bucket_name
         if s3_prefix is not None:
             input_["s3_prefix"] = s3_prefix
-        input_["s3_ingestion_role_arn"] = s3_ingestion_role_arn
+        if s3_ingestion_role_arn is not None:
+            input_["s3_ingestion_role_arn"] = s3_ingestion_role_arn
         if database_insights_mode is not None:
             input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
@@ -13450,10 +13724,10 @@ class RDSClient:
 
     def restore_db_instance_to_point_in_time(
         self,
-        target_db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
         source_db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        target_db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         restore_time: Optional["capo_rds.types.t_stamp.TStamp"] = None,
         use_latest_restorable_time: Optional["capo_rds.types.boolean.Boolean"] = None,
         db_instance_class: Optional["capo_rds.types.string.String"] = None,
@@ -13654,7 +13928,8 @@ class RDSClient:
         input_: capo_rds.types.restore_db_instance_to_point_in_time_message.RestoreDBInstanceToPointInTimeMessage = {}  # type: ignore[typeddict-item]
         if source_db_instance_identifier is not None:
             input_["source_db_instance_identifier"] = source_db_instance_identifier
-        input_["target_db_instance_identifier"] = target_db_instance_identifier
+        if target_db_instance_identifier is not None:
+            input_["target_db_instance_identifier"] = target_db_instance_identifier
         if restore_time is not None:
             input_["restore_time"] = restore_time
         if use_latest_restorable_time is not None:
@@ -13769,9 +14044,9 @@ class RDSClient:
 
     def revoke_db_security_group_ingress(
         self,
-        db_security_group_name: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_security_group_name: Optional["capo_rds.types.string.String"] = None,
         cidrip: Optional["capo_rds.types.string.String"] = None,
         ec2_security_group_name: Optional["capo_rds.types.string.String"] = None,
         ec2_security_group_id: Optional["capo_rds.types.string.String"] = None,
@@ -13815,7 +14090,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.revoke_db_security_group_ingress_message.RevokeDBSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input_["db_security_group_name"] = db_security_group_name
+        if db_security_group_name is not None:
+            input_["db_security_group_name"] = db_security_group_name
         if cidrip is not None:
             input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
@@ -13834,11 +14110,11 @@ class RDSClient:
 
     def start_activity_stream(
         self,
-        resource_arn: "capo_rds.types.string.String",
-        mode: "capo_rds.types.activity_stream_mode.ActivityStreamMode",
-        kms_key_id: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_arn: Optional["capo_rds.types.string.String"] = None,
+        mode: Optional["capo_rds.types.activity_stream_mode.ActivityStreamMode"] = None,
+        kms_key_id: Optional["capo_rds.types.string.String"] = None,
         apply_immediately: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -13887,9 +14163,12 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.start_activity_stream_request.StartActivityStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["mode"] = mode
-        input_["kms_key_id"] = kms_key_id
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if mode is not None:
+            input_["mode"] = mode
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
         if apply_immediately is not None:
             input_["apply_immediately"] = apply_immediately
         if engine_native_audit_fields_included is not None:
@@ -13906,9 +14185,9 @@ class RDSClient:
 
     def start_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.start_db_cluster_result.StartDBClusterResult":
         r"""<p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster CLI command, or the <code>StopDBCluster</code> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html\"> Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
 
@@ -13947,7 +14226,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13958,9 +14238,9 @@ class RDSClient:
 
     def start_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.start_db_instance_result.StartDBInstanceResult":
         r"""<p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the <code>StopDBInstance</code> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html\"> Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the <i>Amazon RDS User Guide.</i> </p> <note> <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora DB clusters, use <code>StartDBCluster</code> instead.</p> </note>
 
@@ -14005,7 +14285,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.start_db_instance_message.StartDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14016,9 +14297,9 @@ class RDSClient:
 
     def start_db_instance_automated_backups_replication(
         self,
-        source_db_instance_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_db_instance_arn: Optional["capo_rds.types.string.String"] = None,
         backup_retention_period: Optional[
             "capo_rds.types.integer_optional.IntegerOptional"
         ] = None,
@@ -14069,7 +14350,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.start_db_instance_automated_backups_replication_message.StartDBInstanceAutomatedBackupsReplicationMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_instance_arn"] = source_db_instance_arn
+        if source_db_instance_arn is not None:
+            input_["source_db_instance_arn"] = source_db_instance_arn
         if backup_retention_period is not None:
             input_["backup_retention_period"] = backup_retention_period
         if kms_key_id is not None:
@@ -14088,13 +14370,13 @@ class RDSClient:
 
     def start_export_task(
         self,
-        export_task_identifier: "capo_rds.types.string.String",
-        source_arn: "capo_rds.types.string.String",
-        s3_bucket_name: "capo_rds.types.string.String",
-        iam_role_arn: "capo_rds.types.string.String",
-        kms_key_id: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        export_task_identifier: Optional["capo_rds.types.string.String"] = None,
+        source_arn: Optional["capo_rds.types.string.String"] = None,
+        s3_bucket_name: Optional["capo_rds.types.string.String"] = None,
+        iam_role_arn: Optional["capo_rds.types.string.String"] = None,
+        kms_key_id: Optional["capo_rds.types.string.String"] = None,
         s3_prefix: Optional["capo_rds.types.string.String"] = None,
         export_only: Optional["capo_rds.types.string_list.StringList"] = None,
     ) -> "capo_rds.types.export_task.ExportTask":
@@ -14143,11 +14425,16 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.start_export_task_message.StartExportTaskMessage = {}  # type: ignore[typeddict-item]
-        input_["export_task_identifier"] = export_task_identifier
-        input_["source_arn"] = source_arn
-        input_["s3_bucket_name"] = s3_bucket_name
-        input_["iam_role_arn"] = iam_role_arn
-        input_["kms_key_id"] = kms_key_id
+        if export_task_identifier is not None:
+            input_["export_task_identifier"] = export_task_identifier
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
+        if s3_bucket_name is not None:
+            input_["s3_bucket_name"] = s3_bucket_name
+        if iam_role_arn is not None:
+            input_["iam_role_arn"] = iam_role_arn
+        if kms_key_id is not None:
+            input_["kms_key_id"] = kms_key_id
         if s3_prefix is not None:
             input_["s3_prefix"] = s3_prefix
         if export_only is not None:
@@ -14162,9 +14449,9 @@ class RDSClient:
 
     def stop_activity_stream(
         self,
-        resource_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        resource_arn: Optional["capo_rds.types.string.String"] = None,
         apply_immediately: Optional[
             "capo_rds.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -14206,7 +14493,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.stop_activity_stream_request.StopActivityStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if apply_immediately is not None:
             input_["apply_immediately"] = apply_immediately
 
@@ -14219,9 +14507,9 @@ class RDSClient:
 
     def stop_db_cluster(
         self,
-        db_cluster_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_cluster_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.stop_db_cluster_result.StopDBClusterResult":
         r"""<p>Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's metadata, including its endpoints and DB parameter groups. Aurora also retains the transaction logs so you can do a point-in-time restore if necessary.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html\"> Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
 
@@ -14258,7 +14546,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14269,9 +14558,9 @@ class RDSClient:
 
     def stop_db_instance(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
         db_snapshot_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.stop_db_instance_result.StopDBInstanceResult":
         r"""<p>Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if necessary. The instance restarts automatically after 7 days.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html\"> Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User Guide.</i> </p> <note> <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora clusters, use <code>StopDBCluster</code> instead.</p> </note>
@@ -14311,7 +14600,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.stop_db_instance_message.StopDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if db_snapshot_identifier is not None:
             input_["db_snapshot_identifier"] = db_snapshot_identifier
 
@@ -14324,9 +14614,9 @@ class RDSClient:
 
     def stop_db_instance_automated_backups_replication(
         self,
-        source_db_instance_arn: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        source_db_instance_arn: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.stop_db_instance_automated_backups_replication_result.StopDBInstanceAutomatedBackupsReplicationResult":
         r"""<p>Stops automated backup replication for a DB instance.</p> <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html\"> Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i> </p>
 
@@ -14361,7 +14651,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.stop_db_instance_automated_backups_replication_message.StopDBInstanceAutomatedBackupsReplicationMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_instance_arn"] = source_db_instance_arn
+        if source_db_instance_arn is not None:
+            input_["source_db_instance_arn"] = source_db_instance_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14372,9 +14663,11 @@ class RDSClient:
 
     def switchover_blue_green_deployment(
         self,
-        blue_green_deployment_identifier: "capo_rds.types.blue_green_deployment_identifier.BlueGreenDeploymentIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        blue_green_deployment_identifier: Optional[
+            "capo_rds.types.blue_green_deployment_identifier.BlueGreenDeploymentIdentifier"
+        ] = None,
         switchover_timeout: Optional[
             "capo_rds.types.switchover_timeout.SwitchoverTimeout"
         ] = None,
@@ -14417,7 +14710,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.switchover_blue_green_deployment_request.SwitchoverBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input_["blue_green_deployment_identifier"] = blue_green_deployment_identifier
+        if blue_green_deployment_identifier is not None:
+            input_["blue_green_deployment_identifier"] = (
+                blue_green_deployment_identifier
+            )
         if switchover_timeout is not None:
             input_["switchover_timeout"] = switchover_timeout
 
@@ -14430,10 +14726,14 @@ class RDSClient:
 
     def switchover_global_cluster(
         self,
-        global_cluster_identifier: "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier",
-        target_db_cluster_identifier: "capo_rds.types.db_cluster_identifier.DBClusterIdentifier",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_rds.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        target_db_cluster_identifier: Optional[
+            "capo_rds.types.db_cluster_identifier.DBClusterIdentifier"
+        ] = None,
     ) -> (
         "capo_rds.types.switchover_global_cluster_result.SwitchoverGlobalClusterResult"
     ):
@@ -14467,8 +14767,10 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if target_db_cluster_identifier is not None:
+            input_["target_db_cluster_identifier"] = target_db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -14479,9 +14781,9 @@ class RDSClient:
 
     def switchover_read_replica(
         self,
-        db_instance_identifier: "capo_rds.types.string.String",
         *,
         config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
     ) -> "capo_rds.types.switchover_read_replica_result.SwitchoverReadReplicaResult":
         """<p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new primary database. Issue this command in the Region that hosts the current standby database.</p>
 
@@ -14510,7 +14812,8 @@ class RDSClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_rds.types.switchover_read_replica_message.SwitchoverReadReplicaMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

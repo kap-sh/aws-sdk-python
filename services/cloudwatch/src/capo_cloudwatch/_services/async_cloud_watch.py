@@ -309,10 +309,12 @@ class AsyncCloudWatchClient:
 
     async def associate_dataset_kms_key(
         self,
-        dataset_identifier: "capo_cloudwatch.types.dataset_identifier.DatasetIdentifier",
-        kms_key_arn: "capo_cloudwatch.types.kms_key_arn.KmsKeyArn",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        dataset_identifier: Optional[
+            "capo_cloudwatch.types.dataset_identifier.DatasetIdentifier"
+        ] = None,
+        kms_key_arn: Optional["capo_cloudwatch.types.kms_key_arn.KmsKeyArn"] = None,
     ) -> "capo_cloudwatch.types.associate_dataset_kms_key_output.AssociateDatasetKmsKeyOutput":
         r"""<p>Associates an Amazon Web Services Key Management Service (Amazon Web Services KMS) customer managed key with the specified dataset. After this operation completes, all data published to the dataset is encrypted at rest using the specified KMS key. Callers must have <code>kms:Decrypt</code> permission on the key to read the encrypted data.</p> <p>Only the <code>default</code> dataset is supported. The <code>default</code> dataset is implicit for every account in every Region — you do not need to create it before calling this operation.</p> <p>You can call <code>AssociateDatasetKmsKey</code> on a dataset that is already associated with a KMS key to replace the existing key with a different one. To replace a key, the caller must have <code>kms:Decrypt</code> permission on both the current key and the new key.</p> <p>The KMS key that you specify must meet all of the following requirements:</p> <ul> <li> <p>It must be a symmetric encryption KMS key (key spec <code>SYMMETRIC_DEFAULT</code>, key usage <code>ENCRYPT_DECRYPT</code>). Asymmetric keys, HMAC keys, and key material types other than <code>SYMMETRIC_DEFAULT</code> are not supported.</p> </li> <li> <p>It must be enabled and not pending deletion.</p> </li> <li> <p>Its key policy must grant the CloudWatch service principal (<code>cloudwatch.amazonaws.com</code>) these permissions: <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code>. Amazon CloudWatch requires these permissions to manage the data on your behalf.</p> </li> <li> <p>The calling principal must have <code>kms:Decrypt</code> permission on the key.</p> </li> <li> <p>It must be specified as a fully qualified key ARN. Key IDs, aliases, and alias ARNs are not accepted.</p> </li> <li> <p>It must be in the same Amazon Web Services Region as the dataset.</p> </li> </ul> <p>Before completing the association, Amazon CloudWatch validates the key by performing a series of dry-run KMS operations. Service-principal checks run first to verify that the key policy grants the required access to Amazon CloudWatch. These checks include <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code>. After those succeed, a <code>kms:Decrypt</code> dry-run is run with the caller's credentials to verify that the calling principal can use the key. When you are replacing an existing key, the caller's <code>kms:Decrypt</code> dry-run is run on the current key first, and only then on the new key.</p> <p>If any of these checks fails, the operation fails and the existing key association (if any) remains unchanged. Common failure causes include the key being disabled, the key policy not granting the required permissions to Amazon CloudWatch, or the caller lacking <code>kms:Decrypt</code> permission on the key.</p> <p>For more information about using customer managed keys with Amazon CloudWatch, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cmk-encryption.html\">Encryption at rest with customer managed keys</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
@@ -346,8 +348,10 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.associate_dataset_kms_key_input.AssociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
-        input_["dataset_identifier"] = dataset_identifier
-        input_["kms_key_arn"] = kms_key_arn
+        if dataset_identifier is not None:
+            input_["dataset_identifier"] = dataset_identifier
+        if kms_key_arn is not None:
+            input_["kms_key_arn"] = kms_key_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -358,9 +362,9 @@ class AsyncCloudWatchClient:
 
     async def delete_alarm_mute_rule(
         self,
-        alarm_mute_rule_name: "capo_cloudwatch.types.name.Name",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_mute_rule_name: Optional["capo_cloudwatch.types.name.Name"] = None,
     ) -> None:
         """<p>Deletes a specific alarm mute rule.</p> <p>When you delete a mute rule, any alarms that are currently being muted by that rule are immediately unmuted. If those alarms are in an ALARM state, their configured actions will trigger.</p> <p>This operation is idempotent. If you delete a mute rule that does not exist, the operation succeeds without returning an error.</p> <p> <b>Permissions</b> </p> <p>To delete a mute rule, you need the <code>cloudwatch:DeleteAlarmMuteRule</code> permission on the alarm mute rule resource.</p>
 
@@ -386,7 +390,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.delete_alarm_mute_rule_input.DeleteAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_mute_rule_name"] = alarm_mute_rule_name
+        if alarm_mute_rule_name is not None:
+            input_["alarm_mute_rule_name"] = alarm_mute_rule_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -397,9 +402,9 @@ class AsyncCloudWatchClient:
 
     async def delete_alarms(
         self,
-        alarm_names: "capo_cloudwatch.types.alarm_names.AlarmNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_names: Optional["capo_cloudwatch.types.alarm_names.AlarmNames"] = None,
     ) -> None:
         r"""<p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't delete two composite alarms with one operation.</p> <p> If you specify any incorrect alarm names, the alarms you specify with correct names are still deleted. Other syntax errors might result in no alarms being deleted. To confirm that alarms were deleted successfully, you can use the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html\">DescribeAlarms</a> operation after using <code>DeleteAlarms</code>.</p> <note> <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle because there is always still a composite alarm that depends on that alarm that you want to delete.</p> <p>To get out of such a situation, you must break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p> <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path. </p> </note>
 
@@ -426,7 +431,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.delete_alarms_input.DeleteAlarmsInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_names"] = alarm_names
+        if alarm_names is not None:
+            input_["alarm_names"] = alarm_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -510,9 +516,11 @@ class AsyncCloudWatchClient:
 
     async def delete_dashboards(
         self,
-        dashboard_names: "capo_cloudwatch.types.dashboard_names.DashboardNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        dashboard_names: Optional[
+            "capo_cloudwatch.types.dashboard_names.DashboardNames"
+        ] = None,
     ) -> "capo_cloudwatch.types.delete_dashboards_output.DeleteDashboardsOutput":
         """<p>Deletes all dashboards that you specify. You can specify up to 100 dashboards to delete. If there is an error during this call, the operation attempts to delete as many dashboards as possible.</p>
 
@@ -543,7 +551,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.delete_dashboards_input.DeleteDashboardsInput = {}  # type: ignore[typeddict-item]
-        input_["dashboard_names"] = dashboard_names
+        if dashboard_names is not None:
+            input_["dashboard_names"] = dashboard_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -554,9 +563,11 @@ class AsyncCloudWatchClient:
 
     async def delete_insight_rules(
         self,
-        rule_names: "capo_cloudwatch.types.insight_rule_names.InsightRuleNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        rule_names: Optional[
+            "capo_cloudwatch.types.insight_rule_names.InsightRuleNames"
+        ] = None,
     ) -> "capo_cloudwatch.types.delete_insight_rules_output.DeleteInsightRulesOutput":
         r"""<p>Permanently deletes the specified Contributor Insights rules.</p> <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time the rule was created might not be available.</p>
 
@@ -586,7 +597,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.delete_insight_rules_input.DeleteInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input_["rule_names"] = rule_names
+        if rule_names is not None:
+            input_["rule_names"] = rule_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -597,9 +609,11 @@ class AsyncCloudWatchClient:
 
     async def delete_metric_stream(
         self,
-        name: "capo_cloudwatch.types.metric_stream_name.MetricStreamName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        name: Optional[
+            "capo_cloudwatch.types.metric_stream_name.MetricStreamName"
+        ] = None,
     ) -> "capo_cloudwatch.types.delete_metric_stream_output.DeleteMetricStreamOutput":
         """<p>Permanently deletes the metric stream that you specify.</p>
 
@@ -630,7 +644,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.delete_metric_stream_input.DeleteMetricStreamInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -641,9 +656,9 @@ class AsyncCloudWatchClient:
 
     async def describe_alarm_contributors(
         self,
-        alarm_name: "capo_cloudwatch.types.alarm_name.AlarmName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_name: Optional["capo_cloudwatch.types.alarm_name.AlarmName"] = None,
         next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
     ) -> "capo_cloudwatch.types.describe_alarm_contributors_output.DescribeAlarmContributorsOutput":
         """<p>Returns the information of the current alarm contributors that are in <code>ALARM</code> state. This operation returns details about the individual time series that contribute to the alarm's state.</p>
@@ -675,7 +690,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.describe_alarm_contributors_input.DescribeAlarmContributorsInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_name"] = alarm_name
+        if alarm_name is not None:
+            input_["alarm_name"] = alarm_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -891,10 +907,10 @@ class AsyncCloudWatchClient:
 
     async def describe_alarms_for_metric(
         self,
-        metric_name: "capo_cloudwatch.types.metric_name.MetricName",
-        namespace: "capo_cloudwatch.types.namespace.Namespace",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        metric_name: Optional["capo_cloudwatch.types.metric_name.MetricName"] = None,
+        namespace: Optional["capo_cloudwatch.types.namespace.Namespace"] = None,
         statistic: Optional["capo_cloudwatch.types.statistic.Statistic"] = None,
         extended_statistic: Optional[
             "capo_cloudwatch.types.extended_statistic.ExtendedStatistic"
@@ -935,8 +951,10 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.describe_alarms_for_metric_input.DescribeAlarmsForMetricInput = {}  # type: ignore[typeddict-item]
-        input_["metric_name"] = metric_name
-        input_["namespace"] = namespace
+        if metric_name is not None:
+            input_["metric_name"] = metric_name
+        if namespace is not None:
+            input_["namespace"] = namespace
         if statistic is not None:
             input_["statistic"] = statistic
         if extended_statistic is not None:
@@ -1111,9 +1129,9 @@ class AsyncCloudWatchClient:
 
     async def disable_alarm_actions(
         self,
-        alarm_names: "capo_cloudwatch.types.alarm_names.AlarmNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_names: Optional["capo_cloudwatch.types.alarm_names.AlarmNames"] = None,
     ) -> None:
         """<p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the alarm actions do not execute when the alarm state changes.</p>
 
@@ -1139,7 +1157,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.disable_alarm_actions_input.DisableAlarmActionsInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_names"] = alarm_names
+        if alarm_names is not None:
+            input_["alarm_names"] = alarm_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1150,9 +1169,11 @@ class AsyncCloudWatchClient:
 
     async def disable_insight_rules(
         self,
-        rule_names: "capo_cloudwatch.types.insight_rule_names.InsightRuleNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        rule_names: Optional[
+            "capo_cloudwatch.types.insight_rule_names.InsightRuleNames"
+        ] = None,
     ) -> "capo_cloudwatch.types.disable_insight_rules_output.DisableInsightRulesOutput":
         r"""<p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do not incur costs.</p>
 
@@ -1182,7 +1203,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.disable_insight_rules_input.DisableInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input_["rule_names"] = rule_names
+        if rule_names is not None:
+            input_["rule_names"] = rule_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1193,9 +1215,11 @@ class AsyncCloudWatchClient:
 
     async def disassociate_dataset_kms_key(
         self,
-        dataset_identifier: "capo_cloudwatch.types.dataset_identifier.DatasetIdentifier",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        dataset_identifier: Optional[
+            "capo_cloudwatch.types.dataset_identifier.DatasetIdentifier"
+        ] = None,
     ) -> "capo_cloudwatch.types.disassociate_dataset_kms_key_output.DisassociateDatasetKmsKeyOutput":
         r"""<p>Removes the customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key association from the specified dataset. After this operation completes, data that you publish to the dataset is encrypted at rest using an Amazon Web Services owned key managed by Amazon CloudWatch.</p> <p>Only the <code>default</code> dataset is supported. To call this operation, the dataset must currently have a customer managed KMS key associated with it. If the dataset has no associated KMS key, the operation fails with <code>ResourceNotFoundException</code>.</p> <p>Amazon CloudWatch performs a dry-run <code>kms:Decrypt</code> call on the key as part of this operation. This verifies that the caller is authorized to use the currently associated key. The caller must have <code>kms:Decrypt</code> permission on the currently associated key, and the key must be enabled and accessible. If the key has been disabled or scheduled for deletion, you must first re-enable or restore it before you can disassociate it from the dataset.</p> <important> <p>Disassociating a KMS key from a dataset does not immediately remove the <code>kms:Decrypt</code> requirement on data plane operations. For up to three hours after disassociation, callers must continue to have <code>kms:Decrypt</code> permission on the previously associated key. Some data may still be encrypted with that key during this window. After this enforcement window elapses, the <code>kms:Decrypt</code> requirement is lifted.</p> </important> <p>For more information about using customer managed keys with Amazon CloudWatch, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cmk-encryption.html\">Encryption at rest with customer managed keys</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
@@ -1225,7 +1249,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.disassociate_dataset_kms_key_input.DisassociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
-        input_["dataset_identifier"] = dataset_identifier
+        if dataset_identifier is not None:
+            input_["dataset_identifier"] = dataset_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1236,9 +1261,9 @@ class AsyncCloudWatchClient:
 
     async def enable_alarm_actions(
         self,
-        alarm_names: "capo_cloudwatch.types.alarm_names.AlarmNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_names: Optional["capo_cloudwatch.types.alarm_names.AlarmNames"] = None,
     ) -> None:
         """<p>Enables the actions for the specified alarms.</p>
 
@@ -1264,7 +1289,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.enable_alarm_actions_input.EnableAlarmActionsInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_names"] = alarm_names
+        if alarm_names is not None:
+            input_["alarm_names"] = alarm_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1275,9 +1301,11 @@ class AsyncCloudWatchClient:
 
     async def enable_insight_rules(
         self,
-        rule_names: "capo_cloudwatch.types.insight_rule_names.InsightRuleNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        rule_names: Optional[
+            "capo_cloudwatch.types.insight_rule_names.InsightRuleNames"
+        ] = None,
     ) -> "capo_cloudwatch.types.enable_insight_rules_output.EnableInsightRulesOutput":
         r"""<p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
 
@@ -1308,7 +1336,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.enable_insight_rules_input.EnableInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input_["rule_names"] = rule_names
+        if rule_names is not None:
+            input_["rule_names"] = rule_names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1319,9 +1348,9 @@ class AsyncCloudWatchClient:
 
     async def get_alarm_mute_rule(
         self,
-        alarm_mute_rule_name: "capo_cloudwatch.types.name.Name",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_mute_rule_name: Optional["capo_cloudwatch.types.name.Name"] = None,
     ) -> "capo_cloudwatch.types.get_alarm_mute_rule_output.GetAlarmMuteRuleOutput":
         """<p>Retrieves details for a specific alarm mute rule.</p> <p>This operation returns complete information about the mute rule, including its configuration, status, targeted alarms, and metadata.</p> <p>The returned status indicates the current state of the mute rule:</p> <ul> <li> <p> <b>SCHEDULED</b>: The mute rule is configured and will become active in the future</p> </li> <li> <p> <b>ACTIVE</b>: The mute rule is currently muting alarm actions</p> </li> <li> <p> <b>EXPIRED</b>: The mute rule has passed its expiration date and will no longer become active</p> </li> </ul> <p> <b>Permissions</b> </p> <p>To retrieve details for a mute rule, you need the <code>cloudwatch:GetAlarmMuteRule</code> permission on the alarm mute rule resource.</p>
 
@@ -1350,7 +1379,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_alarm_mute_rule_input.GetAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_mute_rule_name"] = alarm_mute_rule_name
+        if alarm_mute_rule_name is not None:
+            input_["alarm_mute_rule_name"] = alarm_mute_rule_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1361,20 +1391,20 @@ class AsyncCloudWatchClient:
 
     async def wait_until_alarm_mute_rule_exists(
         self,
-        alarm_mute_rule_name: "capo_cloudwatch.types.name.Name",
         *,
         max_wait_time: float,
         min_delay: float = 5,
         max_delay: float = 120,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_mute_rule_name: Optional["capo_cloudwatch.types.name.Name"] = None,
     ) -> "capo_cloudwatch.types.get_alarm_mute_rule_output.GetAlarmMuteRuleOutput":
         """Wait for alarm_mute_rule_exists.
 
         Args:
-            alarm_mute_rule_name: <p>The name of the alarm mute rule to retrieve.</p>
             max_wait_time: Maximum total seconds to wait before raising WaiterTimeoutError.
             min_delay: Minimum seconds between operation attempts (spec default 2).
             max_delay: Maximum seconds between operation attempts (spec default 120).
+            alarm_mute_rule_name: <p>The name of the alarm mute rule to retrieve.</p>
         """
         start = time.monotonic()
         attempt = 0
@@ -1383,7 +1413,8 @@ class AsyncCloudWatchClient:
             op_error: ServiceError | None = None
             try:
                 op_output = await self.get_alarm_mute_rule(  # noqa: F841
-                    alarm_mute_rule_name, config_overrides=config_overrides
+                    config_overrides=config_overrides,
+                    alarm_mute_rule_name=alarm_mute_rule_name,
                 )
             except ServiceError as e:
                 op_error = e
@@ -1403,9 +1434,11 @@ class AsyncCloudWatchClient:
 
     async def get_dashboard(
         self,
-        dashboard_name: "capo_cloudwatch.types.dashboard_name.DashboardName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        dashboard_name: Optional[
+            "capo_cloudwatch.types.dashboard_name.DashboardName"
+        ] = None,
     ) -> "capo_cloudwatch.types.get_dashboard_output.GetDashboardOutput":
         """<p>Displays the details of the dashboard that you specify.</p> <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create the copy.</p>
 
@@ -1436,7 +1469,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_dashboard_input.GetDashboardInput = {}  # type: ignore[typeddict-item]
-        input_["dashboard_name"] = dashboard_name
+        if dashboard_name is not None:
+            input_["dashboard_name"] = dashboard_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1447,9 +1481,11 @@ class AsyncCloudWatchClient:
 
     async def get_dataset(
         self,
-        dataset_identifier: "capo_cloudwatch.types.dataset_identifier.DatasetIdentifier",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        dataset_identifier: Optional[
+            "capo_cloudwatch.types.dataset_identifier.DatasetIdentifier"
+        ] = None,
     ) -> "capo_cloudwatch.types.get_dataset_output.GetDatasetOutput":
         r"""<p>Returns information about the specified dataset. This includes its identifier, Amazon Resource Name (ARN), and any customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that is currently associated with it.</p> <p>Only the <code>default</code> dataset is supported. The <code>default</code> dataset is implicit for every account in every Region — you can call <code>GetDataset</code> for it without first creating it. If no customer managed KMS key has been associated with the dataset, the response omits the <code>KmsKeyArn</code> field, indicating that data is encrypted at rest using an Amazon Web Services owned key managed by Amazon CloudWatch.</p> <p>To associate a customer managed KMS key with a dataset, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html\">AssociateDatasetKmsKey</a>. To remove the association, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisassociateDatasetKmsKey.html\">DisassociateDatasetKmsKey</a>.</p>
 
@@ -1478,7 +1514,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_dataset_input.GetDatasetInput = {}  # type: ignore[typeddict-item]
-        input_["dataset_identifier"] = dataset_identifier
+        if dataset_identifier is not None:
+            input_["dataset_identifier"] = dataset_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1489,12 +1526,14 @@ class AsyncCloudWatchClient:
 
     async def get_insight_rule_report(
         self,
-        rule_name: "capo_cloudwatch.types.insight_rule_name.InsightRuleName",
-        start_time: "capo_cloudwatch.types.timestamp.Timestamp",
-        end_time: "capo_cloudwatch.types.timestamp.Timestamp",
-        period: "capo_cloudwatch.types.period.Period",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        rule_name: Optional[
+            "capo_cloudwatch.types.insight_rule_name.InsightRuleName"
+        ] = None,
+        start_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        period: Optional["capo_cloudwatch.types.period.Period"] = None,
         max_contributor_count: Optional[
             "capo_cloudwatch.types.insight_rule_unbound_integer.InsightRuleUnboundInteger"
         ] = None,
@@ -1540,10 +1579,14 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_insight_rule_report_input.GetInsightRuleReportInput = {}  # type: ignore[typeddict-item]
-        input_["rule_name"] = rule_name
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
-        input_["period"] = period
+        if rule_name is not None:
+            input_["rule_name"] = rule_name
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if period is not None:
+            input_["period"] = period
         if max_contributor_count is not None:
             input_["max_contributor_count"] = max_contributor_count
         if metrics is not None:
@@ -1560,11 +1603,13 @@ class AsyncCloudWatchClient:
 
     async def get_metric_data(
         self,
-        metric_data_queries: "capo_cloudwatch.types.metric_data_queries.MetricDataQueries",
-        start_time: "capo_cloudwatch.types.timestamp.Timestamp",
-        end_time: "capo_cloudwatch.types.timestamp.Timestamp",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        metric_data_queries: Optional[
+            "capo_cloudwatch.types.metric_data_queries.MetricDataQueries"
+        ] = None,
+        start_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
         scan_by: Optional["capo_cloudwatch.types.scan_by.ScanBy"] = None,
         max_datapoints: Optional[
@@ -1607,9 +1652,12 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_metric_data_input.GetMetricDataInput = {}  # type: ignore[typeddict-item]
-        input_["metric_data_queries"] = metric_data_queries
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
+        if metric_data_queries is not None:
+            input_["metric_data_queries"] = metric_data_queries
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
         if next_token is not None:
             input_["next_token"] = next_token
         if scan_by is not None:
@@ -1628,14 +1676,14 @@ class AsyncCloudWatchClient:
 
     async def get_metric_statistics(
         self,
-        namespace: "capo_cloudwatch.types.namespace.Namespace",
-        metric_name: "capo_cloudwatch.types.metric_name.MetricName",
-        start_time: "capo_cloudwatch.types.timestamp.Timestamp",
-        end_time: "capo_cloudwatch.types.timestamp.Timestamp",
-        period: "capo_cloudwatch.types.period.Period",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        namespace: Optional["capo_cloudwatch.types.namespace.Namespace"] = None,
+        metric_name: Optional["capo_cloudwatch.types.metric_name.MetricName"] = None,
         dimensions: Optional["capo_cloudwatch.types.dimensions.Dimensions"] = None,
+        start_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        period: Optional["capo_cloudwatch.types.period.Period"] = None,
         statistics: Optional["capo_cloudwatch.types.statistics.Statistics"] = None,
         extended_statistics: Optional[
             "capo_cloudwatch.types.extended_statistics.ExtendedStatistics"
@@ -1680,13 +1728,18 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_metric_statistics_input.GetMetricStatisticsInput = {}  # type: ignore[typeddict-item]
-        input_["namespace"] = namespace
-        input_["metric_name"] = metric_name
+        if namespace is not None:
+            input_["namespace"] = namespace
+        if metric_name is not None:
+            input_["metric_name"] = metric_name
         if dimensions is not None:
             input_["dimensions"] = dimensions
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
-        input_["period"] = period
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if period is not None:
+            input_["period"] = period
         if statistics is not None:
             input_["statistics"] = statistics
         if extended_statistics is not None:
@@ -1703,9 +1756,11 @@ class AsyncCloudWatchClient:
 
     async def get_metric_stream(
         self,
-        name: "capo_cloudwatch.types.metric_stream_name.MetricStreamName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        name: Optional[
+            "capo_cloudwatch.types.metric_stream_name.MetricStreamName"
+        ] = None,
     ) -> "capo_cloudwatch.types.get_metric_stream_output.GetMetricStreamOutput":
         """<p>Returns information about the metric stream that you specify.</p>
 
@@ -1738,7 +1793,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_metric_stream_input.GetMetricStreamInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1749,9 +1805,11 @@ class AsyncCloudWatchClient:
 
     async def get_metric_widget_image(
         self,
-        metric_widget: "capo_cloudwatch.types.metric_widget.MetricWidget",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        metric_widget: Optional[
+            "capo_cloudwatch.types.metric_widget.MetricWidget"
+        ] = None,
         output_format: Optional[
             "capo_cloudwatch.types.output_format.OutputFormat"
         ] = None,
@@ -1783,7 +1841,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.get_metric_widget_image_input.GetMetricWidgetImageInput = {}  # type: ignore[typeddict-item]
-        input_["metric_widget"] = metric_widget
+        if metric_widget is not None:
+            input_["metric_widget"] = metric_widget
         if output_format is not None:
             input_["output_format"] = output_format
 
@@ -1988,9 +2047,11 @@ class AsyncCloudWatchClient:
 
     async def list_managed_insight_rules(
         self,
-        resource_arn: "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        resource_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
         next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudwatch.types.insight_rule_max_results.InsightRuleMaxResults"
@@ -2027,7 +2088,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.list_managed_insight_rules_input.ListManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -2168,9 +2230,11 @@ class AsyncCloudWatchClient:
 
     async def list_tags_for_resource(
         self,
-        resource_arn: "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        resource_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
     ) -> (
         "capo_cloudwatch.types.list_tags_for_resource_output.ListTagsForResourceOutput"
     ):
@@ -2203,7 +2267,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2214,13 +2279,13 @@ class AsyncCloudWatchClient:
 
     async def put_alarm_mute_rule(
         self,
-        name: "capo_cloudwatch.types.name.Name",
-        rule: "capo_cloudwatch.types.rule.Rule",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        name: Optional["capo_cloudwatch.types.name.Name"] = None,
         description: Optional[
             "capo_cloudwatch.types.alarm_description.AlarmDescription"
         ] = None,
+        rule: Optional["capo_cloudwatch.types.rule.Rule"] = None,
         mute_targets: Optional["capo_cloudwatch.types.mute_targets.MuteTargets"] = None,
         tags: Optional["capo_cloudwatch.types.tag_list.TagList"] = None,
         start_date: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
@@ -2257,10 +2322,12 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_alarm_mute_rule_input.PutAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
-        input_["rule"] = rule
+        if rule is not None:
+            input_["rule"] = rule
         if mute_targets is not None:
             input_["mute_targets"] = mute_targets
         if tags is not None:
@@ -2364,8 +2431,6 @@ class AsyncCloudWatchClient:
 
     async def put_composite_alarm(
         self,
-        alarm_name: "capo_cloudwatch.types.alarm_name.AlarmName",
-        alarm_rule: "capo_cloudwatch.types.alarm_rule.AlarmRule",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
         actions_enabled: Optional[
@@ -2377,6 +2442,8 @@ class AsyncCloudWatchClient:
         alarm_description: Optional[
             "capo_cloudwatch.types.alarm_description.AlarmDescription"
         ] = None,
+        alarm_name: Optional["capo_cloudwatch.types.alarm_name.AlarmName"] = None,
+        alarm_rule: Optional["capo_cloudwatch.types.alarm_rule.AlarmRule"] = None,
         insufficient_data_actions: Optional[
             "capo_cloudwatch.types.resource_list.ResourceList"
         ] = None,
@@ -2431,8 +2498,10 @@ class AsyncCloudWatchClient:
             input_["alarm_actions"] = alarm_actions
         if alarm_description is not None:
             input_["alarm_description"] = alarm_description
-        input_["alarm_name"] = alarm_name
-        input_["alarm_rule"] = alarm_rule
+        if alarm_name is not None:
+            input_["alarm_name"] = alarm_name
+        if alarm_rule is not None:
+            input_["alarm_rule"] = alarm_rule
         if insufficient_data_actions is not None:
             input_["insufficient_data_actions"] = insufficient_data_actions
         if ok_actions is not None:
@@ -2457,10 +2526,14 @@ class AsyncCloudWatchClient:
 
     async def put_dashboard(
         self,
-        dashboard_name: "capo_cloudwatch.types.dashboard_name.DashboardName",
-        dashboard_body: "capo_cloudwatch.types.dashboard_body.DashboardBody",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        dashboard_name: Optional[
+            "capo_cloudwatch.types.dashboard_name.DashboardName"
+        ] = None,
+        dashboard_body: Optional[
+            "capo_cloudwatch.types.dashboard_body.DashboardBody"
+        ] = None,
         tags: Optional["capo_cloudwatch.types.tag_list.TagList"] = None,
     ) -> "capo_cloudwatch.types.put_dashboard_output.PutDashboardOutput":
         r"""<p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here.</p> <p>All dashboards in your account are global, not region-specific.</p> <p>A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing dashboard. To copy an existing dashboard using the console, you can load the dashboard and then use the View/edit source command in the Actions menu to display the JSON block for that dashboard. Another way to copy a dashboard is to use <code>GetDashboard</code>, and then use the data returned within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code>.</p> <p>When you create a dashboard with <code>PutDashboard</code>, a good practice is to add a text widget at the top of the dashboard with a message that the dashboard was created by script and should not be changed in the console. This message could also point console users to the location of the <code>DashboardBody</code> script or the CloudFormation template used to create the dashboard.</p>
@@ -2494,8 +2567,10 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_dashboard_input.PutDashboardInput = {}  # type: ignore[typeddict-item]
-        input_["dashboard_name"] = dashboard_name
-        input_["dashboard_body"] = dashboard_body
+        if dashboard_name is not None:
+            input_["dashboard_name"] = dashboard_name
+        if dashboard_body is not None:
+            input_["dashboard_body"] = dashboard_body
         if tags is not None:
             input_["tags"] = tags
 
@@ -2508,12 +2583,16 @@ class AsyncCloudWatchClient:
 
     async def put_insight_rule(
         self,
-        rule_name: "capo_cloudwatch.types.insight_rule_name.InsightRuleName",
-        rule_definition: "capo_cloudwatch.types.insight_rule_definition.InsightRuleDefinition",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        rule_name: Optional[
+            "capo_cloudwatch.types.insight_rule_name.InsightRuleName"
+        ] = None,
         rule_state: Optional[
             "capo_cloudwatch.types.insight_rule_state.InsightRuleState"
+        ] = None,
+        rule_definition: Optional[
+            "capo_cloudwatch.types.insight_rule_definition.InsightRuleDefinition"
         ] = None,
         tags: Optional["capo_cloudwatch.types.tag_list.TagList"] = None,
         apply_on_transformed_logs: Optional[
@@ -2553,10 +2632,12 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_insight_rule_input.PutInsightRuleInput = {}  # type: ignore[typeddict-item]
-        input_["rule_name"] = rule_name
+        if rule_name is not None:
+            input_["rule_name"] = rule_name
         if rule_state is not None:
             input_["rule_state"] = rule_state
-        input_["rule_definition"] = rule_definition
+        if rule_definition is not None:
+            input_["rule_definition"] = rule_definition
         if tags is not None:
             input_["tags"] = tags
         if apply_on_transformed_logs is not None:
@@ -2571,9 +2652,11 @@ class AsyncCloudWatchClient:
 
     async def put_managed_insight_rules(
         self,
-        managed_rules: "capo_cloudwatch.types.managed_rules.ManagedRules",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        managed_rules: Optional[
+            "capo_cloudwatch.types.managed_rules.ManagedRules"
+        ] = None,
     ) -> "capo_cloudwatch.types.put_managed_insight_rules_output.PutManagedInsightRulesOutput":
         """<p> Creates a managed Contributor Insights rule for a specified Amazon Web Services resource. When you enable a managed rule, you create a Contributor Insights rule that collects data from Amazon Web Services services. You cannot edit these rules with <code>PutInsightRule</code>. The rules can be enabled, disabled, and deleted using <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and <code>DeleteInsightRules</code>. If a previously created managed rule is currently disabled, a subsequent call to this API will re-enable it. Use <code>ListManagedInsightRules</code> to describe all available rules. </p>
 
@@ -2603,7 +2686,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_managed_insight_rules_input.PutManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input_["managed_rules"] = managed_rules
+        if managed_rules is not None:
+            input_["managed_rules"] = managed_rules
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2614,9 +2698,9 @@ class AsyncCloudWatchClient:
 
     async def put_metric_alarm(
         self,
-        alarm_name: "capo_cloudwatch.types.alarm_name.AlarmName",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_name: Optional["capo_cloudwatch.types.alarm_name.AlarmName"] = None,
         alarm_description: Optional[
             "capo_cloudwatch.types.alarm_description.AlarmDescription"
         ] = None,
@@ -2717,7 +2801,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_metric_alarm_input.PutMetricAlarmInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_name"] = alarm_name
+        if alarm_name is not None:
+            input_["alarm_name"] = alarm_name
         if alarm_description is not None:
             input_["alarm_description"] = alarm_description
         if actions_enabled is not None:
@@ -2776,9 +2861,9 @@ class AsyncCloudWatchClient:
 
     async def put_metric_data(
         self,
-        namespace: "capo_cloudwatch.types.namespace.Namespace",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        namespace: Optional["capo_cloudwatch.types.namespace.Namespace"] = None,
         metric_data: Optional["capo_cloudwatch.types.metric_data.MetricData"] = None,
         entity_metric_data: Optional[
             "capo_cloudwatch.types.entity_metric_data_list.EntityMetricDataList"
@@ -2818,7 +2903,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_metric_data_input.PutMetricDataInput = {}  # type: ignore[typeddict-item]
-        input_["namespace"] = namespace
+        if namespace is not None:
+            input_["namespace"] = namespace
         if metric_data is not None:
             input_["metric_data"] = metric_data
         if entity_metric_data is not None:
@@ -2835,17 +2921,25 @@ class AsyncCloudWatchClient:
 
     async def put_metric_stream(
         self,
-        name: "capo_cloudwatch.types.metric_stream_name.MetricStreamName",
-        firehose_arn: "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName",
-        role_arn: "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName",
-        output_format: "capo_cloudwatch.types.metric_stream_output_format.MetricStreamOutputFormat",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        name: Optional[
+            "capo_cloudwatch.types.metric_stream_name.MetricStreamName"
+        ] = None,
         include_filters: Optional[
             "capo_cloudwatch.types.metric_stream_filters.MetricStreamFilters"
         ] = None,
         exclude_filters: Optional[
             "capo_cloudwatch.types.metric_stream_filters.MetricStreamFilters"
+        ] = None,
+        firehose_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        role_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        output_format: Optional[
+            "capo_cloudwatch.types.metric_stream_output_format.MetricStreamOutputFormat"
         ] = None,
         tags: Optional["capo_cloudwatch.types.tag_list.TagList"] = None,
         statistics_configurations: Optional[
@@ -2894,14 +2988,18 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.put_metric_stream_input.PutMetricStreamInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if include_filters is not None:
             input_["include_filters"] = include_filters
         if exclude_filters is not None:
             input_["exclude_filters"] = exclude_filters
-        input_["firehose_arn"] = firehose_arn
-        input_["role_arn"] = role_arn
-        input_["output_format"] = output_format
+        if firehose_arn is not None:
+            input_["firehose_arn"] = firehose_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if output_format is not None:
+            input_["output_format"] = output_format
         if tags is not None:
             input_["tags"] = tags
         if statistics_configurations is not None:
@@ -2918,11 +3016,11 @@ class AsyncCloudWatchClient:
 
     async def set_alarm_state(
         self,
-        alarm_name: "capo_cloudwatch.types.alarm_name.AlarmName",
-        state_value: "capo_cloudwatch.types.state_value.StateValue",
-        state_reason: "capo_cloudwatch.types.state_reason.StateReason",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_name: Optional["capo_cloudwatch.types.alarm_name.AlarmName"] = None,
+        state_value: Optional["capo_cloudwatch.types.state_value.StateValue"] = None,
+        state_reason: Optional["capo_cloudwatch.types.state_reason.StateReason"] = None,
         state_reason_data: Optional[
             "capo_cloudwatch.types.state_reason_data.StateReasonData"
         ] = None,
@@ -2956,9 +3054,12 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.set_alarm_state_input.SetAlarmStateInput = {}  # type: ignore[typeddict-item]
-        input_["alarm_name"] = alarm_name
-        input_["state_value"] = state_value
-        input_["state_reason"] = state_reason
+        if alarm_name is not None:
+            input_["alarm_name"] = alarm_name
+        if state_value is not None:
+            input_["state_value"] = state_value
+        if state_reason is not None:
+            input_["state_reason"] = state_reason
         if state_reason_data is not None:
             input_["state_reason_data"] = state_reason_data
 
@@ -2971,9 +3072,11 @@ class AsyncCloudWatchClient:
 
     async def start_metric_streams(
         self,
-        names: "capo_cloudwatch.types.metric_stream_names.MetricStreamNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        names: Optional[
+            "capo_cloudwatch.types.metric_stream_names.MetricStreamNames"
+        ] = None,
     ) -> "capo_cloudwatch.types.start_metric_streams_output.StartMetricStreamsOutput":
         r"""<p>Starts the streaming of metrics for one or more of your metric streams.</p>
 
@@ -3004,7 +3107,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.start_metric_streams_input.StartMetricStreamsInput = {}  # type: ignore[typeddict-item]
-        input_["names"] = names
+        if names is not None:
+            input_["names"] = names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3051,9 +3155,11 @@ class AsyncCloudWatchClient:
 
     async def stop_metric_streams(
         self,
-        names: "capo_cloudwatch.types.metric_stream_names.MetricStreamNames",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        names: Optional[
+            "capo_cloudwatch.types.metric_stream_names.MetricStreamNames"
+        ] = None,
     ) -> "capo_cloudwatch.types.stop_metric_streams_output.StopMetricStreamsOutput":
         r"""<p>Stops the streaming of metrics for one or more of your metric streams.</p>
 
@@ -3084,7 +3190,8 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.stop_metric_streams_input.StopMetricStreamsInput = {}  # type: ignore[typeddict-item]
-        input_["names"] = names
+        if names is not None:
+            input_["names"] = names
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3129,10 +3236,12 @@ class AsyncCloudWatchClient:
 
     async def tag_resource(
         self,
-        resource_arn: "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName",
-        tags: "capo_cloudwatch.types.tag_list.TagList",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        resource_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        tags: Optional["capo_cloudwatch.types.tag_list.TagList"] = None,
     ) -> "capo_cloudwatch.types.tag_resource_output.TagResourceOutput":
         r"""<p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently, the only CloudWatch resources that can be tagged are alarms, dashboards, metric streams and Contributor Insights rules.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with an alarm that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
 
@@ -3166,8 +3275,10 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3178,10 +3289,12 @@ class AsyncCloudWatchClient:
 
     async def untag_resource(
         self,
-        resource_arn: "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName",
-        tag_keys: "capo_cloudwatch.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        resource_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        tag_keys: Optional["capo_cloudwatch.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_cloudwatch.types.untag_resource_output.UntagResourceOutput":
         r"""<p>Removes one or more tags from the specified resource. Currently, alarms, dashboards, metric streams and Contributor Insights rules support tagging.</p>
 
@@ -3215,8 +3328,10 @@ class AsyncCloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
