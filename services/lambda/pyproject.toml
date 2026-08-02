@@ -27,7 +27,7 @@ dependencies = [
 sso = [
     "capo-sso>=0.2.0",
     "capo-sso-oidc>=0.2.0",
-    "capo-sts>=0.2.0",
+    "capo-sts>=0.3.0",
 ]
 
 [tool.pytest.ini_options]

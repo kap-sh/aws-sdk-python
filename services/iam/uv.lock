@@ -48,7 +48,7 @@ dev = [
 requires-dist = [
     { name = "capo-sso", marker = "extra == 'sso'", specifier = ">=0.2.0" },
     { name = "capo-sso-oidc", marker = "extra == 'sso'", specifier = ">=0.2.0" },
-    { name = "capo-sts", marker = "extra == 'sso'", specifier = ">=0.2.0" },
+    { name = "capo-sts", marker = "extra == 'sso'", specifier = ">=0.3.0" },
     { name = "zapros", specifier = ">=0.13.0" },
 ]
 provides-extras = ["sso"]
@@ -88,14 +88,14 @@ wheels = [
 
 [[package]]
 name = "capo-sts"
-version = "0.2.0"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "zapros" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c4/76/57f26f5c469fed809c6f826067e67de9dbdd46c14df6c8f25b1e2174bd20/capo_sts-0.2.0.tar.gz", hash = "sha256:953d262ef43a7905bf740b85c2012e719b62588efc29d0ca47a3e491bc73ecf8", size = 100440, upload-time = "2026-08-02T07:44:19.077Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3c/d8/6bd802338e546fd66e77cadfd95dc4be764bbc2e73be30e216f032999c45/capo_sts-0.3.0.tar.gz", hash = "sha256:020aabad86d2997b09d4e63cd3f822321783489aeb1fa0dc5e5a893c89ad745f", size = 100636, upload-time = "2026-08-02T11:13:16.669Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/51/aa/53f6665ed668f574d7e7a402e5e060f93769bdd4bed51e2baa1908582bcc/capo_sts-0.2.0-py3-none-any.whl", hash = "sha256:d3b9cf754688639eeaca13ab91a7e76cbecb0c799810fedf15cdfc584b169a4b", size = 168241, upload-time = "2026-08-02T07:44:17.95Z" },
+    { url = "https://files.pythonhosted.org/packages/1e/3a/24b2ea452c1ee16912182d382bdb5ec263ace10550018af05810a9f8b238/capo_sts-0.3.0-py3-none-any.whl", hash = "sha256:6d8d34164658ccf6488b22ec01eddd91c38f6bf36fe6189b11528242c4053680", size = 169190, upload-time = "2026-08-02T11:13:15.565Z" },
 ]
 
 [[package]]
