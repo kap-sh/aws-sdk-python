@@ -1,5 +1,12 @@
 # AWS SDK for Python - Releases
 
+## 2026-08-07
+
+- [aws-sdk-cloudwatch v0.4.0](services/cloudwatch/CHANGELOG.md)
+- [aws-sdk-ec2 v0.7.0](services/ec2/CHANGELOG.md)
+- [aws-sdk-ecs v0.6.0](services/ecs/CHANGELOG.md)
+- [aws-sdk-rds v0.4.0](services/rds/CHANGELOG.md)
+
 ## 2026-08-02
 
 - [aws-sdk-cloudfront v0.3.0](services/cloudfront/CHANGELOG.md)

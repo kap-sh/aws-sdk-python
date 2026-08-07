@@ -1,5 +1,11 @@
 # aws-sdk-cloudwatch
 
+## 0.4.0
+
+### Minor Changes
+
+- 49b2e50: respect smithy clientOptional trait
+
 ## 0.3.0
 
 ### Minor Changes
