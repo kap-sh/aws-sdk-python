@@ -1,5 +1,11 @@
 # aws-sdk-ecs
 
+## 0.6.0
+
+### Minor Changes
+
+- 012975d: add support for sso
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.7.0
+
+### Minor Changes
+
+- 49b2e50: respect smithy clientOptional trait
+
 ## 0.6.0
 
 ### Minor Changes
