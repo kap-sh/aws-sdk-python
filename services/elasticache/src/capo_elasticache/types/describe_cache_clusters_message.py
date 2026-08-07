@@ -33,23 +33,24 @@ class DescribeCacheClustersMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeCacheClustersMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "show_cache_node_info" in value:
         pairs.append(
             (
-                f"{prefix}.ShowCacheNodeInfo",
+                f"{key_prefix}ShowCacheNodeInfo",
                 "true" if value["show_cache_node_info"] else "false",
             )
         )
     if "show_cache_clusters_not_in_replication_groups" in value:
         pairs.append(
             (
-                f"{prefix}.ShowCacheClustersNotInReplicationGroups",
+                f"{key_prefix}ShowCacheClustersNotInReplicationGroups",
                 "true"
                 if value["show_cache_clusters_not_in_replication_groups"]
                 else "false",

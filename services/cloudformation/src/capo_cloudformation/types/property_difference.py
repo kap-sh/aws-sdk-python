@@ -31,17 +31,18 @@ class PropertyDifference(TypedDict, closed=True):
 def serialize_query(
     value: PropertyDifference, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "property_path" in value:
-        pairs.append((f"{prefix}.PropertyPath", str(value["property_path"])))
+        pairs.append((f"{key_prefix}PropertyPath", str(value["property_path"])))
     if "expected_value" in value:
-        pairs.append((f"{prefix}.ExpectedValue", str(value["expected_value"])))
+        pairs.append((f"{key_prefix}ExpectedValue", str(value["expected_value"])))
     if "actual_value" in value:
-        pairs.append((f"{prefix}.ActualValue", str(value["actual_value"])))
+        pairs.append((f"{key_prefix}ActualValue", str(value["actual_value"])))
     if "difference_type" in value:
         import capo_cloudformation.types.difference_type
 
         capo_cloudformation.types.difference_type.serialize_query(
-            value["difference_type"], pairs, f"{prefix}.DifferenceType"
+            value["difference_type"], pairs, f"{key_prefix}DifferenceType"
         )
 
 

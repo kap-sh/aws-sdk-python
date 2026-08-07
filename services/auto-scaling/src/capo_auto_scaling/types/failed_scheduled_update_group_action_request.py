@@ -31,14 +31,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_action_name" in value:
         pairs.append(
-            (f"{prefix}.ScheduledActionName", str(value["scheduled_action_name"]))
+            (f"{key_prefix}ScheduledActionName", str(value["scheduled_action_name"]))
         )
     if "error_code" in value:
-        pairs.append((f"{prefix}.ErrorCode", str(value["error_code"])))
+        pairs.append((f"{key_prefix}ErrorCode", str(value["error_code"])))
     if "error_message" in value:
-        pairs.append((f"{prefix}.ErrorMessage", str(value["error_message"])))
+        pairs.append((f"{key_prefix}ErrorMessage", str(value["error_message"])))
 
 
 def deserialize_query(el: Element) -> FailedScheduledUpdateGroupActionRequest:

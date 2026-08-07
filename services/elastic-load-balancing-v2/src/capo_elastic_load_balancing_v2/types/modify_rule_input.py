@@ -37,30 +37,31 @@ class ModifyRuleInput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyRuleInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_arn" in value:
-        pairs.append((f"{prefix}.RuleArn", str(value["rule_arn"])))
+        pairs.append((f"{key_prefix}RuleArn", str(value["rule_arn"])))
     if "conditions" in value:
         import capo_elastic_load_balancing_v2.types.rule_condition_list
 
         capo_elastic_load_balancing_v2.types.rule_condition_list.serialize_query(
-            value["conditions"], pairs, f"{prefix}.Conditions"
+            value["conditions"], pairs, f"{key_prefix}Conditions"
         )
     if "actions" in value:
         import capo_elastic_load_balancing_v2.types.actions
 
         capo_elastic_load_balancing_v2.types.actions.serialize_query(
-            value["actions"], pairs, f"{prefix}.Actions"
+            value["actions"], pairs, f"{key_prefix}Actions"
         )
     if "transforms" in value:
         import capo_elastic_load_balancing_v2.types.rule_transform_list
 
         capo_elastic_load_balancing_v2.types.rule_transform_list.serialize_query(
-            value["transforms"], pairs, f"{prefix}.Transforms"
+            value["transforms"], pairs, f"{key_prefix}Transforms"
         )
     if "reset_transforms" in value:
         pairs.append(
             (
-                f"{prefix}.ResetTransforms",
+                f"{key_prefix}ResetTransforms",
                 "true" if value["reset_transforms"] else "false",
             )
         )

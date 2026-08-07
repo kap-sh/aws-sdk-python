@@ -19,8 +19,9 @@ class SubscribeResponse(TypedDict, closed=True):
 def serialize_query(
     value: SubscribeResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscription_arn" in value:
-        pairs.append((f"{prefix}.SubscriptionArn", str(value["subscription_arn"])))
+        pairs.append((f"{key_prefix}SubscriptionArn", str(value["subscription_arn"])))
 
 
 def deserialize_query(el: Element) -> SubscribeResponse:

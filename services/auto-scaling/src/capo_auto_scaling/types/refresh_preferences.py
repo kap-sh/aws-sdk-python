@@ -65,27 +65,28 @@ class RefreshPreferences(TypedDict, closed=True):
 def serialize_query(
     value: RefreshPreferences, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "min_healthy_percentage" in value:
         pairs.append(
-            (f"{prefix}.MinHealthyPercentage", str(value["min_healthy_percentage"]))
+            (f"{key_prefix}MinHealthyPercentage", str(value["min_healthy_percentage"]))
         )
     if "instance_warmup" in value:
-        pairs.append((f"{prefix}.InstanceWarmup", str(value["instance_warmup"])))
+        pairs.append((f"{key_prefix}InstanceWarmup", str(value["instance_warmup"])))
     if "checkpoint_percentages" in value:
         import capo_auto_scaling.types.checkpoint_percentages
 
         capo_auto_scaling.types.checkpoint_percentages.serialize_query(
-            value["checkpoint_percentages"], pairs, f"{prefix}.CheckpointPercentages"
+            value["checkpoint_percentages"], pairs, f"{key_prefix}CheckpointPercentages"
         )
     if "checkpoint_delay" in value:
-        pairs.append((f"{prefix}.CheckpointDelay", str(value["checkpoint_delay"])))
+        pairs.append((f"{key_prefix}CheckpointDelay", str(value["checkpoint_delay"])))
     if "skip_matching" in value:
         pairs.append(
-            (f"{prefix}.SkipMatching", "true" if value["skip_matching"] else "false")
+            (f"{key_prefix}SkipMatching", "true" if value["skip_matching"] else "false")
         )
     if "auto_rollback" in value:
         pairs.append(
-            (f"{prefix}.AutoRollback", "true" if value["auto_rollback"] else "false")
+            (f"{key_prefix}AutoRollback", "true" if value["auto_rollback"] else "false")
         )
     if "scale_in_protected_instances" in value:
         import capo_auto_scaling.types.scale_in_protected_instances
@@ -93,26 +94,26 @@ def serialize_query(
         capo_auto_scaling.types.scale_in_protected_instances.serialize_query(
             value["scale_in_protected_instances"],
             pairs,
-            f"{prefix}.ScaleInProtectedInstances",
+            f"{key_prefix}ScaleInProtectedInstances",
         )
     if "standby_instances" in value:
         import capo_auto_scaling.types.standby_instances
 
         capo_auto_scaling.types.standby_instances.serialize_query(
-            value["standby_instances"], pairs, f"{prefix}.StandbyInstances"
+            value["standby_instances"], pairs, f"{key_prefix}StandbyInstances"
         )
     if "alarm_specification" in value:
         import capo_auto_scaling.types.alarm_specification
 
         capo_auto_scaling.types.alarm_specification.serialize_query(
-            value["alarm_specification"], pairs, f"{prefix}.AlarmSpecification"
+            value["alarm_specification"], pairs, f"{key_prefix}AlarmSpecification"
         )
     if "max_healthy_percentage" in value:
         pairs.append(
-            (f"{prefix}.MaxHealthyPercentage", str(value["max_healthy_percentage"]))
+            (f"{key_prefix}MaxHealthyPercentage", str(value["max_healthy_percentage"]))
         )
     if "bake_time" in value:
-        pairs.append((f"{prefix}.BakeTime", str(value["bake_time"])))
+        pairs.append((f"{key_prefix}BakeTime", str(value["bake_time"])))
 
 
 def deserialize_query(el: Element) -> RefreshPreferences:

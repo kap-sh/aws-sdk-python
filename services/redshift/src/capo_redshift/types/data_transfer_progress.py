@@ -38,36 +38,40 @@ class DataTransferProgress(TypedDict, closed=True):
 def serialize_query(
     value: DataTransferProgress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "current_rate_in_mega_bytes_per_second" in value:
         pairs.append(
             (
-                f"{prefix}.CurrentRateInMegaBytesPerSecond",
+                f"{key_prefix}CurrentRateInMegaBytesPerSecond",
                 str(value["current_rate_in_mega_bytes_per_second"]),
             )
         )
     if "total_data_in_mega_bytes" in value:
         pairs.append(
-            (f"{prefix}.TotalDataInMegaBytes", str(value["total_data_in_mega_bytes"]))
+            (
+                f"{key_prefix}TotalDataInMegaBytes",
+                str(value["total_data_in_mega_bytes"]),
+            )
         )
     if "data_transferred_in_mega_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.DataTransferredInMegaBytes",
+                f"{key_prefix}DataTransferredInMegaBytes",
                 str(value["data_transferred_in_mega_bytes"]),
             )
         )
     if "estimated_time_to_completion_in_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.EstimatedTimeToCompletionInSeconds",
+                f"{key_prefix}EstimatedTimeToCompletionInSeconds",
                 str(value["estimated_time_to_completion_in_seconds"]),
             )
         )
     if "elapsed_time_in_seconds" in value:
         pairs.append(
-            (f"{prefix}.ElapsedTimeInSeconds", str(value["elapsed_time_in_seconds"]))
+            (f"{key_prefix}ElapsedTimeInSeconds", str(value["elapsed_time_in_seconds"]))
         )
 
 

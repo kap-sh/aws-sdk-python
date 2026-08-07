@@ -21,8 +21,9 @@ class VerificationException_(TypedDict, closed=True):
 def serialize_query(
     value: VerificationException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Message", str(value["message"])))
-    pairs.append((f"{prefix}.Status", str(value["status"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Message", str(value["message"])))
+    pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> VerificationException_:

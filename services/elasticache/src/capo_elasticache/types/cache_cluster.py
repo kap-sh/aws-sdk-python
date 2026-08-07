@@ -123,43 +123,44 @@ class CacheCluster(TypedDict, closed=True):
 def serialize_query(
     value: CacheCluster, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "configuration_endpoint" in value:
         import capo_elasticache.types.endpoint
 
         capo_elasticache.types.endpoint.serialize_query(
-            value["configuration_endpoint"], pairs, f"{prefix}.ConfigurationEndpoint"
+            value["configuration_endpoint"], pairs, f"{key_prefix}ConfigurationEndpoint"
         )
     if "client_download_landing_page" in value:
         pairs.append(
             (
-                f"{prefix}.ClientDownloadLandingPage",
+                f"{key_prefix}ClientDownloadLandingPage",
                 str(value["client_download_landing_page"]),
             )
         )
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "cache_cluster_status" in value:
         pairs.append(
-            (f"{prefix}.CacheClusterStatus", str(value["cache_cluster_status"]))
+            (f"{key_prefix}CacheClusterStatus", str(value["cache_cluster_status"]))
         )
     if "num_cache_nodes" in value:
-        pairs.append((f"{prefix}.NumCacheNodes", str(value["num_cache_nodes"])))
+        pairs.append((f"{key_prefix}NumCacheNodes", str(value["num_cache_nodes"])))
     if "preferred_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredAvailabilityZone",
+                f"{key_prefix}PreferredAvailabilityZone",
                 str(value["preferred_availability_zone"]),
             )
         )
     if "preferred_outpost_arn" in value:
         pairs.append(
-            (f"{prefix}.PreferredOutpostArn", str(value["preferred_outpost_arn"]))
+            (f"{key_prefix}PreferredOutpostArn", str(value["preferred_outpost_arn"]))
         )
     if "cache_cluster_create_time" in value:
         import capo_elasticache.types.t_stamp
@@ -167,12 +168,12 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["cache_cluster_create_time"],
             pairs,
-            f"{prefix}.CacheClusterCreateTime",
+            f"{key_prefix}CacheClusterCreateTime",
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
@@ -180,7 +181,9 @@ def serialize_query(
         import capo_elasticache.types.pending_modified_values
 
         capo_elasticache.types.pending_modified_values.serialize_query(
-            value["pending_modified_values"], pairs, f"{prefix}.PendingModifiedValues"
+            value["pending_modified_values"],
+            pairs,
+            f"{key_prefix}PendingModifiedValues",
         )
     if "notification_configuration" in value:
         import capo_elasticache.types.notification_configuration
@@ -188,34 +191,34 @@ def serialize_query(
         capo_elasticache.types.notification_configuration.serialize_query(
             value["notification_configuration"],
             pairs,
-            f"{prefix}.NotificationConfiguration",
+            f"{key_prefix}NotificationConfiguration",
         )
     if "cache_security_groups" in value:
         import capo_elasticache.types.cache_security_group_membership_list
 
         capo_elasticache.types.cache_security_group_membership_list.serialize_query(
-            value["cache_security_groups"], pairs, f"{prefix}.CacheSecurityGroups"
+            value["cache_security_groups"], pairs, f"{key_prefix}CacheSecurityGroups"
         )
     if "cache_parameter_group" in value:
         import capo_elasticache.types.cache_parameter_group_status
 
         capo_elasticache.types.cache_parameter_group_status.serialize_query(
-            value["cache_parameter_group"], pairs, f"{prefix}.CacheParameterGroup"
+            value["cache_parameter_group"], pairs, f"{key_prefix}CacheParameterGroup"
         )
     if "cache_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
+            (f"{key_prefix}CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
         )
     if "cache_nodes" in value:
         import capo_elasticache.types.cache_node_list
 
         capo_elasticache.types.cache_node_list.serialize_query(
-            value["cache_nodes"], pairs, f"{prefix}.CacheNodes"
+            value["cache_nodes"], pairs, f"{key_prefix}CacheNodes"
         )
     if "auto_minor_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AutoMinorVersionUpgrade",
+                f"{key_prefix}AutoMinorVersionUpgrade",
                 "true" if value["auto_minor_version_upgrade"] else "false",
             )
         )
@@ -223,22 +226,25 @@ def serialize_query(
         import capo_elasticache.types.security_group_membership_list
 
         capo_elasticache.types.security_group_membership_list.serialize_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "snapshot_retention_limit" in value:
         pairs.append(
-            (f"{prefix}.SnapshotRetentionLimit", str(value["snapshot_retention_limit"]))
+            (
+                f"{key_prefix}SnapshotRetentionLimit",
+                str(value["snapshot_retention_limit"]),
+            )
         )
     if "snapshot_window" in value:
-        pairs.append((f"{prefix}.SnapshotWindow", str(value["snapshot_window"])))
+        pairs.append((f"{key_prefix}SnapshotWindow", str(value["snapshot_window"])))
     if "auth_token_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.AuthTokenEnabled",
+                f"{key_prefix}AuthTokenEnabled",
                 "true" if value["auth_token_enabled"] else "false",
             )
         )
@@ -248,28 +254,28 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["auth_token_last_modified_date"],
             pairs,
-            f"{prefix}.AuthTokenLastModifiedDate",
+            f"{key_prefix}AuthTokenLastModifiedDate",
         )
     if "transit_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.TransitEncryptionEnabled",
+                f"{key_prefix}TransitEncryptionEnabled",
                 "true" if value["transit_encryption_enabled"] else "false",
             )
         )
     if "at_rest_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.AtRestEncryptionEnabled",
+                f"{key_prefix}AtRestEncryptionEnabled",
                 "true" if value["at_rest_encryption_enabled"] else "false",
             )
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
     if "replication_group_log_delivery_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ReplicationGroupLogDeliveryEnabled",
+                f"{key_prefix}ReplicationGroupLogDeliveryEnabled",
                 "true" if value["replication_group_log_delivery_enabled"] else "false",
             )
         )
@@ -279,25 +285,27 @@ def serialize_query(
         capo_elasticache.types.log_delivery_configuration_list.serialize_query(
             value["log_delivery_configurations"],
             pairs,
-            f"{prefix}.LogDeliveryConfigurations",
+            f"{key_prefix}LogDeliveryConfigurations",
         )
     if "network_type" in value:
         import capo_elasticache.types.network_type
 
         capo_elasticache.types.network_type.serialize_query(
-            value["network_type"], pairs, f"{prefix}.NetworkType"
+            value["network_type"], pairs, f"{key_prefix}NetworkType"
         )
     if "ip_discovery" in value:
         import capo_elasticache.types.ip_discovery
 
         capo_elasticache.types.ip_discovery.serialize_query(
-            value["ip_discovery"], pairs, f"{prefix}.IpDiscovery"
+            value["ip_discovery"], pairs, f"{key_prefix}IpDiscovery"
         )
     if "transit_encryption_mode" in value:
         import capo_elasticache.types.transit_encryption_mode
 
         capo_elasticache.types.transit_encryption_mode.serialize_query(
-            value["transit_encryption_mode"], pairs, f"{prefix}.TransitEncryptionMode"
+            value["transit_encryption_mode"],
+            pairs,
+            f"{key_prefix}TransitEncryptionMode",
         )
 
 

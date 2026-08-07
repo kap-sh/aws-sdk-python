@@ -24,12 +24,13 @@ class CustomAmi(TypedDict, closed=True):
 def serialize_query(
     value: CustomAmi, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "virtualization_type" in value:
         pairs.append(
-            (f"{prefix}.VirtualizationType", str(value["virtualization_type"]))
+            (f"{key_prefix}VirtualizationType", str(value["virtualization_type"]))
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
 
 
 def deserialize_query(el: Element) -> CustomAmi:

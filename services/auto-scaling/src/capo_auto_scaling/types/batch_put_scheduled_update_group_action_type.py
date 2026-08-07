@@ -28,9 +28,10 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "scheduled_update_group_actions" in value:
         import capo_auto_scaling.types.scheduled_update_group_action_requests
@@ -38,7 +39,7 @@ def serialize_query(
         capo_auto_scaling.types.scheduled_update_group_action_requests.serialize_query(
             value["scheduled_update_group_actions"],
             pairs,
-            f"{prefix}.ScheduledUpdateGroupActions",
+            f"{key_prefix}ScheduledUpdateGroupActions",
         )
 
 

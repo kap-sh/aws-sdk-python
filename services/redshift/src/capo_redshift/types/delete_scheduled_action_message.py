@@ -19,9 +19,10 @@ class DeleteScheduledActionMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteScheduledActionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_action_name" in value:
         pairs.append(
-            (f"{prefix}.ScheduledActionName", str(value["scheduled_action_name"]))
+            (f"{key_prefix}ScheduledActionName", str(value["scheduled_action_name"]))
         )
 
 

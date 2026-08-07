@@ -22,13 +22,14 @@ class IntegrationsMessage(TypedDict, closed=True):
 def serialize_query(
     value: IntegrationsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "integrations" in value:
         import capo_redshift.types.integration_list
 
         capo_redshift.types.integration_list.serialize_query(
-            value["integrations"], pairs, f"{prefix}.Integrations"
+            value["integrations"], pairs, f"{key_prefix}Integrations"
         )
 
 

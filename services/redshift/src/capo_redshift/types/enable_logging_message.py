@@ -34,23 +34,26 @@ class EnableLoggingMessage(TypedDict, closed=True):
 def serialize_query(
     value: EnableLoggingMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "bucket_name" in value:
-        pairs.append((f"{prefix}.BucketName", str(value["bucket_name"])))
+        pairs.append((f"{key_prefix}BucketName", str(value["bucket_name"])))
     if "s3_key_prefix" in value:
-        pairs.append((f"{prefix}.S3KeyPrefix", str(value["s3_key_prefix"])))
+        pairs.append((f"{key_prefix}S3KeyPrefix", str(value["s3_key_prefix"])))
     if "log_destination_type" in value:
         import capo_redshift.types.log_destination_type
 
         capo_redshift.types.log_destination_type.serialize_query(
-            value["log_destination_type"], pairs, f"{prefix}.LogDestinationType"
+            value["log_destination_type"], pairs, f"{key_prefix}LogDestinationType"
         )
     if "log_exports" in value:
         import capo_redshift.types.log_type_list
 
         capo_redshift.types.log_type_list.serialize_query(
-            value["log_exports"], pairs, f"{prefix}.LogExports"
+            value["log_exports"], pairs, f"{key_prefix}LogExports"
         )
 
 

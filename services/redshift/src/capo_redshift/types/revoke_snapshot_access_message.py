@@ -25,23 +25,24 @@ class RevokeSnapshotAccessMessage(TypedDict, closed=True):
 def serialize_query(
     value: RevokeSnapshotAccessMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "snapshot_arn" in value:
-        pairs.append((f"{prefix}.SnapshotArn", str(value["snapshot_arn"])))
+        pairs.append((f"{key_prefix}SnapshotArn", str(value["snapshot_arn"])))
     if "snapshot_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SnapshotClusterIdentifier",
+                f"{key_prefix}SnapshotClusterIdentifier",
                 str(value["snapshot_cluster_identifier"]),
             )
         )
     if "account_with_restore_access" in value:
         pairs.append(
             (
-                f"{prefix}.AccountWithRestoreAccess",
+                f"{key_prefix}AccountWithRestoreAccess",
                 str(value["account_with_restore_access"]),
             )
         )

@@ -23,10 +23,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "authentication_profile_name" in value:
         pairs.append(
             (
-                f"{prefix}.AuthenticationProfileName",
+                f"{key_prefix}AuthenticationProfileName",
                 str(value["authentication_profile_name"]),
             )
         )

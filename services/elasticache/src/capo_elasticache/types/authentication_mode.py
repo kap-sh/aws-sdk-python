@@ -26,17 +26,18 @@ class AuthenticationMode(TypedDict, closed=True):
 def serialize_query(
     value: AuthenticationMode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_elasticache.types.input_authentication_type
 
         capo_elasticache.types.input_authentication_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "passwords" in value:
         import capo_elasticache.types.password_list_input
 
         capo_elasticache.types.password_list_input.serialize_query(
-            value["passwords"], pairs, f"{prefix}.Passwords"
+            value["passwords"], pairs, f"{key_prefix}Passwords"
         )
 
 

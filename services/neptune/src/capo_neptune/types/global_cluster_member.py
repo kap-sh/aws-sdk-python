@@ -25,16 +25,19 @@ class GlobalClusterMember(TypedDict, closed=True):
 def serialize_query(
     value: GlobalClusterMember, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_arn" in value:
-        pairs.append((f"{prefix}.DBClusterArn", str(value["db_cluster_arn"])))
+        pairs.append((f"{key_prefix}DBClusterArn", str(value["db_cluster_arn"])))
     if "readers" in value:
         import capo_neptune.types.readers_arn_list
 
         capo_neptune.types.readers_arn_list.serialize_query(
-            value["readers"], pairs, f"{prefix}.Readers"
+            value["readers"], pairs, f"{key_prefix}Readers"
         )
     if "is_writer" in value:
-        pairs.append((f"{prefix}.IsWriter", "true" if value["is_writer"] else "false"))
+        pairs.append(
+            (f"{key_prefix}IsWriter", "true" if value["is_writer"] else "false")
+        )
 
 
 def deserialize_query(el: Element) -> GlobalClusterMember:

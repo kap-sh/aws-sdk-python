@@ -25,13 +25,16 @@ class IdentityVerificationAttributes(TypedDict, closed=True):
 def serialize_query(
     value: IdentityVerificationAttributes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.verification_status
 
     capo_ses.types.verification_status.serialize_query(
-        value["verification_status"], pairs, f"{prefix}.VerificationStatus"
+        value["verification_status"], pairs, f"{key_prefix}VerificationStatus"
     )
     if "verification_token" in value:
-        pairs.append((f"{prefix}.VerificationToken", str(value["verification_token"])))
+        pairs.append(
+            (f"{key_prefix}VerificationToken", str(value["verification_token"]))
+        )
 
 
 def deserialize_query(el: Element) -> IdentityVerificationAttributes:

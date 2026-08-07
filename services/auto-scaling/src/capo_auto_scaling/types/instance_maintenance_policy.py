@@ -26,13 +26,14 @@ class InstanceMaintenancePolicy(TypedDict, closed=True):
 def serialize_query(
     value: InstanceMaintenancePolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "min_healthy_percentage" in value:
         pairs.append(
-            (f"{prefix}.MinHealthyPercentage", str(value["min_healthy_percentage"]))
+            (f"{key_prefix}MinHealthyPercentage", str(value["min_healthy_percentage"]))
         )
     if "max_healthy_percentage" in value:
         pairs.append(
-            (f"{prefix}.MaxHealthyPercentage", str(value["max_healthy_percentage"]))
+            (f"{key_prefix}MaxHealthyPercentage", str(value["max_healthy_percentage"]))
         )
 
 

@@ -21,11 +21,12 @@ class DetectStackResourceDriftOutput(TypedDict, closed=True):
 def serialize_query(
     value: DetectStackResourceDriftOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_resource_drift" in value:
         import capo_cloudformation.types.stack_resource_drift
 
         capo_cloudformation.types.stack_resource_drift.serialize_query(
-            value["stack_resource_drift"], pairs, f"{prefix}.StackResourceDrift"
+            value["stack_resource_drift"], pairs, f"{key_prefix}StackResourceDrift"
         )
 
 

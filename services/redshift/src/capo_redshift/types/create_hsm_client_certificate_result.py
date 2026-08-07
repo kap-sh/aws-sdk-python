@@ -20,11 +20,12 @@ class CreateHsmClientCertificateResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateHsmClientCertificateResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_client_certificate" in value:
         import capo_redshift.types.hsm_client_certificate
 
         capo_redshift.types.hsm_client_certificate.serialize_query(
-            value["hsm_client_certificate"], pairs, f"{prefix}.HsmClientCertificate"
+            value["hsm_client_certificate"], pairs, f"{key_prefix}HsmClientCertificate"
         )
 
 

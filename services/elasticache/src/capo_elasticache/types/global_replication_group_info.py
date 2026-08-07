@@ -23,17 +23,18 @@ class GlobalReplicationGroupInfo(TypedDict, closed=True):
 def serialize_query(
     value: GlobalReplicationGroupInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_replication_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupId",
+                f"{key_prefix}GlobalReplicationGroupId",
                 str(value["global_replication_group_id"]),
             )
         )
     if "global_replication_group_member_role" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupMemberRole",
+                f"{key_prefix}GlobalReplicationGroupMemberRole",
                 str(value["global_replication_group_member_role"]),
             )
         )

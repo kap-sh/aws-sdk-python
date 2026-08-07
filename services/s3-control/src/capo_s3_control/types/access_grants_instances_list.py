@@ -39,7 +39,7 @@ def deserialize_xml(el: Element) -> AccessGrantsInstancesList:
 def serialize_xml_flat(
     value: AccessGrantsInstancesList, parent: Element, tag: str
 ) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         import capo_s3_control.types.list_access_grants_instance_entry
 

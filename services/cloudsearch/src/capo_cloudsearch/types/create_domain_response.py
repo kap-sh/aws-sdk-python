@@ -18,11 +18,12 @@ class CreateDomainResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreateDomainResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "domain_status" in value:
         import capo_cloudsearch.types.domain_status
 
         capo_cloudsearch.types.domain_status.serialize_query(
-            value["domain_status"], pairs, f"{prefix}.DomainStatus"
+            value["domain_status"], pairs, f"{key_prefix}DomainStatus"
         )
 
 

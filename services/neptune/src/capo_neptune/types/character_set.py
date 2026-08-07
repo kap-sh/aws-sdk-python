@@ -21,12 +21,15 @@ class CharacterSet(TypedDict, closed=True):
 def serialize_query(
     value: CharacterSet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "character_set_name" in value:
-        pairs.append((f"{prefix}.CharacterSetName", str(value["character_set_name"])))
+        pairs.append(
+            (f"{key_prefix}CharacterSetName", str(value["character_set_name"]))
+        )
     if "character_set_description" in value:
         pairs.append(
             (
-                f"{prefix}.CharacterSetDescription",
+                f"{key_prefix}CharacterSetDescription",
                 str(value["character_set_description"]),
             )
         )

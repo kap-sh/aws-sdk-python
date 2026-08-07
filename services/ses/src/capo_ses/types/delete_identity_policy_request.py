@@ -23,8 +23,9 @@ class DeleteIdentityPolicyRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteIdentityPolicyRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Identity", str(value["identity"])))
-    pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Identity", str(value["identity"])))
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteIdentityPolicyRequest:

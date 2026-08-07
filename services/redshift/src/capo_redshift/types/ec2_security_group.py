@@ -26,16 +26,17 @@ class EC2SecurityGroup(TypedDict, closed=True):
 def serialize_query(
     value: EC2SecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "ec2_security_group_name" in value:
         pairs.append(
-            (f"{prefix}.EC2SecurityGroupName", str(value["ec2_security_group_name"]))
+            (f"{key_prefix}EC2SecurityGroupName", str(value["ec2_security_group_name"]))
         )
     if "ec2_security_group_owner_id" in value:
         pairs.append(
             (
-                f"{prefix}.EC2SecurityGroupOwnerId",
+                f"{key_prefix}EC2SecurityGroupOwnerId",
                 str(value["ec2_security_group_owner_id"]),
             )
         )
@@ -43,7 +44,7 @@ def serialize_query(
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

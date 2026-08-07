@@ -24,13 +24,16 @@ class ApplicationResourceLifecycleConfig(TypedDict, closed=True):
 def serialize_query(
     value: ApplicationResourceLifecycleConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_role" in value:
-        pairs.append((f"{prefix}.ServiceRole", str(value["service_role"])))
+        pairs.append((f"{key_prefix}ServiceRole", str(value["service_role"])))
     if "version_lifecycle_config" in value:
         import capo_elastic_beanstalk.types.application_version_lifecycle_config
 
         capo_elastic_beanstalk.types.application_version_lifecycle_config.serialize_query(
-            value["version_lifecycle_config"], pairs, f"{prefix}.VersionLifecycleConfig"
+            value["version_lifecycle_config"],
+            pairs,
+            f"{key_prefix}VersionLifecycleConfig",
         )
 
 

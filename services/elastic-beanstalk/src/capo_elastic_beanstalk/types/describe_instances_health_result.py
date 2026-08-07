@@ -27,20 +27,21 @@ class DescribeInstancesHealthResult(TypedDict, closed=True):
 def serialize_query(
     value: DescribeInstancesHealthResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_health_list" in value:
         import capo_elastic_beanstalk.types.instance_health_list
 
         capo_elastic_beanstalk.types.instance_health_list.serialize_query(
-            value["instance_health_list"], pairs, f"{prefix}.InstanceHealthList"
+            value["instance_health_list"], pairs, f"{key_prefix}InstanceHealthList"
         )
     if "refreshed_at" in value:
         import capo_elastic_beanstalk.types.refreshed_at
 
         capo_elastic_beanstalk.types.refreshed_at.serialize_query(
-            value["refreshed_at"], pairs, f"{prefix}.RefreshedAt"
+            value["refreshed_at"], pairs, f"{key_prefix}RefreshedAt"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeInstancesHealthResult:

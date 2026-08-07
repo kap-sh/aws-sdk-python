@@ -22,8 +22,9 @@ class KinesisFirehoseDestination(TypedDict, closed=True):
 def serialize_query(
     value: KinesisFirehoseDestination, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.IAMRoleARN", str(value["iam_role_arn"])))
-    pairs.append((f"{prefix}.DeliveryStreamARN", str(value["delivery_stream_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}IAMRoleARN", str(value["iam_role_arn"])))
+    pairs.append((f"{key_prefix}DeliveryStreamARN", str(value["delivery_stream_arn"])))
 
 
 def deserialize_query(el: Element) -> KinesisFirehoseDestination:

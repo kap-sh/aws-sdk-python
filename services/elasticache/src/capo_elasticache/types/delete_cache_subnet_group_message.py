@@ -19,9 +19,10 @@ class DeleteCacheSubnetGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteCacheSubnetGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
+            (f"{key_prefix}CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
         )
 
 

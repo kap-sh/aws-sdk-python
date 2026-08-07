@@ -69,9 +69,6 @@ class BridgeResource:
 
     def create(
         self,
-        name: str,
-        placement_arn: str,
-        sources: "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
         egress_gateway_bridge: Optional[
@@ -80,11 +77,16 @@ class BridgeResource:
         ingress_gateway_bridge: Optional[
             "capo_mediaconnect.types.add_ingress_gateway_bridge_request.AddIngressGatewayBridgeRequest"
         ] = None,
+        name: Optional[str] = None,
         outputs: Optional[
             "capo_mediaconnect.types.__list_of_add_bridge_output_request.__listOfAddBridgeOutputRequest"
         ] = None,
+        placement_arn: Optional[str] = None,
         source_failover_config: Optional[
             "capo_mediaconnect.types.failover_config.FailoverConfig"
+        ] = None,
+        sources: Optional[
+            "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest"
         ] = None,
     ) -> "capo_mediaconnect.types.create_bridge_response.CreateBridgeResponse":
         """<p> Creates a new bridge. The request must include one source.</p>
@@ -129,13 +131,16 @@ class BridgeResource:
             input_["egress_gateway_bridge"] = egress_gateway_bridge
         if ingress_gateway_bridge is not None:
             input_["ingress_gateway_bridge"] = ingress_gateway_bridge
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if outputs is not None:
             input_["outputs"] = outputs
-        input_["placement_arn"] = placement_arn
+        if placement_arn is not None:
+            input_["placement_arn"] = placement_arn
         if source_failover_config is not None:
             input_["source_failover_config"] = source_failover_config
-        input_["sources"] = sources
+        if sources is not None:
+            input_["sources"] = sources
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -360,9 +365,11 @@ class BridgeResource:
     def add_bridge_outputs(
         self,
         bridge_arn: "capo_mediaconnect.types.bridge_arn.BridgeArn",
-        outputs: "capo_mediaconnect.types.__list_of_add_bridge_output_request.__listOfAddBridgeOutputRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        outputs: Optional[
+            "capo_mediaconnect.types.__list_of_add_bridge_output_request.__listOfAddBridgeOutputRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_bridge_outputs_response.AddBridgeOutputsResponse":
         """<p> Adds outputs to an existing bridge.</p>
 
@@ -398,7 +405,8 @@ class BridgeResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_bridge_outputs_request.AddBridgeOutputsRequest = {}  # type: ignore[typeddict-item]
         input_["bridge_arn"] = bridge_arn
-        input_["outputs"] = outputs
+        if outputs is not None:
+            input_["outputs"] = outputs
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -410,9 +418,11 @@ class BridgeResource:
     def add_bridge_sources(
         self,
         bridge_arn: "capo_mediaconnect.types.bridge_arn.BridgeArn",
-        sources: "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        sources: Optional[
+            "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_bridge_sources_response.AddBridgeSourcesResponse":
         """<p> Adds sources to an existing bridge.</p>
 
@@ -448,7 +458,8 @@ class BridgeResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_bridge_sources_request.AddBridgeSourcesRequest = {}  # type: ignore[typeddict-item]
         input_["bridge_arn"] = bridge_arn
-        input_["sources"] = sources
+        if sources is not None:
+            input_["sources"] = sources
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -678,9 +689,11 @@ class BridgeResource:
     def update_bridge_state(
         self,
         bridge_arn: "capo_mediaconnect.types.bridge_arn.BridgeArn",
-        desired_state: "capo_mediaconnect.types.desired_state.DesiredState",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        desired_state: Optional[
+            "capo_mediaconnect.types.desired_state.DesiredState"
+        ] = None,
     ) -> (
         "capo_mediaconnect.types.update_bridge_state_response.UpdateBridgeStateResponse"
     ):
@@ -718,7 +731,8 @@ class BridgeResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.update_bridge_state_request.UpdateBridgeStateRequest = {}  # type: ignore[typeddict-item]
         input_["bridge_arn"] = bridge_arn
-        input_["desired_state"] = desired_state
+        if desired_state is not None:
+            input_["desired_state"] = desired_state
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -734,9 +748,6 @@ class AsyncBridgeResource:
 
     async def create(
         self,
-        name: str,
-        placement_arn: str,
-        sources: "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
         egress_gateway_bridge: Optional[
@@ -745,11 +756,16 @@ class AsyncBridgeResource:
         ingress_gateway_bridge: Optional[
             "capo_mediaconnect.types.add_ingress_gateway_bridge_request.AddIngressGatewayBridgeRequest"
         ] = None,
+        name: Optional[str] = None,
         outputs: Optional[
             "capo_mediaconnect.types.__list_of_add_bridge_output_request.__listOfAddBridgeOutputRequest"
         ] = None,
+        placement_arn: Optional[str] = None,
         source_failover_config: Optional[
             "capo_mediaconnect.types.failover_config.FailoverConfig"
+        ] = None,
+        sources: Optional[
+            "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest"
         ] = None,
     ) -> "capo_mediaconnect.types.create_bridge_response.CreateBridgeResponse":
         """<p> Creates a new bridge. The request must include one source.</p>
@@ -795,13 +811,16 @@ class AsyncBridgeResource:
             input_["egress_gateway_bridge"] = egress_gateway_bridge
         if ingress_gateway_bridge is not None:
             input_["ingress_gateway_bridge"] = ingress_gateway_bridge
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if outputs is not None:
             input_["outputs"] = outputs
-        input_["placement_arn"] = placement_arn
+        if placement_arn is not None:
+            input_["placement_arn"] = placement_arn
         if source_failover_config is not None:
             input_["source_failover_config"] = source_failover_config
-        input_["sources"] = sources
+        if sources is not None:
+            input_["sources"] = sources
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1030,9 +1049,11 @@ class AsyncBridgeResource:
     async def add_bridge_outputs(
         self,
         bridge_arn: "capo_mediaconnect.types.bridge_arn.BridgeArn",
-        outputs: "capo_mediaconnect.types.__list_of_add_bridge_output_request.__listOfAddBridgeOutputRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        outputs: Optional[
+            "capo_mediaconnect.types.__list_of_add_bridge_output_request.__listOfAddBridgeOutputRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_bridge_outputs_response.AddBridgeOutputsResponse":
         """<p> Adds outputs to an existing bridge.</p>
 
@@ -1069,7 +1090,8 @@ class AsyncBridgeResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_bridge_outputs_request.AddBridgeOutputsRequest = {}  # type: ignore[typeddict-item]
         input_["bridge_arn"] = bridge_arn
-        input_["outputs"] = outputs
+        if outputs is not None:
+            input_["outputs"] = outputs
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1081,9 +1103,11 @@ class AsyncBridgeResource:
     async def add_bridge_sources(
         self,
         bridge_arn: "capo_mediaconnect.types.bridge_arn.BridgeArn",
-        sources: "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        sources: Optional[
+            "capo_mediaconnect.types.__list_of_add_bridge_source_request.__listOfAddBridgeSourceRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_bridge_sources_response.AddBridgeSourcesResponse":
         """<p> Adds sources to an existing bridge.</p>
 
@@ -1120,7 +1144,8 @@ class AsyncBridgeResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_bridge_sources_request.AddBridgeSourcesRequest = {}  # type: ignore[typeddict-item]
         input_["bridge_arn"] = bridge_arn
-        input_["sources"] = sources
+        if sources is not None:
+            input_["sources"] = sources
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1354,9 +1379,11 @@ class AsyncBridgeResource:
     async def update_bridge_state(
         self,
         bridge_arn: "capo_mediaconnect.types.bridge_arn.BridgeArn",
-        desired_state: "capo_mediaconnect.types.desired_state.DesiredState",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        desired_state: Optional[
+            "capo_mediaconnect.types.desired_state.DesiredState"
+        ] = None,
     ) -> (
         "capo_mediaconnect.types.update_bridge_state_response.UpdateBridgeStateResponse"
     ):
@@ -1395,7 +1422,8 @@ class AsyncBridgeResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.update_bridge_state_request.UpdateBridgeStateRequest = {}  # type: ignore[typeddict-item]
         input_["bridge_arn"] = bridge_arn
-        input_["desired_state"] = desired_state
+        if desired_state is not None:
+            input_["desired_state"] = desired_state
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

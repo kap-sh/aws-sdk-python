@@ -21,8 +21,11 @@ class DescribeTypeRegistrationInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTypeRegistrationInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "registration_token" in value:
-        pairs.append((f"{prefix}.RegistrationToken", str(value["registration_token"])))
+        pairs.append(
+            (f"{key_prefix}RegistrationToken", str(value["registration_token"]))
+        )
 
 
 def deserialize_query(el: Element) -> DescribeTypeRegistrationInput:

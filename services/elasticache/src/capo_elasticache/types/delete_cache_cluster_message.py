@@ -21,12 +21,13 @@ class DeleteCacheClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteCacheClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "final_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.FinalSnapshotIdentifier",
+                f"{key_prefix}FinalSnapshotIdentifier",
                 str(value["final_snapshot_identifier"]),
             )
         )

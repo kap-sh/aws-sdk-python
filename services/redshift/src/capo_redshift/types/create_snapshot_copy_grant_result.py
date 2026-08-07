@@ -20,11 +20,12 @@ class CreateSnapshotCopyGrantResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateSnapshotCopyGrantResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_copy_grant" in value:
         import capo_redshift.types.snapshot_copy_grant
 
         capo_redshift.types.snapshot_copy_grant.serialize_query(
-            value["snapshot_copy_grant"], pairs, f"{prefix}.SnapshotCopyGrant"
+            value["snapshot_copy_grant"], pairs, f"{key_prefix}SnapshotCopyGrant"
         )
 
 

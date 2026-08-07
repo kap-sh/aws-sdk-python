@@ -19,8 +19,11 @@ class SubnetOutpost(TypedDict, closed=True):
 def serialize_query(
     value: SubnetOutpost, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet_outpost_arn" in value:
-        pairs.append((f"{prefix}.SubnetOutpostArn", str(value["subnet_outpost_arn"])))
+        pairs.append(
+            (f"{key_prefix}SubnetOutpostArn", str(value["subnet_outpost_arn"]))
+        )
 
 
 def deserialize_query(el: Element) -> SubnetOutpost:

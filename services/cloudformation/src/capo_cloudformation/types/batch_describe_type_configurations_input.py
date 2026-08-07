@@ -23,13 +23,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_configuration_identifiers" in value:
         import capo_cloudformation.types.type_configuration_identifiers
 
         capo_cloudformation.types.type_configuration_identifiers.serialize_query(
             value["type_configuration_identifiers"],
             pairs,
-            f"{prefix}.TypeConfigurationIdentifiers",
+            f"{key_prefix}TypeConfigurationIdentifiers",
         )
 
 

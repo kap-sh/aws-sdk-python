@@ -28,18 +28,19 @@ class MessageDsn(TypedDict, closed=True):
 def serialize_query(
     value: MessageDsn, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ReportingMta", str(value["reporting_mta"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ReportingMta", str(value["reporting_mta"])))
     if "arrival_date" in value:
         import capo_ses.types.arrival_date
 
         capo_ses.types.arrival_date.serialize_query(
-            value["arrival_date"], pairs, f"{prefix}.ArrivalDate"
+            value["arrival_date"], pairs, f"{key_prefix}ArrivalDate"
         )
     if "extension_fields" in value:
         import capo_ses.types.extension_field_list
 
         capo_ses.types.extension_field_list.serialize_query(
-            value["extension_fields"], pairs, f"{prefix}.ExtensionFields"
+            value["extension_fields"], pairs, f"{key_prefix}ExtensionFields"
         )
 
 

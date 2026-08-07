@@ -21,12 +21,15 @@ class Message(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Message, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.content
 
-    capo_ses.types.content.serialize_query(value["subject"], pairs, f"{prefix}.Subject")
+    capo_ses.types.content.serialize_query(
+        value["subject"], pairs, f"{key_prefix}Subject"
+    )
     import capo_ses.types.body
 
-    capo_ses.types.body.serialize_query(value["body"], pairs, f"{prefix}.Body")
+    capo_ses.types.body.serialize_query(value["body"], pairs, f"{key_prefix}Body")
 
 
 def deserialize_query(el: Element) -> Message:

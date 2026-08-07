@@ -22,10 +22,11 @@ class LoggingConfig(TypedDict, closed=True):
 def serialize_query(
     value: LoggingConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "log_role_arn" in value:
-        pairs.append((f"{prefix}.LogRoleArn", str(value["log_role_arn"])))
+        pairs.append((f"{key_prefix}LogRoleArn", str(value["log_role_arn"])))
     if "log_group_name" in value:
-        pairs.append((f"{prefix}.LogGroupName", str(value["log_group_name"])))
+        pairs.append((f"{key_prefix}LogGroupName", str(value["log_group_name"])))
 
 
 def deserialize_query(el: Element) -> LoggingConfig:

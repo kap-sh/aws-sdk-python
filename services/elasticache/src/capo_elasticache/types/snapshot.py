@@ -92,43 +92,44 @@ class Snapshot(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Snapshot, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_name" in value:
-        pairs.append((f"{prefix}.SnapshotName", str(value["snapshot_name"])))
+        pairs.append((f"{key_prefix}SnapshotName", str(value["snapshot_name"])))
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "replication_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.ReplicationGroupDescription",
+                f"{key_prefix}ReplicationGroupDescription",
                 str(value["replication_group_description"]),
             )
         )
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "snapshot_status" in value:
-        pairs.append((f"{prefix}.SnapshotStatus", str(value["snapshot_status"])))
+        pairs.append((f"{key_prefix}SnapshotStatus", str(value["snapshot_status"])))
     if "snapshot_source" in value:
-        pairs.append((f"{prefix}.SnapshotSource", str(value["snapshot_source"])))
+        pairs.append((f"{key_prefix}SnapshotSource", str(value["snapshot_source"])))
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "num_cache_nodes" in value:
-        pairs.append((f"{prefix}.NumCacheNodes", str(value["num_cache_nodes"])))
+        pairs.append((f"{key_prefix}NumCacheNodes", str(value["num_cache_nodes"])))
     if "preferred_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredAvailabilityZone",
+                f"{key_prefix}PreferredAvailabilityZone",
                 str(value["preferred_availability_zone"]),
             )
         )
     if "preferred_outpost_arn" in value:
         pairs.append(
-            (f"{prefix}.PreferredOutpostArn", str(value["preferred_outpost_arn"]))
+            (f"{key_prefix}PreferredOutpostArn", str(value["preferred_outpost_arn"]))
         )
     if "cache_cluster_create_time" in value:
         import capo_elasticache.types.t_stamp
@@ -136,74 +137,77 @@ def serialize_query(value: Snapshot, pairs: list[tuple[str, str]], prefix: str) 
         capo_elasticache.types.t_stamp.serialize_query(
             value["cache_cluster_create_time"],
             pairs,
-            f"{prefix}.CacheClusterCreateTime",
+            f"{key_prefix}CacheClusterCreateTime",
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "cache_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupName",
+                f"{key_prefix}CacheParameterGroupName",
                 str(value["cache_parameter_group_name"]),
             )
         )
     if "cache_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
+            (f"{key_prefix}CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "auto_minor_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AutoMinorVersionUpgrade",
+                f"{key_prefix}AutoMinorVersionUpgrade",
                 "true" if value["auto_minor_version_upgrade"] else "false",
             )
         )
     if "snapshot_retention_limit" in value:
         pairs.append(
-            (f"{prefix}.SnapshotRetentionLimit", str(value["snapshot_retention_limit"]))
+            (
+                f"{key_prefix}SnapshotRetentionLimit",
+                str(value["snapshot_retention_limit"]),
+            )
         )
     if "snapshot_window" in value:
-        pairs.append((f"{prefix}.SnapshotWindow", str(value["snapshot_window"])))
+        pairs.append((f"{key_prefix}SnapshotWindow", str(value["snapshot_window"])))
     if "num_node_groups" in value:
-        pairs.append((f"{prefix}.NumNodeGroups", str(value["num_node_groups"])))
+        pairs.append((f"{key_prefix}NumNodeGroups", str(value["num_node_groups"])))
     if "automatic_failover" in value:
         import capo_elasticache.types.automatic_failover_status
 
         capo_elasticache.types.automatic_failover_status.serialize_query(
-            value["automatic_failover"], pairs, f"{prefix}.AutomaticFailover"
+            value["automatic_failover"], pairs, f"{key_prefix}AutomaticFailover"
         )
     if "node_snapshots" in value:
         import capo_elasticache.types.node_snapshot_list
 
         capo_elasticache.types.node_snapshot_list.serialize_query(
-            value["node_snapshots"], pairs, f"{prefix}.NodeSnapshots"
+            value["node_snapshots"], pairs, f"{key_prefix}NodeSnapshots"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
     if "data_tiering" in value:
         import capo_elasticache.types.data_tiering_status
 
         capo_elasticache.types.data_tiering_status.serialize_query(
-            value["data_tiering"], pairs, f"{prefix}.DataTiering"
+            value["data_tiering"], pairs, f"{key_prefix}DataTiering"
         )
     if "durability" in value:
         import capo_elasticache.types.durability
 
         capo_elasticache.types.durability.serialize_query(
-            value["durability"], pairs, f"{prefix}.Durability"
+            value["durability"], pairs, f"{key_prefix}Durability"
         )
 
 

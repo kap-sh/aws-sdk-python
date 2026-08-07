@@ -41,23 +41,24 @@ class InstanceCollection(TypedDict, closed=True):
 def serialize_query(
     value: InstanceCollection, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "market_type" in value:
-        pairs.append((f"{prefix}.MarketType", str(value["market_type"])))
+        pairs.append((f"{key_prefix}MarketType", str(value["market_type"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "instance_ids" in value:
         import capo_auto_scaling.types.instance_ids
 
         capo_auto_scaling.types.instance_ids.serialize_query(
-            value["instance_ids"], pairs, f"{prefix}.InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
         )
 
 

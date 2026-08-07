@@ -25,13 +25,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.PlatformApplicationArn", str(value["platform_application_arn"]))
+        (f"{key_prefix}PlatformApplicationArn", str(value["platform_application_arn"]))
     )
     import capo_sns.types.map_string_to_string
 
     capo_sns.types.map_string_to_string.serialize_query(
-        value["attributes"], pairs, f"{prefix}.Attributes"
+        value["attributes"], pairs, f"{key_prefix}Attributes"
     )
 
 

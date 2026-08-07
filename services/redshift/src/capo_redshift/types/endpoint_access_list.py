@@ -24,14 +24,15 @@ class EndpointAccessList(TypedDict, closed=True):
 def serialize_query(
     value: EndpointAccessList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "endpoint_access_list" in value:
         import capo_redshift.types.endpoint_accesses
 
         capo_redshift.types.endpoint_accesses.serialize_query(
-            value["endpoint_access_list"], pairs, f"{prefix}.EndpointAccessList"
+            value["endpoint_access_list"], pairs, f"{key_prefix}EndpointAccessList"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> EndpointAccessList:

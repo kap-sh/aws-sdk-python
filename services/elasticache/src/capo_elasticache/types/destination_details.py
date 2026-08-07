@@ -26,17 +26,22 @@ class DestinationDetails(TypedDict, closed=True):
 def serialize_query(
     value: DestinationDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cloud_watch_logs_details" in value:
         import capo_elasticache.types.cloud_watch_logs_destination_details
 
         capo_elasticache.types.cloud_watch_logs_destination_details.serialize_query(
-            value["cloud_watch_logs_details"], pairs, f"{prefix}.CloudWatchLogsDetails"
+            value["cloud_watch_logs_details"],
+            pairs,
+            f"{key_prefix}CloudWatchLogsDetails",
         )
     if "kinesis_firehose_details" in value:
         import capo_elasticache.types.kinesis_firehose_destination_details
 
         capo_elasticache.types.kinesis_firehose_destination_details.serialize_query(
-            value["kinesis_firehose_details"], pairs, f"{prefix}.KinesisFirehoseDetails"
+            value["kinesis_firehose_details"],
+            pairs,
+            f"{key_prefix}KinesisFirehoseDetails",
         )
 
 

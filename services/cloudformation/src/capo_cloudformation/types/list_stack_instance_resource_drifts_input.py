@@ -48,35 +48,36 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "stack_instance_resource_drift_statuses" in value:
         import capo_cloudformation.types.stack_resource_drift_status_filters
 
         capo_cloudformation.types.stack_resource_drift_status_filters.serialize_query(
             value["stack_instance_resource_drift_statuses"],
             pairs,
-            f"{prefix}.StackInstanceResourceDriftStatuses",
+            f"{key_prefix}StackInstanceResourceDriftStatuses",
         )
     if "stack_instance_account" in value:
         pairs.append(
-            (f"{prefix}.StackInstanceAccount", str(value["stack_instance_account"]))
+            (f"{key_prefix}StackInstanceAccount", str(value["stack_instance_account"]))
         )
     if "stack_instance_region" in value:
         pairs.append(
-            (f"{prefix}.StackInstanceRegion", str(value["stack_instance_region"]))
+            (f"{key_prefix}StackInstanceRegion", str(value["stack_instance_region"]))
         )
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
 
 

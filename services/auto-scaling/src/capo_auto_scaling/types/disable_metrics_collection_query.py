@@ -24,15 +24,16 @@ class DisableMetricsCollectionQuery(TypedDict, closed=True):
 def serialize_query(
     value: DisableMetricsCollectionQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "metrics" in value:
         import capo_auto_scaling.types.metrics
 
         capo_auto_scaling.types.metrics.serialize_query(
-            value["metrics"], pairs, f"{prefix}.Metrics"
+            value["metrics"], pairs, f"{key_prefix}Metrics"
         )
 
 

@@ -23,8 +23,9 @@ class VerifySMSSandboxPhoneNumberInput(TypedDict, closed=True):
 def serialize_query(
     value: VerifySMSSandboxPhoneNumberInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PhoneNumber", str(value["phone_number"])))
-    pairs.append((f"{prefix}.OneTimePassword", str(value["one_time_password"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PhoneNumber", str(value["phone_number"])))
+    pairs.append((f"{key_prefix}OneTimePassword", str(value["one_time_password"])))
 
 
 def deserialize_query(el: Element) -> VerifySMSSandboxPhoneNumberInput:

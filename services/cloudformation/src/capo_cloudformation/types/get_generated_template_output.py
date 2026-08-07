@@ -24,14 +24,15 @@ class GetGeneratedTemplateOutput(TypedDict, closed=True):
 def serialize_query(
     value: GetGeneratedTemplateOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_cloudformation.types.generated_template_status
 
         capo_cloudformation.types.generated_template_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
 
 
 def deserialize_query(el: Element) -> GetGeneratedTemplateOutput:

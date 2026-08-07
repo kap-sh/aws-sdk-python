@@ -25,14 +25,15 @@ class LambdaAction(TypedDict, closed=True):
 def serialize_query(
     value: LambdaAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.FunctionArn", str(value["function_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}FunctionArn", str(value["function_arn"])))
     if "invocation_type" in value:
         import capo_ses.types.invocation_type
 
         capo_ses.types.invocation_type.serialize_query(
-            value["invocation_type"], pairs, f"{prefix}.InvocationType"
+            value["invocation_type"], pairs, f"{key_prefix}InvocationType"
         )
 
 

@@ -372,8 +372,6 @@ class ApiGatewayV2Client:
 
     def create_api(
         self,
-        name: "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128",
-        protocol_type: "capo_apigatewayv2.types.protocol_type.ProtocolType",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         api_key_selection_expression: Optional[
@@ -392,6 +390,12 @@ class ApiGatewayV2Client:
         ] = None,
         ip_address_type: Optional[
             "capo_apigatewayv2.types.ip_address_type.IpAddressType"
+        ] = None,
+        name: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
+        ] = None,
+        protocol_type: Optional[
+            "capo_apigatewayv2.types.protocol_type.ProtocolType"
         ] = None,
         route_key: Optional[
             "capo_apigatewayv2.types.selection_key.SelectionKey"
@@ -463,8 +467,10 @@ class ApiGatewayV2Client:
             input_["disable_execute_api_endpoint"] = disable_execute_api_endpoint
         if ip_address_type is not None:
             input_["ip_address_type"] = ip_address_type
-        input_["name"] = name
-        input_["protocol_type"] = protocol_type
+        if name is not None:
+            input_["name"] = name
+        if protocol_type is not None:
+            input_["protocol_type"] = protocol_type
         if route_key is not None:
             input_["route_key"] = route_key
         if route_selection_expression is not None:
@@ -485,13 +491,15 @@ class ApiGatewayV2Client:
 
     def create_api_mapping(
         self,
-        api_id: "capo_apigatewayv2.types.id.Id",
         domain_name: "capo_apigatewayv2.types.__string.__string",
-        stage: "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        api_id: Optional["capo_apigatewayv2.types.id.Id"] = None,
         api_mapping_key: Optional[
             "capo_apigatewayv2.types.selection_key.SelectionKey"
+        ] = None,
+        stage: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
         ] = None,
     ) -> "capo_apigatewayv2.types.create_api_mapping_response.CreateApiMappingResponse":
         """<p>Creates an API mapping.</p>
@@ -526,11 +534,13 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.create_api_mapping_request.CreateApiMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["api_id"] = api_id
+        if api_id is not None:
+            input_["api_id"] = api_id
         if api_mapping_key is not None:
             input_["api_mapping_key"] = api_mapping_key
         input_["domain_name"] = domain_name
-        input_["stage"] = stage
+        if stage is not None:
+            input_["stage"] = stage
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -542,9 +552,6 @@ class ApiGatewayV2Client:
     def create_authorizer(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        authorizer_type: "capo_apigatewayv2.types.authorizer_type.AuthorizerType",
-        identity_source: "capo_apigatewayv2.types.identity_source_list.IdentitySourceList",
-        name: "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         authorizer_credentials_arn: Optional["capo_apigatewayv2.types.arn.Arn"] = None,
@@ -554,17 +561,26 @@ class ApiGatewayV2Client:
         authorizer_result_ttl_in_seconds: Optional[
             "capo_apigatewayv2.types.integer_with_length_between0_and3600.IntegerWithLengthBetween0And3600"
         ] = None,
+        authorizer_type: Optional[
+            "capo_apigatewayv2.types.authorizer_type.AuthorizerType"
+        ] = None,
         authorizer_uri: Optional[
             "capo_apigatewayv2.types.uri_with_length_between1_and2048.UriWithLengthBetween1And2048"
         ] = None,
         enable_simple_responses: Optional[
             "capo_apigatewayv2.types.__boolean.__boolean"
         ] = None,
+        identity_source: Optional[
+            "capo_apigatewayv2.types.identity_source_list.IdentitySourceList"
+        ] = None,
         identity_validation_expression: Optional[
             "capo_apigatewayv2.types.string_with_length_between0_and1024.StringWithLengthBetween0And1024"
         ] = None,
         jwt_configuration: Optional[
             "capo_apigatewayv2.types.jwt_configuration.JWTConfiguration"
+        ] = None,
+        name: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
         ] = None,
     ) -> "capo_apigatewayv2.types.create_authorizer_response.CreateAuthorizerResponse":
         r"""<p>Creates an Authorizer for an API.</p>
@@ -617,17 +633,20 @@ class ApiGatewayV2Client:
             input_["authorizer_result_ttl_in_seconds"] = (
                 authorizer_result_ttl_in_seconds
             )
-        input_["authorizer_type"] = authorizer_type
+        if authorizer_type is not None:
+            input_["authorizer_type"] = authorizer_type
         if authorizer_uri is not None:
             input_["authorizer_uri"] = authorizer_uri
         if enable_simple_responses is not None:
             input_["enable_simple_responses"] = enable_simple_responses
-        input_["identity_source"] = identity_source
+        if identity_source is not None:
+            input_["identity_source"] = identity_source
         if identity_validation_expression is not None:
             input_["identity_validation_expression"] = identity_validation_expression
         if jwt_configuration is not None:
             input_["jwt_configuration"] = jwt_configuration
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -694,9 +713,11 @@ class ApiGatewayV2Client:
 
     def create_domain_name(
         self,
-        domain_name: "capo_apigatewayv2.types.string_with_length_between1_and512.StringWithLengthBetween1And512",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        domain_name: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and512.StringWithLengthBetween1And512"
+        ] = None,
         domain_name_configurations: Optional[
             "capo_apigatewayv2.types.domain_name_configurations.DomainNameConfigurations"
         ] = None,
@@ -742,7 +763,8 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.create_domain_name_request.CreateDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_name"] = domain_name
+        if domain_name is not None:
+            input_["domain_name"] = domain_name
         if domain_name_configurations is not None:
             input_["domain_name_configurations"] = domain_name_configurations
         if mutual_tls_authentication is not None:
@@ -762,7 +784,6 @@ class ApiGatewayV2Client:
     def create_integration(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        integration_type: "capo_apigatewayv2.types.integration_type.IntegrationType",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         connection_id: Optional[
@@ -783,6 +804,9 @@ class ApiGatewayV2Client:
         ] = None,
         integration_subtype: Optional[
             "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
+        ] = None,
+        integration_type: Optional[
+            "capo_apigatewayv2.types.integration_type.IntegrationType"
         ] = None,
         integration_uri: Optional[
             "capo_apigatewayv2.types.uri_with_length_between1_and2048.UriWithLengthBetween1And2048"
@@ -873,7 +897,8 @@ class ApiGatewayV2Client:
             input_["integration_method"] = integration_method
         if integration_subtype is not None:
             input_["integration_subtype"] = integration_subtype
-        input_["integration_type"] = integration_type
+        if integration_type is not None:
+            input_["integration_type"] = integration_type
         if integration_uri is not None:
             input_["integration_uri"] = integration_uri
         if passthrough_behavior is not None:
@@ -904,11 +929,13 @@ class ApiGatewayV2Client:
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
         integration_id: "capo_apigatewayv2.types.__string.__string",
-        integration_response_key: "capo_apigatewayv2.types.selection_key.SelectionKey",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         content_handling_strategy: Optional[
             "capo_apigatewayv2.types.content_handling_strategy.ContentHandlingStrategy"
+        ] = None,
+        integration_response_key: Optional[
+            "capo_apigatewayv2.types.selection_key.SelectionKey"
         ] = None,
         response_parameters: Optional[
             "capo_apigatewayv2.types.integration_parameters.IntegrationParameters"
@@ -959,7 +986,8 @@ class ApiGatewayV2Client:
         if content_handling_strategy is not None:
             input_["content_handling_strategy"] = content_handling_strategy
         input_["integration_id"] = integration_id
-        input_["integration_response_key"] = integration_response_key
+        if integration_response_key is not None:
+            input_["integration_response_key"] = integration_response_key
         if response_parameters is not None:
             input_["response_parameters"] = response_parameters
         if response_templates is not None:
@@ -977,8 +1005,6 @@ class ApiGatewayV2Client:
     def create_model(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        name: "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128",
-        schema: "capo_apigatewayv2.types.string_with_length_between0_and32_k.StringWithLengthBetween0And32K",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         content_type: Optional[
@@ -986,6 +1012,12 @@ class ApiGatewayV2Client:
         ] = None,
         description: Optional[
             "capo_apigatewayv2.types.string_with_length_between0_and1024.StringWithLengthBetween0And1024"
+        ] = None,
+        name: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
+        ] = None,
+        schema: Optional[
+            "capo_apigatewayv2.types.string_with_length_between0_and32_k.StringWithLengthBetween0And32K"
         ] = None,
     ) -> "capo_apigatewayv2.types.create_model_response.CreateModelResponse":
         r"""<p>Creates a Model for an API.</p>
@@ -1026,8 +1058,10 @@ class ApiGatewayV2Client:
             input_["content_type"] = content_type
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
-        input_["schema"] = schema
+        if name is not None:
+            input_["name"] = name
+        if schema is not None:
+            input_["schema"] = schema
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1038,16 +1072,22 @@ class ApiGatewayV2Client:
 
     def create_portal(
         self,
-        authorization: "capo_apigatewayv2.types.authorization.Authorization",
-        endpoint_configuration: "capo_apigatewayv2.types.endpoint_configuration_request.EndpointConfigurationRequest",
-        portal_content: "capo_apigatewayv2.types.portal_content.PortalContent",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        authorization: Optional[
+            "capo_apigatewayv2.types.authorization.Authorization"
+        ] = None,
+        endpoint_configuration: Optional[
+            "capo_apigatewayv2.types.endpoint_configuration_request.EndpointConfigurationRequest"
+        ] = None,
         included_portal_product_arns: Optional[
             "capo_apigatewayv2.types.__list_of__string_min20_max2048.__listOf__stringMin20Max2048"
         ] = None,
         logo_uri: Optional[
             "capo_apigatewayv2.types.__string_min0_max1092.__stringMin0Max1092"
+        ] = None,
+        portal_content: Optional[
+            "capo_apigatewayv2.types.portal_content.PortalContent"
         ] = None,
         rum_app_monitor_name: Optional[
             "capo_apigatewayv2.types.__string_min0_max255.__stringMin0Max255"
@@ -1088,13 +1128,16 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.create_portal_request.CreatePortalRequest = {}  # type: ignore[typeddict-item]
-        input_["authorization"] = authorization
-        input_["endpoint_configuration"] = endpoint_configuration
+        if authorization is not None:
+            input_["authorization"] = authorization
+        if endpoint_configuration is not None:
+            input_["endpoint_configuration"] = endpoint_configuration
         if included_portal_product_arns is not None:
             input_["included_portal_product_arns"] = included_portal_product_arns
         if logo_uri is not None:
             input_["logo_uri"] = logo_uri
-        input_["portal_content"] = portal_content
+        if portal_content is not None:
+            input_["portal_content"] = portal_content
         if rum_app_monitor_name is not None:
             input_["rum_app_monitor_name"] = rum_app_monitor_name
         if tags is not None:
@@ -1109,11 +1152,13 @@ class ApiGatewayV2Client:
 
     def create_portal_product(
         self,
-        display_name: "capo_apigatewayv2.types.__string_min1_max255.__stringMin1Max255",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         description: Optional[
             "capo_apigatewayv2.types.__string_min0_max1024.__stringMin0Max1024"
+        ] = None,
+        display_name: Optional[
+            "capo_apigatewayv2.types.__string_min1_max255.__stringMin1Max255"
         ] = None,
         tags: Optional["capo_apigatewayv2.types.tags.Tags"] = None,
     ) -> "capo_apigatewayv2.types.create_portal_product_response.CreatePortalProductResponse":
@@ -1149,7 +1194,8 @@ class ApiGatewayV2Client:
         input_: capo_apigatewayv2.types.create_portal_product_request.CreatePortalProductRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["display_name"] = display_name
+        if display_name is not None:
+            input_["display_name"] = display_name
         if tags is not None:
             input_["tags"] = tags
 
@@ -1162,10 +1208,12 @@ class ApiGatewayV2Client:
 
     def create_product_page(
         self,
-        display_content: "capo_apigatewayv2.types.display_content.DisplayContent",
         portal_product_id: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        display_content: Optional[
+            "capo_apigatewayv2.types.display_content.DisplayContent"
+        ] = None,
     ) -> (
         "capo_apigatewayv2.types.create_product_page_response.CreateProductPageResponse"
     ):
@@ -1199,7 +1247,8 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.create_product_page_request.CreateProductPageRequest = {}  # type: ignore[typeddict-item]
-        input_["display_content"] = display_content
+        if display_content is not None:
+            input_["display_content"] = display_content
         input_["portal_product_id"] = portal_product_id
 
         response = execute_pipeline(
@@ -1212,11 +1261,13 @@ class ApiGatewayV2Client:
     def create_product_rest_endpoint_page(
         self,
         portal_product_id: "capo_apigatewayv2.types.__string.__string",
-        rest_endpoint_identifier: "capo_apigatewayv2.types.rest_endpoint_identifier.RestEndpointIdentifier",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         display_content: Optional[
             "capo_apigatewayv2.types.endpoint_display_content.EndpointDisplayContent"
+        ] = None,
+        rest_endpoint_identifier: Optional[
+            "capo_apigatewayv2.types.rest_endpoint_identifier.RestEndpointIdentifier"
         ] = None,
         try_it_state: Optional[
             "capo_apigatewayv2.types.try_it_state.TryItState"
@@ -1257,7 +1308,8 @@ class ApiGatewayV2Client:
         if display_content is not None:
             input_["display_content"] = display_content
         input_["portal_product_id"] = portal_product_id
-        input_["rest_endpoint_identifier"] = rest_endpoint_identifier
+        if rest_endpoint_identifier is not None:
+            input_["rest_endpoint_identifier"] = rest_endpoint_identifier
         if try_it_state is not None:
             input_["try_it_state"] = try_it_state
 
@@ -1271,7 +1323,6 @@ class ApiGatewayV2Client:
     def create_route(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        route_key: "capo_apigatewayv2.types.selection_key.SelectionKey",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         api_key_required: Optional[
@@ -1295,6 +1346,9 @@ class ApiGatewayV2Client:
         ] = None,
         request_parameters: Optional[
             "capo_apigatewayv2.types.route_parameters.RouteParameters"
+        ] = None,
+        route_key: Optional[
+            "capo_apigatewayv2.types.selection_key.SelectionKey"
         ] = None,
         route_response_selection_expression: Optional[
             "capo_apigatewayv2.types.selection_expression.SelectionExpression"
@@ -1360,7 +1414,8 @@ class ApiGatewayV2Client:
             input_["request_models"] = request_models
         if request_parameters is not None:
             input_["request_parameters"] = request_parameters
-        input_["route_key"] = route_key
+        if route_key is not None:
+            input_["route_key"] = route_key
         if route_response_selection_expression is not None:
             input_["route_response_selection_expression"] = (
                 route_response_selection_expression
@@ -1379,7 +1434,6 @@ class ApiGatewayV2Client:
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
         route_id: "capo_apigatewayv2.types.__string.__string",
-        route_response_key: "capo_apigatewayv2.types.selection_key.SelectionKey",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         model_selection_expression: Optional[
@@ -1390,6 +1444,9 @@ class ApiGatewayV2Client:
         ] = None,
         response_parameters: Optional[
             "capo_apigatewayv2.types.route_parameters.RouteParameters"
+        ] = None,
+        route_response_key: Optional[
+            "capo_apigatewayv2.types.selection_key.SelectionKey"
         ] = None,
     ) -> "capo_apigatewayv2.types.create_route_response_response.CreateRouteResponseResponse":
         """<p>Creates a RouteResponse for a Route.</p>
@@ -1434,7 +1491,8 @@ class ApiGatewayV2Client:
         if response_parameters is not None:
             input_["response_parameters"] = response_parameters
         input_["route_id"] = route_id
-        input_["route_response_key"] = route_response_key
+        if route_response_key is not None:
+            input_["route_response_key"] = route_response_key
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1445,13 +1503,19 @@ class ApiGatewayV2Client:
 
     def create_routing_rule(
         self,
-        actions: "capo_apigatewayv2.types.__list_of_routing_rule_action.__listOfRoutingRuleAction",
-        conditions: "capo_apigatewayv2.types.__list_of_routing_rule_condition.__listOfRoutingRuleCondition",
         domain_name: "capo_apigatewayv2.types.__string.__string",
-        priority: "capo_apigatewayv2.types.routing_rule_priority.RoutingRulePriority",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        actions: Optional[
+            "capo_apigatewayv2.types.__list_of_routing_rule_action.__listOfRoutingRuleAction"
+        ] = None,
+        conditions: Optional[
+            "capo_apigatewayv2.types.__list_of_routing_rule_condition.__listOfRoutingRuleCondition"
+        ] = None,
         domain_name_id: Optional["capo_apigatewayv2.types.__string.__string"] = None,
+        priority: Optional[
+            "capo_apigatewayv2.types.routing_rule_priority.RoutingRulePriority"
+        ] = None,
     ) -> (
         "capo_apigatewayv2.types.create_routing_rule_response.CreateRoutingRuleResponse"
     ):
@@ -1488,12 +1552,15 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.create_routing_rule_request.CreateRoutingRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["actions"] = actions
-        input_["conditions"] = conditions
+        if actions is not None:
+            input_["actions"] = actions
+        if conditions is not None:
+            input_["conditions"] = conditions
         input_["domain_name"] = domain_name
         if domain_name_id is not None:
             input_["domain_name_id"] = domain_name_id
-        input_["priority"] = priority
+        if priority is not None:
+            input_["priority"] = priority
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1505,7 +1572,6 @@ class ApiGatewayV2Client:
     def create_stage(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        stage_name: "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         access_log_settings: Optional[
@@ -1522,6 +1588,9 @@ class ApiGatewayV2Client:
         ] = None,
         route_settings: Optional[
             "capo_apigatewayv2.types.route_settings_map.RouteSettingsMap"
+        ] = None,
+        stage_name: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
         ] = None,
         stage_variables: Optional[
             "capo_apigatewayv2.types.stage_variables_map.StageVariablesMap"
@@ -1582,7 +1651,8 @@ class ApiGatewayV2Client:
             input_["description"] = description
         if route_settings is not None:
             input_["route_settings"] = route_settings
-        input_["stage_name"] = stage_name
+        if stage_name is not None:
+            input_["stage_name"] = stage_name
         if stage_variables is not None:
             input_["stage_variables"] = stage_variables
         if tags is not None:
@@ -1597,12 +1667,16 @@ class ApiGatewayV2Client:
 
     def create_vpc_link(
         self,
-        name: "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128",
-        subnet_ids: "capo_apigatewayv2.types.subnet_id_list.SubnetIdList",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        name: Optional[
+            "capo_apigatewayv2.types.string_with_length_between1_and128.StringWithLengthBetween1And128"
+        ] = None,
         security_group_ids: Optional[
             "capo_apigatewayv2.types.security_group_id_list.SecurityGroupIdList"
+        ] = None,
+        subnet_ids: Optional[
+            "capo_apigatewayv2.types.subnet_id_list.SubnetIdList"
         ] = None,
         tags: Optional["capo_apigatewayv2.types.tags.Tags"] = None,
     ) -> "capo_apigatewayv2.types.create_vpc_link_response.CreateVpcLinkResponse":
@@ -1636,10 +1710,12 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.create_vpc_link_request.CreateVpcLinkRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if security_group_ids is not None:
             input_["security_group_ids"] = security_group_ids
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
             input_["tags"] = tags
 
@@ -2650,7 +2726,6 @@ class ApiGatewayV2Client:
     def export_api(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        output_type: "capo_apigatewayv2.types.__string.__string",
         specification: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
@@ -2658,6 +2733,7 @@ class ApiGatewayV2Client:
         include_extensions: Optional[
             "capo_apigatewayv2.types.__boolean.__boolean"
         ] = None,
+        output_type: Optional["capo_apigatewayv2.types.__string.__string"] = None,
         stage_name: Optional["capo_apigatewayv2.types.__string.__string"] = None,
     ) -> "capo_apigatewayv2.types.export_api_response.ExportApiResponse":
         r"""export_api
@@ -2698,7 +2774,8 @@ class ApiGatewayV2Client:
             input_["export_version"] = export_version
         if include_extensions is not None:
             input_["include_extensions"] = include_extensions
-        input_["output_type"] = output_type
+        if output_type is not None:
+            input_["output_type"] = output_type
         input_["specification"] = specification
         if stage_name is not None:
             input_["stage_name"] = stage_name
@@ -4249,10 +4326,10 @@ class ApiGatewayV2Client:
 
     def import_api(
         self,
-        body: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         basepath: Optional["capo_apigatewayv2.types.__string.__string"] = None,
+        body: Optional["capo_apigatewayv2.types.__string.__string"] = None,
         fail_on_warnings: Optional[
             "capo_apigatewayv2.types.__boolean.__boolean"
         ] = None,
@@ -4290,7 +4367,8 @@ class ApiGatewayV2Client:
         input_: capo_apigatewayv2.types.import_api_request.ImportApiRequest = {}  # type: ignore[typeddict-item]
         if basepath is not None:
             input_["basepath"] = basepath
-        input_["body"] = body
+        if body is not None:
+            input_["body"] = body
         if fail_on_warnings is not None:
             input_["fail_on_warnings"] = fail_on_warnings
 
@@ -4695,10 +4773,12 @@ class ApiGatewayV2Client:
 
     def put_portal_product_sharing_policy(
         self,
-        policy_document: "capo_apigatewayv2.types.__string_min1_max307200.__stringMin1Max307200",
         portal_product_id: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        policy_document: Optional[
+            "capo_apigatewayv2.types.__string_min1_max307200.__stringMin1Max307200"
+        ] = None,
     ) -> "capo_apigatewayv2.types.put_portal_product_sharing_policy_response.PutPortalProductSharingPolicyResponse":
         """<p>Updates the sharing policy for a portal product.</p>
 
@@ -4730,7 +4810,8 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.put_portal_product_sharing_policy_request.PutPortalProductSharingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_document"] = policy_document
+        if policy_document is not None:
+            input_["policy_document"] = policy_document
         input_["portal_product_id"] = portal_product_id
 
         response = execute_pipeline(
@@ -4742,14 +4823,20 @@ class ApiGatewayV2Client:
 
     def put_routing_rule(
         self,
-        actions: "capo_apigatewayv2.types.__list_of_routing_rule_action.__listOfRoutingRuleAction",
-        conditions: "capo_apigatewayv2.types.__list_of_routing_rule_condition.__listOfRoutingRuleCondition",
         domain_name: "capo_apigatewayv2.types.__string.__string",
-        priority: "capo_apigatewayv2.types.routing_rule_priority.RoutingRulePriority",
         routing_rule_id: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        actions: Optional[
+            "capo_apigatewayv2.types.__list_of_routing_rule_action.__listOfRoutingRuleAction"
+        ] = None,
+        conditions: Optional[
+            "capo_apigatewayv2.types.__list_of_routing_rule_condition.__listOfRoutingRuleCondition"
+        ] = None,
         domain_name_id: Optional["capo_apigatewayv2.types.__string.__string"] = None,
+        priority: Optional[
+            "capo_apigatewayv2.types.routing_rule_priority.RoutingRulePriority"
+        ] = None,
     ) -> "capo_apigatewayv2.types.put_routing_rule_response.PutRoutingRuleResponse":
         """<p>Updates a routing rule.</p>
 
@@ -4785,12 +4872,15 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.put_routing_rule_request.PutRoutingRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["actions"] = actions
-        input_["conditions"] = conditions
+        if actions is not None:
+            input_["actions"] = actions
+        if conditions is not None:
+            input_["conditions"] = conditions
         input_["domain_name"] = domain_name
         if domain_name_id is not None:
             input_["domain_name_id"] = domain_name_id
-        input_["priority"] = priority
+        if priority is not None:
+            input_["priority"] = priority
         input_["routing_rule_id"] = routing_rule_id
 
         response = execute_pipeline(
@@ -4803,10 +4893,10 @@ class ApiGatewayV2Client:
     def reimport_api(
         self,
         api_id: "capo_apigatewayv2.types.__string.__string",
-        body: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
         basepath: Optional["capo_apigatewayv2.types.__string.__string"] = None,
+        body: Optional["capo_apigatewayv2.types.__string.__string"] = None,
         fail_on_warnings: Optional[
             "capo_apigatewayv2.types.__boolean.__boolean"
         ] = None,
@@ -4846,7 +4936,8 @@ class ApiGatewayV2Client:
         input_["api_id"] = api_id
         if basepath is not None:
             input_["basepath"] = basepath
-        input_["body"] = body
+        if body is not None:
+            input_["body"] = body
         if fail_on_warnings is not None:
             input_["fail_on_warnings"] = fail_on_warnings
 
@@ -4951,9 +5042,11 @@ class ApiGatewayV2Client:
     def untag_resource(
         self,
         resource_arn: "capo_apigatewayv2.types.__string.__string",
-        tag_keys: "capo_apigatewayv2.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        tag_keys: Optional[
+            "capo_apigatewayv2.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """<p>Deletes a Tag.</p>
 
@@ -4984,7 +5077,8 @@ class ApiGatewayV2Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5107,11 +5201,11 @@ class ApiGatewayV2Client:
 
     def update_api_mapping(
         self,
-        api_id: "capo_apigatewayv2.types.id.Id",
         api_mapping_id: "capo_apigatewayv2.types.__string.__string",
         domain_name: "capo_apigatewayv2.types.__string.__string",
         *,
         config_overrides: Optional[ApiGatewayV2ClientConfig] = None,
+        api_id: Optional["capo_apigatewayv2.types.id.Id"] = None,
         api_mapping_key: Optional[
             "capo_apigatewayv2.types.selection_key.SelectionKey"
         ] = None,
@@ -5152,7 +5246,8 @@ class ApiGatewayV2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewayv2.types.update_api_mapping_request.UpdateApiMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["api_id"] = api_id
+        if api_id is not None:
+            input_["api_id"] = api_id
         input_["api_mapping_id"] = api_mapping_id
         if api_mapping_key is not None:
             input_["api_mapping_key"] = api_mapping_key

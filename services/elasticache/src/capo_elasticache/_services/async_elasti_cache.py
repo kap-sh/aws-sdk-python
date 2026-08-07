@@ -336,10 +336,10 @@ class AsyncElastiCacheClient:
 
     async def add_tags_to_resource(
         self,
-        resource_name: "capo_elasticache.types.string.String",
-        tags: "capo_elasticache.types.tag_list.TagList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        resource_name: Optional["capo_elasticache.types.string.String"] = None,
+        tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.tag_list_message.TagListMessage":
         r"""<p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html\">Resource-level permissions</a>.</p> <p> For example, you can use cost-allocation tags to your ElastiCache resources, Amazon generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Tagging.html\">Using Cost Allocation Tags in Amazon ElastiCache</a> in the <i>ElastiCache User Guide</i>.</p>
 
@@ -390,8 +390,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tags"] = tags
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -402,11 +404,17 @@ class AsyncElastiCacheClient:
 
     async def authorize_cache_security_group_ingress(
         self,
-        cache_security_group_name: "capo_elasticache.types.string.String",
-        ec2_security_group_name: "capo_elasticache.types.string.String",
-        ec2_security_group_owner_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_security_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        ec2_security_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        ec2_security_group_owner_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> "capo_elasticache.types.authorize_cache_security_group_ingress_result.AuthorizeCacheSecurityGroupIngressResult":
         """<p>Allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.</p> <note> <p>You cannot authorize ingress from an Amazon EC2 security group in one region to an ElastiCache cluster in another region.</p> </note>
 
@@ -447,9 +455,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.authorize_cache_security_group_ingress_message.AuthorizeCacheSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_security_group_name"] = cache_security_group_name
-        input_["ec2_security_group_name"] = ec2_security_group_name
-        input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+        if cache_security_group_name is not None:
+            input_["cache_security_group_name"] = cache_security_group_name
+        if ec2_security_group_name is not None:
+            input_["ec2_security_group_name"] = ec2_security_group_name
+        if ec2_security_group_owner_id is not None:
+            input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -460,7 +471,6 @@ class AsyncElastiCacheClient:
 
     async def batch_apply_update_action(
         self,
-        service_update_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
         replication_group_ids: Optional[
@@ -469,6 +479,7 @@ class AsyncElastiCacheClient:
         cache_cluster_ids: Optional[
             "capo_elasticache.types.cache_cluster_id_list.CacheClusterIdList"
         ] = None,
+        service_update_name: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.update_action_results_message.UpdateActionResultsMessage":
         r"""<p>Apply the service update. For more information on service updates and applying them, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/applying-updates.html\">Applying Service Updates</a>.</p>
 
@@ -504,7 +515,8 @@ class AsyncElastiCacheClient:
             input_["replication_group_ids"] = replication_group_ids
         if cache_cluster_ids is not None:
             input_["cache_cluster_ids"] = cache_cluster_ids
-        input_["service_update_name"] = service_update_name
+        if service_update_name is not None:
+            input_["service_update_name"] = service_update_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -515,7 +527,6 @@ class AsyncElastiCacheClient:
 
     async def batch_stop_update_action(
         self,
-        service_update_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
         replication_group_ids: Optional[
@@ -524,6 +535,7 @@ class AsyncElastiCacheClient:
         cache_cluster_ids: Optional[
             "capo_elasticache.types.cache_cluster_id_list.CacheClusterIdList"
         ] = None,
+        service_update_name: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.update_action_results_message.UpdateActionResultsMessage":
         r"""<p>Stop the service update. For more information on service updates and stopping them, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/stopping-self-service-updates.html\">Stopping Service Updates</a>.</p>
 
@@ -559,7 +571,8 @@ class AsyncElastiCacheClient:
             input_["replication_group_ids"] = replication_group_ids
         if cache_cluster_ids is not None:
             input_["cache_cluster_ids"] = cache_cluster_ids
-        input_["service_update_name"] = service_update_name
+        if service_update_name is not None:
+            input_["service_update_name"] = service_update_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -570,9 +583,9 @@ class AsyncElastiCacheClient:
 
     async def complete_migration(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         force: Optional["capo_elasticache.types.boolean.Boolean"] = None,
     ) -> "capo_elasticache.types.complete_migration_response.CompleteMigrationResponse":
         """<p>Complete the migration of data.</p>
@@ -605,7 +618,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.complete_migration_message.CompleteMigrationMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
         if force is not None:
             input_["force"] = force
 
@@ -618,10 +632,14 @@ class AsyncElastiCacheClient:
 
     async def copy_serverless_cache_snapshot(
         self,
-        source_serverless_cache_snapshot_name: "capo_elasticache.types.string.String",
-        target_serverless_cache_snapshot_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        source_serverless_cache_snapshot_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        target_serverless_cache_snapshot_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         kms_key_id: Optional["capo_elasticache.types.string.String"] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.copy_serverless_cache_snapshot_response.CopyServerlessCacheSnapshotResponse":
@@ -662,12 +680,14 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.copy_serverless_cache_snapshot_request.CopyServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["source_serverless_cache_snapshot_name"] = (
-            source_serverless_cache_snapshot_name
-        )
-        input_["target_serverless_cache_snapshot_name"] = (
-            target_serverless_cache_snapshot_name
-        )
+        if source_serverless_cache_snapshot_name is not None:
+            input_["source_serverless_cache_snapshot_name"] = (
+                source_serverless_cache_snapshot_name
+            )
+        if target_serverless_cache_snapshot_name is not None:
+            input_["target_serverless_cache_snapshot_name"] = (
+                target_serverless_cache_snapshot_name
+            )
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -682,10 +702,10 @@ class AsyncElastiCacheClient:
 
     async def copy_snapshot(
         self,
-        source_snapshot_name: "capo_elasticache.types.string.String",
-        target_snapshot_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        source_snapshot_name: Optional["capo_elasticache.types.string.String"] = None,
+        target_snapshot_name: Optional["capo_elasticache.types.string.String"] = None,
         target_bucket: Optional["capo_elasticache.types.string.String"] = None,
         kms_key_id: Optional["capo_elasticache.types.string.String"] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
@@ -733,8 +753,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.copy_snapshot_message.CopySnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["source_snapshot_name"] = source_snapshot_name
-        input_["target_snapshot_name"] = target_snapshot_name
+        if source_snapshot_name is not None:
+            input_["source_snapshot_name"] = source_snapshot_name
+        if target_snapshot_name is not None:
+            input_["target_snapshot_name"] = target_snapshot_name
         if target_bucket is not None:
             input_["target_bucket"] = target_bucket
         if kms_key_id is not None:
@@ -751,9 +773,9 @@ class AsyncElastiCacheClient:
 
     async def create_cache_cluster(
         self,
-        cache_cluster_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_cluster_id: Optional["capo_elasticache.types.string.String"] = None,
         replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         az_mode: Optional["capo_elasticache.types.az_mode.AZMode"] = None,
         preferred_availability_zone: Optional[
@@ -899,7 +921,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_cache_cluster_message.CreateCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_cluster_id"] = cache_cluster_id
+        if cache_cluster_id is not None:
+            input_["cache_cluster_id"] = cache_cluster_id
         if replication_group_id is not None:
             input_["replication_group_id"] = replication_group_id
         if az_mode is not None:
@@ -968,11 +991,15 @@ class AsyncElastiCacheClient:
 
     async def create_cache_parameter_group(
         self,
-        cache_parameter_group_name: "capo_elasticache.types.string.String",
-        cache_parameter_group_family: "capo_elasticache.types.string.String",
-        description: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        cache_parameter_group_family: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        description: Optional["capo_elasticache.types.string.String"] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.create_cache_parameter_group_result.CreateCacheParameterGroupResult":
         r"""<p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache cache parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster or replication group using the CacheParameterGroup.</p> <p>A newly created CacheParameterGroup is an exact duplicate of the default parameter group for the CacheParameterGroupFamily. To customize the newly created CacheParameterGroup you can change the values of specific parameters. For more information, see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html\">ModifyCacheParameterGroup</a> in the ElastiCache API Reference.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html\">Parameters and Parameter Groups</a> in the ElastiCache User Guide.</p> </li> </ul>
@@ -1016,9 +1043,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_cache_parameter_group_message.CreateCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_parameter_group_name"] = cache_parameter_group_name
-        input_["cache_parameter_group_family"] = cache_parameter_group_family
-        input_["description"] = description
+        if cache_parameter_group_name is not None:
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
+        if cache_parameter_group_family is not None:
+            input_["cache_parameter_group_family"] = cache_parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -1031,10 +1061,12 @@ class AsyncElastiCacheClient:
 
     async def create_cache_security_group(
         self,
-        cache_security_group_name: "capo_elasticache.types.string.String",
-        description: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_security_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        description: Optional["capo_elasticache.types.string.String"] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.create_cache_security_group_result.CreateCacheSecurityGroupResult":
         r"""<p>Creates a new cache security group. Use a cache security group to control access to one or more clusters.</p> <p>Cache security groups are only used when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC). If you are creating a cluster inside of a VPC, use a cache subnet group instead. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html\">CreateCacheSubnetGroup</a>.</p>
@@ -1076,8 +1108,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_cache_security_group_message.CreateCacheSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_security_group_name"] = cache_security_group_name
-        input_["description"] = description
+        if cache_security_group_name is not None:
+            input_["cache_security_group_name"] = cache_security_group_name
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -1090,11 +1124,17 @@ class AsyncElastiCacheClient:
 
     async def create_cache_subnet_group(
         self,
-        cache_subnet_group_name: "capo_elasticache.types.string.String",
-        cache_subnet_group_description: "capo_elasticache.types.string.String",
-        subnet_ids: "capo_elasticache.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_subnet_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        cache_subnet_group_description: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        subnet_ids: Optional[
+            "capo_elasticache.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.create_cache_subnet_group_result.CreateCacheSubnetGroupResult":
         """<p>Creates a new cache subnet group.</p> <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
@@ -1138,9 +1178,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_cache_subnet_group_message.CreateCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_subnet_group_name"] = cache_subnet_group_name
-        input_["cache_subnet_group_description"] = cache_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if cache_subnet_group_name is not None:
+            input_["cache_subnet_group_name"] = cache_subnet_group_name
+        if cache_subnet_group_description is not None:
+            input_["cache_subnet_group_description"] = cache_subnet_group_description
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
             input_["tags"] = tags
 
@@ -1153,11 +1196,15 @@ class AsyncElastiCacheClient:
 
     async def create_global_replication_group(
         self,
-        global_replication_group_id_suffix: "capo_elasticache.types.string.String",
-        primary_replication_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id_suffix: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         global_replication_group_description: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        primary_replication_group_id: Optional[
             "capo_elasticache.types.string.String"
         ] = None,
     ) -> "capo_elasticache.types.create_global_replication_group_result.CreateGlobalReplicationGroupResult":
@@ -1194,14 +1241,16 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_global_replication_group_message.CreateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id_suffix"] = (
-            global_replication_group_id_suffix
-        )
+        if global_replication_group_id_suffix is not None:
+            input_["global_replication_group_id_suffix"] = (
+                global_replication_group_id_suffix
+            )
         if global_replication_group_description is not None:
             input_["global_replication_group_description"] = (
                 global_replication_group_description
             )
-        input_["primary_replication_group_id"] = primary_replication_group_id
+        if primary_replication_group_id is not None:
+            input_["primary_replication_group_id"] = primary_replication_group_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1212,10 +1261,12 @@ class AsyncElastiCacheClient:
 
     async def create_replication_group(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        replication_group_description: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        replication_group_description: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         global_replication_group_id: Optional[
             "capo_elasticache.types.string.String"
         ] = None,
@@ -1403,8 +1454,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_replication_group_message.CreateReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
-        input_["replication_group_description"] = replication_group_description
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
+        if replication_group_description is not None:
+            input_["replication_group_description"] = replication_group_description
         if global_replication_group_id is not None:
             input_["global_replication_group_id"] = global_replication_group_id
         if primary_cluster_id is not None:
@@ -1491,11 +1544,11 @@ class AsyncElastiCacheClient:
 
     async def create_serverless_cache(
         self,
-        serverless_cache_name: "capo_elasticache.types.string.String",
-        engine: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        serverless_cache_name: Optional["capo_elasticache.types.string.String"] = None,
         description: Optional["capo_elasticache.types.string.String"] = None,
+        engine: Optional["capo_elasticache.types.string.String"] = None,
         major_engine_version: Optional["capo_elasticache.types.string.String"] = None,
         cache_usage_limits: Optional[
             "capo_elasticache.types.cache_usage_limits.CacheUsageLimits"
@@ -1570,10 +1623,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_serverless_cache_request.CreateServerlessCacheRequest = {}  # type: ignore[typeddict-item]
-        input_["serverless_cache_name"] = serverless_cache_name
+        if serverless_cache_name is not None:
+            input_["serverless_cache_name"] = serverless_cache_name
         if description is not None:
             input_["description"] = description
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if major_engine_version is not None:
             input_["major_engine_version"] = major_engine_version
         if cache_usage_limits is not None:
@@ -1606,10 +1661,12 @@ class AsyncElastiCacheClient:
 
     async def create_serverless_cache_snapshot(
         self,
-        serverless_cache_snapshot_name: "capo_elasticache.types.string.String",
-        serverless_cache_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        serverless_cache_snapshot_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        serverless_cache_name: Optional["capo_elasticache.types.string.String"] = None,
         kms_key_id: Optional["capo_elasticache.types.string.String"] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.create_serverless_cache_snapshot_response.CreateServerlessCacheSnapshotResponse":
@@ -1650,8 +1707,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_serverless_cache_snapshot_request.CreateServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
-        input_["serverless_cache_name"] = serverless_cache_name
+        if serverless_cache_snapshot_name is not None:
+            input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+        if serverless_cache_name is not None:
+            input_["serverless_cache_name"] = serverless_cache_name
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -1666,11 +1725,11 @@ class AsyncElastiCacheClient:
 
     async def create_snapshot(
         self,
-        snapshot_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
         replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         cache_cluster_id: Optional["capo_elasticache.types.string.String"] = None,
+        snapshot_name: Optional["capo_elasticache.types.string.String"] = None,
         kms_key_id: Optional["capo_elasticache.types.string.String"] = None,
         tags: Optional["capo_elasticache.types.tag_list.TagList"] = None,
     ) -> "capo_elasticache.types.create_snapshot_result.CreateSnapshotResult":
@@ -1732,7 +1791,8 @@ class AsyncElastiCacheClient:
             input_["replication_group_id"] = replication_group_id
         if cache_cluster_id is not None:
             input_["cache_cluster_id"] = cache_cluster_id
-        input_["snapshot_name"] = snapshot_name
+        if snapshot_name is not None:
+            input_["snapshot_name"] = snapshot_name
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -1747,14 +1807,16 @@ class AsyncElastiCacheClient:
 
     async def create_user(
         self,
-        user_id: "capo_elasticache.types.user_id.UserId",
-        user_name: "capo_elasticache.types.user_name.UserName",
-        engine: "capo_elasticache.types.engine_type.EngineType",
-        access_string: "capo_elasticache.types.access_string.AccessString",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        user_id: Optional["capo_elasticache.types.user_id.UserId"] = None,
+        user_name: Optional["capo_elasticache.types.user_name.UserName"] = None,
+        engine: Optional["capo_elasticache.types.engine_type.EngineType"] = None,
         passwords: Optional[
             "capo_elasticache.types.password_list_input.PasswordListInput"
+        ] = None,
+        access_string: Optional[
+            "capo_elasticache.types.access_string.AccessString"
         ] = None,
         no_password_required: Optional[
             "capo_elasticache.types.boolean_optional.BooleanOptional"
@@ -1802,12 +1864,16 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_user_message.CreateUserMessage = {}  # type: ignore[typeddict-item]
-        input_["user_id"] = user_id
-        input_["user_name"] = user_name
-        input_["engine"] = engine
+        if user_id is not None:
+            input_["user_id"] = user_id
+        if user_name is not None:
+            input_["user_name"] = user_name
+        if engine is not None:
+            input_["engine"] = engine
         if passwords is not None:
             input_["passwords"] = passwords
-        input_["access_string"] = access_string
+        if access_string is not None:
+            input_["access_string"] = access_string
         if no_password_required is not None:
             input_["no_password_required"] = no_password_required
         if tags is not None:
@@ -1824,10 +1890,10 @@ class AsyncElastiCacheClient:
 
     async def create_user_group(
         self,
-        user_group_id: "capo_elasticache.types.string.String",
-        engine: "capo_elasticache.types.engine_type.EngineType",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        user_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        engine: Optional["capo_elasticache.types.engine_type.EngineType"] = None,
         user_ids: Optional[
             "capo_elasticache.types.user_id_list_input.UserIdListInput"
         ] = None,
@@ -1868,8 +1934,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.create_user_group_message.CreateUserGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["user_group_id"] = user_group_id
-        input_["engine"] = engine
+        if user_group_id is not None:
+            input_["user_group_id"] = user_group_id
+        if engine is not None:
+            input_["engine"] = engine
         if user_ids is not None:
             input_["user_ids"] = user_ids
         if tags is not None:
@@ -1884,17 +1952,19 @@ class AsyncElastiCacheClient:
 
     async def decrease_node_groups_in_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        node_group_count: "capo_elasticache.types.integer.Integer",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        node_group_count: Optional["capo_elasticache.types.integer.Integer"] = None,
         global_node_groups_to_remove: Optional[
             "capo_elasticache.types.global_node_group_id_list.GlobalNodeGroupIdList"
         ] = None,
         global_node_groups_to_retain: Optional[
             "capo_elasticache.types.global_node_group_id_list.GlobalNodeGroupIdList"
         ] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
     ) -> "capo_elasticache.types.decrease_node_groups_in_global_replication_group_result.DecreaseNodeGroupsInGlobalReplicationGroupResult":
         """<p>Decreases the number of node groups in a Global datastore</p>
 
@@ -1930,13 +2000,16 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.decrease_node_groups_in_global_replication_group_message.DecreaseNodeGroupsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["node_group_count"] = node_group_count
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if node_group_count is not None:
+            input_["node_group_count"] = node_group_count
         if global_node_groups_to_remove is not None:
             input_["global_node_groups_to_remove"] = global_node_groups_to_remove
         if global_node_groups_to_retain is not None:
             input_["global_node_groups_to_retain"] = global_node_groups_to_retain
-        input_["apply_immediately"] = apply_immediately
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1947,10 +2020,9 @@ class AsyncElastiCacheClient:
 
     async def decrease_replica_count(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         new_replica_count: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
         ] = None,
@@ -1960,6 +2032,7 @@ class AsyncElastiCacheClient:
         replicas_to_remove: Optional[
             "capo_elasticache.types.remove_replicas_list.RemoveReplicasList"
         ] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
     ) -> "capo_elasticache.types.decrease_replica_count_result.DecreaseReplicaCountResult":
         """<p>Dynamically decreases the number of replicas in a Valkey or Redis OSS (cluster mode disabled) replication group or the number of replica nodes in one or more node groups (shards) of a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no cluster down time.</p>
 
@@ -2003,14 +2076,16 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.decrease_replica_count_message.DecreaseReplicaCountMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
         if new_replica_count is not None:
             input_["new_replica_count"] = new_replica_count
         if replica_configuration is not None:
             input_["replica_configuration"] = replica_configuration
         if replicas_to_remove is not None:
             input_["replicas_to_remove"] = replicas_to_remove
-        input_["apply_immediately"] = apply_immediately
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2021,9 +2096,9 @@ class AsyncElastiCacheClient:
 
     async def delete_cache_cluster(
         self,
-        cache_cluster_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_cluster_id: Optional["capo_elasticache.types.string.String"] = None,
         final_snapshot_identifier: Optional[
             "capo_elasticache.types.string.String"
         ] = None,
@@ -2068,7 +2143,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_cache_cluster_message.DeleteCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_cluster_id"] = cache_cluster_id
+        if cache_cluster_id is not None:
+            input_["cache_cluster_id"] = cache_cluster_id
         if final_snapshot_identifier is not None:
             input_["final_snapshot_identifier"] = final_snapshot_identifier
 
@@ -2081,9 +2157,11 @@ class AsyncElastiCacheClient:
 
     async def delete_cache_parameter_group(
         self,
-        cache_parameter_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified cache parameter group. You cannot delete a cache parameter group if it is associated with any cache clusters. You cannot delete the default cache parameter groups in your account.</p>
 
@@ -2119,7 +2197,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_cache_parameter_group_message.DeleteCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_parameter_group_name"] = cache_parameter_group_name
+        if cache_parameter_group_name is not None:
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2130,9 +2209,11 @@ class AsyncElastiCacheClient:
 
     async def delete_cache_security_group(
         self,
-        cache_security_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_security_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes a cache security group.</p> <note> <p>You cannot delete a cache security group if it is associated with any clusters.</p> </note>
 
@@ -2168,7 +2249,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_cache_security_group_message.DeleteCacheSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_security_group_name"] = cache_security_group_name
+        if cache_security_group_name is not None:
+            input_["cache_security_group_name"] = cache_security_group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2179,9 +2261,11 @@ class AsyncElastiCacheClient:
 
     async def delete_cache_subnet_group(
         self,
-        cache_subnet_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_subnet_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes a cache subnet group.</p> <note> <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p> </note>
 
@@ -2215,7 +2299,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_cache_subnet_group_message.DeleteCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_subnet_group_name"] = cache_subnet_group_name
+        if cache_subnet_group_name is not None:
+            input_["cache_subnet_group_name"] = cache_subnet_group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2226,10 +2311,14 @@ class AsyncElastiCacheClient:
 
     async def delete_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        retain_primary_replication_group: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        retain_primary_replication_group: Optional[
+            "capo_elasticache.types.boolean.Boolean"
+        ] = None,
     ) -> "capo_elasticache.types.delete_global_replication_group_result.DeleteGlobalReplicationGroupResult":
         """<p>Deleting a Global datastore is a two-step process: </p> <ul> <li> <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global datastore.</p> </li> <li> <p>Once the Global datastore contains only the primary cluster, you can use the <code>DeleteGlobalReplicationGroup</code> API to delete the Global datastore while retainining the primary cluster using <code>RetainPrimaryReplicationGroup=true</code>.</p> </li> </ul> <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore while retaining the primary by setting <code>RetainPrimaryReplicationGroup=true</code>. The primary cluster is never deleted when deleting a Global Datastore. It can only be deleted when it no longer is associated with any Global Datastore.</p> <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this operation.</p>
 
@@ -2261,8 +2350,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_global_replication_group_message.DeleteGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["retain_primary_replication_group"] = retain_primary_replication_group
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if retain_primary_replication_group is not None:
+            input_["retain_primary_replication_group"] = (
+                retain_primary_replication_group
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2273,9 +2366,9 @@ class AsyncElastiCacheClient:
 
     async def delete_replication_group(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         retain_primary_cluster: Optional[
             "capo_elasticache.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -2324,7 +2417,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_replication_group_message.DeleteReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
         if retain_primary_cluster is not None:
             input_["retain_primary_cluster"] = retain_primary_cluster
         if final_snapshot_identifier is not None:
@@ -2339,9 +2433,9 @@ class AsyncElastiCacheClient:
 
     async def delete_serverless_cache(
         self,
-        serverless_cache_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        serverless_cache_name: Optional["capo_elasticache.types.string.String"] = None,
         final_snapshot_name: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.delete_serverless_cache_response.DeleteServerlessCacheResponse":
         """<p>Deletes a specified existing serverless cache.</p> <note> <p> <code>CreateServerlessCacheSnapshot</code> permission is required to create a final snapshot. Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p> </note>
@@ -2378,7 +2472,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_serverless_cache_request.DeleteServerlessCacheRequest = {}  # type: ignore[typeddict-item]
-        input_["serverless_cache_name"] = serverless_cache_name
+        if serverless_cache_name is not None:
+            input_["serverless_cache_name"] = serverless_cache_name
         if final_snapshot_name is not None:
             input_["final_snapshot_name"] = final_snapshot_name
 
@@ -2391,9 +2486,11 @@ class AsyncElastiCacheClient:
 
     async def delete_serverless_cache_snapshot(
         self,
-        serverless_cache_snapshot_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        serverless_cache_snapshot_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> "capo_elasticache.types.delete_serverless_cache_snapshot_response.DeleteServerlessCacheSnapshotResponse":
         """<p>Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
 
@@ -2425,7 +2522,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_serverless_cache_snapshot_request.DeleteServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+        if serverless_cache_snapshot_name is not None:
+            input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2436,9 +2534,9 @@ class AsyncElastiCacheClient:
 
     async def delete_snapshot(
         self,
-        snapshot_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        snapshot_name: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.delete_snapshot_result.DeleteSnapshotResult":
         """<p>Deletes an existing snapshot. When you receive a successful response from this operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this operation.</p> <note> <p>This operation is valid for Valkey or Redis OSS only.</p> </note>
 
@@ -2476,7 +2574,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_snapshot_message.DeleteSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_name"] = snapshot_name
+        if snapshot_name is not None:
+            input_["snapshot_name"] = snapshot_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2487,9 +2586,9 @@ class AsyncElastiCacheClient:
 
     async def delete_user(
         self,
-        user_id: "capo_elasticache.types.user_id.UserId",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        user_id: Optional["capo_elasticache.types.user_id.UserId"] = None,
     ) -> "capo_elasticache.types.user.User":
         r"""<p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The user will be removed from all user groups and in turn removed from all replication groups. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html\">Using Role Based Access Control (RBAC)</a>. </p>
 
@@ -2520,7 +2619,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_user_message.DeleteUserMessage = {}  # type: ignore[typeddict-item]
-        input_["user_id"] = user_id
+        if user_id is not None:
+            input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2531,9 +2631,9 @@ class AsyncElastiCacheClient:
 
     async def delete_user_group(
         self,
-        user_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        user_group_id: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.user_group.UserGroup":
         r"""<p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user group. The user group must first be disassociated from the replication group before it can be deleted. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html\">Using Role Based Access Control (RBAC)</a>. </p>
 
@@ -2563,7 +2663,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.delete_user_group_message.DeleteUserGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["user_group_id"] = user_group_id
+        if user_group_id is not None:
+            input_["user_group_id"] = user_group_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2889,9 +2990,11 @@ class AsyncElastiCacheClient:
 
     async def describe_cache_parameters(
         self,
-        cache_parameter_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         source: Optional["capo_elasticache.types.string.String"] = None,
         max_records: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
@@ -2936,7 +3039,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.describe_cache_parameters_message.DescribeCacheParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_parameter_group_name"] = cache_parameter_group_name
+        if cache_parameter_group_name is not None:
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if source is not None:
             input_["source"] = source
         if max_records is not None:
@@ -2953,9 +3057,11 @@ class AsyncElastiCacheClient:
 
     async def iter_describe_cache_parameters(
         self,
-        cache_parameter_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         source: Optional["capo_elasticache.types.string.String"] = None,
         max_records: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
@@ -2965,8 +3071,8 @@ class AsyncElastiCacheClient:
         _token = marker
         while True:
             _response = await self.describe_cache_parameters(
-                cache_parameter_group_name,
                 config_overrides=config_overrides,
+                cache_parameter_group_name=cache_parameter_group_name,
                 source=source,
                 max_records=max_records,
                 marker=_token,
@@ -3162,9 +3268,11 @@ class AsyncElastiCacheClient:
 
     async def describe_engine_default_parameters(
         self,
-        cache_parameter_group_family: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_family: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         max_records: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
         ] = None,
@@ -3206,7 +3314,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_parameter_group_family"] = cache_parameter_group_family
+        if cache_parameter_group_family is not None:
+            input_["cache_parameter_group_family"] = cache_parameter_group_family
         if max_records is not None:
             input_["max_records"] = max_records
         if marker is not None:
@@ -3221,9 +3330,11 @@ class AsyncElastiCacheClient:
 
     async def iter_describe_engine_default_parameters(
         self,
-        cache_parameter_group_family: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_family: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         max_records: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
         ] = None,
@@ -3232,8 +3343,8 @@ class AsyncElastiCacheClient:
         _token = marker
         while True:
             _response = await self.describe_engine_default_parameters(
-                cache_parameter_group_family,
                 config_overrides=config_overrides,
+                cache_parameter_group_family=cache_parameter_group_family,
                 max_records=max_records,
                 marker=_token,
             )
@@ -4488,11 +4599,15 @@ class AsyncElastiCacheClient:
 
     async def disassociate_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        replication_group_id: "capo_elasticache.types.string.String",
-        replication_group_region: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        replication_group_region: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> "capo_elasticache.types.disassociate_global_replication_group_result.DisassociateGlobalReplicationGroupResult":
         """<p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that Amazon region.</p>
 
@@ -4526,9 +4641,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.disassociate_global_replication_group_message.DisassociateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["replication_group_id"] = replication_group_id
-        input_["replication_group_region"] = replication_group_region
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
+        if replication_group_region is not None:
+            input_["replication_group_region"] = replication_group_region
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4539,10 +4657,12 @@ class AsyncElastiCacheClient:
 
     async def export_serverless_cache_snapshot(
         self,
-        serverless_cache_snapshot_name: "capo_elasticache.types.string.String",
-        s3_bucket_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        serverless_cache_snapshot_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        s3_bucket_name: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.export_serverless_cache_snapshot_response.ExportServerlessCacheSnapshotResponse":
         """<p>Provides the functionality to export the serverless cache snapshot data to Amazon S3. Available for Valkey and Redis OSS only.</p>
 
@@ -4575,8 +4695,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.export_serverless_cache_snapshot_request.ExportServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
-        input_["s3_bucket_name"] = s3_bucket_name
+        if serverless_cache_snapshot_name is not None:
+            input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+        if s3_bucket_name is not None:
+            input_["s3_bucket_name"] = s3_bucket_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4587,11 +4709,15 @@ class AsyncElastiCacheClient:
 
     async def failover_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        primary_region: "capo_elasticache.types.string.String",
-        primary_replication_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        primary_region: Optional["capo_elasticache.types.string.String"] = None,
+        primary_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> "capo_elasticache.types.failover_global_replication_group_result.FailoverGlobalReplicationGroupResult":
         """<p>Used to failover the primary region to a secondary region. The secondary region will become primary, and all other clusters will become secondary.</p>
 
@@ -4625,9 +4751,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.failover_global_replication_group_message.FailoverGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["primary_region"] = primary_region
-        input_["primary_replication_group_id"] = primary_replication_group_id
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if primary_region is not None:
+            input_["primary_region"] = primary_region
+        if primary_replication_group_id is not None:
+            input_["primary_replication_group_id"] = primary_replication_group_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4638,14 +4767,16 @@ class AsyncElastiCacheClient:
 
     async def increase_node_groups_in_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        node_group_count: "capo_elasticache.types.integer.Integer",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        node_group_count: Optional["capo_elasticache.types.integer.Integer"] = None,
         regional_configurations: Optional[
             "capo_elasticache.types.regional_configuration_list.RegionalConfigurationList"
         ] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
     ) -> "capo_elasticache.types.increase_node_groups_in_global_replication_group_result.IncreaseNodeGroupsInGlobalReplicationGroupResult":
         """<p>Increase the number of node groups in the Global datastore</p>
 
@@ -4679,11 +4810,14 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.increase_node_groups_in_global_replication_group_message.IncreaseNodeGroupsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["node_group_count"] = node_group_count
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if node_group_count is not None:
+            input_["node_group_count"] = node_group_count
         if regional_configurations is not None:
             input_["regional_configurations"] = regional_configurations
-        input_["apply_immediately"] = apply_immediately
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4694,16 +4828,16 @@ class AsyncElastiCacheClient:
 
     async def increase_replica_count(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         new_replica_count: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
         ] = None,
         replica_configuration: Optional[
             "capo_elasticache.types.replica_configuration_list.ReplicaConfigurationList"
         ] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
     ) -> "capo_elasticache.types.increase_replica_count_result.IncreaseReplicaCountResult":
         """<p>Dynamically increases the number of replicas in a Valkey or Redis OSS (cluster mode disabled) replication group or the number of replica nodes in one or more node groups (shards) of a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no cluster down time.</p>
 
@@ -4746,12 +4880,14 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.increase_replica_count_message.IncreaseReplicaCountMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
         if new_replica_count is not None:
             input_["new_replica_count"] = new_replica_count
         if replica_configuration is not None:
             input_["replica_configuration"] = replica_configuration
-        input_["apply_immediately"] = apply_immediately
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4822,9 +4958,9 @@ class AsyncElastiCacheClient:
 
     async def list_tags_for_resource(
         self,
-        resource_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        resource_name: Optional["capo_elasticache.types.string.String"] = None,
     ) -> "capo_elasticache.types.tag_list_message.TagListMessage":
         r"""<p>Lists all tags currently on a named resource.</p> <p> A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html\">Resource-level permissions</a>.</p> <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code> returns an error.</p>
 
@@ -4873,7 +5009,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4884,9 +5021,9 @@ class AsyncElastiCacheClient:
 
     async def modify_cache_cluster(
         self,
-        cache_cluster_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_cluster_id: Optional["capo_elasticache.types.string.String"] = None,
         num_cache_nodes: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
         ] = None,
@@ -5003,7 +5140,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_cache_cluster_message.ModifyCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_cluster_id"] = cache_cluster_id
+        if cache_cluster_id is not None:
+            input_["cache_cluster_id"] = cache_cluster_id
         if num_cache_nodes is not None:
             input_["num_cache_nodes"] = num_cache_nodes
         if cache_node_ids_to_remove is not None:
@@ -5058,10 +5196,14 @@ class AsyncElastiCacheClient:
 
     async def modify_cache_parameter_group(
         self,
-        cache_parameter_group_name: "capo_elasticache.types.string.String",
-        parameter_name_values: "capo_elasticache.types.parameter_name_value_list.ParameterNameValueList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        parameter_name_values: Optional[
+            "capo_elasticache.types.parameter_name_value_list.ParameterNameValueList"
+        ] = None,
     ) -> "capo_elasticache.types.cache_parameter_group_name_message.CacheParameterGroupNameMessage":
         """<p>Modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.</p>
 
@@ -5101,8 +5243,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_cache_parameter_group_message.ModifyCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_parameter_group_name"] = cache_parameter_group_name
-        input_["parameter_name_values"] = parameter_name_values
+        if cache_parameter_group_name is not None:
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
+        if parameter_name_values is not None:
+            input_["parameter_name_values"] = parameter_name_values
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5113,9 +5257,11 @@ class AsyncElastiCacheClient:
 
     async def modify_cache_subnet_group(
         self,
-        cache_subnet_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_subnet_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         cache_subnet_group_description: Optional[
             "capo_elasticache.types.string.String"
         ] = None,
@@ -5162,7 +5308,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_cache_subnet_group_message.ModifyCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_subnet_group_name"] = cache_subnet_group_name
+        if cache_subnet_group_name is not None:
+            input_["cache_subnet_group_name"] = cache_subnet_group_name
         if cache_subnet_group_description is not None:
             input_["cache_subnet_group_description"] = cache_subnet_group_description
         if subnet_ids is not None:
@@ -5177,10 +5324,12 @@ class AsyncElastiCacheClient:
 
     async def modify_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
         cache_node_type: Optional["capo_elasticache.types.string.String"] = None,
         engine: Optional["capo_elasticache.types.string.String"] = None,
         engine_version: Optional["capo_elasticache.types.string.String"] = None,
@@ -5230,8 +5379,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_global_replication_group_message.ModifyGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["apply_immediately"] = apply_immediately
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
         if cache_node_type is not None:
             input_["cache_node_type"] = cache_node_type
         if engine is not None:
@@ -5256,9 +5407,9 @@ class AsyncElastiCacheClient:
 
     async def modify_replication_group(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
         replication_group_description: Optional[
             "capo_elasticache.types.string.String"
         ] = None,
@@ -5407,7 +5558,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_replication_group_message.ModifyReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
         if replication_group_description is not None:
             input_["replication_group_description"] = replication_group_description
         if primary_cluster_id is not None:
@@ -5478,11 +5630,11 @@ class AsyncElastiCacheClient:
 
     async def modify_replication_group_shard_configuration(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        node_group_count: "capo_elasticache.types.integer.Integer",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        node_group_count: Optional["capo_elasticache.types.integer.Integer"] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
         resharding_configuration: Optional[
             "capo_elasticache.types.resharding_configuration_list.ReshardingConfigurationList"
         ] = None,
@@ -5534,9 +5686,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_replication_group_shard_configuration_message.ModifyReplicationGroupShardConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
-        input_["node_group_count"] = node_group_count
-        input_["apply_immediately"] = apply_immediately
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
+        if node_group_count is not None:
+            input_["node_group_count"] = node_group_count
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
         if resharding_configuration is not None:
             input_["resharding_configuration"] = resharding_configuration
         if node_groups_to_remove is not None:
@@ -5553,9 +5708,9 @@ class AsyncElastiCacheClient:
 
     async def modify_serverless_cache(
         self,
-        serverless_cache_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        serverless_cache_name: Optional["capo_elasticache.types.string.String"] = None,
         description: Optional["capo_elasticache.types.string.String"] = None,
         cache_usage_limits: Optional[
             "capo_elasticache.types.cache_usage_limits.CacheUsageLimits"
@@ -5617,7 +5772,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_serverless_cache_request.ModifyServerlessCacheRequest = {}  # type: ignore[typeddict-item]
-        input_["serverless_cache_name"] = serverless_cache_name
+        if serverless_cache_name is not None:
+            input_["serverless_cache_name"] = serverless_cache_name
         if description is not None:
             input_["description"] = description
         if cache_usage_limits is not None:
@@ -5646,9 +5802,9 @@ class AsyncElastiCacheClient:
 
     async def modify_user(
         self,
-        user_id: "capo_elasticache.types.user_id.UserId",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        user_id: Optional["capo_elasticache.types.user_id.UserId"] = None,
         access_string: Optional[
             "capo_elasticache.types.access_string.AccessString"
         ] = None,
@@ -5701,7 +5857,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_user_message.ModifyUserMessage = {}  # type: ignore[typeddict-item]
-        input_["user_id"] = user_id
+        if user_id is not None:
+            input_["user_id"] = user_id
         if access_string is not None:
             input_["access_string"] = access_string
         if append_access_string is not None:
@@ -5724,9 +5881,9 @@ class AsyncElastiCacheClient:
 
     async def modify_user_group(
         self,
-        user_group_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        user_group_id: Optional["capo_elasticache.types.string.String"] = None,
         user_ids_to_add: Optional[
             "capo_elasticache.types.user_id_list_input.UserIdListInput"
         ] = None,
@@ -5770,7 +5927,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.modify_user_group_message.ModifyUserGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["user_group_id"] = user_group_id
+        if user_group_id is not None:
+            input_["user_group_id"] = user_group_id
         if user_ids_to_add is not None:
             input_["user_ids_to_add"] = user_ids_to_add
         if user_ids_to_remove is not None:
@@ -5787,9 +5945,11 @@ class AsyncElastiCacheClient:
 
     async def purchase_reserved_cache_nodes_offering(
         self,
-        reserved_cache_nodes_offering_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        reserved_cache_nodes_offering_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         reserved_cache_node_id: Optional["capo_elasticache.types.string.String"] = None,
         cache_node_count: Optional[
             "capo_elasticache.types.integer_optional.IntegerOptional"
@@ -5837,7 +5997,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.purchase_reserved_cache_nodes_offering_message.PurchaseReservedCacheNodesOfferingMessage = {}  # type: ignore[typeddict-item]
-        input_["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
+        if reserved_cache_nodes_offering_id is not None:
+            input_["reserved_cache_nodes_offering_id"] = (
+                reserved_cache_nodes_offering_id
+            )
         if reserved_cache_node_id is not None:
             input_["reserved_cache_node_id"] = reserved_cache_node_id
         if cache_node_count is not None:
@@ -5854,10 +6017,12 @@ class AsyncElastiCacheClient:
 
     async def rebalance_slots_in_global_replication_group(
         self,
-        global_replication_group_id: "capo_elasticache.types.string.String",
-        apply_immediately: "capo_elasticache.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        global_replication_group_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        apply_immediately: Optional["capo_elasticache.types.boolean.Boolean"] = None,
     ) -> "capo_elasticache.types.rebalance_slots_in_global_replication_group_result.RebalanceSlotsInGlobalReplicationGroupResult":
         """<p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
 
@@ -5889,8 +6054,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.rebalance_slots_in_global_replication_group_message.RebalanceSlotsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["global_replication_group_id"] = global_replication_group_id
-        input_["apply_immediately"] = apply_immediately
+        if global_replication_group_id is not None:
+            input_["global_replication_group_id"] = global_replication_group_id
+        if apply_immediately is not None:
+            input_["apply_immediately"] = apply_immediately
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5901,10 +6068,12 @@ class AsyncElastiCacheClient:
 
     async def reboot_cache_cluster(
         self,
-        cache_cluster_id: "capo_elasticache.types.string.String",
-        cache_node_ids_to_reboot: "capo_elasticache.types.cache_node_ids_list.CacheNodeIdsList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_cluster_id: Optional["capo_elasticache.types.string.String"] = None,
+        cache_node_ids_to_reboot: Optional[
+            "capo_elasticache.types.cache_node_ids_list.CacheNodeIdsList"
+        ] = None,
     ) -> "capo_elasticache.types.reboot_cache_cluster_result.RebootCacheClusterResult":
         r"""<p>Reboots some, or all, of the cache nodes within a provisioned cluster. This operation applies any modified cache parameter groups to the cluster. The reboot operation takes place as soon as possible, and results in a momentary outage to the cluster. During the reboot, the cluster status is set to REBOOTING.</p> <p>The reboot causes the contents of the cache (for each cache node being rebooted) to be lost.</p> <p>When the reboot is complete, a cluster event is created.</p> <p>Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS (cluster mode disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster mode enabled) clusters.</p> <p>If you make changes to parameters that require a Valkey or Redis OSS (cluster mode enabled) cluster reboot for the changes to be applied, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/nodes.rebooting.html\">Rebooting a Cluster</a> for an alternate process.</p>
 
@@ -5941,8 +6110,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.reboot_cache_cluster_message.RebootCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_cluster_id"] = cache_cluster_id
-        input_["cache_node_ids_to_reboot"] = cache_node_ids_to_reboot
+        if cache_cluster_id is not None:
+            input_["cache_cluster_id"] = cache_cluster_id
+        if cache_node_ids_to_reboot is not None:
+            input_["cache_node_ids_to_reboot"] = cache_node_ids_to_reboot
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5953,10 +6124,10 @@ class AsyncElastiCacheClient:
 
     async def remove_tags_from_resource(
         self,
-        resource_name: "capo_elasticache.types.string.String",
-        tag_keys: "capo_elasticache.types.key_list.KeyList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        resource_name: Optional["capo_elasticache.types.string.String"] = None,
+        tag_keys: Optional["capo_elasticache.types.key_list.KeyList"] = None,
     ) -> "capo_elasticache.types.tag_list_message.TagListMessage":
         r"""<p>Removes the tags identified by the <code>TagKeys</code> list from the named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html\">Resource-level permissions</a>.</p>
 
@@ -6007,8 +6178,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tag_keys"] = tag_keys
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6019,9 +6192,11 @@ class AsyncElastiCacheClient:
 
     async def reset_cache_parameter_group(
         self,
-        cache_parameter_group_name: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_parameter_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
         reset_all_parameters: Optional["capo_elasticache.types.boolean.Boolean"] = None,
         parameter_name_values: Optional[
             "capo_elasticache.types.parameter_name_value_list.ParameterNameValueList"
@@ -6066,7 +6241,8 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.reset_cache_parameter_group_message.ResetCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_parameter_group_name"] = cache_parameter_group_name
+        if cache_parameter_group_name is not None:
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameter_name_values is not None:
@@ -6081,11 +6257,17 @@ class AsyncElastiCacheClient:
 
     async def revoke_cache_security_group_ingress(
         self,
-        cache_security_group_name: "capo_elasticache.types.string.String",
-        ec2_security_group_name: "capo_elasticache.types.string.String",
-        ec2_security_group_owner_id: "capo_elasticache.types.string.String",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        cache_security_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        ec2_security_group_name: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
+        ec2_security_group_owner_id: Optional[
+            "capo_elasticache.types.string.String"
+        ] = None,
     ) -> "capo_elasticache.types.revoke_cache_security_group_ingress_result.RevokeCacheSecurityGroupIngressResult":
         """<p>Revokes ingress from a cache security group. Use this operation to disallow access from an Amazon EC2 security group that had been previously authorized.</p>
 
@@ -6126,9 +6308,12 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.revoke_cache_security_group_ingress_message.RevokeCacheSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input_["cache_security_group_name"] = cache_security_group_name
-        input_["ec2_security_group_name"] = ec2_security_group_name
-        input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+        if cache_security_group_name is not None:
+            input_["cache_security_group_name"] = cache_security_group_name
+        if ec2_security_group_name is not None:
+            input_["ec2_security_group_name"] = ec2_security_group_name
+        if ec2_security_group_owner_id is not None:
+            input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6139,10 +6324,12 @@ class AsyncElastiCacheClient:
 
     async def start_migration(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        customer_node_endpoint_list: "capo_elasticache.types.customer_node_endpoint_list.CustomerNodeEndpointList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        customer_node_endpoint_list: Optional[
+            "capo_elasticache.types.customer_node_endpoint_list.CustomerNodeEndpointList"
+        ] = None,
     ) -> "capo_elasticache.types.start_migration_response.StartMigrationResponse":
         """<p>Start the migration of data.</p>
 
@@ -6175,8 +6362,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.start_migration_message.StartMigrationMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
-        input_["customer_node_endpoint_list"] = customer_node_endpoint_list
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
+        if customer_node_endpoint_list is not None:
+            input_["customer_node_endpoint_list"] = customer_node_endpoint_list
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6187,10 +6376,12 @@ class AsyncElastiCacheClient:
 
     async def test_failover(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        node_group_id: "capo_elasticache.types.allowed_node_group_id.AllowedNodeGroupId",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        node_group_id: Optional[
+            "capo_elasticache.types.allowed_node_group_id.AllowedNodeGroupId"
+        ] = None,
     ) -> "capo_elasticache.types.test_failover_result.TestFailoverResult":
         r"""<p>Represents the input of a <code>TestFailover</code> operation which tests automatic failover on a specified node group (called shard in the console) in a replication group (called cluster in the console).</p> <p>This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool for initiating a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large-scale operational events, Amazon may block this API. </p> <p class=\"title\"> <b>Note the following</b> </p> <ul> <li> <p>A customer can use this operation to test automatic failover on up to 15 shards (called node groups in the ElastiCache API and Amazon CLI) in any rolling 24-hour period.</p> </li> <li> <p>If calling this operation on shards in different clusters (called replication groups in the API and CLI), the calls can be made concurrently.</p> <p> </p> </li> <li> <p>If calling this operation multiple times on different shards in the same Valkey or Redis OSS (cluster mode enabled) replication group, the first node replacement must complete before a subsequent call can be made.</p> </li> <li> <p>To determine whether the node replacement is complete you can check Events using the Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API. Look for the following automatic failover related events, listed here in order of occurrance:</p> <ol> <li> <p>Replication group message: <code>Test Failover API called for node group <node-group-id></code> </p> </li> <li> <p>Cache cluster message: <code>Failover from primary node <primary-node-id> to replica node <node-id> completed</code> </p> </li> <li> <p>Replication group message: <code>Failover from primary node <primary-node-id> to replica node <node-id> completed</code> </p> </li> <li> <p>Cache cluster message: <code>Recovering cache nodes <node-id></code> </p> </li> <li> <p>Cache cluster message: <code>Finished recovery for cache nodes <node-id></code> </p> </li> </ol> <p>For more information see:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html\">Viewing ElastiCache Events</a> in the <i>ElastiCache User Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html\">DescribeEvents</a> in the ElastiCache API Reference</p> </li> </ul> </li> </ul> <p>Also see, <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test\">Testing Multi-AZ </a> in the <i>ElastiCache User Guide</i>.</p>
 
@@ -6228,8 +6419,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.test_failover_message.TestFailoverMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
-        input_["node_group_id"] = node_group_id
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
+        if node_group_id is not None:
+            input_["node_group_id"] = node_group_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6240,10 +6433,12 @@ class AsyncElastiCacheClient:
 
     async def test_migration(
         self,
-        replication_group_id: "capo_elasticache.types.string.String",
-        customer_node_endpoint_list: "capo_elasticache.types.customer_node_endpoint_list.CustomerNodeEndpointList",
         *,
         config_overrides: Optional[AsyncElastiCacheClientConfig] = None,
+        replication_group_id: Optional["capo_elasticache.types.string.String"] = None,
+        customer_node_endpoint_list: Optional[
+            "capo_elasticache.types.customer_node_endpoint_list.CustomerNodeEndpointList"
+        ] = None,
     ) -> "capo_elasticache.types.test_migration_response.TestMigrationResponse":
         """<p> Async API to test connection between source and target replication group. </p>
 
@@ -6276,8 +6471,10 @@ class AsyncElastiCacheClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elasticache.types.test_migration_message.TestMigrationMessage = {}  # type: ignore[typeddict-item]
-        input_["replication_group_id"] = replication_group_id
-        input_["customer_node_endpoint_list"] = customer_node_endpoint_list
+        if replication_group_id is not None:
+            input_["replication_group_id"] = replication_group_id
+        if customer_node_endpoint_list is not None:
+            input_["customer_node_endpoint_list"] = customer_node_endpoint_list
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -26,17 +26,18 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupFamily",
+                f"{key_prefix}CacheParameterGroupFamily",
                 str(value["cache_parameter_group_family"]),
             )
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeEngineDefaultParametersMessage:

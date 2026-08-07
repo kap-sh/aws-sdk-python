@@ -77,83 +77,91 @@ class StackSet(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: StackSet, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "stack_set_id" in value:
-        pairs.append((f"{prefix}.StackSetId", str(value["stack_set_id"])))
+        pairs.append((f"{key_prefix}StackSetId", str(value["stack_set_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "status" in value:
         import capo_cloudformation.types.stack_set_status
 
         capo_cloudformation.types.stack_set_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "parameters" in value:
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "tags" in value:
         import capo_cloudformation.types.tags
 
         capo_cloudformation.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "stack_set_arn" in value:
-        pairs.append((f"{prefix}.StackSetARN", str(value["stack_set_arn"])))
+        pairs.append((f"{key_prefix}StackSetARN", str(value["stack_set_arn"])))
     if "administration_role_arn" in value:
         pairs.append(
-            (f"{prefix}.AdministrationRoleARN", str(value["administration_role_arn"]))
+            (
+                f"{key_prefix}AdministrationRoleARN",
+                str(value["administration_role_arn"]),
+            )
         )
     if "execution_role_name" in value:
-        pairs.append((f"{prefix}.ExecutionRoleName", str(value["execution_role_name"])))
+        pairs.append(
+            (f"{key_prefix}ExecutionRoleName", str(value["execution_role_name"]))
+        )
     if "stack_set_drift_detection_details" in value:
         import capo_cloudformation.types.stack_set_drift_detection_details
 
         capo_cloudformation.types.stack_set_drift_detection_details.serialize_query(
             value["stack_set_drift_detection_details"],
             pairs,
-            f"{prefix}.StackSetDriftDetectionDetails",
+            f"{key_prefix}StackSetDriftDetectionDetails",
         )
     if "auto_deployment" in value:
         import capo_cloudformation.types.auto_deployment
 
         capo_cloudformation.types.auto_deployment.serialize_query(
-            value["auto_deployment"], pairs, f"{prefix}.AutoDeployment"
+            value["auto_deployment"], pairs, f"{key_prefix}AutoDeployment"
         )
     if "permission_model" in value:
         import capo_cloudformation.types.permission_models
 
         capo_cloudformation.types.permission_models.serialize_query(
-            value["permission_model"], pairs, f"{prefix}.PermissionModel"
+            value["permission_model"], pairs, f"{key_prefix}PermissionModel"
         )
     if "organizational_unit_ids" in value:
         import capo_cloudformation.types.organizational_unit_id_list
 
         capo_cloudformation.types.organizational_unit_id_list.serialize_query(
-            value["organizational_unit_ids"], pairs, f"{prefix}.OrganizationalUnitIds"
+            value["organizational_unit_ids"],
+            pairs,
+            f"{key_prefix}OrganizationalUnitIds",
         )
     if "managed_execution" in value:
         import capo_cloudformation.types.managed_execution
 
         capo_cloudformation.types.managed_execution.serialize_query(
-            value["managed_execution"], pairs, f"{prefix}.ManagedExecution"
+            value["managed_execution"], pairs, f"{key_prefix}ManagedExecution"
         )
     if "regions" in value:
         import capo_cloudformation.types.region_list
 
         capo_cloudformation.types.region_list.serialize_query(
-            value["regions"], pairs, f"{prefix}.Regions"
+            value["regions"], pairs, f"{key_prefix}Regions"
         )
 
 

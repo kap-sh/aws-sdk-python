@@ -23,13 +23,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "failed_scheduled_update_group_actions" in value:
         import capo_auto_scaling.types.failed_scheduled_update_group_action_requests
 
         capo_auto_scaling.types.failed_scheduled_update_group_action_requests.serialize_query(
             value["failed_scheduled_update_group_actions"],
             pairs,
-            f"{prefix}.FailedScheduledUpdateGroupActions",
+            f"{key_prefix}FailedScheduledUpdateGroupActions",
         )
 
 

@@ -20,10 +20,11 @@ class VerifyDomainDkimResponse(TypedDict, closed=True):
 def serialize_query(
     value: VerifyDomainDkimResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.verification_token_list
 
     capo_ses.types.verification_token_list.serialize_query(
-        value["dkim_tokens"], pairs, f"{prefix}.DkimTokens"
+        value["dkim_tokens"], pairs, f"{key_prefix}DkimTokens"
     )
 
 

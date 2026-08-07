@@ -26,11 +26,14 @@ class UpdateActionResultsMessage(TypedDict, closed=True):
 def serialize_query(
     value: UpdateActionResultsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "processed_update_actions" in value:
         import capo_elasticache.types.processed_update_action_list
 
         capo_elasticache.types.processed_update_action_list.serialize_query(
-            value["processed_update_actions"], pairs, f"{prefix}.ProcessedUpdateActions"
+            value["processed_update_actions"],
+            pairs,
+            f"{key_prefix}ProcessedUpdateActions",
         )
     if "unprocessed_update_actions" in value:
         import capo_elasticache.types.unprocessed_update_action_list
@@ -38,7 +41,7 @@ def serialize_query(
         capo_elasticache.types.unprocessed_update_action_list.serialize_query(
             value["unprocessed_update_actions"],
             pairs,
-            f"{prefix}.UnprocessedUpdateActions",
+            f"{key_prefix}UnprocessedUpdateActions",
         )
 
 

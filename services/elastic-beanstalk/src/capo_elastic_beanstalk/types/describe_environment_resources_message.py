@@ -28,10 +28,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environment_id" in value:
-        pairs.append((f"{prefix}.EnvironmentId", str(value["environment_id"])))
+        pairs.append((f"{key_prefix}EnvironmentId", str(value["environment_id"])))
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
 
 
 def deserialize_query(el: Element) -> DescribeEnvironmentResourcesMessage:

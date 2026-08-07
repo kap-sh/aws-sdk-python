@@ -60,49 +60,50 @@ class ResourceTargetDefinition(TypedDict, closed=True):
 def serialize_query(
     value: ResourceTargetDefinition, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute" in value:
         import capo_cloudformation.types.resource_attribute
 
         capo_cloudformation.types.resource_attribute.serialize_query(
-            value["attribute"], pairs, f"{prefix}.Attribute"
+            value["attribute"], pairs, f"{key_prefix}Attribute"
         )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "requires_recreation" in value:
         import capo_cloudformation.types.requires_recreation
 
         capo_cloudformation.types.requires_recreation.serialize_query(
-            value["requires_recreation"], pairs, f"{prefix}.RequiresRecreation"
+            value["requires_recreation"], pairs, f"{key_prefix}RequiresRecreation"
         )
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "before_value" in value:
-        pairs.append((f"{prefix}.BeforeValue", str(value["before_value"])))
+        pairs.append((f"{key_prefix}BeforeValue", str(value["before_value"])))
     if "after_value" in value:
-        pairs.append((f"{prefix}.AfterValue", str(value["after_value"])))
+        pairs.append((f"{key_prefix}AfterValue", str(value["after_value"])))
     if "before_value_from" in value:
         import capo_cloudformation.types.before_value_from
 
         capo_cloudformation.types.before_value_from.serialize_query(
-            value["before_value_from"], pairs, f"{prefix}.BeforeValueFrom"
+            value["before_value_from"], pairs, f"{key_prefix}BeforeValueFrom"
         )
     if "after_value_from" in value:
         import capo_cloudformation.types.after_value_from
 
         capo_cloudformation.types.after_value_from.serialize_query(
-            value["after_value_from"], pairs, f"{prefix}.AfterValueFrom"
+            value["after_value_from"], pairs, f"{key_prefix}AfterValueFrom"
         )
     if "drift" in value:
         import capo_cloudformation.types.live_resource_drift
 
         capo_cloudformation.types.live_resource_drift.serialize_query(
-            value["drift"], pairs, f"{prefix}.Drift"
+            value["drift"], pairs, f"{key_prefix}Drift"
         )
     if "attribute_change_type" in value:
         import capo_cloudformation.types.attribute_change_type
 
         capo_cloudformation.types.attribute_change_type.serialize_query(
-            value["attribute_change_type"], pairs, f"{prefix}.AttributeChangeType"
+            value["attribute_change_type"], pairs, f"{key_prefix}AttributeChangeType"
         )
 
 

@@ -24,15 +24,16 @@ class NodeGroupUpdateStatus(TypedDict, closed=True):
 def serialize_query(
     value: NodeGroupUpdateStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
     if "node_group_member_update_status" in value:
         import capo_elasticache.types.node_group_member_update_status_list
 
         capo_elasticache.types.node_group_member_update_status_list.serialize_query(
             value["node_group_member_update_status"],
             pairs,
-            f"{prefix}.NodeGroupMemberUpdateStatus",
+            f"{key_prefix}NodeGroupMemberUpdateStatus",
         )
 
 

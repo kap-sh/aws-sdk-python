@@ -22,13 +22,14 @@ class GetTemplateOutput(TypedDict, closed=True):
 def serialize_query(
     value: GetTemplateOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "stages_available" in value:
         import capo_cloudformation.types.stage_list
 
         capo_cloudformation.types.stage_list.serialize_query(
-            value["stages_available"], pairs, f"{prefix}.StagesAvailable"
+            value["stages_available"], pairs, f"{key_prefix}StagesAvailable"
         )
 
 

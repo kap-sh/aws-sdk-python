@@ -77,55 +77,61 @@ class StackSetOperation(TypedDict, closed=True):
 def serialize_query(
     value: StackSetOperation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "stack_set_id" in value:
-        pairs.append((f"{prefix}.StackSetId", str(value["stack_set_id"])))
+        pairs.append((f"{key_prefix}StackSetId", str(value["stack_set_id"])))
     if "action" in value:
         import capo_cloudformation.types.stack_set_operation_action
 
         capo_cloudformation.types.stack_set_operation_action.serialize_query(
-            value["action"], pairs, f"{prefix}.Action"
+            value["action"], pairs, f"{key_prefix}Action"
         )
     if "status" in value:
         import capo_cloudformation.types.stack_set_operation_status
 
         capo_cloudformation.types.stack_set_operation_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "operation_preferences" in value:
         import capo_cloudformation.types.stack_set_operation_preferences
 
         capo_cloudformation.types.stack_set_operation_preferences.serialize_query(
-            value["operation_preferences"], pairs, f"{prefix}.OperationPreferences"
+            value["operation_preferences"], pairs, f"{key_prefix}OperationPreferences"
         )
     if "retain_stacks" in value:
         pairs.append(
-            (f"{prefix}.RetainStacks", "true" if value["retain_stacks"] else "false")
+            (f"{key_prefix}RetainStacks", "true" if value["retain_stacks"] else "false")
         )
     if "administration_role_arn" in value:
         pairs.append(
-            (f"{prefix}.AdministrationRoleARN", str(value["administration_role_arn"]))
+            (
+                f"{key_prefix}AdministrationRoleARN",
+                str(value["administration_role_arn"]),
+            )
         )
     if "execution_role_name" in value:
-        pairs.append((f"{prefix}.ExecutionRoleName", str(value["execution_role_name"])))
+        pairs.append(
+            (f"{key_prefix}ExecutionRoleName", str(value["execution_role_name"]))
+        )
     if "creation_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["creation_timestamp"], pairs, f"{prefix}.CreationTimestamp"
+            value["creation_timestamp"], pairs, f"{key_prefix}CreationTimestamp"
         )
     if "end_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["end_timestamp"], pairs, f"{prefix}.EndTimestamp"
+            value["end_timestamp"], pairs, f"{key_prefix}EndTimestamp"
         )
     if "deployment_targets" in value:
         import capo_cloudformation.types.deployment_targets
 
         capo_cloudformation.types.deployment_targets.serialize_query(
-            value["deployment_targets"], pairs, f"{prefix}.DeploymentTargets"
+            value["deployment_targets"], pairs, f"{key_prefix}DeploymentTargets"
         )
     if "stack_set_drift_detection_details" in value:
         import capo_cloudformation.types.stack_set_drift_detection_details
@@ -133,15 +139,15 @@ def serialize_query(
         capo_cloudformation.types.stack_set_drift_detection_details.serialize_query(
             value["stack_set_drift_detection_details"],
             pairs,
-            f"{prefix}.StackSetDriftDetectionDetails",
+            f"{key_prefix}StackSetDriftDetectionDetails",
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "status_details" in value:
         import capo_cloudformation.types.stack_set_operation_status_details
 
         capo_cloudformation.types.stack_set_operation_status_details.serialize_query(
-            value["status_details"], pairs, f"{prefix}.StatusDetails"
+            value["status_details"], pairs, f"{key_prefix}StatusDetails"
         )
 
 

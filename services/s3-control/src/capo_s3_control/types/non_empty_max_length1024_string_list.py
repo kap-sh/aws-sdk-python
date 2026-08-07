@@ -31,7 +31,7 @@ def deserialize_xml(el: Element) -> NonEmptyMaxLength1024StringList:
 def serialize_xml_flat(
     value: NonEmptyMaxLength1024StringList, parent: Element, tag: str
 ) -> None:
-    """Variant used by parent structures with ``@xmlFlattened`` on the referencing member. Items emitted directly under ``parent``."""
+    """Variant for parents with ``@xmlFlattened`` on the referencing member. Items go directly under ``parent``."""
     for item in value:
         SubElement(parent, tag).text = str(item)
 

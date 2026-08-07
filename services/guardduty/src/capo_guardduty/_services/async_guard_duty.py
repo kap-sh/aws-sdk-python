@@ -362,10 +362,10 @@ class AsyncGuardDutyClient:
     async def accept_administrator_invitation(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        administrator_id: "capo_guardduty.types.string.String",
-        invitation_id: "capo_guardduty.types.string.String",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        administrator_id: Optional["capo_guardduty.types.string.String"] = None,
+        invitation_id: Optional["capo_guardduty.types.string.String"] = None,
     ) -> "capo_guardduty.types.accept_administrator_invitation_response.AcceptAdministratorInvitationResponse":
         """<p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
 
@@ -398,8 +398,10 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.accept_administrator_invitation_request.AcceptAdministratorInvitationRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["administrator_id"] = administrator_id
-        input_["invitation_id"] = invitation_id
+        if administrator_id is not None:
+            input_["administrator_id"] = administrator_id
+        if invitation_id is not None:
+            input_["invitation_id"] = invitation_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -411,10 +413,10 @@ class AsyncGuardDutyClient:
     async def accept_invitation(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        master_id: "capo_guardduty.types.string.String",
-        invitation_id: "capo_guardduty.types.string.String",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        master_id: Optional["capo_guardduty.types.string.String"] = None,
+        invitation_id: Optional["capo_guardduty.types.string.String"] = None,
     ) -> "capo_guardduty.types.accept_invitation_response.AcceptInvitationResponse":
         r"""<p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
 
@@ -447,8 +449,10 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["master_id"] = master_id
-        input_["invitation_id"] = invitation_id
+        if master_id is not None:
+            input_["master_id"] = master_id
+        if invitation_id is not None:
+            input_["invitation_id"] = invitation_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -460,9 +464,9 @@ class AsyncGuardDutyClient:
     async def archive_findings(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        finding_ids: "capo_guardduty.types.finding_ids.FindingIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        finding_ids: Optional["capo_guardduty.types.finding_ids.FindingIds"] = None,
     ) -> "capo_guardduty.types.archive_findings_response.ArchiveFindingsResponse":
         r"""<p>Archives GuardDuty findings that are specified by the list of finding IDs.</p> <note> <p>Only the administrator account can archive findings. Member accounts don't have permission to archive findings from their accounts.</p> </note>
 
@@ -494,7 +498,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.archive_findings_request.ArchiveFindingsRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["finding_ids"] = finding_ids
+        if finding_ids is not None:
+            input_["finding_ids"] = finding_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -505,9 +510,9 @@ class AsyncGuardDutyClient:
 
     async def create_detector(
         self,
-        enable: "capo_guardduty.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        enable: Optional["capo_guardduty.types.boolean.Boolean"] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         finding_publishing_frequency: Optional[
             "capo_guardduty.types.finding_publishing_frequency.FindingPublishingFrequency"
@@ -553,7 +558,8 @@ class AsyncGuardDutyClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_detector_request.CreateDetectorRequest = {}  # type: ignore[typeddict-item]
-        input_["enable"] = enable
+        if enable is not None:
+            input_["enable"] = enable
         if client_token is not None:
             input_["client_token"] = client_token
         if finding_publishing_frequency is not None:
@@ -575,15 +581,17 @@ class AsyncGuardDutyClient:
     async def create_filter(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        name: "capo_guardduty.types.filter_name.FilterName",
-        finding_criteria: "capo_guardduty.types.finding_criteria.FindingCriteria",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        name: Optional["capo_guardduty.types.filter_name.FilterName"] = None,
         description: Optional[
             "capo_guardduty.types.filter_description.FilterDescription"
         ] = None,
         action: Optional["capo_guardduty.types.filter_action.FilterAction"] = None,
         rank: Optional["capo_guardduty.types.filter_rank.FilterRank"] = None,
+        finding_criteria: Optional[
+            "capo_guardduty.types.finding_criteria.FindingCriteria"
+        ] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         tags: Optional["capo_guardduty.types.tag_map.TagMap"] = None,
     ) -> "capo_guardduty.types.create_filter_response.CreateFilterResponse":
@@ -623,14 +631,16 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_filter_request.CreateFilterRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if action is not None:
             input_["action"] = action
         if rank is not None:
             input_["rank"] = rank
-        input_["finding_criteria"] = finding_criteria
+        if finding_criteria is not None:
+            input_["finding_criteria"] = finding_criteria
         if client_token is not None:
             input_["client_token"] = client_token
         if tags is not None:
@@ -646,12 +656,12 @@ class AsyncGuardDutyClient:
     async def create_ip_set(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        name: "capo_guardduty.types.name.Name",
-        format: "capo_guardduty.types.ip_set_format.IpSetFormat",
-        location: "capo_guardduty.types.location.Location",
-        activate: "capo_guardduty.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        name: Optional["capo_guardduty.types.name.Name"] = None,
+        format: Optional["capo_guardduty.types.ip_set_format.IpSetFormat"] = None,
+        location: Optional["capo_guardduty.types.location.Location"] = None,
+        activate: Optional["capo_guardduty.types.boolean.Boolean"] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         tags: Optional["capo_guardduty.types.tag_map.TagMap"] = None,
         expected_bucket_owner: Optional[
@@ -695,10 +705,14 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["name"] = name
-        input_["format"] = format
-        input_["location"] = location
-        input_["activate"] = activate
+        if name is not None:
+            input_["name"] = name
+        if format is not None:
+            input_["format"] = format
+        if location is not None:
+            input_["location"] = location
+        if activate is not None:
+            input_["activate"] = activate
         if client_token is not None:
             input_["client_token"] = client_token
         if tags is not None:
@@ -715,11 +729,13 @@ class AsyncGuardDutyClient:
 
     async def create_malware_protection_plan(
         self,
-        role: "capo_guardduty.types.string.String",
-        protected_resource: "capo_guardduty.types.create_protected_resource.CreateProtectedResource",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
+        role: Optional["capo_guardduty.types.string.String"] = None,
+        protected_resource: Optional[
+            "capo_guardduty.types.create_protected_resource.CreateProtectedResource"
+        ] = None,
         actions: Optional[
             "capo_guardduty.types.malware_protection_plan_actions.MalwareProtectionPlanActions"
         ] = None,
@@ -761,8 +777,10 @@ class AsyncGuardDutyClient:
         input_: capo_guardduty.types.create_malware_protection_plan_request.CreateMalwareProtectionPlanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["role"] = role
-        input_["protected_resource"] = protected_resource
+        if role is not None:
+            input_["role"] = role
+        if protected_resource is not None:
+            input_["protected_resource"] = protected_resource
         if actions is not None:
             input_["actions"] = actions
         if tags is not None:
@@ -778,9 +796,11 @@ class AsyncGuardDutyClient:
     async def create_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_details: "capo_guardduty.types.account_details.AccountDetails",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_details: Optional[
+            "capo_guardduty.types.account_details.AccountDetails"
+        ] = None,
     ) -> "capo_guardduty.types.create_members_response.CreateMembersResponse":
         r"""<p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account IDs. This step is a prerequisite for managing the associated member accounts either by invitation or through an organization.</p> <p>As a delegated administrator, using <code>CreateMembers</code> will enable GuardDuty in the added member accounts, with the exception of the organization delegated administrator account. A delegated administrator must enable GuardDuty prior to being added as a member.</p> <p>When you use CreateMembers as an Organizations delegated administrator, GuardDuty applies your organization's auto-enable settings to the member accounts in this request, irrespective of the accounts being new or existing members. For more information about the existing auto-enable settings for your organization, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html\">DescribeOrganizationConfiguration</a>.</p> <p>If you disassociate a member account that was added by invitation, the member account details obtained from this API, including the associated email addresses, will be retained. This is done so that the delegated administrator can invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html\">InviteMembers</a> API without the need to invoke the CreateMembers API again. To remove the details associated with a member account, the delegated administrator must invoke the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html\">DeleteMembers</a> API. </p> <p>When the member accounts added through Organizations are later disassociated, you (administrator) can't invite them by calling the InviteMembers API. You can create an association with these member accounts again only by calling the CreateMembers API.</p>
 
@@ -812,7 +832,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_details"] = account_details
+        if account_details is not None:
+            input_["account_details"] = account_details
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -824,10 +845,14 @@ class AsyncGuardDutyClient:
     async def create_publishing_destination(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        destination_type: "capo_guardduty.types.destination_type.DestinationType",
-        destination_properties: "capo_guardduty.types.destination_properties.DestinationProperties",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        destination_type: Optional[
+            "capo_guardduty.types.destination_type.DestinationType"
+        ] = None,
+        destination_properties: Optional[
+            "capo_guardduty.types.destination_properties.DestinationProperties"
+        ] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         tags: Optional["capo_guardduty.types.tag_map.TagMap"] = None,
     ) -> "capo_guardduty.types.create_publishing_destination_response.CreatePublishingDestinationResponse":
@@ -864,8 +889,10 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_publishing_destination_request.CreatePublishingDestinationRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["destination_type"] = destination_type
-        input_["destination_properties"] = destination_properties
+        if destination_type is not None:
+            input_["destination_type"] = destination_type
+        if destination_properties is not None:
+            input_["destination_properties"] = destination_properties
         if client_token is not None:
             input_["client_token"] = client_token
         if tags is not None:
@@ -930,15 +957,17 @@ class AsyncGuardDutyClient:
     async def create_threat_entity_set(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        name: "capo_guardduty.types.name.Name",
-        format: "capo_guardduty.types.threat_entity_set_format.ThreatEntitySetFormat",
-        location: "capo_guardduty.types.location.Location",
-        activate: "capo_guardduty.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        name: Optional["capo_guardduty.types.name.Name"] = None,
+        format: Optional[
+            "capo_guardduty.types.threat_entity_set_format.ThreatEntitySetFormat"
+        ] = None,
+        location: Optional["capo_guardduty.types.location.Location"] = None,
         expected_bucket_owner: Optional[
             "capo_guardduty.types.expected_bucket_owner.ExpectedBucketOwner"
         ] = None,
+        activate: Optional["capo_guardduty.types.boolean.Boolean"] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         tags: Optional["capo_guardduty.types.tag_map.TagMap"] = None,
     ) -> "capo_guardduty.types.create_threat_entity_set_response.CreateThreatEntitySetResponse":
@@ -978,12 +1007,16 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_threat_entity_set_request.CreateThreatEntitySetRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["name"] = name
-        input_["format"] = format
-        input_["location"] = location
+        if name is not None:
+            input_["name"] = name
+        if format is not None:
+            input_["format"] = format
+        if location is not None:
+            input_["location"] = location
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
-        input_["activate"] = activate
+        if activate is not None:
+            input_["activate"] = activate
         if client_token is not None:
             input_["client_token"] = client_token
         if tags is not None:
@@ -999,12 +1032,14 @@ class AsyncGuardDutyClient:
     async def create_threat_intel_set(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        name: "capo_guardduty.types.name.Name",
-        format: "capo_guardduty.types.threat_intel_set_format.ThreatIntelSetFormat",
-        location: "capo_guardduty.types.location.Location",
-        activate: "capo_guardduty.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        name: Optional["capo_guardduty.types.name.Name"] = None,
+        format: Optional[
+            "capo_guardduty.types.threat_intel_set_format.ThreatIntelSetFormat"
+        ] = None,
+        location: Optional["capo_guardduty.types.location.Location"] = None,
+        activate: Optional["capo_guardduty.types.boolean.Boolean"] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         tags: Optional["capo_guardduty.types.tag_map.TagMap"] = None,
         expected_bucket_owner: Optional[
@@ -1048,10 +1083,14 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_threat_intel_set_request.CreateThreatIntelSetRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["name"] = name
-        input_["format"] = format
-        input_["location"] = location
-        input_["activate"] = activate
+        if name is not None:
+            input_["name"] = name
+        if format is not None:
+            input_["format"] = format
+        if location is not None:
+            input_["location"] = location
+        if activate is not None:
+            input_["activate"] = activate
         if client_token is not None:
             input_["client_token"] = client_token
         if tags is not None:
@@ -1069,15 +1108,17 @@ class AsyncGuardDutyClient:
     async def create_trusted_entity_set(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        name: "capo_guardduty.types.name.Name",
-        format: "capo_guardduty.types.trusted_entity_set_format.TrustedEntitySetFormat",
-        location: "capo_guardduty.types.location.Location",
-        activate: "capo_guardduty.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        name: Optional["capo_guardduty.types.name.Name"] = None,
+        format: Optional[
+            "capo_guardduty.types.trusted_entity_set_format.TrustedEntitySetFormat"
+        ] = None,
+        location: Optional["capo_guardduty.types.location.Location"] = None,
         expected_bucket_owner: Optional[
             "capo_guardduty.types.expected_bucket_owner.ExpectedBucketOwner"
         ] = None,
+        activate: Optional["capo_guardduty.types.boolean.Boolean"] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         tags: Optional["capo_guardduty.types.tag_map.TagMap"] = None,
     ) -> "capo_guardduty.types.create_trusted_entity_set_response.CreateTrustedEntitySetResponse":
@@ -1117,12 +1158,16 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.create_trusted_entity_set_request.CreateTrustedEntitySetRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["name"] = name
-        input_["format"] = format
-        input_["location"] = location
+        if name is not None:
+            input_["name"] = name
+        if format is not None:
+            input_["format"] = format
+        if location is not None:
+            input_["location"] = location
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
-        input_["activate"] = activate
+        if activate is not None:
+            input_["activate"] = activate
         if client_token is not None:
             input_["client_token"] = client_token
         if tags is not None:
@@ -1137,9 +1182,9 @@ class AsyncGuardDutyClient:
 
     async def decline_invitations(
         self,
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> "capo_guardduty.types.decline_invitations_response.DeclineInvitationsResponse":
         """<p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their account IDs.</p>
 
@@ -1169,7 +1214,8 @@ class AsyncGuardDutyClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1269,9 +1315,9 @@ class AsyncGuardDutyClient:
 
     async def delete_invitations(
         self,
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> "capo_guardduty.types.delete_invitations_response.DeleteInvitationsResponse":
         """<p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their account IDs.</p>
 
@@ -1301,7 +1347,8 @@ class AsyncGuardDutyClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1402,9 +1449,9 @@ class AsyncGuardDutyClient:
     async def delete_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> "capo_guardduty.types.delete_members_response.DeleteMembersResponse":
         r"""<p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by the account IDs.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
 
@@ -1436,7 +1483,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1826,9 +1874,9 @@ class AsyncGuardDutyClient:
 
     async def disable_organization_admin_account(
         self,
-        admin_account_id: "capo_guardduty.types.string.String",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        admin_account_id: Optional["capo_guardduty.types.string.String"] = None,
     ) -> "capo_guardduty.types.disable_organization_admin_account_response.DisableOrganizationAdminAccountResponse":
         """<p>Removes the existing GuardDuty delegated administrator of the organization. Only the organization's management account can run this API operation.</p>
 
@@ -1858,7 +1906,8 @@ class AsyncGuardDutyClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["admin_account_id"] = admin_account_id
+        if admin_account_id is not None:
+            input_["admin_account_id"] = admin_account_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1956,9 +2005,9 @@ class AsyncGuardDutyClient:
     async def disassociate_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> (
         "capo_guardduty.types.disassociate_members_response.DisassociateMembersResponse"
     ):
@@ -1992,7 +2041,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.disassociate_members_request.DisassociateMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2003,9 +2053,9 @@ class AsyncGuardDutyClient:
 
     async def enable_organization_admin_account(
         self,
-        admin_account_id: "capo_guardduty.types.string.String",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        admin_account_id: Optional["capo_guardduty.types.string.String"] = None,
     ) -> "capo_guardduty.types.enable_organization_admin_account_response.EnableOrganizationAdminAccountResponse":
         """<p>Designates an Amazon Web Services account within the organization as your GuardDuty delegated administrator. Only the organization's management account can run this API operation.</p>
 
@@ -2035,7 +2085,8 @@ class AsyncGuardDutyClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["admin_account_id"] = admin_account_id
+        if admin_account_id is not None:
+            input_["admin_account_id"] = admin_account_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2090,11 +2141,13 @@ class AsyncGuardDutyClient:
     async def get_coverage_statistics(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        statistics_type: "capo_guardduty.types.coverage_statistics_type_list.CoverageStatisticsTypeList",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
         filter_criteria: Optional[
             "capo_guardduty.types.coverage_filter_criteria.CoverageFilterCriteria"
+        ] = None,
+        statistics_type: Optional[
+            "capo_guardduty.types.coverage_statistics_type_list.CoverageStatisticsTypeList"
         ] = None,
     ) -> "capo_guardduty.types.get_coverage_statistics_response.GetCoverageStatisticsResponse":
         r"""<p>Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you can retrieve the statistics for all the resources associated with the active member accounts in your organization who have enabled Runtime Monitoring and have the GuardDuty security agent running on their resources.</p>
@@ -2130,7 +2183,8 @@ class AsyncGuardDutyClient:
         input_["detector_id"] = detector_id
         if filter_criteria is not None:
             input_["filter_criteria"] = filter_criteria
-        input_["statistics_type"] = statistics_type
+        if statistics_type is not None:
+            input_["statistics_type"] = statistics_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2231,9 +2285,9 @@ class AsyncGuardDutyClient:
     async def get_findings(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        finding_ids: "capo_guardduty.types.finding_ids.FindingIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        finding_ids: Optional["capo_guardduty.types.finding_ids.FindingIds"] = None,
         sort_criteria: Optional[
             "capo_guardduty.types.sort_criteria.SortCriteria"
         ] = None,
@@ -2269,7 +2323,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["finding_ids"] = finding_ids
+        if finding_ids is not None:
+            input_["finding_ids"] = finding_ids
         if sort_criteria is not None:
             input_["sort_criteria"] = sort_criteria
 
@@ -2609,9 +2664,9 @@ class AsyncGuardDutyClient:
     async def get_member_detectors(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> (
         "capo_guardduty.types.get_member_detectors_response.GetMemberDetectorsResponse"
     ):
@@ -2645,7 +2700,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.get_member_detectors_request.GetMemberDetectorsRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2657,9 +2713,9 @@ class AsyncGuardDutyClient:
     async def get_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> "capo_guardduty.types.get_members_response.GetMembersResponse":
         r"""<p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by the account IDs.</p>
 
@@ -2691,7 +2747,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2924,10 +2981,14 @@ class AsyncGuardDutyClient:
     async def get_usage_statistics(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        usage_statistic_type: "capo_guardduty.types.usage_statistic_type.UsageStatisticType",
-        usage_criteria: "capo_guardduty.types.usage_criteria.UsageCriteria",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        usage_statistic_type: Optional[
+            "capo_guardduty.types.usage_statistic_type.UsageStatisticType"
+        ] = None,
+        usage_criteria: Optional[
+            "capo_guardduty.types.usage_criteria.UsageCriteria"
+        ] = None,
         unit: Optional["capo_guardduty.types.string.String"] = None,
         max_results: Optional["capo_guardduty.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_guardduty.types.string.String"] = None,
@@ -2968,8 +3029,10 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.get_usage_statistics_request.GetUsageStatisticsRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["usage_statistic_type"] = usage_statistic_type
-        input_["usage_criteria"] = usage_criteria
+        if usage_statistic_type is not None:
+            input_["usage_statistic_type"] = usage_statistic_type
+        if usage_criteria is not None:
+            input_["usage_criteria"] = usage_criteria
         if unit is not None:
             input_["unit"] = unit
         if max_results is not None:
@@ -2987,9 +3050,9 @@ class AsyncGuardDutyClient:
     async def invite_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
         disable_email_notification: Optional[
             "capo_guardduty.types.boolean.Boolean"
         ] = None,
@@ -3027,7 +3090,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.invite_members_request.InviteMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
         if disable_email_notification is not None:
             input_["disable_email_notification"] = disable_email_notification
         if message is not None:
@@ -4163,9 +4227,9 @@ class AsyncGuardDutyClient:
 
     async def start_malware_scan(
         self,
-        resource_arn: "capo_guardduty.types.resource_arn.ResourceArn",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        resource_arn: Optional["capo_guardduty.types.resource_arn.ResourceArn"] = None,
         client_token: Optional["capo_guardduty.types.client_token.ClientToken"] = None,
         scan_configuration: Optional[
             "capo_guardduty.types.start_malware_scan_configuration.StartMalwareScanConfiguration"
@@ -4202,7 +4266,8 @@ class AsyncGuardDutyClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.start_malware_scan_request.StartMalwareScanRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if client_token is not None:
             input_["client_token"] = client_token
         if scan_configuration is not None:
@@ -4218,9 +4283,9 @@ class AsyncGuardDutyClient:
     async def start_monitoring_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> "capo_guardduty.types.start_monitoring_members_response.StartMonitoringMembersResponse":
         r"""<p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html\">StopMonitoringMembers</a> operation.</p>
 
@@ -4252,7 +4317,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.start_monitoring_members_request.StartMonitoringMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4264,9 +4330,9 @@ class AsyncGuardDutyClient:
     async def stop_monitoring_members(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
     ) -> "capo_guardduty.types.stop_monitoring_members_response.StopMonitoringMembersResponse":
         r"""<p>Stops GuardDuty monitoring for the specified member accounts. Use the <code>StartMonitoringMembers</code> operation to restart monitoring for those accounts.</p> <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member accounts in your organization.</p>
 
@@ -4298,7 +4364,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.stop_monitoring_members_request.StopMonitoringMembersRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4357,9 +4424,9 @@ class AsyncGuardDutyClient:
     async def unarchive_findings(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        finding_ids: "capo_guardduty.types.finding_ids.FindingIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        finding_ids: Optional["capo_guardduty.types.finding_ids.FindingIds"] = None,
     ) -> "capo_guardduty.types.unarchive_findings_response.UnarchiveFindingsResponse":
         r"""<p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
 
@@ -4391,7 +4458,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.unarchive_findings_request.UnarchiveFindingsRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["finding_ids"] = finding_ids
+        if finding_ids is not None:
+            input_["finding_ids"] = finding_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4403,9 +4471,9 @@ class AsyncGuardDutyClient:
     async def untag_resource(
         self,
         resource_arn: "capo_guardduty.types.guard_duty_arn.GuardDutyArn",
-        tag_keys: "capo_guardduty.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        tag_keys: Optional["capo_guardduty.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_guardduty.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes tags from a resource.</p>
 
@@ -4438,7 +4506,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4581,10 +4650,10 @@ class AsyncGuardDutyClient:
     async def update_findings_feedback(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        finding_ids: "capo_guardduty.types.finding_ids.FindingIds",
-        feedback: "capo_guardduty.types.feedback.Feedback",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        finding_ids: Optional["capo_guardduty.types.finding_ids.FindingIds"] = None,
+        feedback: Optional["capo_guardduty.types.feedback.Feedback"] = None,
         comments: Optional[
             "capo_guardduty.types.sensitive_string.SensitiveString"
         ] = None,
@@ -4621,8 +4690,10 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.update_findings_feedback_request.UpdateFindingsFeedbackRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["finding_ids"] = finding_ids
-        input_["feedback"] = feedback
+        if finding_ids is not None:
+            input_["finding_ids"] = finding_ids
+        if feedback is not None:
+            input_["feedback"] = feedback
         if comments is not None:
             input_["comments"] = comments
 
@@ -4815,9 +4886,9 @@ class AsyncGuardDutyClient:
     async def update_member_detectors(
         self,
         detector_id: "capo_guardduty.types.detector_id.DetectorId",
-        account_ids: "capo_guardduty.types.account_ids.AccountIds",
         *,
         config_overrides: Optional[AsyncGuardDutyClientConfig] = None,
+        account_ids: Optional["capo_guardduty.types.account_ids.AccountIds"] = None,
         data_sources: Optional[
             "capo_guardduty.types.data_source_configurations.DataSourceConfigurations"
         ] = None,
@@ -4857,7 +4928,8 @@ class AsyncGuardDutyClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_guardduty.types.update_member_detectors_request.UpdateMemberDetectorsRequest = {}  # type: ignore[typeddict-item]
         input_["detector_id"] = detector_id
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
         if data_sources is not None:
             input_["data_sources"] = data_sources
         if features is not None:

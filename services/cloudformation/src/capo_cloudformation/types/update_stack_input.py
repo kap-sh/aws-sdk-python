@@ -92,30 +92,31 @@ class UpdateStackInput(TypedDict, closed=True):
 def serialize_query(
     value: UpdateStackInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "template_url" in value:
-        pairs.append((f"{prefix}.TemplateURL", str(value["template_url"])))
+        pairs.append((f"{key_prefix}TemplateURL", str(value["template_url"])))
     if "use_previous_template" in value:
         pairs.append(
             (
-                f"{prefix}.UsePreviousTemplate",
+                f"{key_prefix}UsePreviousTemplate",
                 "true" if value["use_previous_template"] else "false",
             )
         )
     if "stack_policy_during_update_body" in value:
         pairs.append(
             (
-                f"{prefix}.StackPolicyDuringUpdateBody",
+                f"{key_prefix}StackPolicyDuringUpdateBody",
                 str(value["stack_policy_during_update_body"]),
             )
         )
     if "stack_policy_during_update_url" in value:
         pairs.append(
             (
-                f"{prefix}.StackPolicyDuringUpdateURL",
+                f"{key_prefix}StackPolicyDuringUpdateURL",
                 str(value["stack_policy_during_update_url"]),
             )
         )
@@ -123,59 +124,59 @@ def serialize_query(
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "resource_types" in value:
         import capo_cloudformation.types.resource_types
 
         capo_cloudformation.types.resource_types.serialize_query(
-            value["resource_types"], pairs, f"{prefix}.ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleARN", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleARN", str(value["role_arn"])))
     if "rollback_configuration" in value:
         import capo_cloudformation.types.rollback_configuration
 
         capo_cloudformation.types.rollback_configuration.serialize_query(
-            value["rollback_configuration"], pairs, f"{prefix}.RollbackConfiguration"
+            value["rollback_configuration"], pairs, f"{key_prefix}RollbackConfiguration"
         )
     if "stack_policy_body" in value:
-        pairs.append((f"{prefix}.StackPolicyBody", str(value["stack_policy_body"])))
+        pairs.append((f"{key_prefix}StackPolicyBody", str(value["stack_policy_body"])))
     if "stack_policy_url" in value:
-        pairs.append((f"{prefix}.StackPolicyURL", str(value["stack_policy_url"])))
+        pairs.append((f"{key_prefix}StackPolicyURL", str(value["stack_policy_url"])))
     if "notification_ar_ns" in value:
         import capo_cloudformation.types.notification_ar_ns
 
         capo_cloudformation.types.notification_ar_ns.serialize_query(
-            value["notification_ar_ns"], pairs, f"{prefix}.NotificationARNs"
+            value["notification_ar_ns"], pairs, f"{key_prefix}NotificationARNs"
         )
     if "tags" in value:
         import capo_cloudformation.types.tags
 
         capo_cloudformation.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "disable_rollback" in value:
         pairs.append(
             (
-                f"{prefix}.DisableRollback",
+                f"{key_prefix}DisableRollback",
                 "true" if value["disable_rollback"] else "false",
             )
         )
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
     if "retain_except_on_create" in value:
         pairs.append(
             (
-                f"{prefix}.RetainExceptOnCreate",
+                f"{key_prefix}RetainExceptOnCreate",
                 "true" if value["retain_except_on_create"] else "false",
             )
         )

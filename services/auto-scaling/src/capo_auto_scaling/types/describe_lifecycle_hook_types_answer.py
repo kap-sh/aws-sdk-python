@@ -21,11 +21,12 @@ class DescribeLifecycleHookTypesAnswer(TypedDict, closed=True):
 def serialize_query(
     value: DescribeLifecycleHookTypesAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "lifecycle_hook_types" in value:
         import capo_auto_scaling.types.auto_scaling_notification_types
 
         capo_auto_scaling.types.auto_scaling_notification_types.serialize_query(
-            value["lifecycle_hook_types"], pairs, f"{prefix}.LifecycleHookTypes"
+            value["lifecycle_hook_types"], pairs, f"{key_prefix}LifecycleHookTypes"
         )
 
 

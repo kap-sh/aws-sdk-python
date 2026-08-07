@@ -32,20 +32,24 @@ class ExecutePolicyType(TypedDict, closed=True):
 def serialize_query(
     value: ExecutePolicyType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "policy_name" in value:
-        pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+        pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "honor_cooldown" in value:
         pairs.append(
-            (f"{prefix}.HonorCooldown", "true" if value["honor_cooldown"] else "false")
+            (
+                f"{key_prefix}HonorCooldown",
+                "true" if value["honor_cooldown"] else "false",
+            )
         )
     if "metric_value" in value:
-        pairs.append((f"{prefix}.MetricValue", str(value["metric_value"])))
+        pairs.append((f"{key_prefix}MetricValue", str(value["metric_value"])))
     if "breach_threshold" in value:
-        pairs.append((f"{prefix}.BreachThreshold", str(value["breach_threshold"])))
+        pairs.append((f"{key_prefix}BreachThreshold", str(value["breach_threshold"])))
 
 
 def deserialize_query(el: Element) -> ExecutePolicyType:

@@ -33,26 +33,27 @@ class DescribePoliciesType(TypedDict, closed=True):
 def serialize_query(
     value: DescribePoliciesType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "policy_names" in value:
         import capo_auto_scaling.types.policy_names
 
         capo_auto_scaling.types.policy_names.serialize_query(
-            value["policy_names"], pairs, f"{prefix}.PolicyNames"
+            value["policy_names"], pairs, f"{key_prefix}PolicyNames"
         )
     if "policy_types" in value:
         import capo_auto_scaling.types.policy_types
 
         capo_auto_scaling.types.policy_types.serialize_query(
-            value["policy_types"], pairs, f"{prefix}.PolicyTypes"
+            value["policy_types"], pairs, f"{key_prefix}PolicyTypes"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribePoliciesType:

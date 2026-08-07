@@ -19,8 +19,9 @@ class ResourceQuota(TypedDict, closed=True):
 def serialize_query(
     value: ResourceQuota, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "maximum" in value:
-        pairs.append((f"{prefix}.Maximum", str(value["maximum"])))
+        pairs.append((f"{key_prefix}Maximum", str(value["maximum"])))
 
 
 def deserialize_query(el: Element) -> ResourceQuota:

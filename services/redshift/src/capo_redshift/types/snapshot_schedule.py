@@ -44,41 +44,45 @@ class SnapshotSchedule(TypedDict, closed=True):
 def serialize_query(
     value: SnapshotSchedule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "schedule_definitions" in value:
         import capo_redshift.types.schedule_definition_list
 
         capo_redshift.types.schedule_definition_list.serialize_query(
-            value["schedule_definitions"], pairs, f"{prefix}.ScheduleDefinitions"
+            value["schedule_definitions"], pairs, f"{key_prefix}ScheduleDefinitions"
         )
     if "schedule_identifier" in value:
         pairs.append(
-            (f"{prefix}.ScheduleIdentifier", str(value["schedule_identifier"]))
+            (f"{key_prefix}ScheduleIdentifier", str(value["schedule_identifier"]))
         )
     if "schedule_description" in value:
         pairs.append(
-            (f"{prefix}.ScheduleDescription", str(value["schedule_description"]))
+            (f"{key_prefix}ScheduleDescription", str(value["schedule_description"]))
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "next_invocations" in value:
         import capo_redshift.types.scheduled_snapshot_time_list
 
         capo_redshift.types.scheduled_snapshot_time_list.serialize_query(
-            value["next_invocations"], pairs, f"{prefix}.NextInvocations"
+            value["next_invocations"], pairs, f"{key_prefix}NextInvocations"
         )
     if "associated_cluster_count" in value:
         pairs.append(
-            (f"{prefix}.AssociatedClusterCount", str(value["associated_cluster_count"]))
+            (
+                f"{key_prefix}AssociatedClusterCount",
+                str(value["associated_cluster_count"]),
+            )
         )
     if "associated_clusters" in value:
         import capo_redshift.types.associated_cluster_list
 
         capo_redshift.types.associated_cluster_list.serialize_query(
-            value["associated_clusters"], pairs, f"{prefix}.AssociatedClusters"
+            value["associated_clusters"], pairs, f"{key_prefix}AssociatedClusters"
         )
 
 

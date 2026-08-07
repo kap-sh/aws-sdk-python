@@ -20,11 +20,12 @@ class CreateCacheParameterGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateCacheParameterGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_parameter_group" in value:
         import capo_elasticache.types.cache_parameter_group
 
         capo_elasticache.types.cache_parameter_group.serialize_query(
-            value["cache_parameter_group"], pairs, f"{prefix}.CacheParameterGroup"
+            value["cache_parameter_group"], pairs, f"{key_prefix}CacheParameterGroup"
         )
 
 

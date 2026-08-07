@@ -21,10 +21,11 @@ class TemplateSummaryConfig(TypedDict, closed=True):
 def serialize_query(
     value: TemplateSummaryConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "treat_unrecognized_resource_types_as_warnings" in value:
         pairs.append(
             (
-                f"{prefix}.TreatUnrecognizedResourceTypesAsWarnings",
+                f"{key_prefix}TreatUnrecognizedResourceTypesAsWarnings",
                 "true"
                 if value["treat_unrecognized_resource_types_as_warnings"]
                 else "false",

@@ -21,9 +21,10 @@ class EventFilter(TypedDict, closed=True):
 def serialize_query(
     value: EventFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "failed_events" in value:
         pairs.append(
-            (f"{prefix}.FailedEvents", "true" if value["failed_events"] else "false")
+            (f"{key_prefix}FailedEvents", "true" if value["failed_events"] else "false")
         )
 
 

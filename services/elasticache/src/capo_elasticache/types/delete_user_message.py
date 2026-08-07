@@ -19,8 +19,9 @@ class DeleteUserMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteUserMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
 
 
 def deserialize_query(el: Element) -> DeleteUserMessage:

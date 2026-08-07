@@ -32,23 +32,27 @@ class TextArrayOptions(TypedDict, closed=True):
 def serialize_query(
     value: TextArrayOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "source_fields" in value:
-        pairs.append((f"{prefix}.SourceFields", str(value["source_fields"])))
+        pairs.append((f"{key_prefix}SourceFields", str(value["source_fields"])))
     if "return_enabled" in value:
         pairs.append(
-            (f"{prefix}.ReturnEnabled", "true" if value["return_enabled"] else "false")
+            (
+                f"{key_prefix}ReturnEnabled",
+                "true" if value["return_enabled"] else "false",
+            )
         )
     if "highlight_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.HighlightEnabled",
+                f"{key_prefix}HighlightEnabled",
                 "true" if value["highlight_enabled"] else "false",
             )
         )
     if "analysis_scheme" in value:
-        pairs.append((f"{prefix}.AnalysisScheme", str(value["analysis_scheme"])))
+        pairs.append((f"{key_prefix}AnalysisScheme", str(value["analysis_scheme"])))
 
 
 def deserialize_query(el: Element) -> TextArrayOptions:

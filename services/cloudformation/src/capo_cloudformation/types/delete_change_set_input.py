@@ -24,10 +24,11 @@ class DeleteChangeSetInput(TypedDict, closed=True):
 def serialize_query(
     value: DeleteChangeSetInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteChangeSetInput:

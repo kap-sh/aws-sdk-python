@@ -23,11 +23,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "termination_policy_types" in value:
         import capo_auto_scaling.types.termination_policies
 
         capo_auto_scaling.types.termination_policies.serialize_query(
-            value["termination_policy_types"], pairs, f"{prefix}.TerminationPolicyTypes"
+            value["termination_policy_types"],
+            pairs,
+            f"{key_prefix}TerminationPolicyTypes",
         )
 
 

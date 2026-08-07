@@ -29,16 +29,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_names" in value:
         import capo_auto_scaling.types.auto_scaling_group_names
 
         capo_auto_scaling.types.auto_scaling_group_names.serialize_query(
-            value["auto_scaling_group_names"], pairs, f"{prefix}.AutoScalingGroupNames"
+            value["auto_scaling_group_names"],
+            pairs,
+            f"{key_prefix}AutoScalingGroupNames",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribeNotificationConfigurationsType:

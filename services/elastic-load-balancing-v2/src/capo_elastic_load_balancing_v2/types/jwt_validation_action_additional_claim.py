@@ -31,19 +31,20 @@ class JwtValidationActionAdditionalClaim(TypedDict, closed=True):
 def serialize_query(
     value: JwtValidationActionAdditionalClaim, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "format" in value:
         import capo_elastic_load_balancing_v2.types.jwt_validation_action_additional_claim_format_enum
 
         capo_elastic_load_balancing_v2.types.jwt_validation_action_additional_claim_format_enum.serialize_query(
-            value["format"], pairs, f"{prefix}.Format"
+            value["format"], pairs, f"{key_prefix}Format"
         )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "values" in value:
         import capo_elastic_load_balancing_v2.types.jwt_validation_action_additional_claim_values
 
         capo_elastic_load_balancing_v2.types.jwt_validation_action_additional_claim_values.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

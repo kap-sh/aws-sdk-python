@@ -38,41 +38,42 @@ class DataShareAssociation(TypedDict, closed=True):
 def serialize_query(
     value: DataShareAssociation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "consumer_identifier" in value:
         pairs.append(
-            (f"{prefix}.ConsumerIdentifier", str(value["consumer_identifier"]))
+            (f"{key_prefix}ConsumerIdentifier", str(value["consumer_identifier"]))
         )
     if "status" in value:
         import capo_redshift.types.data_share_status
 
         capo_redshift.types.data_share_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "consumer_region" in value:
-        pairs.append((f"{prefix}.ConsumerRegion", str(value["consumer_region"])))
+        pairs.append((f"{key_prefix}ConsumerRegion", str(value["consumer_region"])))
     if "created_date" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["created_date"], pairs, f"{prefix}.CreatedDate"
+            value["created_date"], pairs, f"{key_prefix}CreatedDate"
         )
     if "status_change_date" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["status_change_date"], pairs, f"{prefix}.StatusChangeDate"
+            value["status_change_date"], pairs, f"{key_prefix}StatusChangeDate"
         )
     if "producer_allowed_writes" in value:
         pairs.append(
             (
-                f"{prefix}.ProducerAllowedWrites",
+                f"{key_prefix}ProducerAllowedWrites",
                 "true" if value["producer_allowed_writes"] else "false",
             )
         )
     if "consumer_accepted_writes" in value:
         pairs.append(
             (
-                f"{prefix}.ConsumerAcceptedWrites",
+                f"{key_prefix}ConsumerAcceptedWrites",
                 "true" if value["consumer_accepted_writes"] else "false",
             )
         )

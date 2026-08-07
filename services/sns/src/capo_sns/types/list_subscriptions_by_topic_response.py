@@ -22,14 +22,15 @@ class ListSubscriptionsByTopicResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListSubscriptionsByTopicResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscriptions" in value:
         import capo_sns.types.subscriptions_list
 
         capo_sns.types.subscriptions_list.serialize_query(
-            value["subscriptions"], pairs, f"{prefix}.Subscriptions"
+            value["subscriptions"], pairs, f"{key_prefix}Subscriptions"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListSubscriptionsByTopicResponse:

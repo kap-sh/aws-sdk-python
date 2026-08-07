@@ -24,13 +24,16 @@ class RebootCacheClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: RebootCacheClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "cache_node_ids_to_reboot" in value:
         import capo_elasticache.types.cache_node_ids_list
 
         capo_elasticache.types.cache_node_ids_list.serialize_query(
-            value["cache_node_ids_to_reboot"], pairs, f"{prefix}.CacheNodeIdsToReboot"
+            value["cache_node_ids_to_reboot"],
+            pairs,
+            f"{key_prefix}CacheNodeIdsToReboot",
         )
 
 

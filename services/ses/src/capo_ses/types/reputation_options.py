@@ -24,15 +24,16 @@ class ReputationOptions(TypedDict, closed=True):
 def serialize_query(
     value: ReputationOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.SendingEnabled",
+            f"{key_prefix}SendingEnabled",
             "true" if value.get("sending_enabled", False) else "false",
         )
     )
     pairs.append(
         (
-            f"{prefix}.ReputationMetricsEnabled",
+            f"{key_prefix}ReputationMetricsEnabled",
             "true" if value.get("reputation_metrics_enabled", False) else "false",
         )
     )
@@ -40,7 +41,7 @@ def serialize_query(
         import capo_ses.types.last_fresh_start
 
         capo_ses.types.last_fresh_start.serialize_query(
-            value["last_fresh_start"], pairs, f"{prefix}.LastFreshStart"
+            value["last_fresh_start"], pairs, f"{key_prefix}LastFreshStart"
         )
 
 

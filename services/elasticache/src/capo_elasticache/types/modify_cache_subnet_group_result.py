@@ -20,11 +20,12 @@ class ModifyCacheSubnetGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyCacheSubnetGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_subnet_group" in value:
         import capo_elasticache.types.cache_subnet_group
 
         capo_elasticache.types.cache_subnet_group.serialize_query(
-            value["cache_subnet_group"], pairs, f"{prefix}.CacheSubnetGroup"
+            value["cache_subnet_group"], pairs, f"{key_prefix}CacheSubnetGroup"
         )
 
 

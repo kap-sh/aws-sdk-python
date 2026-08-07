@@ -24,16 +24,17 @@ class OrderableClusterOptionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: OrderableClusterOptionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "orderable_cluster_options" in value:
         import capo_redshift.types.orderable_cluster_options_list
 
         capo_redshift.types.orderable_cluster_options_list.serialize_query(
             value["orderable_cluster_options"],
             pairs,
-            f"{prefix}.OrderableClusterOptions",
+            f"{key_prefix}OrderableClusterOptions",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> OrderableClusterOptionsMessage:

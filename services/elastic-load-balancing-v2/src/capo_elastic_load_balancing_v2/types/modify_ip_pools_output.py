@@ -19,11 +19,12 @@ class ModifyIpPoolsOutput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyIpPoolsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipam_pools" in value:
         import capo_elastic_load_balancing_v2.types.ipam_pools
 
         capo_elastic_load_balancing_v2.types.ipam_pools.serialize_query(
-            value["ipam_pools"], pairs, f"{prefix}.IpamPools"
+            value["ipam_pools"], pairs, f"{key_prefix}IpamPools"
         )
 
 

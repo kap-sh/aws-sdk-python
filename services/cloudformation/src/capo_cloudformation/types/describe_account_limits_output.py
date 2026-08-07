@@ -24,14 +24,15 @@ class DescribeAccountLimitsOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAccountLimitsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_limits" in value:
         import capo_cloudformation.types.account_limit_list
 
         capo_cloudformation.types.account_limit_list.serialize_query(
-            value["account_limits"], pairs, f"{prefix}.AccountLimits"
+            value["account_limits"], pairs, f"{key_prefix}AccountLimits"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeAccountLimitsOutput:

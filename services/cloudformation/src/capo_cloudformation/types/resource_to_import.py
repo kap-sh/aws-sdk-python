@@ -29,15 +29,18 @@ class ResourceToImport(TypedDict, closed=True):
 def serialize_query(
     value: ResourceToImport, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "resource_identifier" in value:
         import capo_cloudformation.types.resource_identifier_properties
 
         capo_cloudformation.types.resource_identifier_properties.serialize_query(
-            value["resource_identifier"], pairs, f"{prefix}.ResourceIdentifier"
+            value["resource_identifier"], pairs, f"{key_prefix}ResourceIdentifier"
         )
 
 

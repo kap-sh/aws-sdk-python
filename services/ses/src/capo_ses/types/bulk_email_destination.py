@@ -25,21 +25,22 @@ class BulkEmailDestination(TypedDict, closed=True):
 def serialize_query(
     value: BulkEmailDestination, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.destination
 
     capo_ses.types.destination.serialize_query(
-        value["destination"], pairs, f"{prefix}.Destination"
+        value["destination"], pairs, f"{key_prefix}Destination"
     )
     if "replacement_tags" in value:
         import capo_ses.types.message_tag_list
 
         capo_ses.types.message_tag_list.serialize_query(
-            value["replacement_tags"], pairs, f"{prefix}.ReplacementTags"
+            value["replacement_tags"], pairs, f"{key_prefix}ReplacementTags"
         )
     if "replacement_template_data" in value:
         pairs.append(
             (
-                f"{prefix}.ReplacementTemplateData",
+                f"{key_prefix}ReplacementTemplateData",
                 str(value["replacement_template_data"]),
             )
         )

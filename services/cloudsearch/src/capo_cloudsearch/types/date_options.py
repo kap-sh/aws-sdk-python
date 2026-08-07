@@ -30,25 +30,32 @@ class DateOptions(TypedDict, closed=True):
 def serialize_query(
     value: DateOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "source_field" in value:
-        pairs.append((f"{prefix}.SourceField", str(value["source_field"])))
+        pairs.append((f"{key_prefix}SourceField", str(value["source_field"])))
     if "facet_enabled" in value:
         pairs.append(
-            (f"{prefix}.FacetEnabled", "true" if value["facet_enabled"] else "false")
+            (f"{key_prefix}FacetEnabled", "true" if value["facet_enabled"] else "false")
         )
     if "search_enabled" in value:
         pairs.append(
-            (f"{prefix}.SearchEnabled", "true" if value["search_enabled"] else "false")
+            (
+                f"{key_prefix}SearchEnabled",
+                "true" if value["search_enabled"] else "false",
+            )
         )
     if "return_enabled" in value:
         pairs.append(
-            (f"{prefix}.ReturnEnabled", "true" if value["return_enabled"] else "false")
+            (
+                f"{key_prefix}ReturnEnabled",
+                "true" if value["return_enabled"] else "false",
+            )
         )
     if "sort_enabled" in value:
         pairs.append(
-            (f"{prefix}.SortEnabled", "true" if value["sort_enabled"] else "false")
+            (f"{key_prefix}SortEnabled", "true" if value["sort_enabled"] else "false")
         )
 
 

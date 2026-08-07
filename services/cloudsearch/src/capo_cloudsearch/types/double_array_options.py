@@ -31,21 +31,28 @@ class DoubleArrayOptions(TypedDict, closed=True):
 def serialize_query(
     value: DoubleArrayOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "source_fields" in value:
-        pairs.append((f"{prefix}.SourceFields", str(value["source_fields"])))
+        pairs.append((f"{key_prefix}SourceFields", str(value["source_fields"])))
     if "facet_enabled" in value:
         pairs.append(
-            (f"{prefix}.FacetEnabled", "true" if value["facet_enabled"] else "false")
+            (f"{key_prefix}FacetEnabled", "true" if value["facet_enabled"] else "false")
         )
     if "search_enabled" in value:
         pairs.append(
-            (f"{prefix}.SearchEnabled", "true" if value["search_enabled"] else "false")
+            (
+                f"{key_prefix}SearchEnabled",
+                "true" if value["search_enabled"] else "false",
+            )
         )
     if "return_enabled" in value:
         pairs.append(
-            (f"{prefix}.ReturnEnabled", "true" if value["return_enabled"] else "false")
+            (
+                f"{key_prefix}ReturnEnabled",
+                "true" if value["return_enabled"] else "false",
+            )
         )
 
 

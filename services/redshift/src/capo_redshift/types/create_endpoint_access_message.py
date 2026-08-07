@@ -30,19 +30,22 @@ class CreateEndpointAccessMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateEndpointAccessMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
     if "endpoint_name" in value:
-        pairs.append((f"{prefix}.EndpointName", str(value["endpoint_name"])))
+        pairs.append((f"{key_prefix}EndpointName", str(value["endpoint_name"])))
     if "subnet_group_name" in value:
-        pairs.append((f"{prefix}.SubnetGroupName", str(value["subnet_group_name"])))
+        pairs.append((f"{key_prefix}SubnetGroupName", str(value["subnet_group_name"])))
     if "vpc_security_group_ids" in value:
         import capo_redshift.types.vpc_security_group_id_list
 
         capo_redshift.types.vpc_security_group_id_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
 
 

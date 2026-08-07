@@ -94,59 +94,63 @@ class CreateTargetGroupInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateTargetGroupInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "protocol" in value:
         import capo_elastic_load_balancing_v2.types.protocol_enum
 
         capo_elastic_load_balancing_v2.types.protocol_enum.serialize_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "protocol_version" in value:
-        pairs.append((f"{prefix}.ProtocolVersion", str(value["protocol_version"])))
+        pairs.append((f"{key_prefix}ProtocolVersion", str(value["protocol_version"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "health_check_protocol" in value:
         import capo_elastic_load_balancing_v2.types.protocol_enum
 
         capo_elastic_load_balancing_v2.types.protocol_enum.serialize_query(
-            value["health_check_protocol"], pairs, f"{prefix}.HealthCheckProtocol"
+            value["health_check_protocol"], pairs, f"{key_prefix}HealthCheckProtocol"
         )
     if "health_check_port" in value:
-        pairs.append((f"{prefix}.HealthCheckPort", str(value["health_check_port"])))
+        pairs.append((f"{key_prefix}HealthCheckPort", str(value["health_check_port"])))
     if "health_check_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.HealthCheckEnabled",
+                f"{key_prefix}HealthCheckEnabled",
                 "true" if value["health_check_enabled"] else "false",
             )
         )
     if "health_check_path" in value:
-        pairs.append((f"{prefix}.HealthCheckPath", str(value["health_check_path"])))
+        pairs.append((f"{key_prefix}HealthCheckPath", str(value["health_check_path"])))
     if "health_check_interval_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.HealthCheckIntervalSeconds",
+                f"{key_prefix}HealthCheckIntervalSeconds",
                 str(value["health_check_interval_seconds"]),
             )
         )
     if "health_check_timeout_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.HealthCheckTimeoutSeconds",
+                f"{key_prefix}HealthCheckTimeoutSeconds",
                 str(value["health_check_timeout_seconds"]),
             )
         )
     if "healthy_threshold_count" in value:
         pairs.append(
-            (f"{prefix}.HealthyThresholdCount", str(value["healthy_threshold_count"]))
+            (
+                f"{key_prefix}HealthyThresholdCount",
+                str(value["healthy_threshold_count"]),
+            )
         )
     if "unhealthy_threshold_count" in value:
         pairs.append(
             (
-                f"{prefix}.UnhealthyThresholdCount",
+                f"{key_prefix}UnhealthyThresholdCount",
                 str(value["unhealthy_threshold_count"]),
             )
         )
@@ -154,28 +158,30 @@ def serialize_query(
         import capo_elastic_load_balancing_v2.types.matcher
 
         capo_elastic_load_balancing_v2.types.matcher.serialize_query(
-            value["matcher"], pairs, f"{prefix}.Matcher"
+            value["matcher"], pairs, f"{key_prefix}Matcher"
         )
     if "target_type" in value:
         import capo_elastic_load_balancing_v2.types.target_type_enum
 
         capo_elastic_load_balancing_v2.types.target_type_enum.serialize_query(
-            value["target_type"], pairs, f"{prefix}.TargetType"
+            value["target_type"], pairs, f"{key_prefix}TargetType"
         )
     if "tags" in value:
         import capo_elastic_load_balancing_v2.types.tag_list
 
         capo_elastic_load_balancing_v2.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "ip_address_type" in value:
         import capo_elastic_load_balancing_v2.types.target_group_ip_address_type_enum
 
         capo_elastic_load_balancing_v2.types.target_group_ip_address_type_enum.serialize_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "target_control_port" in value:
-        pairs.append((f"{prefix}.TargetControlPort", str(value["target_control_port"])))
+        pairs.append(
+            (f"{key_prefix}TargetControlPort", str(value["target_control_port"]))
+        )
 
 
 def deserialize_query(el: Element) -> CreateTargetGroupInput:

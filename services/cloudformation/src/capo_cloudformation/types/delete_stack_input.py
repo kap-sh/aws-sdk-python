@@ -35,25 +35,26 @@ class DeleteStackInput(TypedDict, closed=True):
 def serialize_query(
     value: DeleteStackInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "retain_resources" in value:
         import capo_cloudformation.types.retain_resources
 
         capo_cloudformation.types.retain_resources.serialize_query(
-            value["retain_resources"], pairs, f"{prefix}.RetainResources"
+            value["retain_resources"], pairs, f"{key_prefix}RetainResources"
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleARN", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleARN", str(value["role_arn"])))
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
     if "deletion_mode" in value:
         import capo_cloudformation.types.deletion_mode
 
         capo_cloudformation.types.deletion_mode.serialize_query(
-            value["deletion_mode"], pairs, f"{prefix}.DeletionMode"
+            value["deletion_mode"], pairs, f"{key_prefix}DeletionMode"
         )
 
 

@@ -49,37 +49,43 @@ class StackSetOperationPreferences(TypedDict, closed=True):
 def serialize_query(
     value: StackSetOperationPreferences, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "region_concurrency_type" in value:
         import capo_cloudformation.types.region_concurrency_type
 
         capo_cloudformation.types.region_concurrency_type.serialize_query(
-            value["region_concurrency_type"], pairs, f"{prefix}.RegionConcurrencyType"
+            value["region_concurrency_type"],
+            pairs,
+            f"{key_prefix}RegionConcurrencyType",
         )
     if "region_order" in value:
         import capo_cloudformation.types.region_list
 
         capo_cloudformation.types.region_list.serialize_query(
-            value["region_order"], pairs, f"{prefix}.RegionOrder"
+            value["region_order"], pairs, f"{key_prefix}RegionOrder"
         )
     if "failure_tolerance_count" in value:
         pairs.append(
-            (f"{prefix}.FailureToleranceCount", str(value["failure_tolerance_count"]))
+            (
+                f"{key_prefix}FailureToleranceCount",
+                str(value["failure_tolerance_count"]),
+            )
         )
     if "failure_tolerance_percentage" in value:
         pairs.append(
             (
-                f"{prefix}.FailureTolerancePercentage",
+                f"{key_prefix}FailureTolerancePercentage",
                 str(value["failure_tolerance_percentage"]),
             )
         )
     if "max_concurrent_count" in value:
         pairs.append(
-            (f"{prefix}.MaxConcurrentCount", str(value["max_concurrent_count"]))
+            (f"{key_prefix}MaxConcurrentCount", str(value["max_concurrent_count"]))
         )
     if "max_concurrent_percentage" in value:
         pairs.append(
             (
-                f"{prefix}.MaxConcurrentPercentage",
+                f"{key_prefix}MaxConcurrentPercentage",
                 str(value["max_concurrent_percentage"]),
             )
         )
@@ -87,7 +93,7 @@ def serialize_query(
         import capo_cloudformation.types.concurrency_mode
 
         capo_cloudformation.types.concurrency_mode.serialize_query(
-            value["concurrency_mode"], pairs, f"{prefix}.ConcurrencyMode"
+            value["concurrency_mode"], pairs, f"{key_prefix}ConcurrencyMode"
         )
 
 

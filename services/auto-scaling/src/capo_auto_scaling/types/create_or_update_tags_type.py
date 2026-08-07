@@ -19,11 +19,12 @@ class CreateOrUpdateTagsType(TypedDict, closed=True):
 def serialize_query(
     value: CreateOrUpdateTagsType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tags" in value:
         import capo_auto_scaling.types.tags
 
         capo_auto_scaling.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

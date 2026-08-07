@@ -19,8 +19,9 @@ class DeleteSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_name" in value:
-        pairs.append((f"{prefix}.SnapshotName", str(value["snapshot_name"])))
+        pairs.append((f"{key_prefix}SnapshotName", str(value["snapshot_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteSnapshotMessage:

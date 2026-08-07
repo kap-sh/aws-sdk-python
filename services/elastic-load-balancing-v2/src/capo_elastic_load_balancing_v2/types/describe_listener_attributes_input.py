@@ -21,8 +21,9 @@ class DescribeListenerAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeListenerAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener_arn" in value:
-        pairs.append((f"{prefix}.ListenerArn", str(value["listener_arn"])))
+        pairs.append((f"{key_prefix}ListenerArn", str(value["listener_arn"])))
 
 
 def deserialize_query(el: Element) -> DescribeListenerAttributesInput:

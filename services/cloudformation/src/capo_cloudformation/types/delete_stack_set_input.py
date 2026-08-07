@@ -22,13 +22,14 @@ class DeleteStackSetInput(TypedDict, closed=True):
 def serialize_query(
     value: DeleteStackSetInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
 
 

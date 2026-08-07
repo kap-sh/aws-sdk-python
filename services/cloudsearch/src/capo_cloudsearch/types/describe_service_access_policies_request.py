@@ -25,9 +25,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     if "deployed" in value:
-        pairs.append((f"{prefix}.Deployed", "true" if value["deployed"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Deployed", "true" if value["deployed"] else "false")
+        )
 
 
 def deserialize_query(el: Element) -> DescribeServiceAccessPoliciesRequest:

@@ -51,15 +51,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_value" in value:
-        pairs.append((f"{prefix}.TargetValue", str(value["target_value"])))
+        pairs.append((f"{key_prefix}TargetValue", str(value["target_value"])))
     if "predefined_metric_pair_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_predefined_metric_pair
 
         capo_auto_scaling.types.predictive_scaling_predefined_metric_pair.serialize_query(
             value["predefined_metric_pair_specification"],
             pairs,
-            f"{prefix}.PredefinedMetricPairSpecification",
+            f"{key_prefix}PredefinedMetricPairSpecification",
         )
     if "predefined_scaling_metric_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_predefined_scaling_metric
@@ -67,7 +68,7 @@ def serialize_query(
         capo_auto_scaling.types.predictive_scaling_predefined_scaling_metric.serialize_query(
             value["predefined_scaling_metric_specification"],
             pairs,
-            f"{prefix}.PredefinedScalingMetricSpecification",
+            f"{key_prefix}PredefinedScalingMetricSpecification",
         )
     if "predefined_load_metric_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_predefined_load_metric
@@ -75,7 +76,7 @@ def serialize_query(
         capo_auto_scaling.types.predictive_scaling_predefined_load_metric.serialize_query(
             value["predefined_load_metric_specification"],
             pairs,
-            f"{prefix}.PredefinedLoadMetricSpecification",
+            f"{key_prefix}PredefinedLoadMetricSpecification",
         )
     if "customized_scaling_metric_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_customized_scaling_metric
@@ -83,7 +84,7 @@ def serialize_query(
         capo_auto_scaling.types.predictive_scaling_customized_scaling_metric.serialize_query(
             value["customized_scaling_metric_specification"],
             pairs,
-            f"{prefix}.CustomizedScalingMetricSpecification",
+            f"{key_prefix}CustomizedScalingMetricSpecification",
         )
     if "customized_load_metric_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_customized_load_metric
@@ -91,7 +92,7 @@ def serialize_query(
         capo_auto_scaling.types.predictive_scaling_customized_load_metric.serialize_query(
             value["customized_load_metric_specification"],
             pairs,
-            f"{prefix}.CustomizedLoadMetricSpecification",
+            f"{key_prefix}CustomizedLoadMetricSpecification",
         )
     if "customized_capacity_metric_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_customized_capacity_metric
@@ -99,7 +100,7 @@ def serialize_query(
         capo_auto_scaling.types.predictive_scaling_customized_capacity_metric.serialize_query(
             value["customized_capacity_metric_specification"],
             pairs,
-            f"{prefix}.CustomizedCapacityMetricSpecification",
+            f"{key_prefix}CustomizedCapacityMetricSpecification",
         )
 
 

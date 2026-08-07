@@ -19,10 +19,11 @@ class UpdateTemplateRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateTemplateRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.template
 
     capo_ses.types.template.serialize_query(
-        value["template"], pairs, f"{prefix}.Template"
+        value["template"], pairs, f"{key_prefix}Template"
     )
 
 

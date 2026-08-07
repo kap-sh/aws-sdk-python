@@ -28,21 +28,22 @@ class DescribeStackInstanceInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackInstanceInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "stack_instance_account" in value:
         pairs.append(
-            (f"{prefix}.StackInstanceAccount", str(value["stack_instance_account"]))
+            (f"{key_prefix}StackInstanceAccount", str(value["stack_instance_account"]))
         )
     if "stack_instance_region" in value:
         pairs.append(
-            (f"{prefix}.StackInstanceRegion", str(value["stack_instance_region"]))
+            (f"{key_prefix}StackInstanceRegion", str(value["stack_instance_region"]))
         )
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
 
 

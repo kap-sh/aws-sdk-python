@@ -45,14 +45,18 @@ class UpdateGeneratedTemplateInput(TypedDict, closed=True):
 def serialize_query(
     value: UpdateGeneratedTemplateInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "generated_template_name" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateName", str(value["generated_template_name"]))
+            (
+                f"{key_prefix}GeneratedTemplateName",
+                str(value["generated_template_name"]),
+            )
         )
     if "new_generated_template_name" in value:
         pairs.append(
             (
-                f"{prefix}.NewGeneratedTemplateName",
+                f"{key_prefix}NewGeneratedTemplateName",
                 str(value["new_generated_template_name"]),
             )
         )
@@ -60,18 +64,18 @@ def serialize_query(
         import capo_cloudformation.types.resource_definitions
 
         capo_cloudformation.types.resource_definitions.serialize_query(
-            value["add_resources"], pairs, f"{prefix}.AddResources"
+            value["add_resources"], pairs, f"{key_prefix}AddResources"
         )
     if "remove_resources" in value:
         import capo_cloudformation.types.jazz_logical_resource_ids
 
         capo_cloudformation.types.jazz_logical_resource_ids.serialize_query(
-            value["remove_resources"], pairs, f"{prefix}.RemoveResources"
+            value["remove_resources"], pairs, f"{key_prefix}RemoveResources"
         )
     if "refresh_all_resources" in value:
         pairs.append(
             (
-                f"{prefix}.RefreshAllResources",
+                f"{key_prefix}RefreshAllResources",
                 "true" if value["refresh_all_resources"] else "false",
             )
         )
@@ -79,7 +83,7 @@ def serialize_query(
         import capo_cloudformation.types.template_configuration
 
         capo_cloudformation.types.template_configuration.serialize_query(
-            value["template_configuration"], pairs, f"{prefix}.TemplateConfiguration"
+            value["template_configuration"], pairs, f"{key_prefix}TemplateConfiguration"
         )
 
 

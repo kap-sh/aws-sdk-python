@@ -75,33 +75,38 @@ class UpdateAction(TypedDict, closed=True):
 def serialize_query(
     value: UpdateAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
     if "service_update_release_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
             value["service_update_release_date"],
             pairs,
-            f"{prefix}.ServiceUpdateReleaseDate",
+            f"{key_prefix}ServiceUpdateReleaseDate",
         )
     if "service_update_severity" in value:
         import capo_elasticache.types.service_update_severity
 
         capo_elasticache.types.service_update_severity.serialize_query(
-            value["service_update_severity"], pairs, f"{prefix}.ServiceUpdateSeverity"
+            value["service_update_severity"],
+            pairs,
+            f"{key_prefix}ServiceUpdateSeverity",
         )
     if "service_update_status" in value:
         import capo_elasticache.types.service_update_status
 
         capo_elasticache.types.service_update_status.serialize_query(
-            value["service_update_status"], pairs, f"{prefix}.ServiceUpdateStatus"
+            value["service_update_status"], pairs, f"{key_prefix}ServiceUpdateStatus"
         )
     if "service_update_recommended_apply_by_date" in value:
         import capo_elasticache.types.t_stamp
@@ -109,13 +114,13 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["service_update_recommended_apply_by_date"],
             pairs,
-            f"{prefix}.ServiceUpdateRecommendedApplyByDate",
+            f"{key_prefix}ServiceUpdateRecommendedApplyByDate",
         )
     if "service_update_type" in value:
         import capo_elasticache.types.service_update_type
 
         capo_elasticache.types.service_update_type.serialize_query(
-            value["service_update_type"], pairs, f"{prefix}.ServiceUpdateType"
+            value["service_update_type"], pairs, f"{key_prefix}ServiceUpdateType"
         )
     if "update_action_available_date" in value:
         import capo_elasticache.types.t_stamp
@@ -123,48 +128,52 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["update_action_available_date"],
             pairs,
-            f"{prefix}.UpdateActionAvailableDate",
+            f"{key_prefix}UpdateActionAvailableDate",
         )
     if "update_action_status" in value:
         import capo_elasticache.types.update_action_status
 
         capo_elasticache.types.update_action_status.serialize_query(
-            value["update_action_status"], pairs, f"{prefix}.UpdateActionStatus"
+            value["update_action_status"], pairs, f"{key_prefix}UpdateActionStatus"
         )
     if "nodes_updated" in value:
-        pairs.append((f"{prefix}.NodesUpdated", str(value["nodes_updated"])))
+        pairs.append((f"{key_prefix}NodesUpdated", str(value["nodes_updated"])))
     if "update_action_status_modified_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
             value["update_action_status_modified_date"],
             pairs,
-            f"{prefix}.UpdateActionStatusModifiedDate",
+            f"{key_prefix}UpdateActionStatusModifiedDate",
         )
     if "sla_met" in value:
         import capo_elasticache.types.sla_met
 
         capo_elasticache.types.sla_met.serialize_query(
-            value["sla_met"], pairs, f"{prefix}.SlaMet"
+            value["sla_met"], pairs, f"{key_prefix}SlaMet"
         )
     if "node_group_update_status" in value:
         import capo_elasticache.types.node_group_update_status_list
 
         capo_elasticache.types.node_group_update_status_list.serialize_query(
-            value["node_group_update_status"], pairs, f"{prefix}.NodeGroupUpdateStatus"
+            value["node_group_update_status"],
+            pairs,
+            f"{key_prefix}NodeGroupUpdateStatus",
         )
     if "cache_node_update_status" in value:
         import capo_elasticache.types.cache_node_update_status_list
 
         capo_elasticache.types.cache_node_update_status_list.serialize_query(
-            value["cache_node_update_status"], pairs, f"{prefix}.CacheNodeUpdateStatus"
+            value["cache_node_update_status"],
+            pairs,
+            f"{key_prefix}CacheNodeUpdateStatus",
         )
     if "estimated_update_time" in value:
         pairs.append(
-            (f"{prefix}.EstimatedUpdateTime", str(value["estimated_update_time"]))
+            (f"{key_prefix}EstimatedUpdateTime", str(value["estimated_update_time"]))
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
 
 
 def deserialize_query(el: Element) -> UpdateAction:

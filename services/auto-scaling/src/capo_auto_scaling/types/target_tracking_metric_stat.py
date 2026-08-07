@@ -32,18 +32,19 @@ class TargetTrackingMetricStat(TypedDict, closed=True):
 def serialize_query(
     value: TargetTrackingMetricStat, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric" in value:
         import capo_auto_scaling.types.metric
 
         capo_auto_scaling.types.metric.serialize_query(
-            value["metric"], pairs, f"{prefix}.Metric"
+            value["metric"], pairs, f"{key_prefix}Metric"
         )
     if "stat" in value:
-        pairs.append((f"{prefix}.Stat", str(value["stat"])))
+        pairs.append((f"{key_prefix}Stat", str(value["stat"])))
     if "unit" in value:
-        pairs.append((f"{prefix}.Unit", str(value["unit"])))
+        pairs.append((f"{key_prefix}Unit", str(value["unit"])))
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
 
 
 def deserialize_query(el: Element) -> TargetTrackingMetricStat:

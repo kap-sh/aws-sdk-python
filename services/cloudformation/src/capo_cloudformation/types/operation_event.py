@@ -128,122 +128,132 @@ class OperationEvent(TypedDict, closed=True):
 def serialize_query(
     value: OperationEvent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event_id" in value:
-        pairs.append((f"{prefix}.EventId", str(value["event_id"])))
+        pairs.append((f"{key_prefix}EventId", str(value["event_id"])))
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "operation_type" in value:
         import capo_cloudformation.types.operation_type
 
         capo_cloudformation.types.operation_type.serialize_query(
-            value["operation_type"], pairs, f"{prefix}.OperationType"
+            value["operation_type"], pairs, f"{key_prefix}OperationType"
         )
     if "operation_status" in value:
         import capo_cloudformation.types.beacon_stack_operation_status
 
         capo_cloudformation.types.beacon_stack_operation_status.serialize_query(
-            value["operation_status"], pairs, f"{prefix}.OperationStatus"
+            value["operation_status"], pairs, f"{key_prefix}OperationStatus"
         )
     if "event_type" in value:
         import capo_cloudformation.types.event_type
 
         capo_cloudformation.types.event_type.serialize_query(
-            value["event_type"], pairs, f"{prefix}.EventType"
+            value["event_type"], pairs, f"{key_prefix}EventType"
         )
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "physical_resource_id" in value:
         pairs.append(
-            (f"{prefix}.PhysicalResourceId", str(value["physical_resource_id"]))
+            (f"{key_prefix}PhysicalResourceId", str(value["physical_resource_id"]))
         )
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "start_time" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "resource_status" in value:
         import capo_cloudformation.types.resource_status
 
         capo_cloudformation.types.resource_status.serialize_query(
-            value["resource_status"], pairs, f"{prefix}.ResourceStatus"
+            value["resource_status"], pairs, f"{key_prefix}ResourceStatus"
         )
     if "resource_status_reason" in value:
         pairs.append(
-            (f"{prefix}.ResourceStatusReason", str(value["resource_status_reason"]))
+            (f"{key_prefix}ResourceStatusReason", str(value["resource_status_reason"]))
         )
     if "resource_properties" in value:
         pairs.append(
-            (f"{prefix}.ResourceProperties", str(value["resource_properties"]))
+            (f"{key_prefix}ResourceProperties", str(value["resource_properties"]))
         )
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
     if "hook_type" in value:
-        pairs.append((f"{prefix}.HookType", str(value["hook_type"])))
+        pairs.append((f"{key_prefix}HookType", str(value["hook_type"])))
     if "hook_status" in value:
         import capo_cloudformation.types.hook_status
 
         capo_cloudformation.types.hook_status.serialize_query(
-            value["hook_status"], pairs, f"{prefix}.HookStatus"
+            value["hook_status"], pairs, f"{key_prefix}HookStatus"
         )
     if "hook_status_reason" in value:
-        pairs.append((f"{prefix}.HookStatusReason", str(value["hook_status_reason"])))
+        pairs.append(
+            (f"{key_prefix}HookStatusReason", str(value["hook_status_reason"]))
+        )
     if "hook_invocation_point" in value:
         import capo_cloudformation.types.hook_invocation_point
 
         capo_cloudformation.types.hook_invocation_point.serialize_query(
-            value["hook_invocation_point"], pairs, f"{prefix}.HookInvocationPoint"
+            value["hook_invocation_point"], pairs, f"{key_prefix}HookInvocationPoint"
         )
     if "hook_failure_mode" in value:
         import capo_cloudformation.types.hook_failure_mode
 
         capo_cloudformation.types.hook_failure_mode.serialize_query(
-            value["hook_failure_mode"], pairs, f"{prefix}.HookFailureMode"
+            value["hook_failure_mode"], pairs, f"{key_prefix}HookFailureMode"
         )
     if "detailed_status" in value:
         import capo_cloudformation.types.detailed_status
 
         capo_cloudformation.types.detailed_status.serialize_query(
-            value["detailed_status"], pairs, f"{prefix}.DetailedStatus"
+            value["detailed_status"], pairs, f"{key_prefix}DetailedStatus"
         )
     if "validation_failure_mode" in value:
         import capo_cloudformation.types.hook_failure_mode
 
         capo_cloudformation.types.hook_failure_mode.serialize_query(
-            value["validation_failure_mode"], pairs, f"{prefix}.ValidationFailureMode"
+            value["validation_failure_mode"],
+            pairs,
+            f"{key_prefix}ValidationFailureMode",
         )
     if "validation_name" in value:
-        pairs.append((f"{prefix}.ValidationName", str(value["validation_name"])))
+        pairs.append((f"{key_prefix}ValidationName", str(value["validation_name"])))
     if "validation_status" in value:
         import capo_cloudformation.types.validation_status
 
         capo_cloudformation.types.validation_status.serialize_query(
-            value["validation_status"], pairs, f"{prefix}.ValidationStatus"
+            value["validation_status"], pairs, f"{key_prefix}ValidationStatus"
         )
     if "validation_status_reason" in value:
         pairs.append(
-            (f"{prefix}.ValidationStatusReason", str(value["validation_status_reason"]))
+            (
+                f"{key_prefix}ValidationStatusReason",
+                str(value["validation_status_reason"]),
+            )
         )
     if "validation_path" in value:
-        pairs.append((f"{prefix}.ValidationPath", str(value["validation_path"])))
+        pairs.append((f"{key_prefix}ValidationPath", str(value["validation_path"])))
 
 
 def deserialize_query(el: Element) -> OperationEvent:

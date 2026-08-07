@@ -28,18 +28,21 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action_id" in value:
-        pairs.append((f"{prefix}.ActionId", str(value["action_id"])))
+        pairs.append((f"{key_prefix}ActionId", str(value["action_id"])))
     if "action_description" in value:
-        pairs.append((f"{prefix}.ActionDescription", str(value["action_description"])))
+        pairs.append(
+            (f"{key_prefix}ActionDescription", str(value["action_description"]))
+        )
     if "action_type" in value:
         import capo_elastic_beanstalk.types.action_type
 
         capo_elastic_beanstalk.types.action_type.serialize_query(
-            value["action_type"], pairs, f"{prefix}.ActionType"
+            value["action_type"], pairs, f"{key_prefix}ActionType"
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> ApplyEnvironmentManagedActionResult:

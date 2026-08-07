@@ -33,29 +33,30 @@ class NodeGroup(TypedDict, closed=True):
 def serialize_query(
     value: NodeGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "primary_endpoint" in value:
         import capo_elasticache.types.endpoint
 
         capo_elasticache.types.endpoint.serialize_query(
-            value["primary_endpoint"], pairs, f"{prefix}.PrimaryEndpoint"
+            value["primary_endpoint"], pairs, f"{key_prefix}PrimaryEndpoint"
         )
     if "reader_endpoint" in value:
         import capo_elasticache.types.endpoint
 
         capo_elasticache.types.endpoint.serialize_query(
-            value["reader_endpoint"], pairs, f"{prefix}.ReaderEndpoint"
+            value["reader_endpoint"], pairs, f"{key_prefix}ReaderEndpoint"
         )
     if "slots" in value:
-        pairs.append((f"{prefix}.Slots", str(value["slots"])))
+        pairs.append((f"{key_prefix}Slots", str(value["slots"])))
     if "node_group_members" in value:
         import capo_elasticache.types.node_group_member_list
 
         capo_elasticache.types.node_group_member_list.serialize_query(
-            value["node_group_members"], pairs, f"{prefix}.NodeGroupMembers"
+            value["node_group_members"], pairs, f"{key_prefix}NodeGroupMembers"
         )
 
 

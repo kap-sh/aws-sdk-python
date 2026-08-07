@@ -19,9 +19,13 @@ class CreatePlatformApplicationResponse(TypedDict, closed=True):
 def serialize_query(
     value: CreatePlatformApplicationResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_application_arn" in value:
         pairs.append(
-            (f"{prefix}.PlatformApplicationArn", str(value["platform_application_arn"]))
+            (
+                f"{key_prefix}PlatformApplicationArn",
+                str(value["platform_application_arn"]),
+            )
         )
 
 

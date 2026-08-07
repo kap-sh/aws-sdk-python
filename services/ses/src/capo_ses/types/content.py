@@ -21,9 +21,10 @@ class Content(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Content, pairs: list[tuple[str, str]], prefix: str) -> None:
-    pairs.append((f"{prefix}.Data", str(value["data"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Data", str(value["data"])))
     if "charset" in value:
-        pairs.append((f"{prefix}.Charset", str(value["charset"])))
+        pairs.append((f"{key_prefix}Charset", str(value["charset"])))
 
 
 def deserialize_query(el: Element) -> Content:

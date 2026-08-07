@@ -49,32 +49,39 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "stack_drift_detection_id" in value:
         pairs.append(
-            (f"{prefix}.StackDriftDetectionId", str(value["stack_drift_detection_id"]))
+            (
+                f"{key_prefix}StackDriftDetectionId",
+                str(value["stack_drift_detection_id"]),
+            )
         )
     if "stack_drift_status" in value:
         import capo_cloudformation.types.stack_drift_status
 
         capo_cloudformation.types.stack_drift_status.serialize_query(
-            value["stack_drift_status"], pairs, f"{prefix}.StackDriftStatus"
+            value["stack_drift_status"], pairs, f"{key_prefix}StackDriftStatus"
         )
     if "detection_status" in value:
         import capo_cloudformation.types.stack_drift_detection_status
 
         capo_cloudformation.types.stack_drift_detection_status.serialize_query(
-            value["detection_status"], pairs, f"{prefix}.DetectionStatus"
+            value["detection_status"], pairs, f"{key_prefix}DetectionStatus"
         )
     if "detection_status_reason" in value:
         pairs.append(
-            (f"{prefix}.DetectionStatusReason", str(value["detection_status_reason"]))
+            (
+                f"{key_prefix}DetectionStatusReason",
+                str(value["detection_status_reason"]),
+            )
         )
     if "drifted_stack_resource_count" in value:
         pairs.append(
             (
-                f"{prefix}.DriftedStackResourceCount",
+                f"{key_prefix}DriftedStackResourceCount",
                 str(value["drifted_stack_resource_count"]),
             )
         )
@@ -82,7 +89,7 @@ def serialize_query(
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
 
 

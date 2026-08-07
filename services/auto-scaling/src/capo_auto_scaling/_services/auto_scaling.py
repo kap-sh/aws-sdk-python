@@ -337,11 +337,13 @@ class AutoScalingClient:
 
     def attach_instances(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
         instance_ids: Optional[
             "capo_auto_scaling.types.instance_ids.InstanceIds"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
     ) -> None:
         r"""<p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p> <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.</p> <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html\">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -378,7 +380,8 @@ class AutoScalingClient:
         input_: capo_auto_scaling.types.attach_instances_query.AttachInstancesQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -389,10 +392,14 @@ class AutoScalingClient:
 
     def attach_load_balancers(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        load_balancer_names: "capo_auto_scaling.types.load_balancer_names.LoadBalancerNames",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        load_balancer_names: Optional[
+            "capo_auto_scaling.types.load_balancer_names.LoadBalancerNames"
+        ] = None,
     ) -> "capo_auto_scaling.types.attach_load_balancers_result_type.AttachLoadBalancersResultType":
         r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancers</code>. You can use both the original <code>AttachLoadBalancers</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the running instances with these Classic Load Balancers.</p> <p>To describe the load balancers for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html\">DescribeLoadBalancers</a> API. To detach a load balancer from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancers.html\">DetachLoadBalancers</a> API.</p> <p>This operation is additive and does not detach existing Classic Load Balancers or target groups from the Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
@@ -429,8 +436,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.attach_load_balancers_type.AttachLoadBalancersType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["load_balancer_names"] = load_balancer_names
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if load_balancer_names is not None:
+            input_["load_balancer_names"] = load_balancer_names
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -441,10 +450,14 @@ class AutoScalingClient:
 
     def attach_load_balancer_target_groups(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        target_group_ar_ns: "capo_auto_scaling.types.target_group_ar_ns.TargetGroupARNs",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        target_group_ar_ns: Optional[
+            "capo_auto_scaling.types.target_group_ar_ns.TargetGroupARNs"
+        ] = None,
     ) -> "capo_auto_scaling.types.attach_load_balancer_target_groups_result_type.AttachLoadBalancerTargetGroupsResultType":
         r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>, which can attach multiple traffic sources types. We recommend using <code>AttachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and <code>AttachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Attaches one or more target groups to the specified Auto Scaling group.</p> <p>This operation is used with the following load balancer types: </p> <ul> <li> <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS. </p> </li> <li> <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP. </p> </li> <li> <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p> </li> </ul> <p>To describe the target groups for an Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API. To detach the target group from the Auto Scaling group, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html\">DetachLoadBalancerTargetGroups</a> API.</p> <p>This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
 
@@ -481,8 +494,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.attach_load_balancer_target_groups_type.AttachLoadBalancerTargetGroupsType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["target_group_ar_ns"] = target_group_ar_ns
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if target_group_ar_ns is not None:
+            input_["target_group_ar_ns"] = target_group_ar_ns
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -493,10 +508,14 @@ class AutoScalingClient:
 
     def attach_traffic_sources(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        traffic_sources: "capo_auto_scaling.types.traffic_sources.TrafficSources",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        traffic_sources: Optional[
+            "capo_auto_scaling.types.traffic_sources.TrafficSources"
+        ] = None,
         skip_zonal_shift_validation: Optional[
             "capo_auto_scaling.types.skip_zonal_shift_validation.SkipZonalShiftValidation"
         ] = None,
@@ -537,8 +556,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.attach_traffic_sources_type.AttachTrafficSourcesType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["traffic_sources"] = traffic_sources
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if traffic_sources is not None:
+            input_["traffic_sources"] = traffic_sources
         if skip_zonal_shift_validation is not None:
             input_["skip_zonal_shift_validation"] = skip_zonal_shift_validation
 
@@ -551,10 +572,14 @@ class AutoScalingClient:
 
     def batch_delete_scheduled_action(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        scheduled_action_names: "capo_auto_scaling.types.scheduled_action_names.ScheduledActionNames",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        scheduled_action_names: Optional[
+            "capo_auto_scaling.types.scheduled_action_names.ScheduledActionNames"
+        ] = None,
     ) -> "capo_auto_scaling.types.batch_delete_scheduled_action_answer.BatchDeleteScheduledActionAnswer":
         """<p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
 
@@ -583,8 +608,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.batch_delete_scheduled_action_type.BatchDeleteScheduledActionType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["scheduled_action_names"] = scheduled_action_names
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if scheduled_action_names is not None:
+            input_["scheduled_action_names"] = scheduled_action_names
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -595,10 +622,14 @@ class AutoScalingClient:
 
     def batch_put_scheduled_update_group_action(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        scheduled_update_group_actions: "capo_auto_scaling.types.scheduled_update_group_action_requests.ScheduledUpdateGroupActionRequests",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        scheduled_update_group_actions: Optional[
+            "capo_auto_scaling.types.scheduled_update_group_action_requests.ScheduledUpdateGroupActionRequests"
+        ] = None,
     ) -> "capo_auto_scaling.types.batch_put_scheduled_update_group_action_answer.BatchPutScheduledUpdateGroupActionAnswer":
         """<p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
 
@@ -629,8 +660,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.batch_put_scheduled_update_group_action_type.BatchPutScheduledUpdateGroupActionType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["scheduled_update_group_actions"] = scheduled_update_group_actions
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if scheduled_update_group_actions is not None:
+            input_["scheduled_update_group_actions"] = scheduled_update_group_actions
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -641,9 +674,11 @@ class AutoScalingClient:
 
     def cancel_instance_refresh(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         wait_for_transitioning_instances: Optional[
             "capo_auto_scaling.types.boolean_type.BooleanType"
         ] = None,
@@ -683,7 +718,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.cancel_instance_refresh_type.CancelInstanceRefreshType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if wait_for_transitioning_instances is not None:
             input_["wait_for_transitioning_instances"] = (
                 wait_for_transitioning_instances
@@ -698,13 +734,19 @@ class AutoScalingClient:
 
     def complete_lifecycle_action(
         self,
-        lifecycle_hook_name: "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255",
-        auto_scaling_group_name: "capo_auto_scaling.types.resource_name.ResourceName",
-        lifecycle_action_result: "capo_auto_scaling.types.lifecycle_action_result.LifecycleActionResult",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        lifecycle_hook_name: Optional[
+            "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.resource_name.ResourceName"
+        ] = None,
         lifecycle_action_token: Optional[
             "capo_auto_scaling.types.lifecycle_action_token.LifecycleActionToken"
+        ] = None,
+        lifecycle_action_result: Optional[
+            "capo_auto_scaling.types.lifecycle_action_result.LifecycleActionResult"
         ] = None,
         instance_id: Optional[
             "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
@@ -746,11 +788,14 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.complete_lifecycle_action_type.CompleteLifecycleActionType = {}  # type: ignore[typeddict-item]
-        input_["lifecycle_hook_name"] = lifecycle_hook_name
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if lifecycle_hook_name is not None:
+            input_["lifecycle_hook_name"] = lifecycle_hook_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_action_token is not None:
             input_["lifecycle_action_token"] = lifecycle_action_token
-        input_["lifecycle_action_result"] = lifecycle_action_result
+        if lifecycle_action_result is not None:
+            input_["lifecycle_action_result"] = lifecycle_action_result
         if instance_id is not None:
             input_["instance_id"] = instance_id
 
@@ -763,11 +808,11 @@ class AutoScalingClient:
 
     def create_auto_scaling_group(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        min_size: "capo_auto_scaling.types.auto_scaling_group_min_size.AutoScalingGroupMinSize",
-        max_size: "capo_auto_scaling.types.auto_scaling_group_max_size.AutoScalingGroupMaxSize",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         launch_configuration_name: Optional[
             "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
@@ -779,6 +824,12 @@ class AutoScalingClient:
         ] = None,
         instance_id: Optional[
             "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
+        ] = None,
+        min_size: Optional[
+            "capo_auto_scaling.types.auto_scaling_group_min_size.AutoScalingGroupMinSize"
+        ] = None,
+        max_size: Optional[
+            "capo_auto_scaling.types.auto_scaling_group_max_size.AutoScalingGroupMaxSize"
         ] = None,
         desired_capacity: Optional[
             "capo_auto_scaling.types.auto_scaling_group_desired_capacity.AutoScalingGroupDesiredCapacity"
@@ -938,7 +989,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.create_auto_scaling_group_type.CreateAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if launch_configuration_name is not None:
             input_["launch_configuration_name"] = launch_configuration_name
         if launch_template is not None:
@@ -947,8 +999,10 @@ class AutoScalingClient:
             input_["mixed_instances_policy"] = mixed_instances_policy
         if instance_id is not None:
             input_["instance_id"] = instance_id
-        input_["min_size"] = min_size
-        input_["max_size"] = max_size
+        if min_size is not None:
+            input_["min_size"] = min_size
+        if max_size is not None:
+            input_["max_size"] = max_size
         if desired_capacity is not None:
             input_["desired_capacity"] = desired_capacity
         if default_cooldown is not None:
@@ -1023,9 +1077,11 @@ class AutoScalingClient:
 
     def create_launch_configuration(
         self,
-        launch_configuration_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        launch_configuration_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         image_id: Optional[
             "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
@@ -1129,7 +1185,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.create_launch_configuration_type.CreateLaunchConfigurationType = {}  # type: ignore[typeddict-item]
-        input_["launch_configuration_name"] = launch_configuration_name
+        if launch_configuration_name is not None:
+            input_["launch_configuration_name"] = launch_configuration_name
         if image_id is not None:
             input_["image_id"] = image_id
         if key_name is not None:
@@ -1178,9 +1235,9 @@ class AutoScalingClient:
 
     def create_or_update_tags(
         self,
-        tags: "capo_auto_scaling.types.tags.Tags",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        tags: Optional["capo_auto_scaling.types.tags.Tags"] = None,
     ) -> None:
         r"""<p>Creates or updates tags for the specified Auto Scaling group.</p> <p>When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html\">Tag Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
@@ -1215,7 +1272,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.create_or_update_tags_type.CreateOrUpdateTagsType = {}  # type: ignore[typeddict-item]
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1226,9 +1284,11 @@ class AutoScalingClient:
 
     def delete_auto_scaling_group(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         force_delete: Optional[
             "capo_auto_scaling.types.force_delete.ForceDelete"
         ] = None,
@@ -1270,7 +1330,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.delete_auto_scaling_group_type.DeleteAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if force_delete is not None:
             input_["force_delete"] = force_delete
 
@@ -1283,9 +1344,11 @@ class AutoScalingClient:
 
     def delete_launch_configuration(
         self,
-        launch_configuration_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        launch_configuration_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified launch configuration.</p> <p>The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.</p>
 
@@ -1318,7 +1381,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.launch_configuration_name_type.LaunchConfigurationNameType = {}  # type: ignore[typeddict-item]
-        input_["launch_configuration_name"] = launch_configuration_name
+        if launch_configuration_name is not None:
+            input_["launch_configuration_name"] = launch_configuration_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1329,10 +1393,14 @@ class AutoScalingClient:
 
     def delete_lifecycle_hook(
         self,
-        lifecycle_hook_name: "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255",
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        lifecycle_hook_name: Optional[
+            "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
     ) -> (
         "capo_auto_scaling.types.delete_lifecycle_hook_answer.DeleteLifecycleHookAnswer"
     ):
@@ -1369,8 +1437,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.delete_lifecycle_hook_type.DeleteLifecycleHookType = {}  # type: ignore[typeddict-item]
-        input_["lifecycle_hook_name"] = lifecycle_hook_name
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if lifecycle_hook_name is not None:
+            input_["lifecycle_hook_name"] = lifecycle_hook_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1381,10 +1451,14 @@ class AutoScalingClient:
 
     def delete_notification_configuration(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        topic_arn: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        topic_arn: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified notification.</p>
 
@@ -1417,8 +1491,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.delete_notification_configuration_type.DeleteNotificationConfigurationType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["topic_arn"] = topic_arn
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if topic_arn is not None:
+            input_["topic_arn"] = topic_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1429,11 +1505,13 @@ class AutoScalingClient:
 
     def delete_policy(
         self,
-        policy_name: "capo_auto_scaling.types.resource_name.ResourceName",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
         auto_scaling_group_name: Optional[
             "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        policy_name: Optional[
+            "capo_auto_scaling.types.resource_name.ResourceName"
         ] = None,
     ) -> None:
         r"""<p>Deletes the specified scaling policy.</p> <p>Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html\">Delete a scaling policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -1470,7 +1548,8 @@ class AutoScalingClient:
         input_: capo_auto_scaling.types.delete_policy_type.DeletePolicyType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_name is not None:
             input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["policy_name"] = policy_name
+        if policy_name is not None:
+            input_["policy_name"] = policy_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1481,10 +1560,14 @@ class AutoScalingClient:
 
     def delete_scheduled_action(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        scheduled_action_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        scheduled_action_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified scheduled action.</p>
 
@@ -1517,8 +1600,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.delete_scheduled_action_type.DeleteScheduledActionType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["scheduled_action_name"] = scheduled_action_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if scheduled_action_name is not None:
+            input_["scheduled_action_name"] = scheduled_action_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1529,9 +1614,9 @@ class AutoScalingClient:
 
     def delete_tags(
         self,
-        tags: "capo_auto_scaling.types.tags.Tags",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        tags: Optional["capo_auto_scaling.types.tags.Tags"] = None,
     ) -> None:
         """<p>Deletes the specified tags.</p>
 
@@ -1564,7 +1649,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.delete_tags_type.DeleteTagsType = {}  # type: ignore[typeddict-item]
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1575,9 +1661,11 @@ class AutoScalingClient:
 
     def delete_warm_pool(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         force_delete: Optional[
             "capo_auto_scaling.types.force_delete.ForceDelete"
         ] = None,
@@ -1612,7 +1700,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.delete_warm_pool_type.DeleteWarmPoolType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if force_delete is not None:
             input_["force_delete"] = force_delete
 
@@ -1926,9 +2015,11 @@ class AutoScalingClient:
 
     def describe_instance_refreshes(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         instance_refresh_ids: Optional[
             "capo_auto_scaling.types.instance_refresh_ids.InstanceRefreshIds"
         ] = None,
@@ -1965,7 +2056,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.describe_instance_refreshes_type.DescribeInstanceRefreshesType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if instance_refresh_ids is not None:
             input_["instance_refresh_ids"] = instance_refresh_ids
         if next_token is not None:
@@ -2066,9 +2158,11 @@ class AutoScalingClient:
 
     def describe_lifecycle_hooks(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         lifecycle_hook_names: Optional[
             "capo_auto_scaling.types.lifecycle_hook_names.LifecycleHookNames"
         ] = None,
@@ -2106,7 +2200,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.describe_lifecycle_hooks_type.DescribeLifecycleHooksType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_hook_names is not None:
             input_["lifecycle_hook_names"] = lifecycle_hook_names
 
@@ -2158,9 +2253,11 @@ class AutoScalingClient:
 
     def describe_load_balancers(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         next_token: Optional["capo_auto_scaling.types.xml_string.XmlString"] = None,
         max_records: Optional["capo_auto_scaling.types.max_records.MaxRecords"] = None,
     ) -> "capo_auto_scaling.types.describe_load_balancers_response.DescribeLoadBalancersResponse":
@@ -2199,7 +2296,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.describe_load_balancers_request.DescribeLoadBalancersRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_records is not None:
@@ -2214,9 +2312,11 @@ class AutoScalingClient:
 
     def describe_load_balancer_target_groups(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         next_token: Optional["capo_auto_scaling.types.xml_string.XmlString"] = None,
         max_records: Optional["capo_auto_scaling.types.max_records.MaxRecords"] = None,
     ) -> "capo_auto_scaling.types.describe_load_balancer_target_groups_response.DescribeLoadBalancerTargetGroupsResponse":
@@ -2255,7 +2355,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.describe_load_balancer_target_groups_request.DescribeLoadBalancerTargetGroupsRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_records is not None:
@@ -2874,9 +2975,11 @@ class AutoScalingClient:
 
     def describe_traffic_sources(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         traffic_source_type: Optional[
             "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
@@ -2919,7 +3022,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.describe_traffic_sources_request.DescribeTrafficSourcesRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if traffic_source_type is not None:
             input_["traffic_source_type"] = traffic_source_type
         if next_token is not None:
@@ -2936,9 +3040,11 @@ class AutoScalingClient:
 
     def describe_warm_pool(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         max_records: Optional["capo_auto_scaling.types.max_records.MaxRecords"] = None,
         next_token: Optional["capo_auto_scaling.types.xml_string.XmlString"] = None,
     ) -> "capo_auto_scaling.types.describe_warm_pool_answer.DescribeWarmPoolAnswer":
@@ -2972,7 +3078,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.describe_warm_pool_type.DescribeWarmPoolType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if max_records is not None:
             input_["max_records"] = max_records
         if next_token is not None:
@@ -2987,17 +3094,19 @@ class AutoScalingClient:
 
     def iter_describe_warm_pool(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         max_records: Optional["capo_auto_scaling.types.max_records.MaxRecords"] = None,
         next_token: Optional["capo_auto_scaling.types.xml_string.XmlString"] = None,
     ) -> "Iterator[capo_auto_scaling.types.instance.Instance]":
         _token = next_token
         while True:
             _response = self.describe_warm_pool(
-                auto_scaling_group_name,
                 config_overrides=config_overrides,
+                auto_scaling_group_name=auto_scaling_group_name,
                 max_records=max_records,
                 next_token=_token,
             )
@@ -3010,12 +3119,16 @@ class AutoScalingClient:
 
     def detach_instances(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        should_decrement_desired_capacity: "capo_auto_scaling.types.should_decrement_desired_capacity.ShouldDecrementDesiredCapacity",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
         instance_ids: Optional[
             "capo_auto_scaling.types.instance_ids.InstanceIds"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        should_decrement_desired_capacity: Optional[
+            "capo_auto_scaling.types.should_decrement_desired_capacity.ShouldDecrementDesiredCapacity"
         ] = None,
     ) -> "capo_auto_scaling.types.detach_instances_answer.DetachInstancesAnswer":
         r"""<p>Removes one or more instances from the specified Auto Scaling group.</p> <p>After the instances are detached, you can manage them independent of the Auto Scaling group.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.</p> <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html\">Detach or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -3054,8 +3167,12 @@ class AutoScalingClient:
         input_: capo_auto_scaling.types.detach_instances_query.DetachInstancesQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["should_decrement_desired_capacity"] = should_decrement_desired_capacity
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if should_decrement_desired_capacity is not None:
+            input_["should_decrement_desired_capacity"] = (
+                should_decrement_desired_capacity
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3066,10 +3183,14 @@ class AutoScalingClient:
 
     def detach_load_balancers(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        load_balancer_names: "capo_auto_scaling.types.load_balancer_names.LoadBalancerNames",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        load_balancer_names: Optional[
+            "capo_auto_scaling.types.load_balancer_names.LoadBalancerNames"
+        ] = None,
     ) -> "capo_auto_scaling.types.detach_load_balancers_result_type.DetachLoadBalancersResultType":
         r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>. You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p> <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html\">DetachLoadBalancerTargetGroups</a> API instead.</p> <p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html\">DescribeLoadBalancers</a> API call. The instances remain running.</p>
 
@@ -3104,8 +3225,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.detach_load_balancers_type.DetachLoadBalancersType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["load_balancer_names"] = load_balancer_names
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if load_balancer_names is not None:
+            input_["load_balancer_names"] = load_balancer_names
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3116,10 +3239,14 @@ class AutoScalingClient:
 
     def detach_load_balancer_target_groups(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        target_group_ar_ns: "capo_auto_scaling.types.target_group_ar_ns.TargetGroupARNs",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        target_group_ar_ns: Optional[
+            "capo_auto_scaling.types.target_group_ar_ns.TargetGroupARNs"
+        ] = None,
     ) -> "capo_auto_scaling.types.detach_load_balancer_target_groups_result_type.DetachLoadBalancerTargetGroupsResultType":
         r"""<note> <p>This API operation is superseded by <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html\">DetachTrafficSources</a>, which can detach multiple traffic sources types. We recommend using <code>DetachTrafficSources</code> to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and <code>DetachTrafficSources</code> on the same Auto Scaling group.</p> </note> <p>Detaches one or more target groups from the specified Auto Scaling group.</p> <p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html\">DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p> <note> <p>You can use this operation to detach target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html\">AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html\">AttachTrafficSources</a>.</p> </note>
 
@@ -3154,8 +3281,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.detach_load_balancer_target_groups_type.DetachLoadBalancerTargetGroupsType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["target_group_ar_ns"] = target_group_ar_ns
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if target_group_ar_ns is not None:
+            input_["target_group_ar_ns"] = target_group_ar_ns
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3166,10 +3295,14 @@ class AutoScalingClient:
 
     def detach_traffic_sources(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        traffic_sources: "capo_auto_scaling.types.traffic_sources.TrafficSources",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        traffic_sources: Optional[
+            "capo_auto_scaling.types.traffic_sources.TrafficSources"
+        ] = None,
     ) -> "capo_auto_scaling.types.detach_traffic_sources_result_type.DetachTrafficSourcesResultType":
         r"""<p>Detaches one or more traffic sources from the specified Auto Scaling group.</p> <p>When you detach a traffic source, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the traffic source using the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html\">DescribeTrafficSources</a> API call. The instances continue to run.</p>
 
@@ -3204,8 +3337,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.detach_traffic_sources_type.DetachTrafficSourcesType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["traffic_sources"] = traffic_sources
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if traffic_sources is not None:
+            input_["traffic_sources"] = traffic_sources
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3216,9 +3351,11 @@ class AutoScalingClient:
 
     def disable_metrics_collection(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         metrics: Optional["capo_auto_scaling.types.metrics.Metrics"] = None,
     ) -> None:
         r"""<p>Disables group metrics collection for the specified Auto Scaling group.</p>
@@ -3252,7 +3389,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.disable_metrics_collection_query.DisableMetricsCollectionQuery = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if metrics is not None:
             input_["metrics"] = metrics
 
@@ -3265,11 +3403,15 @@ class AutoScalingClient:
 
     def enable_metrics_collection(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        granularity: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         metrics: Optional["capo_auto_scaling.types.metrics.Metrics"] = None,
+        granularity: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
     ) -> None:
         r"""<p>Enables group metrics collection for the specified Auto Scaling group.</p> <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch console. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html\">Monitor CloudWatch metrics for your Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
@@ -3303,10 +3445,12 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.enable_metrics_collection_query.EnableMetricsCollectionQuery = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if metrics is not None:
             input_["metrics"] = metrics
-        input_["granularity"] = granularity
+        if granularity is not None:
+            input_["granularity"] = granularity
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3317,12 +3461,16 @@ class AutoScalingClient:
 
     def enter_standby(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        should_decrement_desired_capacity: "capo_auto_scaling.types.should_decrement_desired_capacity.ShouldDecrementDesiredCapacity",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
         instance_ids: Optional[
             "capo_auto_scaling.types.instance_ids.InstanceIds"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        should_decrement_desired_capacity: Optional[
+            "capo_auto_scaling.types.should_decrement_desired_capacity.ShouldDecrementDesiredCapacity"
         ] = None,
     ) -> "capo_auto_scaling.types.enter_standby_answer.EnterStandbyAnswer":
         r"""<p>Moves the specified instances into the standby state.</p> <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.</p> <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -3361,8 +3509,12 @@ class AutoScalingClient:
         input_: capo_auto_scaling.types.enter_standby_query.EnterStandbyQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["should_decrement_desired_capacity"] = should_decrement_desired_capacity
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if should_decrement_desired_capacity is not None:
+            input_["should_decrement_desired_capacity"] = (
+                should_decrement_desired_capacity
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3373,11 +3525,13 @@ class AutoScalingClient:
 
     def execute_policy(
         self,
-        policy_name: "capo_auto_scaling.types.resource_name.ResourceName",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
         auto_scaling_group_name: Optional[
             "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        policy_name: Optional[
+            "capo_auto_scaling.types.resource_name.ResourceName"
         ] = None,
         honor_cooldown: Optional[
             "capo_auto_scaling.types.honor_cooldown.HonorCooldown"
@@ -3426,7 +3580,8 @@ class AutoScalingClient:
         input_: capo_auto_scaling.types.execute_policy_type.ExecutePolicyType = {}  # type: ignore[typeddict-item]
         if auto_scaling_group_name is not None:
             input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["policy_name"] = policy_name
+        if policy_name is not None:
+            input_["policy_name"] = policy_name
         if honor_cooldown is not None:
             input_["honor_cooldown"] = honor_cooldown
         if metric_value is not None:
@@ -3443,11 +3598,13 @@ class AutoScalingClient:
 
     def exit_standby(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
         instance_ids: Optional[
             "capo_auto_scaling.types.instance_ids.InstanceIds"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
     ) -> "capo_auto_scaling.types.exit_standby_answer.ExitStandbyAnswer":
         r"""<p>Moves the specified instances out of the standby state.</p> <p>After you put the instances back in service, the desired capacity is incremented.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html\">Temporarily removing instances from your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -3485,7 +3642,8 @@ class AutoScalingClient:
         input_: capo_auto_scaling.types.exit_standby_query.ExitStandbyQuery = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3496,12 +3654,20 @@ class AutoScalingClient:
 
     def get_predictive_scaling_forecast(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        policy_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        start_time: "capo_auto_scaling.types.timestamp_type.TimestampType",
-        end_time: "capo_auto_scaling.types.timestamp_type.TimestampType",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        policy_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        start_time: Optional[
+            "capo_auto_scaling.types.timestamp_type.TimestampType"
+        ] = None,
+        end_time: Optional[
+            "capo_auto_scaling.types.timestamp_type.TimestampType"
+        ] = None,
     ) -> "capo_auto_scaling.types.get_predictive_scaling_forecast_answer.GetPredictiveScalingForecastAnswer":
         r"""<p>Retrieves the forecast data for a predictive scaling policy.</p> <p>Load forecasts are predictions of the hourly load values using historical load data from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as predicted values for the minimum capacity that is needed on an hourly basis, based on the hourly load forecast.</p> <p>A minimum of 24 hours of data is required to create the initial forecasts. However, having a full 14 days of historical data results in more accurate forecasts.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html\">Predictive scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
@@ -3532,10 +3698,14 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.get_predictive_scaling_forecast_type.GetPredictiveScalingForecastType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["policy_name"] = policy_name
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if policy_name is not None:
+            input_["policy_name"] = policy_name
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3546,11 +3716,17 @@ class AutoScalingClient:
 
     def launch_instances(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        requested_capacity: "capo_auto_scaling.types.requested_capacity.RequestedCapacity",
-        client_token: "capo_auto_scaling.types.client_token.ClientToken",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        requested_capacity: Optional[
+            "capo_auto_scaling.types.requested_capacity.RequestedCapacity"
+        ] = None,
+        client_token: Optional[
+            "capo_auto_scaling.types.client_token.ClientToken"
+        ] = None,
         availability_zones: Optional[
             "capo_auto_scaling.types.availability_zones_limit1.AvailabilityZonesLimit1"
         ] = None,
@@ -3597,9 +3773,12 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.launch_instances_request.LaunchInstancesRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["requested_capacity"] = requested_capacity
-        input_["client_token"] = client_token
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if requested_capacity is not None:
+            input_["requested_capacity"] = requested_capacity
+        if client_token is not None:
+            input_["client_token"] = client_token
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
@@ -3618,10 +3797,14 @@ class AutoScalingClient:
 
     def put_lifecycle_hook(
         self,
-        lifecycle_hook_name: "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255",
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        lifecycle_hook_name: Optional[
+            "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         lifecycle_transition: Optional[
             "capo_auto_scaling.types.lifecycle_transition.LifecycleTransition"
         ] = None,
@@ -3681,8 +3864,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.put_lifecycle_hook_type.PutLifecycleHookType = {}  # type: ignore[typeddict-item]
-        input_["lifecycle_hook_name"] = lifecycle_hook_name
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if lifecycle_hook_name is not None:
+            input_["lifecycle_hook_name"] = lifecycle_hook_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_transition is not None:
             input_["lifecycle_transition"] = lifecycle_transition
         if role_arn is not None:
@@ -3705,11 +3890,17 @@ class AutoScalingClient:
 
     def put_notification_configuration(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        topic_arn: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        notification_types: "capo_auto_scaling.types.auto_scaling_notification_types.AutoScalingNotificationTypes",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        topic_arn: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        notification_types: Optional[
+            "capo_auto_scaling.types.auto_scaling_notification_types.AutoScalingNotificationTypes"
+        ] = None,
     ) -> None:
         r"""<p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p> <p>This configuration overwrites any existing configuration.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html\">Amazon SNS notification options for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.</p>
 
@@ -3745,9 +3936,12 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.put_notification_configuration_type.PutNotificationConfigurationType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["topic_arn"] = topic_arn
-        input_["notification_types"] = notification_types
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if topic_arn is not None:
+            input_["topic_arn"] = topic_arn
+        if notification_types is not None:
+            input_["notification_types"] = notification_types
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3758,10 +3952,14 @@ class AutoScalingClient:
 
     def put_scaling_policy(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        policy_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        policy_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         policy_type: Optional[
             "capo_auto_scaling.types.xml_string_max_len64.XmlStringMaxLen64"
         ] = None,
@@ -3842,8 +4040,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.put_scaling_policy_type.PutScalingPolicyType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["policy_name"] = policy_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if policy_name is not None:
+            input_["policy_name"] = policy_name
         if policy_type is not None:
             input_["policy_type"] = policy_type
         if adjustment_type is not None:
@@ -3880,10 +4080,14 @@ class AutoScalingClient:
 
     def put_scheduled_update_group_action(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        scheduled_action_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        scheduled_action_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         time: Optional["capo_auto_scaling.types.timestamp_type.TimestampType"] = None,
         start_time: Optional[
             "capo_auto_scaling.types.timestamp_type.TimestampType"
@@ -3948,8 +4152,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.put_scheduled_update_group_action_type.PutScheduledUpdateGroupActionType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["scheduled_action_name"] = scheduled_action_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if scheduled_action_name is not None:
+            input_["scheduled_action_name"] = scheduled_action_name
         if time is not None:
             input_["time"] = time
         if start_time is not None:
@@ -3976,9 +4182,11 @@ class AutoScalingClient:
 
     def put_warm_pool(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         max_group_prepared_capacity: Optional[
             "capo_auto_scaling.types.max_group_prepared_capacity.MaxGroupPreparedCapacity"
         ] = None,
@@ -4030,7 +4238,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.put_warm_pool_type.PutWarmPoolType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if max_group_prepared_capacity is not None:
             input_["max_group_prepared_capacity"] = max_group_prepared_capacity
         if min_size is not None:
@@ -4049,10 +4258,14 @@ class AutoScalingClient:
 
     def record_lifecycle_action_heartbeat(
         self,
-        lifecycle_hook_name: "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255",
-        auto_scaling_group_name: "capo_auto_scaling.types.resource_name.ResourceName",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        lifecycle_hook_name: Optional[
+            "capo_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.resource_name.ResourceName"
+        ] = None,
         lifecycle_action_token: Optional[
             "capo_auto_scaling.types.lifecycle_action_token.LifecycleActionToken"
         ] = None,
@@ -4095,8 +4308,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.record_lifecycle_action_heartbeat_type.RecordLifecycleActionHeartbeatType = {}  # type: ignore[typeddict-item]
-        input_["lifecycle_hook_name"] = lifecycle_hook_name
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if lifecycle_hook_name is not None:
+            input_["lifecycle_hook_name"] = lifecycle_hook_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if lifecycle_action_token is not None:
             input_["lifecycle_action_token"] = lifecycle_action_token
         if instance_id is not None:
@@ -4111,9 +4326,11 @@ class AutoScalingClient:
 
     def resume_processes(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         scaling_processes: Optional[
             "capo_auto_scaling.types.process_names.ProcessNames"
         ] = None,
@@ -4150,7 +4367,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.scaling_process_query.ScalingProcessQuery = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if scaling_processes is not None:
             input_["scaling_processes"] = scaling_processes
 
@@ -4163,9 +4381,11 @@ class AutoScalingClient:
 
     def rollback_instance_refresh(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
     ) -> "capo_auto_scaling.types.rollback_instance_refresh_answer.RollbackInstanceRefreshAnswer":
         r"""<p>Cancels an instance refresh that is in progress and rolls back any changes that it made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh. This restores your Auto Scaling group to the configuration that it was using before the start of the instance refresh. </p> <p>This operation is part of the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html\">instance refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group after you make configuration changes.</p> <p>A rollback is not supported in the following situations: </p> <ul> <li> <p>There is no desired configuration specified for the instance refresh.</p> </li> <li> <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</p> </li> <li> <p>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code> version.</p> </li> </ul> <p>When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately begins replacing instances. You can check the status of this operation through the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html\">DescribeInstanceRefreshes</a> API operation. </p>
 
@@ -4196,7 +4416,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.rollback_instance_refresh_type.RollbackInstanceRefreshType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4207,10 +4428,14 @@ class AutoScalingClient:
 
     def set_desired_capacity(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        desired_capacity: "capo_auto_scaling.types.auto_scaling_group_desired_capacity.AutoScalingGroupDesiredCapacity",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        desired_capacity: Optional[
+            "capo_auto_scaling.types.auto_scaling_group_desired_capacity.AutoScalingGroupDesiredCapacity"
+        ] = None,
         honor_cooldown: Optional[
             "capo_auto_scaling.types.honor_cooldown.HonorCooldown"
         ] = None,
@@ -4248,8 +4473,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.set_desired_capacity_type.SetDesiredCapacityType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["desired_capacity"] = desired_capacity
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if desired_capacity is not None:
+            input_["desired_capacity"] = desired_capacity
         if honor_cooldown is not None:
             input_["honor_cooldown"] = honor_cooldown
 
@@ -4262,10 +4489,14 @@ class AutoScalingClient:
 
     def set_instance_health(
         self,
-        instance_id: "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19",
-        health_status: "capo_auto_scaling.types.xml_string_max_len32.XmlStringMaxLen32",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        instance_id: Optional[
+            "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
+        ] = None,
+        health_status: Optional[
+            "capo_auto_scaling.types.xml_string_max_len32.XmlStringMaxLen32"
+        ] = None,
         should_respect_grace_period: Optional[
             "capo_auto_scaling.types.should_respect_grace_period.ShouldRespectGracePeriod"
         ] = None,
@@ -4302,8 +4533,10 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.set_instance_health_query.SetInstanceHealthQuery = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["health_status"] = health_status
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if health_status is not None:
+            input_["health_status"] = health_status
         if should_respect_grace_period is not None:
             input_["should_respect_grace_period"] = should_respect_grace_period
 
@@ -4316,11 +4549,17 @@ class AutoScalingClient:
 
     def set_instance_protection(
         self,
-        instance_ids: "capo_auto_scaling.types.instance_ids.InstanceIds",
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
-        protected_from_scale_in: "capo_auto_scaling.types.protected_from_scale_in.ProtectedFromScaleIn",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        instance_ids: Optional[
+            "capo_auto_scaling.types.instance_ids.InstanceIds"
+        ] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
+        protected_from_scale_in: Optional[
+            "capo_auto_scaling.types.protected_from_scale_in.ProtectedFromScaleIn"
+        ] = None,
     ) -> "capo_auto_scaling.types.set_instance_protection_answer.SetInstanceProtectionAnswer":
         r"""<p>Updates the instance protection settings of the specified instances. This operation cannot be called on instances in a warm pool.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html\">Use instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p> <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call fails.</p>
 
@@ -4361,9 +4600,12 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.set_instance_protection_query.SetInstanceProtectionQuery = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
-        input_["protected_from_scale_in"] = protected_from_scale_in
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if protected_from_scale_in is not None:
+            input_["protected_from_scale_in"] = protected_from_scale_in
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4374,9 +4616,11 @@ class AutoScalingClient:
 
     def start_instance_refresh(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         strategy: Optional[
             "capo_auto_scaling.types.refresh_strategy.RefreshStrategy"
         ] = None,
@@ -4424,7 +4668,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.start_instance_refresh_type.StartInstanceRefreshType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if strategy is not None:
             input_["strategy"] = strategy
         if desired_configuration is not None:
@@ -4441,9 +4686,11 @@ class AutoScalingClient:
 
     def suspend_processes(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         scaling_processes: Optional[
             "capo_auto_scaling.types.process_names.ProcessNames"
         ] = None,
@@ -4480,7 +4727,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.scaling_process_query.ScalingProcessQuery = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if scaling_processes is not None:
             input_["scaling_processes"] = scaling_processes
 
@@ -4493,10 +4741,14 @@ class AutoScalingClient:
 
     def terminate_instance_in_auto_scaling_group(
         self,
-        instance_id: "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19",
-        should_decrement_desired_capacity: "capo_auto_scaling.types.should_decrement_desired_capacity.ShouldDecrementDesiredCapacity",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        instance_id: Optional[
+            "capo_auto_scaling.types.xml_string_max_len19.XmlStringMaxLen19"
+        ] = None,
+        should_decrement_desired_capacity: Optional[
+            "capo_auto_scaling.types.should_decrement_desired_capacity.ShouldDecrementDesiredCapacity"
+        ] = None,
     ) -> "capo_auto_scaling.types.activity_type.ActivityType":
         r"""<p>Terminates the specified instance and optionally adjusts the desired group size. This operation cannot be called on instances in a warm pool.</p> <p>This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to <code>terminated</code>. You can't connect to or start an instance after you've terminated it.</p> <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated. </p> <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html\">Manual scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
@@ -4530,8 +4782,12 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.terminate_instance_in_auto_scaling_group_type.TerminateInstanceInAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["should_decrement_desired_capacity"] = should_decrement_desired_capacity
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if should_decrement_desired_capacity is not None:
+            input_["should_decrement_desired_capacity"] = (
+                should_decrement_desired_capacity
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4542,9 +4798,11 @@ class AutoScalingClient:
 
     def update_auto_scaling_group(
         self,
-        auto_scaling_group_name: "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255",
         *,
         config_overrides: Optional[AutoScalingClientConfig] = None,
+        auto_scaling_group_name: Optional[
+            "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
+        ] = None,
         launch_configuration_name: Optional[
             "capo_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
         ] = None,
@@ -4686,7 +4944,8 @@ class AutoScalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_auto_scaling.types.update_auto_scaling_group_type.UpdateAutoScalingGroupType = {}  # type: ignore[typeddict-item]
-        input_["auto_scaling_group_name"] = auto_scaling_group_name
+        if auto_scaling_group_name is not None:
+            input_["auto_scaling_group_name"] = auto_scaling_group_name
         if launch_configuration_name is not None:
             input_["launch_configuration_name"] = launch_configuration_name
         if launch_template is not None:

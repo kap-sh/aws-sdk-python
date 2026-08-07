@@ -30,19 +30,20 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_share_arn" in value:
-        pairs.append((f"{prefix}.DataShareArn", str(value["data_share_arn"])))
+        pairs.append((f"{key_prefix}DataShareArn", str(value["data_share_arn"])))
     if "disassociate_entire_account" in value:
         pairs.append(
             (
-                f"{prefix}.DisassociateEntireAccount",
+                f"{key_prefix}DisassociateEntireAccount",
                 "true" if value["disassociate_entire_account"] else "false",
             )
         )
     if "consumer_arn" in value:
-        pairs.append((f"{prefix}.ConsumerArn", str(value["consumer_arn"])))
+        pairs.append((f"{key_prefix}ConsumerArn", str(value["consumer_arn"])))
     if "consumer_region" in value:
-        pairs.append((f"{prefix}.ConsumerRegion", str(value["consumer_region"])))
+        pairs.append((f"{key_prefix}ConsumerRegion", str(value["consumer_region"])))
 
 
 def deserialize_query(el: Element) -> DisassociateDataShareConsumerMessage:

@@ -71,67 +71,73 @@ class CreateStackSetInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateStackSetInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "template_url" in value:
-        pairs.append((f"{prefix}.TemplateURL", str(value["template_url"])))
+        pairs.append((f"{key_prefix}TemplateURL", str(value["template_url"])))
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "parameters" in value:
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "tags" in value:
         import capo_cloudformation.types.tags
 
         capo_cloudformation.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "administration_role_arn" in value:
         pairs.append(
-            (f"{prefix}.AdministrationRoleARN", str(value["administration_role_arn"]))
+            (
+                f"{key_prefix}AdministrationRoleARN",
+                str(value["administration_role_arn"]),
+            )
         )
     if "execution_role_name" in value:
-        pairs.append((f"{prefix}.ExecutionRoleName", str(value["execution_role_name"])))
+        pairs.append(
+            (f"{key_prefix}ExecutionRoleName", str(value["execution_role_name"]))
+        )
     if "permission_model" in value:
         import capo_cloudformation.types.permission_models
 
         capo_cloudformation.types.permission_models.serialize_query(
-            value["permission_model"], pairs, f"{prefix}.PermissionModel"
+            value["permission_model"], pairs, f"{key_prefix}PermissionModel"
         )
     if "auto_deployment" in value:
         import capo_cloudformation.types.auto_deployment
 
         capo_cloudformation.types.auto_deployment.serialize_query(
-            value["auto_deployment"], pairs, f"{prefix}.AutoDeployment"
+            value["auto_deployment"], pairs, f"{key_prefix}AutoDeployment"
         )
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
     if "managed_execution" in value:
         import capo_cloudformation.types.managed_execution
 
         capo_cloudformation.types.managed_execution.serialize_query(
-            value["managed_execution"], pairs, f"{prefix}.ManagedExecution"
+            value["managed_execution"], pairs, f"{key_prefix}ManagedExecution"
         )
 
 

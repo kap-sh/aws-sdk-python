@@ -59,47 +59,48 @@ class DescribeResourceScanOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeResourceScanOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_scan_id" in value:
-        pairs.append((f"{prefix}.ResourceScanId", str(value["resource_scan_id"])))
+        pairs.append((f"{key_prefix}ResourceScanId", str(value["resource_scan_id"])))
     if "status" in value:
         import capo_cloudformation.types.resource_scan_status
 
         capo_cloudformation.types.resource_scan_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "start_time" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "percentage_completed" in value:
         pairs.append(
-            (f"{prefix}.PercentageCompleted", str(value["percentage_completed"]))
+            (f"{key_prefix}PercentageCompleted", str(value["percentage_completed"]))
         )
     if "resource_types" in value:
         import capo_cloudformation.types.resource_types
 
         capo_cloudformation.types.resource_types.serialize_query(
-            value["resource_types"], pairs, f"{prefix}.ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
         )
     if "resources_scanned" in value:
-        pairs.append((f"{prefix}.ResourcesScanned", str(value["resources_scanned"])))
+        pairs.append((f"{key_prefix}ResourcesScanned", str(value["resources_scanned"])))
     if "resources_read" in value:
-        pairs.append((f"{prefix}.ResourcesRead", str(value["resources_read"])))
+        pairs.append((f"{key_prefix}ResourcesRead", str(value["resources_read"])))
     if "scan_filters" in value:
         import capo_cloudformation.types.scan_filters
 
         capo_cloudformation.types.scan_filters.serialize_query(
-            value["scan_filters"], pairs, f"{prefix}.ScanFilters"
+            value["scan_filters"], pairs, f"{key_prefix}ScanFilters"
         )
 
 

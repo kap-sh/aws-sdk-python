@@ -22,13 +22,14 @@ class ResourceTagsDescriptionMessage(TypedDict, closed=True):
 def serialize_query(
     value: ResourceTagsDescriptionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arn" in value:
-        pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+        pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     if "resource_tags" in value:
         import capo_elastic_beanstalk.types.tag_list
 
         capo_elastic_beanstalk.types.tag_list.serialize_query(
-            value["resource_tags"], pairs, f"{prefix}.ResourceTags"
+            value["resource_tags"], pairs, f"{key_prefix}ResourceTags"
         )
 
 

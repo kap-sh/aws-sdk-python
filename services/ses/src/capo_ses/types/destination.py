@@ -23,23 +23,24 @@ class Destination(TypedDict, closed=True):
 def serialize_query(
     value: Destination, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "to_addresses" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["to_addresses"], pairs, f"{prefix}.ToAddresses"
+            value["to_addresses"], pairs, f"{key_prefix}ToAddresses"
         )
     if "cc_addresses" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["cc_addresses"], pairs, f"{prefix}.CcAddresses"
+            value["cc_addresses"], pairs, f"{key_prefix}CcAddresses"
         )
     if "bcc_addresses" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["bcc_addresses"], pairs, f"{prefix}.BccAddresses"
+            value["bcc_addresses"], pairs, f"{key_prefix}BccAddresses"
         )
 
 

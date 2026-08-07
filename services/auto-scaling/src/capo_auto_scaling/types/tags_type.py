@@ -20,14 +20,15 @@ class TagsType(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: TagsType, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tags" in value:
         import capo_auto_scaling.types.tag_description_list
 
         capo_auto_scaling.types.tag_description_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> TagsType:

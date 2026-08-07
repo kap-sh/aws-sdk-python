@@ -21,10 +21,11 @@ class AccountWithRestoreAccess(TypedDict, closed=True):
 def serialize_query(
     value: AccountWithRestoreAccess, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_id" in value:
-        pairs.append((f"{prefix}.AccountId", str(value["account_id"])))
+        pairs.append((f"{key_prefix}AccountId", str(value["account_id"])))
     if "account_alias" in value:
-        pairs.append((f"{prefix}.AccountAlias", str(value["account_alias"])))
+        pairs.append((f"{key_prefix}AccountAlias", str(value["account_alias"])))
 
 
 def deserialize_query(el: Element) -> AccountWithRestoreAccess:

@@ -21,11 +21,12 @@ class ScanFilter(TypedDict, closed=True):
 def serialize_query(
     value: ScanFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "types" in value:
         import capo_cloudformation.types.resource_type_filters
 
         capo_cloudformation.types.resource_type_filters.serialize_query(
-            value["types"], pairs, f"{prefix}.Types"
+            value["types"], pairs, f"{key_prefix}Types"
         )
 
 

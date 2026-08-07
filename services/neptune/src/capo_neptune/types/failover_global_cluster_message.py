@@ -29,27 +29,31 @@ class FailoverGlobalClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: FailoverGlobalClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterIdentifier",
+                f"{key_prefix}GlobalClusterIdentifier",
                 str(value["global_cluster_identifier"]),
             )
         )
     if "target_db_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDbClusterIdentifier",
+                f"{key_prefix}TargetDbClusterIdentifier",
                 str(value["target_db_cluster_identifier"]),
             )
         )
     if "allow_data_loss" in value:
         pairs.append(
-            (f"{prefix}.AllowDataLoss", "true" if value["allow_data_loss"] else "false")
+            (
+                f"{key_prefix}AllowDataLoss",
+                "true" if value["allow_data_loss"] else "false",
+            )
         )
     if "switchover" in value:
         pairs.append(
-            (f"{prefix}.Switchover", "true" if value["switchover"] else "false")
+            (f"{key_prefix}Switchover", "true" if value["switchover"] else "false")
         )
 
 

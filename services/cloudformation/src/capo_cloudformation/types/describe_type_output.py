@@ -118,22 +118,25 @@ class DescribeTypeOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTypeOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "default_version_id" in value:
-        pairs.append((f"{prefix}.DefaultVersionId", str(value["default_version_id"])))
+        pairs.append(
+            (f"{key_prefix}DefaultVersionId", str(value["default_version_id"]))
+        )
     if "is_default_version" in value:
         pairs.append(
             (
-                f"{prefix}.IsDefaultVersion",
+                f"{key_prefix}IsDefaultVersion",
                 "true" if value["is_default_version"] else "false",
             )
         )
@@ -141,92 +144,98 @@ def serialize_query(
         import capo_cloudformation.types.type_tests_status
 
         capo_cloudformation.types.type_tests_status.serialize_query(
-            value["type_tests_status"], pairs, f"{prefix}.TypeTestsStatus"
+            value["type_tests_status"], pairs, f"{key_prefix}TypeTestsStatus"
         )
     if "type_tests_status_description" in value:
         pairs.append(
             (
-                f"{prefix}.TypeTestsStatusDescription",
+                f"{key_prefix}TypeTestsStatusDescription",
                 str(value["type_tests_status_description"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "schema" in value:
-        pairs.append((f"{prefix}.Schema", str(value["schema"])))
+        pairs.append((f"{key_prefix}Schema", str(value["schema"])))
     if "provisioning_type" in value:
         import capo_cloudformation.types.provisioning_type
 
         capo_cloudformation.types.provisioning_type.serialize_query(
-            value["provisioning_type"], pairs, f"{prefix}.ProvisioningType"
+            value["provisioning_type"], pairs, f"{key_prefix}ProvisioningType"
         )
     if "deprecated_status" in value:
         import capo_cloudformation.types.deprecated_status
 
         capo_cloudformation.types.deprecated_status.serialize_query(
-            value["deprecated_status"], pairs, f"{prefix}.DeprecatedStatus"
+            value["deprecated_status"], pairs, f"{key_prefix}DeprecatedStatus"
         )
     if "logging_config" in value:
         import capo_cloudformation.types.logging_config
 
         capo_cloudformation.types.logging_config.serialize_query(
-            value["logging_config"], pairs, f"{prefix}.LoggingConfig"
+            value["logging_config"], pairs, f"{key_prefix}LoggingConfig"
         )
     if "required_activated_types" in value:
         import capo_cloudformation.types.required_activated_types
 
         capo_cloudformation.types.required_activated_types.serialize_query(
-            value["required_activated_types"], pairs, f"{prefix}.RequiredActivatedTypes"
+            value["required_activated_types"],
+            pairs,
+            f"{key_prefix}RequiredActivatedTypes",
         )
     if "execution_role_arn" in value:
-        pairs.append((f"{prefix}.ExecutionRoleArn", str(value["execution_role_arn"])))
+        pairs.append(
+            (f"{key_prefix}ExecutionRoleArn", str(value["execution_role_arn"]))
+        )
     if "visibility" in value:
         import capo_cloudformation.types.visibility
 
         capo_cloudformation.types.visibility.serialize_query(
-            value["visibility"], pairs, f"{prefix}.Visibility"
+            value["visibility"], pairs, f"{key_prefix}Visibility"
         )
     if "source_url" in value:
-        pairs.append((f"{prefix}.SourceUrl", str(value["source_url"])))
+        pairs.append((f"{key_prefix}SourceUrl", str(value["source_url"])))
     if "documentation_url" in value:
-        pairs.append((f"{prefix}.DocumentationUrl", str(value["documentation_url"])))
+        pairs.append((f"{key_prefix}DocumentationUrl", str(value["documentation_url"])))
     if "last_updated" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["last_updated"], pairs, f"{prefix}.LastUpdated"
+            value["last_updated"], pairs, f"{key_prefix}LastUpdated"
         )
     if "time_created" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["time_created"], pairs, f"{prefix}.TimeCreated"
+            value["time_created"], pairs, f"{key_prefix}TimeCreated"
         )
     if "configuration_schema" in value:
         pairs.append(
-            (f"{prefix}.ConfigurationSchema", str(value["configuration_schema"]))
+            (f"{key_prefix}ConfigurationSchema", str(value["configuration_schema"]))
         )
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "original_type_name" in value:
-        pairs.append((f"{prefix}.OriginalTypeName", str(value["original_type_name"])))
+        pairs.append(
+            (f"{key_prefix}OriginalTypeName", str(value["original_type_name"]))
+        )
     if "original_type_arn" in value:
-        pairs.append((f"{prefix}.OriginalTypeArn", str(value["original_type_arn"])))
+        pairs.append((f"{key_prefix}OriginalTypeArn", str(value["original_type_arn"])))
     if "public_version_number" in value:
         pairs.append(
-            (f"{prefix}.PublicVersionNumber", str(value["public_version_number"]))
+            (f"{key_prefix}PublicVersionNumber", str(value["public_version_number"]))
         )
     if "latest_public_version" in value:
         pairs.append(
-            (f"{prefix}.LatestPublicVersion", str(value["latest_public_version"]))
+            (f"{key_prefix}LatestPublicVersion", str(value["latest_public_version"]))
         )
     if "is_activated" in value:
         pairs.append(
-            (f"{prefix}.IsActivated", "true" if value["is_activated"] else "false")
+            (f"{key_prefix}IsActivated", "true" if value["is_activated"] else "false")
         )
     if "auto_update" in value:
         pairs.append(
-            (f"{prefix}.AutoUpdate", "true" if value["auto_update"] else "false")
+            (f"{key_prefix}AutoUpdate", "true" if value["auto_update"] else "false")
         )
 
 

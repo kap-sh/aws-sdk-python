@@ -21,8 +21,9 @@ class UpdateStackSetOutput(TypedDict, closed=True):
 def serialize_query(
     value: UpdateStackSetOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
 
 
 def deserialize_query(el: Element) -> UpdateStackSetOutput:

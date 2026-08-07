@@ -21,8 +21,9 @@ class GetStackPolicyOutput(TypedDict, closed=True):
 def serialize_query(
     value: GetStackPolicyOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_policy_body" in value:
-        pairs.append((f"{prefix}.StackPolicyBody", str(value["stack_policy_body"])))
+        pairs.append((f"{key_prefix}StackPolicyBody", str(value["stack_policy_body"])))
 
 
 def deserialize_query(el: Element) -> GetStackPolicyOutput:

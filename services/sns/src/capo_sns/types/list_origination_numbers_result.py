@@ -24,13 +24,14 @@ class ListOriginationNumbersResult(TypedDict, closed=True):
 def serialize_query(
     value: ListOriginationNumbersResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "phone_numbers" in value:
         import capo_sns.types.phone_number_information_list
 
         capo_sns.types.phone_number_information_list.serialize_query(
-            value["phone_numbers"], pairs, f"{prefix}.PhoneNumbers"
+            value["phone_numbers"], pairs, f"{key_prefix}PhoneNumbers"
         )
 
 

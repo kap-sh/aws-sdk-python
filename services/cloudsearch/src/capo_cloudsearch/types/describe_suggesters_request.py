@@ -28,15 +28,18 @@ class DescribeSuggestersRequest(TypedDict, closed=True):
 def serialize_query(
     value: DescribeSuggestersRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     if "suggester_names" in value:
         import capo_cloudsearch.types.standard_name_list
 
         capo_cloudsearch.types.standard_name_list.serialize_query(
-            value["suggester_names"], pairs, f"{prefix}.SuggesterNames"
+            value["suggester_names"], pairs, f"{key_prefix}SuggesterNames"
         )
     if "deployed" in value:
-        pairs.append((f"{prefix}.Deployed", "true" if value["deployed"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Deployed", "true" if value["deployed"] else "false")
+        )
 
 
 def deserialize_query(el: Element) -> DescribeSuggestersRequest:

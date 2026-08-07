@@ -47,16 +47,24 @@ def _profile_bool(section: dict[str, str], key: str) -> bool | None:
     return val.strip().lower() in ("true", "1")
 
 
-def _load_profile() -> tuple[dict[str, str], dict[str, dict[str, str]]]:
-    profile = (
+def config_file() -> Path:
+    raw_cfg = os.environ.get("AWS_CONFIG_FILE")
+    return Path(raw_cfg).expanduser() if raw_cfg else Path.home() / ".aws" / "config"
+
+
+def active_profile() -> str:
+    return (
         os.environ.get("AWS_PROFILE")
         or os.environ.get("AWS_DEFAULT_PROFILE")
         or "default"
     )
-    raw_cfg = os.environ.get("AWS_CONFIG_FILE")
-    cfg_file = (
-        Path(raw_cfg).expanduser() if raw_cfg else Path.home() / ".aws" / "config"
-    )
+
+
+def _load_profile(
+    profile: str | None = None,
+) -> tuple[dict[str, str], dict[str, dict[str, str]]]:
+    profile = profile or active_profile()
+    cfg_file = config_file()
     merged: dict[str, str] = {}
     services: dict[str, dict[str, str]] = {}
     if cfg_file.is_file():

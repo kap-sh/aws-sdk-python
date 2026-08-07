@@ -30,21 +30,24 @@ class NodeConfigurationOption(TypedDict, closed=True):
 def serialize_query(
     value: NodeConfigurationOption, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_type" in value:
-        pairs.append((f"{prefix}.NodeType", str(value["node_type"])))
+        pairs.append((f"{key_prefix}NodeType", str(value["node_type"])))
     if "number_of_nodes" in value:
-        pairs.append((f"{prefix}.NumberOfNodes", str(value["number_of_nodes"])))
+        pairs.append((f"{key_prefix}NumberOfNodes", str(value["number_of_nodes"])))
     if "estimated_disk_utilization_percent" in value:
         pairs.append(
             (
-                f"{prefix}.EstimatedDiskUtilizationPercent",
+                f"{key_prefix}EstimatedDiskUtilizationPercent",
                 str(value["estimated_disk_utilization_percent"]),
             )
         )
     if "mode" in value:
         import capo_redshift.types.mode
 
-        capo_redshift.types.mode.serialize_query(value["mode"], pairs, f"{prefix}.Mode")
+        capo_redshift.types.mode.serialize_query(
+            value["mode"], pairs, f"{key_prefix}Mode"
+        )
 
 
 def deserialize_query(el: Element) -> NodeConfigurationOption:

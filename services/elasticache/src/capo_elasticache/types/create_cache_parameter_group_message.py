@@ -26,27 +26,28 @@ class CreateCacheParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateCacheParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupName",
+                f"{key_prefix}CacheParameterGroupName",
                 str(value["cache_parameter_group_name"]),
             )
         )
     if "cache_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupFamily",
+                f"{key_prefix}CacheParameterGroupFamily",
                 str(value["cache_parameter_group_family"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

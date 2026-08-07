@@ -23,9 +23,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_drift_detection_id" in value:
         pairs.append(
-            (f"{prefix}.StackDriftDetectionId", str(value["stack_drift_detection_id"]))
+            (
+                f"{key_prefix}StackDriftDetectionId",
+                str(value["stack_drift_detection_id"]),
+            )
         )
 
 

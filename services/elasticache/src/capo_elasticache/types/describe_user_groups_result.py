@@ -22,14 +22,15 @@ class DescribeUserGroupsResult(TypedDict, closed=True):
 def serialize_query(
     value: DescribeUserGroupsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_groups" in value:
         import capo_elasticache.types.user_group_list
 
         capo_elasticache.types.user_group_list.serialize_query(
-            value["user_groups"], pairs, f"{prefix}.UserGroups"
+            value["user_groups"], pairs, f"{key_prefix}UserGroups"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeUserGroupsResult:

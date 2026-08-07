@@ -24,13 +24,16 @@ class ReservedNodeOfferingsMessage(TypedDict, closed=True):
 def serialize_query(
     value: ReservedNodeOfferingsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "reserved_node_offerings" in value:
         import capo_redshift.types.reserved_node_offering_list
 
         capo_redshift.types.reserved_node_offering_list.serialize_query(
-            value["reserved_node_offerings"], pairs, f"{prefix}.ReservedNodeOfferings"
+            value["reserved_node_offerings"],
+            pairs,
+            f"{key_prefix}ReservedNodeOfferings",
         )
 
 

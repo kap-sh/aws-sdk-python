@@ -22,11 +22,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_security_group" in value:
         import capo_redshift.types.cluster_security_group
 
         capo_redshift.types.cluster_security_group.serialize_query(
-            value["cluster_security_group"], pairs, f"{prefix}.ClusterSecurityGroup"
+            value["cluster_security_group"], pairs, f"{key_prefix}ClusterSecurityGroup"
         )
 
 

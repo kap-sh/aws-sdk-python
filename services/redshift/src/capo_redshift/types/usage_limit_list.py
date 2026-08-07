@@ -22,14 +22,15 @@ class UsageLimitList(TypedDict, closed=True):
 def serialize_query(
     value: UsageLimitList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "usage_limits" in value:
         import capo_redshift.types.usage_limits
 
         capo_redshift.types.usage_limits.serialize_query(
-            value["usage_limits"], pairs, f"{prefix}.UsageLimits"
+            value["usage_limits"], pairs, f"{key_prefix}UsageLimits"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> UsageLimitList:

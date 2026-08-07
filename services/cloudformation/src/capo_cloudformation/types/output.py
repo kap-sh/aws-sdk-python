@@ -26,14 +26,15 @@ class Output(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Output, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "output_key" in value:
-        pairs.append((f"{prefix}.OutputKey", str(value["output_key"])))
+        pairs.append((f"{key_prefix}OutputKey", str(value["output_key"])))
     if "output_value" in value:
-        pairs.append((f"{prefix}.OutputValue", str(value["output_value"])))
+        pairs.append((f"{key_prefix}OutputValue", str(value["output_value"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "export_name" in value:
-        pairs.append((f"{prefix}.ExportName", str(value["export_name"])))
+        pairs.append((f"{key_prefix}ExportName", str(value["export_name"])))
 
 
 def deserialize_query(el: Element) -> Output:

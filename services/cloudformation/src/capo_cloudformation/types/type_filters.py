@@ -27,16 +27,17 @@ class TypeFilters(TypedDict, closed=True):
 def serialize_query(
     value: TypeFilters, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "category" in value:
         import capo_cloudformation.types.category
 
         capo_cloudformation.types.category.serialize_query(
-            value["category"], pairs, f"{prefix}.Category"
+            value["category"], pairs, f"{key_prefix}Category"
         )
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "type_name_prefix" in value:
-        pairs.append((f"{prefix}.TypeNamePrefix", str(value["type_name_prefix"])))
+        pairs.append((f"{key_prefix}TypeNamePrefix", str(value["type_name_prefix"])))
 
 
 def deserialize_query(el: Element) -> TypeFilters:

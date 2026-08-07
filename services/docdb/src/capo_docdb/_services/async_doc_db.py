@@ -265,10 +265,10 @@ class AsyncDocDBClient:
 
     async def add_source_identifier_to_subscription(
         self,
-        subscription_name: "capo_docdb.types.string.String",
-        source_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        subscription_name: Optional["capo_docdb.types.string.String"] = None,
+        source_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.add_source_identifier_to_subscription_result.AddSourceIdentifierToSubscriptionResult":
         """<p>Adds a source identifier to an existing event notification subscription.</p>
 
@@ -299,8 +299,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["source_identifier"] = source_identifier
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if source_identifier is not None:
+            input_["source_identifier"] = source_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -311,10 +313,10 @@ class AsyncDocDBClient:
 
     async def add_tags_to_resource(
         self,
-        resource_name: "capo_docdb.types.string.String",
-        tags: "capo_docdb.types.tag_list.TagList",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        resource_name: Optional["capo_docdb.types.string.String"] = None,
+        tags: Optional["capo_docdb.types.tag_list.TagList"] = None,
     ) -> None:
         """<p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with cost allocation reporting to track costs that are associated with Amazon DocumentDB resources or in a <code>Condition</code> statement in an Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
 
@@ -344,8 +346,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tags"] = tags
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -356,11 +360,11 @@ class AsyncDocDBClient:
 
     async def apply_pending_maintenance_action(
         self,
-        resource_identifier: "capo_docdb.types.string.String",
-        apply_action: "capo_docdb.types.string.String",
-        opt_in_type: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        resource_identifier: Optional["capo_docdb.types.string.String"] = None,
+        apply_action: Optional["capo_docdb.types.string.String"] = None,
+        opt_in_type: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.apply_pending_maintenance_action_result.ApplyPendingMaintenanceActionResult":
         """<p>Applies a pending maintenance action to a resource (for example, to an Amazon DocumentDB instance).</p>
 
@@ -393,9 +397,12 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_identifier"] = resource_identifier
-        input_["apply_action"] = apply_action
-        input_["opt_in_type"] = opt_in_type
+        if resource_identifier is not None:
+            input_["resource_identifier"] = resource_identifier
+        if apply_action is not None:
+            input_["apply_action"] = apply_action
+        if opt_in_type is not None:
+            input_["opt_in_type"] = opt_in_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -406,11 +413,17 @@ class AsyncDocDBClient:
 
     async def copy_db_cluster_parameter_group(
         self,
-        source_db_cluster_parameter_group_identifier: "capo_docdb.types.string.String",
-        target_db_cluster_parameter_group_identifier: "capo_docdb.types.string.String",
-        target_db_cluster_parameter_group_description: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        source_db_cluster_parameter_group_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        target_db_cluster_parameter_group_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        target_db_cluster_parameter_group_description: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
         tags: Optional["capo_docdb.types.tag_list.TagList"] = None,
     ) -> "capo_docdb.types.copy_db_cluster_parameter_group_result.CopyDBClusterParameterGroupResult":
         """<p>Copies the specified cluster parameter group.</p>
@@ -445,15 +458,18 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_cluster_parameter_group_identifier"] = (
-            source_db_cluster_parameter_group_identifier
-        )
-        input_["target_db_cluster_parameter_group_identifier"] = (
-            target_db_cluster_parameter_group_identifier
-        )
-        input_["target_db_cluster_parameter_group_description"] = (
-            target_db_cluster_parameter_group_description
-        )
+        if source_db_cluster_parameter_group_identifier is not None:
+            input_["source_db_cluster_parameter_group_identifier"] = (
+                source_db_cluster_parameter_group_identifier
+            )
+        if target_db_cluster_parameter_group_identifier is not None:
+            input_["target_db_cluster_parameter_group_identifier"] = (
+                target_db_cluster_parameter_group_identifier
+            )
+        if target_db_cluster_parameter_group_description is not None:
+            input_["target_db_cluster_parameter_group_description"] = (
+                target_db_cluster_parameter_group_description
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -466,10 +482,14 @@ class AsyncDocDBClient:
 
     async def copy_db_cluster_snapshot(
         self,
-        source_db_cluster_snapshot_identifier: "capo_docdb.types.string.String",
-        target_db_cluster_snapshot_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        source_db_cluster_snapshot_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        target_db_cluster_snapshot_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
         kms_key_id: Optional["capo_docdb.types.string.String"] = None,
         pre_signed_url: Optional["capo_docdb.types.string.String"] = None,
         copy_tags: Optional["capo_docdb.types.boolean_optional.BooleanOptional"] = None,
@@ -512,12 +532,14 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_cluster_snapshot_identifier"] = (
-            source_db_cluster_snapshot_identifier
-        )
-        input_["target_db_cluster_snapshot_identifier"] = (
-            target_db_cluster_snapshot_identifier
-        )
+        if source_db_cluster_snapshot_identifier is not None:
+            input_["source_db_cluster_snapshot_identifier"] = (
+                source_db_cluster_snapshot_identifier
+            )
+        if target_db_cluster_snapshot_identifier is not None:
+            input_["target_db_cluster_snapshot_identifier"] = (
+                target_db_cluster_snapshot_identifier
+            )
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
@@ -536,8 +558,6 @@ class AsyncDocDBClient:
 
     async def create_db_cluster(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
-        engine: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
         availability_zones: Optional[
@@ -546,6 +566,7 @@ class AsyncDocDBClient:
         backup_retention_period: Optional[
             "capo_docdb.types.integer_optional.IntegerOptional"
         ] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         db_cluster_parameter_group_name: Optional[
             "capo_docdb.types.string.String"
         ] = None,
@@ -553,6 +574,7 @@ class AsyncDocDBClient:
             "capo_docdb.types.vpc_security_group_id_list.VpcSecurityGroupIdList"
         ] = None,
         db_subnet_group_name: Optional["capo_docdb.types.string.String"] = None,
+        engine: Optional["capo_docdb.types.string.String"] = None,
         engine_version: Optional["capo_docdb.types.string.String"] = None,
         port: Optional["capo_docdb.types.integer_optional.IntegerOptional"] = None,
         master_username: Optional["capo_docdb.types.string.String"] = None,
@@ -658,14 +680,16 @@ class AsyncDocDBClient:
             input_["availability_zones"] = availability_zones
         if backup_retention_period is not None:
             input_["backup_retention_period"] = backup_retention_period
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
             input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
             input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
@@ -714,11 +738,13 @@ class AsyncDocDBClient:
 
     async def create_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_docdb.types.string.String",
-        db_parameter_group_family: "capo_docdb.types.string.String",
-        description: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        db_parameter_group_family: Optional["capo_docdb.types.string.String"] = None,
+        description: Optional["capo_docdb.types.string.String"] = None,
         tags: Optional["capo_docdb.types.tag_list.TagList"] = None,
     ) -> "capo_docdb.types.create_db_cluster_parameter_group_result.CreateDBClusterParameterGroupResult":
         r"""<p>Creates a new cluster parameter group.</p> <p>Parameters in a cluster parameter group apply to all of the instances in a cluster.</p> <p>A cluster parameter group is initially created with the default parameters for the database engine used by instances in the cluster. In Amazon DocumentDB, you cannot make modifications directly to the <code>default.docdb3.6</code> cluster parameter group. If your Amazon DocumentDB cluster is using the default cluster parameter group and you want to modify a value in it, you must first <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html\"> create a new parameter group</a> or <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html\"> copy an existing parameter group</a>, modify it, and then apply the modified parameter group to your cluster. For the new cluster parameter group and associated settings to take effect, you must then reboot the instances in the cluster without failover. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html\"> Modifying Amazon DocumentDB Cluster Parameter Groups</a>. </p>
@@ -752,9 +778,12 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input_["db_parameter_group_family"] = db_parameter_group_family
-        input_["description"] = description
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -767,10 +796,12 @@ class AsyncDocDBClient:
 
     async def create_db_cluster_snapshot(
         self,
-        db_cluster_snapshot_identifier: "capo_docdb.types.string.String",
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         tags: Optional["capo_docdb.types.tag_list.TagList"] = None,
     ) -> "capo_docdb.types.create_db_cluster_snapshot_result.CreateDBClusterSnapshotResult":
         """<p>Creates a snapshot of a cluster. </p>
@@ -806,8 +837,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if tags is not None:
             input_["tags"] = tags
 
@@ -820,18 +853,18 @@ class AsyncDocDBClient:
 
     async def create_db_instance(
         self,
-        db_instance_identifier: "capo_docdb.types.string.String",
-        db_instance_class: "capo_docdb.types.string.String",
-        engine: "capo_docdb.types.string.String",
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_instance_identifier: Optional["capo_docdb.types.string.String"] = None,
+        db_instance_class: Optional["capo_docdb.types.string.String"] = None,
+        engine: Optional["capo_docdb.types.string.String"] = None,
         availability_zone: Optional["capo_docdb.types.string.String"] = None,
         preferred_maintenance_window: Optional["capo_docdb.types.string.String"] = None,
         auto_minor_version_upgrade: Optional[
             "capo_docdb.types.boolean_optional.BooleanOptional"
         ] = None,
         tags: Optional["capo_docdb.types.tag_list.TagList"] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         copy_tags_to_snapshot: Optional[
             "capo_docdb.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -899,9 +932,12 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
-        input_["db_instance_class"] = db_instance_class
-        input_["engine"] = engine
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_class is not None:
+            input_["db_instance_class"] = db_instance_class
+        if engine is not None:
+            input_["engine"] = engine
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if preferred_maintenance_window is not None:
@@ -910,7 +946,8 @@ class AsyncDocDBClient:
             input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if tags is not None:
             input_["tags"] = tags
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if copy_tags_to_snapshot is not None:
             input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if promotion_tier is not None:
@@ -931,11 +968,13 @@ class AsyncDocDBClient:
 
     async def create_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_docdb.types.string.String",
-        db_subnet_group_description: "capo_docdb.types.string.String",
-        subnet_ids: "capo_docdb.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_subnet_group_name: Optional["capo_docdb.types.string.String"] = None,
+        db_subnet_group_description: Optional["capo_docdb.types.string.String"] = None,
+        subnet_ids: Optional[
+            "capo_docdb.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
         tags: Optional["capo_docdb.types.tag_list.TagList"] = None,
     ) -> "capo_docdb.types.create_db_subnet_group_result.CreateDBSubnetGroupResult":
         """<p>Creates a new subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Amazon Web Services Region.</p>
@@ -972,9 +1011,12 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["db_subnet_group_description"] = db_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_description is not None:
+            input_["db_subnet_group_description"] = db_subnet_group_description
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
             input_["tags"] = tags
 
@@ -987,10 +1029,10 @@ class AsyncDocDBClient:
 
     async def create_event_subscription(
         self,
-        subscription_name: "capo_docdb.types.string.String",
-        sns_topic_arn: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        subscription_name: Optional["capo_docdb.types.string.String"] = None,
+        sns_topic_arn: Optional["capo_docdb.types.string.String"] = None,
         source_type: Optional["capo_docdb.types.string.String"] = None,
         event_categories: Optional[
             "capo_docdb.types.event_categories_list.EventCategoriesList"
@@ -1038,8 +1080,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["sns_topic_arn"] = sns_topic_arn
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if sns_topic_arn is not None:
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
             input_["source_type"] = source_type
         if event_categories is not None:
@@ -1060,9 +1104,11 @@ class AsyncDocDBClient:
 
     async def create_global_cluster(
         self,
-        global_cluster_identifier: "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
         source_db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         engine: Optional["capo_docdb.types.string.String"] = None,
         engine_version: Optional["capo_docdb.types.string.String"] = None,
@@ -1110,7 +1156,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if source_db_cluster_identifier is not None:
             input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if engine is not None:
@@ -1133,9 +1180,9 @@ class AsyncDocDBClient:
 
     async def delete_db_cluster(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         skip_final_snapshot: Optional["capo_docdb.types.boolean.Boolean"] = None,
         final_db_snapshot_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.delete_db_cluster_result.DeleteDBClusterResult":
@@ -1172,7 +1219,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if skip_final_snapshot is not None:
             input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
@@ -1187,9 +1235,11 @@ class AsyncDocDBClient:
 
     async def delete_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>
 
@@ -1217,7 +1267,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1228,9 +1279,11 @@ class AsyncDocDBClient:
 
     async def delete_db_cluster_snapshot(
         self,
-        db_cluster_snapshot_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
     ) -> "capo_docdb.types.delete_db_cluster_snapshot_result.DeleteDBClusterSnapshotResult":
         """<p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p> <note> <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p> </note>
 
@@ -1260,7 +1313,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1271,9 +1325,9 @@ class AsyncDocDBClient:
 
     async def delete_db_instance(
         self,
-        db_instance_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_instance_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.delete_db_instance_result.DeleteDBInstanceResult":
         """<p>Deletes a previously provisioned instance.</p>
 
@@ -1306,7 +1360,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1317,9 +1372,9 @@ class AsyncDocDBClient:
 
     async def delete_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_subnet_group_name: Optional["capo_docdb.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a subnet group.</p> <note> <p>The specified database subnet group must not be associated with any DB instances.</p> </note>
 
@@ -1348,7 +1403,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1359,9 +1415,9 @@ class AsyncDocDBClient:
 
     async def delete_event_subscription(
         self,
-        subscription_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        subscription_name: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.delete_event_subscription_result.DeleteEventSubscriptionResult":
         """<p>Deletes an Amazon DocumentDB event notification subscription.</p>
 
@@ -1391,7 +1447,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1402,9 +1459,11 @@ class AsyncDocDBClient:
 
     async def delete_global_cluster(
         self,
-        global_cluster_identifier: "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
     ) -> "capo_docdb.types.delete_global_cluster_result.DeleteGlobalClusterResult":
         """<p>Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.</p> <note> <p>This action only applies to Amazon DocumentDB clusters.</p> </note>
 
@@ -1434,7 +1493,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1617,9 +1677,11 @@ class AsyncDocDBClient:
 
     async def describe_db_cluster_parameters(
         self,
-        db_cluster_parameter_group_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
         source: Optional["capo_docdb.types.string.String"] = None,
         filters: Optional["capo_docdb.types.filter_list.FilterList"] = None,
         max_records: Optional[
@@ -1658,7 +1720,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if source is not None:
             input_["source"] = source
         if filters is not None:
@@ -1677,9 +1740,11 @@ class AsyncDocDBClient:
 
     async def iter_describe_db_cluster_parameters(
         self,
-        db_cluster_parameter_group_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
         source: Optional["capo_docdb.types.string.String"] = None,
         filters: Optional["capo_docdb.types.filter_list.FilterList"] = None,
         max_records: Optional[
@@ -1690,8 +1755,8 @@ class AsyncDocDBClient:
         _token = marker
         while True:
             _response = await self.describe_db_cluster_parameters(
-                db_cluster_parameter_group_name,
                 config_overrides=config_overrides,
+                db_cluster_parameter_group_name=db_cluster_parameter_group_name,
                 source=source,
                 filters=filters,
                 max_records=max_records,
@@ -1790,9 +1855,11 @@ class AsyncDocDBClient:
 
     async def describe_db_cluster_snapshot_attributes(
         self,
-        db_cluster_snapshot_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
     ) -> "capo_docdb.types.describe_db_cluster_snapshot_attributes_result.DescribeDBClusterSnapshotAttributesResult":
         """<p>Returns a list of cluster snapshot attribute names and values for a manual DB cluster snapshot.</p> <p>When you share snapshots with other Amazon Web Services accounts, <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p>
 
@@ -1821,7 +1888,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2233,9 +2301,9 @@ class AsyncDocDBClient:
 
     async def describe_engine_default_cluster_parameters(
         self,
-        db_parameter_group_family: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_parameter_group_family: Optional["capo_docdb.types.string.String"] = None,
         filters: Optional["capo_docdb.types.filter_list.FilterList"] = None,
         max_records: Optional[
             "capo_docdb.types.integer_optional.IntegerOptional"
@@ -2271,7 +2339,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_family"] = db_parameter_group_family
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
             input_["filters"] = filters
         if max_records is not None:
@@ -2621,9 +2690,9 @@ class AsyncDocDBClient:
 
     async def describe_orderable_db_instance_options(
         self,
-        engine: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        engine: Optional["capo_docdb.types.string.String"] = None,
         engine_version: Optional["capo_docdb.types.string.String"] = None,
         db_instance_class: Optional["capo_docdb.types.string.String"] = None,
         license_model: Optional["capo_docdb.types.string.String"] = None,
@@ -2667,7 +2736,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if db_instance_class is not None:
@@ -2692,9 +2762,9 @@ class AsyncDocDBClient:
 
     async def iter_describe_orderable_db_instance_options(
         self,
-        engine: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        engine: Optional["capo_docdb.types.string.String"] = None,
         engine_version: Optional["capo_docdb.types.string.String"] = None,
         db_instance_class: Optional["capo_docdb.types.string.String"] = None,
         license_model: Optional["capo_docdb.types.string.String"] = None,
@@ -2708,8 +2778,8 @@ class AsyncDocDBClient:
         _token = marker
         while True:
             _response = await self.describe_orderable_db_instance_options(
-                engine,
                 config_overrides=config_overrides,
+                engine=engine,
                 engine_version=engine_version,
                 db_instance_class=db_instance_class,
                 license_model=license_model,
@@ -2862,10 +2932,14 @@ class AsyncDocDBClient:
 
     async def failover_global_cluster(
         self,
-        global_cluster_identifier: "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier",
-        target_db_cluster_identifier: "capo_docdb.types.db_cluster_identifier.DBClusterIdentifier",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        target_db_cluster_identifier: Optional[
+            "capo_docdb.types.db_cluster_identifier.DBClusterIdentifier"
+        ] = None,
         allow_data_loss: Optional[
             "capo_docdb.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -2906,8 +2980,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if target_db_cluster_identifier is not None:
+            input_["target_db_cluster_identifier"] = target_db_cluster_identifier
         if allow_data_loss is not None:
             input_["allow_data_loss"] = allow_data_loss
         if switchover is not None:
@@ -2922,9 +2998,9 @@ class AsyncDocDBClient:
 
     async def list_tags_for_resource(
         self,
-        resource_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        resource_name: Optional["capo_docdb.types.string.String"] = None,
         filters: Optional["capo_docdb.types.filter_list.FilterList"] = None,
     ) -> "capo_docdb.types.tag_list_message.TagListMessage":
         """<p>Lists all tags on an Amazon DocumentDB resource.</p>
@@ -2955,7 +3031,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
         if filters is not None:
             input_["filters"] = filters
 
@@ -2968,9 +3045,9 @@ class AsyncDocDBClient:
 
     async def modify_db_cluster(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         new_db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         apply_immediately: Optional["capo_docdb.types.boolean.Boolean"] = None,
         backup_retention_period: Optional[
@@ -3068,7 +3145,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if new_db_cluster_identifier is not None:
             input_["new_db_cluster_identifier"] = new_db_cluster_identifier
         if apply_immediately is not None:
@@ -3121,10 +3199,12 @@ class AsyncDocDBClient:
 
     async def modify_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_docdb.types.string.String",
-        parameters: "capo_docdb.types.parameters_list.ParametersList",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        parameters: Optional["capo_docdb.types.parameters_list.ParametersList"] = None,
     ) -> "capo_docdb.types.db_cluster_parameter_group_name_message.DBClusterParameterGroupNameMessage":
         """<p> Modifies the parameters of a cluster parameter group. To modify more than one parameter, submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request. </p> <note> <p>Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot or maintenance window before the change can take effect.</p> </note> <important> <p>After you create a cluster parameter group, you should wait at least 5 minutes before creating your first cluster that uses that cluster parameter group as the default parameter group. This allows Amazon DocumentDB to fully complete the create action before the parameter group is used as the default for a new cluster. This step is especially important for parameters that are critical when creating the default database for a cluster, such as the character set for the default database defined by the <code>character_set_database</code> parameter.</p> </important>
 
@@ -3155,8 +3235,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input_["parameters"] = parameters
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if parameters is not None:
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3167,10 +3249,12 @@ class AsyncDocDBClient:
 
     async def modify_db_cluster_snapshot_attribute(
         self,
-        db_cluster_snapshot_identifier: "capo_docdb.types.string.String",
-        attribute_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
+        attribute_name: Optional["capo_docdb.types.string.String"] = None,
         values_to_add: Optional[
             "capo_docdb.types.attribute_value_list.AttributeValueList"
         ] = None,
@@ -3210,8 +3294,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input_["attribute_name"] = attribute_name
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if attribute_name is not None:
+            input_["attribute_name"] = attribute_name
         if values_to_add is not None:
             input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
@@ -3226,9 +3312,9 @@ class AsyncDocDBClient:
 
     async def modify_db_instance(
         self,
-        db_instance_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_instance_identifier: Optional["capo_docdb.types.string.String"] = None,
         db_instance_class: Optional["capo_docdb.types.string.String"] = None,
         apply_immediately: Optional["capo_docdb.types.boolean.Boolean"] = None,
         preferred_maintenance_window: Optional["capo_docdb.types.string.String"] = None,
@@ -3303,7 +3389,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if db_instance_class is not None:
             input_["db_instance_class"] = db_instance_class
         if apply_immediately is not None:
@@ -3336,11 +3423,13 @@ class AsyncDocDBClient:
 
     async def modify_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_docdb.types.string.String",
-        subnet_ids: "capo_docdb.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_subnet_group_name: Optional["capo_docdb.types.string.String"] = None,
         db_subnet_group_description: Optional["capo_docdb.types.string.String"] = None,
+        subnet_ids: Optional[
+            "capo_docdb.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
     ) -> "capo_docdb.types.modify_db_subnet_group_result.ModifyDBSubnetGroupResult":
         """<p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Amazon Web Services Region.</p>
 
@@ -3375,10 +3464,12 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if db_subnet_group_description is not None:
             input_["db_subnet_group_description"] = db_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3389,9 +3480,9 @@ class AsyncDocDBClient:
 
     async def modify_event_subscription(
         self,
-        subscription_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        subscription_name: Optional["capo_docdb.types.string.String"] = None,
         sns_topic_arn: Optional["capo_docdb.types.string.String"] = None,
         source_type: Optional["capo_docdb.types.string.String"] = None,
         event_categories: Optional[
@@ -3435,7 +3526,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
             input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
@@ -3454,9 +3546,11 @@ class AsyncDocDBClient:
 
     async def modify_global_cluster(
         self,
-        global_cluster_identifier: "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
         new_global_cluster_identifier: Optional[
             "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
         ] = None,
@@ -3494,7 +3588,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if new_global_cluster_identifier is not None:
             input_["new_global_cluster_identifier"] = new_global_cluster_identifier
         if deletion_protection is not None:
@@ -3509,9 +3604,9 @@ class AsyncDocDBClient:
 
     async def reboot_db_instance(
         self,
-        db_instance_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_instance_identifier: Optional["capo_docdb.types.string.String"] = None,
         force_failover: Optional[
             "capo_docdb.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -3545,7 +3640,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if force_failover is not None:
             input_["force_failover"] = force_failover
 
@@ -3558,10 +3654,12 @@ class AsyncDocDBClient:
 
     async def remove_from_global_cluster(
         self,
-        global_cluster_identifier: "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier",
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.remove_from_global_cluster_result.RemoveFromGlobalClusterResult":
         """<p>Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region. </p> <note> <p>This action only applies to Amazon DocumentDB clusters.</p> </note>
 
@@ -3593,8 +3691,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3605,10 +3705,10 @@ class AsyncDocDBClient:
 
     async def remove_source_identifier_from_subscription(
         self,
-        subscription_name: "capo_docdb.types.string.String",
-        source_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        subscription_name: Optional["capo_docdb.types.string.String"] = None,
+        source_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.remove_source_identifier_from_subscription_result.RemoveSourceIdentifierFromSubscriptionResult":
         """<p>Removes a source identifier from an existing Amazon DocumentDB event notification subscription.</p>
 
@@ -3639,8 +3739,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["source_identifier"] = source_identifier
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if source_identifier is not None:
+            input_["source_identifier"] = source_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3651,10 +3753,10 @@ class AsyncDocDBClient:
 
     async def remove_tags_from_resource(
         self,
-        resource_name: "capo_docdb.types.string.String",
-        tag_keys: "capo_docdb.types.key_list.KeyList",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        resource_name: Optional["capo_docdb.types.string.String"] = None,
+        tag_keys: Optional["capo_docdb.types.key_list.KeyList"] = None,
     ) -> None:
         """<p>Removes metadata tags from an Amazon DocumentDB resource.</p>
 
@@ -3684,8 +3786,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tag_keys"] = tag_keys
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3696,9 +3800,11 @@ class AsyncDocDBClient:
 
     async def reset_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_docdb.types.string.String"
+        ] = None,
         reset_all_parameters: Optional["capo_docdb.types.boolean.Boolean"] = None,
         parameters: Optional["capo_docdb.types.parameters_list.ParametersList"] = None,
     ) -> "capo_docdb.types.db_cluster_parameter_group_name_message.DBClusterParameterGroupNameMessage":
@@ -3732,7 +3838,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
@@ -3747,14 +3854,14 @@ class AsyncDocDBClient:
 
     async def restore_db_cluster_from_snapshot(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
-        snapshot_identifier: "capo_docdb.types.string.String",
-        engine: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
         availability_zones: Optional[
             "capo_docdb.types.availability_zones.AvailabilityZones"
         ] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
+        snapshot_identifier: Optional["capo_docdb.types.string.String"] = None,
+        engine: Optional["capo_docdb.types.string.String"] = None,
         engine_version: Optional["capo_docdb.types.string.String"] = None,
         port: Optional["capo_docdb.types.integer_optional.IntegerOptional"] = None,
         db_subnet_group_name: Optional["capo_docdb.types.string.String"] = None,
@@ -3836,9 +3943,12 @@ class AsyncDocDBClient:
         input_: capo_docdb.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["snapshot_identifier"] = snapshot_identifier
-        input_["engine"] = engine
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
@@ -3875,11 +3985,11 @@ class AsyncDocDBClient:
 
     async def restore_db_cluster_to_point_in_time(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
-        source_db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         restore_type: Optional["capo_docdb.types.string.String"] = None,
+        source_db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
         restore_to_time: Optional["capo_docdb.types.t_stamp.TStamp"] = None,
         use_latest_restorable_time: Optional["capo_docdb.types.boolean.Boolean"] = None,
         port: Optional["capo_docdb.types.integer_optional.IntegerOptional"] = None,
@@ -3957,10 +4067,12 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if restore_type is not None:
             input_["restore_type"] = restore_type
-        input_["source_db_cluster_identifier"] = source_db_cluster_identifier
+        if source_db_cluster_identifier is not None:
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if restore_to_time is not None:
             input_["restore_to_time"] = restore_to_time
         if use_latest_restorable_time is not None:
@@ -3997,9 +4109,9 @@ class AsyncDocDBClient:
 
     async def start_db_cluster(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.start_db_cluster_result.StartDBClusterResult":
         r"""<p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html\">Stopping and Starting an Amazon DocumentDB Cluster</a>.</p>
 
@@ -4030,7 +4142,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4041,9 +4154,9 @@ class AsyncDocDBClient:
 
     async def stop_db_cluster(
         self,
-        db_cluster_identifier: "capo_docdb.types.string.String",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        db_cluster_identifier: Optional["capo_docdb.types.string.String"] = None,
     ) -> "capo_docdb.types.stop_db_cluster_result.StopDBClusterResult":
         r"""<p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The cluster must be in the <i>available</i> state. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html\">Stopping and Starting an Amazon DocumentDB Cluster</a>.</p>
 
@@ -4074,7 +4187,8 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4085,10 +4199,14 @@ class AsyncDocDBClient:
 
     async def switchover_global_cluster(
         self,
-        global_cluster_identifier: "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier",
-        target_db_cluster_identifier: "capo_docdb.types.db_cluster_identifier.DBClusterIdentifier",
         *,
         config_overrides: Optional[AsyncDocDBClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_docdb.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        target_db_cluster_identifier: Optional[
+            "capo_docdb.types.db_cluster_identifier.DBClusterIdentifier"
+        ] = None,
     ) -> "capo_docdb.types.switchover_global_cluster_result.SwitchoverGlobalClusterResult":
         """<p>Switches over the specified secondary Amazon DocumentDB cluster to be the new primary Amazon DocumentDB cluster in the global database cluster.</p>
 
@@ -4121,8 +4239,10 @@ class AsyncDocDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_docdb.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if target_db_cluster_identifier is not None:
+            input_["target_db_cluster_identifier"] = target_db_cluster_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

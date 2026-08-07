@@ -20,13 +20,14 @@ class Endpoint(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Endpoint, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "endpoint_arn" in value:
-        pairs.append((f"{prefix}.EndpointArn", str(value["endpoint_arn"])))
+        pairs.append((f"{key_prefix}EndpointArn", str(value["endpoint_arn"])))
     if "attributes" in value:
         import capo_sns.types.map_string_to_string
 
         capo_sns.types.map_string_to_string.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

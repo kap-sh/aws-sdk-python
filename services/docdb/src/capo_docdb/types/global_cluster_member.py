@@ -30,21 +30,24 @@ class GlobalClusterMember(TypedDict, closed=True):
 def serialize_query(
     value: GlobalClusterMember, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_arn" in value:
-        pairs.append((f"{prefix}.DBClusterArn", str(value["db_cluster_arn"])))
+        pairs.append((f"{key_prefix}DBClusterArn", str(value["db_cluster_arn"])))
     if "readers" in value:
         import capo_docdb.types.readers_arn_list
 
         capo_docdb.types.readers_arn_list.serialize_query(
-            value["readers"], pairs, f"{prefix}.Readers"
+            value["readers"], pairs, f"{key_prefix}Readers"
         )
     if "is_writer" in value:
-        pairs.append((f"{prefix}.IsWriter", "true" if value["is_writer"] else "false"))
+        pairs.append(
+            (f"{key_prefix}IsWriter", "true" if value["is_writer"] else "false")
+        )
     if "synchronization_status" in value:
         import capo_docdb.types.global_cluster_member_synchronization_status
 
         capo_docdb.types.global_cluster_member_synchronization_status.serialize_query(
-            value["synchronization_status"], pairs, f"{prefix}.SynchronizationStatus"
+            value["synchronization_status"], pairs, f"{key_prefix}SynchronizationStatus"
         )
 
 

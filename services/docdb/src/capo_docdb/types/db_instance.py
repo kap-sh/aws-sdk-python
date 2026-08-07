@@ -103,54 +103,63 @@ class DBInstance(TypedDict, closed=True):
 def serialize_query(
     value: DBInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "db_instance_status" in value:
-        pairs.append((f"{prefix}.DBInstanceStatus", str(value["db_instance_status"])))
+        pairs.append(
+            (f"{key_prefix}DBInstanceStatus", str(value["db_instance_status"]))
+        )
     if "endpoint" in value:
         import capo_docdb.types.endpoint
 
         capo_docdb.types.endpoint.serialize_query(
-            value["endpoint"], pairs, f"{prefix}.Endpoint"
+            value["endpoint"], pairs, f"{key_prefix}Endpoint"
         )
     if "instance_create_time" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["instance_create_time"], pairs, f"{prefix}.InstanceCreateTime"
+            value["instance_create_time"], pairs, f"{key_prefix}InstanceCreateTime"
         )
     if "preferred_backup_window" in value:
         pairs.append(
-            (f"{prefix}.PreferredBackupWindow", str(value["preferred_backup_window"]))
+            (
+                f"{key_prefix}PreferredBackupWindow",
+                str(value["preferred_backup_window"]),
+            )
         )
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "vpc_security_groups" in value:
         import capo_docdb.types.vpc_security_group_membership_list
 
         capo_docdb.types.vpc_security_group_membership_list.serialize_query(
-            value["vpc_security_groups"], pairs, f"{prefix}.VpcSecurityGroups"
+            value["vpc_security_groups"], pairs, f"{key_prefix}VpcSecurityGroups"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "db_subnet_group" in value:
         import capo_docdb.types.db_subnet_group
 
         capo_docdb.types.db_subnet_group.serialize_query(
-            value["db_subnet_group"], pairs, f"{prefix}.DBSubnetGroup"
+            value["db_subnet_group"], pairs, f"{key_prefix}DBSubnetGroup"
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
@@ -158,27 +167,29 @@ def serialize_query(
         import capo_docdb.types.pending_modified_values
 
         capo_docdb.types.pending_modified_values.serialize_query(
-            value["pending_modified_values"], pairs, f"{prefix}.PendingModifiedValues"
+            value["pending_modified_values"],
+            pairs,
+            f"{key_prefix}PendingModifiedValues",
         )
     if "latest_restorable_time" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["latest_restorable_time"], pairs, f"{prefix}.LatestRestorableTime"
+            value["latest_restorable_time"], pairs, f"{key_prefix}LatestRestorableTime"
         )
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "auto_minor_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AutoMinorVersionUpgrade",
+                f"{key_prefix}AutoMinorVersionUpgrade",
                 "true" if value["auto_minor_version_upgrade"] else "false",
             )
         )
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
@@ -186,66 +197,66 @@ def serialize_query(
         import capo_docdb.types.db_instance_status_info_list
 
         capo_docdb.types.db_instance_status_info_list.serialize_query(
-            value["status_infos"], pairs, f"{prefix}.StatusInfos"
+            value["status_infos"], pairs, f"{key_prefix}StatusInfos"
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
     if "ca_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.CACertificateIdentifier",
+                f"{key_prefix}CACertificateIdentifier",
                 str(value["ca_certificate_identifier"]),
             )
         )
     if "copy_tags_to_snapshot" in value:
         pairs.append(
             (
-                f"{prefix}.CopyTagsToSnapshot",
+                f"{key_prefix}CopyTagsToSnapshot",
                 "true" if value["copy_tags_to_snapshot"] else "false",
             )
         )
     if "promotion_tier" in value:
-        pairs.append((f"{prefix}.PromotionTier", str(value["promotion_tier"])))
+        pairs.append((f"{key_prefix}PromotionTier", str(value["promotion_tier"])))
     if "db_instance_arn" in value:
-        pairs.append((f"{prefix}.DBInstanceArn", str(value["db_instance_arn"])))
+        pairs.append((f"{key_prefix}DBInstanceArn", str(value["db_instance_arn"])))
     if "enabled_cloudwatch_logs_exports" in value:
         import capo_docdb.types.log_type_list
 
         capo_docdb.types.log_type_list.serialize_query(
             value["enabled_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.EnabledCloudwatchLogsExports",
+            f"{key_prefix}EnabledCloudwatchLogsExports",
         )
     if "certificate_details" in value:
         import capo_docdb.types.certificate_details
 
         capo_docdb.types.certificate_details.serialize_query(
-            value["certificate_details"], pairs, f"{prefix}.CertificateDetails"
+            value["certificate_details"], pairs, f"{key_prefix}CertificateDetails"
         )
     if "performance_insights_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.PerformanceInsightsEnabled",
+                f"{key_prefix}PerformanceInsightsEnabled",
                 "true" if value["performance_insights_enabled"] else "false",
             )
         )
     if "performance_insights_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.PerformanceInsightsKMSKeyId",
+                f"{key_prefix}PerformanceInsightsKMSKeyId",
                 str(value["performance_insights_kms_key_id"]),
             )
         )

@@ -27,12 +27,13 @@ class DescribeListenerCertificatesInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeListenerCertificatesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener_arn" in value:
-        pairs.append((f"{prefix}.ListenerArn", str(value["listener_arn"])))
+        pairs.append((f"{key_prefix}ListenerArn", str(value["listener_arn"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "page_size" in value:
-        pairs.append((f"{prefix}.PageSize", str(value["page_size"])))
+        pairs.append((f"{key_prefix}PageSize", str(value["page_size"])))
 
 
 def deserialize_query(el: Element) -> DescribeListenerCertificatesInput:

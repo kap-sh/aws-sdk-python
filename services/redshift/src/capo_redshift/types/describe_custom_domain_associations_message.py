@@ -34,19 +34,22 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "custom_domain_name" in value:
-        pairs.append((f"{prefix}.CustomDomainName", str(value["custom_domain_name"])))
+        pairs.append(
+            (f"{key_prefix}CustomDomainName", str(value["custom_domain_name"]))
+        )
     if "custom_domain_certificate_arn" in value:
         pairs.append(
             (
-                f"{prefix}.CustomDomainCertificateArn",
+                f"{key_prefix}CustomDomainCertificateArn",
                 str(value["custom_domain_certificate_arn"]),
             )
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeCustomDomainAssociationsMessage:

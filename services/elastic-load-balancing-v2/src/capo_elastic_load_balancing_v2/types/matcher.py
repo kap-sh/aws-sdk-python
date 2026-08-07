@@ -20,10 +20,11 @@ class Matcher(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Matcher, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "http_code" in value:
-        pairs.append((f"{prefix}.HttpCode", str(value["http_code"])))
+        pairs.append((f"{key_prefix}HttpCode", str(value["http_code"])))
     if "grpc_code" in value:
-        pairs.append((f"{prefix}.GrpcCode", str(value["grpc_code"])))
+        pairs.append((f"{key_prefix}GrpcCode", str(value["grpc_code"])))
 
 
 def deserialize_query(el: Element) -> Matcher:

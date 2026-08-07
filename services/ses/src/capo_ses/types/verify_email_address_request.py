@@ -20,7 +20,8 @@ class VerifyEmailAddressRequest(TypedDict, closed=True):
 def serialize_query(
     value: VerifyEmailAddressRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.EmailAddress", str(value["email_address"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EmailAddress", str(value["email_address"])))
 
 
 def deserialize_query(el: Element) -> VerifyEmailAddressRequest:

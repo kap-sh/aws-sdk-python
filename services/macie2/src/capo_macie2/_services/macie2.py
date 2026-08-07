@@ -348,12 +348,12 @@ class Macie2Client:
 
     def accept_invitation(
         self,
-        invitation_id: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         administrator_account_id: Optional[
             "capo_macie2.types.__string.__string"
         ] = None,
+        invitation_id: Optional["capo_macie2.types.__string.__string"] = None,
         master_account: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.accept_invitation_response.AcceptInvitationResponse":
         """<p>Accepts an Amazon Macie membership invitation that was received from a specific account.</p>
@@ -392,7 +392,8 @@ class Macie2Client:
         input_: capo_macie2.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
         if administrator_account_id is not None:
             input_["administrator_account_id"] = administrator_account_id
-        input_["invitation_id"] = invitation_id
+        if invitation_id is not None:
+            input_["invitation_id"] = invitation_id
         if master_account is not None:
             input_["master_account"] = master_account
 
@@ -501,13 +502,17 @@ class Macie2Client:
 
     def create_allow_list(
         self,
-        client_token: "capo_macie2.types.__string.__string",
-        criteria: "capo_macie2.types.allow_list_criteria.AllowListCriteria",
-        name: "capo_macie2.types.__string_min1_max128_pattern.__stringMin1Max128Pattern",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        client_token: Optional["capo_macie2.types.__string.__string"] = None,
+        criteria: Optional[
+            "capo_macie2.types.allow_list_criteria.AllowListCriteria"
+        ] = None,
         description: Optional[
             "capo_macie2.types.__string_min1_max512_pattern_ss.__stringMin1Max512PatternSS"
+        ] = None,
+        name: Optional[
+            "capo_macie2.types.__string_min1_max128_pattern.__stringMin1Max128Pattern"
         ] = None,
         tags: Optional["capo_macie2.types.tag_map.TagMap"] = None,
     ) -> "capo_macie2.types.create_allow_list_response.CreateAllowListResponse":
@@ -547,11 +552,14 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.create_allow_list_request.CreateAllowListRequest = {}  # type: ignore[typeddict-item]
-        input_["client_token"] = client_token
-        input_["criteria"] = criteria
+        if client_token is not None:
+            input_["client_token"] = client_token
+        if criteria is not None:
+            input_["criteria"] = criteria
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
 
@@ -564,25 +572,27 @@ class Macie2Client:
 
     def create_classification_job(
         self,
-        client_token: "capo_macie2.types.__string.__string",
-        job_type: "capo_macie2.types.job_type.JobType",
-        name: "capo_macie2.types.__string.__string",
-        s3_job_definition: "capo_macie2.types.s3_job_definition.S3JobDefinition",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         allow_list_ids: Optional[
             "capo_macie2.types.__list_of__string.__listOf__string"
         ] = None,
+        client_token: Optional["capo_macie2.types.__string.__string"] = None,
         custom_data_identifier_ids: Optional[
             "capo_macie2.types.__list_of__string.__listOf__string"
         ] = None,
         description: Optional["capo_macie2.types.__string.__string"] = None,
         initial_run: Optional["capo_macie2.types.__boolean.__boolean"] = None,
+        job_type: Optional["capo_macie2.types.job_type.JobType"] = None,
         managed_data_identifier_ids: Optional[
             "capo_macie2.types.__list_of__string.__listOf__string"
         ] = None,
         managed_data_identifier_selector: Optional[
             "capo_macie2.types.managed_data_identifier_selector.ManagedDataIdentifierSelector"
+        ] = None,
+        name: Optional["capo_macie2.types.__string.__string"] = None,
+        s3_job_definition: Optional[
+            "capo_macie2.types.s3_job_definition.S3JobDefinition"
         ] = None,
         sampling_percentage: Optional["capo_macie2.types.__integer.__integer"] = None,
         schedule_frequency: Optional[
@@ -636,22 +646,26 @@ class Macie2Client:
         input_: capo_macie2.types.create_classification_job_request.CreateClassificationJobRequest = {}  # type: ignore[typeddict-item]
         if allow_list_ids is not None:
             input_["allow_list_ids"] = allow_list_ids
-        input_["client_token"] = client_token
+        if client_token is not None:
+            input_["client_token"] = client_token
         if custom_data_identifier_ids is not None:
             input_["custom_data_identifier_ids"] = custom_data_identifier_ids
         if description is not None:
             input_["description"] = description
         if initial_run is not None:
             input_["initial_run"] = initial_run
-        input_["job_type"] = job_type
+        if job_type is not None:
+            input_["job_type"] = job_type
         if managed_data_identifier_ids is not None:
             input_["managed_data_identifier_ids"] = managed_data_identifier_ids
         if managed_data_identifier_selector is not None:
             input_["managed_data_identifier_selector"] = (
                 managed_data_identifier_selector
             )
-        input_["name"] = name
-        input_["s3_job_definition"] = s3_job_definition
+        if name is not None:
+            input_["name"] = name
+        if s3_job_definition is not None:
+            input_["s3_job_definition"] = s3_job_definition
         if sampling_percentage is not None:
             input_["sampling_percentage"] = sampling_percentage
         if schedule_frequency is not None:
@@ -668,8 +682,6 @@ class Macie2Client:
 
     def create_custom_data_identifier(
         self,
-        name: "capo_macie2.types.__string.__string",
-        regex: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         client_token: Optional["capo_macie2.types.__string.__string"] = None,
@@ -683,6 +695,8 @@ class Macie2Client:
         maximum_match_distance: Optional[
             "capo_macie2.types.__integer.__integer"
         ] = None,
+        name: Optional["capo_macie2.types.__string.__string"] = None,
+        regex: Optional["capo_macie2.types.__string.__string"] = None,
         severity_levels: Optional[
             "capo_macie2.types.severity_level_list.SeverityLevelList"
         ] = None,
@@ -738,8 +752,10 @@ class Macie2Client:
             input_["keywords"] = keywords
         if maximum_match_distance is not None:
             input_["maximum_match_distance"] = maximum_match_distance
-        input_["name"] = name
-        input_["regex"] = regex
+        if name is not None:
+            input_["name"] = name
+        if regex is not None:
+            input_["regex"] = regex
         if severity_levels is not None:
             input_["severity_levels"] = severity_levels
         if tags is not None:
@@ -754,13 +770,17 @@ class Macie2Client:
 
     def create_findings_filter(
         self,
-        action: "capo_macie2.types.findings_filter_action.FindingsFilterAction",
-        finding_criteria: "capo_macie2.types.finding_criteria.FindingCriteria",
-        name: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        action: Optional[
+            "capo_macie2.types.findings_filter_action.FindingsFilterAction"
+        ] = None,
         client_token: Optional["capo_macie2.types.__string.__string"] = None,
         description: Optional["capo_macie2.types.__string.__string"] = None,
+        finding_criteria: Optional[
+            "capo_macie2.types.finding_criteria.FindingCriteria"
+        ] = None,
+        name: Optional["capo_macie2.types.__string.__string"] = None,
         position: Optional["capo_macie2.types.__integer.__integer"] = None,
         tags: Optional["capo_macie2.types.tag_map.TagMap"] = None,
     ) -> (
@@ -804,13 +824,16 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.create_findings_filter_request.CreateFindingsFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["action"] = action
+        if action is not None:
+            input_["action"] = action
         if client_token is not None:
             input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["finding_criteria"] = finding_criteria
-        input_["name"] = name
+        if finding_criteria is not None:
+            input_["finding_criteria"] = finding_criteria
+        if name is not None:
+            input_["name"] = name
         if position is not None:
             input_["position"] = position
         if tags is not None:
@@ -825,9 +848,11 @@ class Macie2Client:
 
     def create_invitations(
         self,
-        account_ids: "capo_macie2.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        account_ids: Optional[
+            "capo_macie2.types.__list_of__string.__listOf__string"
+        ] = None,
         disable_email_notification: Optional[
             "capo_macie2.types.__boolean.__boolean"
         ] = None,
@@ -867,7 +892,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.create_invitations_request.CreateInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
         if disable_email_notification is not None:
             input_["disable_email_notification"] = disable_email_notification
         if message is not None:
@@ -882,9 +908,9 @@ class Macie2Client:
 
     def create_member(
         self,
-        account: "capo_macie2.types.account_detail.AccountDetail",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        account: Optional["capo_macie2.types.account_detail.AccountDetail"] = None,
         tags: Optional["capo_macie2.types.tag_map.TagMap"] = None,
     ) -> "capo_macie2.types.create_member_response.CreateMemberResponse":
         """<p>Associates an account with an Amazon Macie administrator account.</p>
@@ -920,7 +946,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.create_member_request.CreateMemberRequest = {}  # type: ignore[typeddict-item]
-        input_["account"] = account
+        if account is not None:
+            input_["account"] = account
         if tags is not None:
             input_["tags"] = tags
 
@@ -985,9 +1012,11 @@ class Macie2Client:
 
     def decline_invitations(
         self,
-        account_ids: "capo_macie2.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        account_ids: Optional[
+            "capo_macie2.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_macie2.types.decline_invitations_response.DeclineInvitationsResponse":
         """<p>Declines Amazon Macie membership invitations that were received from specific accounts.</p>
 
@@ -1021,7 +1050,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1177,9 +1207,11 @@ class Macie2Client:
 
     def delete_invitations(
         self,
-        account_ids: "capo_macie2.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        account_ids: Optional[
+            "capo_macie2.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_macie2.types.delete_invitations_response.DeleteInvitationsResponse":
         """<p>Deletes Amazon Macie membership invitations that were received from specific accounts.</p>
 
@@ -1213,7 +1245,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1487,9 +1520,9 @@ class Macie2Client:
 
     def disable_organization_admin_account(
         self,
-        admin_account_id: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        admin_account_id: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.disable_organization_admin_account_response.DisableOrganizationAdminAccountResponse":
         """<p>Disables an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
 
@@ -1523,7 +1556,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["admin_account_id"] = admin_account_id
+        if admin_account_id is not None:
+            input_["admin_account_id"] = admin_account_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1719,9 +1753,9 @@ class Macie2Client:
 
     def enable_organization_admin_account(
         self,
-        admin_account_id: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        admin_account_id: Optional["capo_macie2.types.__string.__string"] = None,
         client_token: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.enable_organization_admin_account_response.EnableOrganizationAdminAccountResponse":
         """<p>Designates an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
@@ -1757,7 +1791,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["admin_account_id"] = admin_account_id
+        if admin_account_id is not None:
+            input_["admin_account_id"] = admin_account_id
         if client_token is not None:
             input_["client_token"] = client_token
 
@@ -2072,9 +2107,11 @@ class Macie2Client:
 
     def get_findings(
         self,
-        finding_ids: "capo_macie2.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        finding_ids: Optional[
+            "capo_macie2.types.__list_of__string.__listOf__string"
+        ] = None,
         sort_criteria: Optional["capo_macie2.types.sort_criteria.SortCriteria"] = None,
     ) -> "capo_macie2.types.get_findings_response.GetFindingsResponse":
         """<p>Retrieves the details of one or more findings.</p>
@@ -2110,7 +2147,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
-        input_["finding_ids"] = finding_ids
+        if finding_ids is not None:
+            input_["finding_ids"] = finding_ids
         if sort_criteria is not None:
             input_["sort_criteria"] = sort_criteria
 
@@ -2210,12 +2248,12 @@ class Macie2Client:
 
     def get_finding_statistics(
         self,
-        group_by: "capo_macie2.types.group_by.GroupBy",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         finding_criteria: Optional[
             "capo_macie2.types.finding_criteria.FindingCriteria"
         ] = None,
+        group_by: Optional["capo_macie2.types.group_by.GroupBy"] = None,
         size: Optional["capo_macie2.types.__integer.__integer"] = None,
         sort_criteria: Optional[
             "capo_macie2.types.finding_statistics_sort_criteria.FindingStatisticsSortCriteria"
@@ -2260,7 +2298,8 @@ class Macie2Client:
         input_: capo_macie2.types.get_finding_statistics_request.GetFindingStatisticsRequest = {}  # type: ignore[typeddict-item]
         if finding_criteria is not None:
             input_["finding_criteria"] = finding_criteria
-        input_["group_by"] = group_by
+        if group_by is not None:
+            input_["group_by"] = group_by
         if size is not None:
             input_["size"] = size
         if sort_criteria is not None:
@@ -2442,9 +2481,9 @@ class Macie2Client:
 
     def get_resource_profile(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.get_resource_profile_response.GetResourceProfileResponse":
         """<p>Retrieves (queries) sensitive data discovery statistics and the sensitivity score for an S3 bucket.</p>
 
@@ -2477,7 +2516,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.get_resource_profile_request.GetResourceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3641,10 +3681,10 @@ class Macie2Client:
 
     def list_resource_profile_artifacts(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         next_token: Optional["capo_macie2.types.__string.__string"] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.list_resource_profile_artifacts_response.ListResourceProfileArtifactsResponse":
         """<p>Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery.</p>
 
@@ -3679,7 +3719,8 @@ class Macie2Client:
         input_: capo_macie2.types.list_resource_profile_artifacts_request.ListResourceProfileArtifactsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3690,19 +3731,19 @@ class Macie2Client:
 
     def iter_list_resource_profile_artifacts(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         next_token: Optional["capo_macie2.types.__string.__string"] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> (
         "Iterator[capo_macie2.types.resource_profile_artifact.ResourceProfileArtifact]"
     ):
         _token = next_token
         while True:
             _response = self.list_resource_profile_artifacts(
-                resource_arn,
                 config_overrides=config_overrides,
                 next_token=_token,
+                resource_arn=resource_arn,
             )
             _page = _resolve_path(_response, ("artifacts",))
             for _item in _page or []:
@@ -3713,11 +3754,11 @@ class Macie2Client:
 
     def list_resource_profile_detections(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         max_results: Optional["capo_macie2.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_macie2.types.__string.__string"] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.list_resource_profile_detections_response.ListResourceProfileDetectionsResponse":
         """<p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>
 
@@ -3756,7 +3797,8 @@ class Macie2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3767,19 +3809,19 @@ class Macie2Client:
 
     def iter_list_resource_profile_detections(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         max_results: Optional["capo_macie2.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_macie2.types.__string.__string"] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "Iterator[capo_macie2.types.detection.Detection]":
         _token = next_token
         while True:
             _response = self.list_resource_profile_detections(
-                resource_arn,
                 config_overrides=config_overrides,
                 max_results=max_results,
                 next_token=_token,
+                resource_arn=resource_arn,
             )
             _page = _resolve_path(_response, ("detections",))
             for _item in _page or []:
@@ -3903,9 +3945,11 @@ class Macie2Client:
 
     def put_classification_export_configuration(
         self,
-        configuration: "capo_macie2.types.classification_export_configuration.ClassificationExportConfiguration",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        configuration: Optional[
+            "capo_macie2.types.classification_export_configuration.ClassificationExportConfiguration"
+        ] = None,
     ) -> "capo_macie2.types.put_classification_export_configuration_response.PutClassificationExportConfigurationResponse":
         """<p>Adds or updates the configuration settings for storing data classification results.</p>
 
@@ -3939,7 +3983,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.put_classification_export_configuration_request.PutClassificationExportConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["configuration"] = configuration
+        if configuration is not None:
+            input_["configuration"] = configuration
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4098,9 +4143,9 @@ class Macie2Client:
     def tag_resource(
         self,
         resource_arn: "capo_macie2.types.__string.__string",
-        tags: "capo_macie2.types.tag_map.TagMap",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        tags: Optional["capo_macie2.types.tag_map.TagMap"] = None,
     ) -> "capo_macie2.types.tag_resource_response.TagResourceResponse":
         """<p>Adds or updates one or more tags (keys and values) that are associated with an Amazon Macie resource.</p>
 
@@ -4129,7 +4174,8 @@ class Macie2Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4140,8 +4186,6 @@ class Macie2Client:
 
     def test_custom_data_identifier(
         self,
-        regex: "capo_macie2.types.__string.__string",
-        sample_text: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         ignore_words: Optional[
@@ -4153,6 +4197,8 @@ class Macie2Client:
         maximum_match_distance: Optional[
             "capo_macie2.types.__integer.__integer"
         ] = None,
+        regex: Optional["capo_macie2.types.__string.__string"] = None,
+        sample_text: Optional["capo_macie2.types.__string.__string"] = None,
     ) -> "capo_macie2.types.test_custom_data_identifier_response.TestCustomDataIdentifierResponse":
         """<p>Tests criteria for a custom data identifier.</p>
 
@@ -4196,8 +4242,10 @@ class Macie2Client:
             input_["keywords"] = keywords
         if maximum_match_distance is not None:
             input_["maximum_match_distance"] = maximum_match_distance
-        input_["regex"] = regex
-        input_["sample_text"] = sample_text
+        if regex is not None:
+            input_["regex"] = regex
+        if sample_text is not None:
+            input_["sample_text"] = sample_text
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4209,9 +4257,11 @@ class Macie2Client:
     def untag_resource(
         self,
         resource_arn: "capo_macie2.types.__string.__string",
-        tag_keys: "capo_macie2.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        tag_keys: Optional[
+            "capo_macie2.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_macie2.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes one or more tags (keys and values) from an Amazon Macie resource.</p>
 
@@ -4240,7 +4290,8 @@ class Macie2Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4251,13 +4302,17 @@ class Macie2Client:
 
     def update_allow_list(
         self,
-        criteria: "capo_macie2.types.allow_list_criteria.AllowListCriteria",
         id: "capo_macie2.types.__string.__string",
-        name: "capo_macie2.types.__string_min1_max128_pattern.__stringMin1Max128Pattern",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        criteria: Optional[
+            "capo_macie2.types.allow_list_criteria.AllowListCriteria"
+        ] = None,
         description: Optional[
             "capo_macie2.types.__string_min1_max512_pattern_ss.__stringMin1Max512PatternSS"
+        ] = None,
+        name: Optional[
+            "capo_macie2.types.__string_min1_max128_pattern.__stringMin1Max128Pattern"
         ] = None,
     ) -> "capo_macie2.types.update_allow_list_response.UpdateAllowListResponse":
         """<p>Updates the settings for an allow list.</p>
@@ -4293,11 +4348,13 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_allow_list_request.UpdateAllowListRequest = {}  # type: ignore[typeddict-item]
-        input_["criteria"] = criteria
+        if criteria is not None:
+            input_["criteria"] = criteria
         if description is not None:
             input_["description"] = description
         input_["id"] = id
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4308,11 +4365,13 @@ class Macie2Client:
 
     def update_automated_discovery_configuration(
         self,
-        status: "capo_macie2.types.automated_discovery_status.AutomatedDiscoveryStatus",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
         auto_enable_organization_members: Optional[
             "capo_macie2.types.auto_enable_mode.AutoEnableMode"
+        ] = None,
+        status: Optional[
+            "capo_macie2.types.automated_discovery_status.AutomatedDiscoveryStatus"
         ] = None,
     ) -> "capo_macie2.types.update_automated_discovery_configuration_response.UpdateAutomatedDiscoveryConfigurationResponse":
         """<p>Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
@@ -4349,7 +4408,8 @@ class Macie2Client:
             input_["auto_enable_organization_members"] = (
                 auto_enable_organization_members
             )
-        input_["status"] = status
+        if status is not None:
+            input_["status"] = status
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4361,9 +4421,9 @@ class Macie2Client:
     def update_classification_job(
         self,
         job_id: "capo_macie2.types.__string.__string",
-        job_status: "capo_macie2.types.job_status.JobStatus",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        job_status: Optional["capo_macie2.types.job_status.JobStatus"] = None,
     ) -> "capo_macie2.types.update_classification_job_response.UpdateClassificationJobResponse":
         """<p>Changes the status of a classification job.</p>
 
@@ -4399,7 +4459,8 @@ class Macie2Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_classification_job_request.UpdateClassificationJobRequest = {}  # type: ignore[typeddict-item]
         input_["job_id"] = job_id
-        input_["job_status"] = job_status
+        if job_status is not None:
+            input_["job_status"] = job_status
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4593,9 +4654,9 @@ class Macie2Client:
     def update_member_session(
         self,
         id: "capo_macie2.types.__string.__string",
-        status: "capo_macie2.types.macie_status.MacieStatus",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        status: Optional["capo_macie2.types.macie_status.MacieStatus"] = None,
     ) -> "capo_macie2.types.update_member_session_response.UpdateMemberSessionResponse":
         """<p>Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.</p>
 
@@ -4631,7 +4692,8 @@ class Macie2Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_member_session_request.UpdateMemberSessionRequest = {}  # type: ignore[typeddict-item]
         input_["id"] = id
-        input_["status"] = status
+        if status is not None:
+            input_["status"] = status
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4642,9 +4704,9 @@ class Macie2Client:
 
     def update_organization_configuration(
         self,
-        auto_enable: "capo_macie2.types.__boolean.__boolean",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        auto_enable: Optional["capo_macie2.types.__boolean.__boolean"] = None,
     ) -> "capo_macie2.types.update_organization_configuration_response.UpdateOrganizationConfigurationResponse":
         """<p>Updates the Amazon Macie configuration settings for an organization in Organizations.</p>
 
@@ -4678,7 +4740,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_enable"] = auto_enable
+        if auto_enable is not None:
+            input_["auto_enable"] = auto_enable
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4689,9 +4752,9 @@ class Macie2Client:
 
     def update_resource_profile(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
         sensitivity_score_override: Optional[
             "capo_macie2.types.__integer.__integer"
         ] = None,
@@ -4728,7 +4791,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_resource_profile_request.UpdateResourceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if sensitivity_score_override is not None:
             input_["sensitivity_score_override"] = sensitivity_score_override
 
@@ -4741,9 +4805,9 @@ class Macie2Client:
 
     def update_resource_profile_detections(
         self,
-        resource_arn: "capo_macie2.types.__string.__string",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        resource_arn: Optional["capo_macie2.types.__string.__string"] = None,
         suppress_data_identifiers: Optional[
             "capo_macie2.types.__list_of_suppress_data_identifier.__listOfSuppressDataIdentifier"
         ] = None,
@@ -4780,7 +4844,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_resource_profile_detections_request.UpdateResourceProfileDetectionsRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if suppress_data_identifiers is not None:
             input_["suppress_data_identifiers"] = suppress_data_identifiers
 
@@ -4793,9 +4858,11 @@ class Macie2Client:
 
     def update_reveal_configuration(
         self,
-        configuration: "capo_macie2.types.reveal_configuration.RevealConfiguration",
         *,
         config_overrides: Optional[Macie2ClientConfig] = None,
+        configuration: Optional[
+            "capo_macie2.types.reveal_configuration.RevealConfiguration"
+        ] = None,
         retrieval_configuration: Optional[
             "capo_macie2.types.update_retrieval_configuration.UpdateRetrievalConfiguration"
         ] = None,
@@ -4830,7 +4897,8 @@ class Macie2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_macie2.types.update_reveal_configuration_request.UpdateRevealConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["configuration"] = configuration
+        if configuration is not None:
+            input_["configuration"] = configuration
         if retrieval_configuration is not None:
             input_["retrieval_configuration"] = retrieval_configuration
 

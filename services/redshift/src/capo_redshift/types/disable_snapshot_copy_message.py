@@ -19,8 +19,11 @@ class DisableSnapshotCopyMessage(TypedDict, closed=True):
 def serialize_query(
     value: DisableSnapshotCopyMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
 
 
 def deserialize_query(el: Element) -> DisableSnapshotCopyMessage:

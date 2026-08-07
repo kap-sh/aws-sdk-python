@@ -21,17 +21,18 @@ class CacheUsageLimits(TypedDict, closed=True):
 def serialize_query(
     value: CacheUsageLimits, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_storage" in value:
         import capo_elasticache.types.data_storage
 
         capo_elasticache.types.data_storage.serialize_query(
-            value["data_storage"], pairs, f"{prefix}.DataStorage"
+            value["data_storage"], pairs, f"{key_prefix}DataStorage"
         )
     if "ecpu_per_second" in value:
         import capo_elasticache.types.ecpu_per_second
 
         capo_elasticache.types.ecpu_per_second.serialize_query(
-            value["ecpu_per_second"], pairs, f"{prefix}.ECPUPerSecond"
+            value["ecpu_per_second"], pairs, f"{key_prefix}ECPUPerSecond"
         )
 
 

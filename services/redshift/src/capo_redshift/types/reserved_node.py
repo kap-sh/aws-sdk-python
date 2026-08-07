@@ -52,42 +52,43 @@ class ReservedNode(TypedDict, closed=True):
 def serialize_query(
     value: ReservedNode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node_id" in value:
-        pairs.append((f"{prefix}.ReservedNodeId", str(value["reserved_node_id"])))
+        pairs.append((f"{key_prefix}ReservedNodeId", str(value["reserved_node_id"])))
     if "reserved_node_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedNodeOfferingId",
+                f"{key_prefix}ReservedNodeOfferingId",
                 str(value["reserved_node_offering_id"]),
             )
         )
     if "node_type" in value:
-        pairs.append((f"{prefix}.NodeType", str(value["node_type"])))
+        pairs.append((f"{key_prefix}NodeType", str(value["node_type"])))
     if "start_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "fixed_price" in value:
-        pairs.append((f"{prefix}.FixedPrice", str(value["fixed_price"])))
+        pairs.append((f"{key_prefix}FixedPrice", str(value["fixed_price"])))
     if "usage_price" in value:
-        pairs.append((f"{prefix}.UsagePrice", str(value["usage_price"])))
+        pairs.append((f"{key_prefix}UsagePrice", str(value["usage_price"])))
     if "currency_code" in value:
-        pairs.append((f"{prefix}.CurrencyCode", str(value["currency_code"])))
+        pairs.append((f"{key_prefix}CurrencyCode", str(value["currency_code"])))
     if "node_count" in value:
-        pairs.append((f"{prefix}.NodeCount", str(value["node_count"])))
+        pairs.append((f"{key_prefix}NodeCount", str(value["node_count"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "offering_type" in value:
-        pairs.append((f"{prefix}.OfferingType", str(value["offering_type"])))
+        pairs.append((f"{key_prefix}OfferingType", str(value["offering_type"])))
     if "recurring_charges" in value:
         import capo_redshift.types.recurring_charge_list
 
         capo_redshift.types.recurring_charge_list.serialize_query(
-            value["recurring_charges"], pairs, f"{prefix}.RecurringCharges"
+            value["recurring_charges"], pairs, f"{key_prefix}RecurringCharges"
         )
     if "reserved_node_offering_type" in value:
         import capo_redshift.types.reserved_node_offering_type
@@ -95,7 +96,7 @@ def serialize_query(
         capo_redshift.types.reserved_node_offering_type.serialize_query(
             value["reserved_node_offering_type"],
             pairs,
-            f"{prefix}.ReservedNodeOfferingType",
+            f"{key_prefix}ReservedNodeOfferingType",
         )
 
 

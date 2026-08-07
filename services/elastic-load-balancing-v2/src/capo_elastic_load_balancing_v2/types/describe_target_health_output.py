@@ -21,13 +21,14 @@ class DescribeTargetHealthOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTargetHealthOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_health_descriptions" in value:
         import capo_elastic_load_balancing_v2.types.target_health_descriptions
 
         capo_elastic_load_balancing_v2.types.target_health_descriptions.serialize_query(
             value["target_health_descriptions"],
             pairs,
-            f"{prefix}.TargetHealthDescriptions",
+            f"{key_prefix}TargetHealthDescriptions",
         )
 
 

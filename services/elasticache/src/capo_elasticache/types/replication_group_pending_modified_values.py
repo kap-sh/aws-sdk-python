@@ -57,33 +57,36 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "primary_cluster_id" in value:
-        pairs.append((f"{prefix}.PrimaryClusterId", str(value["primary_cluster_id"])))
+        pairs.append(
+            (f"{key_prefix}PrimaryClusterId", str(value["primary_cluster_id"]))
+        )
     if "automatic_failover_status" in value:
         import capo_elasticache.types.pending_automatic_failover_status
 
         capo_elasticache.types.pending_automatic_failover_status.serialize_query(
             value["automatic_failover_status"],
             pairs,
-            f"{prefix}.AutomaticFailoverStatus",
+            f"{key_prefix}AutomaticFailoverStatus",
         )
     if "resharding" in value:
         import capo_elasticache.types.resharding_status
 
         capo_elasticache.types.resharding_status.serialize_query(
-            value["resharding"], pairs, f"{prefix}.Resharding"
+            value["resharding"], pairs, f"{key_prefix}Resharding"
         )
     if "auth_token_status" in value:
         import capo_elasticache.types.auth_token_update_status
 
         capo_elasticache.types.auth_token_update_status.serialize_query(
-            value["auth_token_status"], pairs, f"{prefix}.AuthTokenStatus"
+            value["auth_token_status"], pairs, f"{key_prefix}AuthTokenStatus"
         )
     if "user_groups" in value:
         import capo_elasticache.types.user_groups_update_status
 
         capo_elasticache.types.user_groups_update_status.serialize_query(
-            value["user_groups"], pairs, f"{prefix}.UserGroups"
+            value["user_groups"], pairs, f"{key_prefix}UserGroups"
         )
     if "log_delivery_configurations" in value:
         import capo_elasticache.types.pending_log_delivery_configuration_list
@@ -91,12 +94,12 @@ def serialize_query(
         capo_elasticache.types.pending_log_delivery_configuration_list.serialize_query(
             value["log_delivery_configurations"],
             pairs,
-            f"{prefix}.LogDeliveryConfigurations",
+            f"{key_prefix}LogDeliveryConfigurations",
         )
     if "transit_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.TransitEncryptionEnabled",
+                f"{key_prefix}TransitEncryptionEnabled",
                 "true" if value["transit_encryption_enabled"] else "false",
             )
         )
@@ -104,13 +107,15 @@ def serialize_query(
         import capo_elasticache.types.transit_encryption_mode
 
         capo_elasticache.types.transit_encryption_mode.serialize_query(
-            value["transit_encryption_mode"], pairs, f"{prefix}.TransitEncryptionMode"
+            value["transit_encryption_mode"],
+            pairs,
+            f"{key_prefix}TransitEncryptionMode",
         )
     if "cluster_mode" in value:
         import capo_elasticache.types.cluster_mode
 
         capo_elasticache.types.cluster_mode.serialize_query(
-            value["cluster_mode"], pairs, f"{prefix}.ClusterMode"
+            value["cluster_mode"], pairs, f"{key_prefix}ClusterMode"
         )
 
 

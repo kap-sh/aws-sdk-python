@@ -31,17 +31,21 @@ class ZonalCapacityReservationState(TypedDict, closed=True):
 def serialize_query(
     value: ZonalCapacityReservationState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_elastic_load_balancing_v2.types.capacity_reservation_status
 
         capo_elastic_load_balancing_v2.types.capacity_reservation_status.serialize_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "effective_capacity_units" in value:
         pairs.append(
-            (f"{prefix}.EffectiveCapacityUnits", str(value["effective_capacity_units"]))
+            (
+                f"{key_prefix}EffectiveCapacityUnits",
+                str(value["effective_capacity_units"]),
+            )
         )
 
 

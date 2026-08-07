@@ -17,8 +17,9 @@ class Builder(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Builder, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> Builder:

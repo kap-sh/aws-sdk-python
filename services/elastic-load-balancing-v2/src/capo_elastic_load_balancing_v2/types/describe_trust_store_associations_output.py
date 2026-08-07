@@ -26,14 +26,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_store_associations" in value:
         import capo_elastic_load_balancing_v2.types.trust_store_associations
 
         capo_elastic_load_balancing_v2.types.trust_store_associations.serialize_query(
-            value["trust_store_associations"], pairs, f"{prefix}.TrustStoreAssociations"
+            value["trust_store_associations"],
+            pairs,
+            f"{key_prefix}TrustStoreAssociations",
         )
     if "next_marker" in value:
-        pairs.append((f"{prefix}.NextMarker", str(value["next_marker"])))
+        pairs.append((f"{key_prefix}NextMarker", str(value["next_marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeTrustStoreAssociationsOutput:

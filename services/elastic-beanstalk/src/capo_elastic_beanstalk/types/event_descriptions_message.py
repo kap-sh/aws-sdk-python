@@ -24,14 +24,15 @@ class EventDescriptionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: EventDescriptionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "events" in value:
         import capo_elastic_beanstalk.types.event_description_list
 
         capo_elastic_beanstalk.types.event_description_list.serialize_query(
-            value["events"], pairs, f"{prefix}.Events"
+            value["events"], pairs, f"{key_prefix}Events"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> EventDescriptionsMessage:

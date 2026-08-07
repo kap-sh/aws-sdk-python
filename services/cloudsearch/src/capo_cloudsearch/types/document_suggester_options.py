@@ -28,15 +28,16 @@ class DocumentSuggesterOptions(TypedDict, closed=True):
 def serialize_query(
     value: DocumentSuggesterOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SourceField", str(value["source_field"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SourceField", str(value["source_field"])))
     if "fuzzy_matching" in value:
         import capo_cloudsearch.types.suggester_fuzzy_matching
 
         capo_cloudsearch.types.suggester_fuzzy_matching.serialize_query(
-            value["fuzzy_matching"], pairs, f"{prefix}.FuzzyMatching"
+            value["fuzzy_matching"], pairs, f"{key_prefix}FuzzyMatching"
         )
     if "sort_expression" in value:
-        pairs.append((f"{prefix}.SortExpression", str(value["sort_expression"])))
+        pairs.append((f"{key_prefix}SortExpression", str(value["sort_expression"])))
 
 
 def deserialize_query(el: Element) -> DocumentSuggesterOptions:

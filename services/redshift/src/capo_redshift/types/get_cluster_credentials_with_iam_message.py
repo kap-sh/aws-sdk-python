@@ -30,14 +30,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_name" in value:
-        pairs.append((f"{prefix}.DbName", str(value["db_name"])))
+        pairs.append((f"{key_prefix}DbName", str(value["db_name"])))
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
     if "custom_domain_name" in value:
-        pairs.append((f"{prefix}.CustomDomainName", str(value["custom_domain_name"])))
+        pairs.append(
+            (f"{key_prefix}CustomDomainName", str(value["custom_domain_name"]))
+        )
 
 
 def deserialize_query(el: Element) -> GetClusterCredentialsWithIAMMessage:

@@ -75,43 +75,46 @@ class ResourceChange(TypedDict, closed=True):
 def serialize_query(
     value: ResourceChange, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_action" in value:
         import capo_cloudformation.types.policy_action
 
         capo_cloudformation.types.policy_action.serialize_query(
-            value["policy_action"], pairs, f"{prefix}.PolicyAction"
+            value["policy_action"], pairs, f"{key_prefix}PolicyAction"
         )
     if "action" in value:
         import capo_cloudformation.types.change_action
 
         capo_cloudformation.types.change_action.serialize_query(
-            value["action"], pairs, f"{prefix}.Action"
+            value["action"], pairs, f"{key_prefix}Action"
         )
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "physical_resource_id" in value:
         pairs.append(
-            (f"{prefix}.PhysicalResourceId", str(value["physical_resource_id"]))
+            (f"{key_prefix}PhysicalResourceId", str(value["physical_resource_id"]))
         )
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "replacement" in value:
         import capo_cloudformation.types.replacement
 
         capo_cloudformation.types.replacement.serialize_query(
-            value["replacement"], pairs, f"{prefix}.Replacement"
+            value["replacement"], pairs, f"{key_prefix}Replacement"
         )
     if "scope" in value:
         import capo_cloudformation.types.scope
 
         capo_cloudformation.types.scope.serialize_query(
-            value["scope"], pairs, f"{prefix}.Scope"
+            value["scope"], pairs, f"{key_prefix}Scope"
         )
     if "resource_drift_status" in value:
         import capo_cloudformation.types.stack_resource_drift_status
 
         capo_cloudformation.types.stack_resource_drift_status.serialize_query(
-            value["resource_drift_status"], pairs, f"{prefix}.ResourceDriftStatus"
+            value["resource_drift_status"], pairs, f"{key_prefix}ResourceDriftStatus"
         )
     if "resource_drift_ignored_attributes" in value:
         import capo_cloudformation.types.resource_drift_ignored_attributes
@@ -119,30 +122,30 @@ def serialize_query(
         capo_cloudformation.types.resource_drift_ignored_attributes.serialize_query(
             value["resource_drift_ignored_attributes"],
             pairs,
-            f"{prefix}.ResourceDriftIgnoredAttributes",
+            f"{key_prefix}ResourceDriftIgnoredAttributes",
         )
     if "details" in value:
         import capo_cloudformation.types.resource_change_details
 
         capo_cloudformation.types.resource_change_details.serialize_query(
-            value["details"], pairs, f"{prefix}.Details"
+            value["details"], pairs, f"{key_prefix}Details"
         )
     if "change_set_id" in value:
-        pairs.append((f"{prefix}.ChangeSetId", str(value["change_set_id"])))
+        pairs.append((f"{key_prefix}ChangeSetId", str(value["change_set_id"])))
     if "module_info" in value:
         import capo_cloudformation.types.module_info
 
         capo_cloudformation.types.module_info.serialize_query(
-            value["module_info"], pairs, f"{prefix}.ModuleInfo"
+            value["module_info"], pairs, f"{key_prefix}ModuleInfo"
         )
     if "before_context" in value:
-        pairs.append((f"{prefix}.BeforeContext", str(value["before_context"])))
+        pairs.append((f"{key_prefix}BeforeContext", str(value["before_context"])))
     if "after_context" in value:
-        pairs.append((f"{prefix}.AfterContext", str(value["after_context"])))
+        pairs.append((f"{key_prefix}AfterContext", str(value["after_context"])))
     if "previous_deployment_context" in value:
         pairs.append(
             (
-                f"{prefix}.PreviousDeploymentContext",
+                f"{key_prefix}PreviousDeploymentContext",
                 str(value["previous_deployment_context"]),
             )
         )

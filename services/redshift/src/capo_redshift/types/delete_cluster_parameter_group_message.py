@@ -19,9 +19,10 @@ class DeleteClusterParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteClusterParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.ParameterGroupName", str(value["parameter_group_name"]))
+            (f"{key_prefix}ParameterGroupName", str(value["parameter_group_name"]))
         )
 
 

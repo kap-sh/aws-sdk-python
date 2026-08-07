@@ -22,13 +22,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_snapshot_attributes_result" in value:
         import capo_neptune.types.db_cluster_snapshot_attributes_result
 
         capo_neptune.types.db_cluster_snapshot_attributes_result.serialize_query(
             value["db_cluster_snapshot_attributes_result"],
             pairs,
-            f"{prefix}.DBClusterSnapshotAttributesResult",
+            f"{key_prefix}DBClusterSnapshotAttributesResult",
         )
 
 

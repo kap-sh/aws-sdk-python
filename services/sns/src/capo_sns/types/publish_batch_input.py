@@ -25,13 +25,14 @@ class PublishBatchInput(TypedDict, closed=True):
 def serialize_query(
     value: PublishBatchInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
     import capo_sns.types.publish_batch_request_entry_list
 
     capo_sns.types.publish_batch_request_entry_list.serialize_query(
         value["publish_batch_request_entries"],
         pairs,
-        f"{prefix}.PublishBatchRequestEntries",
+        f"{key_prefix}PublishBatchRequestEntries",
     )
 
 

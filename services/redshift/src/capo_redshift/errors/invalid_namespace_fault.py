@@ -19,8 +19,9 @@ class InvalidNamespaceFault_(TypedDict, closed=True):
 def serialize_query(
     value: InvalidNamespaceFault_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message" in value:
-        pairs.append((f"{prefix}.message", str(value["message"])))
+        pairs.append((f"{key_prefix}message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> InvalidNamespaceFault_:

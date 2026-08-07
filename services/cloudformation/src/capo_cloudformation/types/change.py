@@ -27,21 +27,22 @@ class Change(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Change, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.change_type
 
         capo_cloudformation.types.change_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "hook_invocation_count" in value:
         pairs.append(
-            (f"{prefix}.HookInvocationCount", str(value["hook_invocation_count"]))
+            (f"{key_prefix}HookInvocationCount", str(value["hook_invocation_count"]))
         )
     if "resource_change" in value:
         import capo_cloudformation.types.resource_change
 
         capo_cloudformation.types.resource_change.serialize_query(
-            value["resource_change"], pairs, f"{prefix}.ResourceChange"
+            value["resource_change"], pairs, f"{key_prefix}ResourceChange"
         )
 
 

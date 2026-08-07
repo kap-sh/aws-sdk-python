@@ -23,12 +23,13 @@ Range = TypedDict(
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Range, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "from" in value:
-        pairs.append((f"{prefix}.From", str(value["from"])))
+        pairs.append((f"{key_prefix}From", str(value["from"])))
     if "to" in value:
-        pairs.append((f"{prefix}.To", str(value["to"])))
+        pairs.append((f"{key_prefix}To", str(value["to"])))
     if "step" in value:
-        pairs.append((f"{prefix}.Step", str(value["step"])))
+        pairs.append((f"{key_prefix}Step", str(value["step"])))
 
 
 def deserialize_query(el: Element) -> Range:

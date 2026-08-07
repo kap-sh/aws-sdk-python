@@ -44,27 +44,28 @@ class Annotation(TypedDict, closed=True):
 def serialize_query(
     value: Annotation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "annotation_name" in value:
-        pairs.append((f"{prefix}.AnnotationName", str(value["annotation_name"])))
+        pairs.append((f"{key_prefix}AnnotationName", str(value["annotation_name"])))
     if "status" in value:
         import capo_cloudformation.types.annotation_status
 
         capo_cloudformation.types.annotation_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "remediation_message" in value:
         pairs.append(
-            (f"{prefix}.RemediationMessage", str(value["remediation_message"]))
+            (f"{key_prefix}RemediationMessage", str(value["remediation_message"]))
         )
     if "remediation_link" in value:
-        pairs.append((f"{prefix}.RemediationLink", str(value["remediation_link"])))
+        pairs.append((f"{key_prefix}RemediationLink", str(value["remediation_link"])))
     if "severity_level" in value:
         import capo_cloudformation.types.annotation_severity_level
 
         capo_cloudformation.types.annotation_severity_level.serialize_query(
-            value["severity_level"], pairs, f"{prefix}.SeverityLevel"
+            value["severity_level"], pairs, f"{key_prefix}SeverityLevel"
         )
 
 

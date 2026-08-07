@@ -39,25 +39,26 @@ class SetSubnetsInput(TypedDict, closed=True):
 def serialize_query(
     value: SetSubnetsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "subnets" in value:
         import capo_elastic_load_balancing_v2.types.subnets
 
         capo_elastic_load_balancing_v2.types.subnets.serialize_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
     if "subnet_mappings" in value:
         import capo_elastic_load_balancing_v2.types.subnet_mappings
 
         capo_elastic_load_balancing_v2.types.subnet_mappings.serialize_query(
-            value["subnet_mappings"], pairs, f"{prefix}.SubnetMappings"
+            value["subnet_mappings"], pairs, f"{key_prefix}SubnetMappings"
         )
     if "ip_address_type" in value:
         import capo_elastic_load_balancing_v2.types.ip_address_type
 
         capo_elastic_load_balancing_v2.types.ip_address_type.serialize_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "enable_prefix_for_ipv6_source_nat" in value:
         import capo_elastic_load_balancing_v2.types.enable_prefix_for_ipv6_source_nat_enum
@@ -65,7 +66,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.enable_prefix_for_ipv6_source_nat_enum.serialize_query(
             value["enable_prefix_for_ipv6_source_nat"],
             pairs,
-            f"{prefix}.EnablePrefixForIpv6SourceNat",
+            f"{key_prefix}EnablePrefixForIpv6SourceNat",
         )
 
 

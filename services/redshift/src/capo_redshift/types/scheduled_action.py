@@ -45,24 +45,25 @@ class ScheduledAction(TypedDict, closed=True):
 def serialize_query(
     value: ScheduledAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_action_name" in value:
         pairs.append(
-            (f"{prefix}.ScheduledActionName", str(value["scheduled_action_name"]))
+            (f"{key_prefix}ScheduledActionName", str(value["scheduled_action_name"]))
         )
     if "target_action" in value:
         import capo_redshift.types.scheduled_action_type
 
         capo_redshift.types.scheduled_action_type.serialize_query(
-            value["target_action"], pairs, f"{prefix}.TargetAction"
+            value["target_action"], pairs, f"{key_prefix}TargetAction"
         )
     if "schedule" in value:
-        pairs.append((f"{prefix}.Schedule", str(value["schedule"])))
+        pairs.append((f"{key_prefix}Schedule", str(value["schedule"])))
     if "iam_role" in value:
-        pairs.append((f"{prefix}.IamRole", str(value["iam_role"])))
+        pairs.append((f"{key_prefix}IamRole", str(value["iam_role"])))
     if "scheduled_action_description" in value:
         pairs.append(
             (
-                f"{prefix}.ScheduledActionDescription",
+                f"{key_prefix}ScheduledActionDescription",
                 str(value["scheduled_action_description"]),
             )
         )
@@ -70,25 +71,25 @@ def serialize_query(
         import capo_redshift.types.scheduled_action_state
 
         capo_redshift.types.scheduled_action_state.serialize_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "next_invocations" in value:
         import capo_redshift.types.scheduled_action_time_list
 
         capo_redshift.types.scheduled_action_time_list.serialize_query(
-            value["next_invocations"], pairs, f"{prefix}.NextInvocations"
+            value["next_invocations"], pairs, f"{key_prefix}NextInvocations"
         )
     if "start_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
 
 

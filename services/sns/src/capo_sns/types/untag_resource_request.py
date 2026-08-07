@@ -23,11 +23,12 @@ class UntagResourceRequest(TypedDict, closed=True):
 def serialize_query(
     value: UntagResourceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     import capo_sns.types.tag_key_list
 
     capo_sns.types.tag_key_list.serialize_query(
-        value["tag_keys"], pairs, f"{prefix}.TagKeys"
+        value["tag_keys"], pairs, f"{key_prefix}TagKeys"
     )
 
 

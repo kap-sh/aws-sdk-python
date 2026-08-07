@@ -55,25 +55,26 @@ class DBEngineVersion(TypedDict, closed=True):
 def serialize_query(
     value: DBEngineVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "db_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.DBParameterGroupFamily",
+                f"{key_prefix}DBParameterGroupFamily",
                 str(value["db_parameter_group_family"]),
             )
         )
     if "db_engine_description" in value:
         pairs.append(
-            (f"{prefix}.DBEngineDescription", str(value["db_engine_description"]))
+            (f"{key_prefix}DBEngineDescription", str(value["db_engine_description"]))
         )
     if "db_engine_version_description" in value:
         pairs.append(
             (
-                f"{prefix}.DBEngineVersionDescription",
+                f"{key_prefix}DBEngineVersionDescription",
                 str(value["db_engine_version_description"]),
             )
         )
@@ -81,18 +82,18 @@ def serialize_query(
         import capo_docdb.types.valid_upgrade_target_list
 
         capo_docdb.types.valid_upgrade_target_list.serialize_query(
-            value["valid_upgrade_target"], pairs, f"{prefix}.ValidUpgradeTarget"
+            value["valid_upgrade_target"], pairs, f"{key_prefix}ValidUpgradeTarget"
         )
     if "exportable_log_types" in value:
         import capo_docdb.types.log_type_list
 
         capo_docdb.types.log_type_list.serialize_query(
-            value["exportable_log_types"], pairs, f"{prefix}.ExportableLogTypes"
+            value["exportable_log_types"], pairs, f"{key_prefix}ExportableLogTypes"
         )
     if "supports_log_exports_to_cloudwatch_logs" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLogExportsToCloudwatchLogs",
+                f"{key_prefix}SupportsLogExportsToCloudwatchLogs",
                 "true" if value["supports_log_exports_to_cloudwatch_logs"] else "false",
             )
         )
@@ -102,12 +103,12 @@ def serialize_query(
         capo_docdb.types.ca_certificate_identifiers_list.serialize_query(
             value["supported_ca_certificate_identifiers"],
             pairs,
-            f"{prefix}.SupportedCACertificateIdentifiers",
+            f"{key_prefix}SupportedCACertificateIdentifiers",
         )
     if "supports_certificate_rotation_without_restart" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsCertificateRotationWithoutRestart",
+                f"{key_prefix}SupportsCertificateRotationWithoutRestart",
                 "true"
                 if value["supports_certificate_rotation_without_restart"]
                 else "false",
@@ -119,7 +120,7 @@ def serialize_query(
         capo_docdb.types.serverless_v2_features_support.serialize_query(
             value["serverless_v2_features_support"],
             pairs,
-            f"{prefix}.ServerlessV2FeaturesSupport",
+            f"{key_prefix}ServerlessV2FeaturesSupport",
         )
 
 

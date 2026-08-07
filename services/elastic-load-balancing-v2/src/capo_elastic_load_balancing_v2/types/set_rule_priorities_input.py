@@ -21,11 +21,12 @@ class SetRulePrioritiesInput(TypedDict, closed=True):
 def serialize_query(
     value: SetRulePrioritiesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_priorities" in value:
         import capo_elastic_load_balancing_v2.types.rule_priority_list
 
         capo_elastic_load_balancing_v2.types.rule_priority_list.serialize_query(
-            value["rule_priorities"], pairs, f"{prefix}.RulePriorities"
+            value["rule_priorities"], pairs, f"{key_prefix}RulePriorities"
         )
 
 

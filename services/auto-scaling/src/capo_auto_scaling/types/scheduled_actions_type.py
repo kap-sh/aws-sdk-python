@@ -24,16 +24,17 @@ class ScheduledActionsType(TypedDict, closed=True):
 def serialize_query(
     value: ScheduledActionsType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_update_group_actions" in value:
         import capo_auto_scaling.types.scheduled_update_group_actions
 
         capo_auto_scaling.types.scheduled_update_group_actions.serialize_query(
             value["scheduled_update_group_actions"],
             pairs,
-            f"{prefix}.ScheduledUpdateGroupActions",
+            f"{key_prefix}ScheduledUpdateGroupActions",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ScheduledActionsType:

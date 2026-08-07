@@ -24,16 +24,17 @@ class NodeConfigurationOptionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: NodeConfigurationOptionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_configuration_option_list" in value:
         import capo_redshift.types.node_configuration_option_list
 
         capo_redshift.types.node_configuration_option_list.serialize_query(
             value["node_configuration_option_list"],
             pairs,
-            f"{prefix}.NodeConfigurationOptionList",
+            f"{key_prefix}NodeConfigurationOptionList",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> NodeConfigurationOptionsMessage:

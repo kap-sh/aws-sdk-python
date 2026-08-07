@@ -21,8 +21,9 @@ class ManagedExecution(TypedDict, closed=True):
 def serialize_query(
     value: ManagedExecution, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "active" in value:
-        pairs.append((f"{prefix}.Active", "true" if value["active"] else "false"))
+        pairs.append((f"{key_prefix}Active", "true" if value["active"] else "false"))
 
 
 def deserialize_query(el: Element) -> ManagedExecution:

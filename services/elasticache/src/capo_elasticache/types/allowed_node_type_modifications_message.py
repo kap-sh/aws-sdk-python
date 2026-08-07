@@ -27,17 +27,20 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scale_up_modifications" in value:
         import capo_elasticache.types.node_type_list
 
         capo_elasticache.types.node_type_list.serialize_query(
-            value["scale_up_modifications"], pairs, f"{prefix}.ScaleUpModifications"
+            value["scale_up_modifications"], pairs, f"{key_prefix}ScaleUpModifications"
         )
     if "scale_down_modifications" in value:
         import capo_elasticache.types.node_type_list
 
         capo_elasticache.types.node_type_list.serialize_query(
-            value["scale_down_modifications"], pairs, f"{prefix}.ScaleDownModifications"
+            value["scale_down_modifications"],
+            pairs,
+            f"{key_prefix}ScaleDownModifications",
         )
 
 

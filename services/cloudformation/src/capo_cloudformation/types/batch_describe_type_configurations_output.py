@@ -33,11 +33,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "errors" in value:
         import capo_cloudformation.types.batch_describe_type_configurations_errors
 
         capo_cloudformation.types.batch_describe_type_configurations_errors.serialize_query(
-            value["errors"], pairs, f"{prefix}.Errors"
+            value["errors"], pairs, f"{key_prefix}Errors"
         )
     if "unprocessed_type_configurations" in value:
         import capo_cloudformation.types.unprocessed_type_configurations
@@ -45,13 +46,13 @@ def serialize_query(
         capo_cloudformation.types.unprocessed_type_configurations.serialize_query(
             value["unprocessed_type_configurations"],
             pairs,
-            f"{prefix}.UnprocessedTypeConfigurations",
+            f"{key_prefix}UnprocessedTypeConfigurations",
         )
     if "type_configurations" in value:
         import capo_cloudformation.types.type_configuration_details_list
 
         capo_cloudformation.types.type_configuration_details_list.serialize_query(
-            value["type_configurations"], pairs, f"{prefix}.TypeConfigurations"
+            value["type_configurations"], pairs, f"{key_prefix}TypeConfigurations"
         )
 
 

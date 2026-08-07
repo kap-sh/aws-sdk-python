@@ -37,29 +37,30 @@ class ValidateTemplateOutput(TypedDict, closed=True):
 def serialize_query(
     value: ValidateTemplateOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameters" in value:
         import capo_cloudformation.types.template_parameters
 
         capo_cloudformation.types.template_parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "capabilities_reason" in value:
         pairs.append(
-            (f"{prefix}.CapabilitiesReason", str(value["capabilities_reason"]))
+            (f"{key_prefix}CapabilitiesReason", str(value["capabilities_reason"]))
         )
     if "declared_transforms" in value:
         import capo_cloudformation.types.transforms_list
 
         capo_cloudformation.types.transforms_list.serialize_query(
-            value["declared_transforms"], pairs, f"{prefix}.DeclaredTransforms"
+            value["declared_transforms"], pairs, f"{key_prefix}DeclaredTransforms"
         )
 
 

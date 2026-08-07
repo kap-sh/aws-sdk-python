@@ -23,11 +23,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attributes" in value:
         import capo_elastic_load_balancing_v2.types.load_balancer_attributes
 
         capo_elastic_load_balancing_v2.types.load_balancer_attributes.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

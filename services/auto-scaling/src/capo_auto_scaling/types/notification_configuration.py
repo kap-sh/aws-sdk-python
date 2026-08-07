@@ -29,14 +29,15 @@ class NotificationConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: NotificationConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicARN", str(value["topic_arn"])))
+        pairs.append((f"{key_prefix}TopicARN", str(value["topic_arn"])))
     if "notification_type" in value:
-        pairs.append((f"{prefix}.NotificationType", str(value["notification_type"])))
+        pairs.append((f"{key_prefix}NotificationType", str(value["notification_type"])))
 
 
 def deserialize_query(el: Element) -> NotificationConfiguration:

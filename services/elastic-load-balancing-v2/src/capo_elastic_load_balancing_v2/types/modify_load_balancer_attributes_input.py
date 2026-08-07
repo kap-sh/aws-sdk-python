@@ -26,13 +26,14 @@ class ModifyLoadBalancerAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyLoadBalancerAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "attributes" in value:
         import capo_elastic_load_balancing_v2.types.load_balancer_attributes
 
         capo_elastic_load_balancing_v2.types.load_balancer_attributes.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

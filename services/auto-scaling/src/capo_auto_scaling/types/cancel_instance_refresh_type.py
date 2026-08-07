@@ -26,14 +26,15 @@ class CancelInstanceRefreshType(TypedDict, closed=True):
 def serialize_query(
     value: CancelInstanceRefreshType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "wait_for_transitioning_instances" in value:
         pairs.append(
             (
-                f"{prefix}.WaitForTransitioningInstances",
+                f"{key_prefix}WaitForTransitioningInstances",
                 "true" if value["wait_for_transitioning_instances"] else "false",
             )
         )

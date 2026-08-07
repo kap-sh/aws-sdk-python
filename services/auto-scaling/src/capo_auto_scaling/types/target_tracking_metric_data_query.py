@@ -42,23 +42,24 @@ class TargetTrackingMetricDataQuery(TypedDict, closed=True):
 def serialize_query(
     value: TargetTrackingMetricDataQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "expression" in value:
-        pairs.append((f"{prefix}.Expression", str(value["expression"])))
+        pairs.append((f"{key_prefix}Expression", str(value["expression"])))
     if "metric_stat" in value:
         import capo_auto_scaling.types.target_tracking_metric_stat
 
         capo_auto_scaling.types.target_tracking_metric_stat.serialize_query(
-            value["metric_stat"], pairs, f"{prefix}.MetricStat"
+            value["metric_stat"], pairs, f"{key_prefix}MetricStat"
         )
     if "label" in value:
-        pairs.append((f"{prefix}.Label", str(value["label"])))
+        pairs.append((f"{key_prefix}Label", str(value["label"])))
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "return_data" in value:
         pairs.append(
-            (f"{prefix}.ReturnData", "true" if value["return_data"] else "false")
+            (f"{key_prefix}ReturnData", "true" if value["return_data"] else "false")
         )
 
 

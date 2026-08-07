@@ -26,15 +26,16 @@ class RegisterPublisherInput(TypedDict, closed=True):
 def serialize_query(
     value: RegisterPublisherInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accept_terms_and_conditions" in value:
         pairs.append(
             (
-                f"{prefix}.AcceptTermsAndConditions",
+                f"{key_prefix}AcceptTermsAndConditions",
                 "true" if value["accept_terms_and_conditions"] else "false",
             )
         )
     if "connection_arn" in value:
-        pairs.append((f"{prefix}.ConnectionArn", str(value["connection_arn"])))
+        pairs.append((f"{key_prefix}ConnectionArn", str(value["connection_arn"])))
 
 
 def deserialize_query(el: Element) -> RegisterPublisherInput:

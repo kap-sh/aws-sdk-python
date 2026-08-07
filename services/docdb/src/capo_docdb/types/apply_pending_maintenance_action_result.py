@@ -22,13 +22,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_pending_maintenance_actions" in value:
         import capo_docdb.types.resource_pending_maintenance_actions
 
         capo_docdb.types.resource_pending_maintenance_actions.serialize_query(
             value["resource_pending_maintenance_actions"],
             pairs,
-            f"{prefix}.ResourcePendingMaintenanceActions",
+            f"{key_prefix}ResourcePendingMaintenanceActions",
         )
 
 

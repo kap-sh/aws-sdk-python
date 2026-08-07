@@ -31,23 +31,24 @@ class LoadForecast(TypedDict, closed=True):
 def serialize_query(
     value: LoadForecast, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timestamps" in value:
         import capo_auto_scaling.types.predictive_scaling_forecast_timestamps
 
         capo_auto_scaling.types.predictive_scaling_forecast_timestamps.serialize_query(
-            value["timestamps"], pairs, f"{prefix}.Timestamps"
+            value["timestamps"], pairs, f"{key_prefix}Timestamps"
         )
     if "values" in value:
         import capo_auto_scaling.types.predictive_scaling_forecast_values
 
         capo_auto_scaling.types.predictive_scaling_forecast_values.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
     if "metric_specification" in value:
         import capo_auto_scaling.types.predictive_scaling_metric_specification
 
         capo_auto_scaling.types.predictive_scaling_metric_specification.serialize_query(
-            value["metric_specification"], pairs, f"{prefix}.MetricSpecification"
+            value["metric_specification"], pairs, f"{key_prefix}MetricSpecification"
         )
 
 

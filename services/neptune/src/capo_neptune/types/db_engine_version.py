@@ -57,25 +57,26 @@ class DBEngineVersion(TypedDict, closed=True):
 def serialize_query(
     value: DBEngineVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "db_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.DBParameterGroupFamily",
+                f"{key_prefix}DBParameterGroupFamily",
                 str(value["db_parameter_group_family"]),
             )
         )
     if "db_engine_description" in value:
         pairs.append(
-            (f"{prefix}.DBEngineDescription", str(value["db_engine_description"]))
+            (f"{key_prefix}DBEngineDescription", str(value["db_engine_description"]))
         )
     if "db_engine_version_description" in value:
         pairs.append(
             (
-                f"{prefix}.DBEngineVersionDescription",
+                f"{key_prefix}DBEngineVersionDescription",
                 str(value["db_engine_version_description"]),
             )
         )
@@ -83,50 +84,52 @@ def serialize_query(
         import capo_neptune.types.character_set
 
         capo_neptune.types.character_set.serialize_query(
-            value["default_character_set"], pairs, f"{prefix}.DefaultCharacterSet"
+            value["default_character_set"], pairs, f"{key_prefix}DefaultCharacterSet"
         )
     if "supported_character_sets" in value:
         import capo_neptune.types.supported_character_sets_list
 
         capo_neptune.types.supported_character_sets_list.serialize_query(
-            value["supported_character_sets"], pairs, f"{prefix}.SupportedCharacterSets"
+            value["supported_character_sets"],
+            pairs,
+            f"{key_prefix}SupportedCharacterSets",
         )
     if "valid_upgrade_target" in value:
         import capo_neptune.types.valid_upgrade_target_list
 
         capo_neptune.types.valid_upgrade_target_list.serialize_query(
-            value["valid_upgrade_target"], pairs, f"{prefix}.ValidUpgradeTarget"
+            value["valid_upgrade_target"], pairs, f"{key_prefix}ValidUpgradeTarget"
         )
     if "supported_timezones" in value:
         import capo_neptune.types.supported_timezones_list
 
         capo_neptune.types.supported_timezones_list.serialize_query(
-            value["supported_timezones"], pairs, f"{prefix}.SupportedTimezones"
+            value["supported_timezones"], pairs, f"{key_prefix}SupportedTimezones"
         )
     if "exportable_log_types" in value:
         import capo_neptune.types.log_type_list
 
         capo_neptune.types.log_type_list.serialize_query(
-            value["exportable_log_types"], pairs, f"{prefix}.ExportableLogTypes"
+            value["exportable_log_types"], pairs, f"{key_prefix}ExportableLogTypes"
         )
     if "supports_log_exports_to_cloudwatch_logs" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsLogExportsToCloudwatchLogs",
+                f"{key_prefix}SupportsLogExportsToCloudwatchLogs",
                 "true" if value["supports_log_exports_to_cloudwatch_logs"] else "false",
             )
         )
     if "supports_read_replica" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsReadReplica",
+                f"{key_prefix}SupportsReadReplica",
                 "true" if value["supports_read_replica"] else "false",
             )
         )
     if "supports_global_databases" in value:
         pairs.append(
             (
-                f"{prefix}.SupportsGlobalDatabases",
+                f"{key_prefix}SupportsGlobalDatabases",
                 "true" if value["supports_global_databases"] else "false",
             )
         )

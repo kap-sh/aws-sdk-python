@@ -24,14 +24,15 @@ class CapacityReservationStatus(TypedDict, closed=True):
 def serialize_query(
     value: CapacityReservationStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "code" in value:
         import capo_elastic_load_balancing_v2.types.capacity_reservation_state_enum
 
         capo_elastic_load_balancing_v2.types.capacity_reservation_state_enum.serialize_query(
-            value["code"], pairs, f"{prefix}.Code"
+            value["code"], pairs, f"{key_prefix}Code"
         )
     if "reason" in value:
-        pairs.append((f"{prefix}.Reason", str(value["reason"])))
+        pairs.append((f"{key_prefix}Reason", str(value["reason"])))
 
 
 def deserialize_query(el: Element) -> CapacityReservationStatus:

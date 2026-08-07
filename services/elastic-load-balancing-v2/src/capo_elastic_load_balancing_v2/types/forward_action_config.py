@@ -26,11 +26,12 @@ class ForwardActionConfig(TypedDict, closed=True):
 def serialize_query(
     value: ForwardActionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_groups" in value:
         import capo_elastic_load_balancing_v2.types.target_group_list
 
         capo_elastic_load_balancing_v2.types.target_group_list.serialize_query(
-            value["target_groups"], pairs, f"{prefix}.TargetGroups"
+            value["target_groups"], pairs, f"{key_prefix}TargetGroups"
         )
     if "target_group_stickiness_config" in value:
         import capo_elastic_load_balancing_v2.types.target_group_stickiness_config
@@ -38,7 +39,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.target_group_stickiness_config.serialize_query(
             value["target_group_stickiness_config"],
             pairs,
-            f"{prefix}.TargetGroupStickinessConfig",
+            f"{key_prefix}TargetGroupStickinessConfig",
         )
 
 

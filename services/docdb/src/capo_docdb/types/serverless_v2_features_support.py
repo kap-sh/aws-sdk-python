@@ -21,10 +21,11 @@ class ServerlessV2FeaturesSupport(TypedDict, closed=True):
 def serialize_query(
     value: ServerlessV2FeaturesSupport, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "min_capacity" in value:
-        pairs.append((f"{prefix}.MinCapacity", str(value["min_capacity"])))
+        pairs.append((f"{key_prefix}MinCapacity", str(value["min_capacity"])))
     if "max_capacity" in value:
-        pairs.append((f"{prefix}.MaxCapacity", str(value["max_capacity"])))
+        pairs.append((f"{key_prefix}MaxCapacity", str(value["max_capacity"])))
 
 
 def deserialize_query(el: Element) -> ServerlessV2FeaturesSupport:

@@ -39,14 +39,15 @@ class MutualAuthenticationAttributes(TypedDict, closed=True):
 def serialize_query(
     value: MutualAuthenticationAttributes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "mode" in value:
-        pairs.append((f"{prefix}.Mode", str(value["mode"])))
+        pairs.append((f"{key_prefix}Mode", str(value["mode"])))
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "ignore_client_certificate_expiry" in value:
         pairs.append(
             (
-                f"{prefix}.IgnoreClientCertificateExpiry",
+                f"{key_prefix}IgnoreClientCertificateExpiry",
                 "true" if value["ignore_client_certificate_expiry"] else "false",
             )
         )
@@ -56,7 +57,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.trust_store_association_status_enum.serialize_query(
             value["trust_store_association_status"],
             pairs,
-            f"{prefix}.TrustStoreAssociationStatus",
+            f"{key_prefix}TrustStoreAssociationStatus",
         )
     if "advertise_trust_store_ca_names" in value:
         import capo_elastic_load_balancing_v2.types.advertise_trust_store_ca_names_enum
@@ -64,7 +65,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.advertise_trust_store_ca_names_enum.serialize_query(
             value["advertise_trust_store_ca_names"],
             pairs,
-            f"{prefix}.AdvertiseTrustStoreCaNames",
+            f"{key_prefix}AdvertiseTrustStoreCaNames",
         )
 
 

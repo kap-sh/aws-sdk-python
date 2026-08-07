@@ -33,18 +33,19 @@ class IdentityNotificationAttributes(TypedDict, closed=True):
 def serialize_query(
     value: IdentityNotificationAttributes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.BounceTopic", str(value["bounce_topic"])))
-    pairs.append((f"{prefix}.ComplaintTopic", str(value["complaint_topic"])))
-    pairs.append((f"{prefix}.DeliveryTopic", str(value["delivery_topic"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}BounceTopic", str(value["bounce_topic"])))
+    pairs.append((f"{key_prefix}ComplaintTopic", str(value["complaint_topic"])))
+    pairs.append((f"{key_prefix}DeliveryTopic", str(value["delivery_topic"])))
     pairs.append(
         (
-            f"{prefix}.ForwardingEnabled",
+            f"{key_prefix}ForwardingEnabled",
             "true" if value.get("forwarding_enabled", False) else "false",
         )
     )
     pairs.append(
         (
-            f"{prefix}.HeadersInBounceNotificationsEnabled",
+            f"{key_prefix}HeadersInBounceNotificationsEnabled",
             "true"
             if value.get("headers_in_bounce_notifications_enabled", False)
             else "false",
@@ -52,7 +53,7 @@ def serialize_query(
     )
     pairs.append(
         (
-            f"{prefix}.HeadersInComplaintNotificationsEnabled",
+            f"{key_prefix}HeadersInComplaintNotificationsEnabled",
             "true"
             if value.get("headers_in_complaint_notifications_enabled", False)
             else "false",
@@ -60,7 +61,7 @@ def serialize_query(
     )
     pairs.append(
         (
-            f"{prefix}.HeadersInDeliveryNotificationsEnabled",
+            f"{key_prefix}HeadersInDeliveryNotificationsEnabled",
             "true"
             if value.get("headers_in_delivery_notifications_enabled", False)
             else "false",

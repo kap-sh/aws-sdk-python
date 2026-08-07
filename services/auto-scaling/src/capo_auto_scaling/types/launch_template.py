@@ -24,19 +24,20 @@ class LaunchTemplate(TypedDict, closed=True):
 def serialize_query(
     value: LaunchTemplate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template_specification" in value:
         import capo_auto_scaling.types.launch_template_specification
 
         capo_auto_scaling.types.launch_template_specification.serialize_query(
             value["launch_template_specification"],
             pairs,
-            f"{prefix}.LaunchTemplateSpecification",
+            f"{key_prefix}LaunchTemplateSpecification",
         )
     if "overrides" in value:
         import capo_auto_scaling.types.overrides
 
         capo_auto_scaling.types.overrides.serialize_query(
-            value["overrides"], pairs, f"{prefix}.Overrides"
+            value["overrides"], pairs, f"{key_prefix}Overrides"
         )
 
 

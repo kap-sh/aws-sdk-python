@@ -23,15 +23,16 @@ class ServerlessCacheConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: ServerlessCacheConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache_name" in value:
         pairs.append(
-            (f"{prefix}.ServerlessCacheName", str(value["serverless_cache_name"]))
+            (f"{key_prefix}ServerlessCacheName", str(value["serverless_cache_name"]))
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
 
 

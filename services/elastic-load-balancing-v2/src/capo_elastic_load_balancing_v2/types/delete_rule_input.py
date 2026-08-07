@@ -19,8 +19,9 @@ class DeleteRuleInput(TypedDict, closed=True):
 def serialize_query(
     value: DeleteRuleInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_arn" in value:
-        pairs.append((f"{prefix}.RuleArn", str(value["rule_arn"])))
+        pairs.append((f"{key_prefix}RuleArn", str(value["rule_arn"])))
 
 
 def deserialize_query(el: Element) -> DeleteRuleInput:

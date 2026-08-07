@@ -23,11 +23,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_version" in value:
         import capo_elastic_beanstalk.types.application_version_description
 
         capo_elastic_beanstalk.types.application_version_description.serialize_query(
-            value["application_version"], pairs, f"{prefix}.ApplicationVersion"
+            value["application_version"], pairs, f"{key_prefix}ApplicationVersion"
         )
 
 

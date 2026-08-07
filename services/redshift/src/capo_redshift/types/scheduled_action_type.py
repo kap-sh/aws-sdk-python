@@ -31,23 +31,24 @@ class ScheduledActionType(TypedDict, closed=True):
 def serialize_query(
     value: ScheduledActionType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resize_cluster" in value:
         import capo_redshift.types.resize_cluster_message
 
         capo_redshift.types.resize_cluster_message.serialize_query(
-            value["resize_cluster"], pairs, f"{prefix}.ResizeCluster"
+            value["resize_cluster"], pairs, f"{key_prefix}ResizeCluster"
         )
     if "pause_cluster" in value:
         import capo_redshift.types.pause_cluster_message
 
         capo_redshift.types.pause_cluster_message.serialize_query(
-            value["pause_cluster"], pairs, f"{prefix}.PauseCluster"
+            value["pause_cluster"], pairs, f"{key_prefix}PauseCluster"
         )
     if "resume_cluster" in value:
         import capo_redshift.types.resume_cluster_message
 
         capo_redshift.types.resume_cluster_message.serialize_query(
-            value["resume_cluster"], pairs, f"{prefix}.ResumeCluster"
+            value["resume_cluster"], pairs, f"{key_prefix}ResumeCluster"
         )
 
 

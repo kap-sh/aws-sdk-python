@@ -41,21 +41,22 @@ class PredictiveScalingConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: PredictiveScalingConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_specifications" in value:
         import capo_auto_scaling.types.predictive_scaling_metric_specifications
 
         capo_auto_scaling.types.predictive_scaling_metric_specifications.serialize_query(
-            value["metric_specifications"], pairs, f"{prefix}.MetricSpecifications"
+            value["metric_specifications"], pairs, f"{key_prefix}MetricSpecifications"
         )
     if "mode" in value:
         import capo_auto_scaling.types.predictive_scaling_mode
 
         capo_auto_scaling.types.predictive_scaling_mode.serialize_query(
-            value["mode"], pairs, f"{prefix}.Mode"
+            value["mode"], pairs, f"{key_prefix}Mode"
         )
     if "scheduling_buffer_time" in value:
         pairs.append(
-            (f"{prefix}.SchedulingBufferTime", str(value["scheduling_buffer_time"]))
+            (f"{key_prefix}SchedulingBufferTime", str(value["scheduling_buffer_time"]))
         )
     if "max_capacity_breach_behavior" in value:
         import capo_auto_scaling.types.predictive_scaling_max_capacity_breach_behavior
@@ -63,10 +64,12 @@ def serialize_query(
         capo_auto_scaling.types.predictive_scaling_max_capacity_breach_behavior.serialize_query(
             value["max_capacity_breach_behavior"],
             pairs,
-            f"{prefix}.MaxCapacityBreachBehavior",
+            f"{key_prefix}MaxCapacityBreachBehavior",
         )
     if "max_capacity_buffer" in value:
-        pairs.append((f"{prefix}.MaxCapacityBuffer", str(value["max_capacity_buffer"])))
+        pairs.append(
+            (f"{key_prefix}MaxCapacityBuffer", str(value["max_capacity_buffer"]))
+        )
 
 
 def deserialize_query(el: Element) -> PredictiveScalingConfiguration:

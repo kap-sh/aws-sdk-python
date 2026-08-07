@@ -26,21 +26,22 @@ class DeleteReplicationGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteReplicationGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "retain_primary_cluster" in value:
         pairs.append(
             (
-                f"{prefix}.RetainPrimaryCluster",
+                f"{key_prefix}RetainPrimaryCluster",
                 "true" if value["retain_primary_cluster"] else "false",
             )
         )
     if "final_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.FinalSnapshotIdentifier",
+                f"{key_prefix}FinalSnapshotIdentifier",
                 str(value["final_snapshot_identifier"]),
             )
         )

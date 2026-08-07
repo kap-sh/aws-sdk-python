@@ -190,11 +190,6 @@ class mqClient:
 
     def create_broker(
         self,
-        broker_name: "capo_mq.types.__string.__string",
-        deployment_mode: "capo_mq.types.deployment_mode.DeploymentMode",
-        engine_type: "capo_mq.types.engine_type.EngineType",
-        host_instance_type: "capo_mq.types.__string.__string",
-        publicly_accessible: "capo_mq.types.__boolean.__boolean",
         *,
         config_overrides: Optional[mqClientConfig] = None,
         authentication_strategy: Optional[
@@ -203,14 +198,20 @@ class mqClient:
         auto_minor_version_upgrade: Optional[
             "capo_mq.types.__boolean.__boolean"
         ] = None,
+        broker_name: Optional["capo_mq.types.__string.__string"] = None,
         configuration: Optional[
             "capo_mq.types.configuration_id.ConfigurationId"
         ] = None,
         creator_request_id: Optional["capo_mq.types.__string.__string"] = None,
+        deployment_mode: Optional[
+            "capo_mq.types.deployment_mode.DeploymentMode"
+        ] = None,
         encryption_options: Optional[
             "capo_mq.types.encryption_options.EncryptionOptions"
         ] = None,
+        engine_type: Optional["capo_mq.types.engine_type.EngineType"] = None,
         engine_version: Optional["capo_mq.types.__string.__string"] = None,
+        host_instance_type: Optional["capo_mq.types.__string.__string"] = None,
         ldap_server_metadata: Optional[
             "capo_mq.types.ldap_server_metadata_input.LdapServerMetadataInput"
         ] = None,
@@ -218,6 +219,7 @@ class mqClient:
         maintenance_window_start_time: Optional[
             "capo_mq.types.weekly_start_time.WeeklyStartTime"
         ] = None,
+        publicly_accessible: Optional["capo_mq.types.__boolean.__boolean"] = None,
         security_groups: Optional[
             "capo_mq.types.__list_of__string.__listOf__string"
         ] = None,
@@ -286,25 +288,30 @@ class mqClient:
             input_["authentication_strategy"] = authentication_strategy
         if auto_minor_version_upgrade is not None:
             input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-        input_["broker_name"] = broker_name
+        if broker_name is not None:
+            input_["broker_name"] = broker_name
         if configuration is not None:
             input_["configuration"] = configuration
         if creator_request_id is not None:
             input_["creator_request_id"] = creator_request_id
-        input_["deployment_mode"] = deployment_mode
+        if deployment_mode is not None:
+            input_["deployment_mode"] = deployment_mode
         if encryption_options is not None:
             input_["encryption_options"] = encryption_options
-        input_["engine_type"] = engine_type
+        if engine_type is not None:
+            input_["engine_type"] = engine_type
         if engine_version is not None:
             input_["engine_version"] = engine_version
-        input_["host_instance_type"] = host_instance_type
+        if host_instance_type is not None:
+            input_["host_instance_type"] = host_instance_type
         if ldap_server_metadata is not None:
             input_["ldap_server_metadata"] = ldap_server_metadata
         if logs is not None:
             input_["logs"] = logs
         if maintenance_window_start_time is not None:
             input_["maintenance_window_start_time"] = maintenance_window_start_time
-        input_["publicly_accessible"] = publicly_accessible
+        if publicly_accessible is not None:
+            input_["publicly_accessible"] = publicly_accessible
         if security_groups is not None:
             input_["security_groups"] = security_groups
         if storage_type is not None:
@@ -331,14 +338,14 @@ class mqClient:
 
     def create_configuration(
         self,
-        engine_type: "capo_mq.types.engine_type.EngineType",
-        name: "capo_mq.types.__string.__string",
         *,
         config_overrides: Optional[mqClientConfig] = None,
         authentication_strategy: Optional[
             "capo_mq.types.authentication_strategy.AuthenticationStrategy"
         ] = None,
+        engine_type: Optional["capo_mq.types.engine_type.EngineType"] = None,
         engine_version: Optional["capo_mq.types.__string.__string"] = None,
+        name: Optional["capo_mq.types.__string.__string"] = None,
         tags: Optional["capo_mq.types.__map_of__string.__mapOf__string"] = None,
     ) -> "capo_mq.types.create_configuration_response.CreateConfigurationResponse":
         r"""<p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
@@ -376,10 +383,12 @@ class mqClient:
         input_: capo_mq.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
         if authentication_strategy is not None:
             input_["authentication_strategy"] = authentication_strategy
-        input_["engine_type"] = engine_type
+        if engine_type is not None:
+            input_["engine_type"] = engine_type
         if engine_version is not None:
             input_["engine_version"] = engine_version
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
 
@@ -437,12 +446,12 @@ class mqClient:
     def create_user(
         self,
         broker_id: "capo_mq.types.__string.__string",
-        password: "capo_mq.types.__string.__string",
         username: "capo_mq.types.__string.__string",
         *,
         config_overrides: Optional[mqClientConfig] = None,
         console_access: Optional["capo_mq.types.__boolean.__boolean"] = None,
         groups: Optional["capo_mq.types.__list_of__string.__listOf__string"] = None,
+        password: Optional["capo_mq.types.__string.__string"] = None,
         replication_user: Optional["capo_mq.types.__boolean.__boolean"] = None,
     ) -> "capo_mq.types.create_user_response.CreateUserResponse":
         """<p>Creates an ActiveMQ user.</p> <important><p>Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.</p></important>
@@ -481,7 +490,8 @@ class mqClient:
             input_["console_access"] = console_access
         if groups is not None:
             input_["groups"] = groups
-        input_["password"] = password
+        if password is not None:
+            input_["password"] = password
         input_["username"] = username
         if replication_user is not None:
             input_["replication_user"] = replication_user
@@ -583,9 +593,9 @@ class mqClient:
     def delete_tags(
         self,
         resource_arn: "capo_mq.types.__string.__string",
-        tag_keys: "capo_mq.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[mqClientConfig] = None,
+        tag_keys: Optional["capo_mq.types.__list_of__string.__listOf__string"] = None,
     ) -> None:
         """<p>Removes a tag from a resource.</p>
 
@@ -614,7 +624,8 @@ class mqClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mq.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1216,9 +1227,9 @@ class mqClient:
     def promote(
         self,
         broker_id: "capo_mq.types.__string.__string",
-        mode: "capo_mq.types.promote_mode.PromoteMode",
         *,
         config_overrides: Optional[mqClientConfig] = None,
+        mode: Optional["capo_mq.types.promote_mode.PromoteMode"] = None,
     ) -> "capo_mq.types.promote_response.PromoteResponse":
         """<p>Promotes a data replication replica broker to the primary broker role.</p>
 
@@ -1247,7 +1258,8 @@ class mqClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mq.types.promote_request.PromoteRequest = {}  # type: ignore[typeddict-item]
         input_["broker_id"] = broker_id
-        input_["mode"] = mode
+        if mode is not None:
+            input_["mode"] = mode
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1398,9 +1410,9 @@ class mqClient:
     def update_configuration(
         self,
         configuration_id: "capo_mq.types.__string.__string",
-        data: "capo_mq.types.__string.__string",
         *,
         config_overrides: Optional[mqClientConfig] = None,
+        data: Optional["capo_mq.types.__string.__string"] = None,
         description: Optional["capo_mq.types.__string.__string"] = None,
     ) -> "capo_mq.types.update_configuration_response.UpdateConfigurationResponse":
         """<p>Updates the specified configuration.</p>
@@ -1436,7 +1448,8 @@ class mqClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mq.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
         input_["configuration_id"] = configuration_id
-        input_["data"] = data
+        if data is not None:
+            input_["data"] = data
         if description is not None:
             input_["description"] = description
 

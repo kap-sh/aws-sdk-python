@@ -35,24 +35,28 @@ class TypeConfigurationIdentifier(TypedDict, closed=True):
 def serialize_query(
     value: TypeConfigurationIdentifier, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_arn" in value:
-        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+        pairs.append((f"{key_prefix}TypeArn", str(value["type_arn"])))
     if "type_configuration_alias" in value:
         pairs.append(
-            (f"{prefix}.TypeConfigurationAlias", str(value["type_configuration_alias"]))
+            (
+                f"{key_prefix}TypeConfigurationAlias",
+                str(value["type_configuration_alias"]),
+            )
         )
     if "type_configuration_arn" in value:
         pairs.append(
-            (f"{prefix}.TypeConfigurationArn", str(value["type_configuration_arn"]))
+            (f"{key_prefix}TypeConfigurationArn", str(value["type_configuration_arn"]))
         )
     if "type" in value:
         import capo_cloudformation.types.third_party_type
 
         capo_cloudformation.types.third_party_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
 
 
 def deserialize_query(el: Element) -> TypeConfigurationIdentifier:

@@ -294,10 +294,10 @@ class NeptuneClient:
 
     def add_role_to_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
-        role_arn: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
+        role_arn: Optional["capo_neptune.types.string.String"] = None,
         feature_name: Optional["capo_neptune.types.string.String"] = None,
     ) -> None:
         """<p>Associates an Identity and Access Management (IAM) role with an Neptune DB cluster.</p>
@@ -329,8 +329,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.add_role_to_db_cluster_message.AddRoleToDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["role_arn"] = role_arn
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if feature_name is not None:
             input_["feature_name"] = feature_name
 
@@ -343,10 +345,10 @@ class NeptuneClient:
 
     def add_source_identifier_to_subscription(
         self,
-        subscription_name: "capo_neptune.types.string.String",
-        source_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        subscription_name: Optional["capo_neptune.types.string.String"] = None,
+        source_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.add_source_identifier_to_subscription_result.AddSourceIdentifierToSubscriptionResult":
         """<p>Adds a source identifier to an existing event notification subscription.</p>
 
@@ -376,8 +378,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["source_identifier"] = source_identifier
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if source_identifier is not None:
+            input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -388,10 +392,10 @@ class NeptuneClient:
 
     def add_tags_to_resource(
         self,
-        resource_name: "capo_neptune.types.string.String",
-        tags: "capo_neptune.types.tag_list.TagList",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        resource_name: Optional["capo_neptune.types.string.String"] = None,
+        tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> None:
         r"""<p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon Neptune resources, or used in a Condition statement in an IAM policy for Amazon Neptune.</p>
 
@@ -420,8 +424,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tags"] = tags
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -432,11 +438,11 @@ class NeptuneClient:
 
     def apply_pending_maintenance_action(
         self,
-        resource_identifier: "capo_neptune.types.string.String",
-        apply_action: "capo_neptune.types.string.String",
-        opt_in_type: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        resource_identifier: Optional["capo_neptune.types.string.String"] = None,
+        apply_action: Optional["capo_neptune.types.string.String"] = None,
+        opt_in_type: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.apply_pending_maintenance_action_result.ApplyPendingMaintenanceActionResult":
         r"""<p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
 
@@ -466,9 +472,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_identifier"] = resource_identifier
-        input_["apply_action"] = apply_action
-        input_["opt_in_type"] = opt_in_type
+        if resource_identifier is not None:
+            input_["resource_identifier"] = resource_identifier
+        if apply_action is not None:
+            input_["apply_action"] = apply_action
+        if opt_in_type is not None:
+            input_["opt_in_type"] = opt_in_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -479,11 +488,17 @@ class NeptuneClient:
 
     def copy_db_cluster_parameter_group(
         self,
-        source_db_cluster_parameter_group_identifier: "capo_neptune.types.string.String",
-        target_db_cluster_parameter_group_identifier: "capo_neptune.types.string.String",
-        target_db_cluster_parameter_group_description: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        source_db_cluster_parameter_group_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        target_db_cluster_parameter_group_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        target_db_cluster_parameter_group_description: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> "capo_neptune.types.copy_db_cluster_parameter_group_result.CopyDBClusterParameterGroupResult":
         r"""<p>Copies the specified DB cluster parameter group.</p>
@@ -517,15 +532,18 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_cluster_parameter_group_identifier"] = (
-            source_db_cluster_parameter_group_identifier
-        )
-        input_["target_db_cluster_parameter_group_identifier"] = (
-            target_db_cluster_parameter_group_identifier
-        )
-        input_["target_db_cluster_parameter_group_description"] = (
-            target_db_cluster_parameter_group_description
-        )
+        if source_db_cluster_parameter_group_identifier is not None:
+            input_["source_db_cluster_parameter_group_identifier"] = (
+                source_db_cluster_parameter_group_identifier
+            )
+        if target_db_cluster_parameter_group_identifier is not None:
+            input_["target_db_cluster_parameter_group_identifier"] = (
+                target_db_cluster_parameter_group_identifier
+            )
+        if target_db_cluster_parameter_group_description is not None:
+            input_["target_db_cluster_parameter_group_description"] = (
+                target_db_cluster_parameter_group_description
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -538,10 +556,14 @@ class NeptuneClient:
 
     def copy_db_cluster_snapshot(
         self,
-        source_db_cluster_snapshot_identifier: "capo_neptune.types.string.String",
-        target_db_cluster_snapshot_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        source_db_cluster_snapshot_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        target_db_cluster_snapshot_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         kms_key_id: Optional["capo_neptune.types.string.String"] = None,
         pre_signed_url: Optional["capo_neptune.types.string.String"] = None,
         copy_tags: Optional[
@@ -587,12 +609,14 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_cluster_snapshot_identifier"] = (
-            source_db_cluster_snapshot_identifier
-        )
-        input_["target_db_cluster_snapshot_identifier"] = (
-            target_db_cluster_snapshot_identifier
-        )
+        if source_db_cluster_snapshot_identifier is not None:
+            input_["source_db_cluster_snapshot_identifier"] = (
+                source_db_cluster_snapshot_identifier
+            )
+        if target_db_cluster_snapshot_identifier is not None:
+            input_["target_db_cluster_snapshot_identifier"] = (
+                target_db_cluster_snapshot_identifier
+            )
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
@@ -611,11 +635,17 @@ class NeptuneClient:
 
     def copy_db_parameter_group(
         self,
-        source_db_parameter_group_identifier: "capo_neptune.types.string.String",
-        target_db_parameter_group_identifier: "capo_neptune.types.string.String",
-        target_db_parameter_group_description: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        source_db_parameter_group_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        target_db_parameter_group_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        target_db_parameter_group_description: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> "capo_neptune.types.copy_db_parameter_group_result.CopyDBParameterGroupResult":
         r"""<p>Copies the specified DB parameter group.</p>
@@ -649,15 +679,18 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.copy_db_parameter_group_message.CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["source_db_parameter_group_identifier"] = (
-            source_db_parameter_group_identifier
-        )
-        input_["target_db_parameter_group_identifier"] = (
-            target_db_parameter_group_identifier
-        )
-        input_["target_db_parameter_group_description"] = (
-            target_db_parameter_group_description
-        )
+        if source_db_parameter_group_identifier is not None:
+            input_["source_db_parameter_group_identifier"] = (
+                source_db_parameter_group_identifier
+            )
+        if target_db_parameter_group_identifier is not None:
+            input_["target_db_parameter_group_identifier"] = (
+                target_db_parameter_group_identifier
+            )
+        if target_db_parameter_group_description is not None:
+            input_["target_db_parameter_group_description"] = (
+                target_db_parameter_group_description
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -670,8 +703,6 @@ class NeptuneClient:
 
     def create_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
-        engine: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
         availability_zones: Optional[
@@ -685,6 +716,7 @@ class NeptuneClient:
             "capo_neptune.types.boolean_optional.BooleanOptional"
         ] = None,
         database_name: Optional["capo_neptune.types.string.String"] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         db_cluster_parameter_group_name: Optional[
             "capo_neptune.types.string.String"
         ] = None,
@@ -692,6 +724,7 @@ class NeptuneClient:
             "capo_neptune.types.vpc_security_group_id_list.VpcSecurityGroupIdList"
         ] = None,
         db_subnet_group_name: Optional["capo_neptune.types.string.String"] = None,
+        engine: Optional["capo_neptune.types.string.String"] = None,
         engine_version: Optional["capo_neptune.types.string.String"] = None,
         port: Optional["capo_neptune.types.integer_optional.IntegerOptional"] = None,
         master_username: Optional["capo_neptune.types.string.String"] = None,
@@ -809,14 +842,16 @@ class NeptuneClient:
             input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if database_name is not None:
             input_["database_name"] = database_name
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
             input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
             input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
@@ -869,11 +904,13 @@ class NeptuneClient:
 
     def create_db_cluster_endpoint(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
-        db_cluster_endpoint_identifier: "capo_neptune.types.string.String",
-        endpoint_type: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
+        db_cluster_endpoint_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        endpoint_type: Optional["capo_neptune.types.string.String"] = None,
         static_members: Optional["capo_neptune.types.string_list.StringList"] = None,
         excluded_members: Optional["capo_neptune.types.string_list.StringList"] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
@@ -914,9 +951,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_db_cluster_endpoint_message.CreateDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
-        input_["endpoint_type"] = endpoint_type
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_endpoint_identifier is not None:
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        if endpoint_type is not None:
+            input_["endpoint_type"] = endpoint_type
         if static_members is not None:
             input_["static_members"] = static_members
         if excluded_members is not None:
@@ -933,11 +973,13 @@ class NeptuneClient:
 
     def create_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_neptune.types.string.String",
-        db_parameter_group_family: "capo_neptune.types.string.String",
-        description: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        db_parameter_group_family: Optional["capo_neptune.types.string.String"] = None,
+        description: Optional["capo_neptune.types.string.String"] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> "capo_neptune.types.create_db_cluster_parameter_group_result.CreateDBClusterParameterGroupResult":
         r"""<p>Creates a new DB cluster parameter group.</p> <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p> <p> A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using <a>ModifyDBClusterParameterGroup</a>. Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using <a>ModifyDBCluster</a>. When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.</p> <important> <p>After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the <a href=\"https://console.aws.amazon.com/rds/\">Amazon Neptune console</a> or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter group has been created or modified.</p> </important>
@@ -970,9 +1012,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input_["db_parameter_group_family"] = db_parameter_group_family
-        input_["description"] = description
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -985,10 +1030,12 @@ class NeptuneClient:
 
     def create_db_cluster_snapshot(
         self,
-        db_cluster_snapshot_identifier: "capo_neptune.types.string.String",
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> "capo_neptune.types.create_db_cluster_snapshot_result.CreateDBClusterSnapshotResult":
         """<p>Creates a snapshot of a DB cluster.</p>
@@ -1023,8 +1070,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if tags is not None:
             input_["tags"] = tags
 
@@ -1037,16 +1086,15 @@ class NeptuneClient:
 
     def create_db_instance(
         self,
-        db_instance_identifier: "capo_neptune.types.string.String",
-        db_instance_class: "capo_neptune.types.string.String",
-        engine: "capo_neptune.types.string.String",
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
         db_name: Optional["capo_neptune.types.string.String"] = None,
+        db_instance_identifier: Optional["capo_neptune.types.string.String"] = None,
         allocated_storage: Optional[
             "capo_neptune.types.integer_optional.IntegerOptional"
         ] = None,
+        db_instance_class: Optional["capo_neptune.types.string.String"] = None,
+        engine: Optional["capo_neptune.types.string.String"] = None,
         master_username: Optional["capo_neptune.types.string.String"] = None,
         master_user_password: Optional["capo_neptune.types.string.String"] = None,
         db_security_groups: Optional[
@@ -1081,6 +1129,7 @@ class NeptuneClient:
             "capo_neptune.types.boolean_optional.BooleanOptional"
         ] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         storage_type: Optional["capo_neptune.types.string.String"] = None,
         tde_credential_arn: Optional["capo_neptune.types.string.String"] = None,
         tde_credential_password: Optional[
@@ -1206,11 +1255,14 @@ class NeptuneClient:
         input_: capo_neptune.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
             input_["db_name"] = db_name
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
             input_["allocated_storage"] = allocated_storage
-        input_["db_instance_class"] = db_instance_class
-        input_["engine"] = engine
+        if db_instance_class is not None:
+            input_["db_instance_class"] = db_instance_class
+        if engine is not None:
+            input_["engine"] = engine
         if master_username is not None:
             input_["master_username"] = master_username
         if master_user_password is not None:
@@ -1251,7 +1303,8 @@ class NeptuneClient:
             input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
             input_["tags"] = tags
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if storage_type is not None:
             input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
@@ -1298,11 +1351,11 @@ class NeptuneClient:
 
     def create_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_neptune.types.string.String",
-        db_parameter_group_family: "capo_neptune.types.string.String",
-        description: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_name: Optional["capo_neptune.types.string.String"] = None,
+        db_parameter_group_family: Optional["capo_neptune.types.string.String"] = None,
+        description: Optional["capo_neptune.types.string.String"] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> "capo_neptune.types.create_db_parameter_group_result.CreateDBParameterGroupResult":
         """<p>Creates a new DB parameter group.</p> <p>A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using <i>ModifyDBParameterGroup</i>. Once you've created a DB parameter group, you need to associate it with your DB instance using <i>ModifyDBInstance</i>. When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect.</p> <important> <p>After you create a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the Amazon Neptune console or the <i>DescribeDBParameters</i> command to verify that your DB parameter group has been created or modified.</p> </important>
@@ -1335,9 +1388,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_db_parameter_group_message.CreateDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
-        input_["db_parameter_group_family"] = db_parameter_group_family
-        input_["description"] = description
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -1350,11 +1406,15 @@ class NeptuneClient:
 
     def create_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_neptune.types.string.String",
-        db_subnet_group_description: "capo_neptune.types.string.String",
-        subnet_ids: "capo_neptune.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_subnet_group_name: Optional["capo_neptune.types.string.String"] = None,
+        db_subnet_group_description: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        subnet_ids: Optional[
+            "capo_neptune.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
         tags: Optional["capo_neptune.types.tag_list.TagList"] = None,
     ) -> "capo_neptune.types.create_db_subnet_group_result.CreateDBSubnetGroupResult":
         """<p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Region.</p>
@@ -1390,9 +1450,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
-        input_["db_subnet_group_description"] = db_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_description is not None:
+            input_["db_subnet_group_description"] = db_subnet_group_description
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
             input_["tags"] = tags
 
@@ -1405,10 +1468,10 @@ class NeptuneClient:
 
     def create_event_subscription(
         self,
-        subscription_name: "capo_neptune.types.string.String",
-        sns_topic_arn: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        subscription_name: Optional["capo_neptune.types.string.String"] = None,
+        sns_topic_arn: Optional["capo_neptune.types.string.String"] = None,
         source_type: Optional["capo_neptune.types.string.String"] = None,
         event_categories: Optional[
             "capo_neptune.types.event_categories_list.EventCategoriesList"
@@ -1455,8 +1518,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["sns_topic_arn"] = sns_topic_arn
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if sns_topic_arn is not None:
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
             input_["source_type"] = source_type
         if event_categories is not None:
@@ -1477,9 +1542,11 @@ class NeptuneClient:
 
     def create_global_cluster(
         self,
-        global_cluster_identifier: "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
         source_db_cluster_identifier: Optional[
             "capo_neptune.types.string.String"
         ] = None,
@@ -1530,7 +1597,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if source_db_cluster_identifier is not None:
             input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if engine is not None:
@@ -1555,9 +1623,9 @@ class NeptuneClient:
 
     def delete_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         skip_final_snapshot: Optional["capo_neptune.types.boolean.Boolean"] = None,
         final_db_snapshot_identifier: Optional[
             "capo_neptune.types.string.String"
@@ -1595,7 +1663,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if skip_final_snapshot is not None:
             input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
@@ -1610,9 +1679,11 @@ class NeptuneClient:
 
     def delete_db_cluster_endpoint(
         self,
-        db_cluster_endpoint_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_endpoint_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
     ) -> "capo_neptune.types.delete_db_cluster_endpoint_output.DeleteDBClusterEndpointOutput":
         """<p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>
 
@@ -1642,7 +1713,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_cluster_endpoint_message.DeleteDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        if db_cluster_endpoint_identifier is not None:
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1653,9 +1725,11 @@ class NeptuneClient:
 
     def delete_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
 
@@ -1682,7 +1756,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1693,9 +1768,11 @@ class NeptuneClient:
 
     def delete_db_cluster_snapshot(
         self,
-        db_cluster_snapshot_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
     ) -> "capo_neptune.types.delete_db_cluster_snapshot_result.DeleteDBClusterSnapshotResult":
         """<p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p> <note> <p>The DB cluster snapshot must be in the <code>available</code> state to be deleted.</p> </note>
 
@@ -1724,7 +1801,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1735,9 +1813,9 @@ class NeptuneClient:
 
     def delete_db_instance(
         self,
-        db_instance_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_instance_identifier: Optional["capo_neptune.types.string.String"] = None,
         skip_final_snapshot: Optional["capo_neptune.types.boolean.Boolean"] = None,
         final_db_snapshot_identifier: Optional[
             "capo_neptune.types.string.String"
@@ -1775,7 +1853,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if skip_final_snapshot is not None:
             input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
@@ -1790,9 +1869,9 @@ class NeptuneClient:
 
     def delete_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_name: Optional["capo_neptune.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be associated with any DB instances.</p>
 
@@ -1819,7 +1898,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_parameter_group_message.DeleteDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1830,9 +1910,9 @@ class NeptuneClient:
 
     def delete_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_subnet_group_name: Optional["capo_neptune.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a DB subnet group.</p> <note> <p>The specified database subnet group must not be associated with any DB instances.</p> </note>
 
@@ -1860,7 +1940,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1871,9 +1952,9 @@ class NeptuneClient:
 
     def delete_event_subscription(
         self,
-        subscription_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        subscription_name: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.delete_event_subscription_result.DeleteEventSubscriptionResult":
         """<p>Deletes an event notification subscription.</p>
 
@@ -1902,7 +1983,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1913,9 +1995,11 @@ class NeptuneClient:
 
     def delete_global_cluster(
         self,
-        global_cluster_identifier: "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
     ) -> "capo_neptune.types.delete_global_cluster_result.DeleteGlobalClusterResult":
         """<p>Deletes a global database. The primary and all secondary clusters must already be detached or deleted first.</p>
 
@@ -1944,7 +2028,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2135,9 +2220,11 @@ class NeptuneClient:
 
     def describe_db_cluster_parameters(
         self,
-        db_cluster_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         source: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
@@ -2175,7 +2262,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if source is not None:
             input_["source"] = source
         if filters is not None:
@@ -2194,9 +2282,11 @@ class NeptuneClient:
 
     def iter_describe_db_cluster_parameters(
         self,
-        db_cluster_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         source: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
@@ -2207,8 +2297,8 @@ class NeptuneClient:
         _token = marker
         while True:
             _response = self.describe_db_cluster_parameters(
-                db_cluster_parameter_group_name,
                 config_overrides=config_overrides,
+                db_cluster_parameter_group_name=db_cluster_parameter_group_name,
                 source=source,
                 filters=filters,
                 max_records=max_records,
@@ -2306,9 +2396,11 @@ class NeptuneClient:
 
     def describe_db_cluster_snapshot_attributes(
         self,
-        db_cluster_snapshot_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
     ) -> "capo_neptune.types.describe_db_cluster_snapshot_attributes_result.DescribeDBClusterSnapshotAttributesResult":
         """<p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p> <p>When sharing snapshots with other Amazon accounts, <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon accounts that are authorized to copy or restore the manual DB cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual DB cluster snapshot is public and can be copied or restored by all Amazon accounts.</p> <p>To add or remove access for an Amazon account to copy or restore a manual DB cluster snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
 
@@ -2336,7 +2428,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2744,9 +2837,9 @@ class NeptuneClient:
 
     def describe_db_parameters(
         self,
-        db_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_name: Optional["capo_neptune.types.string.String"] = None,
         source: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
@@ -2784,7 +2877,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_db_parameters_message.DescribeDBParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if source is not None:
             input_["source"] = source
         if filters is not None:
@@ -2803,9 +2897,9 @@ class NeptuneClient:
 
     def iter_describe_db_parameters(
         self,
-        db_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_name: Optional["capo_neptune.types.string.String"] = None,
         source: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
@@ -2816,8 +2910,8 @@ class NeptuneClient:
         _token = marker
         while True:
             _response = self.describe_db_parameters(
-                db_parameter_group_name,
                 config_overrides=config_overrides,
+                db_parameter_group_name=db_parameter_group_name,
                 source=source,
                 filters=filters,
                 max_records=max_records,
@@ -2915,9 +3009,9 @@ class NeptuneClient:
 
     def describe_engine_default_cluster_parameters(
         self,
-        db_parameter_group_family: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_family: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
             "capo_neptune.types.integer_optional.IntegerOptional"
@@ -2952,7 +3046,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_family"] = db_parameter_group_family
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
             input_["filters"] = filters
         if max_records is not None:
@@ -2969,9 +3064,9 @@ class NeptuneClient:
 
     def describe_engine_default_parameters(
         self,
-        db_parameter_group_family: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_family: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
             "capo_neptune.types.integer_optional.IntegerOptional"
@@ -3006,7 +3101,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_family"] = db_parameter_group_family
+        if db_parameter_group_family is not None:
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
             input_["filters"] = filters
         if max_records is not None:
@@ -3023,9 +3119,9 @@ class NeptuneClient:
 
     def iter_describe_engine_default_parameters(
         self,
-        db_parameter_group_family: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_family: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
         max_records: Optional[
             "capo_neptune.types.integer_optional.IntegerOptional"
@@ -3035,8 +3131,8 @@ class NeptuneClient:
         _token = marker
         while True:
             _response = self.describe_engine_default_parameters(
-                db_parameter_group_family,
                 config_overrides=config_overrides,
+                db_parameter_group_family=db_parameter_group_family,
                 filters=filters,
                 max_records=max_records,
                 marker=_token,
@@ -3377,9 +3473,9 @@ class NeptuneClient:
 
     def describe_orderable_db_instance_options(
         self,
-        engine: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        engine: Optional["capo_neptune.types.string.String"] = None,
         engine_version: Optional["capo_neptune.types.string.String"] = None,
         db_instance_class: Optional["capo_neptune.types.string.String"] = None,
         license_model: Optional["capo_neptune.types.string.String"] = None,
@@ -3422,7 +3518,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
-        input_["engine"] = engine
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if db_instance_class is not None:
@@ -3447,9 +3544,9 @@ class NeptuneClient:
 
     def iter_describe_orderable_db_instance_options(
         self,
-        engine: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        engine: Optional["capo_neptune.types.string.String"] = None,
         engine_version: Optional["capo_neptune.types.string.String"] = None,
         db_instance_class: Optional["capo_neptune.types.string.String"] = None,
         license_model: Optional["capo_neptune.types.string.String"] = None,
@@ -3463,8 +3560,8 @@ class NeptuneClient:
         _token = marker
         while True:
             _response = self.describe_orderable_db_instance_options(
-                engine,
                 config_overrides=config_overrides,
+                engine=engine,
                 engine_version=engine_version,
                 db_instance_class=db_instance_class,
                 license_model=license_model,
@@ -3565,9 +3662,9 @@ class NeptuneClient:
 
     def describe_valid_db_instance_modifications(
         self,
-        db_instance_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_instance_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.describe_valid_db_instance_modifications_result.DescribeValidDBInstanceModificationsResult":
         """<p>You can call <a>DescribeValidDBInstanceModifications</a> to learn what modifications you can make to your DB instance. You can use this information when you call <a>ModifyDBInstance</a>.</p>
 
@@ -3596,7 +3693,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.describe_valid_db_instance_modifications_message.DescribeValidDBInstanceModificationsMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3657,10 +3755,14 @@ class NeptuneClient:
 
     def failover_global_cluster(
         self,
-        global_cluster_identifier: "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier",
-        target_db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        target_db_cluster_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         allow_data_loss: Optional[
             "capo_neptune.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -3702,8 +3804,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if target_db_cluster_identifier is not None:
+            input_["target_db_cluster_identifier"] = target_db_cluster_identifier
         if allow_data_loss is not None:
             input_["allow_data_loss"] = allow_data_loss
         if switchover is not None:
@@ -3718,9 +3822,9 @@ class NeptuneClient:
 
     def list_tags_for_resource(
         self,
-        resource_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        resource_name: Optional["capo_neptune.types.string.String"] = None,
         filters: Optional["capo_neptune.types.filter_list.FilterList"] = None,
     ) -> "capo_neptune.types.tag_list_message.TagListMessage":
         r"""<p>Lists all tags on an Amazon Neptune resource.</p>
@@ -3750,7 +3854,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
         if filters is not None:
             input_["filters"] = filters
 
@@ -3763,9 +3868,9 @@ class NeptuneClient:
 
     def modify_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         new_db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         apply_immediately: Optional["capo_neptune.types.boolean.Boolean"] = None,
         backup_retention_period: Optional[
@@ -3867,7 +3972,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if new_db_cluster_identifier is not None:
             input_["new_db_cluster_identifier"] = new_db_cluster_identifier
         if apply_immediately is not None:
@@ -3926,9 +4032,11 @@ class NeptuneClient:
 
     def modify_db_cluster_endpoint(
         self,
-        db_cluster_endpoint_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_endpoint_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         endpoint_type: Optional["capo_neptune.types.string.String"] = None,
         static_members: Optional["capo_neptune.types.string_list.StringList"] = None,
         excluded_members: Optional["capo_neptune.types.string_list.StringList"] = None,
@@ -3966,7 +4074,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_cluster_endpoint_message.ModifyDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        if db_cluster_endpoint_identifier is not None:
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
         if endpoint_type is not None:
             input_["endpoint_type"] = endpoint_type
         if static_members is not None:
@@ -3983,10 +4092,14 @@ class NeptuneClient:
 
     def modify_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_neptune.types.string.String",
-        parameters: "capo_neptune.types.parameters_list.ParametersList",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        parameters: Optional[
+            "capo_neptune.types.parameters_list.ParametersList"
+        ] = None,
     ) -> "capo_neptune.types.db_cluster_parameter_group_name_message.DBClusterParameterGroupNameMessage":
         """<p> Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p> <note> <p>Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB cluster associated with the parameter group before the change can take effect.</p> </note> <important> <p>After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the <code>character_set_database</code> parameter. You can use the <i>Parameter Groups</i> option of the Amazon Neptune console or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter group has been created or modified.</p> </important>
 
@@ -4016,8 +4129,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input_["parameters"] = parameters
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if parameters is not None:
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4028,10 +4143,12 @@ class NeptuneClient:
 
     def modify_db_cluster_snapshot_attribute(
         self,
-        db_cluster_snapshot_identifier: "capo_neptune.types.string.String",
-        attribute_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_snapshot_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
+        attribute_name: Optional["capo_neptune.types.string.String"] = None,
         values_to_add: Optional[
             "capo_neptune.types.attribute_value_list.AttributeValueList"
         ] = None,
@@ -4070,8 +4187,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input_["attribute_name"] = attribute_name
+        if db_cluster_snapshot_identifier is not None:
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        if attribute_name is not None:
+            input_["attribute_name"] = attribute_name
         if values_to_add is not None:
             input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
@@ -4086,9 +4205,9 @@ class NeptuneClient:
 
     def modify_db_instance(
         self,
-        db_instance_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_instance_identifier: Optional["capo_neptune.types.string.String"] = None,
         allocated_storage: Optional[
             "capo_neptune.types.integer_optional.IntegerOptional"
         ] = None,
@@ -4241,7 +4360,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
             input_["allocated_storage"] = allocated_storage
         if db_instance_class is not None:
@@ -4328,10 +4448,12 @@ class NeptuneClient:
 
     def modify_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_neptune.types.string.String",
-        parameters: "capo_neptune.types.parameters_list.ParametersList",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_name: Optional["capo_neptune.types.string.String"] = None,
+        parameters: Optional[
+            "capo_neptune.types.parameters_list.ParametersList"
+        ] = None,
     ) -> (
         "capo_neptune.types.db_parameter_group_name_message.DBParameterGroupNameMessage"
     ):
@@ -4363,8 +4485,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_parameter_group_message.ModifyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
-        input_["parameters"] = parameters
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
+        if parameters is not None:
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4375,12 +4499,14 @@ class NeptuneClient:
 
     def modify_db_subnet_group(
         self,
-        db_subnet_group_name: "capo_neptune.types.string.String",
-        subnet_ids: "capo_neptune.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_subnet_group_name: Optional["capo_neptune.types.string.String"] = None,
         db_subnet_group_description: Optional[
             "capo_neptune.types.string.String"
+        ] = None,
+        subnet_ids: Optional[
+            "capo_neptune.types.subnet_identifier_list.SubnetIdentifierList"
         ] = None,
     ) -> "capo_neptune.types.modify_db_subnet_group_result.ModifyDBSubnetGroupResult":
         """<p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Region.</p>
@@ -4415,10 +4541,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_subnet_group_name"] = db_subnet_group_name
+        if db_subnet_group_name is not None:
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if db_subnet_group_description is not None:
             input_["db_subnet_group_description"] = db_subnet_group_description
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4429,9 +4557,9 @@ class NeptuneClient:
 
     def modify_event_subscription(
         self,
-        subscription_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        subscription_name: Optional["capo_neptune.types.string.String"] = None,
         sns_topic_arn: Optional["capo_neptune.types.string.String"] = None,
         source_type: Optional["capo_neptune.types.string.String"] = None,
         event_categories: Optional[
@@ -4474,7 +4602,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
             input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
@@ -4493,9 +4622,11 @@ class NeptuneClient:
 
     def modify_global_cluster(
         self,
-        global_cluster_identifier: "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
         new_global_cluster_identifier: Optional[
             "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
         ] = None,
@@ -4541,7 +4672,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if new_global_cluster_identifier is not None:
             input_["new_global_cluster_identifier"] = new_global_cluster_identifier
         if deletion_protection is not None:
@@ -4560,9 +4692,9 @@ class NeptuneClient:
 
     def promote_read_replica_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.promote_read_replica_db_cluster_result.PromoteReadReplicaDBClusterResult":
         """<p>Not supported.</p>
 
@@ -4591,7 +4723,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.promote_read_replica_db_cluster_message.PromoteReadReplicaDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4602,9 +4735,9 @@ class NeptuneClient:
 
     def reboot_db_instance(
         self,
-        db_instance_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_instance_identifier: Optional["capo_neptune.types.string.String"] = None,
         force_failover: Optional[
             "capo_neptune.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -4637,7 +4770,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input_["db_instance_identifier"] = db_instance_identifier
+        if db_instance_identifier is not None:
+            input_["db_instance_identifier"] = db_instance_identifier
         if force_failover is not None:
             input_["force_failover"] = force_failover
 
@@ -4650,10 +4784,12 @@ class NeptuneClient:
 
     def remove_from_global_cluster(
         self,
-        global_cluster_identifier: "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier",
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.remove_from_global_cluster_result.RemoveFromGlobalClusterResult":
         """<p>Detaches a Neptune DB cluster from a Neptune global database. A secondary cluster becomes a normal standalone cluster with read-write capability instead of being read-only, and no longer receives data from the primary cluster.</p>
 
@@ -4684,8 +4820,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4696,10 +4834,10 @@ class NeptuneClient:
 
     def remove_role_from_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
-        role_arn: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
+        role_arn: Optional["capo_neptune.types.string.String"] = None,
         feature_name: Optional["capo_neptune.types.string.String"] = None,
     ) -> None:
         """<p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
@@ -4730,8 +4868,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.remove_role_from_db_cluster_message.RemoveRoleFromDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["role_arn"] = role_arn
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if feature_name is not None:
             input_["feature_name"] = feature_name
 
@@ -4744,10 +4884,10 @@ class NeptuneClient:
 
     def remove_source_identifier_from_subscription(
         self,
-        subscription_name: "capo_neptune.types.string.String",
-        source_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        subscription_name: Optional["capo_neptune.types.string.String"] = None,
+        source_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.remove_source_identifier_from_subscription_result.RemoveSourceIdentifierFromSubscriptionResult":
         """<p>Removes a source identifier from an existing event notification subscription.</p>
 
@@ -4777,8 +4917,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["source_identifier"] = source_identifier
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if source_identifier is not None:
+            input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4789,10 +4931,10 @@ class NeptuneClient:
 
     def remove_tags_from_resource(
         self,
-        resource_name: "capo_neptune.types.string.String",
-        tag_keys: "capo_neptune.types.key_list.KeyList",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        resource_name: Optional["capo_neptune.types.string.String"] = None,
+        tag_keys: Optional["capo_neptune.types.key_list.KeyList"] = None,
     ) -> None:
         r"""<p>Removes metadata tags from an Amazon Neptune resource.</p>
 
@@ -4821,8 +4963,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tag_keys"] = tag_keys
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4833,9 +4977,11 @@ class NeptuneClient:
 
     def reset_db_cluster_parameter_group(
         self,
-        db_cluster_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_parameter_group_name: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         reset_all_parameters: Optional["capo_neptune.types.boolean.Boolean"] = None,
         parameters: Optional[
             "capo_neptune.types.parameters_list.ParametersList"
@@ -4870,7 +5016,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        if db_cluster_parameter_group_name is not None:
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
@@ -4885,9 +5032,9 @@ class NeptuneClient:
 
     def reset_db_parameter_group(
         self,
-        db_parameter_group_name: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_parameter_group_name: Optional["capo_neptune.types.string.String"] = None,
         reset_all_parameters: Optional["capo_neptune.types.boolean.Boolean"] = None,
         parameters: Optional[
             "capo_neptune.types.parameters_list.ParametersList"
@@ -4924,7 +5071,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.reset_db_parameter_group_message.ResetDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["db_parameter_group_name"] = db_parameter_group_name
+        if db_parameter_group_name is not None:
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
@@ -4939,14 +5087,14 @@ class NeptuneClient:
 
     def restore_db_cluster_from_snapshot(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
-        snapshot_identifier: "capo_neptune.types.string.String",
-        engine: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
         availability_zones: Optional[
             "capo_neptune.types.availability_zones.AvailabilityZones"
         ] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
+        snapshot_identifier: Optional["capo_neptune.types.string.String"] = None,
+        engine: Optional["capo_neptune.types.string.String"] = None,
         engine_version: Optional["capo_neptune.types.string.String"] = None,
         port: Optional["capo_neptune.types.integer_optional.IntegerOptional"] = None,
         db_subnet_group_name: Optional["capo_neptune.types.string.String"] = None,
@@ -5041,9 +5189,12 @@ class NeptuneClient:
         input_: capo_neptune.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
-        input_["db_cluster_identifier"] = db_cluster_identifier
-        input_["snapshot_identifier"] = snapshot_identifier
-        input_["engine"] = engine
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
+        if engine is not None:
+            input_["engine"] = engine
         if engine_version is not None:
             input_["engine_version"] = engine_version
         if port is not None:
@@ -5090,11 +5241,13 @@ class NeptuneClient:
 
     def restore_db_cluster_to_point_in_time(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
-        source_db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
         restore_type: Optional["capo_neptune.types.string.String"] = None,
+        source_db_cluster_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
         restore_to_time: Optional["capo_neptune.types.t_stamp.TStamp"] = None,
         use_latest_restorable_time: Optional[
             "capo_neptune.types.boolean.Boolean"
@@ -5185,10 +5338,12 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if restore_type is not None:
             input_["restore_type"] = restore_type
-        input_["source_db_cluster_identifier"] = source_db_cluster_identifier
+        if source_db_cluster_identifier is not None:
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if restore_to_time is not None:
             input_["restore_to_time"] = restore_to_time
         if use_latest_restorable_time is not None:
@@ -5233,9 +5388,9 @@ class NeptuneClient:
 
     def start_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.start_db_cluster_result.StartDBClusterResult":
         """<p>Starts an Amazon Neptune DB cluster that was stopped using the Amazon console, the Amazon CLI stop-db-cluster command, or the StopDBCluster API.</p>
 
@@ -5265,7 +5420,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5276,9 +5432,9 @@ class NeptuneClient:
 
     def stop_db_cluster(
         self,
-        db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        db_cluster_identifier: Optional["capo_neptune.types.string.String"] = None,
     ) -> "capo_neptune.types.stop_db_cluster_result.StopDBClusterResult":
         """<p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune retains the DB cluster's metadata, including its endpoints and DB parameter groups.</p> <p>Neptune also retains the transaction logs so you can do a point-in-time restore if necessary.</p>
 
@@ -5308,7 +5464,8 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["db_cluster_identifier"] = db_cluster_identifier
+        if db_cluster_identifier is not None:
+            input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5319,10 +5476,14 @@ class NeptuneClient:
 
     def switchover_global_cluster(
         self,
-        global_cluster_identifier: "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier",
-        target_db_cluster_identifier: "capo_neptune.types.string.String",
         *,
         config_overrides: Optional[NeptuneClientConfig] = None,
+        global_cluster_identifier: Optional[
+            "capo_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
+        ] = None,
+        target_db_cluster_identifier: Optional[
+            "capo_neptune.types.string.String"
+        ] = None,
     ) -> "capo_neptune.types.switchover_global_cluster_result.SwitchoverGlobalClusterResult":
         r"""<p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster. Switchover operations were previously called \"managed planned failovers.\"</p> <p>Promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster to a secondary (read-only) cluster, maintaining the original replication topology. All secondary clusters are synchronized with the primary at the beginning of the process so the new primary continues operations for the global database without losing any data. Your database is unavailable for a short time while the primary and selected secondary clusters are assuming their new roles.</p> <note> <p>This operation is intended for controlled environments, for operations such as \"regional rotation\" or to fall back to the original primary after a global database failover.</p> </note>
 
@@ -5354,8 +5515,10 @@ class NeptuneClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_neptune.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["global_cluster_identifier"] = global_cluster_identifier
-        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
+        if global_cluster_identifier is not None:
+            input_["global_cluster_identifier"] = global_cluster_identifier
+        if target_db_cluster_identifier is not None:
+            input_["target_db_cluster_identifier"] = target_db_cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

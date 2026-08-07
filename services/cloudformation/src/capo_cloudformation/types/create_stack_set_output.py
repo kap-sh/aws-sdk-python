@@ -19,8 +19,9 @@ class CreateStackSetOutput(TypedDict, closed=True):
 def serialize_query(
     value: CreateStackSetOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_id" in value:
-        pairs.append((f"{prefix}.StackSetId", str(value["stack_set_id"])))
+        pairs.append((f"{key_prefix}StackSetId", str(value["stack_set_id"])))
 
 
 def deserialize_query(el: Element) -> CreateStackSetOutput:

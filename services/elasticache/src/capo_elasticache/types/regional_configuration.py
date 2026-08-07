@@ -26,13 +26,17 @@ class RegionalConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: RegionalConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "replication_group_region" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupRegion", str(value["replication_group_region"]))
+            (
+                f"{key_prefix}ReplicationGroupRegion",
+                str(value["replication_group_region"]),
+            )
         )
     if "resharding_configuration" in value:
         import capo_elasticache.types.resharding_configuration_list
@@ -40,7 +44,7 @@ def serialize_query(
         capo_elasticache.types.resharding_configuration_list.serialize_query(
             value["resharding_configuration"],
             pairs,
-            f"{prefix}.ReshardingConfiguration",
+            f"{key_prefix}ReshardingConfiguration",
         )
 
 

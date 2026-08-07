@@ -21,8 +21,9 @@ class DescribeTargetGroupAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTargetGroupAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_group_arn" in value:
-        pairs.append((f"{prefix}.TargetGroupArn", str(value["target_group_arn"])))
+        pairs.append((f"{key_prefix}TargetGroupArn", str(value["target_group_arn"])))
 
 
 def deserialize_query(el: Element) -> DescribeTargetGroupAttributesInput:

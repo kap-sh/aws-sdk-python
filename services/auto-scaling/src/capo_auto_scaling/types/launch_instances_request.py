@@ -45,37 +45,40 @@ class LaunchInstancesRequest(TypedDict, closed=True):
 def serialize_query(
     value: LaunchInstancesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "requested_capacity" in value:
-        pairs.append((f"{prefix}.RequestedCapacity", str(value["requested_capacity"])))
+        pairs.append(
+            (f"{key_prefix}RequestedCapacity", str(value["requested_capacity"]))
+        )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "availability_zones" in value:
         import capo_auto_scaling.types.availability_zones_limit1
 
         capo_auto_scaling.types.availability_zones_limit1.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "availability_zone_ids" in value:
         import capo_auto_scaling.types.availability_zone_ids_limit1
 
         capo_auto_scaling.types.availability_zone_ids_limit1.serialize_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIds"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIds"
         )
     if "subnet_ids" in value:
         import capo_auto_scaling.types.subnet_ids_limit1
 
         capo_auto_scaling.types.subnet_ids_limit1.serialize_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "retry_strategy" in value:
         import capo_auto_scaling.types.retry_strategy
 
         capo_auto_scaling.types.retry_strategy.serialize_query(
-            value["retry_strategy"], pairs, f"{prefix}.RetryStrategy"
+            value["retry_strategy"], pairs, f"{key_prefix}RetryStrategy"
         )
 
 

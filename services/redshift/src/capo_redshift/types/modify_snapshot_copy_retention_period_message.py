@@ -27,12 +27,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "retention_period" in value:
-        pairs.append((f"{prefix}.RetentionPeriod", str(value["retention_period"])))
+        pairs.append((f"{key_prefix}RetentionPeriod", str(value["retention_period"])))
     if "manual" in value:
-        pairs.append((f"{prefix}.Manual", "true" if value["manual"] else "false"))
+        pairs.append((f"{key_prefix}Manual", "true" if value["manual"] else "false"))
 
 
 def deserialize_query(el: Element) -> ModifySnapshotCopyRetentionPeriodMessage:

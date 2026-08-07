@@ -21,11 +21,12 @@ class ApplicationDescriptionMessage(TypedDict, closed=True):
 def serialize_query(
     value: ApplicationDescriptionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application" in value:
         import capo_elastic_beanstalk.types.application_description
 
         capo_elastic_beanstalk.types.application_description.serialize_query(
-            value["application"], pairs, f"{prefix}.Application"
+            value["application"], pairs, f"{key_prefix}Application"
         )
 
 

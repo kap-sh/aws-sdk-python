@@ -237,10 +237,10 @@ class AsyncMediaPackageClient:
 
     async def create_channel(
         self,
-        id: "capo_mediapackage.types.__string.__string",
         *,
         config_overrides: Optional[AsyncMediaPackageClientConfig] = None,
         description: Optional["capo_mediapackage.types.__string.__string"] = None,
+        id: Optional["capo_mediapackage.types.__string.__string"] = None,
         tags: Optional["capo_mediapackage.types.tags.Tags"] = None,
     ) -> "capo_mediapackage.types.create_channel_response.CreateChannelResponse":
         """Creates a new Channel.
@@ -278,7 +278,8 @@ class AsyncMediaPackageClient:
         input_: capo_mediapackage.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["id"] = id
+        if id is not None:
+            input_["id"] = id
         if tags is not None:
             input_["tags"] = tags
 
@@ -291,13 +292,17 @@ class AsyncMediaPackageClient:
 
     async def create_harvest_job(
         self,
-        end_time: "capo_mediapackage.types.__string.__string",
-        id: "capo_mediapackage.types.__string.__string",
-        origin_endpoint_id: "capo_mediapackage.types.__string.__string",
-        s3_destination: "capo_mediapackage.types.s3_destination.S3Destination",
-        start_time: "capo_mediapackage.types.__string.__string",
         *,
         config_overrides: Optional[AsyncMediaPackageClientConfig] = None,
+        end_time: Optional["capo_mediapackage.types.__string.__string"] = None,
+        id: Optional["capo_mediapackage.types.__string.__string"] = None,
+        origin_endpoint_id: Optional[
+            "capo_mediapackage.types.__string.__string"
+        ] = None,
+        s3_destination: Optional[
+            "capo_mediapackage.types.s3_destination.S3Destination"
+        ] = None,
+        start_time: Optional["capo_mediapackage.types.__string.__string"] = None,
     ) -> "capo_mediapackage.types.create_harvest_job_response.CreateHarvestJobResponse":
         """Creates a new HarvestJob record.
 
@@ -334,11 +339,16 @@ class AsyncMediaPackageClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediapackage.types.create_harvest_job_request.CreateHarvestJobRequest = {}  # type: ignore[typeddict-item]
-        input_["end_time"] = end_time
-        input_["id"] = id
-        input_["origin_endpoint_id"] = origin_endpoint_id
-        input_["s3_destination"] = s3_destination
-        input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if id is not None:
+            input_["id"] = id
+        if origin_endpoint_id is not None:
+            input_["origin_endpoint_id"] = origin_endpoint_id
+        if s3_destination is not None:
+            input_["s3_destination"] = s3_destination
+        if start_time is not None:
+            input_["start_time"] = start_time
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -349,13 +359,12 @@ class AsyncMediaPackageClient:
 
     async def create_origin_endpoint(
         self,
-        channel_id: "capo_mediapackage.types.__string.__string",
-        id: "capo_mediapackage.types.__string.__string",
         *,
         config_overrides: Optional[AsyncMediaPackageClientConfig] = None,
         authorization: Optional[
             "capo_mediapackage.types.authorization.Authorization"
         ] = None,
+        channel_id: Optional["capo_mediapackage.types.__string.__string"] = None,
         cmaf_package: Optional[
             "capo_mediapackage.types.cmaf_package_create_or_update_parameters.CmafPackageCreateOrUpdateParameters"
         ] = None,
@@ -364,6 +373,7 @@ class AsyncMediaPackageClient:
         ] = None,
         description: Optional["capo_mediapackage.types.__string.__string"] = None,
         hls_package: Optional["capo_mediapackage.types.hls_package.HlsPackage"] = None,
+        id: Optional["capo_mediapackage.types.__string.__string"] = None,
         manifest_name: Optional["capo_mediapackage.types.__string.__string"] = None,
         mss_package: Optional["capo_mediapackage.types.mss_package.MssPackage"] = None,
         origination: Optional["capo_mediapackage.types.origination.Origination"] = None,
@@ -419,7 +429,8 @@ class AsyncMediaPackageClient:
         input_: capo_mediapackage.types.create_origin_endpoint_request.CreateOriginEndpointRequest = {}  # type: ignore[typeddict-item]
         if authorization is not None:
             input_["authorization"] = authorization
-        input_["channel_id"] = channel_id
+        if channel_id is not None:
+            input_["channel_id"] = channel_id
         if cmaf_package is not None:
             input_["cmaf_package"] = cmaf_package
         if dash_package is not None:
@@ -428,7 +439,8 @@ class AsyncMediaPackageClient:
             input_["description"] = description
         if hls_package is not None:
             input_["hls_package"] = hls_package
-        input_["id"] = id
+        if id is not None:
+            input_["id"] = id
         if manifest_name is not None:
             input_["manifest_name"] = manifest_name
         if mss_package is not None:
@@ -1059,9 +1071,11 @@ class AsyncMediaPackageClient:
     async def tag_resource(
         self,
         resource_arn: "capo_mediapackage.types.__string.__string",
-        tags: "capo_mediapackage.types.__map_of__string.__mapOf__string",
         *,
         config_overrides: Optional[AsyncMediaPackageClientConfig] = None,
+        tags: Optional[
+            "capo_mediapackage.types.__map_of__string.__mapOf__string"
+        ] = None,
     ) -> None:
         async def _handler(
             req: "AsyncOperationRequest[capo_mediapackage.types.tag_resource_request.TagResourceRequest]",
@@ -1079,7 +1093,8 @@ class AsyncMediaPackageClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediapackage.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1091,9 +1106,11 @@ class AsyncMediaPackageClient:
     async def untag_resource(
         self,
         resource_arn: "capo_mediapackage.types.__string.__string",
-        tag_keys: "capo_mediapackage.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncMediaPackageClientConfig] = None,
+        tag_keys: Optional[
+            "capo_mediapackage.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """untag_resource
 
@@ -1120,7 +1137,8 @@ class AsyncMediaPackageClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediapackage.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

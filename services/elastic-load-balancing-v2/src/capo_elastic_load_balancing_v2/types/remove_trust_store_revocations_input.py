@@ -26,13 +26,14 @@ class RemoveTrustStoreRevocationsInput(TypedDict, closed=True):
 def serialize_query(
     value: RemoveTrustStoreRevocationsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "revocation_ids" in value:
         import capo_elastic_load_balancing_v2.types.revocation_ids
 
         capo_elastic_load_balancing_v2.types.revocation_ids.serialize_query(
-            value["revocation_ids"], pairs, f"{prefix}.RevocationIds"
+            value["revocation_ids"], pairs, f"{key_prefix}RevocationIds"
         )
 
 

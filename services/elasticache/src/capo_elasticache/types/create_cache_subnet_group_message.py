@@ -29,14 +29,15 @@ class CreateCacheSubnetGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateCacheSubnetGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
+            (f"{key_prefix}CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
         )
     if "cache_subnet_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.CacheSubnetGroupDescription",
+                f"{key_prefix}CacheSubnetGroupDescription",
                 str(value["cache_subnet_group_description"]),
             )
         )
@@ -44,13 +45,13 @@ def serialize_query(
         import capo_elasticache.types.subnet_identifier_list
 
         capo_elasticache.types.subnet_identifier_list.serialize_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

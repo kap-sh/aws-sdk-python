@@ -42,33 +42,34 @@ class CreateRuleInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateRuleInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener_arn" in value:
-        pairs.append((f"{prefix}.ListenerArn", str(value["listener_arn"])))
+        pairs.append((f"{key_prefix}ListenerArn", str(value["listener_arn"])))
     if "conditions" in value:
         import capo_elastic_load_balancing_v2.types.rule_condition_list
 
         capo_elastic_load_balancing_v2.types.rule_condition_list.serialize_query(
-            value["conditions"], pairs, f"{prefix}.Conditions"
+            value["conditions"], pairs, f"{key_prefix}Conditions"
         )
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
     if "actions" in value:
         import capo_elastic_load_balancing_v2.types.actions
 
         capo_elastic_load_balancing_v2.types.actions.serialize_query(
-            value["actions"], pairs, f"{prefix}.Actions"
+            value["actions"], pairs, f"{key_prefix}Actions"
         )
     if "tags" in value:
         import capo_elastic_load_balancing_v2.types.tag_list
 
         capo_elastic_load_balancing_v2.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "transforms" in value:
         import capo_elastic_load_balancing_v2.types.rule_transform_list
 
         capo_elastic_load_balancing_v2.types.rule_transform_list.serialize_query(
-            value["transforms"], pairs, f"{prefix}.Transforms"
+            value["transforms"], pairs, f"{key_prefix}Transforms"
         )
 
 

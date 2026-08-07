@@ -43,22 +43,23 @@ class InstanceHealthSummary(TypedDict, closed=True):
 def serialize_query(
     value: InstanceHealthSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "no_data" in value:
-        pairs.append((f"{prefix}.NoData", str(value["no_data"])))
+        pairs.append((f"{key_prefix}NoData", str(value["no_data"])))
     if "unknown" in value:
-        pairs.append((f"{prefix}.Unknown", str(value["unknown"])))
+        pairs.append((f"{key_prefix}Unknown", str(value["unknown"])))
     if "pending" in value:
-        pairs.append((f"{prefix}.Pending", str(value["pending"])))
+        pairs.append((f"{key_prefix}Pending", str(value["pending"])))
     if "ok" in value:
-        pairs.append((f"{prefix}.Ok", str(value["ok"])))
+        pairs.append((f"{key_prefix}Ok", str(value["ok"])))
     if "info" in value:
-        pairs.append((f"{prefix}.Info", str(value["info"])))
+        pairs.append((f"{key_prefix}Info", str(value["info"])))
     if "warning" in value:
-        pairs.append((f"{prefix}.Warning", str(value["warning"])))
+        pairs.append((f"{key_prefix}Warning", str(value["warning"])))
     if "degraded" in value:
-        pairs.append((f"{prefix}.Degraded", str(value["degraded"])))
+        pairs.append((f"{key_prefix}Degraded", str(value["degraded"])))
     if "severe" in value:
-        pairs.append((f"{prefix}.Severe", str(value["severe"])))
+        pairs.append((f"{key_prefix}Severe", str(value["severe"])))
 
 
 def deserialize_query(el: Element) -> InstanceHealthSummary:

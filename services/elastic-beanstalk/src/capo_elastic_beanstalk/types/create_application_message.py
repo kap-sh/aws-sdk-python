@@ -31,22 +31,23 @@ class CreateApplicationMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateApplicationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "resource_lifecycle_config" in value:
         import capo_elastic_beanstalk.types.application_resource_lifecycle_config
 
         capo_elastic_beanstalk.types.application_resource_lifecycle_config.serialize_query(
             value["resource_lifecycle_config"],
             pairs,
-            f"{prefix}.ResourceLifecycleConfig",
+            f"{key_prefix}ResourceLifecycleConfig",
         )
     if "tags" in value:
         import capo_elastic_beanstalk.types.tags
 
         capo_elastic_beanstalk.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

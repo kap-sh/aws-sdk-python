@@ -313,10 +313,14 @@ class ElasticLoadBalancingv2Client:
 
     def add_listener_certificates(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
-        certificates: "capo_elastic_load_balancing_v2.types.certificate_list.CertificateList",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
+        certificates: Optional[
+            "capo_elastic_load_balancing_v2.types.certificate_list.CertificateList"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.add_listener_certificates_output.AddListenerCertificatesOutput":
         r"""<p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS or TLS listener.</p> <p>If the certificate in already in the certificate list, the call is successful but the certificate is not added again.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html\">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html\">Server certificates</a> in the <i>Network Load Balancers Guide</i>.</p>
 
@@ -347,8 +351,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.add_listener_certificates_input.AddListenerCertificatesInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
-        input_["certificates"] = certificates
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
+        if certificates is not None:
+            input_["certificates"] = certificates
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -359,10 +365,12 @@ class ElasticLoadBalancingv2Client:
 
     def add_tags(
         self,
-        resource_arns: "capo_elastic_load_balancing_v2.types.resource_arns.ResourceArns",
-        tags: "capo_elastic_load_balancing_v2.types.tag_list.TagList",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        resource_arns: Optional[
+            "capo_elastic_load_balancing_v2.types.resource_arns.ResourceArns"
+        ] = None,
+        tags: Optional["capo_elastic_load_balancing_v2.types.tag_list.TagList"] = None,
     ) -> "capo_elastic_load_balancing_v2.types.add_tags_output.AddTagsOutput":
         """<p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, trust stores, listeners, and rules.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p>
 
@@ -403,8 +411,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arns"] = resource_arns
-        input_["tags"] = tags
+        if resource_arns is not None:
+            input_["resource_arns"] = resource_arns
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -415,9 +425,11 @@ class ElasticLoadBalancingv2Client:
 
     def add_trust_store_revocations(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
         revocation_contents: Optional[
             "capo_elastic_load_balancing_v2.types.revocation_contents.RevocationContents"
         ] = None,
@@ -452,7 +464,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.add_trust_store_revocations_input.AddTrustStoreRevocationsInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
         if revocation_contents is not None:
             input_["revocation_contents"] = revocation_contents
 
@@ -465,10 +478,11 @@ class ElasticLoadBalancingv2Client:
 
     def create_listener(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
-        default_actions: "capo_elastic_load_balancing_v2.types.actions.Actions",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
         protocol: Optional[
             "capo_elastic_load_balancing_v2.types.protocol_enum.ProtocolEnum"
         ] = None,
@@ -478,6 +492,9 @@ class ElasticLoadBalancingv2Client:
         ] = None,
         certificates: Optional[
             "capo_elastic_load_balancing_v2.types.certificate_list.CertificateList"
+        ] = None,
+        default_actions: Optional[
+            "capo_elastic_load_balancing_v2.types.actions.Actions"
         ] = None,
         alpn_policy: Optional[
             "capo_elastic_load_balancing_v2.types.alpn_policy_name.AlpnPolicyName"
@@ -550,7 +567,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.create_listener_input.CreateListenerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
         if protocol is not None:
             input_["protocol"] = protocol
         if port is not None:
@@ -559,7 +577,8 @@ class ElasticLoadBalancingv2Client:
             input_["ssl_policy"] = ssl_policy
         if certificates is not None:
             input_["certificates"] = certificates
-        input_["default_actions"] = default_actions
+        if default_actions is not None:
+            input_["default_actions"] = default_actions
         if alpn_policy is not None:
             input_["alpn_policy"] = alpn_policy
         if tags is not None:
@@ -576,9 +595,11 @@ class ElasticLoadBalancingv2Client:
 
     def create_load_balancer(
         self,
-        name: "capo_elastic_load_balancing_v2.types.load_balancer_name.LoadBalancerName",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        name: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_name.LoadBalancerName"
+        ] = None,
         subnets: Optional[
             "capo_elastic_load_balancing_v2.types.subnets.Subnets"
         ] = None,
@@ -666,7 +687,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.create_load_balancer_input.CreateLoadBalancerInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if subnets is not None:
             input_["subnets"] = subnets
         if subnet_mappings is not None:
@@ -699,12 +721,20 @@ class ElasticLoadBalancingv2Client:
 
     def create_rule(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
-        conditions: "capo_elastic_load_balancing_v2.types.rule_condition_list.RuleConditionList",
-        priority: "capo_elastic_load_balancing_v2.types.rule_priority.RulePriority",
-        actions: "capo_elastic_load_balancing_v2.types.actions.Actions",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
+        conditions: Optional[
+            "capo_elastic_load_balancing_v2.types.rule_condition_list.RuleConditionList"
+        ] = None,
+        priority: Optional[
+            "capo_elastic_load_balancing_v2.types.rule_priority.RulePriority"
+        ] = None,
+        actions: Optional[
+            "capo_elastic_load_balancing_v2.types.actions.Actions"
+        ] = None,
         tags: Optional["capo_elastic_load_balancing_v2.types.tag_list.TagList"] = None,
         transforms: Optional[
             "capo_elastic_load_balancing_v2.types.rule_transform_list.RuleTransformList"
@@ -761,10 +791,14 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.create_rule_input.CreateRuleInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
-        input_["conditions"] = conditions
-        input_["priority"] = priority
-        input_["actions"] = actions
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
+        if conditions is not None:
+            input_["conditions"] = conditions
+        if priority is not None:
+            input_["priority"] = priority
+        if actions is not None:
+            input_["actions"] = actions
         if tags is not None:
             input_["tags"] = tags
         if transforms is not None:
@@ -779,9 +813,11 @@ class ElasticLoadBalancingv2Client:
 
     def create_target_group(
         self,
-        name: "capo_elastic_load_balancing_v2.types.target_group_name.TargetGroupName",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        name: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_name.TargetGroupName"
+        ] = None,
         protocol: Optional[
             "capo_elastic_load_balancing_v2.types.protocol_enum.ProtocolEnum"
         ] = None,
@@ -880,7 +916,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.create_target_group_input.CreateTargetGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if protocol is not None:
             input_["protocol"] = protocol
         if protocol_version is not None:
@@ -925,11 +962,17 @@ class ElasticLoadBalancingv2Client:
 
     def create_trust_store(
         self,
-        name: "capo_elastic_load_balancing_v2.types.trust_store_name.TrustStoreName",
-        ca_certificates_bundle_s3_bucket: "capo_elastic_load_balancing_v2.types.s3_bucket.S3Bucket",
-        ca_certificates_bundle_s3_key: "capo_elastic_load_balancing_v2.types.s3_key.S3Key",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        name: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_name.TrustStoreName"
+        ] = None,
+        ca_certificates_bundle_s3_bucket: Optional[
+            "capo_elastic_load_balancing_v2.types.s3_bucket.S3Bucket"
+        ] = None,
+        ca_certificates_bundle_s3_key: Optional[
+            "capo_elastic_load_balancing_v2.types.s3_key.S3Key"
+        ] = None,
         ca_certificates_bundle_s3_object_version: Optional[
             "capo_elastic_load_balancing_v2.types.s3_object_version.S3ObjectVersion"
         ] = None,
@@ -970,9 +1013,14 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.create_trust_store_input.CreateTrustStoreInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["ca_certificates_bundle_s3_bucket"] = ca_certificates_bundle_s3_bucket
-        input_["ca_certificates_bundle_s3_key"] = ca_certificates_bundle_s3_key
+        if name is not None:
+            input_["name"] = name
+        if ca_certificates_bundle_s3_bucket is not None:
+            input_["ca_certificates_bundle_s3_bucket"] = (
+                ca_certificates_bundle_s3_bucket
+            )
+        if ca_certificates_bundle_s3_key is not None:
+            input_["ca_certificates_bundle_s3_key"] = ca_certificates_bundle_s3_key
         if ca_certificates_bundle_s3_object_version is not None:
             input_["ca_certificates_bundle_s3_object_version"] = (
                 ca_certificates_bundle_s3_object_version
@@ -989,9 +1037,11 @@ class ElasticLoadBalancingv2Client:
 
     def delete_listener(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.delete_listener_output.DeleteListenerOutput":
         """<p>Deletes the specified listener.</p> <p>Alternatively, your listener is deleted when you delete the load balancer to which it is attached.</p>
 
@@ -1026,7 +1076,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.delete_listener_input.DeleteListenerInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1037,9 +1088,11 @@ class ElasticLoadBalancingv2Client:
 
     def delete_load_balancer(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.delete_load_balancer_output.DeleteLoadBalancerOutput":
         """<p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer. Deleting a load balancer also deletes its listeners.</p> <p>You can't delete a load balancer if deletion protection is enabled. If the load balancer does not exist or has already been deleted, the call succeeds.</p> <p>Deleting a load balancer does not affect its registered targets. For example, your EC2 instances continue to run and are still registered to their target groups. If you no longer need these EC2 instances, you can stop or terminate them.</p>
 
@@ -1075,7 +1128,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.delete_load_balancer_input.DeleteLoadBalancerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1086,9 +1140,11 @@ class ElasticLoadBalancingv2Client:
 
     def delete_rule(
         self,
-        rule_arn: "capo_elastic_load_balancing_v2.types.rule_arn.RuleArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        rule_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.rule_arn.RuleArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.delete_rule_output.DeleteRuleOutput":
         """<p>Deletes the specified rule.</p> <p>You can't delete the default rule.</p>
 
@@ -1123,7 +1179,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.delete_rule_input.DeleteRuleInput = {}  # type: ignore[typeddict-item]
-        input_["rule_arn"] = rule_arn
+        if rule_arn is not None:
+            input_["rule_arn"] = rule_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1134,10 +1191,14 @@ class ElasticLoadBalancingv2Client:
 
     def delete_shared_trust_store_association(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
-        resource_arn: "capo_elastic_load_balancing_v2.types.resource_arn.ResourceArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
+        resource_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.resource_arn.ResourceArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.delete_shared_trust_store_association_output.DeleteSharedTrustStoreAssociationOutput":
         """<p>Deletes a shared trust store association.</p>
 
@@ -1174,8 +1235,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.delete_shared_trust_store_association_input.DeleteSharedTrustStoreAssociationInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
-        input_["resource_arn"] = resource_arn
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1186,9 +1249,11 @@ class ElasticLoadBalancingv2Client:
 
     def delete_target_group(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.delete_target_group_output.DeleteTargetGroupOutput":
         """<p>Deletes the specified target group.</p> <p>You can delete a target group if it is not referenced by any actions. Deleting a target group also deletes any associated health checks. Deleting a target group does not affect its registered targets. For example, any EC2 instances continue to run until you stop or terminate them.</p>
 
@@ -1222,7 +1287,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.delete_target_group_input.DeleteTargetGroupInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1233,9 +1299,11 @@ class ElasticLoadBalancingv2Client:
 
     def delete_trust_store(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.delete_trust_store_output.DeleteTrustStoreOutput":
         """<p>Deletes a trust store.</p>
 
@@ -1264,7 +1332,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.delete_trust_store_input.DeleteTrustStoreInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1275,10 +1344,14 @@ class ElasticLoadBalancingv2Client:
 
     def deregister_targets(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
-        targets: "capo_elastic_load_balancing_v2.types.target_descriptions.TargetDescriptions",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
+        targets: Optional[
+            "capo_elastic_load_balancing_v2.types.target_descriptions.TargetDescriptions"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.deregister_targets_output.DeregisterTargetsOutput":
         r"""<p>Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.</p> <p>The load balancer stops sending requests to targets that are deregistering, but uses connection draining to ensure that in-flight traffic completes on the existing connections. This deregistration delay is configured by default but can be updated for each target group.</p> <p>For more information, see the following:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#deregistration-delay\"> Deregistration delay</a> in the <i>Application Load Balancers User Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#deregistration-delay\"> Deregistration delay</a> in the <i>Network Load Balancers User Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/edit-target-group-attributes.html#deregistration-delay\"> Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i> </p> </li> </ul> <p>Note: If the specified target does not exist, the action returns successfully.</p>
 
@@ -1314,8 +1387,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.deregister_targets_input.DeregisterTargetsInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
-        input_["targets"] = targets
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
+        if targets is not None:
+            input_["targets"] = targets
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1396,9 +1471,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_capacity_reservation(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.describe_capacity_reservation_output.DescribeCapacityReservationOutput":
         """<p>Describes the capacity reservation status for the specified load balancer.</p>
 
@@ -1426,7 +1503,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_capacity_reservation_input.DescribeCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1437,9 +1515,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_listener_attributes(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.describe_listener_attributes_output.DescribeListenerAttributesOutput":
         """<p>Describes the attributes for the specified listener.</p>
 
@@ -1473,7 +1553,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_listener_attributes_input.DescribeListenerAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1484,9 +1565,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_listener_certificates(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
         marker: Optional["capo_elastic_load_balancing_v2.types.marker.Marker"] = None,
         page_size: Optional[
             "capo_elastic_load_balancing_v2.types.page_size.PageSize"
@@ -1520,7 +1603,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_listener_certificates_input.DescribeListenerCertificatesInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
         if marker is not None:
             input_["marker"] = marker
         if page_size is not None:
@@ -1535,9 +1619,11 @@ class ElasticLoadBalancingv2Client:
 
     def iter_describe_listener_certificates(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
         marker: Optional["capo_elastic_load_balancing_v2.types.marker.Marker"] = None,
         page_size: Optional[
             "capo_elastic_load_balancing_v2.types.page_size.PageSize"
@@ -1546,8 +1632,8 @@ class ElasticLoadBalancingv2Client:
         _token = marker
         while True:
             _response = self.describe_listener_certificates(
-                listener_arn,
                 config_overrides=config_overrides,
+                listener_arn=listener_arn,
                 marker=_token,
                 page_size=page_size,
             )
@@ -1659,9 +1745,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_load_balancer_attributes(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.describe_load_balancer_attributes_output.DescribeLoadBalancerAttributesOutput":
         r"""<p>Describes the attributes for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p> <p>For more information, see the following:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes\">Load balancer attributes</a> in the <i>Application Load Balancers Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes\">Load balancer attributes</a> in the <i>Network Load Balancers Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html#load-balancer-attributes\">Load balancer attributes</a> in the <i>Gateway Load Balancers Guide</i> </p> </li> </ul>
 
@@ -1695,7 +1783,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_load_balancer_attributes_input.DescribeLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2028,9 +2117,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_tags(
         self,
-        resource_arns: "capo_elastic_load_balancing_v2.types.resource_arns.ResourceArns",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        resource_arns: Optional[
+            "capo_elastic_load_balancing_v2.types.resource_arns.ResourceArns"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.describe_tags_output.DescribeTagsOutput":
         """<p>Describes the tags for the specified Elastic Load Balancing resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, listeners, or rules.</p>
 
@@ -2068,7 +2159,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_tags_input.DescribeTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arns"] = resource_arns
+        if resource_arns is not None:
+            input_["resource_arns"] = resource_arns
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2079,9 +2171,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_target_group_attributes(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.describe_target_group_attributes_output.DescribeTargetGroupAttributesOutput":
         r"""<p>Describes the attributes for the specified target group.</p> <p>For more information, see the following:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes\">Target group attributes</a> in the <i>Application Load Balancers Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes\">Target group attributes</a> in the <i>Network Load Balancers Guide</i> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes\">Target group attributes</a> in the <i>Gateway Load Balancers Guide</i> </p> </li> </ul>
 
@@ -2115,7 +2209,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_target_group_attributes_input.DescribeTargetGroupAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2234,9 +2329,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_target_health(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
         targets: Optional[
             "capo_elastic_load_balancing_v2.types.target_descriptions.TargetDescriptions"
         ] = None,
@@ -2284,7 +2381,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_target_health_input.DescribeTargetHealthInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
         if targets is not None:
             input_["targets"] = targets
         if include is not None:
@@ -2299,9 +2397,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_trust_store_associations(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
         marker: Optional["capo_elastic_load_balancing_v2.types.marker.Marker"] = None,
         page_size: Optional[
             "capo_elastic_load_balancing_v2.types.page_size.PageSize"
@@ -2335,7 +2435,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_trust_store_associations_input.DescribeTrustStoreAssociationsInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
         if marker is not None:
             input_["marker"] = marker
         if page_size is not None:
@@ -2350,9 +2451,11 @@ class ElasticLoadBalancingv2Client:
 
     def iter_describe_trust_store_associations(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
         marker: Optional["capo_elastic_load_balancing_v2.types.marker.Marker"] = None,
         page_size: Optional[
             "capo_elastic_load_balancing_v2.types.page_size.PageSize"
@@ -2361,8 +2464,8 @@ class ElasticLoadBalancingv2Client:
         _token = marker
         while True:
             _response = self.describe_trust_store_associations(
-                trust_store_arn,
                 config_overrides=config_overrides,
+                trust_store_arn=trust_store_arn,
                 marker=_token,
                 page_size=page_size,
             )
@@ -2375,9 +2478,11 @@ class ElasticLoadBalancingv2Client:
 
     def describe_trust_store_revocations(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
         revocation_ids: Optional[
             "capo_elastic_load_balancing_v2.types.revocation_ids.RevocationIds"
         ] = None,
@@ -2416,7 +2521,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.describe_trust_store_revocations_input.DescribeTrustStoreRevocationsInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
         if revocation_ids is not None:
             input_["revocation_ids"] = revocation_ids
         if marker is not None:
@@ -2433,9 +2539,11 @@ class ElasticLoadBalancingv2Client:
 
     def iter_describe_trust_store_revocations(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
         revocation_ids: Optional[
             "capo_elastic_load_balancing_v2.types.revocation_ids.RevocationIds"
         ] = None,
@@ -2447,8 +2555,8 @@ class ElasticLoadBalancingv2Client:
         _token = marker
         while True:
             _response = self.describe_trust_store_revocations(
-                trust_store_arn,
                 config_overrides=config_overrides,
+                trust_store_arn=trust_store_arn,
                 revocation_ids=revocation_ids,
                 marker=_token,
                 page_size=page_size,
@@ -2553,9 +2661,11 @@ class ElasticLoadBalancingv2Client:
 
     def get_resource_policy(
         self,
-        resource_arn: "capo_elastic_load_balancing_v2.types.resource_arn.ResourceArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        resource_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.resource_arn.ResourceArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.get_resource_policy_output.GetResourcePolicyOutput":
         """<p>Retrieves the resource policy for a specified resource.</p>
 
@@ -2589,7 +2699,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2600,9 +2711,11 @@ class ElasticLoadBalancingv2Client:
 
     def get_trust_store_ca_certificates_bundle(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.get_trust_store_ca_certificates_bundle_output.GetTrustStoreCaCertificatesBundleOutput":
         """<p>Retrieves the ca certificate bundle.</p> <p>This action returns a pre-signed S3 URI which is active for ten minutes.</p>
 
@@ -2630,7 +2743,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.get_trust_store_ca_certificates_bundle_input.GetTrustStoreCaCertificatesBundleInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2641,10 +2755,14 @@ class ElasticLoadBalancingv2Client:
 
     def get_trust_store_revocation_content(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
-        revocation_id: "capo_elastic_load_balancing_v2.types.revocation_id.RevocationId",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
+        revocation_id: Optional[
+            "capo_elastic_load_balancing_v2.types.revocation_id.RevocationId"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.get_trust_store_revocation_content_output.GetTrustStoreRevocationContentOutput":
         """<p>Retrieves the specified revocation file.</p> <p>This action returns a pre-signed S3 URI which is active for ten minutes.</p>
 
@@ -2674,8 +2792,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.get_trust_store_revocation_content_input.GetTrustStoreRevocationContentInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
-        input_["revocation_id"] = revocation_id
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
+        if revocation_id is not None:
+            input_["revocation_id"] = revocation_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2686,9 +2806,11 @@ class ElasticLoadBalancingv2Client:
 
     def modify_capacity_reservation(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
         minimum_load_balancer_capacity: Optional[
             "capo_elastic_load_balancing_v2.types.minimum_load_balancer_capacity.MinimumLoadBalancerCapacity"
         ] = None,
@@ -2731,7 +2853,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_capacity_reservation_input.ModifyCapacityReservationInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
         if minimum_load_balancer_capacity is not None:
             input_["minimum_load_balancer_capacity"] = minimum_load_balancer_capacity
         if reset_capacity_reservation is not None:
@@ -2746,9 +2869,11 @@ class ElasticLoadBalancingv2Client:
 
     def modify_ip_pools(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
         ipam_pools: Optional[
             "capo_elastic_load_balancing_v2.types.ipam_pools.IpamPools"
         ] = None,
@@ -2784,7 +2909,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_ip_pools_input.ModifyIpPoolsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
         if ipam_pools is not None:
             input_["ipam_pools"] = ipam_pools
         if remove_ipam_pools is not None:
@@ -2799,9 +2925,11 @@ class ElasticLoadBalancingv2Client:
 
     def modify_listener(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
         port: Optional["capo_elastic_load_balancing_v2.types.port.Port"] = None,
         protocol: Optional[
             "capo_elastic_load_balancing_v2.types.protocol_enum.ProtocolEnum"
@@ -2883,7 +3011,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_listener_input.ModifyListenerInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
         if port is not None:
             input_["port"] = port
         if protocol is not None:
@@ -2908,10 +3037,14 @@ class ElasticLoadBalancingv2Client:
 
     def modify_listener_attributes(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
-        attributes: "capo_elastic_load_balancing_v2.types.listener_attributes.ListenerAttributes",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
+        attributes: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_attributes.ListenerAttributes"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.modify_listener_attributes_output.ModifyListenerAttributesOutput":
         """<p>Modifies the specified attributes of the specified listener.</p>
 
@@ -2941,8 +3074,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_listener_attributes_input.ModifyListenerAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
-        input_["attributes"] = attributes
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
+        if attributes is not None:
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2953,10 +3088,14 @@ class ElasticLoadBalancingv2Client:
 
     def modify_load_balancer_attributes(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
-        attributes: "capo_elastic_load_balancing_v2.types.load_balancer_attributes.LoadBalancerAttributes",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
+        attributes: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_attributes.LoadBalancerAttributes"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.modify_load_balancer_attributes_output.ModifyLoadBalancerAttributesOutput":
         """<p>Modifies the specified attributes of the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p> <p>If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.</p>
 
@@ -3000,8 +3139,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_load_balancer_attributes_input.ModifyLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
-        input_["attributes"] = attributes
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
+        if attributes is not None:
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3012,9 +3153,11 @@ class ElasticLoadBalancingv2Client:
 
     def modify_rule(
         self,
-        rule_arn: "capo_elastic_load_balancing_v2.types.rule_arn.RuleArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        rule_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.rule_arn.RuleArn"
+        ] = None,
         conditions: Optional[
             "capo_elastic_load_balancing_v2.types.rule_condition_list.RuleConditionList"
         ] = None,
@@ -3074,7 +3217,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_rule_input.ModifyRuleInput = {}  # type: ignore[typeddict-item]
-        input_["rule_arn"] = rule_arn
+        if rule_arn is not None:
+            input_["rule_arn"] = rule_arn
         if conditions is not None:
             input_["conditions"] = conditions
         if actions is not None:
@@ -3093,9 +3237,11 @@ class ElasticLoadBalancingv2Client:
 
     def modify_target_group(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
         health_check_protocol: Optional[
             "capo_elastic_load_balancing_v2.types.protocol_enum.ProtocolEnum"
         ] = None,
@@ -3166,7 +3312,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_target_group_input.ModifyTargetGroupInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
         if health_check_protocol is not None:
             input_["health_check_protocol"] = health_check_protocol
         if health_check_port is not None:
@@ -3195,10 +3342,14 @@ class ElasticLoadBalancingv2Client:
 
     def modify_target_group_attributes(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
-        attributes: "capo_elastic_load_balancing_v2.types.target_group_attributes.TargetGroupAttributes",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
+        attributes: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_attributes.TargetGroupAttributes"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.modify_target_group_attributes_output.ModifyTargetGroupAttributesOutput":
         """<p>Modifies the specified attributes of the specified target group.</p>
 
@@ -3234,8 +3385,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_target_group_attributes_input.ModifyTargetGroupAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
-        input_["attributes"] = attributes
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
+        if attributes is not None:
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3246,11 +3399,17 @@ class ElasticLoadBalancingv2Client:
 
     def modify_trust_store(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
-        ca_certificates_bundle_s3_bucket: "capo_elastic_load_balancing_v2.types.s3_bucket.S3Bucket",
-        ca_certificates_bundle_s3_key: "capo_elastic_load_balancing_v2.types.s3_key.S3Key",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
+        ca_certificates_bundle_s3_bucket: Optional[
+            "capo_elastic_load_balancing_v2.types.s3_bucket.S3Bucket"
+        ] = None,
+        ca_certificates_bundle_s3_key: Optional[
+            "capo_elastic_load_balancing_v2.types.s3_key.S3Key"
+        ] = None,
         ca_certificates_bundle_s3_object_version: Optional[
             "capo_elastic_load_balancing_v2.types.s3_object_version.S3ObjectVersion"
         ] = None,
@@ -3286,9 +3445,14 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.modify_trust_store_input.ModifyTrustStoreInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
-        input_["ca_certificates_bundle_s3_bucket"] = ca_certificates_bundle_s3_bucket
-        input_["ca_certificates_bundle_s3_key"] = ca_certificates_bundle_s3_key
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
+        if ca_certificates_bundle_s3_bucket is not None:
+            input_["ca_certificates_bundle_s3_bucket"] = (
+                ca_certificates_bundle_s3_bucket
+            )
+        if ca_certificates_bundle_s3_key is not None:
+            input_["ca_certificates_bundle_s3_key"] = ca_certificates_bundle_s3_key
         if ca_certificates_bundle_s3_object_version is not None:
             input_["ca_certificates_bundle_s3_object_version"] = (
                 ca_certificates_bundle_s3_object_version
@@ -3303,10 +3467,14 @@ class ElasticLoadBalancingv2Client:
 
     def register_targets(
         self,
-        target_group_arn: "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn",
-        targets: "capo_elastic_load_balancing_v2.types.target_descriptions.TargetDescriptions",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        target_group_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
+        ] = None,
+        targets: Optional[
+            "capo_elastic_load_balancing_v2.types.target_descriptions.TargetDescriptions"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.register_targets_output.RegisterTargetsOutput":
         r"""<p>Registers the specified targets with the specified target group.</p> <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you register it.</p> <p>By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports.</p> <p>For more information, see the following:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-register-targets.html\">Register targets for your Application Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html\">Register targets for your Network Load Balancer</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-group-register-targets.html\">Register targets for your Gateway Load Balancer</a> </p> </li> </ul>
 
@@ -3348,8 +3516,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.register_targets_input.RegisterTargetsInput = {}  # type: ignore[typeddict-item]
-        input_["target_group_arn"] = target_group_arn
-        input_["targets"] = targets
+        if target_group_arn is not None:
+            input_["target_group_arn"] = target_group_arn
+        if targets is not None:
+            input_["targets"] = targets
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3360,10 +3530,14 @@ class ElasticLoadBalancingv2Client:
 
     def remove_listener_certificates(
         self,
-        listener_arn: "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn",
-        certificates: "capo_elastic_load_balancing_v2.types.certificate_list.CertificateList",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        listener_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
+        ] = None,
+        certificates: Optional[
+            "capo_elastic_load_balancing_v2.types.certificate_list.CertificateList"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.remove_listener_certificates_output.RemoveListenerCertificatesOutput":
         """<p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS listener.</p>
 
@@ -3393,8 +3567,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.remove_listener_certificates_input.RemoveListenerCertificatesInput = {}  # type: ignore[typeddict-item]
-        input_["listener_arn"] = listener_arn
-        input_["certificates"] = certificates
+        if listener_arn is not None:
+            input_["listener_arn"] = listener_arn
+        if certificates is not None:
+            input_["certificates"] = certificates
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3405,10 +3581,14 @@ class ElasticLoadBalancingv2Client:
 
     def remove_tags(
         self,
-        resource_arns: "capo_elastic_load_balancing_v2.types.resource_arns.ResourceArns",
-        tag_keys: "capo_elastic_load_balancing_v2.types.tag_keys.TagKeys",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        resource_arns: Optional[
+            "capo_elastic_load_balancing_v2.types.resource_arns.ResourceArns"
+        ] = None,
+        tag_keys: Optional[
+            "capo_elastic_load_balancing_v2.types.tag_keys.TagKeys"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.remove_tags_output.RemoveTagsOutput":
         """<p>Removes the specified tags from the specified Elastic Load Balancing resources. You can remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, listeners, or rules.</p>
 
@@ -3448,8 +3628,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arns"] = resource_arns
-        input_["tag_keys"] = tag_keys
+        if resource_arns is not None:
+            input_["resource_arns"] = resource_arns
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3460,10 +3642,14 @@ class ElasticLoadBalancingv2Client:
 
     def remove_trust_store_revocations(
         self,
-        trust_store_arn: "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn",
-        revocation_ids: "capo_elastic_load_balancing_v2.types.revocation_ids.RevocationIds",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        trust_store_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
+        ] = None,
+        revocation_ids: Optional[
+            "capo_elastic_load_balancing_v2.types.revocation_ids.RevocationIds"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.remove_trust_store_revocations_output.RemoveTrustStoreRevocationsOutput":
         """<p>Removes the specified revocation file from the specified trust store.</p>
 
@@ -3493,8 +3679,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.remove_trust_store_revocations_input.RemoveTrustStoreRevocationsInput = {}  # type: ignore[typeddict-item]
-        input_["trust_store_arn"] = trust_store_arn
-        input_["revocation_ids"] = revocation_ids
+        if trust_store_arn is not None:
+            input_["trust_store_arn"] = trust_store_arn
+        if revocation_ids is not None:
+            input_["revocation_ids"] = revocation_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3505,10 +3693,14 @@ class ElasticLoadBalancingv2Client:
 
     def set_ip_address_type(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
-        ip_address_type: "capo_elastic_load_balancing_v2.types.ip_address_type.IpAddressType",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
+        ip_address_type: Optional[
+            "capo_elastic_load_balancing_v2.types.ip_address_type.IpAddressType"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.set_ip_address_type_output.SetIpAddressTypeOutput":
         """<p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
 
@@ -3539,8 +3731,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.set_ip_address_type_input.SetIpAddressTypeInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
-        input_["ip_address_type"] = ip_address_type
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
+        if ip_address_type is not None:
+            input_["ip_address_type"] = ip_address_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3551,9 +3745,11 @@ class ElasticLoadBalancingv2Client:
 
     def set_rule_priorities(
         self,
-        rule_priorities: "capo_elastic_load_balancing_v2.types.rule_priority_list.RulePriorityList",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        rule_priorities: Optional[
+            "capo_elastic_load_balancing_v2.types.rule_priority_list.RulePriorityList"
+        ] = None,
     ) -> "capo_elastic_load_balancing_v2.types.set_rule_priorities_output.SetRulePrioritiesOutput":
         """<p>Sets the priorities of the specified rules.</p> <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any existing rules that you do not specify retain their current priority.</p>
 
@@ -3589,7 +3785,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.set_rule_priorities_input.SetRulePrioritiesInput = {}  # type: ignore[typeddict-item]
-        input_["rule_priorities"] = rule_priorities
+        if rule_priorities is not None:
+            input_["rule_priorities"] = rule_priorities
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3600,10 +3797,14 @@ class ElasticLoadBalancingv2Client:
 
     def set_security_groups(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
-        security_groups: "capo_elastic_load_balancing_v2.types.security_groups.SecurityGroups",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
+        security_groups: Optional[
+            "capo_elastic_load_balancing_v2.types.security_groups.SecurityGroups"
+        ] = None,
         enforce_security_group_inbound_rules_on_private_link_traffic: Optional[
             "capo_elastic_load_balancing_v2.types.enforce_security_group_inbound_rules_on_private_link_traffic_enum.EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum"
         ] = None,
@@ -3644,8 +3845,10 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.set_security_groups_input.SetSecurityGroupsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
-        input_["security_groups"] = security_groups
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
+        if security_groups is not None:
+            input_["security_groups"] = security_groups
         if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
             input_["enforce_security_group_inbound_rules_on_private_link_traffic"] = (
                 enforce_security_group_inbound_rules_on_private_link_traffic
@@ -3660,9 +3863,11 @@ class ElasticLoadBalancingv2Client:
 
     def set_subnets(
         self,
-        load_balancer_arn: "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn",
         *,
         config_overrides: Optional[ElasticLoadBalancingv2ClientConfig] = None,
+        load_balancer_arn: Optional[
+            "capo_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
+        ] = None,
         subnets: Optional[
             "capo_elastic_load_balancing_v2.types.subnets.Subnets"
         ] = None,
@@ -3718,7 +3923,8 @@ class ElasticLoadBalancingv2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_elastic_load_balancing_v2.types.set_subnets_input.SetSubnetsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_arn"] = load_balancer_arn
+        if load_balancer_arn is not None:
+            input_["load_balancer_arn"] = load_balancer_arn
         if subnets is not None:
             input_["subnets"] = subnets
         if subnet_mappings is not None:

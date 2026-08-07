@@ -24,17 +24,18 @@ class SystemStatus(TypedDict, closed=True):
 def serialize_query(
     value: SystemStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cpu_utilization" in value:
         import capo_elastic_beanstalk.types.cpu_utilization
 
         capo_elastic_beanstalk.types.cpu_utilization.serialize_query(
-            value["cpu_utilization"], pairs, f"{prefix}.CPUUtilization"
+            value["cpu_utilization"], pairs, f"{key_prefix}CPUUtilization"
         )
     if "load_average" in value:
         import capo_elastic_beanstalk.types.load_average
 
         capo_elastic_beanstalk.types.load_average.serialize_query(
-            value["load_average"], pairs, f"{prefix}.LoadAverage"
+            value["load_average"], pairs, f"{key_prefix}LoadAverage"
         )
 
 

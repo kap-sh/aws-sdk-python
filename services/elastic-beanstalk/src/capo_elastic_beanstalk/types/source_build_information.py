@@ -26,17 +26,18 @@ class SourceBuildInformation(TypedDict, closed=True):
 def serialize_query(
     value: SourceBuildInformation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_elastic_beanstalk.types.source_type
 
     capo_elastic_beanstalk.types.source_type.serialize_query(
-        value["source_type"], pairs, f"{prefix}.SourceType"
+        value["source_type"], pairs, f"{key_prefix}SourceType"
     )
     import capo_elastic_beanstalk.types.source_repository
 
     capo_elastic_beanstalk.types.source_repository.serialize_query(
-        value["source_repository"], pairs, f"{prefix}.SourceRepository"
+        value["source_repository"], pairs, f"{key_prefix}SourceRepository"
     )
-    pairs.append((f"{prefix}.SourceLocation", str(value["source_location"])))
+    pairs.append((f"{key_prefix}SourceLocation", str(value["source_location"])))
 
 
 def deserialize_query(el: Element) -> SourceBuildInformation:

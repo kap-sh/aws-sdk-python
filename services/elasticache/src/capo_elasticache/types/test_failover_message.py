@@ -24,12 +24,13 @@ class TestFailoverMessage(TypedDict, closed=True):
 def serialize_query(
     value: TestFailoverMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
 
 
 def deserialize_query(el: Element) -> TestFailoverMessage:

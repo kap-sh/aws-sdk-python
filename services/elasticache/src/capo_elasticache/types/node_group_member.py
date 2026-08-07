@@ -30,29 +30,30 @@ class NodeGroupMember(TypedDict, closed=True):
 def serialize_query(
     value: NodeGroupMember, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "cache_node_id" in value:
-        pairs.append((f"{prefix}.CacheNodeId", str(value["cache_node_id"])))
+        pairs.append((f"{key_prefix}CacheNodeId", str(value["cache_node_id"])))
     if "read_endpoint" in value:
         import capo_elasticache.types.endpoint
 
         capo_elasticache.types.endpoint.serialize_query(
-            value["read_endpoint"], pairs, f"{prefix}.ReadEndpoint"
+            value["read_endpoint"], pairs, f"{key_prefix}ReadEndpoint"
         )
     if "preferred_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredAvailabilityZone",
+                f"{key_prefix}PreferredAvailabilityZone",
                 str(value["preferred_availability_zone"]),
             )
         )
     if "preferred_outpost_arn" in value:
         pairs.append(
-            (f"{prefix}.PreferredOutpostArn", str(value["preferred_outpost_arn"]))
+            (f"{key_prefix}PreferredOutpostArn", str(value["preferred_outpost_arn"]))
         )
     if "current_role" in value:
-        pairs.append((f"{prefix}.CurrentRole", str(value["current_role"])))
+        pairs.append((f"{key_prefix}CurrentRole", str(value["current_role"])))
 
 
 def deserialize_query(el: Element) -> NodeGroupMember:

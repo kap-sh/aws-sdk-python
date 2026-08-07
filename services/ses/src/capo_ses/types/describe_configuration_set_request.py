@@ -25,8 +25,9 @@ class DescribeConfigurationSetRequest(TypedDict, closed=True):
 def serialize_query(
     value: DescribeConfigurationSetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+        (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
     )
     if "configuration_set_attribute_names" in value:
         import capo_ses.types.configuration_set_attribute_list
@@ -34,7 +35,7 @@ def serialize_query(
         capo_ses.types.configuration_set_attribute_list.serialize_query(
             value["configuration_set_attribute_names"],
             pairs,
-            f"{prefix}.ConfigurationSetAttributeNames",
+            f"{key_prefix}ConfigurationSetAttributeNames",
         )
 
 

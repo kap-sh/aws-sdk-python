@@ -25,10 +25,11 @@ class AcceleratorTotalMemoryMiBRequest(TypedDict, closed=True):
 def serialize_query(
     value: AcceleratorTotalMemoryMiBRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "min" in value:
-        pairs.append((f"{prefix}.Min", str(value["min"])))
+        pairs.append((f"{key_prefix}Min", str(value["min"])))
     if "max" in value:
-        pairs.append((f"{prefix}.Max", str(value["max"])))
+        pairs.append((f"{key_prefix}Max", str(value["max"])))
 
 
 def deserialize_query(el: Element) -> AcceleratorTotalMemoryMiBRequest:

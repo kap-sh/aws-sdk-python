@@ -31,15 +31,16 @@ class SearchFilter(TypedDict, closed=True):
 def serialize_query(
     value: SearchFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute" in value:
-        pairs.append((f"{prefix}.Attribute", str(value["attribute"])))
+        pairs.append((f"{key_prefix}Attribute", str(value["attribute"])))
     if "operator" in value:
-        pairs.append((f"{prefix}.Operator", str(value["operator"])))
+        pairs.append((f"{key_prefix}Operator", str(value["operator"])))
     if "values" in value:
         import capo_elastic_beanstalk.types.search_filter_values
 
         capo_elastic_beanstalk.types.search_filter_values.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

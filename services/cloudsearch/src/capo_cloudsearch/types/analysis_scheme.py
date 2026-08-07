@@ -27,17 +27,20 @@ class AnalysisScheme(TypedDict, closed=True):
 def serialize_query(
     value: AnalysisScheme, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.AnalysisSchemeName", str(value["analysis_scheme_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append(
+        (f"{key_prefix}AnalysisSchemeName", str(value["analysis_scheme_name"]))
+    )
     import capo_cloudsearch.types.analysis_scheme_language
 
     capo_cloudsearch.types.analysis_scheme_language.serialize_query(
-        value["analysis_scheme_language"], pairs, f"{prefix}.AnalysisSchemeLanguage"
+        value["analysis_scheme_language"], pairs, f"{key_prefix}AnalysisSchemeLanguage"
     )
     if "analysis_options" in value:
         import capo_cloudsearch.types.analysis_options
 
         capo_cloudsearch.types.analysis_options.serialize_query(
-            value["analysis_options"], pairs, f"{prefix}.AnalysisOptions"
+            value["analysis_options"], pairs, f"{key_prefix}AnalysisOptions"
         )
 
 

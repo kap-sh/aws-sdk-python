@@ -32,25 +32,26 @@ class DescribeTagsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTagsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "tag_keys" in value:
         import capo_redshift.types.tag_key_list
 
         capo_redshift.types.tag_key_list.serialize_query(
-            value["tag_keys"], pairs, f"{prefix}.TagKeys"
+            value["tag_keys"], pairs, f"{key_prefix}TagKeys"
         )
     if "tag_values" in value:
         import capo_redshift.types.tag_value_list
 
         capo_redshift.types.tag_value_list.serialize_query(
-            value["tag_values"], pairs, f"{prefix}.TagValues"
+            value["tag_values"], pairs, f"{key_prefix}TagValues"
         )
 
 

@@ -23,11 +23,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "messages" in value:
         import capo_elastic_beanstalk.types.validation_messages_list
 
         capo_elastic_beanstalk.types.validation_messages_list.serialize_query(
-            value["messages"], pairs, f"{prefix}.Messages"
+            value["messages"], pairs, f"{key_prefix}Messages"
         )
 
 

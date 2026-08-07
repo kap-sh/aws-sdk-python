@@ -29,13 +29,16 @@ class DescribeStackResourcesInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackResourcesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "physical_resource_id" in value:
         pairs.append(
-            (f"{prefix}.PhysicalResourceId", str(value["physical_resource_id"]))
+            (f"{key_prefix}PhysicalResourceId", str(value["physical_resource_id"]))
         )
 
 

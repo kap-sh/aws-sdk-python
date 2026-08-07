@@ -68,63 +68,64 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_docdb.types.availability_zones
 
         capo_docdb.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "db_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSubnetGroupName", str(value["db_subnet_group_name"]))
+            (f"{key_prefix}DBSubnetGroupName", str(value["db_subnet_group_name"]))
         )
     if "vpc_security_group_ids" in value:
         import capo_docdb.types.vpc_security_group_id_list
 
         capo_docdb.types.vpc_security_group_id_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "tags" in value:
         import capo_docdb.types.tag_list
 
         capo_docdb.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "enable_cloudwatch_logs_exports" in value:
         import capo_docdb.types.log_type_list
 
         capo_docdb.types.log_type_list.serialize_query(
             value["enable_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.EnableCloudwatchLogsExports",
+            f"{key_prefix}EnableCloudwatchLogsExports",
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
     if "db_cluster_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterParameterGroupName",
+                f"{key_prefix}DBClusterParameterGroupName",
                 str(value["db_cluster_parameter_group_name"]),
             )
         )
@@ -134,12 +135,12 @@ def serialize_query(
         capo_docdb.types.serverless_v2_scaling_configuration.serialize_query(
             value["serverless_v2_scaling_configuration"],
             pairs,
-            f"{prefix}.ServerlessV2ScalingConfiguration",
+            f"{key_prefix}ServerlessV2ScalingConfiguration",
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "network_type" in value:
-        pairs.append((f"{prefix}.NetworkType", str(value["network_type"])))
+        pairs.append((f"{key_prefix}NetworkType", str(value["network_type"])))
 
 
 def deserialize_query(el: Element) -> RestoreDBClusterFromSnapshotMessage:

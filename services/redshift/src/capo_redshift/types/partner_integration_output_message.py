@@ -26,10 +26,11 @@ class PartnerIntegrationOutputMessage(TypedDict, closed=True):
 def serialize_query(
     value: PartnerIntegrationOutputMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "database_name" in value:
-        pairs.append((f"{prefix}.DatabaseName", str(value["database_name"])))
+        pairs.append((f"{key_prefix}DatabaseName", str(value["database_name"])))
     if "partner_name" in value:
-        pairs.append((f"{prefix}.PartnerName", str(value["partner_name"])))
+        pairs.append((f"{key_prefix}PartnerName", str(value["partner_name"])))
 
 
 def deserialize_query(el: Element) -> PartnerIntegrationOutputMessage:

@@ -26,26 +26,27 @@ class ModifyDBClusterEndpointMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBClusterEndpointMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_endpoint_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterEndpointIdentifier",
+                f"{key_prefix}DBClusterEndpointIdentifier",
                 str(value["db_cluster_endpoint_identifier"]),
             )
         )
     if "endpoint_type" in value:
-        pairs.append((f"{prefix}.EndpointType", str(value["endpoint_type"])))
+        pairs.append((f"{key_prefix}EndpointType", str(value["endpoint_type"])))
     if "static_members" in value:
         import capo_neptune.types.string_list
 
         capo_neptune.types.string_list.serialize_query(
-            value["static_members"], pairs, f"{prefix}.StaticMembers"
+            value["static_members"], pairs, f"{key_prefix}StaticMembers"
         )
     if "excluded_members" in value:
         import capo_neptune.types.string_list
 
         capo_neptune.types.string_list.serialize_query(
-            value["excluded_members"], pairs, f"{prefix}.ExcludedMembers"
+            value["excluded_members"], pairs, f"{key_prefix}ExcludedMembers"
         )
 
 

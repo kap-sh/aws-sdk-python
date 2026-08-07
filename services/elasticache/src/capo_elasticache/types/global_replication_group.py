@@ -60,38 +60,39 @@ class GlobalReplicationGroup(TypedDict, closed=True):
 def serialize_query(
     value: GlobalReplicationGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_replication_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupId",
+                f"{key_prefix}GlobalReplicationGroupId",
                 str(value["global_replication_group_id"]),
             )
         )
     if "global_replication_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupDescription",
+                f"{key_prefix}GlobalReplicationGroupDescription",
                 str(value["global_replication_group_description"]),
             )
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "members" in value:
         import capo_elasticache.types.global_replication_group_member_list
 
         capo_elasticache.types.global_replication_group_member_list.serialize_query(
-            value["members"], pairs, f"{prefix}.Members"
+            value["members"], pairs, f"{key_prefix}Members"
         )
     if "cluster_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterEnabled",
+                f"{key_prefix}ClusterEnabled",
                 "true" if value["cluster_enabled"] else "false",
             )
         )
@@ -99,31 +100,31 @@ def serialize_query(
         import capo_elasticache.types.global_node_group_list
 
         capo_elasticache.types.global_node_group_list.serialize_query(
-            value["global_node_groups"], pairs, f"{prefix}.GlobalNodeGroups"
+            value["global_node_groups"], pairs, f"{key_prefix}GlobalNodeGroups"
         )
     if "auth_token_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.AuthTokenEnabled",
+                f"{key_prefix}AuthTokenEnabled",
                 "true" if value["auth_token_enabled"] else "false",
             )
         )
     if "transit_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.TransitEncryptionEnabled",
+                f"{key_prefix}TransitEncryptionEnabled",
                 "true" if value["transit_encryption_enabled"] else "false",
             )
         )
     if "at_rest_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.AtRestEncryptionEnabled",
+                f"{key_prefix}AtRestEncryptionEnabled",
                 "true" if value["at_rest_encryption_enabled"] else "false",
             )
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> GlobalReplicationGroup:

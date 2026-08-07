@@ -24,14 +24,15 @@ class DescribeStackResourceDriftsOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackResourceDriftsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_resource_drifts" in value:
         import capo_cloudformation.types.stack_resource_drifts
 
         capo_cloudformation.types.stack_resource_drifts.serialize_query(
-            value["stack_resource_drifts"], pairs, f"{prefix}.StackResourceDrifts"
+            value["stack_resource_drifts"], pairs, f"{key_prefix}StackResourceDrifts"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeStackResourceDriftsOutput:

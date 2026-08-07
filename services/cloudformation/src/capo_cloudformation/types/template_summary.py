@@ -49,36 +49,42 @@ class TemplateSummary(TypedDict, closed=True):
 def serialize_query(
     value: TemplateSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "generated_template_id" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateId", str(value["generated_template_id"]))
+            (f"{key_prefix}GeneratedTemplateId", str(value["generated_template_id"]))
         )
     if "generated_template_name" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateName", str(value["generated_template_name"]))
+            (
+                f"{key_prefix}GeneratedTemplateName",
+                str(value["generated_template_name"]),
+            )
         )
     if "status" in value:
         import capo_cloudformation.types.generated_template_status
 
         capo_cloudformation.types.generated_template_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "creation_time" in value:
         import capo_cloudformation.types.creation_time
 
         capo_cloudformation.types.creation_time.serialize_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "last_updated_time" in value:
         import capo_cloudformation.types.last_updated_time
 
         capo_cloudformation.types.last_updated_time.serialize_query(
-            value["last_updated_time"], pairs, f"{prefix}.LastUpdatedTime"
+            value["last_updated_time"], pairs, f"{key_prefix}LastUpdatedTime"
         )
     if "number_of_resources" in value:
-        pairs.append((f"{prefix}.NumberOfResources", str(value["number_of_resources"])))
+        pairs.append(
+            (f"{key_prefix}NumberOfResources", str(value["number_of_resources"]))
+        )
 
 
 def deserialize_query(el: Element) -> TemplateSummary:

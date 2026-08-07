@@ -26,11 +26,14 @@ class DeleteLifecycleHookType(TypedDict, closed=True):
 def serialize_query(
     value: DeleteLifecycleHookType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "lifecycle_hook_name" in value:
-        pairs.append((f"{prefix}.LifecycleHookName", str(value["lifecycle_hook_name"])))
+        pairs.append(
+            (f"{key_prefix}LifecycleHookName", str(value["lifecycle_hook_name"]))
+        )
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
 
 

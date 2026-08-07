@@ -19,8 +19,9 @@ class PublishTypeOutput(TypedDict, closed=True):
 def serialize_query(
     value: PublishTypeOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "public_type_arn" in value:
-        pairs.append((f"{prefix}.PublicTypeArn", str(value["public_type_arn"])))
+        pairs.append((f"{key_prefix}PublicTypeArn", str(value["public_type_arn"])))
 
 
 def deserialize_query(el: Element) -> PublishTypeOutput:

@@ -76,33 +76,38 @@ class AuthenticateOidcActionConfig(TypedDict, closed=True):
 def serialize_query(
     value: AuthenticateOidcActionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "issuer" in value:
-        pairs.append((f"{prefix}.Issuer", str(value["issuer"])))
+        pairs.append((f"{key_prefix}Issuer", str(value["issuer"])))
     if "authorization_endpoint" in value:
         pairs.append(
-            (f"{prefix}.AuthorizationEndpoint", str(value["authorization_endpoint"]))
+            (f"{key_prefix}AuthorizationEndpoint", str(value["authorization_endpoint"]))
         )
     if "token_endpoint" in value:
-        pairs.append((f"{prefix}.TokenEndpoint", str(value["token_endpoint"])))
+        pairs.append((f"{key_prefix}TokenEndpoint", str(value["token_endpoint"])))
     if "user_info_endpoint" in value:
-        pairs.append((f"{prefix}.UserInfoEndpoint", str(value["user_info_endpoint"])))
+        pairs.append(
+            (f"{key_prefix}UserInfoEndpoint", str(value["user_info_endpoint"]))
+        )
     if "client_id" in value:
-        pairs.append((f"{prefix}.ClientId", str(value["client_id"])))
+        pairs.append((f"{key_prefix}ClientId", str(value["client_id"])))
     if "client_secret" in value:
-        pairs.append((f"{prefix}.ClientSecret", str(value["client_secret"])))
+        pairs.append((f"{key_prefix}ClientSecret", str(value["client_secret"])))
     if "session_cookie_name" in value:
-        pairs.append((f"{prefix}.SessionCookieName", str(value["session_cookie_name"])))
+        pairs.append(
+            (f"{key_prefix}SessionCookieName", str(value["session_cookie_name"]))
+        )
     if "scope" in value:
-        pairs.append((f"{prefix}.Scope", str(value["scope"])))
+        pairs.append((f"{key_prefix}Scope", str(value["scope"])))
     if "session_timeout" in value:
-        pairs.append((f"{prefix}.SessionTimeout", str(value["session_timeout"])))
+        pairs.append((f"{key_prefix}SessionTimeout", str(value["session_timeout"])))
     if "authentication_request_extra_params" in value:
         import capo_elastic_load_balancing_v2.types.authenticate_oidc_action_authentication_request_extra_params
 
         capo_elastic_load_balancing_v2.types.authenticate_oidc_action_authentication_request_extra_params.serialize_query(
             value["authentication_request_extra_params"],
             pairs,
-            f"{prefix}.AuthenticationRequestExtraParams",
+            f"{key_prefix}AuthenticationRequestExtraParams",
         )
     if "on_unauthenticated_request" in value:
         import capo_elastic_load_balancing_v2.types.authenticate_oidc_action_conditional_behavior_enum
@@ -110,12 +115,12 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.authenticate_oidc_action_conditional_behavior_enum.serialize_query(
             value["on_unauthenticated_request"],
             pairs,
-            f"{prefix}.OnUnauthenticatedRequest",
+            f"{key_prefix}OnUnauthenticatedRequest",
         )
     if "use_existing_client_secret" in value:
         pairs.append(
             (
-                f"{prefix}.UseExistingClientSecret",
+                f"{key_prefix}UseExistingClientSecret",
                 "true" if value["use_existing_client_secret"] else "false",
             )
         )

@@ -130,10 +130,14 @@ class AsyncConnectContactLensClient:
 
     async def list_realtime_contact_analysis_segments(
         self,
-        instance_id: "capo_connect_contact_lens.types.instance_id.InstanceId",
-        contact_id: "capo_connect_contact_lens.types.contact_id.ContactId",
         *,
         config_overrides: Optional[AsyncConnectContactLensClientConfig] = None,
+        instance_id: Optional[
+            "capo_connect_contact_lens.types.instance_id.InstanceId"
+        ] = None,
+        contact_id: Optional[
+            "capo_connect_contact_lens.types.contact_id.ContactId"
+        ] = None,
         max_results: Optional[
             "capo_connect_contact_lens.types.max_results.MaxResults"
         ] = None,
@@ -175,8 +179,10 @@ class AsyncConnectContactLensClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_connect_contact_lens.types.list_realtime_contact_analysis_segments_request.ListRealtimeContactAnalysisSegmentsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["contact_id"] = contact_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
+        if contact_id is not None:
+            input_["contact_id"] = contact_id
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:

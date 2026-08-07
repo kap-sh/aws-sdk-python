@@ -20,11 +20,12 @@ class CreateDBClusterSnapshotResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBClusterSnapshotResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_snapshot" in value:
         import capo_docdb.types.db_cluster_snapshot
 
         capo_docdb.types.db_cluster_snapshot.serialize_query(
-            value["db_cluster_snapshot"], pairs, f"{prefix}.DBClusterSnapshot"
+            value["db_cluster_snapshot"], pairs, f"{key_prefix}DBClusterSnapshot"
         )
 
 

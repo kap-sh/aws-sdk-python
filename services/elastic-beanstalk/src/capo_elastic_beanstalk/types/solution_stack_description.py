@@ -26,13 +26,16 @@ class SolutionStackDescription(TypedDict, closed=True):
 def serialize_query(
     value: SolutionStackDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "solution_stack_name" in value:
-        pairs.append((f"{prefix}.SolutionStackName", str(value["solution_stack_name"])))
+        pairs.append(
+            (f"{key_prefix}SolutionStackName", str(value["solution_stack_name"]))
+        )
     if "permitted_file_types" in value:
         import capo_elastic_beanstalk.types.solution_stack_file_type_list
 
         capo_elastic_beanstalk.types.solution_stack_file_type_list.serialize_query(
-            value["permitted_file_types"], pairs, f"{prefix}.PermittedFileTypes"
+            value["permitted_file_types"], pairs, f"{key_prefix}PermittedFileTypes"
         )
 
 

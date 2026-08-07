@@ -26,18 +26,19 @@ class UpdateTagsForResourceMessage(TypedDict, closed=True):
 def serialize_query(
     value: UpdateTagsForResourceMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ResourceArn", str(value["resource_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ResourceArn", str(value["resource_arn"])))
     if "tags_to_add" in value:
         import capo_elastic_beanstalk.types.tag_list
 
         capo_elastic_beanstalk.types.tag_list.serialize_query(
-            value["tags_to_add"], pairs, f"{prefix}.TagsToAdd"
+            value["tags_to_add"], pairs, f"{key_prefix}TagsToAdd"
         )
     if "tags_to_remove" in value:
         import capo_elastic_beanstalk.types.tag_key_list
 
         capo_elastic_beanstalk.types.tag_key_list.serialize_query(
-            value["tags_to_remove"], pairs, f"{prefix}.TagsToRemove"
+            value["tags_to_remove"], pairs, f"{key_prefix}TagsToRemove"
         )
 
 

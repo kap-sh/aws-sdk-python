@@ -30,27 +30,30 @@ class ManagedAction(TypedDict, closed=True):
 def serialize_query(
     value: ManagedAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action_id" in value:
-        pairs.append((f"{prefix}.ActionId", str(value["action_id"])))
+        pairs.append((f"{key_prefix}ActionId", str(value["action_id"])))
     if "action_description" in value:
-        pairs.append((f"{prefix}.ActionDescription", str(value["action_description"])))
+        pairs.append(
+            (f"{key_prefix}ActionDescription", str(value["action_description"]))
+        )
     if "action_type" in value:
         import capo_elastic_beanstalk.types.action_type
 
         capo_elastic_beanstalk.types.action_type.serialize_query(
-            value["action_type"], pairs, f"{prefix}.ActionType"
+            value["action_type"], pairs, f"{key_prefix}ActionType"
         )
     if "status" in value:
         import capo_elastic_beanstalk.types.action_status
 
         capo_elastic_beanstalk.types.action_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "window_start_time" in value:
         import capo_elastic_beanstalk.types.timestamp
 
         capo_elastic_beanstalk.types.timestamp.serialize_query(
-            value["window_start_time"], pairs, f"{prefix}.WindowStartTime"
+            value["window_start_time"], pairs, f"{key_prefix}WindowStartTime"
         )
 
 

@@ -24,17 +24,21 @@ class SnapshotCopyGrant(TypedDict, closed=True):
 def serialize_query(
     value: SnapshotCopyGrant, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_copy_grant_name" in value:
         pairs.append(
-            (f"{prefix}.SnapshotCopyGrantName", str(value["snapshot_copy_grant_name"]))
+            (
+                f"{key_prefix}SnapshotCopyGrantName",
+                str(value["snapshot_copy_grant_name"]),
+            )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

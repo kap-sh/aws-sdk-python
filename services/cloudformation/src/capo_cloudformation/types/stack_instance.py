@@ -64,43 +64,44 @@ class StackInstance(TypedDict, closed=True):
 def serialize_query(
     value: StackInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_id" in value:
-        pairs.append((f"{prefix}.StackSetId", str(value["stack_set_id"])))
+        pairs.append((f"{key_prefix}StackSetId", str(value["stack_set_id"])))
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "account" in value:
-        pairs.append((f"{prefix}.Account", str(value["account"])))
+        pairs.append((f"{key_prefix}Account", str(value["account"])))
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "parameter_overrides" in value:
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameter_overrides"], pairs, f"{prefix}.ParameterOverrides"
+            value["parameter_overrides"], pairs, f"{key_prefix}ParameterOverrides"
         )
     if "status" in value:
         import capo_cloudformation.types.stack_instance_status
 
         capo_cloudformation.types.stack_instance_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "stack_instance_status" in value:
         import capo_cloudformation.types.stack_instance_comprehensive_status
 
         capo_cloudformation.types.stack_instance_comprehensive_status.serialize_query(
-            value["stack_instance_status"], pairs, f"{prefix}.StackInstanceStatus"
+            value["stack_instance_status"], pairs, f"{key_prefix}StackInstanceStatus"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "organizational_unit_id" in value:
         pairs.append(
-            (f"{prefix}.OrganizationalUnitId", str(value["organizational_unit_id"]))
+            (f"{key_prefix}OrganizationalUnitId", str(value["organizational_unit_id"]))
         )
     if "drift_status" in value:
         import capo_cloudformation.types.stack_drift_status
 
         capo_cloudformation.types.stack_drift_status.serialize_query(
-            value["drift_status"], pairs, f"{prefix}.DriftStatus"
+            value["drift_status"], pairs, f"{key_prefix}DriftStatus"
         )
     if "last_drift_check_timestamp" in value:
         import capo_cloudformation.types.timestamp
@@ -108,10 +109,10 @@ def serialize_query(
         capo_cloudformation.types.timestamp.serialize_query(
             value["last_drift_check_timestamp"],
             pairs,
-            f"{prefix}.LastDriftCheckTimestamp",
+            f"{key_prefix}LastDriftCheckTimestamp",
         )
     if "last_operation_id" in value:
-        pairs.append((f"{prefix}.LastOperationId", str(value["last_operation_id"])))
+        pairs.append((f"{key_prefix}LastOperationId", str(value["last_operation_id"])))
 
 
 def deserialize_query(el: Element) -> StackInstance:

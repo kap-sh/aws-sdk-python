@@ -21,11 +21,14 @@ class BatchDeleteScheduledActionAnswer(TypedDict, closed=True):
 def serialize_query(
     value: BatchDeleteScheduledActionAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "failed_scheduled_actions" in value:
         import capo_auto_scaling.types.failed_scheduled_update_group_action_requests
 
         capo_auto_scaling.types.failed_scheduled_update_group_action_requests.serialize_query(
-            value["failed_scheduled_actions"], pairs, f"{prefix}.FailedScheduledActions"
+            value["failed_scheduled_actions"],
+            pairs,
+            f"{key_prefix}FailedScheduledActions",
         )
 
 

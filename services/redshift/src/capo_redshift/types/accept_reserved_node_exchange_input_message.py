@@ -23,12 +23,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node_id" in value:
-        pairs.append((f"{prefix}.ReservedNodeId", str(value["reserved_node_id"])))
+        pairs.append((f"{key_prefix}ReservedNodeId", str(value["reserved_node_id"])))
     if "target_reserved_node_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.TargetReservedNodeOfferingId",
+                f"{key_prefix}TargetReservedNodeOfferingId",
                 str(value["target_reserved_node_offering_id"]),
             )
         )

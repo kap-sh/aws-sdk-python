@@ -28,14 +28,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "predefined_metric_type" in value:
         import capo_auto_scaling.types.predefined_load_metric_type
 
         capo_auto_scaling.types.predefined_load_metric_type.serialize_query(
-            value["predefined_metric_type"], pairs, f"{prefix}.PredefinedMetricType"
+            value["predefined_metric_type"], pairs, f"{key_prefix}PredefinedMetricType"
         )
     if "resource_label" in value:
-        pairs.append((f"{prefix}.ResourceLabel", str(value["resource_label"])))
+        pairs.append((f"{key_prefix}ResourceLabel", str(value["resource_label"])))
 
 
 def deserialize_query(el: Element) -> PredictiveScalingPredefinedLoadMetric:

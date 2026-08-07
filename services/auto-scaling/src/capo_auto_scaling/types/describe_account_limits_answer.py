@@ -36,31 +36,32 @@ class DescribeAccountLimitsAnswer(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAccountLimitsAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "max_number_of_auto_scaling_groups" in value:
         pairs.append(
             (
-                f"{prefix}.MaxNumberOfAutoScalingGroups",
+                f"{key_prefix}MaxNumberOfAutoScalingGroups",
                 str(value["max_number_of_auto_scaling_groups"]),
             )
         )
     if "max_number_of_launch_configurations" in value:
         pairs.append(
             (
-                f"{prefix}.MaxNumberOfLaunchConfigurations",
+                f"{key_prefix}MaxNumberOfLaunchConfigurations",
                 str(value["max_number_of_launch_configurations"]),
             )
         )
     if "number_of_auto_scaling_groups" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfAutoScalingGroups",
+                f"{key_prefix}NumberOfAutoScalingGroups",
                 str(value["number_of_auto_scaling_groups"]),
             )
         )
     if "number_of_launch_configurations" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfLaunchConfigurations",
+                f"{key_prefix}NumberOfLaunchConfigurations",
                 str(value["number_of_launch_configurations"]),
             )
         )

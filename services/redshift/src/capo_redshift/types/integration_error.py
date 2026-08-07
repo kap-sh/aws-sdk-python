@@ -21,10 +21,11 @@ class IntegrationError(TypedDict, closed=True):
 def serialize_query(
     value: IntegrationError, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "error_code" in value:
-        pairs.append((f"{prefix}.ErrorCode", str(value["error_code"])))
+        pairs.append((f"{key_prefix}ErrorCode", str(value["error_code"])))
     if "error_message" in value:
-        pairs.append((f"{prefix}.ErrorMessage", str(value["error_message"])))
+        pairs.append((f"{key_prefix}ErrorMessage", str(value["error_message"])))
 
 
 def deserialize_query(el: Element) -> IntegrationError:

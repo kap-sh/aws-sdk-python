@@ -36,26 +36,31 @@ class GetClusterCredentialsMessage(TypedDict, closed=True):
 def serialize_query(
     value: GetClusterCredentialsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_user" in value:
-        pairs.append((f"{prefix}.DbUser", str(value["db_user"])))
+        pairs.append((f"{key_prefix}DbUser", str(value["db_user"])))
     if "db_name" in value:
-        pairs.append((f"{prefix}.DbName", str(value["db_name"])))
+        pairs.append((f"{key_prefix}DbName", str(value["db_name"])))
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "duration_seconds" in value:
-        pairs.append((f"{prefix}.DurationSeconds", str(value["duration_seconds"])))
+        pairs.append((f"{key_prefix}DurationSeconds", str(value["duration_seconds"])))
     if "auto_create" in value:
         pairs.append(
-            (f"{prefix}.AutoCreate", "true" if value["auto_create"] else "false")
+            (f"{key_prefix}AutoCreate", "true" if value["auto_create"] else "false")
         )
     if "db_groups" in value:
         import capo_redshift.types.db_group_list
 
         capo_redshift.types.db_group_list.serialize_query(
-            value["db_groups"], pairs, f"{prefix}.DbGroups"
+            value["db_groups"], pairs, f"{key_prefix}DbGroups"
         )
     if "custom_domain_name" in value:
-        pairs.append((f"{prefix}.CustomDomainName", str(value["custom_domain_name"])))
+        pairs.append(
+            (f"{key_prefix}CustomDomainName", str(value["custom_domain_name"]))
+        )
 
 
 def deserialize_query(el: Element) -> GetClusterCredentialsMessage:

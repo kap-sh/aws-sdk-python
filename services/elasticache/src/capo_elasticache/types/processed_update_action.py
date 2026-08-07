@@ -28,19 +28,22 @@ class ProcessedUpdateAction(TypedDict, closed=True):
 def serialize_query(
     value: ProcessedUpdateAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
     if "update_action_status" in value:
         import capo_elasticache.types.update_action_status
 
         capo_elasticache.types.update_action_status.serialize_query(
-            value["update_action_status"], pairs, f"{prefix}.UpdateActionStatus"
+            value["update_action_status"], pairs, f"{key_prefix}UpdateActionStatus"
         )
 
 

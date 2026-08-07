@@ -29,15 +29,18 @@ class ConfigurationOptionsDescription(TypedDict, closed=True):
 def serialize_query(
     value: ConfigurationOptionsDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "solution_stack_name" in value:
-        pairs.append((f"{prefix}.SolutionStackName", str(value["solution_stack_name"])))
+        pairs.append(
+            (f"{key_prefix}SolutionStackName", str(value["solution_stack_name"]))
+        )
     if "platform_arn" in value:
-        pairs.append((f"{prefix}.PlatformArn", str(value["platform_arn"])))
+        pairs.append((f"{key_prefix}PlatformArn", str(value["platform_arn"])))
     if "options" in value:
         import capo_elastic_beanstalk.types.configuration_option_descriptions_list
 
         capo_elastic_beanstalk.types.configuration_option_descriptions_list.serialize_query(
-            value["options"], pairs, f"{prefix}.Options"
+            value["options"], pairs, f"{key_prefix}Options"
         )
 
 

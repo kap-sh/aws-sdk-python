@@ -19,11 +19,12 @@ class DescribeOrganizationsAccessInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeOrganizationsAccessInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
 
 

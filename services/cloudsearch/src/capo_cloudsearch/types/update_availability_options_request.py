@@ -22,8 +22,9 @@ class UpdateAvailabilityOptionsRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateAvailabilityOptionsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
-    pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
+    pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
 
 
 def deserialize_query(el: Element) -> UpdateAvailabilityOptionsRequest:

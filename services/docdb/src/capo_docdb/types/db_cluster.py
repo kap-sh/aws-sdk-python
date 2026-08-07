@@ -120,74 +120,83 @@ class DBCluster(TypedDict, closed=True):
 def serialize_query(
     value: DBCluster, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_docdb.types.availability_zones
 
         capo_docdb.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "db_cluster_parameter_group" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterParameterGroup",
+                f"{key_prefix}DBClusterParameterGroup",
                 str(value["db_cluster_parameter_group"]),
             )
         )
     if "db_subnet_group" in value:
-        pairs.append((f"{prefix}.DBSubnetGroup", str(value["db_subnet_group"])))
+        pairs.append((f"{key_prefix}DBSubnetGroup", str(value["db_subnet_group"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "percent_progress" in value:
-        pairs.append((f"{prefix}.PercentProgress", str(value["percent_progress"])))
+        pairs.append((f"{key_prefix}PercentProgress", str(value["percent_progress"])))
     if "earliest_restorable_time" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["earliest_restorable_time"], pairs, f"{prefix}.EarliestRestorableTime"
+            value["earliest_restorable_time"],
+            pairs,
+            f"{key_prefix}EarliestRestorableTime",
         )
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "reader_endpoint" in value:
-        pairs.append((f"{prefix}.ReaderEndpoint", str(value["reader_endpoint"])))
+        pairs.append((f"{key_prefix}ReaderEndpoint", str(value["reader_endpoint"])))
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "latest_restorable_time" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["latest_restorable_time"], pairs, f"{prefix}.LatestRestorableTime"
+            value["latest_restorable_time"], pairs, f"{key_prefix}LatestRestorableTime"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "preferred_backup_window" in value:
         pairs.append(
-            (f"{prefix}.PreferredBackupWindow", str(value["preferred_backup_window"]))
+            (
+                f"{key_prefix}PreferredBackupWindow",
+                str(value["preferred_backup_window"]),
+            )
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
     if "replication_source_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.ReplicationSourceIdentifier",
+                f"{key_prefix}ReplicationSourceIdentifier",
                 str(value["replication_source_identifier"]),
             )
         )
@@ -195,50 +204,52 @@ def serialize_query(
         import capo_docdb.types.read_replica_identifier_list
 
         capo_docdb.types.read_replica_identifier_list.serialize_query(
-            value["read_replica_identifiers"], pairs, f"{prefix}.ReadReplicaIdentifiers"
+            value["read_replica_identifiers"],
+            pairs,
+            f"{key_prefix}ReadReplicaIdentifiers",
         )
     if "db_cluster_members" in value:
         import capo_docdb.types.db_cluster_member_list
 
         capo_docdb.types.db_cluster_member_list.serialize_query(
-            value["db_cluster_members"], pairs, f"{prefix}.DBClusterMembers"
+            value["db_cluster_members"], pairs, f"{key_prefix}DBClusterMembers"
         )
     if "vpc_security_groups" in value:
         import capo_docdb.types.vpc_security_group_membership_list
 
         capo_docdb.types.vpc_security_group_membership_list.serialize_query(
-            value["vpc_security_groups"], pairs, f"{prefix}.VpcSecurityGroups"
+            value["vpc_security_groups"], pairs, f"{key_prefix}VpcSecurityGroups"
         )
     if "hosted_zone_id" in value:
-        pairs.append((f"{prefix}.HostedZoneId", str(value["hosted_zone_id"])))
+        pairs.append((f"{key_prefix}HostedZoneId", str(value["hosted_zone_id"])))
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "db_cluster_resource_id" in value:
         pairs.append(
-            (f"{prefix}.DbClusterResourceId", str(value["db_cluster_resource_id"]))
+            (f"{key_prefix}DbClusterResourceId", str(value["db_cluster_resource_id"]))
         )
     if "db_cluster_arn" in value:
-        pairs.append((f"{prefix}.DBClusterArn", str(value["db_cluster_arn"])))
+        pairs.append((f"{key_prefix}DBClusterArn", str(value["db_cluster_arn"])))
     if "associated_roles" in value:
         import capo_docdb.types.db_cluster_roles
 
         capo_docdb.types.db_cluster_roles.serialize_query(
-            value["associated_roles"], pairs, f"{prefix}.AssociatedRoles"
+            value["associated_roles"], pairs, f"{key_prefix}AssociatedRoles"
         )
     if "clone_group_id" in value:
-        pairs.append((f"{prefix}.CloneGroupId", str(value["clone_group_id"])))
+        pairs.append((f"{key_prefix}CloneGroupId", str(value["clone_group_id"])))
     if "cluster_create_time" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["cluster_create_time"], pairs, f"{prefix}.ClusterCreateTime"
+            value["cluster_create_time"], pairs, f"{key_prefix}ClusterCreateTime"
         )
     if "enabled_cloudwatch_logs_exports" in value:
         import capo_docdb.types.log_type_list
@@ -246,12 +257,12 @@ def serialize_query(
         capo_docdb.types.log_type_list.serialize_query(
             value["enabled_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.EnabledCloudwatchLogsExports",
+            f"{key_prefix}EnabledCloudwatchLogsExports",
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
@@ -261,26 +272,26 @@ def serialize_query(
         capo_docdb.types.t_stamp.serialize_query(
             value["io_optimized_next_allowed_modification_time"],
             pairs,
-            f"{prefix}.IOOptimizedNextAllowedModificationTime",
+            f"{key_prefix}IOOptimizedNextAllowedModificationTime",
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "serverless_v2_scaling_configuration" in value:
         import capo_docdb.types.serverless_v2_scaling_configuration_info
 
         capo_docdb.types.serverless_v2_scaling_configuration_info.serialize_query(
             value["serverless_v2_scaling_configuration"],
             pairs,
-            f"{prefix}.ServerlessV2ScalingConfiguration",
+            f"{key_prefix}ServerlessV2ScalingConfiguration",
         )
     if "master_user_secret" in value:
         import capo_docdb.types.cluster_master_user_secret
 
         capo_docdb.types.cluster_master_user_secret.serialize_query(
-            value["master_user_secret"], pairs, f"{prefix}.MasterUserSecret"
+            value["master_user_secret"], pairs, f"{key_prefix}MasterUserSecret"
         )
     if "network_type" in value:
-        pairs.append((f"{prefix}.NetworkType", str(value["network_type"])))
+        pairs.append((f"{key_prefix}NetworkType", str(value["network_type"])))
 
 
 def deserialize_query(el: Element) -> DBCluster:

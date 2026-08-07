@@ -35,22 +35,23 @@ class CPUUtilization(TypedDict, closed=True):
 def serialize_query(
     value: CPUUtilization, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user" in value:
-        pairs.append((f"{prefix}.User", str(value["user"])))
+        pairs.append((f"{key_prefix}User", str(value["user"])))
     if "nice" in value:
-        pairs.append((f"{prefix}.Nice", str(value["nice"])))
+        pairs.append((f"{key_prefix}Nice", str(value["nice"])))
     if "system" in value:
-        pairs.append((f"{prefix}.System", str(value["system"])))
+        pairs.append((f"{key_prefix}System", str(value["system"])))
     if "idle" in value:
-        pairs.append((f"{prefix}.Idle", str(value["idle"])))
+        pairs.append((f"{key_prefix}Idle", str(value["idle"])))
     if "io_wait" in value:
-        pairs.append((f"{prefix}.IOWait", str(value["io_wait"])))
+        pairs.append((f"{key_prefix}IOWait", str(value["io_wait"])))
     if "irq" in value:
-        pairs.append((f"{prefix}.IRQ", str(value["irq"])))
+        pairs.append((f"{key_prefix}IRQ", str(value["irq"])))
     if "soft_irq" in value:
-        pairs.append((f"{prefix}.SoftIRQ", str(value["soft_irq"])))
+        pairs.append((f"{key_prefix}SoftIRQ", str(value["soft_irq"])))
     if "privileged" in value:
-        pairs.append((f"{prefix}.Privileged", str(value["privileged"])))
+        pairs.append((f"{key_prefix}Privileged", str(value["privileged"])))
 
 
 def deserialize_query(el: Element) -> CPUUtilization:

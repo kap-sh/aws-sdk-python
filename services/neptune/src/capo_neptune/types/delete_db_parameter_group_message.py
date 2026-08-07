@@ -19,9 +19,10 @@ class DeleteDBParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteDBParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBParameterGroupName", str(value["db_parameter_group_name"]))
+            (f"{key_prefix}DBParameterGroupName", str(value["db_parameter_group_name"]))
         )
 
 

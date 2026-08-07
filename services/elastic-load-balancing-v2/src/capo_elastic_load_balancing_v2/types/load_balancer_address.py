@@ -34,16 +34,17 @@ class LoadBalancerAddress(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancerAddress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ip_address" in value:
-        pairs.append((f"{prefix}.IpAddress", str(value["ip_address"])))
+        pairs.append((f"{key_prefix}IpAddress", str(value["ip_address"])))
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "private_i_pv4_address" in value:
         pairs.append(
-            (f"{prefix}.PrivateIPv4Address", str(value["private_i_pv4_address"]))
+            (f"{key_prefix}PrivateIPv4Address", str(value["private_i_pv4_address"]))
         )
     if "i_pv6_address" in value:
-        pairs.append((f"{prefix}.IPv6Address", str(value["i_pv6_address"])))
+        pairs.append((f"{key_prefix}IPv6Address", str(value["i_pv6_address"])))
 
 
 def deserialize_query(el: Element) -> LoadBalancerAddress:

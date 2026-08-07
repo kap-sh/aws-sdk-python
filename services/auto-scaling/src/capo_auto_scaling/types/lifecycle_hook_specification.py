@@ -51,26 +51,32 @@ class LifecycleHookSpecification(TypedDict, closed=True):
 def serialize_query(
     value: LifecycleHookSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "lifecycle_hook_name" in value:
-        pairs.append((f"{prefix}.LifecycleHookName", str(value["lifecycle_hook_name"])))
+        pairs.append(
+            (f"{key_prefix}LifecycleHookName", str(value["lifecycle_hook_name"]))
+        )
     if "lifecycle_transition" in value:
         pairs.append(
-            (f"{prefix}.LifecycleTransition", str(value["lifecycle_transition"]))
+            (f"{key_prefix}LifecycleTransition", str(value["lifecycle_transition"]))
         )
     if "notification_metadata" in value:
         pairs.append(
-            (f"{prefix}.NotificationMetadata", str(value["notification_metadata"]))
+            (f"{key_prefix}NotificationMetadata", str(value["notification_metadata"]))
         )
     if "heartbeat_timeout" in value:
-        pairs.append((f"{prefix}.HeartbeatTimeout", str(value["heartbeat_timeout"])))
+        pairs.append((f"{key_prefix}HeartbeatTimeout", str(value["heartbeat_timeout"])))
     if "default_result" in value:
-        pairs.append((f"{prefix}.DefaultResult", str(value["default_result"])))
+        pairs.append((f"{key_prefix}DefaultResult", str(value["default_result"])))
     if "notification_target_arn" in value:
         pairs.append(
-            (f"{prefix}.NotificationTargetARN", str(value["notification_target_arn"]))
+            (
+                f"{key_prefix}NotificationTargetARN",
+                str(value["notification_target_arn"]),
+            )
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleARN", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleARN", str(value["role_arn"])))
 
 
 def deserialize_query(el: Element) -> LifecycleHookSpecification:

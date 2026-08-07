@@ -21,11 +21,12 @@ class BaselinePerformanceFactorsRequest(TypedDict, closed=True):
 def serialize_query(
     value: BaselinePerformanceFactorsRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cpu" in value:
         import capo_auto_scaling.types.cpu_performance_factor_request
 
         capo_auto_scaling.types.cpu_performance_factor_request.serialize_query(
-            value["cpu"], pairs, f"{prefix}.Cpu"
+            value["cpu"], pairs, f"{key_prefix}Cpu"
         )
 
 

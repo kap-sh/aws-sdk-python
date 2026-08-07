@@ -19,11 +19,12 @@ class GetTopicAttributesResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetTopicAttributesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attributes" in value:
         import capo_sns.types.topic_attributes_map
 
         capo_sns.types.topic_attributes_map.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

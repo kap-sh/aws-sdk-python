@@ -50,49 +50,50 @@ class EnvironmentResourceDescription(TypedDict, closed=True):
 def serialize_query(
     value: EnvironmentResourceDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "auto_scaling_groups" in value:
         import capo_elastic_beanstalk.types.auto_scaling_group_list
 
         capo_elastic_beanstalk.types.auto_scaling_group_list.serialize_query(
-            value["auto_scaling_groups"], pairs, f"{prefix}.AutoScalingGroups"
+            value["auto_scaling_groups"], pairs, f"{key_prefix}AutoScalingGroups"
         )
     if "instances" in value:
         import capo_elastic_beanstalk.types.instance_list
 
         capo_elastic_beanstalk.types.instance_list.serialize_query(
-            value["instances"], pairs, f"{prefix}.Instances"
+            value["instances"], pairs, f"{key_prefix}Instances"
         )
     if "launch_configurations" in value:
         import capo_elastic_beanstalk.types.launch_configuration_list
 
         capo_elastic_beanstalk.types.launch_configuration_list.serialize_query(
-            value["launch_configurations"], pairs, f"{prefix}.LaunchConfigurations"
+            value["launch_configurations"], pairs, f"{key_prefix}LaunchConfigurations"
         )
     if "launch_templates" in value:
         import capo_elastic_beanstalk.types.launch_template_list
 
         capo_elastic_beanstalk.types.launch_template_list.serialize_query(
-            value["launch_templates"], pairs, f"{prefix}.LaunchTemplates"
+            value["launch_templates"], pairs, f"{key_prefix}LaunchTemplates"
         )
     if "load_balancers" in value:
         import capo_elastic_beanstalk.types.load_balancer_list
 
         capo_elastic_beanstalk.types.load_balancer_list.serialize_query(
-            value["load_balancers"], pairs, f"{prefix}.LoadBalancers"
+            value["load_balancers"], pairs, f"{key_prefix}LoadBalancers"
         )
     if "triggers" in value:
         import capo_elastic_beanstalk.types.trigger_list
 
         capo_elastic_beanstalk.types.trigger_list.serialize_query(
-            value["triggers"], pairs, f"{prefix}.Triggers"
+            value["triggers"], pairs, f"{key_prefix}Triggers"
         )
     if "queues" in value:
         import capo_elastic_beanstalk.types.queue_list
 
         capo_elastic_beanstalk.types.queue_list.serialize_query(
-            value["queues"], pairs, f"{prefix}.Queues"
+            value["queues"], pairs, f"{key_prefix}Queues"
         )
 
 

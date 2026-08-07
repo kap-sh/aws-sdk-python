@@ -21,11 +21,12 @@ class UpdateScalingParametersRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateScalingParametersRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     import capo_cloudsearch.types.scaling_parameters
 
     capo_cloudsearch.types.scaling_parameters.serialize_query(
-        value["scaling_parameters"], pairs, f"{prefix}.ScalingParameters"
+        value["scaling_parameters"], pairs, f"{key_prefix}ScalingParameters"
     )
 
 

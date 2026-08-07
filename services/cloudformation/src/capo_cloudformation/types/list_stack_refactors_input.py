@@ -27,16 +27,19 @@ class ListStackRefactorsInput(TypedDict, closed=True):
 def serialize_query(
     value: ListStackRefactorsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "execution_status_filter" in value:
         import capo_cloudformation.types.stack_refactor_execution_status_filter
 
         capo_cloudformation.types.stack_refactor_execution_status_filter.serialize_query(
-            value["execution_status_filter"], pairs, f"{prefix}.ExecutionStatusFilter"
+            value["execution_status_filter"],
+            pairs,
+            f"{key_prefix}ExecutionStatusFilter",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_query(el: Element) -> ListStackRefactorsInput:

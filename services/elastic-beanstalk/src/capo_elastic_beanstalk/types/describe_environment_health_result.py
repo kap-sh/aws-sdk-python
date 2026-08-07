@@ -47,41 +47,42 @@ class DescribeEnvironmentHealthResult(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEnvironmentHealthResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "health_status" in value:
-        pairs.append((f"{prefix}.HealthStatus", str(value["health_status"])))
+        pairs.append((f"{key_prefix}HealthStatus", str(value["health_status"])))
     if "status" in value:
         import capo_elastic_beanstalk.types.environment_health
 
         capo_elastic_beanstalk.types.environment_health.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "color" in value:
-        pairs.append((f"{prefix}.Color", str(value["color"])))
+        pairs.append((f"{key_prefix}Color", str(value["color"])))
     if "causes" in value:
         import capo_elastic_beanstalk.types.causes
 
         capo_elastic_beanstalk.types.causes.serialize_query(
-            value["causes"], pairs, f"{prefix}.Causes"
+            value["causes"], pairs, f"{key_prefix}Causes"
         )
     if "application_metrics" in value:
         import capo_elastic_beanstalk.types.application_metrics
 
         capo_elastic_beanstalk.types.application_metrics.serialize_query(
-            value["application_metrics"], pairs, f"{prefix}.ApplicationMetrics"
+            value["application_metrics"], pairs, f"{key_prefix}ApplicationMetrics"
         )
     if "instances_health" in value:
         import capo_elastic_beanstalk.types.instance_health_summary
 
         capo_elastic_beanstalk.types.instance_health_summary.serialize_query(
-            value["instances_health"], pairs, f"{prefix}.InstancesHealth"
+            value["instances_health"], pairs, f"{key_prefix}InstancesHealth"
         )
     if "refreshed_at" in value:
         import capo_elastic_beanstalk.types.refreshed_at
 
         capo_elastic_beanstalk.types.refreshed_at.serialize_query(
-            value["refreshed_at"], pairs, f"{prefix}.RefreshedAt"
+            value["refreshed_at"], pairs, f"{key_prefix}RefreshedAt"
         )
 
 

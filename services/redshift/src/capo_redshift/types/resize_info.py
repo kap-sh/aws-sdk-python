@@ -22,12 +22,13 @@ class ResizeInfo(TypedDict, closed=True):
 def serialize_query(
     value: ResizeInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resize_type" in value:
-        pairs.append((f"{prefix}.ResizeType", str(value["resize_type"])))
+        pairs.append((f"{key_prefix}ResizeType", str(value["resize_type"])))
     if "allow_cancel_resize" in value:
         pairs.append(
             (
-                f"{prefix}.AllowCancelResize",
+                f"{key_prefix}AllowCancelResize",
                 "true" if value["allow_cancel_resize"] else "false",
             )
         )

@@ -201,12 +201,14 @@ class AsyncRoute53RecoveryControlConfigClient:
 
     async def create_cluster(
         self,
-        cluster_name: "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
         ] = None,
         client_token: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
+        ] = None,
+        cluster_name: Optional[
             "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
         ] = None,
         tags: Optional[
@@ -254,7 +256,8 @@ class AsyncRoute53RecoveryControlConfigClient:
         input_: capo_route53_recovery_control_config.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if tags is not None:
             input_["tags"] = tags
         if network_type is not None:
@@ -269,13 +272,17 @@ class AsyncRoute53RecoveryControlConfigClient:
 
     async def create_control_panel(
         self,
-        cluster_arn: "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09",
-        control_panel_name: "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
         ] = None,
         client_token: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
+        ] = None,
+        cluster_arn: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09"
+        ] = None,
+        control_panel_name: Optional[
             "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
         ] = None,
         tags: Optional[
@@ -320,8 +327,10 @@ class AsyncRoute53RecoveryControlConfigClient:
         input_: capo_route53_recovery_control_config.types.create_control_panel_request.CreateControlPanelRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["cluster_arn"] = cluster_arn
-        input_["control_panel_name"] = control_panel_name
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
+        if control_panel_name is not None:
+            input_["control_panel_name"] = control_panel_name
         if tags is not None:
             input_["tags"] = tags
 
@@ -334,8 +343,6 @@ class AsyncRoute53RecoveryControlConfigClient:
 
     async def create_routing_control(
         self,
-        cluster_arn: "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09",
-        routing_control_name: "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
@@ -343,8 +350,14 @@ class AsyncRoute53RecoveryControlConfigClient:
         client_token: Optional[
             "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
         ] = None,
+        cluster_arn: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09"
+        ] = None,
         control_panel_arn: Optional[
             "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09"
+        ] = None,
+        routing_control_name: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
         ] = None,
     ) -> "capo_route53_recovery_control_config.types.create_routing_control_response.CreateRoutingControlResponse":
         """<p>Creates a new routing control.</p> <p>A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control traffic routing.</p> <p>To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
@@ -385,10 +398,12 @@ class AsyncRoute53RecoveryControlConfigClient:
         input_: capo_route53_recovery_control_config.types.create_routing_control_request.CreateRoutingControlRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["cluster_arn"] = cluster_arn
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
         if control_panel_arn is not None:
             input_["control_panel_arn"] = control_panel_arn
-        input_["routing_control_name"] = routing_control_name
+        if routing_control_name is not None:
+            input_["routing_control_name"] = routing_control_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1385,10 +1400,12 @@ class AsyncRoute53RecoveryControlConfigClient:
     async def tag_resource(
         self,
         resource_arn: "capo_route53_recovery_control_config.types.__string.__string",
-        tags: "capo_route53_recovery_control_config.types.__map_of__string_min0_max256_pattern_s.__mapOf__stringMin0Max256PatternS",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
+        ] = None,
+        tags: Optional[
+            "capo_route53_recovery_control_config.types.__map_of__string_min0_max256_pattern_s.__mapOf__stringMin0Max256PatternS"
         ] = None,
     ) -> "capo_route53_recovery_control_config.types.tag_resource_response.TagResourceResponse":
         """<p>Adds a tag to a resource.</p>
@@ -1422,7 +1439,8 @@ class AsyncRoute53RecoveryControlConfigClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_control_config.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1434,10 +1452,12 @@ class AsyncRoute53RecoveryControlConfigClient:
     async def untag_resource(
         self,
         resource_arn: "capo_route53_recovery_control_config.types.__string.__string",
-        tag_keys: "capo_route53_recovery_control_config.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
+        ] = None,
+        tag_keys: Optional[
+            "capo_route53_recovery_control_config.types.__list_of__string.__listOf__string"
         ] = None,
     ) -> "capo_route53_recovery_control_config.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes a tag from a resource.</p>
@@ -1471,7 +1491,8 @@ class AsyncRoute53RecoveryControlConfigClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_control_config.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1482,11 +1503,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
     async def update_cluster(
         self,
-        cluster_arn: "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09",
-        network_type: "capo_route53_recovery_control_config.types.network_type.NetworkType",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
+        ] = None,
+        cluster_arn: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09"
+        ] = None,
+        network_type: Optional[
+            "capo_route53_recovery_control_config.types.network_type.NetworkType"
         ] = None,
     ) -> "capo_route53_recovery_control_config.types.update_cluster_response.UpdateClusterResponse":
         """<p>Updates an existing cluster. You can only update the network type of a cluster.</p>
@@ -1522,8 +1547,10 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_control_config.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_arn"] = cluster_arn
-        input_["network_type"] = network_type
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
+        if network_type is not None:
+            input_["network_type"] = network_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1534,11 +1561,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
     async def update_control_panel(
         self,
-        control_panel_arn: "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09",
-        control_panel_name: "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
+        ] = None,
+        control_panel_arn: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09"
+        ] = None,
+        control_panel_name: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
         ] = None,
     ) -> "capo_route53_recovery_control_config.types.update_control_panel_response.UpdateControlPanelResponse":
         """<p>Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.</p>
@@ -1574,8 +1605,10 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_control_config.types.update_control_panel_request.UpdateControlPanelRequest = {}  # type: ignore[typeddict-item]
-        input_["control_panel_arn"] = control_panel_arn
-        input_["control_panel_name"] = control_panel_name
+        if control_panel_arn is not None:
+            input_["control_panel_arn"] = control_panel_arn
+        if control_panel_name is not None:
+            input_["control_panel_name"] = control_panel_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1586,11 +1619,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
     async def update_routing_control(
         self,
-        routing_control_arn: "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09",
-        routing_control_name: "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS",
         *,
         config_overrides: Optional[
             AsyncRoute53RecoveryControlConfigClientConfig
+        ] = None,
+        routing_control_arn: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max256_pattern_a_za_z09.__stringMin1Max256PatternAZaZ09"
+        ] = None,
+        routing_control_name: Optional[
+            "capo_route53_recovery_control_config.types.__string_min1_max64_pattern_s.__stringMin1Max64PatternS"
         ] = None,
     ) -> "capo_route53_recovery_control_config.types.update_routing_control_response.UpdateRoutingControlResponse":
         """<p>Updates a routing control. You can only update the name of the routing control. To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
@@ -1626,8 +1663,10 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_control_config.types.update_routing_control_request.UpdateRoutingControlRequest = {}  # type: ignore[typeddict-item]
-        input_["routing_control_arn"] = routing_control_arn
-        input_["routing_control_name"] = routing_control_name
+        if routing_control_arn is not None:
+            input_["routing_control_arn"] = routing_control_arn
+        if routing_control_name is not None:
+            input_["routing_control_name"] = routing_control_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -24,17 +24,18 @@ class RemoveTagsInput(TypedDict, closed=True):
 def serialize_query(
     value: RemoveTagsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_arns" in value:
         import capo_elastic_load_balancing_v2.types.resource_arns
 
         capo_elastic_load_balancing_v2.types.resource_arns.serialize_query(
-            value["resource_arns"], pairs, f"{prefix}.ResourceArns"
+            value["resource_arns"], pairs, f"{key_prefix}ResourceArns"
         )
     if "tag_keys" in value:
         import capo_elastic_load_balancing_v2.types.tag_keys
 
         capo_elastic_load_balancing_v2.types.tag_keys.serialize_query(
-            value["tag_keys"], pairs, f"{prefix}.TagKeys"
+            value["tag_keys"], pairs, f"{key_prefix}TagKeys"
         )
 
 

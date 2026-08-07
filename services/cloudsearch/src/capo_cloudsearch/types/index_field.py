@@ -56,77 +56,78 @@ class IndexField(TypedDict, closed=True):
 def serialize_query(
     value: IndexField, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.IndexFieldName", str(value["index_field_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}IndexFieldName", str(value["index_field_name"])))
     import capo_cloudsearch.types.index_field_type
 
     capo_cloudsearch.types.index_field_type.serialize_query(
-        value["index_field_type"], pairs, f"{prefix}.IndexFieldType"
+        value["index_field_type"], pairs, f"{key_prefix}IndexFieldType"
     )
     if "int_options" in value:
         import capo_cloudsearch.types.int_options
 
         capo_cloudsearch.types.int_options.serialize_query(
-            value["int_options"], pairs, f"{prefix}.IntOptions"
+            value["int_options"], pairs, f"{key_prefix}IntOptions"
         )
     if "double_options" in value:
         import capo_cloudsearch.types.double_options
 
         capo_cloudsearch.types.double_options.serialize_query(
-            value["double_options"], pairs, f"{prefix}.DoubleOptions"
+            value["double_options"], pairs, f"{key_prefix}DoubleOptions"
         )
     if "literal_options" in value:
         import capo_cloudsearch.types.literal_options
 
         capo_cloudsearch.types.literal_options.serialize_query(
-            value["literal_options"], pairs, f"{prefix}.LiteralOptions"
+            value["literal_options"], pairs, f"{key_prefix}LiteralOptions"
         )
     if "text_options" in value:
         import capo_cloudsearch.types.text_options
 
         capo_cloudsearch.types.text_options.serialize_query(
-            value["text_options"], pairs, f"{prefix}.TextOptions"
+            value["text_options"], pairs, f"{key_prefix}TextOptions"
         )
     if "date_options" in value:
         import capo_cloudsearch.types.date_options
 
         capo_cloudsearch.types.date_options.serialize_query(
-            value["date_options"], pairs, f"{prefix}.DateOptions"
+            value["date_options"], pairs, f"{key_prefix}DateOptions"
         )
     if "lat_lon_options" in value:
         import capo_cloudsearch.types.lat_lon_options
 
         capo_cloudsearch.types.lat_lon_options.serialize_query(
-            value["lat_lon_options"], pairs, f"{prefix}.LatLonOptions"
+            value["lat_lon_options"], pairs, f"{key_prefix}LatLonOptions"
         )
     if "int_array_options" in value:
         import capo_cloudsearch.types.int_array_options
 
         capo_cloudsearch.types.int_array_options.serialize_query(
-            value["int_array_options"], pairs, f"{prefix}.IntArrayOptions"
+            value["int_array_options"], pairs, f"{key_prefix}IntArrayOptions"
         )
     if "double_array_options" in value:
         import capo_cloudsearch.types.double_array_options
 
         capo_cloudsearch.types.double_array_options.serialize_query(
-            value["double_array_options"], pairs, f"{prefix}.DoubleArrayOptions"
+            value["double_array_options"], pairs, f"{key_prefix}DoubleArrayOptions"
         )
     if "literal_array_options" in value:
         import capo_cloudsearch.types.literal_array_options
 
         capo_cloudsearch.types.literal_array_options.serialize_query(
-            value["literal_array_options"], pairs, f"{prefix}.LiteralArrayOptions"
+            value["literal_array_options"], pairs, f"{key_prefix}LiteralArrayOptions"
         )
     if "text_array_options" in value:
         import capo_cloudsearch.types.text_array_options
 
         capo_cloudsearch.types.text_array_options.serialize_query(
-            value["text_array_options"], pairs, f"{prefix}.TextArrayOptions"
+            value["text_array_options"], pairs, f"{key_prefix}TextArrayOptions"
         )
     if "date_array_options" in value:
         import capo_cloudsearch.types.date_array_options
 
         capo_cloudsearch.types.date_array_options.serialize_query(
-            value["date_array_options"], pairs, f"{prefix}.DateArrayOptions"
+            value["date_array_options"], pairs, f"{key_prefix}DateArrayOptions"
         )
 
 

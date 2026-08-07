@@ -27,20 +27,26 @@ class ClusterSnapshotCopyStatus(TypedDict, closed=True):
 def serialize_query(
     value: ClusterSnapshotCopyStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "destination_region" in value:
-        pairs.append((f"{prefix}.DestinationRegion", str(value["destination_region"])))
+        pairs.append(
+            (f"{key_prefix}DestinationRegion", str(value["destination_region"]))
+        )
     if "retention_period" in value:
-        pairs.append((f"{prefix}.RetentionPeriod", str(value["retention_period"])))
+        pairs.append((f"{key_prefix}RetentionPeriod", str(value["retention_period"])))
     if "manual_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.ManualSnapshotRetentionPeriod",
+                f"{key_prefix}ManualSnapshotRetentionPeriod",
                 str(value["manual_snapshot_retention_period"]),
             )
         )
     if "snapshot_copy_grant_name" in value:
         pairs.append(
-            (f"{prefix}.SnapshotCopyGrantName", str(value["snapshot_copy_grant_name"]))
+            (
+                f"{key_prefix}SnapshotCopyGrantName",
+                str(value["snapshot_copy_grant_name"]),
+            )
         )
 
 

@@ -18,11 +18,12 @@ class ResumeClusterResult(TypedDict, closed=True):
 def serialize_query(
     value: ResumeClusterResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster" in value:
         import capo_redshift.types.cluster
 
         capo_redshift.types.cluster.serialize_query(
-            value["cluster"], pairs, f"{prefix}.Cluster"
+            value["cluster"], pairs, f"{key_prefix}Cluster"
         )
 
 

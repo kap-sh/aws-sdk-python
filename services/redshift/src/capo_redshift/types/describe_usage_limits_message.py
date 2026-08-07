@@ -37,31 +37,34 @@ class DescribeUsageLimitsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeUsageLimitsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "usage_limit_id" in value:
-        pairs.append((f"{prefix}.UsageLimitId", str(value["usage_limit_id"])))
+        pairs.append((f"{key_prefix}UsageLimitId", str(value["usage_limit_id"])))
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "feature_type" in value:
         import capo_redshift.types.usage_limit_feature_type
 
         capo_redshift.types.usage_limit_feature_type.serialize_query(
-            value["feature_type"], pairs, f"{prefix}.FeatureType"
+            value["feature_type"], pairs, f"{key_prefix}FeatureType"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "tag_keys" in value:
         import capo_redshift.types.tag_key_list
 
         capo_redshift.types.tag_key_list.serialize_query(
-            value["tag_keys"], pairs, f"{prefix}.TagKeys"
+            value["tag_keys"], pairs, f"{key_prefix}TagKeys"
         )
     if "tag_values" in value:
         import capo_redshift.types.tag_value_list
 
         capo_redshift.types.tag_value_list.serialize_query(
-            value["tag_values"], pairs, f"{prefix}.TagValues"
+            value["tag_values"], pairs, f"{key_prefix}TagValues"
         )
 
 

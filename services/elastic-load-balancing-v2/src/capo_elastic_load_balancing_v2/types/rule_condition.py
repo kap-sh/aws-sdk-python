@@ -60,37 +60,38 @@ class RuleCondition(TypedDict, closed=True):
 def serialize_query(
     value: RuleCondition, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "field" in value:
-        pairs.append((f"{prefix}.Field", str(value["field"])))
+        pairs.append((f"{key_prefix}Field", str(value["field"])))
     if "values" in value:
         import capo_elastic_load_balancing_v2.types.list_of_string
 
         capo_elastic_load_balancing_v2.types.list_of_string.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
     if "host_header_config" in value:
         import capo_elastic_load_balancing_v2.types.host_header_condition_config
 
         capo_elastic_load_balancing_v2.types.host_header_condition_config.serialize_query(
-            value["host_header_config"], pairs, f"{prefix}.HostHeaderConfig"
+            value["host_header_config"], pairs, f"{key_prefix}HostHeaderConfig"
         )
     if "path_pattern_config" in value:
         import capo_elastic_load_balancing_v2.types.path_pattern_condition_config
 
         capo_elastic_load_balancing_v2.types.path_pattern_condition_config.serialize_query(
-            value["path_pattern_config"], pairs, f"{prefix}.PathPatternConfig"
+            value["path_pattern_config"], pairs, f"{key_prefix}PathPatternConfig"
         )
     if "http_header_config" in value:
         import capo_elastic_load_balancing_v2.types.http_header_condition_config
 
         capo_elastic_load_balancing_v2.types.http_header_condition_config.serialize_query(
-            value["http_header_config"], pairs, f"{prefix}.HttpHeaderConfig"
+            value["http_header_config"], pairs, f"{key_prefix}HttpHeaderConfig"
         )
     if "query_string_config" in value:
         import capo_elastic_load_balancing_v2.types.query_string_condition_config
 
         capo_elastic_load_balancing_v2.types.query_string_condition_config.serialize_query(
-            value["query_string_config"], pairs, f"{prefix}.QueryStringConfig"
+            value["query_string_config"], pairs, f"{key_prefix}QueryStringConfig"
         )
     if "http_request_method_config" in value:
         import capo_elastic_load_balancing_v2.types.http_request_method_condition_config
@@ -98,19 +99,19 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.http_request_method_condition_config.serialize_query(
             value["http_request_method_config"],
             pairs,
-            f"{prefix}.HttpRequestMethodConfig",
+            f"{key_prefix}HttpRequestMethodConfig",
         )
     if "source_ip_config" in value:
         import capo_elastic_load_balancing_v2.types.source_ip_condition_config
 
         capo_elastic_load_balancing_v2.types.source_ip_condition_config.serialize_query(
-            value["source_ip_config"], pairs, f"{prefix}.SourceIpConfig"
+            value["source_ip_config"], pairs, f"{key_prefix}SourceIpConfig"
         )
     if "regex_values" in value:
         import capo_elastic_load_balancing_v2.types.list_of_string
 
         capo_elastic_load_balancing_v2.types.list_of_string.serialize_query(
-            value["regex_values"], pairs, f"{prefix}.RegexValues"
+            value["regex_values"], pairs, f"{key_prefix}RegexValues"
         )
 
 

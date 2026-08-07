@@ -27,19 +27,20 @@ class ModifyClusterSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "manual_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.ManualSnapshotRetentionPeriod",
+                f"{key_prefix}ManualSnapshotRetentionPeriod",
                 str(value["manual_snapshot_retention_period"]),
             )
         )
     if "force" in value:
-        pairs.append((f"{prefix}.Force", "true" if value["force"] else "false"))
+        pairs.append((f"{key_prefix}Force", "true" if value["force"] else "false"))
 
 
 def deserialize_query(el: Element) -> ModifyClusterSnapshotMessage:

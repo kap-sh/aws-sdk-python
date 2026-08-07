@@ -18,11 +18,12 @@ class ModifyClusterSnapshotResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterSnapshotResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot" in value:
         import capo_redshift.types.snapshot
 
         capo_redshift.types.snapshot.serialize_query(
-            value["snapshot"], pairs, f"{prefix}.Snapshot"
+            value["snapshot"], pairs, f"{key_prefix}Snapshot"
         )
 
 

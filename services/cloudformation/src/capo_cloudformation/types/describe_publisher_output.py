@@ -34,22 +34,23 @@ class DescribePublisherOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribePublisherOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "publisher_status" in value:
         import capo_cloudformation.types.publisher_status
 
         capo_cloudformation.types.publisher_status.serialize_query(
-            value["publisher_status"], pairs, f"{prefix}.PublisherStatus"
+            value["publisher_status"], pairs, f"{key_prefix}PublisherStatus"
         )
     if "identity_provider" in value:
         import capo_cloudformation.types.identity_provider
 
         capo_cloudformation.types.identity_provider.serialize_query(
-            value["identity_provider"], pairs, f"{prefix}.IdentityProvider"
+            value["identity_provider"], pairs, f"{key_prefix}IdentityProvider"
         )
     if "publisher_profile" in value:
-        pairs.append((f"{prefix}.PublisherProfile", str(value["publisher_profile"])))
+        pairs.append((f"{key_prefix}PublisherProfile", str(value["publisher_profile"])))
 
 
 def deserialize_query(el: Element) -> DescribePublisherOutput:

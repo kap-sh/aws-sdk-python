@@ -33,24 +33,25 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_cache_nodes_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedCacheNodesOfferingId",
+                f"{key_prefix}ReservedCacheNodesOfferingId",
                 str(value["reserved_cache_nodes_offering_id"]),
             )
         )
     if "reserved_cache_node_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedCacheNodeId", str(value["reserved_cache_node_id"]))
+            (f"{key_prefix}ReservedCacheNodeId", str(value["reserved_cache_node_id"]))
         )
     if "cache_node_count" in value:
-        pairs.append((f"{prefix}.CacheNodeCount", str(value["cache_node_count"])))
+        pairs.append((f"{key_prefix}CacheNodeCount", str(value["cache_node_count"])))
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

@@ -45,35 +45,38 @@ class ImportStacksToStackSetInput(TypedDict, closed=True):
 def serialize_query(
     value: ImportStacksToStackSetInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "stack_ids" in value:
         import capo_cloudformation.types.stack_id_list
 
         capo_cloudformation.types.stack_id_list.serialize_query(
-            value["stack_ids"], pairs, f"{prefix}.StackIds"
+            value["stack_ids"], pairs, f"{key_prefix}StackIds"
         )
     if "stack_ids_url" in value:
-        pairs.append((f"{prefix}.StackIdsUrl", str(value["stack_ids_url"])))
+        pairs.append((f"{key_prefix}StackIdsUrl", str(value["stack_ids_url"])))
     if "organizational_unit_ids" in value:
         import capo_cloudformation.types.organizational_unit_id_list
 
         capo_cloudformation.types.organizational_unit_id_list.serialize_query(
-            value["organizational_unit_ids"], pairs, f"{prefix}.OrganizationalUnitIds"
+            value["organizational_unit_ids"],
+            pairs,
+            f"{key_prefix}OrganizationalUnitIds",
         )
     if "operation_preferences" in value:
         import capo_cloudformation.types.stack_set_operation_preferences
 
         capo_cloudformation.types.stack_set_operation_preferences.serialize_query(
-            value["operation_preferences"], pairs, f"{prefix}.OperationPreferences"
+            value["operation_preferences"], pairs, f"{key_prefix}OperationPreferences"
         )
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
 
 

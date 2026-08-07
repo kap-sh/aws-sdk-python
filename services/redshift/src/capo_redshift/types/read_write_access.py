@@ -21,11 +21,12 @@ class ReadWriteAccess(TypedDict, closed=True):
 def serialize_query(
     value: ReadWriteAccess, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "authorization" in value:
         import capo_redshift.types.service_authorization
 
         capo_redshift.types.service_authorization.serialize_query(
-            value["authorization"], pairs, f"{prefix}.Authorization"
+            value["authorization"], pairs, f"{key_prefix}Authorization"
         )
 
 

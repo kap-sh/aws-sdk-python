@@ -19,10 +19,11 @@ class DeleteHsmConfigurationMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteHsmConfigurationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_configuration_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmConfigurationIdentifier",
+                f"{key_prefix}HsmConfigurationIdentifier",
                 str(value["hsm_configuration_identifier"]),
             )
         )

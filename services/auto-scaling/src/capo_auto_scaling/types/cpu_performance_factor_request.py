@@ -21,11 +21,12 @@ class CpuPerformanceFactorRequest(TypedDict, closed=True):
 def serialize_query(
     value: CpuPerformanceFactorRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "references" in value:
         import capo_auto_scaling.types.performance_factor_reference_set_request
 
         capo_auto_scaling.types.performance_factor_reference_set_request.serialize_query(
-            value["references"], pairs, f"{prefix}.Reference"
+            value["references"], pairs, f"{key_prefix}Reference"
         )
 
 

@@ -26,14 +26,15 @@ class AccountGateResult(TypedDict, closed=True):
 def serialize_query(
     value: AccountGateResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_cloudformation.types.account_gate_status
 
         capo_cloudformation.types.account_gate_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
 
 
 def deserialize_query(el: Element) -> AccountGateResult:

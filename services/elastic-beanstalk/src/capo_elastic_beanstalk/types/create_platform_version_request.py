@@ -39,26 +39,29 @@ class CreatePlatformVersionRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreatePlatformVersionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PlatformName", str(value["platform_name"])))
-    pairs.append((f"{prefix}.PlatformVersion", str(value["platform_version"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PlatformName", str(value["platform_name"])))
+    pairs.append((f"{key_prefix}PlatformVersion", str(value["platform_version"])))
     import capo_elastic_beanstalk.types.s3_location
 
     capo_elastic_beanstalk.types.s3_location.serialize_query(
-        value["platform_definition_bundle"], pairs, f"{prefix}.PlatformDefinitionBundle"
+        value["platform_definition_bundle"],
+        pairs,
+        f"{key_prefix}PlatformDefinitionBundle",
     )
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "option_settings" in value:
         import capo_elastic_beanstalk.types.configuration_option_settings_list
 
         capo_elastic_beanstalk.types.configuration_option_settings_list.serialize_query(
-            value["option_settings"], pairs, f"{prefix}.OptionSettings"
+            value["option_settings"], pairs, f"{key_prefix}OptionSettings"
         )
     if "tags" in value:
         import capo_elastic_beanstalk.types.tags
 
         capo_elastic_beanstalk.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

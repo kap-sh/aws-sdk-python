@@ -289,9 +289,11 @@ class AsyncKafkaClient:
     async def batch_associate_scram_secret(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        secret_arn_list: "capo_kafka.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        secret_arn_list: Optional[
+            "capo_kafka.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_kafka.types.batch_associate_scram_secret_response.BatchAssociateScramSecretResponse":
         """<p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
 
@@ -328,7 +330,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.batch_associate_scram_secret_request.BatchAssociateScramSecretRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["secret_arn_list"] = secret_arn_list
+        if secret_arn_list is not None:
+            input_["secret_arn_list"] = secret_arn_list
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -340,9 +343,11 @@ class AsyncKafkaClient:
     async def batch_disassociate_scram_secret(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        secret_arn_list: "capo_kafka.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        secret_arn_list: Optional[
+            "capo_kafka.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_kafka.types.batch_disassociate_scram_secret_response.BatchDisassociateScramSecretResponse":
         """<p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
 
@@ -379,7 +384,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.batch_disassociate_scram_secret_request.BatchDisassociateScramSecretRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["secret_arn_list"] = secret_arn_list
+        if secret_arn_list is not None:
+            input_["secret_arn_list"] = secret_arn_list
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -390,15 +396,17 @@ class AsyncKafkaClient:
 
     async def create_cluster(
         self,
-        broker_node_group_info: "capo_kafka.types.broker_node_group_info.BrokerNodeGroupInfo",
-        cluster_name: "capo_kafka.types.__string_min1_max64.__stringMin1Max64",
-        kafka_version: "capo_kafka.types.__string_min1_max128.__stringMin1Max128",
-        number_of_broker_nodes: "capo_kafka.types.__integer_min1_max15.__integerMin1Max15",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        broker_node_group_info: Optional[
+            "capo_kafka.types.broker_node_group_info.BrokerNodeGroupInfo"
+        ] = None,
         rebalancing: Optional["capo_kafka.types.rebalancing.Rebalancing"] = None,
         client_authentication: Optional[
             "capo_kafka.types.client_authentication.ClientAuthentication"
+        ] = None,
+        cluster_name: Optional[
+            "capo_kafka.types.__string_min1_max64.__stringMin1Max64"
         ] = None,
         configuration_info: Optional[
             "capo_kafka.types.configuration_info.ConfigurationInfo"
@@ -412,7 +420,13 @@ class AsyncKafkaClient:
         open_monitoring: Optional[
             "capo_kafka.types.open_monitoring_info.OpenMonitoringInfo"
         ] = None,
+        kafka_version: Optional[
+            "capo_kafka.types.__string_min1_max128.__stringMin1Max128"
+        ] = None,
         logging_info: Optional["capo_kafka.types.logging_info.LoggingInfo"] = None,
+        number_of_broker_nodes: Optional[
+            "capo_kafka.types.__integer_min1_max15.__integerMin1Max15"
+        ] = None,
         tags: Optional["capo_kafka.types.__map_of__string.__mapOf__string"] = None,
         storage_mode: Optional["capo_kafka.types.storage_mode.StorageMode"] = None,
     ) -> "capo_kafka.types.create_cluster_response.CreateClusterResponse":
@@ -460,12 +474,14 @@ class AsyncKafkaClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input_["broker_node_group_info"] = broker_node_group_info
+        if broker_node_group_info is not None:
+            input_["broker_node_group_info"] = broker_node_group_info
         if rebalancing is not None:
             input_["rebalancing"] = rebalancing
         if client_authentication is not None:
             input_["client_authentication"] = client_authentication
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if configuration_info is not None:
             input_["configuration_info"] = configuration_info
         if encryption_info is not None:
@@ -474,10 +490,12 @@ class AsyncKafkaClient:
             input_["enhanced_monitoring"] = enhanced_monitoring
         if open_monitoring is not None:
             input_["open_monitoring"] = open_monitoring
-        input_["kafka_version"] = kafka_version
+        if kafka_version is not None:
+            input_["kafka_version"] = kafka_version
         if logging_info is not None:
             input_["logging_info"] = logging_info
-        input_["number_of_broker_nodes"] = number_of_broker_nodes
+        if number_of_broker_nodes is not None:
+            input_["number_of_broker_nodes"] = number_of_broker_nodes
         if tags is not None:
             input_["tags"] = tags
         if storage_mode is not None:
@@ -492,9 +510,11 @@ class AsyncKafkaClient:
 
     async def create_cluster_v2(
         self,
-        cluster_name: "capo_kafka.types.__string_min1_max64.__stringMin1Max64",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        cluster_name: Optional[
+            "capo_kafka.types.__string_min1_max64.__stringMin1Max64"
+        ] = None,
         tags: Optional["capo_kafka.types.__map_of__string.__mapOf__string"] = None,
         provisioned: Optional[
             "capo_kafka.types.provisioned_request.ProvisionedRequest"
@@ -539,7 +559,8 @@ class AsyncKafkaClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.create_cluster_v2_request.CreateClusterV2Request = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if tags is not None:
             input_["tags"] = tags
         if provisioned is not None:
@@ -556,14 +577,14 @@ class AsyncKafkaClient:
 
     async def create_configuration(
         self,
-        name: "capo_kafka.types.__string.__string",
-        server_properties: "capo_kafka.types.__blob.__blob",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         description: Optional["capo_kafka.types.__string.__string"] = None,
         kafka_versions: Optional[
             "capo_kafka.types.__list_of__string.__listOf__string"
         ] = None,
+        name: Optional["capo_kafka.types.__string.__string"] = None,
+        server_properties: Optional["capo_kafka.types.__blob.__blob"] = None,
     ) -> "capo_kafka.types.create_configuration_response.CreateConfigurationResponse":
         """<p>Creates a new MSK configuration.</p>
 
@@ -605,8 +626,10 @@ class AsyncKafkaClient:
             input_["description"] = description
         if kafka_versions is not None:
             input_["kafka_versions"] = kafka_versions
-        input_["name"] = name
-        input_["server_properties"] = server_properties
+        if name is not None:
+            input_["name"] = name
+        if server_properties is not None:
+            input_["server_properties"] = server_properties
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -617,14 +640,22 @@ class AsyncKafkaClient:
 
     async def create_replicator(
         self,
-        kafka_clusters: "capo_kafka.types.__list_of_kafka_cluster.__listOfKafkaCluster",
-        replication_info_list: "capo_kafka.types.__list_of_replication_info.__listOfReplicationInfo",
-        replicator_name: "capo_kafka.types.__string_min1_max128_pattern09_a_za_z09_a_za_z0.__stringMin1Max128Pattern09AZaZ09AZaZ0",
-        service_execution_role_arn: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         description: Optional[
             "capo_kafka.types.__string_max1024.__stringMax1024"
+        ] = None,
+        kafka_clusters: Optional[
+            "capo_kafka.types.__list_of_kafka_cluster.__listOfKafkaCluster"
+        ] = None,
+        replication_info_list: Optional[
+            "capo_kafka.types.__list_of_replication_info.__listOfReplicationInfo"
+        ] = None,
+        replicator_name: Optional[
+            "capo_kafka.types.__string_min1_max128_pattern09_a_za_z09_a_za_z0.__stringMin1Max128Pattern09AZaZ09AZaZ0"
+        ] = None,
+        service_execution_role_arn: Optional[
+            "capo_kafka.types.__string.__string"
         ] = None,
         tags: Optional["capo_kafka.types.__map_of__string.__mapOf__string"] = None,
         log_delivery: Optional["capo_kafka.types.log_delivery.LogDelivery"] = None,
@@ -671,10 +702,14 @@ class AsyncKafkaClient:
         input_: capo_kafka.types.create_replicator_request.CreateReplicatorRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["kafka_clusters"] = kafka_clusters
-        input_["replication_info_list"] = replication_info_list
-        input_["replicator_name"] = replicator_name
-        input_["service_execution_role_arn"] = service_execution_role_arn
+        if kafka_clusters is not None:
+            input_["kafka_clusters"] = kafka_clusters
+        if replication_info_list is not None:
+            input_["replication_info_list"] = replication_info_list
+        if replicator_name is not None:
+            input_["replicator_name"] = replicator_name
+        if service_execution_role_arn is not None:
+            input_["service_execution_role_arn"] = service_execution_role_arn
         if tags is not None:
             input_["tags"] = tags
         if log_delivery is not None:
@@ -690,11 +725,15 @@ class AsyncKafkaClient:
     async def create_topic(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        topic_name: "capo_kafka.types.__string.__string",
-        partition_count: "capo_kafka.types.__integer_min1.__integerMin1",
-        replication_factor: "capo_kafka.types.__integer_min1.__integerMin1",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        topic_name: Optional["capo_kafka.types.__string.__string"] = None,
+        partition_count: Optional[
+            "capo_kafka.types.__integer_min1.__integerMin1"
+        ] = None,
+        replication_factor: Optional[
+            "capo_kafka.types.__integer_min1.__integerMin1"
+        ] = None,
         configs: Optional["capo_kafka.types.__string.__string"] = None,
     ) -> "capo_kafka.types.create_topic_response.CreateTopicResponse":
         """<p>Creates a topic in the specified MSK cluster.</p>
@@ -744,9 +783,12 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.create_topic_request.CreateTopicRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["topic_name"] = topic_name
-        input_["partition_count"] = partition_count
-        input_["replication_factor"] = replication_factor
+        if topic_name is not None:
+            input_["topic_name"] = topic_name
+        if partition_count is not None:
+            input_["partition_count"] = partition_count
+        if replication_factor is not None:
+            input_["replication_factor"] = replication_factor
         if configs is not None:
             input_["configs"] = configs
 
@@ -759,13 +801,17 @@ class AsyncKafkaClient:
 
     async def create_vpc_connection(
         self,
-        target_cluster_arn: "capo_kafka.types.__string.__string",
-        authentication: "capo_kafka.types.__string.__string",
-        vpc_id: "capo_kafka.types.__string.__string",
-        client_subnets: "capo_kafka.types.__list_of__string.__listOf__string",
-        security_groups: "capo_kafka.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        target_cluster_arn: Optional["capo_kafka.types.__string.__string"] = None,
+        authentication: Optional["capo_kafka.types.__string.__string"] = None,
+        vpc_id: Optional["capo_kafka.types.__string.__string"] = None,
+        client_subnets: Optional[
+            "capo_kafka.types.__list_of__string.__listOf__string"
+        ] = None,
+        security_groups: Optional[
+            "capo_kafka.types.__list_of__string.__listOf__string"
+        ] = None,
         tags: Optional["capo_kafka.types.__map_of__string.__mapOf__string"] = None,
     ) -> "capo_kafka.types.create_vpc_connection_response.CreateVpcConnectionResponse":
         """<p>Creates a new MSK VPC connection.</p>
@@ -805,11 +851,16 @@ class AsyncKafkaClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.create_vpc_connection_request.CreateVpcConnectionRequest = {}  # type: ignore[typeddict-item]
-        input_["target_cluster_arn"] = target_cluster_arn
-        input_["authentication"] = authentication
-        input_["vpc_id"] = vpc_id
-        input_["client_subnets"] = client_subnets
-        input_["security_groups"] = security_groups
+        if target_cluster_arn is not None:
+            input_["target_cluster_arn"] = target_cluster_arn
+        if authentication is not None:
+            input_["authentication"] = authentication
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if client_subnets is not None:
+            input_["client_subnets"] = client_subnets
+        if security_groups is not None:
+            input_["security_groups"] = security_groups
         if tags is not None:
             input_["tags"] = tags
 
@@ -2813,10 +2864,10 @@ class AsyncKafkaClient:
     async def put_cluster_policy(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        policy: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         current_version: Optional["capo_kafka.types.__string.__string"] = None,
+        policy: Optional["capo_kafka.types.__string.__string"] = None,
     ) -> "capo_kafka.types.put_cluster_policy_response.PutClusterPolicyResponse":
         """<p>Creates or updates the MSK cluster policy specified by the cluster Amazon Resource Name (ARN) in the request.</p>
 
@@ -2852,7 +2903,8 @@ class AsyncKafkaClient:
         input_["cluster_arn"] = cluster_arn
         if current_version is not None:
             input_["current_version"] = current_version
-        input_["policy"] = policy
+        if policy is not None:
+            input_["policy"] = policy
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2863,10 +2915,12 @@ class AsyncKafkaClient:
 
     async def reboot_broker(
         self,
-        broker_ids: "capo_kafka.types.__list_of__string.__listOf__string",
         cluster_arn: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        broker_ids: Optional[
+            "capo_kafka.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_kafka.types.reboot_broker_response.RebootBrokerResponse":
         """Reboots brokers.
 
@@ -2902,7 +2956,8 @@ class AsyncKafkaClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.reboot_broker_request.RebootBrokerRequest = {}  # type: ignore[typeddict-item]
-        input_["broker_ids"] = broker_ids
+        if broker_ids is not None:
+            input_["broker_ids"] = broker_ids
         input_["cluster_arn"] = cluster_arn
 
         response = await aexecute_pipeline(
@@ -2915,9 +2970,9 @@ class AsyncKafkaClient:
     async def reject_client_vpc_connection(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        vpc_connection_arn: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        vpc_connection_arn: Optional["capo_kafka.types.__string.__string"] = None,
     ) -> "capo_kafka.types.reject_client_vpc_connection_response.RejectClientVpcConnectionResponse":
         """<p>Returns empty response.</p>
 
@@ -2952,7 +3007,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.reject_client_vpc_connection_request.RejectClientVpcConnectionRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["vpc_connection_arn"] = vpc_connection_arn
+        if vpc_connection_arn is not None:
+            input_["vpc_connection_arn"] = vpc_connection_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2964,9 +3020,9 @@ class AsyncKafkaClient:
     async def tag_resource(
         self,
         resource_arn: "capo_kafka.types.__string.__string",
-        tags: "capo_kafka.types.__map_of__string.__mapOf__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        tags: Optional["capo_kafka.types.__map_of__string.__mapOf__string"] = None,
     ) -> None:
         """<p>Adds tags to the specified MSK resource.</p>
 
@@ -2997,7 +3053,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3009,9 +3066,11 @@ class AsyncKafkaClient:
     async def untag_resource(
         self,
         resource_arn: "capo_kafka.types.__string.__string",
-        tag_keys: "capo_kafka.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        tag_keys: Optional[
+            "capo_kafka.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """<p>Removes the tags associated with the keys that are provided in the query.</p>
 
@@ -3042,7 +3101,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3054,10 +3114,12 @@ class AsyncKafkaClient:
     async def update_broker_count(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
-        target_number_of_broker_nodes: "capo_kafka.types.__integer_min1_max15.__integerMin1Max15",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
+        target_number_of_broker_nodes: Optional[
+            "capo_kafka.types.__integer_min1_max15.__integerMin1Max15"
+        ] = None,
     ) -> "capo_kafka.types.update_broker_count_response.UpdateBrokerCountResponse":
         """<p>Updates the number of broker nodes in the cluster.</p>
 
@@ -3093,8 +3155,10 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_broker_count_request.UpdateBrokerCountRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
-        input_["target_number_of_broker_nodes"] = target_number_of_broker_nodes
+        if current_version is not None:
+            input_["current_version"] = current_version
+        if target_number_of_broker_nodes is not None:
+            input_["target_number_of_broker_nodes"] = target_number_of_broker_nodes
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3106,10 +3170,12 @@ class AsyncKafkaClient:
     async def update_broker_storage(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
-        target_broker_ebs_volume_info: "capo_kafka.types.__list_of_broker_ebs_volume_info.__listOfBrokerEBSVolumeInfo",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
+        target_broker_ebs_volume_info: Optional[
+            "capo_kafka.types.__list_of_broker_ebs_volume_info.__listOfBrokerEBSVolumeInfo"
+        ] = None,
     ) -> "capo_kafka.types.update_broker_storage_response.UpdateBrokerStorageResponse":
         """<p>Updates the EBS storage associated with MSK brokers.</p>
 
@@ -3145,8 +3211,10 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_broker_storage_request.UpdateBrokerStorageRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
-        input_["target_broker_ebs_volume_info"] = target_broker_ebs_volume_info
+        if current_version is not None:
+            input_["current_version"] = current_version
+        if target_broker_ebs_volume_info is not None:
+            input_["target_broker_ebs_volume_info"] = target_broker_ebs_volume_info
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3158,10 +3226,10 @@ class AsyncKafkaClient:
     async def update_broker_type(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
-        target_instance_type: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
+        target_instance_type: Optional["capo_kafka.types.__string.__string"] = None,
     ) -> "capo_kafka.types.update_broker_type_response.UpdateBrokerTypeResponse":
         """<p>Updates EC2 instance type.</p>
 
@@ -3199,8 +3267,10 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_broker_type_request.UpdateBrokerTypeRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
-        input_["target_instance_type"] = target_instance_type
+        if current_version is not None:
+            input_["current_version"] = current_version
+        if target_instance_type is not None:
+            input_["target_instance_type"] = target_instance_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3212,10 +3282,12 @@ class AsyncKafkaClient:
     async def update_cluster_configuration(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        configuration_info: "capo_kafka.types.configuration_info.ConfigurationInfo",
-        current_version: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        configuration_info: Optional[
+            "capo_kafka.types.configuration_info.ConfigurationInfo"
+        ] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
     ) -> "capo_kafka.types.update_cluster_configuration_response.UpdateClusterConfigurationResponse":
         """<p>Updates the cluster with the configuration that is specified in the request body.</p>
 
@@ -3252,8 +3324,10 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_cluster_configuration_request.UpdateClusterConfigurationRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["configuration_info"] = configuration_info
-        input_["current_version"] = current_version
+        if configuration_info is not None:
+            input_["configuration_info"] = configuration_info
+        if current_version is not None:
+            input_["current_version"] = current_version
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3265,13 +3339,13 @@ class AsyncKafkaClient:
     async def update_cluster_kafka_version(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
-        target_kafka_version: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         configuration_info: Optional[
             "capo_kafka.types.configuration_info.ConfigurationInfo"
         ] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
+        target_kafka_version: Optional["capo_kafka.types.__string.__string"] = None,
     ) -> "capo_kafka.types.update_cluster_kafka_version_response.UpdateClusterKafkaVersionResponse":
         """<p>Updates the Apache Kafka version for the cluster.</p>
 
@@ -3312,8 +3386,10 @@ class AsyncKafkaClient:
         input_["cluster_arn"] = cluster_arn
         if configuration_info is not None:
             input_["configuration_info"] = configuration_info
-        input_["current_version"] = current_version
-        input_["target_kafka_version"] = target_kafka_version
+        if current_version is not None:
+            input_["current_version"] = current_version
+        if target_kafka_version is not None:
+            input_["target_kafka_version"] = target_kafka_version
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3325,10 +3401,10 @@ class AsyncKafkaClient:
     async def update_configuration(
         self,
         arn: "capo_kafka.types.__string.__string",
-        server_properties: "capo_kafka.types.__blob.__blob",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         description: Optional["capo_kafka.types.__string.__string"] = None,
+        server_properties: Optional["capo_kafka.types.__blob.__blob"] = None,
     ) -> "capo_kafka.types.update_configuration_response.UpdateConfigurationResponse":
         """<p>Updates an MSK configuration.</p>
 
@@ -3367,7 +3443,8 @@ class AsyncKafkaClient:
         input_["arn"] = arn
         if description is not None:
             input_["description"] = description
-        input_["server_properties"] = server_properties
+        if server_properties is not None:
+            input_["server_properties"] = server_properties
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3379,12 +3456,12 @@ class AsyncKafkaClient:
     async def update_connectivity(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         connectivity_info: Optional[
             "capo_kafka.types.connectivity_info.ConnectivityInfo"
         ] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
         zookeeper_access: Optional[
             "capo_kafka.types.zookeeper_access.ZookeeperAccess"
         ] = None,
@@ -3427,7 +3504,8 @@ class AsyncKafkaClient:
         input_["cluster_arn"] = cluster_arn
         if connectivity_info is not None:
             input_["connectivity_info"] = connectivity_info
-        input_["current_version"] = current_version
+        if current_version is not None:
+            input_["current_version"] = current_version
         if zookeeper_access is not None:
             input_["zookeeper_access"] = zookeeper_access
 
@@ -3441,9 +3519,9 @@ class AsyncKafkaClient:
     async def update_monitoring(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
         enhanced_monitoring: Optional[
             "capo_kafka.types.enhanced_monitoring.EnhancedMonitoring"
         ] = None,
@@ -3487,7 +3565,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_monitoring_request.UpdateMonitoringRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
+        if current_version is not None:
+            input_["current_version"] = current_version
         if enhanced_monitoring is not None:
             input_["enhanced_monitoring"] = enhanced_monitoring
         if open_monitoring is not None:
@@ -3505,10 +3584,10 @@ class AsyncKafkaClient:
     async def update_rebalancing(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
-        rebalancing: "capo_kafka.types.rebalancing.Rebalancing",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
+        rebalancing: Optional["capo_kafka.types.rebalancing.Rebalancing"] = None,
     ) -> "capo_kafka.types.update_rebalancing_response.UpdateRebalancingResponse":
         """<p>Use this resource to update the intelligent rebalancing status of an Amazon MSK Provisioned cluster with Express brokers.</p>
 
@@ -3546,8 +3625,10 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_rebalancing_request.UpdateRebalancingRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
-        input_["rebalancing"] = rebalancing
+        if current_version is not None:
+            input_["current_version"] = current_version
+        if rebalancing is not None:
+            input_["rebalancing"] = rebalancing
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3558,13 +3639,13 @@ class AsyncKafkaClient:
 
     async def update_replication_info(
         self,
-        current_version: "capo_kafka.types.__string.__string",
         replicator_arn: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         consumer_group_replication: Optional[
             "capo_kafka.types.consumer_group_replication_update.ConsumerGroupReplicationUpdate"
         ] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
         source_kafka_cluster_arn: Optional["capo_kafka.types.__string.__string"] = None,
         source_kafka_cluster_id: Optional["capo_kafka.types.__string.__string"] = None,
         target_kafka_cluster_arn: Optional["capo_kafka.types.__string.__string"] = None,
@@ -3617,7 +3698,8 @@ class AsyncKafkaClient:
         input_: capo_kafka.types.update_replication_info_request.UpdateReplicationInfoRequest = {}  # type: ignore[typeddict-item]
         if consumer_group_replication is not None:
             input_["consumer_group_replication"] = consumer_group_replication
-        input_["current_version"] = current_version
+        if current_version is not None:
+            input_["current_version"] = current_version
         input_["replicator_arn"] = replicator_arn
         if source_kafka_cluster_arn is not None:
             input_["source_kafka_cluster_arn"] = source_kafka_cluster_arn
@@ -3642,12 +3724,12 @@ class AsyncKafkaClient:
     async def update_security(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
         client_authentication: Optional[
             "capo_kafka.types.client_authentication.ClientAuthentication"
         ] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
         encryption_info: Optional[
             "capo_kafka.types.encryption_info.EncryptionInfo"
         ] = None,
@@ -3691,7 +3773,8 @@ class AsyncKafkaClient:
         if client_authentication is not None:
             input_["client_authentication"] = client_authentication
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
+        if current_version is not None:
+            input_["current_version"] = current_version
         if encryption_info is not None:
             input_["encryption_info"] = encryption_info
 
@@ -3705,9 +3788,9 @@ class AsyncKafkaClient:
     async def update_storage(
         self,
         cluster_arn: "capo_kafka.types.__string.__string",
-        current_version: "capo_kafka.types.__string.__string",
         *,
         config_overrides: Optional[AsyncKafkaClientConfig] = None,
+        current_version: Optional["capo_kafka.types.__string.__string"] = None,
         provisioned_throughput: Optional[
             "capo_kafka.types.provisioned_throughput.ProvisionedThroughput"
         ] = None,
@@ -3752,7 +3835,8 @@ class AsyncKafkaClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kafka.types.update_storage_request.UpdateStorageRequest = {}  # type: ignore[typeddict-item]
         input_["cluster_arn"] = cluster_arn
-        input_["current_version"] = current_version
+        if current_version is not None:
+            input_["current_version"] = current_version
         if provisioned_throughput is not None:
             input_["provisioned_throughput"] = provisioned_throughput
         if storage_mode is not None:

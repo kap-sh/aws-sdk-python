@@ -38,34 +38,35 @@ class User(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: User, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "minimum_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MinimumEngineVersion", str(value["minimum_engine_version"]))
+            (f"{key_prefix}MinimumEngineVersion", str(value["minimum_engine_version"]))
         )
     if "access_string" in value:
-        pairs.append((f"{prefix}.AccessString", str(value["access_string"])))
+        pairs.append((f"{key_prefix}AccessString", str(value["access_string"])))
     if "user_group_ids" in value:
         import capo_elasticache.types.user_group_id_list
 
         capo_elasticache.types.user_group_id_list.serialize_query(
-            value["user_group_ids"], pairs, f"{prefix}.UserGroupIds"
+            value["user_group_ids"], pairs, f"{key_prefix}UserGroupIds"
         )
     if "authentication" in value:
         import capo_elasticache.types.authentication
 
         capo_elasticache.types.authentication.serialize_query(
-            value["authentication"], pairs, f"{prefix}.Authentication"
+            value["authentication"], pairs, f"{key_prefix}Authentication"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> User:

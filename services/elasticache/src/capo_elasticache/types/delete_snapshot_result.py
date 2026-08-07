@@ -18,11 +18,12 @@ class DeleteSnapshotResult(TypedDict, closed=True):
 def serialize_query(
     value: DeleteSnapshotResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot" in value:
         import capo_elasticache.types.snapshot
 
         capo_elasticache.types.snapshot.serialize_query(
-            value["snapshot"], pairs, f"{prefix}.Snapshot"
+            value["snapshot"], pairs, f"{key_prefix}Snapshot"
         )
 
 

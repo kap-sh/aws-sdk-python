@@ -45,46 +45,47 @@ class SingleInstanceHealth(TypedDict, closed=True):
 def serialize_query(
     value: SingleInstanceHealth, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "health_status" in value:
-        pairs.append((f"{prefix}.HealthStatus", str(value["health_status"])))
+        pairs.append((f"{key_prefix}HealthStatus", str(value["health_status"])))
     if "color" in value:
-        pairs.append((f"{prefix}.Color", str(value["color"])))
+        pairs.append((f"{key_prefix}Color", str(value["color"])))
     if "causes" in value:
         import capo_elastic_beanstalk.types.causes
 
         capo_elastic_beanstalk.types.causes.serialize_query(
-            value["causes"], pairs, f"{prefix}.Causes"
+            value["causes"], pairs, f"{key_prefix}Causes"
         )
     if "launched_at" in value:
         import capo_elastic_beanstalk.types.launched_at
 
         capo_elastic_beanstalk.types.launched_at.serialize_query(
-            value["launched_at"], pairs, f"{prefix}.LaunchedAt"
+            value["launched_at"], pairs, f"{key_prefix}LaunchedAt"
         )
     if "application_metrics" in value:
         import capo_elastic_beanstalk.types.application_metrics
 
         capo_elastic_beanstalk.types.application_metrics.serialize_query(
-            value["application_metrics"], pairs, f"{prefix}.ApplicationMetrics"
+            value["application_metrics"], pairs, f"{key_prefix}ApplicationMetrics"
         )
     if "system" in value:
         import capo_elastic_beanstalk.types.system_status
 
         capo_elastic_beanstalk.types.system_status.serialize_query(
-            value["system"], pairs, f"{prefix}.System"
+            value["system"], pairs, f"{key_prefix}System"
         )
     if "deployment" in value:
         import capo_elastic_beanstalk.types.deployment
 
         capo_elastic_beanstalk.types.deployment.serialize_query(
-            value["deployment"], pairs, f"{prefix}.Deployment"
+            value["deployment"], pairs, f"{key_prefix}Deployment"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
 
 
 def deserialize_query(el: Element) -> SingleInstanceHealth:

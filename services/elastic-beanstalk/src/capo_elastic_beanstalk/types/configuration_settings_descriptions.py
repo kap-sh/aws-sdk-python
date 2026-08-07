@@ -21,11 +21,12 @@ class ConfigurationSettingsDescriptions(TypedDict, closed=True):
 def serialize_query(
     value: ConfigurationSettingsDescriptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "configuration_settings" in value:
         import capo_elastic_beanstalk.types.configuration_settings_description_list
 
         capo_elastic_beanstalk.types.configuration_settings_description_list.serialize_query(
-            value["configuration_settings"], pairs, f"{prefix}.ConfigurationSettings"
+            value["configuration_settings"], pairs, f"{key_prefix}ConfigurationSettings"
         )
 
 

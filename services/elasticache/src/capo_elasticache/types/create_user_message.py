@@ -46,24 +46,25 @@ class CreateUserMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateUserMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_id" in value:
-        pairs.append((f"{prefix}.UserId", str(value["user_id"])))
+        pairs.append((f"{key_prefix}UserId", str(value["user_id"])))
     if "user_name" in value:
-        pairs.append((f"{prefix}.UserName", str(value["user_name"])))
+        pairs.append((f"{key_prefix}UserName", str(value["user_name"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "passwords" in value:
         import capo_elasticache.types.password_list_input
 
         capo_elasticache.types.password_list_input.serialize_query(
-            value["passwords"], pairs, f"{prefix}.Passwords"
+            value["passwords"], pairs, f"{key_prefix}Passwords"
         )
     if "access_string" in value:
-        pairs.append((f"{prefix}.AccessString", str(value["access_string"])))
+        pairs.append((f"{key_prefix}AccessString", str(value["access_string"])))
     if "no_password_required" in value:
         pairs.append(
             (
-                f"{prefix}.NoPasswordRequired",
+                f"{key_prefix}NoPasswordRequired",
                 "true" if value["no_password_required"] else "false",
             )
         )
@@ -71,13 +72,13 @@ def serialize_query(
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "authentication_mode" in value:
         import capo_elasticache.types.authentication_mode
 
         capo_elasticache.types.authentication_mode.serialize_query(
-            value["authentication_mode"], pairs, f"{prefix}.AuthenticationMode"
+            value["authentication_mode"], pairs, f"{key_prefix}AuthenticationMode"
         )
 
 

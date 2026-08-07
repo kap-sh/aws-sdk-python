@@ -36,14 +36,15 @@ class DataShare(TypedDict, closed=True):
 def serialize_query(
     value: DataShare, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_share_arn" in value:
-        pairs.append((f"{prefix}.DataShareArn", str(value["data_share_arn"])))
+        pairs.append((f"{key_prefix}DataShareArn", str(value["data_share_arn"])))
     if "producer_arn" in value:
-        pairs.append((f"{prefix}.ProducerArn", str(value["producer_arn"])))
+        pairs.append((f"{key_prefix}ProducerArn", str(value["producer_arn"])))
     if "allow_publicly_accessible_consumers" in value:
         pairs.append(
             (
-                f"{prefix}.AllowPubliclyAccessibleConsumers",
+                f"{key_prefix}AllowPubliclyAccessibleConsumers",
                 "true" if value["allow_publicly_accessible_consumers"] else "false",
             )
         )
@@ -51,15 +52,17 @@ def serialize_query(
         import capo_redshift.types.data_share_association_list
 
         capo_redshift.types.data_share_association_list.serialize_query(
-            value["data_share_associations"], pairs, f"{prefix}.DataShareAssociations"
+            value["data_share_associations"],
+            pairs,
+            f"{key_prefix}DataShareAssociations",
         )
     if "managed_by" in value:
-        pairs.append((f"{prefix}.ManagedBy", str(value["managed_by"])))
+        pairs.append((f"{key_prefix}ManagedBy", str(value["managed_by"])))
     if "data_share_type" in value:
         import capo_redshift.types.data_share_type
 
         capo_redshift.types.data_share_type.serialize_query(
-            value["data_share_type"], pairs, f"{prefix}.DataShareType"
+            value["data_share_type"], pairs, f"{key_prefix}DataShareType"
         )
 
 

@@ -29,20 +29,23 @@ class BatchStopUpdateActionMessage(TypedDict, closed=True):
 def serialize_query(
     value: BatchStopUpdateActionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_ids" in value:
         import capo_elasticache.types.replication_group_id_list
 
         capo_elasticache.types.replication_group_id_list.serialize_query(
-            value["replication_group_ids"], pairs, f"{prefix}.ReplicationGroupIds"
+            value["replication_group_ids"], pairs, f"{key_prefix}ReplicationGroupIds"
         )
     if "cache_cluster_ids" in value:
         import capo_elasticache.types.cache_cluster_id_list
 
         capo_elasticache.types.cache_cluster_id_list.serialize_query(
-            value["cache_cluster_ids"], pairs, f"{prefix}.CacheClusterIds"
+            value["cache_cluster_ids"], pairs, f"{key_prefix}CacheClusterIds"
         )
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
 
 
 def deserialize_query(el: Element) -> BatchStopUpdateActionMessage:

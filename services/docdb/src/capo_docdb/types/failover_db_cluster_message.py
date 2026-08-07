@@ -21,14 +21,15 @@ class FailoverDBClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: FailoverDBClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "target_db_instance_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBInstanceIdentifier",
+                f"{key_prefix}TargetDBInstanceIdentifier",
                 str(value["target_db_instance_identifier"]),
             )
         )

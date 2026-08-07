@@ -32,14 +32,17 @@ class DescribeChangeSetHooksInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeChangeSetHooksInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
 
 
 def deserialize_query(el: Element) -> DescribeChangeSetHooksInput:

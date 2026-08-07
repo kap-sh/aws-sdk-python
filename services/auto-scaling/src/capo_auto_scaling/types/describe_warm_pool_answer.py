@@ -27,20 +27,23 @@ class DescribeWarmPoolAnswer(TypedDict, closed=True):
 def serialize_query(
     value: DescribeWarmPoolAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "warm_pool_configuration" in value:
         import capo_auto_scaling.types.warm_pool_configuration
 
         capo_auto_scaling.types.warm_pool_configuration.serialize_query(
-            value["warm_pool_configuration"], pairs, f"{prefix}.WarmPoolConfiguration"
+            value["warm_pool_configuration"],
+            pairs,
+            f"{key_prefix}WarmPoolConfiguration",
         )
     if "instances" in value:
         import capo_auto_scaling.types.instances
 
         capo_auto_scaling.types.instances.serialize_query(
-            value["instances"], pairs, f"{prefix}.Instances"
+            value["instances"], pairs, f"{key_prefix}Instances"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeWarmPoolAnswer:

@@ -28,16 +28,17 @@ class IdentityMailFromDomainAttributes(TypedDict, closed=True):
 def serialize_query(
     value: IdentityMailFromDomainAttributes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.MailFromDomain", str(value["mail_from_domain"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}MailFromDomain", str(value["mail_from_domain"])))
     import capo_ses.types.custom_mail_from_status
 
     capo_ses.types.custom_mail_from_status.serialize_query(
-        value["mail_from_domain_status"], pairs, f"{prefix}.MailFromDomainStatus"
+        value["mail_from_domain_status"], pairs, f"{key_prefix}MailFromDomainStatus"
     )
     import capo_ses.types.behavior_on_mx_failure
 
     capo_ses.types.behavior_on_mx_failure.serialize_query(
-        value["behavior_on_mx_failure"], pairs, f"{prefix}.BehaviorOnMXFailure"
+        value["behavior_on_mx_failure"], pairs, f"{key_prefix}BehaviorOnMXFailure"
     )
 
 

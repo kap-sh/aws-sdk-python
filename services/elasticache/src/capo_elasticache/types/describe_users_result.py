@@ -22,14 +22,15 @@ class DescribeUsersResult(TypedDict, closed=True):
 def serialize_query(
     value: DescribeUsersResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "users" in value:
         import capo_elasticache.types.user_list
 
         capo_elasticache.types.user_list.serialize_query(
-            value["users"], pairs, f"{prefix}.Users"
+            value["users"], pairs, f"{key_prefix}Users"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeUsersResult:

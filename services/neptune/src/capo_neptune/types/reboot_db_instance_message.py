@@ -22,13 +22,17 @@ class RebootDBInstanceMessage(TypedDict, closed=True):
 def serialize_query(
     value: RebootDBInstanceMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "force_failover" in value:
         pairs.append(
-            (f"{prefix}.ForceFailover", "true" if value["force_failover"] else "false")
+            (
+                f"{key_prefix}ForceFailover",
+                "true" if value["force_failover"] else "false",
+            )
         )
 
 

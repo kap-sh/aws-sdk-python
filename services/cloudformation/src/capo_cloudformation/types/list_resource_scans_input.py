@@ -27,15 +27,16 @@ class ListResourceScansInput(TypedDict, closed=True):
 def serialize_query(
     value: ListResourceScansInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "scan_type_filter" in value:
         import capo_cloudformation.types.scan_type
 
         capo_cloudformation.types.scan_type.serialize_query(
-            value["scan_type_filter"], pairs, f"{prefix}.ScanTypeFilter"
+            value["scan_type_filter"], pairs, f"{key_prefix}ScanTypeFilter"
         )
 
 

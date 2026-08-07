@@ -21,13 +21,14 @@ class AvailabilityZoneDistribution(TypedDict, closed=True):
 def serialize_query(
     value: AvailabilityZoneDistribution, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_distribution_strategy" in value:
         import capo_auto_scaling.types.capacity_distribution_strategy
 
         capo_auto_scaling.types.capacity_distribution_strategy.serialize_query(
             value["capacity_distribution_strategy"],
             pairs,
-            f"{prefix}.CapacityDistributionStrategy",
+            f"{key_prefix}CapacityDistributionStrategy",
         )
 
 

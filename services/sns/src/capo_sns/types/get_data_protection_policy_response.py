@@ -19,9 +19,10 @@ class GetDataProtectionPolicyResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetDataProtectionPolicyResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_protection_policy" in value:
         pairs.append(
-            (f"{prefix}.DataProtectionPolicy", str(value["data_protection_policy"]))
+            (f"{key_prefix}DataProtectionPolicy", str(value["data_protection_policy"]))
         )
 
 

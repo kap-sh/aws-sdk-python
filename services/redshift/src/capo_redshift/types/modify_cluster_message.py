@@ -104,142 +104,149 @@ class ModifyClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "cluster_type" in value:
-        pairs.append((f"{prefix}.ClusterType", str(value["cluster_type"])))
+        pairs.append((f"{key_prefix}ClusterType", str(value["cluster_type"])))
     if "node_type" in value:
-        pairs.append((f"{prefix}.NodeType", str(value["node_type"])))
+        pairs.append((f"{key_prefix}NodeType", str(value["node_type"])))
     if "number_of_nodes" in value:
-        pairs.append((f"{prefix}.NumberOfNodes", str(value["number_of_nodes"])))
+        pairs.append((f"{key_prefix}NumberOfNodes", str(value["number_of_nodes"])))
     if "cluster_security_groups" in value:
         import capo_redshift.types.cluster_security_group_name_list
 
         capo_redshift.types.cluster_security_group_name_list.serialize_query(
-            value["cluster_security_groups"], pairs, f"{prefix}.ClusterSecurityGroups"
+            value["cluster_security_groups"],
+            pairs,
+            f"{key_prefix}ClusterSecurityGroups",
         )
     if "vpc_security_group_ids" in value:
         import capo_redshift.types.vpc_security_group_id_list
 
         capo_redshift.types.vpc_security_group_id_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "cluster_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterParameterGroupName",
+                f"{key_prefix}ClusterParameterGroupName",
                 str(value["cluster_parameter_group_name"]),
             )
         )
     if "automated_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.AutomatedSnapshotRetentionPeriod",
+                f"{key_prefix}AutomatedSnapshotRetentionPeriod",
                 str(value["automated_snapshot_retention_period"]),
             )
         )
     if "manual_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.ManualSnapshotRetentionPeriod",
+                f"{key_prefix}ManualSnapshotRetentionPeriod",
                 str(value["manual_snapshot_retention_period"]),
             )
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
     if "cluster_version" in value:
-        pairs.append((f"{prefix}.ClusterVersion", str(value["cluster_version"])))
+        pairs.append((f"{key_prefix}ClusterVersion", str(value["cluster_version"])))
     if "allow_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AllowVersionUpgrade",
+                f"{key_prefix}AllowVersionUpgrade",
                 "true" if value["allow_version_upgrade"] else "false",
             )
         )
     if "hsm_client_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmClientCertificateIdentifier",
+                f"{key_prefix}HsmClientCertificateIdentifier",
                 str(value["hsm_client_certificate_identifier"]),
             )
         )
     if "hsm_configuration_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmConfigurationIdentifier",
+                f"{key_prefix}HsmConfigurationIdentifier",
                 str(value["hsm_configuration_identifier"]),
             )
         )
     if "new_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.NewClusterIdentifier", str(value["new_cluster_identifier"]))
+            (f"{key_prefix}NewClusterIdentifier", str(value["new_cluster_identifier"]))
         )
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
     if "elastic_ip" in value:
-        pairs.append((f"{prefix}.ElasticIp", str(value["elastic_ip"])))
+        pairs.append((f"{key_prefix}ElasticIp", str(value["elastic_ip"])))
     if "enhanced_vpc_routing" in value:
         pairs.append(
             (
-                f"{prefix}.EnhancedVpcRouting",
+                f"{key_prefix}EnhancedVpcRouting",
                 "true" if value["enhanced_vpc_routing"] else "false",
             )
         )
     if "maintenance_track_name" in value:
         pairs.append(
-            (f"{prefix}.MaintenanceTrackName", str(value["maintenance_track_name"]))
+            (f"{key_prefix}MaintenanceTrackName", str(value["maintenance_track_name"]))
         )
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "availability_zone_relocation" in value:
         pairs.append(
             (
-                f"{prefix}.AvailabilityZoneRelocation",
+                f"{key_prefix}AvailabilityZoneRelocation",
                 "true" if value["availability_zone_relocation"] else "false",
             )
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "manage_master_password" in value:
         pairs.append(
             (
-                f"{prefix}.ManageMasterPassword",
+                f"{key_prefix}ManageMasterPassword",
                 "true" if value["manage_master_password"] else "false",
             )
         )
     if "master_password_secret_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.MasterPasswordSecretKmsKeyId",
+                f"{key_prefix}MasterPasswordSecretKmsKeyId",
                 str(value["master_password_secret_kms_key_id"]),
             )
         )
     if "ip_address_type" in value:
-        pairs.append((f"{prefix}.IpAddressType", str(value["ip_address_type"])))
+        pairs.append((f"{key_prefix}IpAddressType", str(value["ip_address_type"])))
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "extra_compute_for_automatic_optimization" in value:
         pairs.append(
             (
-                f"{prefix}.ExtraComputeForAutomaticOptimization",
+                f"{key_prefix}ExtraComputeForAutomaticOptimization",
                 "true"
                 if value["extra_compute_for_automatic_optimization"]
                 else "false",

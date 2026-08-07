@@ -26,17 +26,18 @@ class AnomalyDetection(TypedDict, closed=True):
 def serialize_query(
     value: AnomalyDetection, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "result" in value:
         import capo_elastic_load_balancing_v2.types.anomaly_result_enum
 
         capo_elastic_load_balancing_v2.types.anomaly_result_enum.serialize_query(
-            value["result"], pairs, f"{prefix}.Result"
+            value["result"], pairs, f"{key_prefix}Result"
         )
     if "mitigation_in_effect" in value:
         import capo_elastic_load_balancing_v2.types.mitigation_in_effect_enum
 
         capo_elastic_load_balancing_v2.types.mitigation_in_effect_enum.serialize_query(
-            value["mitigation_in_effect"], pairs, f"{prefix}.MitigationInEffect"
+            value["mitigation_in_effect"], pairs, f"{key_prefix}MitigationInEffect"
         )
 
 

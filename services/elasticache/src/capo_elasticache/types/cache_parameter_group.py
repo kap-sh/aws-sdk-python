@@ -28,26 +28,29 @@ class CacheParameterGroup(TypedDict, closed=True):
 def serialize_query(
     value: CacheParameterGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupName",
+                f"{key_prefix}CacheParameterGroupName",
                 str(value["cache_parameter_group_name"]),
             )
         )
     if "cache_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupFamily",
+                f"{key_prefix}CacheParameterGroupFamily",
                 str(value["cache_parameter_group_family"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "is_global" in value:
-        pairs.append((f"{prefix}.IsGlobal", "true" if value["is_global"] else "false"))
+        pairs.append(
+            (f"{key_prefix}IsGlobal", "true" if value["is_global"] else "false")
+        )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> CacheParameterGroup:

@@ -22,10 +22,11 @@ class InvalidS3ConfigurationException_(TypedDict, closed=True):
 def serialize_query(
     value: InvalidS3ConfigurationException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bucket" in value:
-        pairs.append((f"{prefix}.Bucket", str(value["bucket"])))
+        pairs.append((f"{key_prefix}Bucket", str(value["bucket"])))
     if "message" in value:
-        pairs.append((f"{prefix}.message", str(value["message"])))
+        pairs.append((f"{key_prefix}message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> InvalidS3ConfigurationException_:

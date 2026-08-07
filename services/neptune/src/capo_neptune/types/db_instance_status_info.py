@@ -26,14 +26,15 @@ class DBInstanceStatusInfo(TypedDict, closed=True):
 def serialize_query(
     value: DBInstanceStatusInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status_type" in value:
-        pairs.append((f"{prefix}.StatusType", str(value["status_type"])))
+        pairs.append((f"{key_prefix}StatusType", str(value["status_type"])))
     if "normal" in value:
-        pairs.append((f"{prefix}.Normal", "true" if value["normal"] else "false"))
+        pairs.append((f"{key_prefix}Normal", "true" if value["normal"] else "false"))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> DBInstanceStatusInfo:

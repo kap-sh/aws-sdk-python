@@ -59,52 +59,55 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "idc_instance_arn" in value:
-        pairs.append((f"{prefix}.IdcInstanceArn", str(value["idc_instance_arn"])))
+        pairs.append((f"{key_prefix}IdcInstanceArn", str(value["idc_instance_arn"])))
     if "redshift_idc_application_name" in value:
         pairs.append(
             (
-                f"{prefix}.RedshiftIdcApplicationName",
+                f"{key_prefix}RedshiftIdcApplicationName",
                 str(value["redshift_idc_application_name"]),
             )
         )
     if "identity_namespace" in value:
-        pairs.append((f"{prefix}.IdentityNamespace", str(value["identity_namespace"])))
+        pairs.append(
+            (f"{key_prefix}IdentityNamespace", str(value["identity_namespace"]))
+        )
     if "idc_display_name" in value:
-        pairs.append((f"{prefix}.IdcDisplayName", str(value["idc_display_name"])))
+        pairs.append((f"{key_prefix}IdcDisplayName", str(value["idc_display_name"])))
     if "iam_role_arn" in value:
-        pairs.append((f"{prefix}.IamRoleArn", str(value["iam_role_arn"])))
+        pairs.append((f"{key_prefix}IamRoleArn", str(value["iam_role_arn"])))
     if "authorized_token_issuer_list" in value:
         import capo_redshift.types.authorized_token_issuer_list
 
         capo_redshift.types.authorized_token_issuer_list.serialize_query(
             value["authorized_token_issuer_list"],
             pairs,
-            f"{prefix}.AuthorizedTokenIssuerList",
+            f"{key_prefix}AuthorizedTokenIssuerList",
         )
     if "service_integrations" in value:
         import capo_redshift.types.service_integration_list
 
         capo_redshift.types.service_integration_list.serialize_query(
-            value["service_integrations"], pairs, f"{prefix}.ServiceIntegrations"
+            value["service_integrations"], pairs, f"{key_prefix}ServiceIntegrations"
         )
     if "application_type" in value:
         import capo_redshift.types.application_type
 
         capo_redshift.types.application_type.serialize_query(
-            value["application_type"], pairs, f"{prefix}.ApplicationType"
+            value["application_type"], pairs, f"{key_prefix}ApplicationType"
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "sso_tag_keys" in value:
         import capo_redshift.types.tag_key_list
 
         capo_redshift.types.tag_key_list.serialize_query(
-            value["sso_tag_keys"], pairs, f"{prefix}.SsoTagKeys"
+            value["sso_tag_keys"], pairs, f"{key_prefix}SsoTagKeys"
         )
 
 

@@ -233,7 +233,6 @@ class SageMakerA2IRuntimeClient:
 
     def list_human_loops(
         self,
-        flow_definition_arn: "capo_sagemaker_a2i_runtime.types.flow_definition_arn.FlowDefinitionArn",
         *,
         config_overrides: Optional[SageMakerA2IRuntimeClientConfig] = None,
         creation_time_after: Optional[
@@ -241,6 +240,9 @@ class SageMakerA2IRuntimeClient:
         ] = None,
         creation_time_before: Optional[
             "capo_sagemaker_a2i_runtime.types.timestamp.Timestamp"
+        ] = None,
+        flow_definition_arn: Optional[
+            "capo_sagemaker_a2i_runtime.types.flow_definition_arn.FlowDefinitionArn"
         ] = None,
         sort_order: Optional[
             "capo_sagemaker_a2i_runtime.types.sort_order.SortOrder"
@@ -290,7 +292,8 @@ class SageMakerA2IRuntimeClient:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
             input_["creation_time_before"] = creation_time_before
-        input_["flow_definition_arn"] = flow_definition_arn
+        if flow_definition_arn is not None:
+            input_["flow_definition_arn"] = flow_definition_arn
         if sort_order is not None:
             input_["sort_order"] = sort_order
         if next_token is not None:
@@ -307,7 +310,6 @@ class SageMakerA2IRuntimeClient:
 
     def iter_list_human_loops(
         self,
-        flow_definition_arn: "capo_sagemaker_a2i_runtime.types.flow_definition_arn.FlowDefinitionArn",
         *,
         config_overrides: Optional[SageMakerA2IRuntimeClientConfig] = None,
         creation_time_after: Optional[
@@ -315,6 +317,9 @@ class SageMakerA2IRuntimeClient:
         ] = None,
         creation_time_before: Optional[
             "capo_sagemaker_a2i_runtime.types.timestamp.Timestamp"
+        ] = None,
+        flow_definition_arn: Optional[
+            "capo_sagemaker_a2i_runtime.types.flow_definition_arn.FlowDefinitionArn"
         ] = None,
         sort_order: Optional[
             "capo_sagemaker_a2i_runtime.types.sort_order.SortOrder"
@@ -331,10 +336,10 @@ class SageMakerA2IRuntimeClient:
         _token = next_token
         while True:
             _response = self.list_human_loops(
-                flow_definition_arn,
                 config_overrides=config_overrides,
                 creation_time_after=creation_time_after,
                 creation_time_before=creation_time_before,
+                flow_definition_arn=flow_definition_arn,
                 sort_order=sort_order,
                 next_token=_token,
                 max_results=max_results,
@@ -348,11 +353,17 @@ class SageMakerA2IRuntimeClient:
 
     def start_human_loop(
         self,
-        human_loop_name: "capo_sagemaker_a2i_runtime.types.human_loop_name.HumanLoopName",
-        flow_definition_arn: "capo_sagemaker_a2i_runtime.types.flow_definition_arn.FlowDefinitionArn",
-        human_loop_input: "capo_sagemaker_a2i_runtime.types.human_loop_input.HumanLoopInput",
         *,
         config_overrides: Optional[SageMakerA2IRuntimeClientConfig] = None,
+        human_loop_name: Optional[
+            "capo_sagemaker_a2i_runtime.types.human_loop_name.HumanLoopName"
+        ] = None,
+        flow_definition_arn: Optional[
+            "capo_sagemaker_a2i_runtime.types.flow_definition_arn.FlowDefinitionArn"
+        ] = None,
+        human_loop_input: Optional[
+            "capo_sagemaker_a2i_runtime.types.human_loop_input.HumanLoopInput"
+        ] = None,
         data_attributes: Optional[
             "capo_sagemaker_a2i_runtime.types.human_loop_data_attributes.HumanLoopDataAttributes"
         ] = None,
@@ -390,9 +401,12 @@ class SageMakerA2IRuntimeClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_a2i_runtime.types.start_human_loop_request.StartHumanLoopRequest = {}  # type: ignore[typeddict-item]
-        input_["human_loop_name"] = human_loop_name
-        input_["flow_definition_arn"] = flow_definition_arn
-        input_["human_loop_input"] = human_loop_input
+        if human_loop_name is not None:
+            input_["human_loop_name"] = human_loop_name
+        if flow_definition_arn is not None:
+            input_["flow_definition_arn"] = flow_definition_arn
+        if human_loop_input is not None:
+            input_["human_loop_input"] = human_loop_input
         if data_attributes is not None:
             input_["data_attributes"] = data_attributes
 
@@ -405,9 +419,11 @@ class SageMakerA2IRuntimeClient:
 
     def stop_human_loop(
         self,
-        human_loop_name: "capo_sagemaker_a2i_runtime.types.human_loop_name.HumanLoopName",
         *,
         config_overrides: Optional[SageMakerA2IRuntimeClientConfig] = None,
+        human_loop_name: Optional[
+            "capo_sagemaker_a2i_runtime.types.human_loop_name.HumanLoopName"
+        ] = None,
     ) -> "capo_sagemaker_a2i_runtime.types.stop_human_loop_response.StopHumanLoopResponse":
         """<p>Stops the specified human loop.</p>
 
@@ -438,7 +454,8 @@ class SageMakerA2IRuntimeClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_a2i_runtime.types.stop_human_loop_request.StopHumanLoopRequest = {}  # type: ignore[typeddict-item]
-        input_["human_loop_name"] = human_loop_name
+        if human_loop_name is not None:
+            input_["human_loop_name"] = human_loop_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

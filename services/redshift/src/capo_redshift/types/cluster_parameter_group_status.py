@@ -26,13 +26,14 @@ class ClusterParameterGroupStatus(TypedDict, closed=True):
 def serialize_query(
     value: ClusterParameterGroupStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.ParameterGroupName", str(value["parameter_group_name"]))
+            (f"{key_prefix}ParameterGroupName", str(value["parameter_group_name"]))
         )
     if "parameter_apply_status" in value:
         pairs.append(
-            (f"{prefix}.ParameterApplyStatus", str(value["parameter_apply_status"]))
+            (f"{key_prefix}ParameterApplyStatus", str(value["parameter_apply_status"]))
         )
     if "cluster_parameter_status_list" in value:
         import capo_redshift.types.cluster_parameter_status_list
@@ -40,7 +41,7 @@ def serialize_query(
         capo_redshift.types.cluster_parameter_status_list.serialize_query(
             value["cluster_parameter_status_list"],
             pairs,
-            f"{prefix}.ClusterParameterStatusList",
+            f"{key_prefix}ClusterParameterStatusList",
         )
 
 

@@ -30,18 +30,19 @@ class DescribeRulesInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeRulesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener_arn" in value:
-        pairs.append((f"{prefix}.ListenerArn", str(value["listener_arn"])))
+        pairs.append((f"{key_prefix}ListenerArn", str(value["listener_arn"])))
     if "rule_arns" in value:
         import capo_elastic_load_balancing_v2.types.rule_arns
 
         capo_elastic_load_balancing_v2.types.rule_arns.serialize_query(
-            value["rule_arns"], pairs, f"{prefix}.RuleArns"
+            value["rule_arns"], pairs, f"{key_prefix}RuleArns"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "page_size" in value:
-        pairs.append((f"{prefix}.PageSize", str(value["page_size"])))
+        pairs.append((f"{key_prefix}PageSize", str(value["page_size"])))
 
 
 def deserialize_query(el: Element) -> DescribeRulesInput:

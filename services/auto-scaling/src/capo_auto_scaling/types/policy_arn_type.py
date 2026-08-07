@@ -22,13 +22,14 @@ class PolicyARNType(TypedDict, closed=True):
 def serialize_query(
     value: PolicyARNType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy_arn" in value:
-        pairs.append((f"{prefix}.PolicyARN", str(value["policy_arn"])))
+        pairs.append((f"{key_prefix}PolicyARN", str(value["policy_arn"])))
     if "alarms" in value:
         import capo_auto_scaling.types.alarms
 
         capo_auto_scaling.types.alarms.serialize_query(
-            value["alarms"], pairs, f"{prefix}.Alarms"
+            value["alarms"], pairs, f"{key_prefix}Alarms"
         )
 
 

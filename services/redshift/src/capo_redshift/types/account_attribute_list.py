@@ -19,11 +19,12 @@ class AccountAttributeList(TypedDict, closed=True):
 def serialize_query(
     value: AccountAttributeList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_attributes" in value:
         import capo_redshift.types.attribute_list
 
         capo_redshift.types.attribute_list.serialize_query(
-            value["account_attributes"], pairs, f"{prefix}.AccountAttributes"
+            value["account_attributes"], pairs, f"{key_prefix}AccountAttributes"
         )
 
 

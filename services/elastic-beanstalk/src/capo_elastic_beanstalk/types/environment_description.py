@@ -107,48 +107,51 @@ class EnvironmentDescription(TypedDict, closed=True):
 def serialize_query(
     value: EnvironmentDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "environment_id" in value:
-        pairs.append((f"{prefix}.EnvironmentId", str(value["environment_id"])))
+        pairs.append((f"{key_prefix}EnvironmentId", str(value["environment_id"])))
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "version_label" in value:
-        pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+        pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "solution_stack_name" in value:
-        pairs.append((f"{prefix}.SolutionStackName", str(value["solution_stack_name"])))
+        pairs.append(
+            (f"{key_prefix}SolutionStackName", str(value["solution_stack_name"]))
+        )
     if "platform_arn" in value:
-        pairs.append((f"{prefix}.PlatformArn", str(value["platform_arn"])))
+        pairs.append((f"{key_prefix}PlatformArn", str(value["platform_arn"])))
     if "template_name" in value:
-        pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+        pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "endpoint_url" in value:
-        pairs.append((f"{prefix}.EndpointURL", str(value["endpoint_url"])))
+        pairs.append((f"{key_prefix}EndpointURL", str(value["endpoint_url"])))
     if "cname" in value:
-        pairs.append((f"{prefix}.CNAME", str(value["cname"])))
+        pairs.append((f"{key_prefix}CNAME", str(value["cname"])))
     if "date_created" in value:
         import capo_elastic_beanstalk.types.creation_date
 
         capo_elastic_beanstalk.types.creation_date.serialize_query(
-            value["date_created"], pairs, f"{prefix}.DateCreated"
+            value["date_created"], pairs, f"{key_prefix}DateCreated"
         )
     if "date_updated" in value:
         import capo_elastic_beanstalk.types.update_date
 
         capo_elastic_beanstalk.types.update_date.serialize_query(
-            value["date_updated"], pairs, f"{prefix}.DateUpdated"
+            value["date_updated"], pairs, f"{key_prefix}DateUpdated"
         )
     if "status" in value:
         import capo_elastic_beanstalk.types.environment_status
 
         capo_elastic_beanstalk.types.environment_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "abortable_operation_in_progress" in value:
         pairs.append(
             (
-                f"{prefix}.AbortableOperationInProgress",
+                f"{key_prefix}AbortableOperationInProgress",
                 "true" if value["abortable_operation_in_progress"] else "false",
             )
         )
@@ -156,36 +159,36 @@ def serialize_query(
         import capo_elastic_beanstalk.types.environment_health
 
         capo_elastic_beanstalk.types.environment_health.serialize_query(
-            value["health"], pairs, f"{prefix}.Health"
+            value["health"], pairs, f"{key_prefix}Health"
         )
     if "health_status" in value:
         import capo_elastic_beanstalk.types.environment_health_status
 
         capo_elastic_beanstalk.types.environment_health_status.serialize_query(
-            value["health_status"], pairs, f"{prefix}.HealthStatus"
+            value["health_status"], pairs, f"{key_prefix}HealthStatus"
         )
     if "resources" in value:
         import capo_elastic_beanstalk.types.environment_resources_description
 
         capo_elastic_beanstalk.types.environment_resources_description.serialize_query(
-            value["resources"], pairs, f"{prefix}.Resources"
+            value["resources"], pairs, f"{key_prefix}Resources"
         )
     if "tier" in value:
         import capo_elastic_beanstalk.types.environment_tier
 
         capo_elastic_beanstalk.types.environment_tier.serialize_query(
-            value["tier"], pairs, f"{prefix}.Tier"
+            value["tier"], pairs, f"{key_prefix}Tier"
         )
     if "environment_links" in value:
         import capo_elastic_beanstalk.types.environment_links
 
         capo_elastic_beanstalk.types.environment_links.serialize_query(
-            value["environment_links"], pairs, f"{prefix}.EnvironmentLinks"
+            value["environment_links"], pairs, f"{key_prefix}EnvironmentLinks"
         )
     if "environment_arn" in value:
-        pairs.append((f"{prefix}.EnvironmentArn", str(value["environment_arn"])))
+        pairs.append((f"{key_prefix}EnvironmentArn", str(value["environment_arn"])))
     if "operations_role" in value:
-        pairs.append((f"{prefix}.OperationsRole", str(value["operations_role"])))
+        pairs.append((f"{key_prefix}OperationsRole", str(value["operations_role"])))
 
 
 def deserialize_query(el: Element) -> EnvironmentDescription:

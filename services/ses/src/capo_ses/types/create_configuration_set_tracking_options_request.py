@@ -24,13 +24,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+        (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
     )
     import capo_ses.types.tracking_options
 
     capo_ses.types.tracking_options.serialize_query(
-        value["tracking_options"], pairs, f"{prefix}.TrackingOptions"
+        value["tracking_options"], pairs, f"{key_prefix}TrackingOptions"
     )
 
 

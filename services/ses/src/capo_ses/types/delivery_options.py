@@ -19,11 +19,12 @@ class DeliveryOptions(TypedDict, closed=True):
 def serialize_query(
     value: DeliveryOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tls_policy" in value:
         import capo_ses.types.tls_policy
 
         capo_ses.types.tls_policy.serialize_query(
-            value["tls_policy"], pairs, f"{prefix}.TlsPolicy"
+            value["tls_policy"], pairs, f"{key_prefix}TlsPolicy"
         )
 
 

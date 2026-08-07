@@ -31,16 +31,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "account" in value:
-        pairs.append((f"{prefix}.Account", str(value["account"])))
+        pairs.append((f"{key_prefix}Account", str(value["account"])))
     if "grantee" in value:
-        pairs.append((f"{prefix}.Grantee", "true" if value["grantee"] else "false"))
+        pairs.append((f"{key_prefix}Grantee", "true" if value["grantee"] else "false"))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeEndpointAuthorizationMessage:

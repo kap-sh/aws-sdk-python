@@ -32,27 +32,30 @@ class CreateHsmConfigurationMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateHsmConfigurationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_configuration_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmConfigurationIdentifier",
+                f"{key_prefix}HsmConfigurationIdentifier",
                 str(value["hsm_configuration_identifier"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "hsm_ip_address" in value:
-        pairs.append((f"{prefix}.HsmIpAddress", str(value["hsm_ip_address"])))
+        pairs.append((f"{key_prefix}HsmIpAddress", str(value["hsm_ip_address"])))
     if "hsm_partition_name" in value:
-        pairs.append((f"{prefix}.HsmPartitionName", str(value["hsm_partition_name"])))
+        pairs.append(
+            (f"{key_prefix}HsmPartitionName", str(value["hsm_partition_name"]))
+        )
     if "hsm_partition_password" in value:
         pairs.append(
-            (f"{prefix}.HsmPartitionPassword", str(value["hsm_partition_password"]))
+            (f"{key_prefix}HsmPartitionPassword", str(value["hsm_partition_password"]))
         )
     if "hsm_server_public_certificate" in value:
         pairs.append(
             (
-                f"{prefix}.HsmServerPublicCertificate",
+                f"{key_prefix}HsmServerPublicCertificate",
                 str(value["hsm_server_public_certificate"]),
             )
         )
@@ -60,7 +63,7 @@ def serialize_query(
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

@@ -24,13 +24,14 @@ class ClusterDbRevisionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: ClusterDbRevisionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "cluster_db_revisions" in value:
         import capo_redshift.types.cluster_db_revisions_list
 
         capo_redshift.types.cluster_db_revisions_list.serialize_query(
-            value["cluster_db_revisions"], pairs, f"{prefix}.ClusterDbRevisions"
+            value["cluster_db_revisions"], pairs, f"{key_prefix}ClusterDbRevisions"
         )
 
 

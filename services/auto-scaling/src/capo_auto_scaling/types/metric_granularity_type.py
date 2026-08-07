@@ -21,8 +21,9 @@ class MetricGranularityType(TypedDict, closed=True):
 def serialize_query(
     value: MetricGranularityType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "granularity" in value:
-        pairs.append((f"{prefix}.Granularity", str(value["granularity"])))
+        pairs.append((f"{key_prefix}Granularity", str(value["granularity"])))
 
 
 def deserialize_query(el: Element) -> MetricGranularityType:

@@ -22,11 +22,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_cache_node" in value:
         import capo_elasticache.types.reserved_cache_node
 
         capo_elasticache.types.reserved_cache_node.serialize_query(
-            value["reserved_cache_node"], pairs, f"{prefix}.ReservedCacheNode"
+            value["reserved_cache_node"], pairs, f"{key_prefix}ReservedCacheNode"
         )
 
 

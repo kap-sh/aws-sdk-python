@@ -21,12 +21,15 @@ class DeleteServerlessCacheRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteServerlessCacheRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache_name" in value:
         pairs.append(
-            (f"{prefix}.ServerlessCacheName", str(value["serverless_cache_name"]))
+            (f"{key_prefix}ServerlessCacheName", str(value["serverless_cache_name"]))
         )
     if "final_snapshot_name" in value:
-        pairs.append((f"{prefix}.FinalSnapshotName", str(value["final_snapshot_name"])))
+        pairs.append(
+            (f"{key_prefix}FinalSnapshotName", str(value["final_snapshot_name"]))
+        )
 
 
 def deserialize_query(el: Element) -> DeleteServerlessCacheRequest:

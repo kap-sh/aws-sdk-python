@@ -26,15 +26,16 @@ class ReshardingConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: ReshardingConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
     if "preferred_availability_zones" in value:
         import capo_elasticache.types.availability_zones_list
 
         capo_elasticache.types.availability_zones_list.serialize_query(
             value["preferred_availability_zones"],
             pairs,
-            f"{prefix}.PreferredAvailabilityZones",
+            f"{key_prefix}PreferredAvailabilityZones",
         )
 
 

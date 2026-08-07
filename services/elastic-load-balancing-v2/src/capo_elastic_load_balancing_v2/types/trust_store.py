@@ -41,26 +41,27 @@ class TrustStore(TypedDict, closed=True):
 def serialize_query(
     value: TrustStore, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "status" in value:
         import capo_elastic_load_balancing_v2.types.trust_store_status
 
         capo_elastic_load_balancing_v2.types.trust_store_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "number_of_ca_certificates" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfCaCertificates",
+                f"{key_prefix}NumberOfCaCertificates",
                 str(value["number_of_ca_certificates"]),
             )
         )
     if "total_revoked_entries" in value:
         pairs.append(
-            (f"{prefix}.TotalRevokedEntries", str(value["total_revoked_entries"]))
+            (f"{key_prefix}TotalRevokedEntries", str(value["total_revoked_entries"]))
         )
 
 

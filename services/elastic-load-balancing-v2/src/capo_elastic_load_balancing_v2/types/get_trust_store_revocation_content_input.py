@@ -28,10 +28,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "revocation_id" in value:
-        pairs.append((f"{prefix}.RevocationId", str(value["revocation_id"])))
+        pairs.append((f"{key_prefix}RevocationId", str(value["revocation_id"])))
 
 
 def deserialize_query(el: Element) -> GetTrustStoreRevocationContentInput:

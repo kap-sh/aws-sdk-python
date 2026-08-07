@@ -37,30 +37,31 @@ class CreateSnapshotScheduleMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateSnapshotScheduleMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "schedule_definitions" in value:
         import capo_redshift.types.schedule_definition_list
 
         capo_redshift.types.schedule_definition_list.serialize_query(
-            value["schedule_definitions"], pairs, f"{prefix}.ScheduleDefinitions"
+            value["schedule_definitions"], pairs, f"{key_prefix}ScheduleDefinitions"
         )
     if "schedule_identifier" in value:
         pairs.append(
-            (f"{prefix}.ScheduleIdentifier", str(value["schedule_identifier"]))
+            (f"{key_prefix}ScheduleIdentifier", str(value["schedule_identifier"]))
         )
     if "schedule_description" in value:
         pairs.append(
-            (f"{prefix}.ScheduleDescription", str(value["schedule_description"]))
+            (f"{key_prefix}ScheduleDescription", str(value["schedule_description"]))
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "next_invocations" in value:
-        pairs.append((f"{prefix}.NextInvocations", str(value["next_invocations"])))
+        pairs.append((f"{key_prefix}NextInvocations", str(value["next_invocations"])))
 
 
 def deserialize_query(el: Element) -> CreateSnapshotScheduleMessage:

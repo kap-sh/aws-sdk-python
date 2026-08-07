@@ -20,7 +20,8 @@ class CheckIfPhoneNumberIsOptedOutInput(TypedDict, closed=True):
 def serialize_query(
     value: CheckIfPhoneNumberIsOptedOutInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.phoneNumber", str(value["phone_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}phoneNumber", str(value["phone_number"])))
 
 
 def deserialize_query(el: Element) -> CheckIfPhoneNumberIsOptedOutInput:

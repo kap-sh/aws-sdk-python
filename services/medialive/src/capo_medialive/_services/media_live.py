@@ -1069,25 +1069,43 @@ class MediaLiveClient:
 
     def create_cloud_watch_alarm_template(
         self,
-        comparison_operator: "capo_medialive.types.cloud_watch_alarm_template_comparison_operator.CloudWatchAlarmTemplateComparisonOperator",
-        evaluation_periods: "capo_medialive.types.__integer_min1.__integerMin1",
-        group_identifier: "capo_medialive.types.__string_pattern_s.__stringPatternS",
-        metric_name: "capo_medialive.types.__string_max64.__stringMax64",
-        name: "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS",
-        period: "capo_medialive.types.__integer_min10_max86400.__integerMin10Max86400",
-        statistic: "capo_medialive.types.cloud_watch_alarm_template_statistic.CloudWatchAlarmTemplateStatistic",
-        target_resource_type: "capo_medialive.types.cloud_watch_alarm_template_target_resource_type.CloudWatchAlarmTemplateTargetResourceType",
-        threshold: "capo_medialive.types.__double.__double",
-        treat_missing_data: "capo_medialive.types.cloud_watch_alarm_template_treat_missing_data.CloudWatchAlarmTemplateTreatMissingData",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        comparison_operator: Optional[
+            "capo_medialive.types.cloud_watch_alarm_template_comparison_operator.CloudWatchAlarmTemplateComparisonOperator"
+        ] = None,
         datapoints_to_alarm: Optional[
             "capo_medialive.types.__integer_min1.__integerMin1"
         ] = None,
         description: Optional[
             "capo_medialive.types.__string_min0_max1024.__stringMin0Max1024"
         ] = None,
+        evaluation_periods: Optional[
+            "capo_medialive.types.__integer_min1.__integerMin1"
+        ] = None,
+        group_identifier: Optional[
+            "capo_medialive.types.__string_pattern_s.__stringPatternS"
+        ] = None,
+        metric_name: Optional[
+            "capo_medialive.types.__string_max64.__stringMax64"
+        ] = None,
+        name: Optional[
+            "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS"
+        ] = None,
+        period: Optional[
+            "capo_medialive.types.__integer_min10_max86400.__integerMin10Max86400"
+        ] = None,
+        statistic: Optional[
+            "capo_medialive.types.cloud_watch_alarm_template_statistic.CloudWatchAlarmTemplateStatistic"
+        ] = None,
         tags: Optional["capo_medialive.types.tag_map.TagMap"] = None,
+        target_resource_type: Optional[
+            "capo_medialive.types.cloud_watch_alarm_template_target_resource_type.CloudWatchAlarmTemplateTargetResourceType"
+        ] = None,
+        threshold: Optional["capo_medialive.types.__double.__double"] = None,
+        treat_missing_data: Optional[
+            "capo_medialive.types.cloud_watch_alarm_template_treat_missing_data.CloudWatchAlarmTemplateTreatMissingData"
+        ] = None,
         request_id: Optional[
             "capo_medialive.types.__string_min1_max256_pattern_s.__stringMin1Max256PatternS"
         ] = None,
@@ -1131,22 +1149,32 @@ class MediaLiveClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.create_cloud_watch_alarm_template_request.CreateCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["comparison_operator"] = comparison_operator
+        if comparison_operator is not None:
+            input_["comparison_operator"] = comparison_operator
         if datapoints_to_alarm is not None:
             input_["datapoints_to_alarm"] = datapoints_to_alarm
         if description is not None:
             input_["description"] = description
-        input_["evaluation_periods"] = evaluation_periods
-        input_["group_identifier"] = group_identifier
-        input_["metric_name"] = metric_name
-        input_["name"] = name
-        input_["period"] = period
-        input_["statistic"] = statistic
+        if evaluation_periods is not None:
+            input_["evaluation_periods"] = evaluation_periods
+        if group_identifier is not None:
+            input_["group_identifier"] = group_identifier
+        if metric_name is not None:
+            input_["metric_name"] = metric_name
+        if name is not None:
+            input_["name"] = name
+        if period is not None:
+            input_["period"] = period
+        if statistic is not None:
+            input_["statistic"] = statistic
         if tags is not None:
             input_["tags"] = tags
-        input_["target_resource_type"] = target_resource_type
-        input_["threshold"] = threshold
-        input_["treat_missing_data"] = treat_missing_data
+        if target_resource_type is not None:
+            input_["target_resource_type"] = target_resource_type
+        if threshold is not None:
+            input_["threshold"] = threshold
+        if treat_missing_data is not None:
+            input_["treat_missing_data"] = treat_missing_data
         if request_id is not None:
             input_["request_id"] = request_id
 
@@ -1159,11 +1187,13 @@ class MediaLiveClient:
 
     def create_cloud_watch_alarm_template_group(
         self,
-        name: "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
         description: Optional[
             "capo_medialive.types.__string_min0_max1024.__stringMin0Max1024"
+        ] = None,
+        name: Optional[
+            "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS"
         ] = None,
         tags: Optional["capo_medialive.types.tag_map.TagMap"] = None,
         request_id: Optional[
@@ -1205,7 +1235,8 @@ class MediaLiveClient:
         input_: capo_medialive.types.create_cloud_watch_alarm_template_group_request.CreateCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
         if request_id is not None:
@@ -1290,9 +1321,6 @@ class MediaLiveClient:
 
     def create_event_bridge_rule_template(
         self,
-        event_type: "capo_medialive.types.event_bridge_rule_template_event_type.EventBridgeRuleTemplateEventType",
-        group_identifier: "capo_medialive.types.__string_pattern_s.__stringPatternS",
-        name: "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
         description: Optional[
@@ -1300,6 +1328,15 @@ class MediaLiveClient:
         ] = None,
         event_targets: Optional[
             "capo_medialive.types.__list_of_event_bridge_rule_template_target.__listOfEventBridgeRuleTemplateTarget"
+        ] = None,
+        event_type: Optional[
+            "capo_medialive.types.event_bridge_rule_template_event_type.EventBridgeRuleTemplateEventType"
+        ] = None,
+        group_identifier: Optional[
+            "capo_medialive.types.__string_pattern_s.__stringPatternS"
+        ] = None,
+        name: Optional[
+            "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS"
         ] = None,
         tags: Optional["capo_medialive.types.tag_map.TagMap"] = None,
         request_id: Optional[
@@ -1344,9 +1381,12 @@ class MediaLiveClient:
             input_["description"] = description
         if event_targets is not None:
             input_["event_targets"] = event_targets
-        input_["event_type"] = event_type
-        input_["group_identifier"] = group_identifier
-        input_["name"] = name
+        if event_type is not None:
+            input_["event_type"] = event_type
+        if group_identifier is not None:
+            input_["group_identifier"] = group_identifier
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
         if request_id is not None:
@@ -1361,11 +1401,13 @@ class MediaLiveClient:
 
     def create_event_bridge_rule_template_group(
         self,
-        name: "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
         description: Optional[
             "capo_medialive.types.__string_min0_max1024.__stringMin0Max1024"
+        ] = None,
+        name: Optional[
+            "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS"
         ] = None,
         tags: Optional["capo_medialive.types.tag_map.TagMap"] = None,
         request_id: Optional[
@@ -1407,7 +1449,8 @@ class MediaLiveClient:
         input_: capo_medialive.types.create_event_bridge_rule_template_group_request.CreateEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
         if request_id is not None:
@@ -1606,12 +1649,16 @@ class MediaLiveClient:
 
     def create_multiplex(
         self,
-        availability_zones: "capo_medialive.types.__list_of__string.__listOf__string",
-        multiplex_settings: "capo_medialive.types.multiplex_settings.MultiplexSettings",
-        name: "capo_medialive.types.__string.__string",
-        request_id: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        availability_zones: Optional[
+            "capo_medialive.types.__list_of__string.__listOf__string"
+        ] = None,
+        multiplex_settings: Optional[
+            "capo_medialive.types.multiplex_settings.MultiplexSettings"
+        ] = None,
+        name: Optional["capo_medialive.types.__string.__string"] = None,
+        request_id: Optional["capo_medialive.types.__string.__string"] = None,
         tags: Optional["capo_medialive.types.tags.Tags"] = None,
     ) -> "capo_medialive.types.create_multiplex_response.CreateMultiplexResponse":
         """Create a new multiplex.
@@ -1651,10 +1698,14 @@ class MediaLiveClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.create_multiplex_request.CreateMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input_["availability_zones"] = availability_zones
-        input_["multiplex_settings"] = multiplex_settings
-        input_["name"] = name
-        input_["request_id"] = request_id
+        if availability_zones is not None:
+            input_["availability_zones"] = availability_zones
+        if multiplex_settings is not None:
+            input_["multiplex_settings"] = multiplex_settings
+        if name is not None:
+            input_["name"] = name
+        if request_id is not None:
+            input_["request_id"] = request_id
         if tags is not None:
             input_["tags"] = tags
 
@@ -1668,11 +1719,13 @@ class MediaLiveClient:
     def create_multiplex_program(
         self,
         multiplex_id: "capo_medialive.types.__string.__string",
-        multiplex_program_settings: "capo_medialive.types.multiplex_program_settings.MultiplexProgramSettings",
-        program_name: "capo_medialive.types.__string.__string",
-        request_id: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        multiplex_program_settings: Optional[
+            "capo_medialive.types.multiplex_program_settings.MultiplexProgramSettings"
+        ] = None,
+        program_name: Optional["capo_medialive.types.__string.__string"] = None,
+        request_id: Optional["capo_medialive.types.__string.__string"] = None,
     ) -> "capo_medialive.types.create_multiplex_program_response.CreateMultiplexProgramResponse":
         """Create a new program in the multiplex.
 
@@ -1711,9 +1764,12 @@ class MediaLiveClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.create_multiplex_program_request.CreateMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
         input_["multiplex_id"] = multiplex_id
-        input_["multiplex_program_settings"] = multiplex_program_settings
-        input_["program_name"] = program_name
-        input_["request_id"] = request_id
+        if multiplex_program_settings is not None:
+            input_["multiplex_program_settings"] = multiplex_program_settings
+        if program_name is not None:
+            input_["program_name"] = program_name
+        if request_id is not None:
+            input_["request_id"] = request_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2050,8 +2106,6 @@ class MediaLiveClient:
 
     def create_signal_map(
         self,
-        discovery_entry_point_arn: "capo_medialive.types.__string_min1_max2048.__stringMin1Max2048",
-        name: "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
         cloud_watch_alarm_template_group_identifiers: Optional[
@@ -2060,8 +2114,14 @@ class MediaLiveClient:
         description: Optional[
             "capo_medialive.types.__string_min0_max1024.__stringMin0Max1024"
         ] = None,
+        discovery_entry_point_arn: Optional[
+            "capo_medialive.types.__string_min1_max2048.__stringMin1Max2048"
+        ] = None,
         event_bridge_rule_template_group_identifiers: Optional[
             "capo_medialive.types.__list_of__string_pattern_s.__listOf__stringPatternS"
+        ] = None,
+        name: Optional[
+            "capo_medialive.types.__string_min1_max255_pattern_s.__stringMin1Max255PatternS"
         ] = None,
         tags: Optional["capo_medialive.types.tag_map.TagMap"] = None,
         request_id: Optional[
@@ -2108,12 +2168,14 @@ class MediaLiveClient:
             )
         if description is not None:
             input_["description"] = description
-        input_["discovery_entry_point_arn"] = discovery_entry_point_arn
+        if discovery_entry_point_arn is not None:
+            input_["discovery_entry_point_arn"] = discovery_entry_point_arn
         if event_bridge_rule_template_group_identifiers is not None:
             input_["event_bridge_rule_template_group_identifiers"] = (
                 event_bridge_rule_template_group_identifiers
             )
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
         if request_id is not None:
@@ -2974,9 +3036,11 @@ class MediaLiveClient:
     def delete_tags(
         self,
         resource_arn: "capo_medialive.types.__string.__string",
-        tag_keys: "capo_medialive.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        tag_keys: Optional[
+            "capo_medialive.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """Removes tags for a resource
 
@@ -3006,7 +3070,8 @@ class MediaLiveClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3296,9 +3361,9 @@ class MediaLiveClient:
     def describe_input_device_thumbnail(
         self,
         input_device_id: "capo_medialive.types.__string.__string",
-        accept: "capo_medialive.types.accept_header.AcceptHeader",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        accept: Optional["capo_medialive.types.accept_header.AcceptHeader"] = None,
     ) -> "Generator[capo_medialive.types.describe_input_device_thumbnail_response.DescribeInputDeviceThumbnailResponse]":
         """Get the latest thumbnail data for the input device.
 
@@ -3334,7 +3399,8 @@ class MediaLiveClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.describe_input_device_thumbnail_request.DescribeInputDeviceThumbnailRequest = {}  # type: ignore[typeddict-item]
         input_["input_device_id"] = input_device_id
-        input_["accept"] = accept
+        if accept is not None:
+            input_["accept"] = accept
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3806,10 +3872,10 @@ class MediaLiveClient:
     def describe_thumbnails(
         self,
         channel_id: "capo_medialive.types.__string.__string",
-        pipeline_id: "capo_medialive.types.__string.__string",
-        thumbnail_type: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        pipeline_id: Optional["capo_medialive.types.__string.__string"] = None,
+        thumbnail_type: Optional["capo_medialive.types.__string.__string"] = None,
     ) -> "capo_medialive.types.describe_thumbnails_response.DescribeThumbnailsResponse":
         r"""Describe the latest thumbnails data.
 
@@ -3847,8 +3913,10 @@ class MediaLiveClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.describe_thumbnails_request.DescribeThumbnailsRequest = {}  # type: ignore[typeddict-item]
         input_["channel_id"] = channel_id
-        input_["pipeline_id"] = pipeline_id
-        input_["thumbnail_type"] = thumbnail_type
+        if pipeline_id is not None:
+            input_["pipeline_id"] = pipeline_id
+        if thumbnail_type is not None:
+            input_["thumbnail_type"] = thumbnail_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4883,11 +4951,11 @@ class MediaLiveClient:
 
     def list_input_device_transfers(
         self,
-        transfer_type: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
         max_results: Optional["capo_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_medialive.types.__string.__string"] = None,
+        transfer_type: Optional["capo_medialive.types.__string.__string"] = None,
     ) -> "capo_medialive.types.list_input_device_transfers_response.ListInputDeviceTransfersResponse":
         """List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
 
@@ -4922,7 +4990,8 @@ class MediaLiveClient:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["transfer_type"] = transfer_type
+        if transfer_type is not None:
+            input_["transfer_type"] = transfer_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4933,19 +5002,19 @@ class MediaLiveClient:
 
     def iter_list_input_device_transfers(
         self,
-        transfer_type: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
         max_results: Optional["capo_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_medialive.types.__string.__string"] = None,
+        transfer_type: Optional["capo_medialive.types.__string.__string"] = None,
     ) -> "Iterator[capo_medialive.types.transferring_input_device_summary.TransferringInputDeviceSummary]":
         _token = next_token
         while True:
             _response = self.list_input_device_transfers(
-                transfer_type,
                 config_overrides=config_overrides,
                 max_results=max_results,
                 next_token=_token,
+                transfer_type=transfer_type,
             )
             _page = _resolve_path(_response, ("input_device_transfers",))
             for _item in _page or []:
@@ -5977,10 +6046,10 @@ class MediaLiveClient:
 
     def purchase_offering(
         self,
-        count: "capo_medialive.types.__integer_min1.__integerMin1",
         offering_id: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        count: Optional["capo_medialive.types.__integer_min1.__integerMin1"] = None,
         name: Optional["capo_medialive.types.__string.__string"] = None,
         renewal_settings: Optional[
             "capo_medialive.types.renewal_settings.RenewalSettings"
@@ -6028,7 +6097,8 @@ class MediaLiveClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
-        input_["count"] = count
+        if count is not None:
+            input_["count"] = count
         if name is not None:
             input_["name"] = name
         input_["offering_id"] = offering_id
@@ -6961,10 +7031,12 @@ class MediaLiveClient:
 
     def update_channel_class(
         self,
-        channel_class: "capo_medialive.types.channel_class.ChannelClass",
         channel_id: "capo_medialive.types.__string.__string",
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
+        channel_class: Optional[
+            "capo_medialive.types.channel_class.ChannelClass"
+        ] = None,
         destinations: Optional[
             "capo_medialive.types.__list_of_output_destination.__listOfOutputDestination"
         ] = None,
@@ -7007,7 +7079,8 @@ class MediaLiveClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_medialive.types.update_channel_class_request.UpdateChannelClassRequest = {}  # type: ignore[typeddict-item]
-        input_["channel_class"] = channel_class
+        if channel_class is not None:
+            input_["channel_class"] = channel_class
         input_["channel_id"] = channel_id
         if destinations is not None:
             input_["destinations"] = destinations

@@ -340,9 +340,11 @@ class WellArchitectedClient:
     def associate_lenses(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        lens_aliases: "capo_wellarchitected.types.lens_aliases.LensAliases",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        lens_aliases: Optional[
+            "capo_wellarchitected.types.lens_aliases.LensAliases"
+        ] = None,
     ) -> None:
         """<p>Associate a lens to a workload.</p> <p>Up to 10 lenses can be associated with a workload in a single API operation. A maximum of 20 lenses can be associated with a workload.</p> <note> <p> <b>Disclaimer</b> </p> <p>By accessing and/or applying custom lenses created by another Amazon Web Services user or account, you acknowledge that custom lenses created by other users and shared with you are Third Party Content as defined in the Amazon Web Services Customer Agreement. </p> </note>
 
@@ -371,7 +373,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.associate_lenses_input.AssociateLensesInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["lens_aliases"] = lens_aliases
+        if lens_aliases is not None:
+            input_["lens_aliases"] = lens_aliases
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -383,9 +386,11 @@ class WellArchitectedClient:
     def associate_profiles(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        profile_arns: "capo_wellarchitected.types.profile_arns.ProfileArns",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        profile_arns: Optional[
+            "capo_wellarchitected.types.profile_arns.ProfileArns"
+        ] = None,
     ) -> None:
         """<p>Associate a profile with a workload.</p>
 
@@ -417,7 +422,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.associate_profiles_input.AssociateProfilesInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["profile_arns"] = profile_arns
+        if profile_arns is not None:
+            input_["profile_arns"] = profile_arns
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -429,10 +435,14 @@ class WellArchitectedClient:
     def create_lens_share(
         self,
         lens_alias: "capo_wellarchitected.types.lens_alias.LensAlias",
-        shared_with: "capo_wellarchitected.types.shared_with.SharedWith",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        shared_with: Optional[
+            "capo_wellarchitected.types.shared_with.SharedWith"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> "capo_wellarchitected.types.create_lens_share_output.CreateLensShareOutput":
         r"""<p>Create a lens share.</p> <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.</p> <p> Shared access to a lens is not removed until the lens invitation is deleted.</p> <p>If you share a lens with an organization or OU, all accounts in the organization or OU are granted access to the lens.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html\">Sharing a custom lens</a> in the <i>Well-Architected Tool User Guide</i>.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
 
@@ -464,8 +474,10 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_lens_share_input.CreateLensShareInput = {}  # type: ignore[typeddict-item]
         input_["lens_alias"] = lens_alias
-        input_["shared_with"] = shared_with
-        input_["client_request_token"] = client_request_token
+        if shared_with is not None:
+            input_["shared_with"] = shared_with
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -477,12 +489,16 @@ class WellArchitectedClient:
     def create_lens_version(
         self,
         lens_alias: "capo_wellarchitected.types.lens_alias.LensAlias",
-        lens_version: "capo_wellarchitected.types.lens_version.LensVersion",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        lens_version: Optional[
+            "capo_wellarchitected.types.lens_version.LensVersion"
+        ] = None,
         is_major_version: Optional[
             "capo_wellarchitected.types.is_major_version.IsMajorVersion"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> (
         "capo_wellarchitected.types.create_lens_version_output.CreateLensVersionOutput"
@@ -521,10 +537,12 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_lens_version_input.CreateLensVersionInput = {}  # type: ignore[typeddict-item]
         input_["lens_alias"] = lens_alias
-        input_["lens_version"] = lens_version
+        if lens_version is not None:
+            input_["lens_version"] = lens_version
         if is_major_version is not None:
             input_["is_major_version"] = is_major_version
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -536,10 +554,14 @@ class WellArchitectedClient:
     def create_milestone(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        milestone_name: "capo_wellarchitected.types.milestone_name.MilestoneName",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        milestone_name: Optional[
+            "capo_wellarchitected.types.milestone_name.MilestoneName"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> "capo_wellarchitected.types.create_milestone_output.CreateMilestoneOutput":
         """<p>Create a milestone for an existing workload.</p>
 
@@ -571,8 +593,10 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_milestone_input.CreateMilestoneInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["milestone_name"] = milestone_name
-        input_["client_request_token"] = client_request_token
+        if milestone_name is not None:
+            input_["milestone_name"] = milestone_name
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -583,12 +607,20 @@ class WellArchitectedClient:
 
     def create_profile(
         self,
-        profile_name: "capo_wellarchitected.types.profile_name.ProfileName",
-        profile_description: "capo_wellarchitected.types.profile_description.ProfileDescription",
-        profile_questions: "capo_wellarchitected.types.profile_question_updates.ProfileQuestionUpdates",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        profile_name: Optional[
+            "capo_wellarchitected.types.profile_name.ProfileName"
+        ] = None,
+        profile_description: Optional[
+            "capo_wellarchitected.types.profile_description.ProfileDescription"
+        ] = None,
+        profile_questions: Optional[
+            "capo_wellarchitected.types.profile_question_updates.ProfileQuestionUpdates"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
         tags: Optional["capo_wellarchitected.types.tag_map.TagMap"] = None,
     ) -> "capo_wellarchitected.types.create_profile_output.CreateProfileOutput":
         """<p>Create a profile.</p>
@@ -625,10 +657,14 @@ class WellArchitectedClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_profile_input.CreateProfileInput = {}  # type: ignore[typeddict-item]
-        input_["profile_name"] = profile_name
-        input_["profile_description"] = profile_description
-        input_["profile_questions"] = profile_questions
-        input_["client_request_token"] = client_request_token
+        if profile_name is not None:
+            input_["profile_name"] = profile_name
+        if profile_description is not None:
+            input_["profile_description"] = profile_description
+        if profile_questions is not None:
+            input_["profile_questions"] = profile_questions
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -642,10 +678,14 @@ class WellArchitectedClient:
     def create_profile_share(
         self,
         profile_arn: "capo_wellarchitected.types.profile_arn.ProfileArn",
-        shared_with: "capo_wellarchitected.types.shared_with.SharedWith",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        shared_with: Optional[
+            "capo_wellarchitected.types.shared_with.SharedWith"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> "capo_wellarchitected.types.create_profile_share_output.CreateProfileShareOutput":
         """<p>Create a profile share.</p>
 
@@ -680,8 +720,10 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_profile_share_input.CreateProfileShareInput = {}  # type: ignore[typeddict-item]
         input_["profile_arn"] = profile_arn
-        input_["shared_with"] = shared_with
-        input_["client_request_token"] = client_request_token
+        if shared_with is not None:
+            input_["shared_with"] = shared_with
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -692,14 +734,22 @@ class WellArchitectedClient:
 
     def create_review_template(
         self,
-        template_name: "capo_wellarchitected.types.template_name.TemplateName",
-        description: "capo_wellarchitected.types.template_description.TemplateDescription",
-        lenses: "capo_wellarchitected.types.review_template_lenses.ReviewTemplateLenses",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        template_name: Optional[
+            "capo_wellarchitected.types.template_name.TemplateName"
+        ] = None,
+        description: Optional[
+            "capo_wellarchitected.types.template_description.TemplateDescription"
+        ] = None,
+        lenses: Optional[
+            "capo_wellarchitected.types.review_template_lenses.ReviewTemplateLenses"
+        ] = None,
         notes: Optional["capo_wellarchitected.types.notes.Notes"] = None,
         tags: Optional["capo_wellarchitected.types.tag_map.TagMap"] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> "capo_wellarchitected.types.create_review_template_output.CreateReviewTemplateOutput":
         """<p>Create a review template.</p> <note> <p> <b>Disclaimer</b> </p> <p>Do not include or gather personal identifiable information (PII) of end users or other identifiable individuals in or via your review templates. If your review template or those shared with you and used in your account do include or collect PII you are responsible for: ensuring that the included PII is processed in accordance with applicable law, providing adequate privacy notices, and obtaining necessary consents for processing such data.</p> </note>
 
@@ -736,14 +786,18 @@ class WellArchitectedClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_review_template_input.CreateReviewTemplateInput = {}  # type: ignore[typeddict-item]
-        input_["template_name"] = template_name
-        input_["description"] = description
-        input_["lenses"] = lenses
+        if template_name is not None:
+            input_["template_name"] = template_name
+        if description is not None:
+            input_["description"] = description
+        if lenses is not None:
+            input_["lenses"] = lenses
         if notes is not None:
             input_["notes"] = notes
         if tags is not None:
             input_["tags"] = tags
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -755,10 +809,14 @@ class WellArchitectedClient:
     def create_template_share(
         self,
         template_arn: "capo_wellarchitected.types.template_arn.TemplateArn",
-        shared_with: "capo_wellarchitected.types.shared_with.SharedWith",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        shared_with: Optional[
+            "capo_wellarchitected.types.shared_with.SharedWith"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> "capo_wellarchitected.types.create_template_share_output.CreateTemplateShareOutput":
         """<p>Create a review template share.</p> <p>The owner of a review template can share it with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. </p> <p> Shared access to a review template is not removed until the review template share invitation is deleted.</p> <p>If you share a review template with an organization or OU, all accounts in the organization or OU are granted access to the review template.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your review template with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your review template available to those other accounts.</p> </note>
 
@@ -793,8 +851,10 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_template_share_input.CreateTemplateShareInput = {}  # type: ignore[typeddict-item]
         input_["template_arn"] = template_arn
-        input_["shared_with"] = shared_with
-        input_["client_request_token"] = client_request_token
+        if shared_with is not None:
+            input_["shared_with"] = shared_with
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -805,13 +865,17 @@ class WellArchitectedClient:
 
     def create_workload(
         self,
-        workload_name: "capo_wellarchitected.types.workload_name.WorkloadName",
-        description: "capo_wellarchitected.types.workload_description.WorkloadDescription",
-        environment: "capo_wellarchitected.types.workload_environment.WorkloadEnvironment",
-        lenses: "capo_wellarchitected.types.workload_lenses.WorkloadLenses",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        workload_name: Optional[
+            "capo_wellarchitected.types.workload_name.WorkloadName"
+        ] = None,
+        description: Optional[
+            "capo_wellarchitected.types.workload_description.WorkloadDescription"
+        ] = None,
+        environment: Optional[
+            "capo_wellarchitected.types.workload_environment.WorkloadEnvironment"
+        ] = None,
         account_ids: Optional[
             "capo_wellarchitected.types.workload_account_ids.WorkloadAccountIds"
         ] = None,
@@ -836,7 +900,13 @@ class WellArchitectedClient:
         industry: Optional[
             "capo_wellarchitected.types.workload_industry.WorkloadIndustry"
         ] = None,
+        lenses: Optional[
+            "capo_wellarchitected.types.workload_lenses.WorkloadLenses"
+        ] = None,
         notes: Optional["capo_wellarchitected.types.notes.Notes"] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
         tags: Optional["capo_wellarchitected.types.tag_map.TagMap"] = None,
         discovery_config: Optional[
             "capo_wellarchitected.types.workload_discovery_config.WorkloadDiscoveryConfig"
@@ -891,9 +961,12 @@ class WellArchitectedClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_workload_input.CreateWorkloadInput = {}  # type: ignore[typeddict-item]
-        input_["workload_name"] = workload_name
-        input_["description"] = description
-        input_["environment"] = environment
+        if workload_name is not None:
+            input_["workload_name"] = workload_name
+        if description is not None:
+            input_["description"] = description
+        if environment is not None:
+            input_["environment"] = environment
         if account_ids is not None:
             input_["account_ids"] = account_ids
         if aws_regions is not None:
@@ -910,10 +983,12 @@ class WellArchitectedClient:
             input_["industry_type"] = industry_type
         if industry is not None:
             input_["industry"] = industry
-        input_["lenses"] = lenses
+        if lenses is not None:
+            input_["lenses"] = lenses
         if notes is not None:
             input_["notes"] = notes
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
         if discovery_config is not None:
@@ -937,11 +1012,17 @@ class WellArchitectedClient:
     def create_workload_share(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        shared_with: "capo_wellarchitected.types.shared_with.SharedWith",
-        permission_type: "capo_wellarchitected.types.permission_type.PermissionType",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        shared_with: Optional[
+            "capo_wellarchitected.types.shared_with.SharedWith"
+        ] = None,
+        permission_type: Optional[
+            "capo_wellarchitected.types.permission_type.PermissionType"
+        ] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> "capo_wellarchitected.types.create_workload_share_output.CreateWorkloadShareOutput":
         r"""<p>Create a workload share.</p> <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is deleted.</p> <p>If you share a workload with an organization or OU, all accounts in the organization or OU are granted access to the workload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html\">Sharing a workload</a> in the <i>Well-Architected Tool User Guide</i>.</p>
 
@@ -973,9 +1054,12 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.create_workload_share_input.CreateWorkloadShareInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["shared_with"] = shared_with
-        input_["permission_type"] = permission_type
-        input_["client_request_token"] = client_request_token
+        if shared_with is not None:
+            input_["shared_with"] = shared_with
+        if permission_type is not None:
+            input_["permission_type"] = permission_type
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -987,10 +1071,14 @@ class WellArchitectedClient:
     def delete_lens(
         self,
         lens_alias: "capo_wellarchitected.types.lens_alias.LensAlias",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
-        lens_status: "capo_wellarchitected.types.lens_status_type.LensStatusType",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
+        lens_status: Optional[
+            "capo_wellarchitected.types.lens_status_type.LensStatusType"
+        ] = None,
     ) -> None:
         """<p>Delete an existing lens.</p> <p>Only the owner of a lens can delete it. After the lens is deleted, Amazon Web Services accounts and users that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads. </p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
 
@@ -1022,8 +1110,10 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.delete_lens_input.DeleteLensInput = {}  # type: ignore[typeddict-item]
         input_["lens_alias"] = lens_alias
-        input_["client_request_token"] = client_request_token
-        input_["lens_status"] = lens_status
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
+        if lens_status is not None:
+            input_["lens_status"] = lens_status
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1036,9 +1126,11 @@ class WellArchitectedClient:
         self,
         share_id: "capo_wellarchitected.types.share_id.ShareId",
         lens_alias: "capo_wellarchitected.types.lens_alias.LensAlias",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete a lens share.</p> <p>After the lens share is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
 
@@ -1068,7 +1160,8 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.delete_lens_share_input.DeleteLensShareInput = {}  # type: ignore[typeddict-item]
         input_["share_id"] = share_id
         input_["lens_alias"] = lens_alias
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1080,9 +1173,11 @@ class WellArchitectedClient:
     def delete_profile(
         self,
         profile_arn: "capo_wellarchitected.types.profile_arn.ProfileArn",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete a profile.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your profile with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your profile available to those other accounts. Those other accounts may continue to access and use your shared profile even if you delete the profile from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
 
@@ -1114,7 +1209,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.delete_profile_input.DeleteProfileInput = {}  # type: ignore[typeddict-item]
         input_["profile_arn"] = profile_arn
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1127,9 +1223,11 @@ class WellArchitectedClient:
         self,
         share_id: "capo_wellarchitected.types.share_id.ShareId",
         profile_arn: "capo_wellarchitected.types.profile_arn.ProfileArn",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete a profile share.</p>
 
@@ -1162,7 +1260,8 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.delete_profile_share_input.DeleteProfileShareInput = {}  # type: ignore[typeddict-item]
         input_["share_id"] = share_id
         input_["profile_arn"] = profile_arn
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1174,9 +1273,11 @@ class WellArchitectedClient:
     def delete_review_template(
         self,
         template_arn: "capo_wellarchitected.types.template_arn.TemplateArn",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete a review template.</p> <p>Only the owner of a review template can delete it.</p> <p>After the review template is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the review template with will no longer be able to apply it to new workloads.</p>
 
@@ -1208,7 +1309,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.delete_review_template_input.DeleteReviewTemplateInput = {}  # type: ignore[typeddict-item]
         input_["template_arn"] = template_arn
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1221,9 +1323,11 @@ class WellArchitectedClient:
         self,
         share_id: "capo_wellarchitected.types.share_id.ShareId",
         template_arn: "capo_wellarchitected.types.template_arn.TemplateArn",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete a review template share.</p> <p>After the review template share is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the review template with will no longer be able to apply it to new workloads.</p>
 
@@ -1256,7 +1360,8 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.delete_template_share_input.DeleteTemplateShareInput = {}  # type: ignore[typeddict-item]
         input_["share_id"] = share_id
         input_["template_arn"] = template_arn
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1268,9 +1373,11 @@ class WellArchitectedClient:
     def delete_workload(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete an existing workload.</p>
 
@@ -1299,7 +1406,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.delete_workload_input.DeleteWorkloadInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1312,9 +1420,11 @@ class WellArchitectedClient:
         self,
         share_id: "capo_wellarchitected.types.share_id.ShareId",
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
     ) -> None:
         """<p>Delete a workload share.</p>
 
@@ -1344,7 +1454,8 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.delete_workload_share_input.DeleteWorkloadShareInput = {}  # type: ignore[typeddict-item]
         input_["share_id"] = share_id
         input_["workload_id"] = workload_id
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1356,9 +1467,11 @@ class WellArchitectedClient:
     def disassociate_lenses(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        lens_aliases: "capo_wellarchitected.types.lens_aliases.LensAliases",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        lens_aliases: Optional[
+            "capo_wellarchitected.types.lens_aliases.LensAliases"
+        ] = None,
     ) -> None:
         """<p>Disassociate a lens from a workload.</p> <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p> <note> <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be removed from a workload.</p> </note>
 
@@ -1387,7 +1500,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.disassociate_lenses_input.DisassociateLensesInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["lens_aliases"] = lens_aliases
+        if lens_aliases is not None:
+            input_["lens_aliases"] = lens_aliases
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1399,9 +1513,11 @@ class WellArchitectedClient:
     def disassociate_profiles(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        profile_arns: "capo_wellarchitected.types.profile_arns.ProfileArns",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        profile_arns: Optional[
+            "capo_wellarchitected.types.profile_arns.ProfileArns"
+        ] = None,
     ) -> None:
         """<p>Disassociate a profile from a workload.</p>
 
@@ -1433,7 +1549,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.disassociate_profiles_input.DisassociateProfilesInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["profile_arns"] = profile_arns
+        if profile_arns is not None:
+            input_["profile_arns"] = profile_arns
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1545,9 +1662,11 @@ class WellArchitectedClient:
 
     def get_consolidated_report(
         self,
-        format: "capo_wellarchitected.types.report_format.ReportFormat",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        format: Optional[
+            "capo_wellarchitected.types.report_format.ReportFormat"
+        ] = None,
         include_shared_resources: Optional[
             "capo_wellarchitected.types.include_shared_resources.IncludeSharedResources"
         ] = None,
@@ -1588,7 +1707,8 @@ class WellArchitectedClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.get_consolidated_report_input.GetConsolidatedReportInput = {}  # type: ignore[typeddict-item]
-        input_["format"] = format
+        if format is not None:
+            input_["format"] = format
         if include_shared_resources is not None:
             input_["include_shared_resources"] = include_shared_resources
         if next_token is not None:
@@ -2165,11 +2285,13 @@ class WellArchitectedClient:
 
     def import_lens(
         self,
-        json_string: "capo_wellarchitected.types.lens_json.LensJSON",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
         lens_alias: Optional["capo_wellarchitected.types.lens_alias.LensAlias"] = None,
+        json_string: Optional["capo_wellarchitected.types.lens_json.LensJSON"] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
         tags: Optional["capo_wellarchitected.types.tag_map.TagMap"] = None,
     ) -> "capo_wellarchitected.types.import_lens_output.ImportLensOutput":
         r"""<p>Import a new custom lens or update an existing custom lens.</p> <p>To update an existing custom lens, specify its ARN as the <code>LensAlias</code>. If no ARN is specified, a new custom lens is created.</p> <p>The new or updated lens will have a status of <code>DRAFT</code>. The lens cannot be applied to workloads or shared with other Amazon Web Services accounts until it's published with <a>CreateLensVersion</a>.</p> <p>Lenses are defined in JSON. For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html\">JSON format specification</a> in the <i>Well-Architected Tool User Guide</i>.</p> <p>A custom lens cannot exceed 500 KB in size.</p> <note> <p> <b>Disclaimer</b> </p> <p>Do not include or gather personal identifiable information (PII) of end users or other identifiable individuals in or via your custom lenses. If your custom lens or those shared with you and used in your account do include or collect PII you are responsible for: ensuring that the included PII is processed in accordance with applicable law, providing adequate privacy notices, and obtaining necessary consents for processing such data.</p> </note>
@@ -2207,8 +2329,10 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.import_lens_input.ImportLensInput = {}  # type: ignore[typeddict-item]
         if lens_alias is not None:
             input_["lens_alias"] = lens_alias
-        input_["json_string"] = json_string
-        input_["client_request_token"] = client_request_token
+        if json_string is not None:
+            input_["json_string"] = json_string
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -2291,16 +2415,18 @@ class WellArchitectedClient:
     def list_check_details(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        lens_arn: "capo_wellarchitected.types.lens_arn.LensArn",
-        pillar_id: "capo_wellarchitected.types.pillar_id.PillarId",
-        question_id: "capo_wellarchitected.types.question_id.QuestionId",
-        choice_id: "capo_wellarchitected.types.choice_id.ChoiceId",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
         next_token: Optional["capo_wellarchitected.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_wellarchitected.types.max_results.MaxResults"
         ] = None,
+        lens_arn: Optional["capo_wellarchitected.types.lens_arn.LensArn"] = None,
+        pillar_id: Optional["capo_wellarchitected.types.pillar_id.PillarId"] = None,
+        question_id: Optional[
+            "capo_wellarchitected.types.question_id.QuestionId"
+        ] = None,
+        choice_id: Optional["capo_wellarchitected.types.choice_id.ChoiceId"] = None,
     ) -> "capo_wellarchitected.types.list_check_details_output.ListCheckDetailsOutput":
         """<p>List of Trusted Advisor check details by account related to the workload.</p>
 
@@ -2337,10 +2463,14 @@ class WellArchitectedClient:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["lens_arn"] = lens_arn
-        input_["pillar_id"] = pillar_id
-        input_["question_id"] = question_id
-        input_["choice_id"] = choice_id
+        if lens_arn is not None:
+            input_["lens_arn"] = lens_arn
+        if pillar_id is not None:
+            input_["pillar_id"] = pillar_id
+        if question_id is not None:
+            input_["question_id"] = question_id
+        if choice_id is not None:
+            input_["choice_id"] = choice_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2352,16 +2482,18 @@ class WellArchitectedClient:
     def list_check_summaries(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        lens_arn: "capo_wellarchitected.types.lens_arn.LensArn",
-        pillar_id: "capo_wellarchitected.types.pillar_id.PillarId",
-        question_id: "capo_wellarchitected.types.question_id.QuestionId",
-        choice_id: "capo_wellarchitected.types.choice_id.ChoiceId",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
         next_token: Optional["capo_wellarchitected.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_wellarchitected.types.max_results.MaxResults"
         ] = None,
+        lens_arn: Optional["capo_wellarchitected.types.lens_arn.LensArn"] = None,
+        pillar_id: Optional["capo_wellarchitected.types.pillar_id.PillarId"] = None,
+        question_id: Optional[
+            "capo_wellarchitected.types.question_id.QuestionId"
+        ] = None,
+        choice_id: Optional["capo_wellarchitected.types.choice_id.ChoiceId"] = None,
     ) -> "capo_wellarchitected.types.list_check_summaries_output.ListCheckSummariesOutput":
         """<p>List of Trusted Advisor checks summarized for all accounts related to the workload.</p>
 
@@ -2398,10 +2530,14 @@ class WellArchitectedClient:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["lens_arn"] = lens_arn
-        input_["pillar_id"] = pillar_id
-        input_["question_id"] = question_id
-        input_["choice_id"] = choice_id
+        if lens_arn is not None:
+            input_["lens_arn"] = lens_arn
+        if pillar_id is not None:
+            input_["pillar_id"] = pillar_id
+        if question_id is not None:
+            input_["question_id"] = question_id
+        if choice_id is not None:
+            input_["choice_id"] = choice_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3354,9 +3490,9 @@ class WellArchitectedClient:
     def tag_resource(
         self,
         workload_arn: "capo_wellarchitected.types.workload_arn.WorkloadArn",
-        tags: "capo_wellarchitected.types.tag_map.TagMap",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        tags: Optional["capo_wellarchitected.types.tag_map.TagMap"] = None,
     ) -> "capo_wellarchitected.types.tag_resource_output.TagResourceOutput":
         """<p>Adds one or more tags to the specified resource.</p> <note> <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.</p> </note>
 
@@ -3386,7 +3522,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
         input_["workload_arn"] = workload_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3398,9 +3535,9 @@ class WellArchitectedClient:
     def untag_resource(
         self,
         workload_arn: "capo_wellarchitected.types.workload_arn.WorkloadArn",
-        tag_keys: "capo_wellarchitected.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        tag_keys: Optional["capo_wellarchitected.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_wellarchitected.types.untag_resource_output.UntagResourceOutput":
         """<p>Deletes specified tags from a resource.</p> <note> <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.</p> </note> <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p> <p> <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code> </p>
 
@@ -3430,7 +3567,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
         input_["workload_arn"] = workload_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3574,10 +3712,14 @@ class WellArchitectedClient:
     def update_integration(
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        client_request_token: "capo_wellarchitected.types.client_request_token.ClientRequestToken",
-        integrating_service: "capo_wellarchitected.types.integrating_service.IntegratingService",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        client_request_token: Optional[
+            "capo_wellarchitected.types.client_request_token.ClientRequestToken"
+        ] = None,
+        integrating_service: Optional[
+            "capo_wellarchitected.types.integrating_service.IntegratingService"
+        ] = None,
     ) -> None:
         """<p>Update integration features.</p>
 
@@ -3609,8 +3751,10 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.update_integration_input.UpdateIntegrationInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
-        input_["client_request_token"] = client_request_token
-        input_["integrating_service"] = integrating_service
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
+        if integrating_service is not None:
+            input_["integrating_service"] = integrating_service
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3945,9 +4089,11 @@ class WellArchitectedClient:
     def update_share_invitation(
         self,
         share_invitation_id: "capo_wellarchitected.types.share_invitation_id.ShareInvitationId",
-        share_invitation_action: "capo_wellarchitected.types.share_invitation_action.ShareInvitationAction",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        share_invitation_action: Optional[
+            "capo_wellarchitected.types.share_invitation_action.ShareInvitationAction"
+        ] = None,
     ) -> "capo_wellarchitected.types.update_share_invitation_output.UpdateShareInvitationOutput":
         """<p>Update a workload or custom lens share invitation.</p> <note> <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p> </note>
 
@@ -3981,7 +4127,8 @@ class WellArchitectedClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_wellarchitected.types.update_share_invitation_input.UpdateShareInvitationInput = {}  # type: ignore[typeddict-item]
         input_["share_invitation_id"] = share_invitation_id
-        input_["share_invitation_action"] = share_invitation_action
+        if share_invitation_action is not None:
+            input_["share_invitation_action"] = share_invitation_action
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4128,9 +4275,11 @@ class WellArchitectedClient:
         self,
         share_id: "capo_wellarchitected.types.share_id.ShareId",
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
-        permission_type: "capo_wellarchitected.types.permission_type.PermissionType",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        permission_type: Optional[
+            "capo_wellarchitected.types.permission_type.PermissionType"
+        ] = None,
     ) -> "capo_wellarchitected.types.update_workload_share_output.UpdateWorkloadShareOutput":
         """<p>Update a workload share.</p>
 
@@ -4162,7 +4311,8 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.update_workload_share_input.UpdateWorkloadShareInput = {}  # type: ignore[typeddict-item]
         input_["share_id"] = share_id
         input_["workload_id"] = workload_id
-        input_["permission_type"] = permission_type
+        if permission_type is not None:
+            input_["permission_type"] = permission_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4175,9 +4325,11 @@ class WellArchitectedClient:
         self,
         workload_id: "capo_wellarchitected.types.workload_id.WorkloadId",
         lens_alias: "capo_wellarchitected.types.lens_alias.LensAlias",
-        milestone_name: "capo_wellarchitected.types.milestone_name.MilestoneName",
         *,
         config_overrides: Optional[WellArchitectedClientConfig] = None,
+        milestone_name: Optional[
+            "capo_wellarchitected.types.milestone_name.MilestoneName"
+        ] = None,
         client_request_token: Optional[
             "capo_wellarchitected.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -4211,7 +4363,8 @@ class WellArchitectedClient:
         input_: capo_wellarchitected.types.upgrade_lens_review_input.UpgradeLensReviewInput = {}  # type: ignore[typeddict-item]
         input_["workload_id"] = workload_id
         input_["lens_alias"] = lens_alias
-        input_["milestone_name"] = milestone_name
+        if milestone_name is not None:
+            input_["milestone_name"] = milestone_name
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
 

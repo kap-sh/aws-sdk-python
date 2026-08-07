@@ -21,10 +21,11 @@ class DeleteAuthenticationProfileMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteAuthenticationProfileMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "authentication_profile_name" in value:
         pairs.append(
             (
-                f"{prefix}.AuthenticationProfileName",
+                f"{key_prefix}AuthenticationProfileName",
                 str(value["authentication_profile_name"]),
             )
         )

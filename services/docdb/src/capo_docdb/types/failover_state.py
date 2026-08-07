@@ -27,20 +27,23 @@ class FailoverState(TypedDict, closed=True):
 def serialize_query(
     value: FailoverState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_docdb.types.failover_status
 
         capo_docdb.types.failover_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "from_db_cluster_arn" in value:
-        pairs.append((f"{prefix}.FromDbClusterArn", str(value["from_db_cluster_arn"])))
+        pairs.append(
+            (f"{key_prefix}FromDbClusterArn", str(value["from_db_cluster_arn"]))
+        )
     if "to_db_cluster_arn" in value:
-        pairs.append((f"{prefix}.ToDbClusterArn", str(value["to_db_cluster_arn"])))
+        pairs.append((f"{key_prefix}ToDbClusterArn", str(value["to_db_cluster_arn"])))
     if "is_data_loss_allowed" in value:
         pairs.append(
             (
-                f"{prefix}.IsDataLossAllowed",
+                f"{key_prefix}IsDataLossAllowed",
                 "true" if value["is_data_loss_allowed"] else "false",
             )
         )

@@ -26,16 +26,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node_exchange_status_details" in value:
         import capo_redshift.types.reserved_node_exchange_status_list
 
         capo_redshift.types.reserved_node_exchange_status_list.serialize_query(
             value["reserved_node_exchange_status_details"],
             pairs,
-            f"{prefix}.ReservedNodeExchangeStatusDetails",
+            f"{key_prefix}ReservedNodeExchangeStatusDetails",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeReservedNodeExchangeStatusOutputMessage:

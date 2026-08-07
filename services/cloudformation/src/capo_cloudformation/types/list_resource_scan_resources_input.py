@@ -45,24 +45,25 @@ class ListResourceScanResourcesInput(TypedDict, closed=True):
 def serialize_query(
     value: ListResourceScanResourcesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_scan_id" in value:
-        pairs.append((f"{prefix}.ResourceScanId", str(value["resource_scan_id"])))
+        pairs.append((f"{key_prefix}ResourceScanId", str(value["resource_scan_id"])))
     if "resource_identifier" in value:
         pairs.append(
-            (f"{prefix}.ResourceIdentifier", str(value["resource_identifier"]))
+            (f"{key_prefix}ResourceIdentifier", str(value["resource_identifier"]))
         )
     if "resource_type_prefix" in value:
         pairs.append(
-            (f"{prefix}.ResourceTypePrefix", str(value["resource_type_prefix"]))
+            (f"{key_prefix}ResourceTypePrefix", str(value["resource_type_prefix"]))
         )
     if "tag_key" in value:
-        pairs.append((f"{prefix}.TagKey", str(value["tag_key"])))
+        pairs.append((f"{key_prefix}TagKey", str(value["tag_key"])))
     if "tag_value" in value:
-        pairs.append((f"{prefix}.TagValue", str(value["tag_value"])))
+        pairs.append((f"{key_prefix}TagValue", str(value["tag_value"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_query(el: Element) -> ListResourceScanResourcesInput:

@@ -23,17 +23,18 @@ class ResourceMapping(TypedDict, closed=True):
 def serialize_query(
     value: ResourceMapping, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source" in value:
         import capo_cloudformation.types.resource_location
 
         capo_cloudformation.types.resource_location.serialize_query(
-            value["source"], pairs, f"{prefix}.Source"
+            value["source"], pairs, f"{key_prefix}Source"
         )
     if "destination" in value:
         import capo_cloudformation.types.resource_location
 
         capo_cloudformation.types.resource_location.serialize_query(
-            value["destination"], pairs, f"{prefix}.Destination"
+            value["destination"], pairs, f"{key_prefix}Destination"
         )
 
 

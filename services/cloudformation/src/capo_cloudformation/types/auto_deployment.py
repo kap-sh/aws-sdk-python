@@ -31,12 +31,13 @@ class AutoDeployment(TypedDict, closed=True):
 def serialize_query(
     value: AutoDeployment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "retain_stacks_on_account_removal" in value:
         pairs.append(
             (
-                f"{prefix}.RetainStacksOnAccountRemoval",
+                f"{key_prefix}RetainStacksOnAccountRemoval",
                 "true" if value["retain_stacks_on_account_removal"] else "false",
             )
         )
@@ -44,7 +45,7 @@ def serialize_query(
         import capo_cloudformation.types.stack_set_arn_list
 
         capo_cloudformation.types.stack_set_arn_list.serialize_query(
-            value["depends_on"], pairs, f"{prefix}.DependsOn"
+            value["depends_on"], pairs, f"{key_prefix}DependsOn"
         )
 
 

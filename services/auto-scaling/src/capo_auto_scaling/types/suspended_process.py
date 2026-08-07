@@ -25,10 +25,11 @@ class SuspendedProcess(TypedDict, closed=True):
 def serialize_query(
     value: SuspendedProcess, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "process_name" in value:
-        pairs.append((f"{prefix}.ProcessName", str(value["process_name"])))
+        pairs.append((f"{key_prefix}ProcessName", str(value["process_name"])))
     if "suspension_reason" in value:
-        pairs.append((f"{prefix}.SuspensionReason", str(value["suspension_reason"])))
+        pairs.append((f"{key_prefix}SuspensionReason", str(value["suspension_reason"])))
 
 
 def deserialize_query(el: Element) -> SuspendedProcess:

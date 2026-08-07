@@ -30,19 +30,20 @@ class HttpHeaderConditionConfig(TypedDict, closed=True):
 def serialize_query(
     value: HttpHeaderConditionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "http_header_name" in value:
-        pairs.append((f"{prefix}.HttpHeaderName", str(value["http_header_name"])))
+        pairs.append((f"{key_prefix}HttpHeaderName", str(value["http_header_name"])))
     if "values" in value:
         import capo_elastic_load_balancing_v2.types.list_of_string
 
         capo_elastic_load_balancing_v2.types.list_of_string.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
     if "regex_values" in value:
         import capo_elastic_load_balancing_v2.types.list_of_string
 
         capo_elastic_load_balancing_v2.types.list_of_string.serialize_query(
-            value["regex_values"], pairs, f"{prefix}.RegexValues"
+            value["regex_values"], pairs, f"{key_prefix}RegexValues"
         )
 
 

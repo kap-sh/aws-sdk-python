@@ -22,14 +22,18 @@ class RecurringCharge(TypedDict, closed=True):
 def serialize_query(
     value: RecurringCharge, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "recurring_charge_amount" in value:
         pairs.append(
-            (f"{prefix}.RecurringChargeAmount", str(value["recurring_charge_amount"]))
+            (
+                f"{key_prefix}RecurringChargeAmount",
+                str(value["recurring_charge_amount"]),
+            )
         )
     if "recurring_charge_frequency" in value:
         pairs.append(
             (
-                f"{prefix}.RecurringChargeFrequency",
+                f"{key_prefix}RecurringChargeFrequency",
                 str(value["recurring_charge_frequency"]),
             )
         )

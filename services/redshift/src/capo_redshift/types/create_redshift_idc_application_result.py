@@ -20,11 +20,14 @@ class CreateRedshiftIdcApplicationResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateRedshiftIdcApplicationResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "redshift_idc_application" in value:
         import capo_redshift.types.redshift_idc_application
 
         capo_redshift.types.redshift_idc_application.serialize_query(
-            value["redshift_idc_application"], pairs, f"{prefix}.RedshiftIdcApplication"
+            value["redshift_idc_application"],
+            pairs,
+            f"{key_prefix}RedshiftIdcApplication",
         )
 
 

@@ -28,17 +28,18 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "solution_stacks" in value:
         import capo_elastic_beanstalk.types.available_solution_stack_names_list
 
         capo_elastic_beanstalk.types.available_solution_stack_names_list.serialize_query(
-            value["solution_stacks"], pairs, f"{prefix}.SolutionStacks"
+            value["solution_stacks"], pairs, f"{key_prefix}SolutionStacks"
         )
     if "solution_stack_details" in value:
         import capo_elastic_beanstalk.types.available_solution_stack_details_list
 
         capo_elastic_beanstalk.types.available_solution_stack_details_list.serialize_query(
-            value["solution_stack_details"], pairs, f"{prefix}.SolutionStackDetails"
+            value["solution_stack_details"], pairs, f"{key_prefix}SolutionStackDetails"
         )
 
 

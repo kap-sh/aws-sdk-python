@@ -27,23 +27,24 @@ class NodeConfigurationOptionsFilter(TypedDict, closed=True):
 def serialize_query(
     value: NodeConfigurationOptionsFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
         import capo_redshift.types.node_configuration_options_filter_name
 
         capo_redshift.types.node_configuration_options_filter_name.serialize_query(
-            value["name"], pairs, f"{prefix}.Name"
+            value["name"], pairs, f"{key_prefix}Name"
         )
     if "operator" in value:
         import capo_redshift.types.operator_type
 
         capo_redshift.types.operator_type.serialize_query(
-            value["operator"], pairs, f"{prefix}.Operator"
+            value["operator"], pairs, f"{key_prefix}Operator"
         )
     if "values" in value:
         import capo_redshift.types.value_string_list
 
         capo_redshift.types.value_string_list.serialize_query(
-            value["values"], pairs, f"{prefix}.Value"
+            value["values"], pairs, f"{key_prefix}Value"
         )
 
 

@@ -52,42 +52,45 @@ class CreateApplicationVersionMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateApplicationVersionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
-    pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
+    pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "source_build_information" in value:
         import capo_elastic_beanstalk.types.source_build_information
 
         capo_elastic_beanstalk.types.source_build_information.serialize_query(
-            value["source_build_information"], pairs, f"{prefix}.SourceBuildInformation"
+            value["source_build_information"],
+            pairs,
+            f"{key_prefix}SourceBuildInformation",
         )
     if "source_bundle" in value:
         import capo_elastic_beanstalk.types.s3_location
 
         capo_elastic_beanstalk.types.s3_location.serialize_query(
-            value["source_bundle"], pairs, f"{prefix}.SourceBundle"
+            value["source_bundle"], pairs, f"{key_prefix}SourceBundle"
         )
     if "build_configuration" in value:
         import capo_elastic_beanstalk.types.build_configuration
 
         capo_elastic_beanstalk.types.build_configuration.serialize_query(
-            value["build_configuration"], pairs, f"{prefix}.BuildConfiguration"
+            value["build_configuration"], pairs, f"{key_prefix}BuildConfiguration"
         )
     if "auto_create_application" in value:
         pairs.append(
             (
-                f"{prefix}.AutoCreateApplication",
+                f"{key_prefix}AutoCreateApplication",
                 "true" if value["auto_create_application"] else "false",
             )
         )
     if "process" in value:
-        pairs.append((f"{prefix}.Process", "true" if value["process"] else "false"))
+        pairs.append((f"{key_prefix}Process", "true" if value["process"] else "false"))
     if "tags" in value:
         import capo_elastic_beanstalk.types.tags
 
         capo_elastic_beanstalk.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

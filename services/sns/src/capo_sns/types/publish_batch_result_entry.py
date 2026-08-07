@@ -24,12 +24,13 @@ class PublishBatchResultEntry(TypedDict, closed=True):
 def serialize_query(
     value: PublishBatchResultEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "message_id" in value:
-        pairs.append((f"{prefix}.MessageId", str(value["message_id"])))
+        pairs.append((f"{key_prefix}MessageId", str(value["message_id"])))
     if "sequence_number" in value:
-        pairs.append((f"{prefix}.SequenceNumber", str(value["sequence_number"])))
+        pairs.append((f"{key_prefix}SequenceNumber", str(value["sequence_number"])))
 
 
 def deserialize_query(el: Element) -> PublishBatchResultEntry:

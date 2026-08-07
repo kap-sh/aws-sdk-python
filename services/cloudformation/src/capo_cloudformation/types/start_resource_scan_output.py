@@ -21,8 +21,9 @@ class StartResourceScanOutput(TypedDict, closed=True):
 def serialize_query(
     value: StartResourceScanOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_scan_id" in value:
-        pairs.append((f"{prefix}.ResourceScanId", str(value["resource_scan_id"])))
+        pairs.append((f"{key_prefix}ResourceScanId", str(value["resource_scan_id"])))
 
 
 def deserialize_query(el: Element) -> StartResourceScanOutput:

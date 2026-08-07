@@ -19,11 +19,12 @@ class ActivityType(TypedDict, closed=True):
 def serialize_query(
     value: ActivityType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "activity" in value:
         import capo_auto_scaling.types.activity
 
         capo_auto_scaling.types.activity.serialize_query(
-            value["activity"], pairs, f"{prefix}.Activity"
+            value["activity"], pairs, f"{key_prefix}Activity"
         )
 
 

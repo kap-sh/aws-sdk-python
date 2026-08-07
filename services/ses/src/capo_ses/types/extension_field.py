@@ -23,8 +23,9 @@ class ExtensionField(TypedDict, closed=True):
 def serialize_query(
     value: ExtensionField, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
-    pairs.append((f"{prefix}.Value", str(value["value"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
+    pairs.append((f"{key_prefix}Value", str(value["value"])))
 
 
 def deserialize_query(el: Element) -> ExtensionField:

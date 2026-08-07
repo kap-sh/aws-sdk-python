@@ -29,12 +29,15 @@ class WarningProperty(TypedDict, closed=True):
 def serialize_query(
     value: WarningProperty, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "property_path" in value:
-        pairs.append((f"{prefix}.PropertyPath", str(value["property_path"])))
+        pairs.append((f"{key_prefix}PropertyPath", str(value["property_path"])))
     if "required" in value:
-        pairs.append((f"{prefix}.Required", "true" if value["required"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Required", "true" if value["required"] else "false")
+        )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> WarningProperty:

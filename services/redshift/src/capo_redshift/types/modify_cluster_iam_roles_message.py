@@ -28,23 +28,26 @@ class ModifyClusterIamRolesMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterIamRolesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "add_iam_roles" in value:
         import capo_redshift.types.iam_role_arn_list
 
         capo_redshift.types.iam_role_arn_list.serialize_query(
-            value["add_iam_roles"], pairs, f"{prefix}.AddIamRoles"
+            value["add_iam_roles"], pairs, f"{key_prefix}AddIamRoles"
         )
     if "remove_iam_roles" in value:
         import capo_redshift.types.iam_role_arn_list
 
         capo_redshift.types.iam_role_arn_list.serialize_query(
-            value["remove_iam_roles"], pairs, f"{prefix}.RemoveIamRoles"
+            value["remove_iam_roles"], pairs, f"{key_prefix}RemoveIamRoles"
         )
     if "default_iam_role_arn" in value:
         pairs.append(
-            (f"{prefix}.DefaultIamRoleArn", str(value["default_iam_role_arn"]))
+            (f"{key_prefix}DefaultIamRoleArn", str(value["default_iam_role_arn"]))
         )
 
 

@@ -110,22 +110,23 @@ class CreateCacheClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateCacheClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "az_mode" in value:
         import capo_elasticache.types.az_mode
 
         capo_elasticache.types.az_mode.serialize_query(
-            value["az_mode"], pairs, f"{prefix}.AZMode"
+            value["az_mode"], pairs, f"{key_prefix}AZMode"
         )
     if "preferred_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredAvailabilityZone",
+                f"{key_prefix}PreferredAvailabilityZone",
                 str(value["preferred_availability_zone"]),
             )
         )
@@ -135,26 +136,26 @@ def serialize_query(
         capo_elasticache.types.preferred_availability_zone_list.serialize_query(
             value["preferred_availability_zones"],
             pairs,
-            f"{prefix}.PreferredAvailabilityZones",
+            f"{key_prefix}PreferredAvailabilityZones",
         )
     if "num_cache_nodes" in value:
-        pairs.append((f"{prefix}.NumCacheNodes", str(value["num_cache_nodes"])))
+        pairs.append((f"{key_prefix}NumCacheNodes", str(value["num_cache_nodes"])))
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "cache_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupName",
+                f"{key_prefix}CacheParameterGroupName",
                 str(value["cache_parameter_group_name"]),
             )
         )
     if "cache_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
+            (f"{key_prefix}CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
         )
     if "cache_security_group_names" in value:
         import capo_elasticache.types.cache_security_group_name_list
@@ -162,71 +163,74 @@ def serialize_query(
         capo_elasticache.types.cache_security_group_name_list.serialize_query(
             value["cache_security_group_names"],
             pairs,
-            f"{prefix}.CacheSecurityGroupNames",
+            f"{key_prefix}CacheSecurityGroupNames",
         )
     if "security_group_ids" in value:
         import capo_elasticache.types.security_group_ids_list
 
         capo_elasticache.types.security_group_ids_list.serialize_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "snapshot_arns" in value:
         import capo_elasticache.types.snapshot_arns_list
 
         capo_elasticache.types.snapshot_arns_list.serialize_query(
-            value["snapshot_arns"], pairs, f"{prefix}.SnapshotArns"
+            value["snapshot_arns"], pairs, f"{key_prefix}SnapshotArns"
         )
     if "snapshot_name" in value:
-        pairs.append((f"{prefix}.SnapshotName", str(value["snapshot_name"])))
+        pairs.append((f"{key_prefix}SnapshotName", str(value["snapshot_name"])))
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "notification_topic_arn" in value:
         pairs.append(
-            (f"{prefix}.NotificationTopicArn", str(value["notification_topic_arn"]))
+            (f"{key_prefix}NotificationTopicArn", str(value["notification_topic_arn"]))
         )
     if "auto_minor_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AutoMinorVersionUpgrade",
+                f"{key_prefix}AutoMinorVersionUpgrade",
                 "true" if value["auto_minor_version_upgrade"] else "false",
             )
         )
     if "snapshot_retention_limit" in value:
         pairs.append(
-            (f"{prefix}.SnapshotRetentionLimit", str(value["snapshot_retention_limit"]))
+            (
+                f"{key_prefix}SnapshotRetentionLimit",
+                str(value["snapshot_retention_limit"]),
+            )
         )
     if "snapshot_window" in value:
-        pairs.append((f"{prefix}.SnapshotWindow", str(value["snapshot_window"])))
+        pairs.append((f"{key_prefix}SnapshotWindow", str(value["snapshot_window"])))
     if "auth_token" in value:
-        pairs.append((f"{prefix}.AuthToken", str(value["auth_token"])))
+        pairs.append((f"{key_prefix}AuthToken", str(value["auth_token"])))
     if "outpost_mode" in value:
         import capo_elasticache.types.outpost_mode
 
         capo_elasticache.types.outpost_mode.serialize_query(
-            value["outpost_mode"], pairs, f"{prefix}.OutpostMode"
+            value["outpost_mode"], pairs, f"{key_prefix}OutpostMode"
         )
     if "preferred_outpost_arn" in value:
         pairs.append(
-            (f"{prefix}.PreferredOutpostArn", str(value["preferred_outpost_arn"]))
+            (f"{key_prefix}PreferredOutpostArn", str(value["preferred_outpost_arn"]))
         )
     if "preferred_outpost_arns" in value:
         import capo_elasticache.types.preferred_outpost_arn_list
 
         capo_elasticache.types.preferred_outpost_arn_list.serialize_query(
-            value["preferred_outpost_arns"], pairs, f"{prefix}.PreferredOutpostArns"
+            value["preferred_outpost_arns"], pairs, f"{key_prefix}PreferredOutpostArns"
         )
     if "log_delivery_configurations" in value:
         import capo_elasticache.types.log_delivery_configuration_request_list
@@ -234,12 +238,12 @@ def serialize_query(
         capo_elasticache.types.log_delivery_configuration_request_list.serialize_query(
             value["log_delivery_configurations"],
             pairs,
-            f"{prefix}.LogDeliveryConfigurations",
+            f"{key_prefix}LogDeliveryConfigurations",
         )
     if "transit_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.TransitEncryptionEnabled",
+                f"{key_prefix}TransitEncryptionEnabled",
                 "true" if value["transit_encryption_enabled"] else "false",
             )
         )
@@ -247,13 +251,13 @@ def serialize_query(
         import capo_elasticache.types.network_type
 
         capo_elasticache.types.network_type.serialize_query(
-            value["network_type"], pairs, f"{prefix}.NetworkType"
+            value["network_type"], pairs, f"{key_prefix}NetworkType"
         )
     if "ip_discovery" in value:
         import capo_elasticache.types.ip_discovery
 
         capo_elasticache.types.ip_discovery.serialize_query(
-            value["ip_discovery"], pairs, f"{prefix}.IpDiscovery"
+            value["ip_discovery"], pairs, f"{key_prefix}IpDiscovery"
         )
 
 

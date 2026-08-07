@@ -21,11 +21,12 @@ class DescribeAdjustmentTypesAnswer(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAdjustmentTypesAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "adjustment_types" in value:
         import capo_auto_scaling.types.adjustment_types
 
         capo_auto_scaling.types.adjustment_types.serialize_query(
-            value["adjustment_types"], pairs, f"{prefix}.AdjustmentTypes"
+            value["adjustment_types"], pairs, f"{key_prefix}AdjustmentTypes"
         )
 
 

@@ -35,21 +35,22 @@ class SetTypeConfigurationInput(TypedDict, closed=True):
 def serialize_query(
     value: SetTypeConfigurationInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_arn" in value:
-        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+        pairs.append((f"{key_prefix}TypeArn", str(value["type_arn"])))
     if "configuration" in value:
-        pairs.append((f"{prefix}.Configuration", str(value["configuration"])))
+        pairs.append((f"{key_prefix}Configuration", str(value["configuration"])))
     if "configuration_alias" in value:
         pairs.append(
-            (f"{prefix}.ConfigurationAlias", str(value["configuration_alias"]))
+            (f"{key_prefix}ConfigurationAlias", str(value["configuration_alias"]))
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "type" in value:
         import capo_cloudformation.types.third_party_type
 
         capo_cloudformation.types.third_party_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
 
 

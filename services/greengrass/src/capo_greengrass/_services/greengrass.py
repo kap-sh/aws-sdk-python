@@ -336,9 +336,9 @@ class GreengrassClient:
     def associate_role_to_group(
         self,
         group_id: "capo_greengrass.types.__string.__string",
-        role_arn: "capo_greengrass.types.__string.__string",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
+        role_arn: Optional["capo_greengrass.types.__string.__string"] = None,
     ) -> "capo_greengrass.types.associate_role_to_group_response.AssociateRoleToGroupResponse":
         """Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
 
@@ -369,7 +369,8 @@ class GreengrassClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_greengrass.types.associate_role_to_group_request.AssociateRoleToGroupRequest = {}  # type: ignore[typeddict-item]
         input_["group_id"] = group_id
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -380,9 +381,9 @@ class GreengrassClient:
 
     def associate_service_role_to_account(
         self,
-        role_arn: "capo_greengrass.types.__string.__string",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
+        role_arn: Optional["capo_greengrass.types.__string.__string"] = None,
     ) -> "capo_greengrass.types.associate_service_role_to_account_response.AssociateServiceRoleToAccountResponse":
         """Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
 
@@ -411,7 +412,8 @@ class GreengrassClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_greengrass.types.associate_service_role_to_account_request.AssociateServiceRoleToAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -634,12 +636,14 @@ class GreengrassClient:
 
     def create_deployment(
         self,
-        deployment_type: "capo_greengrass.types.deployment_type.DeploymentType",
         group_id: "capo_greengrass.types.__string.__string",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
         amzn_client_token: Optional["capo_greengrass.types.__string.__string"] = None,
         deployment_id: Optional["capo_greengrass.types.__string.__string"] = None,
+        deployment_type: Optional[
+            "capo_greengrass.types.deployment_type.DeploymentType"
+        ] = None,
         group_version_id: Optional["capo_greengrass.types.__string.__string"] = None,
     ) -> "capo_greengrass.types.create_deployment_response.CreateDeploymentResponse":
         """Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.
@@ -676,7 +680,8 @@ class GreengrassClient:
             input_["amzn_client_token"] = amzn_client_token
         if deployment_id is not None:
             input_["deployment_id"] = deployment_id
-        input_["deployment_type"] = deployment_type
+        if deployment_type is not None:
+            input_["deployment_type"] = deployment_type
         input_["group_id"] = group_id
         if group_version_id is not None:
             input_["group_version_id"] = group_version_id
@@ -910,13 +915,13 @@ class GreengrassClient:
 
     def create_group(
         self,
-        name: "capo_greengrass.types.__string.__string",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
         amzn_client_token: Optional["capo_greengrass.types.__string.__string"] = None,
         initial_version: Optional[
             "capo_greengrass.types.group_version.GroupVersion"
         ] = None,
+        name: Optional["capo_greengrass.types.__string.__string"] = None,
         tags: Optional["capo_greengrass.types.tags.Tags"] = None,
     ) -> "capo_greengrass.types.create_group_response.CreateGroupResponse":
         """Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.
@@ -952,7 +957,8 @@ class GreengrassClient:
             input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
             input_["initial_version"] = initial_version
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
 
@@ -1318,16 +1324,26 @@ class GreengrassClient:
 
     def create_software_update_job(
         self,
-        s3_url_signer_role: "capo_greengrass.types.s3_url_signer_role.S3UrlSignerRole",
-        software_to_update: "capo_greengrass.types.software_to_update.SoftwareToUpdate",
-        update_targets: "capo_greengrass.types.update_targets.UpdateTargets",
-        update_targets_architecture: "capo_greengrass.types.update_targets_architecture.UpdateTargetsArchitecture",
-        update_targets_operating_system: "capo_greengrass.types.update_targets_operating_system.UpdateTargetsOperatingSystem",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
         amzn_client_token: Optional["capo_greengrass.types.__string.__string"] = None,
+        s3_url_signer_role: Optional[
+            "capo_greengrass.types.s3_url_signer_role.S3UrlSignerRole"
+        ] = None,
+        software_to_update: Optional[
+            "capo_greengrass.types.software_to_update.SoftwareToUpdate"
+        ] = None,
         update_agent_log_level: Optional[
             "capo_greengrass.types.update_agent_log_level.UpdateAgentLogLevel"
+        ] = None,
+        update_targets: Optional[
+            "capo_greengrass.types.update_targets.UpdateTargets"
+        ] = None,
+        update_targets_architecture: Optional[
+            "capo_greengrass.types.update_targets_architecture.UpdateTargetsArchitecture"
+        ] = None,
+        update_targets_operating_system: Optional[
+            "capo_greengrass.types.update_targets_operating_system.UpdateTargetsOperatingSystem"
         ] = None,
     ) -> "capo_greengrass.types.create_software_update_job_response.CreateSoftwareUpdateJobResponse":
         """Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.
@@ -1359,13 +1375,18 @@ class GreengrassClient:
         input_: capo_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
             input_["amzn_client_token"] = amzn_client_token
-        input_["s3_url_signer_role"] = s3_url_signer_role
-        input_["software_to_update"] = software_to_update
+        if s3_url_signer_role is not None:
+            input_["s3_url_signer_role"] = s3_url_signer_role
+        if software_to_update is not None:
+            input_["software_to_update"] = software_to_update
         if update_agent_log_level is not None:
             input_["update_agent_log_level"] = update_agent_log_level
-        input_["update_targets"] = update_targets
-        input_["update_targets_architecture"] = update_targets_architecture
-        input_["update_targets_operating_system"] = update_targets_operating_system
+        if update_targets is not None:
+            input_["update_targets"] = update_targets
+        if update_targets_architecture is not None:
+            input_["update_targets_architecture"] = update_targets_architecture
+        if update_targets_operating_system is not None:
+            input_["update_targets_operating_system"] = update_targets_operating_system
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3949,11 +3970,11 @@ class GreengrassClient:
 
     def start_bulk_deployment(
         self,
-        execution_role_arn: "capo_greengrass.types.__string.__string",
-        input_file_uri: "capo_greengrass.types.__string.__string",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
         amzn_client_token: Optional["capo_greengrass.types.__string.__string"] = None,
+        execution_role_arn: Optional["capo_greengrass.types.__string.__string"] = None,
+        input_file_uri: Optional["capo_greengrass.types.__string.__string"] = None,
         tags: Optional["capo_greengrass.types.tags.Tags"] = None,
     ) -> "capo_greengrass.types.start_bulk_deployment_response.StartBulkDeploymentResponse":
         """Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
@@ -3987,8 +4008,10 @@ class GreengrassClient:
         input_: capo_greengrass.types.start_bulk_deployment_request.StartBulkDeploymentRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
             input_["amzn_client_token"] = amzn_client_token
-        input_["execution_role_arn"] = execution_role_arn
-        input_["input_file_uri"] = input_file_uri
+        if execution_role_arn is not None:
+            input_["execution_role_arn"] = execution_role_arn
+        if input_file_uri is not None:
+            input_["input_file_uri"] = input_file_uri
         if tags is not None:
             input_["tags"] = tags
 
@@ -4087,9 +4110,11 @@ class GreengrassClient:
     def untag_resource(
         self,
         resource_arn: "capo_greengrass.types.__string.__string",
-        tag_keys: "capo_greengrass.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[GreengrassClientConfig] = None,
+        tag_keys: Optional[
+            "capo_greengrass.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """Remove resource tags from a Greengrass Resource.
 
@@ -4117,7 +4142,8 @@ class GreengrassClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_greengrass.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

@@ -24,15 +24,16 @@ class AttachInstancesQuery(TypedDict, closed=True):
 def serialize_query(
     value: AttachInstancesQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_ids" in value:
         import capo_auto_scaling.types.instance_ids
 
         capo_auto_scaling.types.instance_ids.serialize_query(
-            value["instance_ids"], pairs, f"{prefix}.InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
         )
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
 
 

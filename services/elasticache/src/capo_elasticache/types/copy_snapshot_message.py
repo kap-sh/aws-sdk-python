@@ -28,23 +28,24 @@ class CopySnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopySnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_snapshot_name" in value:
         pairs.append(
-            (f"{prefix}.SourceSnapshotName", str(value["source_snapshot_name"]))
+            (f"{key_prefix}SourceSnapshotName", str(value["source_snapshot_name"]))
         )
     if "target_snapshot_name" in value:
         pairs.append(
-            (f"{prefix}.TargetSnapshotName", str(value["target_snapshot_name"]))
+            (f"{key_prefix}TargetSnapshotName", str(value["target_snapshot_name"]))
         )
     if "target_bucket" in value:
-        pairs.append((f"{prefix}.TargetBucket", str(value["target_bucket"])))
+        pairs.append((f"{key_prefix}TargetBucket", str(value["target_bucket"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

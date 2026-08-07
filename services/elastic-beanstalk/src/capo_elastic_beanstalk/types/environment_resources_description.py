@@ -21,11 +21,12 @@ class EnvironmentResourcesDescription(TypedDict, closed=True):
 def serialize_query(
     value: EnvironmentResourcesDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer" in value:
         import capo_elastic_beanstalk.types.load_balancer_description
 
         capo_elastic_beanstalk.types.load_balancer_description.serialize_query(
-            value["load_balancer"], pairs, f"{prefix}.LoadBalancer"
+            value["load_balancer"], pairs, f"{key_prefix}LoadBalancer"
         )
 
 

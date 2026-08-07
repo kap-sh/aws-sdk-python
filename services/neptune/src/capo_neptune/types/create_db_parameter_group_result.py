@@ -20,11 +20,12 @@ class CreateDBParameterGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBParameterGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_parameter_group" in value:
         import capo_neptune.types.db_parameter_group
 
         capo_neptune.types.db_parameter_group.serialize_query(
-            value["db_parameter_group"], pairs, f"{prefix}.DBParameterGroup"
+            value["db_parameter_group"], pairs, f"{key_prefix}DBParameterGroup"
         )
 
 

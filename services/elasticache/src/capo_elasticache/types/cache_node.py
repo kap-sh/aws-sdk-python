@@ -35,40 +35,41 @@ class CacheNode(TypedDict, closed=True):
 def serialize_query(
     value: CacheNode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_node_id" in value:
-        pairs.append((f"{prefix}.CacheNodeId", str(value["cache_node_id"])))
+        pairs.append((f"{key_prefix}CacheNodeId", str(value["cache_node_id"])))
     if "cache_node_status" in value:
-        pairs.append((f"{prefix}.CacheNodeStatus", str(value["cache_node_status"])))
+        pairs.append((f"{key_prefix}CacheNodeStatus", str(value["cache_node_status"])))
     if "cache_node_create_time" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["cache_node_create_time"], pairs, f"{prefix}.CacheNodeCreateTime"
+            value["cache_node_create_time"], pairs, f"{key_prefix}CacheNodeCreateTime"
         )
     if "endpoint" in value:
         import capo_elasticache.types.endpoint
 
         capo_elasticache.types.endpoint.serialize_query(
-            value["endpoint"], pairs, f"{prefix}.Endpoint"
+            value["endpoint"], pairs, f"{key_prefix}Endpoint"
         )
     if "parameter_group_status" in value:
         pairs.append(
-            (f"{prefix}.ParameterGroupStatus", str(value["parameter_group_status"]))
+            (f"{key_prefix}ParameterGroupStatus", str(value["parameter_group_status"]))
         )
     if "source_cache_node_id" in value:
         pairs.append(
-            (f"{prefix}.SourceCacheNodeId", str(value["source_cache_node_id"]))
+            (f"{key_prefix}SourceCacheNodeId", str(value["source_cache_node_id"]))
         )
     if "customer_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.CustomerAvailabilityZone",
+                f"{key_prefix}CustomerAvailabilityZone",
                 str(value["customer_availability_zone"]),
             )
         )
     if "customer_outpost_arn" in value:
         pairs.append(
-            (f"{prefix}.CustomerOutpostArn", str(value["customer_outpost_arn"]))
+            (f"{key_prefix}CustomerOutpostArn", str(value["customer_outpost_arn"]))
         )
 
 

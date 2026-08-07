@@ -28,14 +28,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.Identity", str(value["identity"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Identity", str(value["identity"])))
     import capo_ses.types.notification_type
 
     capo_ses.types.notification_type.serialize_query(
-        value["notification_type"], pairs, f"{prefix}.NotificationType"
+        value["notification_type"], pairs, f"{key_prefix}NotificationType"
     )
     if "sns_topic" in value:
-        pairs.append((f"{prefix}.SnsTopic", str(value["sns_topic"])))
+        pairs.append((f"{key_prefix}SnsTopic", str(value["sns_topic"])))
 
 
 def deserialize_query(el: Element) -> SetIdentityNotificationTopicRequest:

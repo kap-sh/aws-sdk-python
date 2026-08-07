@@ -164,12 +164,15 @@ class AsyncServerlessApplicationRepositoryClient:
 
     async def create_application(
         self,
-        author: "capo_serverlessapplicationrepository.types.__string.__string",
-        description: "capo_serverlessapplicationrepository.types.__string.__string",
-        name: "capo_serverlessapplicationrepository.types.__string.__string",
         *,
         config_overrides: Optional[
             AsyncServerlessApplicationRepositoryClientConfig
+        ] = None,
+        author: Optional[
+            "capo_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        description: Optional[
+            "capo_serverlessapplicationrepository.types.__string.__string"
         ] = None,
         home_page_url: Optional[
             "capo_serverlessapplicationrepository.types.__string.__string"
@@ -181,6 +184,9 @@ class AsyncServerlessApplicationRepositoryClient:
             "capo_serverlessapplicationrepository.types.__string.__string"
         ] = None,
         license_url: Optional[
+            "capo_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        name: Optional[
             "capo_serverlessapplicationrepository.types.__string.__string"
         ] = None,
         readme_body: Optional[
@@ -253,8 +259,10 @@ class AsyncServerlessApplicationRepositoryClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_serverlessapplicationrepository.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["author"] = author
-        input_["description"] = description
+        if author is not None:
+            input_["author"] = author
+        if description is not None:
+            input_["description"] = description
         if home_page_url is not None:
             input_["home_page_url"] = home_page_url
         if labels is not None:
@@ -263,7 +271,8 @@ class AsyncServerlessApplicationRepositoryClient:
             input_["license_body"] = license_body
         if license_url is not None:
             input_["license_url"] = license_url
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if readme_body is not None:
             input_["readme_body"] = readme_body
         if readme_url is not None:
@@ -366,7 +375,6 @@ class AsyncServerlessApplicationRepositoryClient:
     async def create_cloud_formation_change_set(
         self,
         application_id: "capo_serverlessapplicationrepository.types.__string.__string",
-        stack_name: "capo_serverlessapplicationrepository.types.__string.__string",
         *,
         config_overrides: Optional[
             AsyncServerlessApplicationRepositoryClientConfig
@@ -396,6 +404,9 @@ class AsyncServerlessApplicationRepositoryClient:
             "capo_serverlessapplicationrepository.types.rollback_configuration.RollbackConfiguration"
         ] = None,
         semantic_version: Optional[
+            "capo_serverlessapplicationrepository.types.__string.__string"
+        ] = None,
+        stack_name: Optional[
             "capo_serverlessapplicationrepository.types.__string.__string"
         ] = None,
         tags: Optional[
@@ -466,7 +477,8 @@ class AsyncServerlessApplicationRepositoryClient:
             input_["rollback_configuration"] = rollback_configuration
         if semantic_version is not None:
             input_["semantic_version"] = semantic_version
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if tags is not None:
             input_["tags"] = tags
         if template_id is not None:
@@ -918,10 +930,12 @@ class AsyncServerlessApplicationRepositoryClient:
     async def put_application_policy(
         self,
         application_id: "capo_serverlessapplicationrepository.types.__string.__string",
-        statements: "capo_serverlessapplicationrepository.types.__list_of_application_policy_statement.__listOfApplicationPolicyStatement",
         *,
         config_overrides: Optional[
             AsyncServerlessApplicationRepositoryClientConfig
+        ] = None,
+        statements: Optional[
+            "capo_serverlessapplicationrepository.types.__list_of_application_policy_statement.__listOfApplicationPolicyStatement"
         ] = None,
     ) -> "capo_serverlessapplicationrepository.types.put_application_policy_response.PutApplicationPolicyResponse":
         r"""<p>Sets the permission policy for an application. For the list of actions supported for this operation, see <a href=\"https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions\">Application Permissions</a> .</p>
@@ -957,7 +971,8 @@ class AsyncServerlessApplicationRepositoryClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_serverlessapplicationrepository.types.put_application_policy_request.PutApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["statements"] = statements
+        if statements is not None:
+            input_["statements"] = statements
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -969,10 +984,12 @@ class AsyncServerlessApplicationRepositoryClient:
     async def unshare_application(
         self,
         application_id: "capo_serverlessapplicationrepository.types.__string.__string",
-        organization_id: "capo_serverlessapplicationrepository.types.__string.__string",
         *,
         config_overrides: Optional[
             AsyncServerlessApplicationRepositoryClientConfig
+        ] = None,
+        organization_id: Optional[
+            "capo_serverlessapplicationrepository.types.__string.__string"
         ] = None,
     ) -> None:
         """<p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
@@ -1006,7 +1023,8 @@ class AsyncServerlessApplicationRepositoryClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_serverlessapplicationrepository.types.unshare_application_request.UnshareApplicationRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["organization_id"] = organization_id
+        if organization_id is not None:
+            input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

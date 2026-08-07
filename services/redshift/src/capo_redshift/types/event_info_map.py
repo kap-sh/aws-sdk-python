@@ -28,18 +28,19 @@ class EventInfoMap(TypedDict, closed=True):
 def serialize_query(
     value: EventInfoMap, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event_id" in value:
-        pairs.append((f"{prefix}.EventId", str(value["event_id"])))
+        pairs.append((f"{key_prefix}EventId", str(value["event_id"])))
     if "event_categories" in value:
         import capo_redshift.types.event_categories_list
 
         capo_redshift.types.event_categories_list.serialize_query(
-            value["event_categories"], pairs, f"{prefix}.EventCategories"
+            value["event_categories"], pairs, f"{key_prefix}EventCategories"
         )
     if "event_description" in value:
-        pairs.append((f"{prefix}.EventDescription", str(value["event_description"])))
+        pairs.append((f"{key_prefix}EventDescription", str(value["event_description"])))
     if "severity" in value:
-        pairs.append((f"{prefix}.Severity", str(value["severity"])))
+        pairs.append((f"{key_prefix}Severity", str(value["severity"])))
 
 
 def deserialize_query(el: Element) -> EventInfoMap:

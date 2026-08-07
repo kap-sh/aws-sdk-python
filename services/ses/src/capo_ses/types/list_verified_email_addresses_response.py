@@ -19,11 +19,14 @@ class ListVerifiedEmailAddressesResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListVerifiedEmailAddressesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "verified_email_addresses" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["verified_email_addresses"], pairs, f"{prefix}.VerifiedEmailAddresses"
+            value["verified_email_addresses"],
+            pairs,
+            f"{key_prefix}VerifiedEmailAddresses",
         )
 
 

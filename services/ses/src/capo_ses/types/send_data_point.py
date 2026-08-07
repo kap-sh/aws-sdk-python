@@ -28,16 +28,19 @@ class SendDataPoint(TypedDict, closed=True):
 def serialize_query(
     value: SendDataPoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "timestamp" in value:
         import capo_ses.types.timestamp
 
         capo_ses.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
-    pairs.append((f"{prefix}.DeliveryAttempts", str(value.get("delivery_attempts", 0))))
-    pairs.append((f"{prefix}.Bounces", str(value.get("bounces", 0))))
-    pairs.append((f"{prefix}.Complaints", str(value.get("complaints", 0))))
-    pairs.append((f"{prefix}.Rejects", str(value.get("rejects", 0))))
+    pairs.append(
+        (f"{key_prefix}DeliveryAttempts", str(value.get("delivery_attempts", 0)))
+    )
+    pairs.append((f"{key_prefix}Bounces", str(value.get("bounces", 0))))
+    pairs.append((f"{key_prefix}Complaints", str(value.get("complaints", 0))))
+    pairs.append((f"{key_prefix}Rejects", str(value.get("rejects", 0))))
 
 
 def deserialize_query(el: Element) -> SendDataPoint:

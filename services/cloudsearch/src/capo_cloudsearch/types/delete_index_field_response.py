@@ -20,10 +20,11 @@ class DeleteIndexFieldResponse(TypedDict, closed=True):
 def serialize_query(
     value: DeleteIndexFieldResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.index_field_status
 
     capo_cloudsearch.types.index_field_status.serialize_query(
-        value["index_field"], pairs, f"{prefix}.IndexField"
+        value["index_field"], pairs, f"{key_prefix}IndexField"
     )
 
 

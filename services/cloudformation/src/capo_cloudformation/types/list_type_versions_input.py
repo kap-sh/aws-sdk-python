@@ -39,28 +39,29 @@ class ListTypeVersionsInput(TypedDict, closed=True):
 def serialize_query(
     value: ListTypeVersionsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "deprecated_status" in value:
         import capo_cloudformation.types.deprecated_status
 
         capo_cloudformation.types.deprecated_status.serialize_query(
-            value["deprecated_status"], pairs, f"{prefix}.DeprecatedStatus"
+            value["deprecated_status"], pairs, f"{key_prefix}DeprecatedStatus"
         )
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
 
 
 def deserialize_query(el: Element) -> ListTypeVersionsInput:

@@ -24,17 +24,18 @@ class HsmClientCertificate(TypedDict, closed=True):
 def serialize_query(
     value: HsmClientCertificate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_client_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmClientCertificateIdentifier",
+                f"{key_prefix}HsmClientCertificateIdentifier",
                 str(value["hsm_client_certificate_identifier"]),
             )
         )
     if "hsm_client_certificate_public_key" in value:
         pairs.append(
             (
-                f"{prefix}.HsmClientCertificatePublicKey",
+                f"{key_prefix}HsmClientCertificatePublicKey",
                 str(value["hsm_client_certificate_public_key"]),
             )
         )
@@ -42,7 +43,7 @@ def serialize_query(
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

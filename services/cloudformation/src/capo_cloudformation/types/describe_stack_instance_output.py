@@ -21,11 +21,12 @@ class DescribeStackInstanceOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackInstanceOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_instance" in value:
         import capo_cloudformation.types.stack_instance
 
         capo_cloudformation.types.stack_instance.serialize_query(
-            value["stack_instance"], pairs, f"{prefix}.StackInstance"
+            value["stack_instance"], pairs, f"{key_prefix}StackInstance"
         )
 
 

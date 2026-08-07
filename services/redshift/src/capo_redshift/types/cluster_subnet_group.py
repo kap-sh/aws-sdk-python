@@ -36,30 +36,33 @@ class ClusterSubnetGroup(TypedDict, closed=True):
 def serialize_query(
     value: ClusterSubnetGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_subnet_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterSubnetGroupName",
+                f"{key_prefix}ClusterSubnetGroupName",
                 str(value["cluster_subnet_group_name"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnet_group_status" in value:
-        pairs.append((f"{prefix}.SubnetGroupStatus", str(value["subnet_group_status"])))
+        pairs.append(
+            (f"{key_prefix}SubnetGroupStatus", str(value["subnet_group_status"]))
+        )
     if "subnets" in value:
         import capo_redshift.types.subnet_list
 
         capo_redshift.types.subnet_list.serialize_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "supported_cluster_ip_address_types" in value:
         import capo_redshift.types.value_string_list
@@ -67,7 +70,7 @@ def serialize_query(
         capo_redshift.types.value_string_list.serialize_query(
             value["supported_cluster_ip_address_types"],
             pairs,
-            f"{prefix}.SupportedClusterIpAddressTypes",
+            f"{key_prefix}SupportedClusterIpAddressTypes",
         )
 
 

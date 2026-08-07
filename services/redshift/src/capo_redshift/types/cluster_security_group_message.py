@@ -24,13 +24,16 @@ class ClusterSecurityGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ClusterSecurityGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "cluster_security_groups" in value:
         import capo_redshift.types.cluster_security_groups
 
         capo_redshift.types.cluster_security_groups.serialize_query(
-            value["cluster_security_groups"], pairs, f"{prefix}.ClusterSecurityGroups"
+            value["cluster_security_groups"],
+            pairs,
+            f"{key_prefix}ClusterSecurityGroups",
         )
 
 

@@ -27,13 +27,14 @@ class CacheParameterGroupDetails(TypedDict, closed=True):
 def serialize_query(
     value: CacheParameterGroupDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "parameters" in value:
         import capo_elasticache.types.parameters_list
 
         capo_elasticache.types.parameters_list.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "cache_node_type_specific_parameters" in value:
         import capo_elasticache.types.cache_node_type_specific_parameters_list
@@ -41,7 +42,7 @@ def serialize_query(
         capo_elasticache.types.cache_node_type_specific_parameters_list.serialize_query(
             value["cache_node_type_specific_parameters"],
             pairs,
-            f"{prefix}.CacheNodeTypeSpecificParameters",
+            f"{key_prefix}CacheNodeTypeSpecificParameters",
         )
 
 

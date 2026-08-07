@@ -23,17 +23,18 @@ class ClusterVersion(TypedDict, closed=True):
 def serialize_query(
     value: ClusterVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_version" in value:
-        pairs.append((f"{prefix}.ClusterVersion", str(value["cluster_version"])))
+        pairs.append((f"{key_prefix}ClusterVersion", str(value["cluster_version"])))
     if "cluster_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterParameterGroupFamily",
+                f"{key_prefix}ClusterParameterGroupFamily",
                 str(value["cluster_parameter_group_family"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> ClusterVersion:

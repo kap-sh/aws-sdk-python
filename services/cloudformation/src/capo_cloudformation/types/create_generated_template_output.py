@@ -21,9 +21,10 @@ class CreateGeneratedTemplateOutput(TypedDict, closed=True):
 def serialize_query(
     value: CreateGeneratedTemplateOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "generated_template_id" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateId", str(value["generated_template_id"]))
+            (f"{key_prefix}GeneratedTemplateId", str(value["generated_template_id"]))
         )
 
 

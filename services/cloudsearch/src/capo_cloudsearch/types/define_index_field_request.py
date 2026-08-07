@@ -22,11 +22,12 @@ class DefineIndexFieldRequest(TypedDict, closed=True):
 def serialize_query(
     value: DefineIndexFieldRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     import capo_cloudsearch.types.index_field
 
     capo_cloudsearch.types.index_field.serialize_query(
-        value["index_field"], pairs, f"{prefix}.IndexField"
+        value["index_field"], pairs, f"{key_prefix}IndexField"
     )
 
 

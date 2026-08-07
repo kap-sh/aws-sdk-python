@@ -24,14 +24,15 @@ class ListPlatformVersionsResult(TypedDict, closed=True):
 def serialize_query(
     value: ListPlatformVersionsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_summary_list" in value:
         import capo_elastic_beanstalk.types.platform_summary_list
 
         capo_elastic_beanstalk.types.platform_summary_list.serialize_query(
-            value["platform_summary_list"], pairs, f"{prefix}.PlatformSummaryList"
+            value["platform_summary_list"], pairs, f"{key_prefix}PlatformSummaryList"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListPlatformVersionsResult:

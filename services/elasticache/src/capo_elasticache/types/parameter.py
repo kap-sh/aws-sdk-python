@@ -37,31 +37,32 @@ class Parameter(TypedDict, closed=True):
 def serialize_query(
     value: Parameter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_name" in value:
-        pairs.append((f"{prefix}.ParameterName", str(value["parameter_name"])))
+        pairs.append((f"{key_prefix}ParameterName", str(value["parameter_name"])))
     if "parameter_value" in value:
-        pairs.append((f"{prefix}.ParameterValue", str(value["parameter_value"])))
+        pairs.append((f"{key_prefix}ParameterValue", str(value["parameter_value"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "data_type" in value:
-        pairs.append((f"{prefix}.DataType", str(value["data_type"])))
+        pairs.append((f"{key_prefix}DataType", str(value["data_type"])))
     if "allowed_values" in value:
-        pairs.append((f"{prefix}.AllowedValues", str(value["allowed_values"])))
+        pairs.append((f"{key_prefix}AllowedValues", str(value["allowed_values"])))
     if "is_modifiable" in value:
         pairs.append(
-            (f"{prefix}.IsModifiable", "true" if value["is_modifiable"] else "false")
+            (f"{key_prefix}IsModifiable", "true" if value["is_modifiable"] else "false")
         )
     if "minimum_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MinimumEngineVersion", str(value["minimum_engine_version"]))
+            (f"{key_prefix}MinimumEngineVersion", str(value["minimum_engine_version"]))
         )
     if "change_type" in value:
         import capo_elasticache.types.change_type
 
         capo_elasticache.types.change_type.serialize_query(
-            value["change_type"], pairs, f"{prefix}.ChangeType"
+            value["change_type"], pairs, f"{key_prefix}ChangeType"
         )
 
 

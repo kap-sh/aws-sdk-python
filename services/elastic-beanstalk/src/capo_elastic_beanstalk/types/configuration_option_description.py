@@ -71,41 +71,42 @@ class ConfigurationOptionDescription(TypedDict, closed=True):
 def serialize_query(
     value: ConfigurationOptionDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "change_severity" in value:
-        pairs.append((f"{prefix}.ChangeSeverity", str(value["change_severity"])))
+        pairs.append((f"{key_prefix}ChangeSeverity", str(value["change_severity"])))
     if "user_defined" in value:
         pairs.append(
-            (f"{prefix}.UserDefined", "true" if value["user_defined"] else "false")
+            (f"{key_prefix}UserDefined", "true" if value["user_defined"] else "false")
         )
     if "value_type" in value:
         import capo_elastic_beanstalk.types.configuration_option_value_type
 
         capo_elastic_beanstalk.types.configuration_option_value_type.serialize_query(
-            value["value_type"], pairs, f"{prefix}.ValueType"
+            value["value_type"], pairs, f"{key_prefix}ValueType"
         )
     if "value_options" in value:
         import capo_elastic_beanstalk.types.configuration_option_possible_values
 
         capo_elastic_beanstalk.types.configuration_option_possible_values.serialize_query(
-            value["value_options"], pairs, f"{prefix}.ValueOptions"
+            value["value_options"], pairs, f"{key_prefix}ValueOptions"
         )
     if "min_value" in value:
-        pairs.append((f"{prefix}.MinValue", str(value["min_value"])))
+        pairs.append((f"{key_prefix}MinValue", str(value["min_value"])))
     if "max_value" in value:
-        pairs.append((f"{prefix}.MaxValue", str(value["max_value"])))
+        pairs.append((f"{key_prefix}MaxValue", str(value["max_value"])))
     if "max_length" in value:
-        pairs.append((f"{prefix}.MaxLength", str(value["max_length"])))
+        pairs.append((f"{key_prefix}MaxLength", str(value["max_length"])))
     if "regex" in value:
         import capo_elastic_beanstalk.types.option_restriction_regex
 
         capo_elastic_beanstalk.types.option_restriction_regex.serialize_query(
-            value["regex"], pairs, f"{prefix}.Regex"
+            value["regex"], pairs, f"{key_prefix}Regex"
         )
 
 

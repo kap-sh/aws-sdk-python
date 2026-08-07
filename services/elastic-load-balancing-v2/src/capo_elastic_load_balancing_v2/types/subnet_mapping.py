@@ -39,19 +39,20 @@ class SubnetMapping(TypedDict, closed=True):
 def serialize_query(
     value: SubnetMapping, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "allocation_id" in value:
-        pairs.append((f"{prefix}.AllocationId", str(value["allocation_id"])))
+        pairs.append((f"{key_prefix}AllocationId", str(value["allocation_id"])))
     if "private_i_pv4_address" in value:
         pairs.append(
-            (f"{prefix}.PrivateIPv4Address", str(value["private_i_pv4_address"]))
+            (f"{key_prefix}PrivateIPv4Address", str(value["private_i_pv4_address"]))
         )
     if "i_pv6_address" in value:
-        pairs.append((f"{prefix}.IPv6Address", str(value["i_pv6_address"])))
+        pairs.append((f"{key_prefix}IPv6Address", str(value["i_pv6_address"])))
     if "source_nat_ipv6_prefix" in value:
         pairs.append(
-            (f"{prefix}.SourceNatIpv6Prefix", str(value["source_nat_ipv6_prefix"]))
+            (f"{key_prefix}SourceNatIpv6Prefix", str(value["source_nat_ipv6_prefix"]))
         )
 
 

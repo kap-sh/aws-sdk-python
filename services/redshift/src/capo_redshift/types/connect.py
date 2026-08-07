@@ -19,11 +19,12 @@ class Connect(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Connect, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "authorization" in value:
         import capo_redshift.types.service_authorization
 
         capo_redshift.types.service_authorization.serialize_query(
-            value["authorization"], pairs, f"{prefix}.Authorization"
+            value["authorization"], pairs, f"{key_prefix}Authorization"
         )
 
 

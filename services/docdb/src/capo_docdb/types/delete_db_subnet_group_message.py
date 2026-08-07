@@ -19,9 +19,10 @@ class DeleteDBSubnetGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteDBSubnetGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSubnetGroupName", str(value["db_subnet_group_name"]))
+            (f"{key_prefix}DBSubnetGroupName", str(value["db_subnet_group_name"]))
         )
 
 

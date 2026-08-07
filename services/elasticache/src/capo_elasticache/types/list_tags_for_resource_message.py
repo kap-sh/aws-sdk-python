@@ -19,8 +19,9 @@ class ListTagsForResourceMessage(TypedDict, closed=True):
 def serialize_query(
     value: ListTagsForResourceMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
 
 
 def deserialize_query(el: Element) -> ListTagsForResourceMessage:

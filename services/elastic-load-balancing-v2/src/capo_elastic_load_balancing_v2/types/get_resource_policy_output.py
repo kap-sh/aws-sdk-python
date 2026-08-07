@@ -19,8 +19,9 @@ class GetResourcePolicyOutput(TypedDict, closed=True):
 def serialize_query(
     value: GetResourcePolicyOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "policy" in value:
-        pairs.append((f"{prefix}.Policy", str(value["policy"])))
+        pairs.append((f"{key_prefix}Policy", str(value["policy"])))
 
 
 def deserialize_query(el: Element) -> GetResourcePolicyOutput:

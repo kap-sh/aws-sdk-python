@@ -20,11 +20,14 @@ class CreateClusterParameterGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateClusterParameterGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_parameter_group" in value:
         import capo_redshift.types.cluster_parameter_group
 
         capo_redshift.types.cluster_parameter_group.serialize_query(
-            value["cluster_parameter_group"], pairs, f"{prefix}.ClusterParameterGroup"
+            value["cluster_parameter_group"],
+            pairs,
+            f"{key_prefix}ClusterParameterGroup",
         )
 
 

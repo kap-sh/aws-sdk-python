@@ -41,25 +41,26 @@ class RollbackDetails(TypedDict, closed=True):
 def serialize_query(
     value: RollbackDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rollback_reason" in value:
-        pairs.append((f"{prefix}.RollbackReason", str(value["rollback_reason"])))
+        pairs.append((f"{key_prefix}RollbackReason", str(value["rollback_reason"])))
     if "rollback_start_time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["rollback_start_time"], pairs, f"{prefix}.RollbackStartTime"
+            value["rollback_start_time"], pairs, f"{key_prefix}RollbackStartTime"
         )
     if "percentage_complete_on_rollback" in value:
         pairs.append(
             (
-                f"{prefix}.PercentageCompleteOnRollback",
+                f"{key_prefix}PercentageCompleteOnRollback",
                 str(value["percentage_complete_on_rollback"]),
             )
         )
     if "instances_to_update_on_rollback" in value:
         pairs.append(
             (
-                f"{prefix}.InstancesToUpdateOnRollback",
+                f"{key_prefix}InstancesToUpdateOnRollback",
                 str(value["instances_to_update_on_rollback"]),
             )
         )
@@ -69,7 +70,7 @@ def serialize_query(
         capo_auto_scaling.types.instance_refresh_progress_details.serialize_query(
             value["progress_details_on_rollback"],
             pairs,
-            f"{prefix}.ProgressDetailsOnRollback",
+            f"{key_prefix}ProgressDetailsOnRollback",
         )
 
 

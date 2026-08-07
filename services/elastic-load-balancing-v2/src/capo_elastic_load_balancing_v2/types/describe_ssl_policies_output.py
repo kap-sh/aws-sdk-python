@@ -24,14 +24,15 @@ class DescribeSSLPoliciesOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeSSLPoliciesOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ssl_policies" in value:
         import capo_elastic_load_balancing_v2.types.ssl_policies
 
         capo_elastic_load_balancing_v2.types.ssl_policies.serialize_query(
-            value["ssl_policies"], pairs, f"{prefix}.SslPolicies"
+            value["ssl_policies"], pairs, f"{key_prefix}SslPolicies"
         )
     if "next_marker" in value:
-        pairs.append((f"{prefix}.NextMarker", str(value["next_marker"])))
+        pairs.append((f"{key_prefix}NextMarker", str(value["next_marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeSSLPoliciesOutput:

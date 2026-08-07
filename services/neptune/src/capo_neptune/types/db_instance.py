@@ -172,72 +172,81 @@ class DBInstance(TypedDict, closed=True):
 def serialize_query(
     value: DBInstance, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_instance_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBInstanceIdentifier", str(value["db_instance_identifier"]))
+            (f"{key_prefix}DBInstanceIdentifier", str(value["db_instance_identifier"]))
         )
     if "db_instance_class" in value:
-        pairs.append((f"{prefix}.DBInstanceClass", str(value["db_instance_class"])))
+        pairs.append((f"{key_prefix}DBInstanceClass", str(value["db_instance_class"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "db_instance_status" in value:
-        pairs.append((f"{prefix}.DBInstanceStatus", str(value["db_instance_status"])))
+        pairs.append(
+            (f"{key_prefix}DBInstanceStatus", str(value["db_instance_status"]))
+        )
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "db_name" in value:
-        pairs.append((f"{prefix}.DBName", str(value["db_name"])))
+        pairs.append((f"{key_prefix}DBName", str(value["db_name"])))
     if "endpoint" in value:
         import capo_neptune.types.endpoint
 
         capo_neptune.types.endpoint.serialize_query(
-            value["endpoint"], pairs, f"{prefix}.Endpoint"
+            value["endpoint"], pairs, f"{key_prefix}Endpoint"
         )
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "instance_create_time" in value:
         import capo_neptune.types.t_stamp
 
         capo_neptune.types.t_stamp.serialize_query(
-            value["instance_create_time"], pairs, f"{prefix}.InstanceCreateTime"
+            value["instance_create_time"], pairs, f"{key_prefix}InstanceCreateTime"
         )
     if "preferred_backup_window" in value:
         pairs.append(
-            (f"{prefix}.PreferredBackupWindow", str(value["preferred_backup_window"]))
+            (
+                f"{key_prefix}PreferredBackupWindow",
+                str(value["preferred_backup_window"]),
+            )
         )
     if "backup_retention_period" in value:
         pairs.append(
-            (f"{prefix}.BackupRetentionPeriod", str(value["backup_retention_period"]))
+            (
+                f"{key_prefix}BackupRetentionPeriod",
+                str(value["backup_retention_period"]),
+            )
         )
     if "db_security_groups" in value:
         import capo_neptune.types.db_security_group_membership_list
 
         capo_neptune.types.db_security_group_membership_list.serialize_query(
-            value["db_security_groups"], pairs, f"{prefix}.DBSecurityGroups"
+            value["db_security_groups"], pairs, f"{key_prefix}DBSecurityGroups"
         )
     if "vpc_security_groups" in value:
         import capo_neptune.types.vpc_security_group_membership_list
 
         capo_neptune.types.vpc_security_group_membership_list.serialize_query(
-            value["vpc_security_groups"], pairs, f"{prefix}.VpcSecurityGroups"
+            value["vpc_security_groups"], pairs, f"{key_prefix}VpcSecurityGroups"
         )
     if "db_parameter_groups" in value:
         import capo_neptune.types.db_parameter_group_status_list
 
         capo_neptune.types.db_parameter_group_status_list.serialize_query(
-            value["db_parameter_groups"], pairs, f"{prefix}.DBParameterGroups"
+            value["db_parameter_groups"], pairs, f"{key_prefix}DBParameterGroups"
         )
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "db_subnet_group" in value:
         import capo_neptune.types.db_subnet_group
 
         capo_neptune.types.db_subnet_group.serialize_query(
-            value["db_subnet_group"], pairs, f"{prefix}.DBSubnetGroup"
+            value["db_subnet_group"], pairs, f"{key_prefix}DBSubnetGroup"
         )
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
@@ -245,29 +254,31 @@ def serialize_query(
         import capo_neptune.types.pending_modified_values
 
         capo_neptune.types.pending_modified_values.serialize_query(
-            value["pending_modified_values"], pairs, f"{prefix}.PendingModifiedValues"
+            value["pending_modified_values"],
+            pairs,
+            f"{key_prefix}PendingModifiedValues",
         )
     if "latest_restorable_time" in value:
         import capo_neptune.types.t_stamp
 
         capo_neptune.types.t_stamp.serialize_query(
-            value["latest_restorable_time"], pairs, f"{prefix}.LatestRestorableTime"
+            value["latest_restorable_time"], pairs, f"{key_prefix}LatestRestorableTime"
         )
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", "true" if value["multi_az"] else "false"))
+        pairs.append((f"{key_prefix}MultiAZ", "true" if value["multi_az"] else "false"))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "auto_minor_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AutoMinorVersionUpgrade",
+                f"{key_prefix}AutoMinorVersionUpgrade",
                 "true" if value["auto_minor_version_upgrade"] else "false",
             )
         )
     if "read_replica_source_db_instance_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.ReadReplicaSourceDBInstanceIdentifier",
+                f"{key_prefix}ReadReplicaSourceDBInstanceIdentifier",
                 str(value["read_replica_source_db_instance_identifier"]),
             )
         )
@@ -277,7 +288,7 @@ def serialize_query(
         capo_neptune.types.read_replica_db_instance_identifier_list.serialize_query(
             value["read_replica_db_instance_identifiers"],
             pairs,
-            f"{prefix}.ReadReplicaDBInstanceIdentifiers",
+            f"{key_prefix}ReadReplicaDBInstanceIdentifiers",
         )
     if "read_replica_db_cluster_identifiers" in value:
         import capo_neptune.types.read_replica_db_cluster_identifier_list
@@ -285,31 +296,35 @@ def serialize_query(
         capo_neptune.types.read_replica_db_cluster_identifier_list.serialize_query(
             value["read_replica_db_cluster_identifiers"],
             pairs,
-            f"{prefix}.ReadReplicaDBClusterIdentifiers",
+            f"{key_prefix}ReadReplicaDBClusterIdentifiers",
         )
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "option_group_memberships" in value:
         import capo_neptune.types.option_group_membership_list
 
         capo_neptune.types.option_group_membership_list.serialize_query(
-            value["option_group_memberships"], pairs, f"{prefix}.OptionGroupMemberships"
+            value["option_group_memberships"],
+            pairs,
+            f"{key_prefix}OptionGroupMemberships",
         )
     if "character_set_name" in value:
-        pairs.append((f"{prefix}.CharacterSetName", str(value["character_set_name"])))
+        pairs.append(
+            (f"{key_prefix}CharacterSetName", str(value["character_set_name"]))
+        )
     if "secondary_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.SecondaryAvailabilityZone",
+                f"{key_prefix}SecondaryAvailabilityZone",
                 str(value["secondary_availability_zone"]),
             )
         )
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
@@ -317,33 +332,35 @@ def serialize_query(
         import capo_neptune.types.db_instance_status_info_list
 
         capo_neptune.types.db_instance_status_info_list.serialize_query(
-            value["status_infos"], pairs, f"{prefix}.StatusInfos"
+            value["status_infos"], pairs, f"{key_prefix}StatusInfos"
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "tde_credential_arn" in value:
-        pairs.append((f"{prefix}.TdeCredentialArn", str(value["tde_credential_arn"])))
+        pairs.append(
+            (f"{key_prefix}TdeCredentialArn", str(value["tde_credential_arn"]))
+        )
     if "db_instance_port" in value:
-        pairs.append((f"{prefix}.DbInstancePort", str(value["db_instance_port"])))
+        pairs.append((f"{key_prefix}DbInstancePort", str(value["db_instance_port"])))
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "dbi_resource_id" in value:
-        pairs.append((f"{prefix}.DbiResourceId", str(value["dbi_resource_id"])))
+        pairs.append((f"{key_prefix}DbiResourceId", str(value["dbi_resource_id"])))
     if "ca_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.CACertificateIdentifier",
+                f"{key_prefix}CACertificateIdentifier",
                 str(value["ca_certificate_identifier"]),
             )
         )
@@ -351,52 +368,54 @@ def serialize_query(
         import capo_neptune.types.domain_membership_list
 
         capo_neptune.types.domain_membership_list.serialize_query(
-            value["domain_memberships"], pairs, f"{prefix}.DomainMemberships"
+            value["domain_memberships"], pairs, f"{key_prefix}DomainMemberships"
         )
     if "copy_tags_to_snapshot" in value:
         pairs.append(
             (
-                f"{prefix}.CopyTagsToSnapshot",
+                f"{key_prefix}CopyTagsToSnapshot",
                 "true" if value["copy_tags_to_snapshot"] else "false",
             )
         )
     if "monitoring_interval" in value:
         pairs.append(
-            (f"{prefix}.MonitoringInterval", str(value["monitoring_interval"]))
+            (f"{key_prefix}MonitoringInterval", str(value["monitoring_interval"]))
         )
     if "enhanced_monitoring_resource_arn" in value:
         pairs.append(
             (
-                f"{prefix}.EnhancedMonitoringResourceArn",
+                f"{key_prefix}EnhancedMonitoringResourceArn",
                 str(value["enhanced_monitoring_resource_arn"]),
             )
         )
     if "monitoring_role_arn" in value:
-        pairs.append((f"{prefix}.MonitoringRoleArn", str(value["monitoring_role_arn"])))
+        pairs.append(
+            (f"{key_prefix}MonitoringRoleArn", str(value["monitoring_role_arn"]))
+        )
     if "promotion_tier" in value:
-        pairs.append((f"{prefix}.PromotionTier", str(value["promotion_tier"])))
+        pairs.append((f"{key_prefix}PromotionTier", str(value["promotion_tier"])))
     if "db_instance_arn" in value:
-        pairs.append((f"{prefix}.DBInstanceArn", str(value["db_instance_arn"])))
+        pairs.append((f"{key_prefix}DBInstanceArn", str(value["db_instance_arn"])))
     if "timezone" in value:
-        pairs.append((f"{prefix}.Timezone", str(value["timezone"])))
+        pairs.append((f"{key_prefix}Timezone", str(value["timezone"])))
     if "iam_database_authentication_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IAMDatabaseAuthenticationEnabled",
+                f"{key_prefix}IAMDatabaseAuthenticationEnabled",
                 "true" if value["iam_database_authentication_enabled"] else "false",
             )
         )
     if "performance_insights_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.PerformanceInsightsEnabled",
+                f"{key_prefix}PerformanceInsightsEnabled",
                 "true" if value["performance_insights_enabled"] else "false",
             )
         )
     if "performance_insights_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.PerformanceInsightsKMSKeyId",
+                f"{key_prefix}PerformanceInsightsKMSKeyId",
                 str(value["performance_insights_kms_key_id"]),
             )
         )
@@ -406,17 +425,17 @@ def serialize_query(
         capo_neptune.types.log_type_list.serialize_query(
             value["enabled_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.EnabledCloudwatchLogsExports",
+            f"{key_prefix}EnabledCloudwatchLogsExports",
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
     if "network_type" in value:
-        pairs.append((f"{prefix}.NetworkType", str(value["network_type"])))
+        pairs.append((f"{key_prefix}NetworkType", str(value["network_type"])))
 
 
 def deserialize_query(el: Element) -> DBInstance:

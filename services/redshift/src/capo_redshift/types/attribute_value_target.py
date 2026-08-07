@@ -19,8 +19,9 @@ class AttributeValueTarget(TypedDict, closed=True):
 def serialize_query(
     value: AttributeValueTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute_value" in value:
-        pairs.append((f"{prefix}.AttributeValue", str(value["attribute_value"])))
+        pairs.append((f"{key_prefix}AttributeValue", str(value["attribute_value"])))
 
 
 def deserialize_query(el: Element) -> AttributeValueTarget:

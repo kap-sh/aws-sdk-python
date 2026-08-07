@@ -36,21 +36,22 @@ class TerminateEnvironmentMessage(TypedDict, closed=True):
 def serialize_query(
     value: TerminateEnvironmentMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environment_id" in value:
-        pairs.append((f"{prefix}.EnvironmentId", str(value["environment_id"])))
+        pairs.append((f"{key_prefix}EnvironmentId", str(value["environment_id"])))
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "terminate_resources" in value:
         pairs.append(
             (
-                f"{prefix}.TerminateResources",
+                f"{key_prefix}TerminateResources",
                 "true" if value["terminate_resources"] else "false",
             )
         )
     if "force_terminate" in value:
         pairs.append(
             (
-                f"{prefix}.ForceTerminate",
+                f"{key_prefix}ForceTerminate",
                 "true" if value["force_terminate"] else "false",
             )
         )

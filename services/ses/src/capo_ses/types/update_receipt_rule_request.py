@@ -23,10 +23,13 @@ class UpdateReceiptRuleRequest(TypedDict, closed=True):
 def serialize_query(
     value: UpdateReceiptRuleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RuleSetName", str(value["rule_set_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RuleSetName", str(value["rule_set_name"])))
     import capo_ses.types.receipt_rule
 
-    capo_ses.types.receipt_rule.serialize_query(value["rule"], pairs, f"{prefix}.Rule")
+    capo_ses.types.receipt_rule.serialize_query(
+        value["rule"], pairs, f"{key_prefix}Rule"
+    )
 
 
 def deserialize_query(el: Element) -> UpdateReceiptRuleRequest:

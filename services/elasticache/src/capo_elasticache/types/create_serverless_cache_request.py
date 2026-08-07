@@ -60,63 +60,71 @@ class CreateServerlessCacheRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateServerlessCacheRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache_name" in value:
         pairs.append(
-            (f"{prefix}.ServerlessCacheName", str(value["serverless_cache_name"]))
+            (f"{key_prefix}ServerlessCacheName", str(value["serverless_cache_name"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
     if "cache_usage_limits" in value:
         import capo_elasticache.types.cache_usage_limits
 
         capo_elasticache.types.cache_usage_limits.serialize_query(
-            value["cache_usage_limits"], pairs, f"{prefix}.CacheUsageLimits"
+            value["cache_usage_limits"], pairs, f"{key_prefix}CacheUsageLimits"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "security_group_ids" in value:
         import capo_elasticache.types.security_group_ids_list
 
         capo_elasticache.types.security_group_ids_list.serialize_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "snapshot_arns_to_restore" in value:
         import capo_elasticache.types.snapshot_arns_list
 
         capo_elasticache.types.snapshot_arns_list.serialize_query(
-            value["snapshot_arns_to_restore"], pairs, f"{prefix}.SnapshotArnsToRestore"
+            value["snapshot_arns_to_restore"],
+            pairs,
+            f"{key_prefix}SnapshotArnsToRestore",
         )
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "user_group_id" in value:
-        pairs.append((f"{prefix}.UserGroupId", str(value["user_group_id"])))
+        pairs.append((f"{key_prefix}UserGroupId", str(value["user_group_id"])))
     if "subnet_ids" in value:
         import capo_elasticache.types.subnet_ids_list
 
         capo_elasticache.types.subnet_ids_list.serialize_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
     if "snapshot_retention_limit" in value:
         pairs.append(
-            (f"{prefix}.SnapshotRetentionLimit", str(value["snapshot_retention_limit"]))
+            (
+                f"{key_prefix}SnapshotRetentionLimit",
+                str(value["snapshot_retention_limit"]),
+            )
         )
     if "daily_snapshot_time" in value:
-        pairs.append((f"{prefix}.DailySnapshotTime", str(value["daily_snapshot_time"])))
+        pairs.append(
+            (f"{key_prefix}DailySnapshotTime", str(value["daily_snapshot_time"]))
+        )
     if "network_type" in value:
         import capo_elasticache.types.network_type
 
         capo_elasticache.types.network_type.serialize_query(
-            value["network_type"], pairs, f"{prefix}.NetworkType"
+            value["network_type"], pairs, f"{key_prefix}NetworkType"
         )
 
 

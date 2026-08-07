@@ -27,17 +27,18 @@ class ResetCacheParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ResetCacheParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupName",
+                f"{key_prefix}CacheParameterGroupName",
                 str(value["cache_parameter_group_name"]),
             )
         )
     if "reset_all_parameters" in value:
         pairs.append(
             (
-                f"{prefix}.ResetAllParameters",
+                f"{key_prefix}ResetAllParameters",
                 "true" if value["reset_all_parameters"] else "false",
             )
         )
@@ -45,7 +46,7 @@ def serialize_query(
         import capo_elasticache.types.parameter_name_value_list
 
         capo_elasticache.types.parameter_name_value_list.serialize_query(
-            value["parameter_name_values"], pairs, f"{prefix}.ParameterNameValues"
+            value["parameter_name_values"], pairs, f"{key_prefix}ParameterNameValues"
         )
 
 

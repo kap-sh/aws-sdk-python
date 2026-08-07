@@ -47,34 +47,38 @@ class DescribeStackRefactorOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackRefactorOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "stack_refactor_id" in value:
-        pairs.append((f"{prefix}.StackRefactorId", str(value["stack_refactor_id"])))
+        pairs.append((f"{key_prefix}StackRefactorId", str(value["stack_refactor_id"])))
     if "stack_ids" in value:
         import capo_cloudformation.types.stack_ids
 
         capo_cloudformation.types.stack_ids.serialize_query(
-            value["stack_ids"], pairs, f"{prefix}.StackIds"
+            value["stack_ids"], pairs, f"{key_prefix}StackIds"
         )
     if "execution_status" in value:
         import capo_cloudformation.types.stack_refactor_execution_status
 
         capo_cloudformation.types.stack_refactor_execution_status.serialize_query(
-            value["execution_status"], pairs, f"{prefix}.ExecutionStatus"
+            value["execution_status"], pairs, f"{key_prefix}ExecutionStatus"
         )
     if "execution_status_reason" in value:
         pairs.append(
-            (f"{prefix}.ExecutionStatusReason", str(value["execution_status_reason"]))
+            (
+                f"{key_prefix}ExecutionStatusReason",
+                str(value["execution_status_reason"]),
+            )
         )
     if "status" in value:
         import capo_cloudformation.types.stack_refactor_status
 
         capo_cloudformation.types.stack_refactor_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
 
 
 def deserialize_query(el: Element) -> DescribeStackRefactorOutput:

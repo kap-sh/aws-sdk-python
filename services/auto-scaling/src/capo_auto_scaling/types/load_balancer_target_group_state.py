@@ -26,15 +26,16 @@ class LoadBalancerTargetGroupState(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancerTargetGroupState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_target_group_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LoadBalancerTargetGroupARN",
+                f"{key_prefix}LoadBalancerTargetGroupARN",
                 str(value["load_balancer_target_group_arn"]),
             )
         )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
 
 
 def deserialize_query(el: Element) -> LoadBalancerTargetGroupState:

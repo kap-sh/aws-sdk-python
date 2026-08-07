@@ -43,39 +43,42 @@ class CreateUsageLimitMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateUsageLimitMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "feature_type" in value:
         import capo_redshift.types.usage_limit_feature_type
 
         capo_redshift.types.usage_limit_feature_type.serialize_query(
-            value["feature_type"], pairs, f"{prefix}.FeatureType"
+            value["feature_type"], pairs, f"{key_prefix}FeatureType"
         )
     if "limit_type" in value:
         import capo_redshift.types.usage_limit_limit_type
 
         capo_redshift.types.usage_limit_limit_type.serialize_query(
-            value["limit_type"], pairs, f"{prefix}.LimitType"
+            value["limit_type"], pairs, f"{key_prefix}LimitType"
         )
     if "amount" in value:
-        pairs.append((f"{prefix}.Amount", str(value["amount"])))
+        pairs.append((f"{key_prefix}Amount", str(value["amount"])))
     if "period" in value:
         import capo_redshift.types.usage_limit_period
 
         capo_redshift.types.usage_limit_period.serialize_query(
-            value["period"], pairs, f"{prefix}.Period"
+            value["period"], pairs, f"{key_prefix}Period"
         )
     if "breach_action" in value:
         import capo_redshift.types.usage_limit_breach_action
 
         capo_redshift.types.usage_limit_breach_action.serialize_query(
-            value["breach_action"], pairs, f"{prefix}.BreachAction"
+            value["breach_action"], pairs, f"{key_prefix}BreachAction"
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

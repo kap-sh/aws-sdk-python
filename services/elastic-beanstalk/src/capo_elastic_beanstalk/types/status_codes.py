@@ -33,14 +33,15 @@ class StatusCodes(TypedDict, closed=True):
 def serialize_query(
     value: StatusCodes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status2xx" in value:
-        pairs.append((f"{prefix}.Status2xx", str(value["status2xx"])))
+        pairs.append((f"{key_prefix}Status2xx", str(value["status2xx"])))
     if "status3xx" in value:
-        pairs.append((f"{prefix}.Status3xx", str(value["status3xx"])))
+        pairs.append((f"{key_prefix}Status3xx", str(value["status3xx"])))
     if "status4xx" in value:
-        pairs.append((f"{prefix}.Status4xx", str(value["status4xx"])))
+        pairs.append((f"{key_prefix}Status4xx", str(value["status4xx"])))
     if "status5xx" in value:
-        pairs.append((f"{prefix}.Status5xx", str(value["status5xx"])))
+        pairs.append((f"{key_prefix}Status5xx", str(value["status5xx"])))
 
 
 def deserialize_query(el: Element) -> StatusCodes:

@@ -55,42 +55,43 @@ class PutScheduledUpdateGroupActionType(TypedDict, closed=True):
 def serialize_query(
     value: PutScheduledUpdateGroupActionType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "scheduled_action_name" in value:
         pairs.append(
-            (f"{prefix}.ScheduledActionName", str(value["scheduled_action_name"]))
+            (f"{key_prefix}ScheduledActionName", str(value["scheduled_action_name"]))
         )
     if "time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["time"], pairs, f"{prefix}.Time"
+            value["time"], pairs, f"{key_prefix}Time"
         )
     if "start_time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "recurrence" in value:
-        pairs.append((f"{prefix}.Recurrence", str(value["recurrence"])))
+        pairs.append((f"{key_prefix}Recurrence", str(value["recurrence"])))
     if "min_size" in value:
-        pairs.append((f"{prefix}.MinSize", str(value["min_size"])))
+        pairs.append((f"{key_prefix}MinSize", str(value["min_size"])))
     if "max_size" in value:
-        pairs.append((f"{prefix}.MaxSize", str(value["max_size"])))
+        pairs.append((f"{key_prefix}MaxSize", str(value["max_size"])))
     if "desired_capacity" in value:
-        pairs.append((f"{prefix}.DesiredCapacity", str(value["desired_capacity"])))
+        pairs.append((f"{key_prefix}DesiredCapacity", str(value["desired_capacity"])))
     if "time_zone" in value:
-        pairs.append((f"{prefix}.TimeZone", str(value["time_zone"])))
+        pairs.append((f"{key_prefix}TimeZone", str(value["time_zone"])))
 
 
 def deserialize_query(el: Element) -> PutScheduledUpdateGroupActionType:

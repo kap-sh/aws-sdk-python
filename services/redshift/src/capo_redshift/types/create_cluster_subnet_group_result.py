@@ -20,11 +20,12 @@ class CreateClusterSubnetGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateClusterSubnetGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_subnet_group" in value:
         import capo_redshift.types.cluster_subnet_group
 
         capo_redshift.types.cluster_subnet_group.serialize_query(
-            value["cluster_subnet_group"], pairs, f"{prefix}.ClusterSubnetGroup"
+            value["cluster_subnet_group"], pairs, f"{key_prefix}ClusterSubnetGroup"
         )
 
 

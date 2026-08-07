@@ -19,14 +19,19 @@ class Body(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Body, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "text" in value:
         import capo_ses.types.content
 
-        capo_ses.types.content.serialize_query(value["text"], pairs, f"{prefix}.Text")
+        capo_ses.types.content.serialize_query(
+            value["text"], pairs, f"{key_prefix}Text"
+        )
     if "html" in value:
         import capo_ses.types.content
 
-        capo_ses.types.content.serialize_query(value["html"], pairs, f"{prefix}.Html")
+        capo_ses.types.content.serialize_query(
+            value["html"], pairs, f"{key_prefix}Html"
+        )
 
 
 def deserialize_query(el: Element) -> Body:

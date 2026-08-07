@@ -382,12 +382,14 @@ class AgentResource:
         self,
         agent_id: "capo_bedrock_agent.types.id.Id",
         agent_name: "capo_bedrock_agent.types.name.Name",
-        foundation_model: "capo_bedrock_agent.types.model_identifier.ModelIdentifier",
         agent_resource_role_arn: "capo_bedrock_agent.types.agent_role_arn.AgentRoleArn",
         *,
         config_overrides: Optional[BedrockAgentClientConfig] = None,
         instruction: Optional[
             "capo_bedrock_agent.types.instruction.Instruction"
+        ] = None,
+        foundation_model: Optional[
+            "capo_bedrock_agent.types.model_identifier.ModelIdentifier"
         ] = None,
         description: Optional[
             "capo_bedrock_agent.types.description.Description"
@@ -466,7 +468,8 @@ class AgentResource:
         input_["agent_name"] = agent_name
         if instruction is not None:
             input_["instruction"] = instruction
-        input_["foundation_model"] = foundation_model
+        if foundation_model is not None:
+            input_["foundation_model"] = foundation_model
         if description is not None:
             input_["description"] = description
         if orchestration_type is not None:
@@ -827,12 +830,14 @@ class AsyncAgentResource:
         self,
         agent_id: "capo_bedrock_agent.types.id.Id",
         agent_name: "capo_bedrock_agent.types.name.Name",
-        foundation_model: "capo_bedrock_agent.types.model_identifier.ModelIdentifier",
         agent_resource_role_arn: "capo_bedrock_agent.types.agent_role_arn.AgentRoleArn",
         *,
         config_overrides: Optional[AsyncBedrockAgentClientConfig] = None,
         instruction: Optional[
             "capo_bedrock_agent.types.instruction.Instruction"
+        ] = None,
+        foundation_model: Optional[
+            "capo_bedrock_agent.types.model_identifier.ModelIdentifier"
         ] = None,
         description: Optional[
             "capo_bedrock_agent.types.description.Description"
@@ -912,7 +917,8 @@ class AsyncAgentResource:
         input_["agent_name"] = agent_name
         if instruction is not None:
             input_["instruction"] = instruction
-        input_["foundation_model"] = foundation_model
+        if foundation_model is not None:
+            input_["foundation_model"] = foundation_model
         if description is not None:
             input_["description"] = description
         if orchestration_type is not None:

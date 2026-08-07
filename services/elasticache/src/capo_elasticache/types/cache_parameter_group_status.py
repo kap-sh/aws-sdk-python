@@ -26,22 +26,25 @@ class CacheParameterGroupStatus(TypedDict, closed=True):
 def serialize_query(
     value: CacheParameterGroupStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupName",
+                f"{key_prefix}CacheParameterGroupName",
                 str(value["cache_parameter_group_name"]),
             )
         )
     if "parameter_apply_status" in value:
         pairs.append(
-            (f"{prefix}.ParameterApplyStatus", str(value["parameter_apply_status"]))
+            (f"{key_prefix}ParameterApplyStatus", str(value["parameter_apply_status"]))
         )
     if "cache_node_ids_to_reboot" in value:
         import capo_elasticache.types.cache_node_ids_list
 
         capo_elasticache.types.cache_node_ids_list.serialize_query(
-            value["cache_node_ids_to_reboot"], pairs, f"{prefix}.CacheNodeIdsToReboot"
+            value["cache_node_ids_to_reboot"],
+            pairs,
+            f"{key_prefix}CacheNodeIdsToReboot",
         )
 
 

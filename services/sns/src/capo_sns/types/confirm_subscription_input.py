@@ -28,12 +28,13 @@ class ConfirmSubscriptionInput(TypedDict, closed=True):
 def serialize_query(
     value: ConfirmSubscriptionInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.Token", str(value["token"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}Token", str(value["token"])))
     if "authenticate_on_unsubscribe" in value:
         pairs.append(
             (
-                f"{prefix}.AuthenticateOnUnsubscribe",
+                f"{key_prefix}AuthenticateOnUnsubscribe",
                 str(value["authenticate_on_unsubscribe"]),
             )
         )

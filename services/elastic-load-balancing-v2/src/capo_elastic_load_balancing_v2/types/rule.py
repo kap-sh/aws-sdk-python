@@ -36,31 +36,32 @@ class Rule(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Rule, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_arn" in value:
-        pairs.append((f"{prefix}.RuleArn", str(value["rule_arn"])))
+        pairs.append((f"{key_prefix}RuleArn", str(value["rule_arn"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
     if "conditions" in value:
         import capo_elastic_load_balancing_v2.types.rule_condition_list
 
         capo_elastic_load_balancing_v2.types.rule_condition_list.serialize_query(
-            value["conditions"], pairs, f"{prefix}.Conditions"
+            value["conditions"], pairs, f"{key_prefix}Conditions"
         )
     if "actions" in value:
         import capo_elastic_load_balancing_v2.types.actions
 
         capo_elastic_load_balancing_v2.types.actions.serialize_query(
-            value["actions"], pairs, f"{prefix}.Actions"
+            value["actions"], pairs, f"{key_prefix}Actions"
         )
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
     if "transforms" in value:
         import capo_elastic_load_balancing_v2.types.rule_transform_list
 
         capo_elastic_load_balancing_v2.types.rule_transform_list.serialize_query(
-            value["transforms"], pairs, f"{prefix}.Transforms"
+            value["transforms"], pairs, f"{key_prefix}Transforms"
         )
 
 

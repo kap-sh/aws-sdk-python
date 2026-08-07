@@ -33,20 +33,21 @@ class DescribeEventsInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEventsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "filters" in value:
         import capo_cloudformation.types.event_filter
 
         capo_cloudformation.types.event_filter.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeEventsInput:

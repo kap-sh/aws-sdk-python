@@ -26,13 +26,14 @@ class ResourceDriftIgnoredAttribute(TypedDict, closed=True):
 def serialize_query(
     value: ResourceDriftIgnoredAttribute, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "reason" in value:
         import capo_cloudformation.types.drift_ignored_reason
 
         capo_cloudformation.types.drift_ignored_reason.serialize_query(
-            value["reason"], pairs, f"{prefix}.Reason"
+            value["reason"], pairs, f"{key_prefix}Reason"
         )
 
 

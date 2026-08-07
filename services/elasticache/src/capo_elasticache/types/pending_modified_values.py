@@ -54,23 +54,26 @@ class PendingModifiedValues(TypedDict, closed=True):
 def serialize_query(
     value: PendingModifiedValues, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "num_cache_nodes" in value:
-        pairs.append((f"{prefix}.NumCacheNodes", str(value["num_cache_nodes"])))
+        pairs.append((f"{key_prefix}NumCacheNodes", str(value["num_cache_nodes"])))
     if "cache_node_ids_to_remove" in value:
         import capo_elasticache.types.cache_node_ids_list
 
         capo_elasticache.types.cache_node_ids_list.serialize_query(
-            value["cache_node_ids_to_remove"], pairs, f"{prefix}.CacheNodeIdsToRemove"
+            value["cache_node_ids_to_remove"],
+            pairs,
+            f"{key_prefix}CacheNodeIdsToRemove",
         )
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "auth_token_status" in value:
         import capo_elasticache.types.auth_token_update_status
 
         capo_elasticache.types.auth_token_update_status.serialize_query(
-            value["auth_token_status"], pairs, f"{prefix}.AuthTokenStatus"
+            value["auth_token_status"], pairs, f"{key_prefix}AuthTokenStatus"
         )
     if "log_delivery_configurations" in value:
         import capo_elasticache.types.pending_log_delivery_configuration_list
@@ -78,12 +81,12 @@ def serialize_query(
         capo_elasticache.types.pending_log_delivery_configuration_list.serialize_query(
             value["log_delivery_configurations"],
             pairs,
-            f"{prefix}.LogDeliveryConfigurations",
+            f"{key_prefix}LogDeliveryConfigurations",
         )
     if "transit_encryption_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.TransitEncryptionEnabled",
+                f"{key_prefix}TransitEncryptionEnabled",
                 "true" if value["transit_encryption_enabled"] else "false",
             )
         )
@@ -91,13 +94,15 @@ def serialize_query(
         import capo_elasticache.types.transit_encryption_mode
 
         capo_elasticache.types.transit_encryption_mode.serialize_query(
-            value["transit_encryption_mode"], pairs, f"{prefix}.TransitEncryptionMode"
+            value["transit_encryption_mode"],
+            pairs,
+            f"{key_prefix}TransitEncryptionMode",
         )
     if "scale_config" in value:
         import capo_elasticache.types.scale_config
 
         capo_elasticache.types.scale_config.serialize_query(
-            value["scale_config"], pairs, f"{prefix}.ScaleConfig"
+            value["scale_config"], pairs, f"{key_prefix}ScaleConfig"
         )
 
 

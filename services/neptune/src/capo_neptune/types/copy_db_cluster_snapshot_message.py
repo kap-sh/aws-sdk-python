@@ -35,31 +35,34 @@ class CopyDBClusterSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopyDBClusterSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBClusterSnapshotIdentifier",
+                f"{key_prefix}SourceDBClusterSnapshotIdentifier",
                 str(value["source_db_cluster_snapshot_identifier"]),
             )
         )
     if "target_db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetDBClusterSnapshotIdentifier",
+                f"{key_prefix}TargetDBClusterSnapshotIdentifier",
                 str(value["target_db_cluster_snapshot_identifier"]),
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "pre_signed_url" in value:
-        pairs.append((f"{prefix}.PreSignedUrl", str(value["pre_signed_url"])))
+        pairs.append((f"{key_prefix}PreSignedUrl", str(value["pre_signed_url"])))
     if "copy_tags" in value:
-        pairs.append((f"{prefix}.CopyTags", "true" if value["copy_tags"] else "false"))
+        pairs.append(
+            (f"{key_prefix}CopyTags", "true" if value["copy_tags"] else "false")
+        )
     if "tags" in value:
         import capo_neptune.types.tag_list
 
         capo_neptune.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

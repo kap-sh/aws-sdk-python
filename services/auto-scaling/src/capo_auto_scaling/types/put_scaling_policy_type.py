@@ -82,40 +82,51 @@ class PutScalingPolicyType(TypedDict, closed=True):
 def serialize_query(
     value: PutScalingPolicyType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "policy_name" in value:
-        pairs.append((f"{prefix}.PolicyName", str(value["policy_name"])))
+        pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
     if "policy_type" in value:
-        pairs.append((f"{prefix}.PolicyType", str(value["policy_type"])))
+        pairs.append((f"{key_prefix}PolicyType", str(value["policy_type"])))
     if "adjustment_type" in value:
-        pairs.append((f"{prefix}.AdjustmentType", str(value["adjustment_type"])))
+        pairs.append((f"{key_prefix}AdjustmentType", str(value["adjustment_type"])))
     if "min_adjustment_step" in value:
-        pairs.append((f"{prefix}.MinAdjustmentStep", str(value["min_adjustment_step"])))
+        pairs.append(
+            (f"{key_prefix}MinAdjustmentStep", str(value["min_adjustment_step"]))
+        )
     if "min_adjustment_magnitude" in value:
         pairs.append(
-            (f"{prefix}.MinAdjustmentMagnitude", str(value["min_adjustment_magnitude"]))
+            (
+                f"{key_prefix}MinAdjustmentMagnitude",
+                str(value["min_adjustment_magnitude"]),
+            )
         )
     if "scaling_adjustment" in value:
-        pairs.append((f"{prefix}.ScalingAdjustment", str(value["scaling_adjustment"])))
+        pairs.append(
+            (f"{key_prefix}ScalingAdjustment", str(value["scaling_adjustment"]))
+        )
     if "cooldown" in value:
-        pairs.append((f"{prefix}.Cooldown", str(value["cooldown"])))
+        pairs.append((f"{key_prefix}Cooldown", str(value["cooldown"])))
     if "metric_aggregation_type" in value:
         pairs.append(
-            (f"{prefix}.MetricAggregationType", str(value["metric_aggregation_type"]))
+            (
+                f"{key_prefix}MetricAggregationType",
+                str(value["metric_aggregation_type"]),
+            )
         )
     if "step_adjustments" in value:
         import capo_auto_scaling.types.step_adjustments
 
         capo_auto_scaling.types.step_adjustments.serialize_query(
-            value["step_adjustments"], pairs, f"{prefix}.StepAdjustments"
+            value["step_adjustments"], pairs, f"{key_prefix}StepAdjustments"
         )
     if "estimated_instance_warmup" in value:
         pairs.append(
             (
-                f"{prefix}.EstimatedInstanceWarmup",
+                f"{key_prefix}EstimatedInstanceWarmup",
                 str(value["estimated_instance_warmup"]),
             )
         )
@@ -125,17 +136,17 @@ def serialize_query(
         capo_auto_scaling.types.target_tracking_configuration.serialize_query(
             value["target_tracking_configuration"],
             pairs,
-            f"{prefix}.TargetTrackingConfiguration",
+            f"{key_prefix}TargetTrackingConfiguration",
         )
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "predictive_scaling_configuration" in value:
         import capo_auto_scaling.types.predictive_scaling_configuration
 
         capo_auto_scaling.types.predictive_scaling_configuration.serialize_query(
             value["predictive_scaling_configuration"],
             pairs,
-            f"{prefix}.PredictiveScalingConfiguration",
+            f"{key_prefix}PredictiveScalingConfiguration",
         )
 
 

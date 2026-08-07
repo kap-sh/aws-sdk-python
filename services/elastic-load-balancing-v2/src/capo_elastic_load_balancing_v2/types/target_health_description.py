@@ -41,31 +41,34 @@ class TargetHealthDescription(TypedDict, closed=True):
 def serialize_query(
     value: TargetHealthDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target" in value:
         import capo_elastic_load_balancing_v2.types.target_description
 
         capo_elastic_load_balancing_v2.types.target_description.serialize_query(
-            value["target"], pairs, f"{prefix}.Target"
+            value["target"], pairs, f"{key_prefix}Target"
         )
     if "health_check_port" in value:
-        pairs.append((f"{prefix}.HealthCheckPort", str(value["health_check_port"])))
+        pairs.append((f"{key_prefix}HealthCheckPort", str(value["health_check_port"])))
     if "target_health" in value:
         import capo_elastic_load_balancing_v2.types.target_health
 
         capo_elastic_load_balancing_v2.types.target_health.serialize_query(
-            value["target_health"], pairs, f"{prefix}.TargetHealth"
+            value["target_health"], pairs, f"{key_prefix}TargetHealth"
         )
     if "anomaly_detection" in value:
         import capo_elastic_load_balancing_v2.types.anomaly_detection
 
         capo_elastic_load_balancing_v2.types.anomaly_detection.serialize_query(
-            value["anomaly_detection"], pairs, f"{prefix}.AnomalyDetection"
+            value["anomaly_detection"], pairs, f"{key_prefix}AnomalyDetection"
         )
     if "administrative_override" in value:
         import capo_elastic_load_balancing_v2.types.administrative_override
 
         capo_elastic_load_balancing_v2.types.administrative_override.serialize_query(
-            value["administrative_override"], pairs, f"{prefix}.AdministrativeOverride"
+            value["administrative_override"],
+            pairs,
+            f"{key_prefix}AdministrativeOverride",
         )
 
 

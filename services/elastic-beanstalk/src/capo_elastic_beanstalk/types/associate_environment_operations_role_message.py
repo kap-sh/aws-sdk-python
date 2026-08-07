@@ -25,8 +25,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
-    pairs.append((f"{prefix}.OperationsRole", str(value["operations_role"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
+    pairs.append((f"{key_prefix}OperationsRole", str(value["operations_role"])))
 
 
 def deserialize_query(el: Element) -> AssociateEnvironmentOperationsRoleMessage:

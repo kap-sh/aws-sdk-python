@@ -19,10 +19,11 @@ class DefineSuggesterResponse(TypedDict, closed=True):
 def serialize_query(
     value: DefineSuggesterResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.suggester_status
 
     capo_cloudsearch.types.suggester_status.serialize_query(
-        value["suggester"], pairs, f"{prefix}.Suggester"
+        value["suggester"], pairs, f"{key_prefix}Suggester"
     )
 
 

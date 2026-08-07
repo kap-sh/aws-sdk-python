@@ -21,11 +21,12 @@ class ModifyListenerAttributesOutput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyListenerAttributesOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attributes" in value:
         import capo_elastic_load_balancing_v2.types.listener_attributes
 
         capo_elastic_load_balancing_v2.types.listener_attributes.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

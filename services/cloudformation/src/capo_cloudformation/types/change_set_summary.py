@@ -67,53 +67,54 @@ class ChangeSetSummary(TypedDict, closed=True):
 def serialize_query(
     value: ChangeSetSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "change_set_id" in value:
-        pairs.append((f"{prefix}.ChangeSetId", str(value["change_set_id"])))
+        pairs.append((f"{key_prefix}ChangeSetId", str(value["change_set_id"])))
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "execution_status" in value:
         import capo_cloudformation.types.execution_status
 
         capo_cloudformation.types.execution_status.serialize_query(
-            value["execution_status"], pairs, f"{prefix}.ExecutionStatus"
+            value["execution_status"], pairs, f"{key_prefix}ExecutionStatus"
         )
     if "status" in value:
         import capo_cloudformation.types.change_set_status
 
         capo_cloudformation.types.change_set_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "creation_time" in value:
         import capo_cloudformation.types.creation_time
 
         capo_cloudformation.types.creation_time.serialize_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "include_nested_stacks" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeNestedStacks",
+                f"{key_prefix}IncludeNestedStacks",
                 "true" if value["include_nested_stacks"] else "false",
             )
         )
     if "parent_change_set_id" in value:
         pairs.append(
-            (f"{prefix}.ParentChangeSetId", str(value["parent_change_set_id"]))
+            (f"{key_prefix}ParentChangeSetId", str(value["parent_change_set_id"]))
         )
     if "root_change_set_id" in value:
-        pairs.append((f"{prefix}.RootChangeSetId", str(value["root_change_set_id"])))
+        pairs.append((f"{key_prefix}RootChangeSetId", str(value["root_change_set_id"])))
     if "import_existing_resources" in value:
         pairs.append(
             (
-                f"{prefix}.ImportExistingResources",
+                f"{key_prefix}ImportExistingResources",
                 "true" if value["import_existing_resources"] else "false",
             )
         )

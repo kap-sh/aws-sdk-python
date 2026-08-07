@@ -31,17 +31,18 @@ class LiveResourceDrift(TypedDict, closed=True):
 def serialize_query(
     value: LiveResourceDrift, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "previous_value" in value:
-        pairs.append((f"{prefix}.PreviousValue", str(value["previous_value"])))
+        pairs.append((f"{key_prefix}PreviousValue", str(value["previous_value"])))
     if "actual_value" in value:
-        pairs.append((f"{prefix}.ActualValue", str(value["actual_value"])))
+        pairs.append((f"{key_prefix}ActualValue", str(value["actual_value"])))
     if "drift_detection_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
             value["drift_detection_timestamp"],
             pairs,
-            f"{prefix}.DriftDetectionTimestamp",
+            f"{key_prefix}DriftDetectionTimestamp",
         )
 
 

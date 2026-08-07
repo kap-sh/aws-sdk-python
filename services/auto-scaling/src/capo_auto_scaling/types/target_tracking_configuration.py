@@ -34,13 +34,14 @@ class TargetTrackingConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: TargetTrackingConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "predefined_metric_specification" in value:
         import capo_auto_scaling.types.predefined_metric_specification
 
         capo_auto_scaling.types.predefined_metric_specification.serialize_query(
             value["predefined_metric_specification"],
             pairs,
-            f"{prefix}.PredefinedMetricSpecification",
+            f"{key_prefix}PredefinedMetricSpecification",
         )
     if "customized_metric_specification" in value:
         import capo_auto_scaling.types.customized_metric_specification
@@ -48,14 +49,14 @@ def serialize_query(
         capo_auto_scaling.types.customized_metric_specification.serialize_query(
             value["customized_metric_specification"],
             pairs,
-            f"{prefix}.CustomizedMetricSpecification",
+            f"{key_prefix}CustomizedMetricSpecification",
         )
     if "target_value" in value:
-        pairs.append((f"{prefix}.TargetValue", str(value["target_value"])))
+        pairs.append((f"{key_prefix}TargetValue", str(value["target_value"])))
     if "disable_scale_in" in value:
         pairs.append(
             (
-                f"{prefix}.DisableScaleIn",
+                f"{key_prefix}DisableScaleIn",
                 "true" if value["disable_scale_in"] else "false",
             )
         )

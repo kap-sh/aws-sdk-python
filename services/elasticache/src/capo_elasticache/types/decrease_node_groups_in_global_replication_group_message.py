@@ -36,22 +36,23 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_replication_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupId",
+                f"{key_prefix}GlobalReplicationGroupId",
                 str(value["global_replication_group_id"]),
             )
         )
     if "node_group_count" in value:
-        pairs.append((f"{prefix}.NodeGroupCount", str(value["node_group_count"])))
+        pairs.append((f"{key_prefix}NodeGroupCount", str(value["node_group_count"])))
     if "global_node_groups_to_remove" in value:
         import capo_elasticache.types.global_node_group_id_list
 
         capo_elasticache.types.global_node_group_id_list.serialize_query(
             value["global_node_groups_to_remove"],
             pairs,
-            f"{prefix}.GlobalNodeGroupsToRemove",
+            f"{key_prefix}GlobalNodeGroupsToRemove",
         )
     if "global_node_groups_to_retain" in value:
         import capo_elasticache.types.global_node_group_id_list
@@ -59,12 +60,12 @@ def serialize_query(
         capo_elasticache.types.global_node_group_id_list.serialize_query(
             value["global_node_groups_to_retain"],
             pairs,
-            f"{prefix}.GlobalNodeGroupsToRetain",
+            f"{key_prefix}GlobalNodeGroupsToRetain",
         )
     if "apply_immediately" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyImmediately",
+                f"{key_prefix}ApplyImmediately",
                 "true" if value["apply_immediately"] else "false",
             )
         )

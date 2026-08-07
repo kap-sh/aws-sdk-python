@@ -40,10 +40,10 @@ class ReservationResource:
     def create(
         self,
         offering_arn: str,
-        reservation_name: str,
-        start: str,
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        reservation_name: Optional[str] = None,
+        start: Optional[str] = None,
     ) -> "capo_mediaconnect.types.purchase_offering_response.PurchaseOfferingResponse":
         """<p> Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.</p>
 
@@ -79,8 +79,10 @@ class ReservationResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
         input_["offering_arn"] = offering_arn
-        input_["reservation_name"] = reservation_name
-        input_["start"] = start
+        if reservation_name is not None:
+            input_["reservation_name"] = reservation_name
+        if start is not None:
+            input_["start"] = start
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -191,10 +193,10 @@ class AsyncReservationResource:
     async def create(
         self,
         offering_arn: str,
-        reservation_name: str,
-        start: str,
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        reservation_name: Optional[str] = None,
+        start: Optional[str] = None,
     ) -> "capo_mediaconnect.types.purchase_offering_response.PurchaseOfferingResponse":
         """<p> Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.</p>
 
@@ -231,8 +233,10 @@ class AsyncReservationResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
         input_["offering_arn"] = offering_arn
-        input_["reservation_name"] = reservation_name
-        input_["start"] = start
+        if reservation_name is not None:
+            input_["reservation_name"] = reservation_name
+        if start is not None:
+            input_["start"] = start
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

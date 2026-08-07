@@ -34,22 +34,23 @@ class EnvironmentInfoDescription(TypedDict, closed=True):
 def serialize_query(
     value: EnvironmentInfoDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "info_type" in value:
         import capo_elastic_beanstalk.types.environment_info_type
 
         capo_elastic_beanstalk.types.environment_info_type.serialize_query(
-            value["info_type"], pairs, f"{prefix}.InfoType"
+            value["info_type"], pairs, f"{key_prefix}InfoType"
         )
     if "ec2_instance_id" in value:
-        pairs.append((f"{prefix}.Ec2InstanceId", str(value["ec2_instance_id"])))
+        pairs.append((f"{key_prefix}Ec2InstanceId", str(value["ec2_instance_id"])))
     if "sample_timestamp" in value:
         import capo_elastic_beanstalk.types.sample_timestamp
 
         capo_elastic_beanstalk.types.sample_timestamp.serialize_query(
-            value["sample_timestamp"], pairs, f"{prefix}.SampleTimestamp"
+            value["sample_timestamp"], pairs, f"{key_prefix}SampleTimestamp"
         )
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> EnvironmentInfoDescription:

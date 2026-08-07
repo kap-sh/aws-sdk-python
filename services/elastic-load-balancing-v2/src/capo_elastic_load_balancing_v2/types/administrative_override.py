@@ -31,20 +31,21 @@ class AdministrativeOverride(TypedDict, closed=True):
 def serialize_query(
     value: AdministrativeOverride, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "state" in value:
         import capo_elastic_load_balancing_v2.types.target_administrative_override_state_enum
 
         capo_elastic_load_balancing_v2.types.target_administrative_override_state_enum.serialize_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "reason" in value:
         import capo_elastic_load_balancing_v2.types.target_administrative_override_reason_enum
 
         capo_elastic_load_balancing_v2.types.target_administrative_override_reason_enum.serialize_query(
-            value["reason"], pairs, f"{prefix}.Reason"
+            value["reason"], pairs, f"{key_prefix}Reason"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> AdministrativeOverride:

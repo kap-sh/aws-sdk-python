@@ -21,8 +21,9 @@ class SetTypeConfigurationOutput(TypedDict, closed=True):
 def serialize_query(
     value: SetTypeConfigurationOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "configuration_arn" in value:
-        pairs.append((f"{prefix}.ConfigurationArn", str(value["configuration_arn"])))
+        pairs.append((f"{key_prefix}ConfigurationArn", str(value["configuration_arn"])))
 
 
 def deserialize_query(el: Element) -> SetTypeConfigurationOutput:

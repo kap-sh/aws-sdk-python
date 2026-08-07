@@ -22,15 +22,16 @@ class ModifyDBParameterGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyDBParameterGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBParameterGroupName", str(value["db_parameter_group_name"]))
+            (f"{key_prefix}DBParameterGroupName", str(value["db_parameter_group_name"]))
         )
     if "parameters" in value:
         import capo_neptune.types.parameters_list
 
         capo_neptune.types.parameters_list.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
 
 

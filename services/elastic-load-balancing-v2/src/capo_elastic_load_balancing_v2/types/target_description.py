@@ -32,14 +32,15 @@ class TargetDescription(TypedDict, closed=True):
 def serialize_query(
     value: TargetDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "quic_server_id" in value:
-        pairs.append((f"{prefix}.QuicServerId", str(value["quic_server_id"])))
+        pairs.append((f"{key_prefix}QuicServerId", str(value["quic_server_id"])))
 
 
 def deserialize_query(el: Element) -> TargetDescription:

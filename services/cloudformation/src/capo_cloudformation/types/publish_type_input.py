@@ -30,19 +30,20 @@ class PublishTypeInput(TypedDict, closed=True):
 def serialize_query(
     value: PublishTypeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.third_party_type
 
         capo_cloudformation.types.third_party_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "public_version_number" in value:
         pairs.append(
-            (f"{prefix}.PublicVersionNumber", str(value["public_version_number"]))
+            (f"{key_prefix}PublicVersionNumber", str(value["public_version_number"]))
         )
 
 

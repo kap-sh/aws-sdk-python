@@ -1550,10 +1550,14 @@ class SageMakerClient:
 
     def add_association(
         self,
-        source_arn: "capo_sagemaker.types.association_entity_arn.AssociationEntityArn",
-        destination_arn: "capo_sagemaker.types.association_entity_arn.AssociationEntityArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        source_arn: Optional[
+            "capo_sagemaker.types.association_entity_arn.AssociationEntityArn"
+        ] = None,
+        destination_arn: Optional[
+            "capo_sagemaker.types.association_entity_arn.AssociationEntityArn"
+        ] = None,
         association_type: Optional[
             "capo_sagemaker.types.association_edge_type.AssociationEdgeType"
         ] = None,
@@ -1587,8 +1591,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.add_association_request.AddAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["source_arn"] = source_arn
-        input_["destination_arn"] = destination_arn
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
+        if destination_arn is not None:
+            input_["destination_arn"] = destination_arn
         if association_type is not None:
             input_["association_type"] = association_type
 
@@ -1601,10 +1607,10 @@ class SageMakerClient:
 
     def add_tags(
         self,
-        resource_arn: "capo_sagemaker.types.resource_arn.ResourceArn",
-        tags: "capo_sagemaker.types.tag_list.TagList",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource_arn: Optional["capo_sagemaker.types.resource_arn.ResourceArn"] = None,
+        tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.add_tags_output.AddTagsOutput":
         r"""<p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints.</p> <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource. For more information about tags, see For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">Amazon Web Services Tagging Strategies</a>.</p> <note> <p>Tags that you add to a hyperparameter tuning job by calling this API are also added to any training jobs that the hyperparameter tuning job launches after you call this API, but not to training jobs that the hyperparameter tuning job launched before you called this API. To make sure that the tags associated with a hyperparameter tuning job are also added to all training jobs that the hyperparameter tuning job launches, add the tags when you first create the tuning job by specifying them in the <code>Tags</code> parameter of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html\">CreateHyperParameterTuningJob</a> </p> </note> <note> <p>Tags that you add to a SageMaker Domain or User Profile by calling this API are also added to any Apps that the Domain or User Profile launches after you call this API, but not to Apps that the Domain or User Profile launched before you called this API. To make sure that the tags associated with a Domain or User Profile are also added to all Apps that the Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the <code>Tags</code> parameter of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html\">CreateDomain</a> or <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html\">CreateUserProfile</a>.</p> </note>
 
@@ -1630,8 +1636,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1642,10 +1650,14 @@ class SageMakerClient:
 
     def associate_trial_component(
         self,
-        trial_component_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
-        trial_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
+        trial_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.associate_trial_component_response.AssociateTrialComponentResponse":
         r"""<p>Associates a trial component with a trial. A trial component can be associated with multiple trials. To disassociate a trial component from a trial, call the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html\">DisassociateTrialComponent</a> API.</p>
 
@@ -1675,8 +1687,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.associate_trial_component_request.AssociateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
-        input_["trial_name"] = trial_name
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
+        if trial_name is not None:
+            input_["trial_name"] = trial_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1687,11 +1701,11 @@ class SageMakerClient:
 
     def attach_cluster_node_volume(
         self,
-        cluster_arn: "capo_sagemaker.types.cluster_arn.ClusterArn",
-        node_id: "capo_sagemaker.types.cluster_node_id.ClusterNodeId",
-        volume_id: "capo_sagemaker.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_arn: Optional["capo_sagemaker.types.cluster_arn.ClusterArn"] = None,
+        node_id: Optional["capo_sagemaker.types.cluster_node_id.ClusterNodeId"] = None,
+        volume_id: Optional["capo_sagemaker.types.volume_id.VolumeId"] = None,
     ) -> "capo_sagemaker.types.attach_cluster_node_volume_response.AttachClusterNodeVolumeResponse":
         """<p> Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your EKS orchestrated HyperPod cluster. </p> <p> This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod EKS clusters. </p>
 
@@ -1721,9 +1735,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.attach_cluster_node_volume_request.AttachClusterNodeVolumeRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_arn"] = cluster_arn
-        input_["node_id"] = node_id
-        input_["volume_id"] = volume_id
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
+        if node_id is not None:
+            input_["node_id"] = node_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1735,10 +1752,12 @@ class SageMakerClient:
     def batch_add_cluster_nodes(
         self,
         cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
-        nodes_to_add: "capo_sagemaker.types.add_cluster_node_specification_list.AddClusterNodeSpecificationList",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         client_token: Optional["capo_sagemaker.types.string.String"] = None,
+        nodes_to_add: Optional[
+            "capo_sagemaker.types.add_cluster_node_specification_list.AddClusterNodeSpecificationList"
+        ] = None,
     ) -> "capo_sagemaker.types.batch_add_cluster_nodes_response.BatchAddClusterNodesResponse":
         """<p>Adds nodes to a HyperPod cluster by incrementing the target count for one or more instance groups. This operation returns a unique <code>NodeLogicalId</code> for each node being added, which can be used to track the provisioning status of the node. This API provides a safer alternative to <code>UpdateCluster</code> for scaling operations by avoiding unintended configuration changes.</p> <note> <p>This API is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>.</p> </note>
 
@@ -1772,7 +1791,8 @@ class SageMakerClient:
         input_["cluster_name"] = cluster_name
         if client_token is not None:
             input_["client_token"] = client_token
-        input_["nodes_to_add"] = nodes_to_add
+        if nodes_to_add is not None:
+            input_["nodes_to_add"] = nodes_to_add
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1783,9 +1803,11 @@ class SageMakerClient:
 
     def batch_delete_cluster_nodes(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         node_ids: Optional[
             "capo_sagemaker.types.cluster_node_ids.ClusterNodeIds"
         ] = None,
@@ -1821,7 +1843,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.batch_delete_cluster_nodes_request.BatchDeleteClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if node_ids is not None:
             input_["node_ids"] = node_ids
         if node_logical_ids is not None:
@@ -1836,9 +1859,11 @@ class SageMakerClient:
 
     def batch_describe_model_package(
         self,
-        model_package_arn_list: "capo_sagemaker.types.model_package_arn_list.ModelPackageArnList",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_arn_list: Optional[
+            "capo_sagemaker.types.model_package_arn_list.ModelPackageArnList"
+        ] = None,
     ) -> "capo_sagemaker.types.batch_describe_model_package_output.BatchDescribeModelPackageOutput":
         """<p>This action batch describes a list of versioned model packages</p>
 
@@ -1865,7 +1890,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.batch_describe_model_package_input.BatchDescribeModelPackageInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_arn_list"] = model_package_arn_list
+        if model_package_arn_list is not None:
+            input_["model_package_arn_list"] = model_package_arn_list
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1876,9 +1902,11 @@ class SageMakerClient:
 
     def batch_reboot_cluster_nodes(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         node_ids: Optional[
             "capo_sagemaker.types.cluster_node_ids.ClusterNodeIds"
         ] = None,
@@ -1914,7 +1942,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.batch_reboot_cluster_nodes_request.BatchRebootClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if node_ids is not None:
             input_["node_ids"] = node_ids
         if node_logical_ids is not None:
@@ -1929,9 +1958,11 @@ class SageMakerClient:
 
     def batch_replace_cluster_nodes(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         node_ids: Optional[
             "capo_sagemaker.types.cluster_node_ids.ClusterNodeIds"
         ] = None,
@@ -1967,7 +1998,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.batch_replace_cluster_nodes_request.BatchReplaceClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if node_ids is not None:
             input_["node_ids"] = node_ids
         if node_logical_ids is not None:
@@ -1982,11 +2014,13 @@ class SageMakerClient:
 
     def create_action(
         self,
-        action_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
-        source: "capo_sagemaker.types.action_source.ActionSource",
-        action_type: "capo_sagemaker.types.string256.String256",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        action_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
+        source: Optional["capo_sagemaker.types.action_source.ActionSource"] = None,
+        action_type: Optional["capo_sagemaker.types.string256.String256"] = None,
         description: Optional[
             "capo_sagemaker.types.experiment_description.ExperimentDescription"
         ] = None,
@@ -2031,9 +2065,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_action_request.CreateActionRequest = {}  # type: ignore[typeddict-item]
-        input_["action_name"] = action_name
-        input_["source"] = source
-        input_["action_type"] = action_type
+        if action_name is not None:
+            input_["action_name"] = action_name
+        if source is not None:
+            input_["source"] = source
+        if action_type is not None:
+            input_["action_type"] = action_type
         if description is not None:
             input_["description"] = description
         if status is not None:
@@ -2054,13 +2091,21 @@ class SageMakerClient:
 
     def create_ai_benchmark_job(
         self,
-        ai_benchmark_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
-        benchmark_target: "capo_sagemaker.types.ai_benchmark_target.AIBenchmarkTarget",
-        output_config: "capo_sagemaker.types.ai_benchmark_output_config.AIBenchmarkOutputConfig",
-        ai_workload_config_identifier: "capo_sagemaker.types.ai_resource_identifier.AIResourceIdentifier",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_benchmark_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
+        benchmark_target: Optional[
+            "capo_sagemaker.types.ai_benchmark_target.AIBenchmarkTarget"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.ai_benchmark_output_config.AIBenchmarkOutputConfig"
+        ] = None,
+        ai_workload_config_identifier: Optional[
+            "capo_sagemaker.types.ai_resource_identifier.AIResourceIdentifier"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         network_config: Optional[
             "capo_sagemaker.types.ai_benchmark_network_config.AIBenchmarkNetworkConfig"
         ] = None,
@@ -2100,11 +2145,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_ai_benchmark_job_request.CreateAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
-        input_["benchmark_target"] = benchmark_target
-        input_["output_config"] = output_config
-        input_["ai_workload_config_identifier"] = ai_workload_config_identifier
-        input_["role_arn"] = role_arn
+        if ai_benchmark_job_name is not None:
+            input_["ai_benchmark_job_name"] = ai_benchmark_job_name
+        if benchmark_target is not None:
+            input_["benchmark_target"] = benchmark_target
+        if output_config is not None:
+            input_["output_config"] = output_config
+        if ai_workload_config_identifier is not None:
+            input_["ai_workload_config_identifier"] = ai_workload_config_identifier
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if network_config is not None:
             input_["network_config"] = network_config
         if tags is not None:
@@ -2119,14 +2169,24 @@ class SageMakerClient:
 
     def create_ai_recommendation_job(
         self,
-        ai_recommendation_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
-        model_source: "capo_sagemaker.types.ai_model_source.AIModelSource",
-        output_config: "capo_sagemaker.types.ai_recommendation_output_config.AIRecommendationOutputConfig",
-        ai_workload_config_identifier: "capo_sagemaker.types.ai_resource_identifier.AIResourceIdentifier",
-        performance_target: "capo_sagemaker.types.ai_recommendation_performance_target.AIRecommendationPerformanceTarget",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_recommendation_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
+        model_source: Optional[
+            "capo_sagemaker.types.ai_model_source.AIModelSource"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.ai_recommendation_output_config.AIRecommendationOutputConfig"
+        ] = None,
+        ai_workload_config_identifier: Optional[
+            "capo_sagemaker.types.ai_resource_identifier.AIResourceIdentifier"
+        ] = None,
+        performance_target: Optional[
+            "capo_sagemaker.types.ai_recommendation_performance_target.AIRecommendationPerformanceTarget"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         inference_specification: Optional[
             "capo_sagemaker.types.ai_recommendation_inference_specification.AIRecommendationInferenceSpecification"
         ] = None,
@@ -2175,12 +2235,18 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_ai_recommendation_job_request.CreateAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
-        input_["model_source"] = model_source
-        input_["output_config"] = output_config
-        input_["ai_workload_config_identifier"] = ai_workload_config_identifier
-        input_["performance_target"] = performance_target
-        input_["role_arn"] = role_arn
+        if ai_recommendation_job_name is not None:
+            input_["ai_recommendation_job_name"] = ai_recommendation_job_name
+        if model_source is not None:
+            input_["model_source"] = model_source
+        if output_config is not None:
+            input_["output_config"] = output_config
+        if ai_workload_config_identifier is not None:
+            input_["ai_workload_config_identifier"] = ai_workload_config_identifier
+        if performance_target is not None:
+            input_["performance_target"] = performance_target
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if inference_specification is not None:
             input_["inference_specification"] = inference_specification
         if optimize_model is not None:
@@ -2199,9 +2265,11 @@ class SageMakerClient:
 
     def create_ai_workload_config(
         self,
-        ai_workload_config_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_workload_config_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
         dataset_config: Optional[
             "capo_sagemaker.types.ai_dataset_config.AIDatasetConfig"
         ] = None,
@@ -2240,7 +2308,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_ai_workload_config_request.CreateAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_workload_config_name"] = ai_workload_config_name
+        if ai_workload_config_name is not None:
+            input_["ai_workload_config_name"] = ai_workload_config_name
         if dataset_config is not None:
             input_["dataset_config"] = dataset_config
         if ai_workload_configs is not None:
@@ -2257,12 +2326,14 @@ class SageMakerClient:
 
     def create_algorithm(
         self,
-        algorithm_name: "capo_sagemaker.types.entity_name.EntityName",
-        training_specification: "capo_sagemaker.types.training_specification.TrainingSpecification",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        algorithm_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
         algorithm_description: Optional[
             "capo_sagemaker.types.entity_description.EntityDescription"
+        ] = None,
+        training_specification: Optional[
+            "capo_sagemaker.types.training_specification.TrainingSpecification"
         ] = None,
         inference_specification: Optional[
             "capo_sagemaker.types.inference_specification.InferenceSpecification"
@@ -2306,10 +2377,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_algorithm_input.CreateAlgorithmInput = {}  # type: ignore[typeddict-item]
-        input_["algorithm_name"] = algorithm_name
+        if algorithm_name is not None:
+            input_["algorithm_name"] = algorithm_name
         if algorithm_description is not None:
             input_["algorithm_description"] = algorithm_description
-        input_["training_specification"] = training_specification
+        if training_specification is not None:
+            input_["training_specification"] = training_specification
         if inference_specification is not None:
             input_["inference_specification"] = inference_specification
         if validation_specification is not None:
@@ -2328,15 +2401,15 @@ class SageMakerClient:
 
     def create_app(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        app_type: "capo_sagemaker.types.app_type.AppType",
-        app_name: "capo_sagemaker.types.app_name.AppName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
         user_profile_name: Optional[
             "capo_sagemaker.types.user_profile_name.UserProfileName"
         ] = None,
         space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
+        app_type: Optional["capo_sagemaker.types.app_type.AppType"] = None,
+        app_name: Optional["capo_sagemaker.types.app_name.AppName"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         resource_spec: Optional[
             "capo_sagemaker.types.resource_spec.ResourceSpec"
@@ -2377,13 +2450,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
         if user_profile_name is not None:
             input_["user_profile_name"] = user_profile_name
         if space_name is not None:
             input_["space_name"] = space_name
-        input_["app_type"] = app_type
-        input_["app_name"] = app_name
+        if app_type is not None:
+            input_["app_type"] = app_type
+        if app_name is not None:
+            input_["app_name"] = app_name
         if tags is not None:
             input_["tags"] = tags
         if resource_spec is not None:
@@ -2400,9 +2476,11 @@ class SageMakerClient:
 
     def create_app_image_config(
         self,
-        app_image_config_name: "capo_sagemaker.types.app_image_config_name.AppImageConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        app_image_config_name: Optional[
+            "capo_sagemaker.types.app_image_config_name.AppImageConfigName"
+        ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         kernel_gateway_image_config: Optional[
             "capo_sagemaker.types.kernel_gateway_image_config.KernelGatewayImageConfig"
@@ -2444,7 +2522,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_app_image_config_request.CreateAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["app_image_config_name"] = app_image_config_name
+        if app_image_config_name is not None:
+            input_["app_image_config_name"] = app_image_config_name
         if tags is not None:
             input_["tags"] = tags
         if kernel_gateway_image_config is not None:
@@ -2463,13 +2542,13 @@ class SageMakerClient:
 
     def create_artifact(
         self,
-        source: "capo_sagemaker.types.artifact_source.ArtifactSource",
-        artifact_type: "capo_sagemaker.types.string256.String256",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         artifact_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
+        source: Optional["capo_sagemaker.types.artifact_source.ArtifactSource"] = None,
+        artifact_type: Optional["capo_sagemaker.types.string256.String256"] = None,
         properties: Optional[
             "capo_sagemaker.types.artifact_properties.ArtifactProperties"
         ] = None,
@@ -2510,8 +2589,10 @@ class SageMakerClient:
         input_: capo_sagemaker.types.create_artifact_request.CreateArtifactRequest = {}  # type: ignore[typeddict-item]
         if artifact_name is not None:
             input_["artifact_name"] = artifact_name
-        input_["source"] = source
-        input_["artifact_type"] = artifact_type
+        if source is not None:
+            input_["source"] = source
+        if artifact_type is not None:
+            input_["artifact_type"] = artifact_type
         if properties is not None:
             input_["properties"] = properties
         if metadata_properties is not None:
@@ -2528,12 +2609,17 @@ class SageMakerClient:
 
     def create_auto_ml_job(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
-        input_data_config: "capo_sagemaker.types.auto_ml_input_data_config.AutoMLInputDataConfig",
-        output_data_config: "capo_sagemaker.types.auto_ml_output_data_config.AutoMLOutputDataConfig",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
+        input_data_config: Optional[
+            "capo_sagemaker.types.auto_ml_input_data_config.AutoMLInputDataConfig"
+        ] = None,
+        output_data_config: Optional[
+            "capo_sagemaker.types.auto_ml_output_data_config.AutoMLOutputDataConfig"
+        ] = None,
         problem_type: Optional["capo_sagemaker.types.problem_type.ProblemType"] = None,
         auto_ml_job_objective: Optional[
             "capo_sagemaker.types.auto_ml_job_objective.AutoMLJobObjective"
@@ -2541,6 +2627,7 @@ class SageMakerClient:
         auto_ml_job_config: Optional[
             "capo_sagemaker.types.auto_ml_job_config.AutoMLJobConfig"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         generate_candidate_definitions_only: Optional[
             "capo_sagemaker.types.generate_candidate_definitions_only.GenerateCandidateDefinitionsOnly"
         ] = None,
@@ -2585,16 +2672,20 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_auto_ml_job_request.CreateAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_ml_job_name"] = auto_ml_job_name
-        input_["input_data_config"] = input_data_config
-        input_["output_data_config"] = output_data_config
+        if auto_ml_job_name is not None:
+            input_["auto_ml_job_name"] = auto_ml_job_name
+        if input_data_config is not None:
+            input_["input_data_config"] = input_data_config
+        if output_data_config is not None:
+            input_["output_data_config"] = output_data_config
         if problem_type is not None:
             input_["problem_type"] = problem_type
         if auto_ml_job_objective is not None:
             input_["auto_ml_job_objective"] = auto_ml_job_objective
         if auto_ml_job_config is not None:
             input_["auto_ml_job_config"] = auto_ml_job_config
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if generate_candidate_definitions_only is not None:
             input_["generate_candidate_definitions_only"] = (
                 generate_candidate_definitions_only
@@ -2613,13 +2704,21 @@ class SageMakerClient:
 
     def create_auto_ml_job_v2(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
-        auto_ml_job_input_data_config: "capo_sagemaker.types.auto_ml_job_input_data_config.AutoMLJobInputDataConfig",
-        output_data_config: "capo_sagemaker.types.auto_ml_output_data_config.AutoMLOutputDataConfig",
-        auto_ml_problem_type_config: "capo_sagemaker.types.auto_ml_problem_type_config.AutoMLProblemTypeConfig",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
+        auto_ml_job_input_data_config: Optional[
+            "capo_sagemaker.types.auto_ml_job_input_data_config.AutoMLJobInputDataConfig"
+        ] = None,
+        output_data_config: Optional[
+            "capo_sagemaker.types.auto_ml_output_data_config.AutoMLOutputDataConfig"
+        ] = None,
+        auto_ml_problem_type_config: Optional[
+            "capo_sagemaker.types.auto_ml_problem_type_config.AutoMLProblemTypeConfig"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         security_config: Optional[
             "capo_sagemaker.types.auto_ml_security_config.AutoMLSecurityConfig"
@@ -2676,11 +2775,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_auto_ml_job_v2_request.CreateAutoMLJobV2Request = {}  # type: ignore[typeddict-item]
-        input_["auto_ml_job_name"] = auto_ml_job_name
-        input_["auto_ml_job_input_data_config"] = auto_ml_job_input_data_config
-        input_["output_data_config"] = output_data_config
-        input_["auto_ml_problem_type_config"] = auto_ml_problem_type_config
-        input_["role_arn"] = role_arn
+        if auto_ml_job_name is not None:
+            input_["auto_ml_job_name"] = auto_ml_job_name
+        if auto_ml_job_input_data_config is not None:
+            input_["auto_ml_job_input_data_config"] = auto_ml_job_input_data_config
+        if output_data_config is not None:
+            input_["output_data_config"] = output_data_config
+        if auto_ml_problem_type_config is not None:
+            input_["auto_ml_problem_type_config"] = auto_ml_problem_type_config
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if tags is not None:
             input_["tags"] = tags
         if security_config is not None:
@@ -2703,9 +2807,9 @@ class SageMakerClient:
 
     def create_cluster(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name.ClusterName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional["capo_sagemaker.types.cluster_name.ClusterName"] = None,
         instance_groups: Optional[
             "capo_sagemaker.types.cluster_instance_group_specifications.ClusterInstanceGroupSpecifications"
         ] = None,
@@ -2772,7 +2876,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if instance_groups is not None:
             input_["instance_groups"] = instance_groups
         if restricted_instance_groups is not None:
@@ -2807,11 +2912,13 @@ class SageMakerClient:
 
     def create_cluster_scheduler_config(
         self,
-        name: "capo_sagemaker.types.entity_name.EntityName",
-        cluster_arn: "capo_sagemaker.types.cluster_arn.ClusterArn",
-        scheduler_config: "capo_sagemaker.types.scheduler_config.SchedulerConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
+        cluster_arn: Optional["capo_sagemaker.types.cluster_arn.ClusterArn"] = None,
+        scheduler_config: Optional[
+            "capo_sagemaker.types.scheduler_config.SchedulerConfig"
+        ] = None,
         description: Optional[
             "capo_sagemaker.types.entity_description.EntityDescription"
         ] = None,
@@ -2848,9 +2955,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_cluster_scheduler_config_request.CreateClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["cluster_arn"] = cluster_arn
-        input_["scheduler_config"] = scheduler_config
+        if name is not None:
+            input_["name"] = name
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
+        if scheduler_config is not None:
+            input_["scheduler_config"] = scheduler_config
         if description is not None:
             input_["description"] = description
         if tags is not None:
@@ -2865,10 +2975,12 @@ class SageMakerClient:
 
     def create_code_repository(
         self,
-        code_repository_name: "capo_sagemaker.types.entity_name.EntityName",
-        git_config: "capo_sagemaker.types.git_config.GitConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        code_repository_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        git_config: Optional["capo_sagemaker.types.git_config.GitConfig"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> (
         "capo_sagemaker.types.create_code_repository_output.CreateCodeRepositoryOutput"
@@ -2900,8 +3012,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_code_repository_input.CreateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input_["code_repository_name"] = code_repository_name
-        input_["git_config"] = git_config
+        if code_repository_name is not None:
+            input_["code_repository_name"] = code_repository_name
+        if git_config is not None:
+            input_["git_config"] = git_config
         if tags is not None:
             input_["tags"] = tags
 
@@ -2914,17 +3028,23 @@ class SageMakerClient:
 
     def create_compilation_job(
         self,
-        compilation_job_name: "capo_sagemaker.types.entity_name.EntityName",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        output_config: "capo_sagemaker.types.output_config.OutputConfig",
-        stopping_condition: "capo_sagemaker.types.stopping_condition.StoppingCondition",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compilation_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         model_package_version_arn: Optional[
             "capo_sagemaker.types.model_package_arn.ModelPackageArn"
         ] = None,
         input_config: Optional["capo_sagemaker.types.input_config.InputConfig"] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.output_config.OutputConfig"
+        ] = None,
         vpc_config: Optional["capo_sagemaker.types.neo_vpc_config.NeoVpcConfig"] = None,
+        stopping_condition: Optional[
+            "capo_sagemaker.types.stopping_condition.StoppingCondition"
+        ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_compilation_job_response.CreateCompilationJobResponse":
         r"""<p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker AI saves the resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p> <p>If you choose to host your model using Amazon SageMaker AI hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts with Amazon Web Services IoT Greengrass. In that case, deploy them as an ML resource.</p> <p>In the request body, you provide the following:</p> <ul> <li> <p>A name for the compilation job</p> </li> <li> <p> Information about the input model artifacts </p> </li> <li> <p>The output location for the compiled model and the device (target) that the model runs on </p> </li> <li> <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker AI assumes to perform the model compilation job. </p> </li> </ul> <p>You can also provide a <code>Tag</code> to track the model compilation job's resource use and costs. The response body contains the <code>CompilationJobArn</code> for the compiled job.</p> <p>To stop a model compilation job, use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html\">StopCompilationJob</a>. To get information about a particular model compilation job, use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html\">DescribeCompilationJob</a>. To get information about multiple model compilation jobs, use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html\">ListCompilationJobs</a>.</p>
@@ -2961,16 +3081,20 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_compilation_job_request.CreateCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["compilation_job_name"] = compilation_job_name
-        input_["role_arn"] = role_arn
+        if compilation_job_name is not None:
+            input_["compilation_job_name"] = compilation_job_name
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if model_package_version_arn is not None:
             input_["model_package_version_arn"] = model_package_version_arn
         if input_config is not None:
             input_["input_config"] = input_config
-        input_["output_config"] = output_config
+        if output_config is not None:
+            input_["output_config"] = output_config
         if vpc_config is not None:
             input_["vpc_config"] = vpc_config
-        input_["stopping_condition"] = stopping_condition
+        if stopping_condition is not None:
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
             input_["tags"] = tags
 
@@ -2983,14 +3107,18 @@ class SageMakerClient:
 
     def create_compute_quota(
         self,
-        name: "capo_sagemaker.types.entity_name.EntityName",
-        cluster_arn: "capo_sagemaker.types.cluster_arn.ClusterArn",
-        compute_quota_config: "capo_sagemaker.types.compute_quota_config.ComputeQuotaConfig",
-        compute_quota_target: "capo_sagemaker.types.compute_quota_target.ComputeQuotaTarget",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
         description: Optional[
             "capo_sagemaker.types.entity_description.EntityDescription"
+        ] = None,
+        cluster_arn: Optional["capo_sagemaker.types.cluster_arn.ClusterArn"] = None,
+        compute_quota_config: Optional[
+            "capo_sagemaker.types.compute_quota_config.ComputeQuotaConfig"
+        ] = None,
+        compute_quota_target: Optional[
+            "capo_sagemaker.types.compute_quota_target.ComputeQuotaTarget"
         ] = None,
         activation_state: Optional[
             "capo_sagemaker.types.activation_state.ActivationState"
@@ -3032,12 +3160,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_compute_quota_request.CreateComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
-        input_["cluster_arn"] = cluster_arn
-        input_["compute_quota_config"] = compute_quota_config
-        input_["compute_quota_target"] = compute_quota_target
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
+        if compute_quota_config is not None:
+            input_["compute_quota_config"] = compute_quota_config
+        if compute_quota_target is not None:
+            input_["compute_quota_target"] = compute_quota_target
         if activation_state is not None:
             input_["activation_state"] = activation_state
         if tags is not None:
@@ -3052,11 +3184,11 @@ class SageMakerClient:
 
     def create_context(
         self,
-        context_name: "capo_sagemaker.types.context_name.ContextName",
-        source: "capo_sagemaker.types.context_source.ContextSource",
-        context_type: "capo_sagemaker.types.string256.String256",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        context_name: Optional["capo_sagemaker.types.context_name.ContextName"] = None,
+        source: Optional["capo_sagemaker.types.context_source.ContextSource"] = None,
+        context_type: Optional["capo_sagemaker.types.string256.String256"] = None,
         description: Optional[
             "capo_sagemaker.types.experiment_description.ExperimentDescription"
         ] = None,
@@ -3096,9 +3228,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_context_request.CreateContextRequest = {}  # type: ignore[typeddict-item]
-        input_["context_name"] = context_name
-        input_["source"] = source
-        input_["context_type"] = context_type
+        if context_name is not None:
+            input_["context_name"] = context_name
+        if source is not None:
+            input_["source"] = source
+        if context_type is not None:
+            input_["context_type"] = context_type
         if description is not None:
             input_["description"] = description
         if properties is not None:
@@ -3115,20 +3250,30 @@ class SageMakerClient:
 
     def create_data_quality_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
-        data_quality_app_specification: "capo_sagemaker.types.data_quality_app_specification.DataQualityAppSpecification",
-        data_quality_job_input: "capo_sagemaker.types.data_quality_job_input.DataQualityJobInput",
-        data_quality_job_output_config: "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig",
-        job_resources: "capo_sagemaker.types.monitoring_resources.MonitoringResources",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
         data_quality_baseline_config: Optional[
             "capo_sagemaker.types.data_quality_baseline_config.DataQualityBaselineConfig"
+        ] = None,
+        data_quality_app_specification: Optional[
+            "capo_sagemaker.types.data_quality_app_specification.DataQualityAppSpecification"
+        ] = None,
+        data_quality_job_input: Optional[
+            "capo_sagemaker.types.data_quality_job_input.DataQualityJobInput"
+        ] = None,
+        data_quality_job_output_config: Optional[
+            "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig"
+        ] = None,
+        job_resources: Optional[
+            "capo_sagemaker.types.monitoring_resources.MonitoringResources"
         ] = None,
         network_config: Optional[
             "capo_sagemaker.types.monitoring_network_config.MonitoringNetworkConfig"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         stopping_condition: Optional[
             "capo_sagemaker.types.monitoring_stopping_condition.MonitoringStoppingCondition"
         ] = None,
@@ -3167,16 +3312,22 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_data_quality_job_definition_request.CreateDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
         if data_quality_baseline_config is not None:
             input_["data_quality_baseline_config"] = data_quality_baseline_config
-        input_["data_quality_app_specification"] = data_quality_app_specification
-        input_["data_quality_job_input"] = data_quality_job_input
-        input_["data_quality_job_output_config"] = data_quality_job_output_config
-        input_["job_resources"] = job_resources
+        if data_quality_app_specification is not None:
+            input_["data_quality_app_specification"] = data_quality_app_specification
+        if data_quality_job_input is not None:
+            input_["data_quality_job_input"] = data_quality_job_input
+        if data_quality_job_output_config is not None:
+            input_["data_quality_job_output_config"] = data_quality_job_output_config
+        if job_resources is not None:
+            input_["job_resources"] = job_resources
         if network_config is not None:
             input_["network_config"] = network_config
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if stopping_condition is not None:
             input_["stopping_condition"] = stopping_condition
         if tags is not None:
@@ -3191,13 +3342,17 @@ class SageMakerClient:
 
     def create_device_fleet(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
-        output_config: "capo_sagemaker.types.edge_output_config.EdgeOutputConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         description: Optional[
             "capo_sagemaker.types.device_fleet_description.DeviceFleetDescription"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.edge_output_config.EdgeOutputConfig"
         ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         enable_iot_role_alias: Optional[
@@ -3234,12 +3389,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_device_fleet_request.CreateDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if description is not None:
             input_["description"] = description
-        input_["output_config"] = output_config
+        if output_config is not None:
+            input_["output_config"] = output_config
         if tags is not None:
             input_["tags"] = tags
         if enable_iot_role_alias is not None:
@@ -3254,11 +3411,13 @@ class SageMakerClient:
 
     def create_domain(
         self,
-        domain_name: "capo_sagemaker.types.domain_name.DomainName",
-        auth_mode: "capo_sagemaker.types.auth_mode.AuthMode",
-        default_user_settings: "capo_sagemaker.types.user_settings.UserSettings",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_name: Optional["capo_sagemaker.types.domain_name.DomainName"] = None,
+        auth_mode: Optional["capo_sagemaker.types.auth_mode.AuthMode"] = None,
+        default_user_settings: Optional[
+            "capo_sagemaker.types.user_settings.UserSettings"
+        ] = None,
         domain_settings: Optional[
             "capo_sagemaker.types.domain_settings.DomainSettings"
         ] = None,
@@ -3325,9 +3484,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_name"] = domain_name
-        input_["auth_mode"] = auth_mode
-        input_["default_user_settings"] = default_user_settings
+        if domain_name is not None:
+            input_["domain_name"] = domain_name
+        if auth_mode is not None:
+            input_["auth_mode"] = auth_mode
+        if default_user_settings is not None:
+            input_["default_user_settings"] = default_user_settings
         if domain_settings is not None:
             input_["domain_settings"] = domain_settings
         if subnet_ids is not None:
@@ -3360,11 +3522,17 @@ class SageMakerClient:
 
     def create_edge_deployment_plan(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        model_configs: "capo_sagemaker.types.edge_deployment_model_configs.EdgeDeploymentModelConfigs",
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        model_configs: Optional[
+            "capo_sagemaker.types.edge_deployment_model_configs.EdgeDeploymentModelConfigs"
+        ] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         stages: Optional[
             "capo_sagemaker.types.deployment_stages.DeploymentStages"
         ] = None,
@@ -3400,9 +3568,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_edge_deployment_plan_request.CreateEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input_["model_configs"] = model_configs
-        input_["device_fleet_name"] = device_fleet_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if model_configs is not None:
+            input_["model_configs"] = model_configs
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
         if stages is not None:
             input_["stages"] = stages
         if tags is not None:
@@ -3417,10 +3588,14 @@ class SageMakerClient:
 
     def create_edge_deployment_stage(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        stages: "capo_sagemaker.types.deployment_stages.DeploymentStages",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        stages: Optional[
+            "capo_sagemaker.types.deployment_stages.DeploymentStages"
+        ] = None,
     ) -> None:
         """<p>Creates a new stage in an existing edge deployment plan.</p>
 
@@ -3447,8 +3622,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_edge_deployment_stage_request.CreateEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input_["stages"] = stages
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if stages is not None:
+            input_["stages"] = stages
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3459,14 +3636,20 @@ class SageMakerClient:
 
     def create_edge_packaging_job(
         self,
-        edge_packaging_job_name: "capo_sagemaker.types.entity_name.EntityName",
-        compilation_job_name: "capo_sagemaker.types.entity_name.EntityName",
-        model_name: "capo_sagemaker.types.entity_name.EntityName",
-        model_version: "capo_sagemaker.types.edge_version.EdgeVersion",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        output_config: "capo_sagemaker.types.edge_output_config.EdgeOutputConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_packaging_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        compilation_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        model_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
+        model_version: Optional["capo_sagemaker.types.edge_version.EdgeVersion"] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.edge_output_config.EdgeOutputConfig"
+        ] = None,
         resource_key: Optional["capo_sagemaker.types.kms_key_id.KmsKeyId"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> None:
@@ -3501,12 +3684,18 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_edge_packaging_job_request.CreateEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_packaging_job_name"] = edge_packaging_job_name
-        input_["compilation_job_name"] = compilation_job_name
-        input_["model_name"] = model_name
-        input_["model_version"] = model_version
-        input_["role_arn"] = role_arn
-        input_["output_config"] = output_config
+        if edge_packaging_job_name is not None:
+            input_["edge_packaging_job_name"] = edge_packaging_job_name
+        if compilation_job_name is not None:
+            input_["compilation_job_name"] = compilation_job_name
+        if model_name is not None:
+            input_["model_name"] = model_name
+        if model_version is not None:
+            input_["model_version"] = model_version
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if output_config is not None:
+            input_["output_config"] = output_config
         if resource_key is not None:
             input_["resource_key"] = resource_key
         if tags is not None:
@@ -3521,10 +3710,14 @@ class SageMakerClient:
 
     def create_endpoint(
         self,
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
-        endpoint_config_name: "capo_sagemaker.types.endpoint_config_name.EndpointConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
+        endpoint_config_name: Optional[
+            "capo_sagemaker.types.endpoint_config_name.EndpointConfigName"
+        ] = None,
         deployment_config: Optional[
             "capo_sagemaker.types.deployment_config.DeploymentConfig"
         ] = None,
@@ -3558,8 +3751,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_endpoint_input.CreateEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
-        input_["endpoint_config_name"] = endpoint_config_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
+        if endpoint_config_name is not None:
+            input_["endpoint_config_name"] = endpoint_config_name
         if deployment_config is not None:
             input_["deployment_config"] = deployment_config
         if tags is not None:
@@ -3574,10 +3769,14 @@ class SageMakerClient:
 
     def create_endpoint_config(
         self,
-        endpoint_config_name: "capo_sagemaker.types.endpoint_config_name.EndpointConfigName",
-        production_variants: "capo_sagemaker.types.production_variant_list.ProductionVariantList",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_config_name: Optional[
+            "capo_sagemaker.types.endpoint_config_name.EndpointConfigName"
+        ] = None,
+        production_variants: Optional[
+            "capo_sagemaker.types.production_variant_list.ProductionVariantList"
+        ] = None,
         data_capture_config: Optional[
             "capo_sagemaker.types.data_capture_config.DataCaptureConfig"
         ] = None,
@@ -3638,8 +3837,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_endpoint_config_input.CreateEndpointConfigInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_config_name"] = endpoint_config_name
-        input_["production_variants"] = production_variants
+        if endpoint_config_name is not None:
+            input_["endpoint_config_name"] = endpoint_config_name
+        if production_variants is not None:
+            input_["production_variants"] = production_variants
         if data_capture_config is not None:
             input_["data_capture_config"] = data_capture_config
         if tags is not None:
@@ -3670,9 +3871,11 @@ class SageMakerClient:
 
     def create_experiment(
         self,
-        experiment_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        experiment_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         display_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
@@ -3710,7 +3913,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_experiment_request.CreateExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["experiment_name"] = experiment_name
+        if experiment_name is not None:
+            input_["experiment_name"] = experiment_name
         if display_name is not None:
             input_["display_name"] = display_name
         if description is not None:
@@ -3727,12 +3931,20 @@ class SageMakerClient:
 
     def create_feature_group(
         self,
-        feature_group_name: "capo_sagemaker.types.feature_group_name.FeatureGroupName",
-        record_identifier_feature_name: "capo_sagemaker.types.feature_name.FeatureName",
-        event_time_feature_name: "capo_sagemaker.types.feature_name.FeatureName",
-        feature_definitions: "capo_sagemaker.types.feature_definitions.FeatureDefinitions",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        feature_group_name: Optional[
+            "capo_sagemaker.types.feature_group_name.FeatureGroupName"
+        ] = None,
+        record_identifier_feature_name: Optional[
+            "capo_sagemaker.types.feature_name.FeatureName"
+        ] = None,
+        event_time_feature_name: Optional[
+            "capo_sagemaker.types.feature_name.FeatureName"
+        ] = None,
+        feature_definitions: Optional[
+            "capo_sagemaker.types.feature_definitions.FeatureDefinitions"
+        ] = None,
         online_store_config: Optional[
             "capo_sagemaker.types.online_store_config.OnlineStoreConfig"
         ] = None,
@@ -3783,10 +3995,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_feature_group_request.CreateFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["feature_group_name"] = feature_group_name
-        input_["record_identifier_feature_name"] = record_identifier_feature_name
-        input_["event_time_feature_name"] = event_time_feature_name
-        input_["feature_definitions"] = feature_definitions
+        if feature_group_name is not None:
+            input_["feature_group_name"] = feature_group_name
+        if record_identifier_feature_name is not None:
+            input_["record_identifier_feature_name"] = record_identifier_feature_name
+        if event_time_feature_name is not None:
+            input_["event_time_feature_name"] = event_time_feature_name
+        if feature_definitions is not None:
+            input_["feature_definitions"] = feature_definitions
         if online_store_config is not None:
             input_["online_store_config"] = online_store_config
         if offline_store_config is not None:
@@ -3809,11 +4025,11 @@ class SageMakerClient:
 
     def create_flow_definition(
         self,
-        flow_definition_name: "capo_sagemaker.types.flow_definition_name.FlowDefinitionName",
-        output_config: "capo_sagemaker.types.flow_definition_output_config.FlowDefinitionOutputConfig",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        flow_definition_name: Optional[
+            "capo_sagemaker.types.flow_definition_name.FlowDefinitionName"
+        ] = None,
         human_loop_request_source: Optional[
             "capo_sagemaker.types.human_loop_request_source.HumanLoopRequestSource"
         ] = None,
@@ -3823,6 +4039,10 @@ class SageMakerClient:
         human_loop_config: Optional[
             "capo_sagemaker.types.human_loop_config.HumanLoopConfig"
         ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.flow_definition_output_config.FlowDefinitionOutputConfig"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_flow_definition_response.CreateFlowDefinitionResponse":
         """<p>Creates a flow definition.</p>
@@ -3858,15 +4078,18 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_flow_definition_request.CreateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_definition_name"] = flow_definition_name
+        if flow_definition_name is not None:
+            input_["flow_definition_name"] = flow_definition_name
         if human_loop_request_source is not None:
             input_["human_loop_request_source"] = human_loop_request_source
         if human_loop_activation_config is not None:
             input_["human_loop_activation_config"] = human_loop_activation_config
         if human_loop_config is not None:
             input_["human_loop_config"] = human_loop_config
-        input_["output_config"] = output_config
-        input_["role_arn"] = role_arn
+        if output_config is not None:
+            input_["output_config"] = output_config
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if tags is not None:
             input_["tags"] = tags
 
@@ -3879,10 +4102,12 @@ class SageMakerClient:
 
     def create_hub(
         self,
-        hub_name: "capo_sagemaker.types.hub_name.HubName",
-        hub_description: "capo_sagemaker.types.hub_description.HubDescription",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name.HubName"] = None,
+        hub_description: Optional[
+            "capo_sagemaker.types.hub_description.HubDescription"
+        ] = None,
         hub_display_name: Optional[
             "capo_sagemaker.types.hub_display_name.HubDisplayName"
         ] = None,
@@ -3926,8 +4151,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_hub_request.CreateHubRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_description"] = hub_description
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_description is not None:
+            input_["hub_description"] = hub_description
         if hub_display_name is not None:
             input_["hub_display_name"] = hub_display_name
         if hub_search_keywords is not None:
@@ -3946,11 +4173,15 @@ class SageMakerClient:
 
     def create_hub_content_presigned_urls(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
         hub_content_version: Optional[
             "capo_sagemaker.types.hub_content_version.HubContentVersion"
         ] = None,
@@ -3991,9 +4222,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_hub_content_presigned_urls_request.CreateHubContentPresignedUrlsRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_type"] = hub_content_type
-        input_["hub_content_name"] = hub_content_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
         if hub_content_version is not None:
             input_["hub_content_version"] = hub_content_version
         if access_config is not None:
@@ -4012,11 +4246,15 @@ class SageMakerClient:
 
     def iter_create_hub_content_presigned_urls(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
         hub_content_version: Optional[
             "capo_sagemaker.types.hub_content_version.HubContentVersion"
         ] = None,
@@ -4029,10 +4267,10 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.create_hub_content_presigned_urls(
-                hub_name,
-                hub_content_type,
-                hub_content_name,
                 config_overrides=config_overrides,
+                hub_name=hub_name,
+                hub_content_type=hub_content_type,
+                hub_content_name=hub_content_name,
                 hub_content_version=hub_content_version,
                 access_config=access_config,
                 max_results=max_results,
@@ -4047,10 +4285,12 @@ class SageMakerClient:
 
     def create_hub_content_reference(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        sage_maker_public_hub_content_arn: "capo_sagemaker.types.sage_maker_public_hub_content_arn.SageMakerPublicHubContentArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        sage_maker_public_hub_content_arn: Optional[
+            "capo_sagemaker.types.sage_maker_public_hub_content_arn.SageMakerPublicHubContentArn"
+        ] = None,
         hub_content_name: Optional[
             "capo_sagemaker.types.hub_content_name.HubContentName"
         ] = None,
@@ -4091,8 +4331,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_hub_content_reference_request.CreateHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["sage_maker_public_hub_content_arn"] = sage_maker_public_hub_content_arn
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if sage_maker_public_hub_content_arn is not None:
+            input_["sage_maker_public_hub_content_arn"] = (
+                sage_maker_public_hub_content_arn
+            )
         if hub_content_name is not None:
             input_["hub_content_name"] = hub_content_name
         if min_version is not None:
@@ -4109,10 +4353,12 @@ class SageMakerClient:
 
     def create_human_task_ui(
         self,
-        human_task_ui_name: "capo_sagemaker.types.human_task_ui_name.HumanTaskUiName",
-        ui_template: "capo_sagemaker.types.ui_template.UiTemplate",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        human_task_ui_name: Optional[
+            "capo_sagemaker.types.human_task_ui_name.HumanTaskUiName"
+        ] = None,
+        ui_template: Optional["capo_sagemaker.types.ui_template.UiTemplate"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_human_task_ui_response.CreateHumanTaskUiResponse":
         """<p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
@@ -4143,8 +4389,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_human_task_ui_request.CreateHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
-        input_["human_task_ui_name"] = human_task_ui_name
-        input_["ui_template"] = ui_template
+        if human_task_ui_name is not None:
+            input_["human_task_ui_name"] = human_task_ui_name
+        if ui_template is not None:
+            input_["ui_template"] = ui_template
         if tags is not None:
             input_["tags"] = tags
 
@@ -4157,10 +4405,14 @@ class SageMakerClient:
 
     def create_hyper_parameter_tuning_job(
         self,
-        hyper_parameter_tuning_job_name: "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName",
-        hyper_parameter_tuning_job_config: "capo_sagemaker.types.hyper_parameter_tuning_job_config.HyperParameterTuningJobConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hyper_parameter_tuning_job_name: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
+        ] = None,
+        hyper_parameter_tuning_job_config: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_config.HyperParameterTuningJobConfig"
+        ] = None,
         training_job_definition: Optional[
             "capo_sagemaker.types.hyper_parameter_training_job_definition.HyperParameterTrainingJobDefinition"
         ] = None,
@@ -4206,8 +4458,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_hyper_parameter_tuning_job_request.CreateHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
-        input_["hyper_parameter_tuning_job_config"] = hyper_parameter_tuning_job_config
+        if hyper_parameter_tuning_job_name is not None:
+            input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        if hyper_parameter_tuning_job_config is not None:
+            input_["hyper_parameter_tuning_job_config"] = (
+                hyper_parameter_tuning_job_config
+            )
         if training_job_definition is not None:
             input_["training_job_definition"] = training_job_definition
         if training_job_definitions is not None:
@@ -4228,8 +4484,6 @@ class SageMakerClient:
 
     def create_image(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         description: Optional[
@@ -4238,6 +4492,8 @@ class SageMakerClient:
         display_name: Optional[
             "capo_sagemaker.types.image_display_name.ImageDisplayName"
         ] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_image_response.CreateImageResponse":
         r"""<p>Creates a custom SageMaker AI image. A SageMaker AI image is a set of image versions. Each image version represents a container image stored in Amazon ECR. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html\">Bring your own SageMaker AI image</a>.</p>
@@ -4275,8 +4531,10 @@ class SageMakerClient:
             input_["description"] = description
         if display_name is not None:
             input_["display_name"] = display_name
-        input_["image_name"] = image_name
-        input_["role_arn"] = role_arn
+        if image_name is not None:
+            input_["image_name"] = image_name
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if tags is not None:
             input_["tags"] = tags
 
@@ -4289,11 +4547,13 @@ class SageMakerClient:
 
     def create_image_version(
         self,
-        base_image: "capo_sagemaker.types.image_base_image.ImageBaseImage",
-        client_token: "capo_sagemaker.types.client_token.ClientToken",
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        base_image: Optional[
+            "capo_sagemaker.types.image_base_image.ImageBaseImage"
+        ] = None,
+        client_token: Optional["capo_sagemaker.types.client_token.ClientToken"] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         aliases: Optional[
             "capo_sagemaker.types.sage_maker_image_version_aliases.SageMakerImageVersionAliases"
         ] = None,
@@ -4351,9 +4611,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_image_version_request.CreateImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["base_image"] = base_image
-        input_["client_token"] = client_token
-        input_["image_name"] = image_name
+        if base_image is not None:
+            input_["base_image"] = base_image
+        if client_token is not None:
+            input_["client_token"] = client_token
+        if image_name is not None:
+            input_["image_name"] = image_name
         if aliases is not None:
             input_["aliases"] = aliases
         if vendor_guidance is not None:
@@ -4380,10 +4643,14 @@ class SageMakerClient:
 
     def create_inference_component(
         self,
-        inference_component_name: "capo_sagemaker.types.inference_component_name.InferenceComponentName",
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        inference_component_name: Optional[
+            "capo_sagemaker.types.inference_component_name.InferenceComponentName"
+        ] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
         variant_name: Optional["capo_sagemaker.types.variant_name.VariantName"] = None,
         specification: Optional[
             "capo_sagemaker.types.inference_component_specification.InferenceComponentSpecification"
@@ -4428,8 +4695,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_inference_component_input.CreateInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input_["inference_component_name"] = inference_component_name
-        input_["endpoint_name"] = endpoint_name
+        if inference_component_name is not None:
+            input_["inference_component_name"] = inference_component_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
         if variant_name is not None:
             input_["variant_name"] = variant_name
         if specification is not None:
@@ -4450,22 +4719,32 @@ class SageMakerClient:
 
     def create_inference_experiment(
         self,
-        name: "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName",
-        type: "capo_sagemaker.types.inference_experiment_type.InferenceExperimentType",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
-        model_variants: "capo_sagemaker.types.model_variant_config_list.ModelVariantConfigList",
-        shadow_mode_config: "capo_sagemaker.types.shadow_mode_config.ShadowModeConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional[
+            "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName"
+        ] = None,
+        type: Optional[
+            "capo_sagemaker.types.inference_experiment_type.InferenceExperimentType"
+        ] = None,
         schedule: Optional[
             "capo_sagemaker.types.inference_experiment_schedule.InferenceExperimentSchedule"
         ] = None,
         description: Optional[
             "capo_sagemaker.types.inference_experiment_description.InferenceExperimentDescription"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
+        model_variants: Optional[
+            "capo_sagemaker.types.model_variant_config_list.ModelVariantConfigList"
+        ] = None,
         data_storage_config: Optional[
             "capo_sagemaker.types.inference_experiment_data_storage_config.InferenceExperimentDataStorageConfig"
+        ] = None,
+        shadow_mode_config: Optional[
+            "capo_sagemaker.types.shadow_mode_config.ShadowModeConfig"
         ] = None,
         kms_key: Optional["capo_sagemaker.types.kms_key_id.KmsKeyId"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
@@ -4507,18 +4786,24 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_inference_experiment_request.CreateInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["type"] = type
+        if name is not None:
+            input_["name"] = name
+        if type is not None:
+            input_["type"] = type
         if schedule is not None:
             input_["schedule"] = schedule
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
-        input_["endpoint_name"] = endpoint_name
-        input_["model_variants"] = model_variants
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
+        if model_variants is not None:
+            input_["model_variants"] = model_variants
         if data_storage_config is not None:
             input_["data_storage_config"] = data_storage_config
-        input_["shadow_mode_config"] = shadow_mode_config
+        if shadow_mode_config is not None:
+            input_["shadow_mode_config"] = shadow_mode_config
         if kms_key is not None:
             input_["kms_key"] = kms_key
         if tags is not None:
@@ -4533,12 +4818,18 @@ class SageMakerClient:
 
     def create_inference_recommendations_job(
         self,
-        job_name: "capo_sagemaker.types.recommendation_job_name.RecommendationJobName",
-        job_type: "capo_sagemaker.types.recommendation_job_type.RecommendationJobType",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        input_config: "capo_sagemaker.types.recommendation_job_input_config.RecommendationJobInputConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional[
+            "capo_sagemaker.types.recommendation_job_name.RecommendationJobName"
+        ] = None,
+        job_type: Optional[
+            "capo_sagemaker.types.recommendation_job_type.RecommendationJobType"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
+        input_config: Optional[
+            "capo_sagemaker.types.recommendation_job_input_config.RecommendationJobInputConfig"
+        ] = None,
         job_description: Optional[
             "capo_sagemaker.types.recommendation_job_description.RecommendationJobDescription"
         ] = None,
@@ -4584,10 +4875,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_inference_recommendations_job_request.CreateInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["job_type"] = job_type
-        input_["role_arn"] = role_arn
-        input_["input_config"] = input_config
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if job_type is not None:
+            input_["job_type"] = job_type
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if input_config is not None:
+            input_["input_config"] = input_config
         if job_description is not None:
             input_["job_description"] = job_description
         if stopping_conditions is not None:
@@ -4606,13 +4901,17 @@ class SageMakerClient:
 
     def create_job(
         self,
-        job_name: "capo_sagemaker.types.job_name.JobName",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
-        job_config_schema_version: "capo_sagemaker.types.job_schema_version.JobSchemaVersion",
-        job_config_document: "capo_sagemaker.types.job_config_document.JobConfigDocument",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional["capo_sagemaker.types.job_name.JobName"] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
+        job_config_schema_version: Optional[
+            "capo_sagemaker.types.job_schema_version.JobSchemaVersion"
+        ] = None,
+        job_config_document: Optional[
+            "capo_sagemaker.types.job_config_document.JobConfigDocument"
+        ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_job_response.CreateJobResponse":
         r"""<p>Creates a model customization job in Amazon SageMaker. A job runs a workload based on the job category and configuration you provide. You specify the job category, a schema-versioned configuration document, and an IAM role that grants Amazon SageMaker permission to access resources on your behalf.</p> <p>Use the <code>AgentRFT</code> category to fine-tune a model using multi-turn reinforcement learning with reward signals. Use the <code>AgentRFTEvaluation</code> category to evaluate a fine-tuned or base model by running multi-turn rollouts against a held-out prompt dataset and computing metrics such as pass@k and mean reward.</p> <p>Before creating a job, call <code>ListJobSchemaVersions</code> and <code>DescribeJobSchemaVersion</code> to retrieve the configuration schema for your job category. The <code>JobConfigDocument</code> must conform to the schema specified by <code>JobConfigSchemaVersion</code>.</p> <p>The following operations are related to <code>CreateJob</code>:</p> <ul> <li> <p> <code>DescribeJob</code> </p> </li> <li> <p> <code>ListJobs</code> </p> </li> <li> <p> <code>StopJob</code> </p> </li> <li> <p> <code>DeleteJob</code> </p> </li> <li> <p> <code>ListJobSchemaVersions</code> </p> </li> <li> <p> <code>DescribeJobSchemaVersion</code> </p> </li> </ul>
@@ -4648,11 +4947,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["role_arn"] = role_arn
-        input_["job_category"] = job_category
-        input_["job_config_schema_version"] = job_config_schema_version
-        input_["job_config_document"] = job_config_document
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if job_category is not None:
+            input_["job_category"] = job_category
+        if job_config_schema_version is not None:
+            input_["job_config_schema_version"] = job_config_schema_version
+        if job_config_document is not None:
+            input_["job_config_document"] = job_config_document
         if tags is not None:
             input_["tags"] = tags
 
@@ -4665,14 +4969,21 @@ class SageMakerClient:
 
     def create_labeling_job(
         self,
-        labeling_job_name: "capo_sagemaker.types.labeling_job_name.LabelingJobName",
-        label_attribute_name: "capo_sagemaker.types.label_attribute_name.LabelAttributeName",
-        input_config: "capo_sagemaker.types.labeling_job_input_config.LabelingJobInputConfig",
-        output_config: "capo_sagemaker.types.labeling_job_output_config.LabelingJobOutputConfig",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        human_task_config: "capo_sagemaker.types.human_task_config.HumanTaskConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        labeling_job_name: Optional[
+            "capo_sagemaker.types.labeling_job_name.LabelingJobName"
+        ] = None,
+        label_attribute_name: Optional[
+            "capo_sagemaker.types.label_attribute_name.LabelAttributeName"
+        ] = None,
+        input_config: Optional[
+            "capo_sagemaker.types.labeling_job_input_config.LabelingJobInputConfig"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.labeling_job_output_config.LabelingJobOutputConfig"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         label_category_config_s3_uri: Optional[
             "capo_sagemaker.types.s3_uri.S3Uri"
         ] = None,
@@ -4681,6 +4992,9 @@ class SageMakerClient:
         ] = None,
         labeling_job_algorithms_config: Optional[
             "capo_sagemaker.types.labeling_job_algorithms_config.LabelingJobAlgorithmsConfig"
+        ] = None,
+        human_task_config: Optional[
+            "capo_sagemaker.types.human_task_config.HumanTaskConfig"
         ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_labeling_job_response.CreateLabelingJobResponse":
@@ -4720,18 +5034,24 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_labeling_job_request.CreateLabelingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["labeling_job_name"] = labeling_job_name
-        input_["label_attribute_name"] = label_attribute_name
-        input_["input_config"] = input_config
-        input_["output_config"] = output_config
-        input_["role_arn"] = role_arn
+        if labeling_job_name is not None:
+            input_["labeling_job_name"] = labeling_job_name
+        if label_attribute_name is not None:
+            input_["label_attribute_name"] = label_attribute_name
+        if input_config is not None:
+            input_["input_config"] = input_config
+        if output_config is not None:
+            input_["output_config"] = output_config
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if label_category_config_s3_uri is not None:
             input_["label_category_config_s3_uri"] = label_category_config_s3_uri
         if stopping_conditions is not None:
             input_["stopping_conditions"] = stopping_conditions
         if labeling_job_algorithms_config is not None:
             input_["labeling_job_algorithms_config"] = labeling_job_algorithms_config
-        input_["human_task_config"] = human_task_config
+        if human_task_config is not None:
+            input_["human_task_config"] = human_task_config
         if tags is not None:
             input_["tags"] = tags
 
@@ -4744,11 +5064,11 @@ class SageMakerClient:
 
     def create_mlflow_app(
         self,
-        name: "capo_sagemaker.types.mlflow_app_name.MlflowAppName",
-        artifact_store_uri: "capo_sagemaker.types.s3_uri.S3Uri",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional["capo_sagemaker.types.mlflow_app_name.MlflowAppName"] = None,
+        artifact_store_uri: Optional["capo_sagemaker.types.s3_uri.S3Uri"] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         model_registration_mode: Optional[
             "capo_sagemaker.types.model_registration_mode.ModelRegistrationMode"
         ] = None,
@@ -4796,9 +5116,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_mlflow_app_request.CreateMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["artifact_store_uri"] = artifact_store_uri
-        input_["role_arn"] = role_arn
+        if name is not None:
+            input_["name"] = name
+        if artifact_store_uri is not None:
+            input_["artifact_store_uri"] = artifact_store_uri
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if model_registration_mode is not None:
             input_["model_registration_mode"] = model_registration_mode
         if weekly_maintenance_window_start is not None:
@@ -4819,17 +5142,19 @@ class SageMakerClient:
 
     def create_mlflow_tracking_server(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
-        artifact_store_uri: "capo_sagemaker.types.s3_uri.S3Uri",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
+        artifact_store_uri: Optional["capo_sagemaker.types.s3_uri.S3Uri"] = None,
         tracking_server_size: Optional[
             "capo_sagemaker.types.tracking_server_size.TrackingServerSize"
         ] = None,
         mlflow_version: Optional[
             "capo_sagemaker.types.mlflow_version.MlflowVersion"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         automatic_model_registration: Optional[
             "capo_sagemaker.types.boolean.Boolean"
         ] = None,
@@ -4879,13 +5204,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_mlflow_tracking_server_request.CreateMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
-        input_["artifact_store_uri"] = artifact_store_uri
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
+        if artifact_store_uri is not None:
+            input_["artifact_store_uri"] = artifact_store_uri
         if tracking_server_size is not None:
             input_["tracking_server_size"] = tracking_server_size
         if mlflow_version is not None:
             input_["mlflow_version"] = mlflow_version
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if automatic_model_registration is not None:
             input_["automatic_model_registration"] = automatic_model_registration
         if weekly_maintenance_window_start is not None:
@@ -4906,9 +5234,9 @@ class SageMakerClient:
 
     def create_model(
         self,
-        model_name: "capo_sagemaker.types.model_name.ModelName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_name: Optional["capo_sagemaker.types.model_name.ModelName"] = None,
         primary_container: Optional[
             "capo_sagemaker.types.container_definition.ContainerDefinition"
         ] = None,
@@ -4958,7 +5286,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_input.CreateModelInput = {}  # type: ignore[typeddict-item]
-        input_["model_name"] = model_name
+        if model_name is not None:
+            input_["model_name"] = model_name
         if primary_container is not None:
             input_["primary_container"] = primary_container
         if containers is not None:
@@ -4983,20 +5312,30 @@ class SageMakerClient:
 
     def create_model_bias_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
-        model_bias_app_specification: "capo_sagemaker.types.model_bias_app_specification.ModelBiasAppSpecification",
-        model_bias_job_input: "capo_sagemaker.types.model_bias_job_input.ModelBiasJobInput",
-        model_bias_job_output_config: "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig",
-        job_resources: "capo_sagemaker.types.monitoring_resources.MonitoringResources",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
         model_bias_baseline_config: Optional[
             "capo_sagemaker.types.model_bias_baseline_config.ModelBiasBaselineConfig"
+        ] = None,
+        model_bias_app_specification: Optional[
+            "capo_sagemaker.types.model_bias_app_specification.ModelBiasAppSpecification"
+        ] = None,
+        model_bias_job_input: Optional[
+            "capo_sagemaker.types.model_bias_job_input.ModelBiasJobInput"
+        ] = None,
+        model_bias_job_output_config: Optional[
+            "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig"
+        ] = None,
+        job_resources: Optional[
+            "capo_sagemaker.types.monitoring_resources.MonitoringResources"
         ] = None,
         network_config: Optional[
             "capo_sagemaker.types.monitoring_network_config.MonitoringNetworkConfig"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         stopping_condition: Optional[
             "capo_sagemaker.types.monitoring_stopping_condition.MonitoringStoppingCondition"
         ] = None,
@@ -5035,16 +5374,22 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_bias_job_definition_request.CreateModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
         if model_bias_baseline_config is not None:
             input_["model_bias_baseline_config"] = model_bias_baseline_config
-        input_["model_bias_app_specification"] = model_bias_app_specification
-        input_["model_bias_job_input"] = model_bias_job_input
-        input_["model_bias_job_output_config"] = model_bias_job_output_config
-        input_["job_resources"] = job_resources
+        if model_bias_app_specification is not None:
+            input_["model_bias_app_specification"] = model_bias_app_specification
+        if model_bias_job_input is not None:
+            input_["model_bias_job_input"] = model_bias_job_input
+        if model_bias_job_output_config is not None:
+            input_["model_bias_job_output_config"] = model_bias_job_output_config
+        if job_resources is not None:
+            input_["job_resources"] = job_resources
         if network_config is not None:
             input_["network_config"] = network_config
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if stopping_condition is not None:
             input_["stopping_condition"] = stopping_condition
         if tags is not None:
@@ -5059,13 +5404,17 @@ class SageMakerClient:
 
     def create_model_card(
         self,
-        model_card_name: "capo_sagemaker.types.entity_name.EntityName",
-        content: "capo_sagemaker.types.model_card_content.ModelCardContent",
-        model_card_status: "capo_sagemaker.types.model_card_status.ModelCardStatus",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
         security_config: Optional[
             "capo_sagemaker.types.model_card_security_config.ModelCardSecurityConfig"
+        ] = None,
+        content: Optional[
+            "capo_sagemaker.types.model_card_content.ModelCardContent"
+        ] = None,
+        model_card_status: Optional[
+            "capo_sagemaker.types.model_card_status.ModelCardStatus"
         ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_model_card_response.CreateModelCardResponse":
@@ -5100,11 +5449,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_card_request.CreateModelCardRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
         if security_config is not None:
             input_["security_config"] = security_config
-        input_["content"] = content
-        input_["model_card_status"] = model_card_status
+        if content is not None:
+            input_["content"] = content
+        if model_card_status is not None:
+            input_["model_card_status"] = model_card_status
         if tags is not None:
             input_["tags"] = tags
 
@@ -5117,12 +5469,18 @@ class SageMakerClient:
 
     def create_model_card_export_job(
         self,
-        model_card_name: "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn",
-        model_card_export_job_name: "capo_sagemaker.types.entity_name.EntityName",
-        output_config: "capo_sagemaker.types.model_card_export_output_config.ModelCardExportOutputConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional[
+            "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn"
+        ] = None,
         model_card_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
+        model_card_export_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.model_card_export_output_config.ModelCardExportOutputConfig"
+        ] = None,
     ) -> "capo_sagemaker.types.create_model_card_export_job_response.CreateModelCardExportJobResponse":
         """<p>Creates an Amazon SageMaker Model Card export job.</p>
 
@@ -5155,11 +5513,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_card_export_job_request.CreateModelCardExportJobRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
         if model_card_version is not None:
             input_["model_card_version"] = model_card_version
-        input_["model_card_export_job_name"] = model_card_export_job_name
-        input_["output_config"] = output_config
+        if model_card_export_job_name is not None:
+            input_["model_card_export_job_name"] = model_card_export_job_name
+        if output_config is not None:
+            input_["output_config"] = output_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5170,20 +5531,30 @@ class SageMakerClient:
 
     def create_model_explainability_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
-        model_explainability_app_specification: "capo_sagemaker.types.model_explainability_app_specification.ModelExplainabilityAppSpecification",
-        model_explainability_job_input: "capo_sagemaker.types.model_explainability_job_input.ModelExplainabilityJobInput",
-        model_explainability_job_output_config: "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig",
-        job_resources: "capo_sagemaker.types.monitoring_resources.MonitoringResources",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
         model_explainability_baseline_config: Optional[
             "capo_sagemaker.types.model_explainability_baseline_config.ModelExplainabilityBaselineConfig"
+        ] = None,
+        model_explainability_app_specification: Optional[
+            "capo_sagemaker.types.model_explainability_app_specification.ModelExplainabilityAppSpecification"
+        ] = None,
+        model_explainability_job_input: Optional[
+            "capo_sagemaker.types.model_explainability_job_input.ModelExplainabilityJobInput"
+        ] = None,
+        model_explainability_job_output_config: Optional[
+            "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig"
+        ] = None,
+        job_resources: Optional[
+            "capo_sagemaker.types.monitoring_resources.MonitoringResources"
         ] = None,
         network_config: Optional[
             "capo_sagemaker.types.monitoring_network_config.MonitoringNetworkConfig"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         stopping_condition: Optional[
             "capo_sagemaker.types.monitoring_stopping_condition.MonitoringStoppingCondition"
         ] = None,
@@ -5222,22 +5593,28 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_explainability_job_definition_request.CreateModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
         if model_explainability_baseline_config is not None:
             input_["model_explainability_baseline_config"] = (
                 model_explainability_baseline_config
             )
-        input_["model_explainability_app_specification"] = (
-            model_explainability_app_specification
-        )
-        input_["model_explainability_job_input"] = model_explainability_job_input
-        input_["model_explainability_job_output_config"] = (
-            model_explainability_job_output_config
-        )
-        input_["job_resources"] = job_resources
+        if model_explainability_app_specification is not None:
+            input_["model_explainability_app_specification"] = (
+                model_explainability_app_specification
+            )
+        if model_explainability_job_input is not None:
+            input_["model_explainability_job_input"] = model_explainability_job_input
+        if model_explainability_job_output_config is not None:
+            input_["model_explainability_job_output_config"] = (
+                model_explainability_job_output_config
+            )
+        if job_resources is not None:
+            input_["job_resources"] = job_resources
         if network_config is not None:
             input_["network_config"] = network_config
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if stopping_condition is not None:
             input_["stopping_condition"] = stopping_condition
         if tags is not None:
@@ -5432,9 +5809,11 @@ class SageMakerClient:
 
     def create_model_package_group(
         self,
-        model_package_group_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_group_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         model_package_group_description: Optional[
             "capo_sagemaker.types.entity_description.EntityDescription"
         ] = None,
@@ -5472,7 +5851,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_package_group_input.CreateModelPackageGroupInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_group_name"] = model_package_group_name
+        if model_package_group_name is not None:
+            input_["model_package_group_name"] = model_package_group_name
         if model_package_group_description is not None:
             input_["model_package_group_description"] = model_package_group_description
         if tags is not None:
@@ -5489,20 +5869,30 @@ class SageMakerClient:
 
     def create_model_quality_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
-        model_quality_app_specification: "capo_sagemaker.types.model_quality_app_specification.ModelQualityAppSpecification",
-        model_quality_job_input: "capo_sagemaker.types.model_quality_job_input.ModelQualityJobInput",
-        model_quality_job_output_config: "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig",
-        job_resources: "capo_sagemaker.types.monitoring_resources.MonitoringResources",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
         model_quality_baseline_config: Optional[
             "capo_sagemaker.types.model_quality_baseline_config.ModelQualityBaselineConfig"
+        ] = None,
+        model_quality_app_specification: Optional[
+            "capo_sagemaker.types.model_quality_app_specification.ModelQualityAppSpecification"
+        ] = None,
+        model_quality_job_input: Optional[
+            "capo_sagemaker.types.model_quality_job_input.ModelQualityJobInput"
+        ] = None,
+        model_quality_job_output_config: Optional[
+            "capo_sagemaker.types.monitoring_output_config.MonitoringOutputConfig"
+        ] = None,
+        job_resources: Optional[
+            "capo_sagemaker.types.monitoring_resources.MonitoringResources"
         ] = None,
         network_config: Optional[
             "capo_sagemaker.types.monitoring_network_config.MonitoringNetworkConfig"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         stopping_condition: Optional[
             "capo_sagemaker.types.monitoring_stopping_condition.MonitoringStoppingCondition"
         ] = None,
@@ -5541,16 +5931,22 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_model_quality_job_definition_request.CreateModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
         if model_quality_baseline_config is not None:
             input_["model_quality_baseline_config"] = model_quality_baseline_config
-        input_["model_quality_app_specification"] = model_quality_app_specification
-        input_["model_quality_job_input"] = model_quality_job_input
-        input_["model_quality_job_output_config"] = model_quality_job_output_config
-        input_["job_resources"] = job_resources
+        if model_quality_app_specification is not None:
+            input_["model_quality_app_specification"] = model_quality_app_specification
+        if model_quality_job_input is not None:
+            input_["model_quality_job_input"] = model_quality_job_input
+        if model_quality_job_output_config is not None:
+            input_["model_quality_job_output_config"] = model_quality_job_output_config
+        if job_resources is not None:
+            input_["job_resources"] = job_resources
         if network_config is not None:
             input_["network_config"] = network_config
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if stopping_condition is not None:
             input_["stopping_condition"] = stopping_condition
         if tags is not None:
@@ -5565,10 +5961,14 @@ class SageMakerClient:
 
     def create_monitoring_schedule(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
-        monitoring_schedule_config: "capo_sagemaker.types.monitoring_schedule_config.MonitoringScheduleConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
+        monitoring_schedule_config: Optional[
+            "capo_sagemaker.types.monitoring_schedule_config.MonitoringScheduleConfig"
+        ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_monitoring_schedule_response.CreateMonitoringScheduleResponse":
         r"""<p>Creates a schedule that regularly starts Amazon SageMaker AI Processing Jobs to monitor the data captured for an Amazon SageMaker AI Endpoint.</p>
@@ -5600,8 +6000,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_monitoring_schedule_request.CreateMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
-        input_["monitoring_schedule_config"] = monitoring_schedule_config
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_config is not None:
+            input_["monitoring_schedule_config"] = monitoring_schedule_config
         if tags is not None:
             input_["tags"] = tags
 
@@ -5614,11 +6016,14 @@ class SageMakerClient:
 
     def create_notebook_instance(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
-        instance_type: "capo_sagemaker.types.instance_type.InstanceType",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
+        instance_type: Optional[
+            "capo_sagemaker.types.instance_type.InstanceType"
+        ] = None,
         subnet_id: Optional["capo_sagemaker.types.subnet_id.SubnetId"] = None,
         security_group_ids: Optional[
             "capo_sagemaker.types.security_group_ids.SecurityGroupIds"
@@ -5626,6 +6031,7 @@ class SageMakerClient:
         ip_address_type: Optional[
             "capo_sagemaker.types.ip_address_type.IPAddressType"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         kms_key_id: Optional["capo_sagemaker.types.kms_key_id.KmsKeyId"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         lifecycle_config_name: Optional[
@@ -5696,15 +6102,18 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_notebook_instance_input.CreateNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
-        input_["instance_type"] = instance_type
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
+        if instance_type is not None:
+            input_["instance_type"] = instance_type
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
         if security_group_ids is not None:
             input_["security_group_ids"] = security_group_ids
         if ip_address_type is not None:
             input_["ip_address_type"] = ip_address_type
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -5739,9 +6148,11 @@ class SageMakerClient:
 
     def create_notebook_instance_lifecycle_config(
         self,
-        notebook_instance_lifecycle_config_name: "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName"
+        ] = None,
         on_create: Optional[
             "capo_sagemaker.types.notebook_instance_lifecycle_config_list.NotebookInstanceLifecycleConfigList"
         ] = None,
@@ -5779,9 +6190,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_notebook_instance_lifecycle_config_input.CreateNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_lifecycle_config_name"] = (
-            notebook_instance_lifecycle_config_name
-        )
+        if notebook_instance_lifecycle_config_name is not None:
+            input_["notebook_instance_lifecycle_config_name"] = (
+                notebook_instance_lifecycle_config_name
+            )
         if on_create is not None:
             input_["on_create"] = on_create
         if on_start is not None:
@@ -5798,20 +6210,32 @@ class SageMakerClient:
 
     def create_optimization_job(
         self,
-        optimization_job_name: "capo_sagemaker.types.entity_name.EntityName",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        model_source: "capo_sagemaker.types.optimization_job_model_source.OptimizationJobModelSource",
-        deployment_instance_type: "capo_sagemaker.types.optimization_job_deployment_instance_type.OptimizationJobDeploymentInstanceType",
-        optimization_configs: "capo_sagemaker.types.optimization_configs.OptimizationConfigs",
-        output_config: "capo_sagemaker.types.optimization_job_output_config.OptimizationJobOutputConfig",
-        stopping_condition: "capo_sagemaker.types.stopping_condition.StoppingCondition",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        optimization_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
+        model_source: Optional[
+            "capo_sagemaker.types.optimization_job_model_source.OptimizationJobModelSource"
+        ] = None,
+        deployment_instance_type: Optional[
+            "capo_sagemaker.types.optimization_job_deployment_instance_type.OptimizationJobDeploymentInstanceType"
+        ] = None,
         max_instance_count: Optional[
             "capo_sagemaker.types.optimization_job_max_instance_count.OptimizationJobMaxInstanceCount"
         ] = None,
         optimization_environment: Optional[
             "capo_sagemaker.types.optimization_job_environment_variables.OptimizationJobEnvironmentVariables"
+        ] = None,
+        optimization_configs: Optional[
+            "capo_sagemaker.types.optimization_configs.OptimizationConfigs"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.optimization_job_output_config.OptimizationJobOutputConfig"
+        ] = None,
+        stopping_condition: Optional[
+            "capo_sagemaker.types.stopping_condition.StoppingCondition"
         ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         vpc_config: Optional[
@@ -5854,17 +6278,24 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_optimization_job_request.CreateOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["optimization_job_name"] = optimization_job_name
-        input_["role_arn"] = role_arn
-        input_["model_source"] = model_source
-        input_["deployment_instance_type"] = deployment_instance_type
+        if optimization_job_name is not None:
+            input_["optimization_job_name"] = optimization_job_name
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if model_source is not None:
+            input_["model_source"] = model_source
+        if deployment_instance_type is not None:
+            input_["deployment_instance_type"] = deployment_instance_type
         if max_instance_count is not None:
             input_["max_instance_count"] = max_instance_count
         if optimization_environment is not None:
             input_["optimization_environment"] = optimization_environment
-        input_["optimization_configs"] = optimization_configs
-        input_["output_config"] = output_config
-        input_["stopping_condition"] = stopping_condition
+        if optimization_configs is not None:
+            input_["optimization_configs"] = optimization_configs
+        if output_config is not None:
+            input_["output_config"] = output_config
+        if stopping_condition is not None:
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
             input_["tags"] = tags
         if vpc_config is not None:
@@ -5879,19 +6310,23 @@ class SageMakerClient:
 
     def create_partner_app(
         self,
-        name: "capo_sagemaker.types.partner_app_name.PartnerAppName",
-        type: "capo_sagemaker.types.partner_app_type.PartnerAppType",
-        execution_role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        tier: "capo_sagemaker.types.non_empty_string64.NonEmptyString64",
-        auth_type: "capo_sagemaker.types.partner_app_auth_type.PartnerAppAuthType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional["capo_sagemaker.types.partner_app_name.PartnerAppName"] = None,
+        type: Optional["capo_sagemaker.types.partner_app_type.PartnerAppType"] = None,
+        execution_role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         kms_key_id: Optional["capo_sagemaker.types.kms_key_id.KmsKeyId"] = None,
         maintenance_config: Optional[
             "capo_sagemaker.types.partner_app_maintenance_config.PartnerAppMaintenanceConfig"
         ] = None,
+        tier: Optional[
+            "capo_sagemaker.types.non_empty_string64.NonEmptyString64"
+        ] = None,
         application_config: Optional[
             "capo_sagemaker.types.partner_app_config.PartnerAppConfig"
+        ] = None,
+        auth_type: Optional[
+            "capo_sagemaker.types.partner_app_auth_type.PartnerAppAuthType"
         ] = None,
         enable_iam_session_based_identity: Optional[
             "capo_sagemaker.types.boolean.Boolean"
@@ -5940,17 +6375,22 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_partner_app_request.CreatePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["type"] = type
-        input_["execution_role_arn"] = execution_role_arn
+        if name is not None:
+            input_["name"] = name
+        if type is not None:
+            input_["type"] = type
+        if execution_role_arn is not None:
+            input_["execution_role_arn"] = execution_role_arn
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if maintenance_config is not None:
             input_["maintenance_config"] = maintenance_config
-        input_["tier"] = tier
+        if tier is not None:
+            input_["tier"] = tier
         if application_config is not None:
             input_["application_config"] = application_config
-        input_["auth_type"] = auth_type
+        if auth_type is not None:
+            input_["auth_type"] = auth_type
         if enable_iam_session_based_identity is not None:
             input_["enable_iam_session_based_identity"] = (
                 enable_iam_session_based_identity
@@ -5973,9 +6413,9 @@ class SageMakerClient:
 
     def create_partner_app_presigned_url(
         self,
-        arn: "capo_sagemaker.types.partner_app_arn.PartnerAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.partner_app_arn.PartnerAppArn"] = None,
         expires_in_seconds: Optional[
             "capo_sagemaker.types.expires_in_seconds.ExpiresInSeconds"
         ] = None,
@@ -6011,7 +6451,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_partner_app_presigned_url_request.CreatePartnerAppPresignedUrlRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if expires_in_seconds is not None:
             input_["expires_in_seconds"] = expires_in_seconds
         if session_expiration_duration_in_seconds is not None:
@@ -6028,11 +6469,11 @@ class SageMakerClient:
 
     def create_pipeline(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name.PipelineName",
-        client_request_token: "capo_sagemaker.types.idempotency_token.IdempotencyToken",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name.PipelineName"
+        ] = None,
         pipeline_display_name: Optional[
             "capo_sagemaker.types.pipeline_name.PipelineName"
         ] = None,
@@ -6045,6 +6486,10 @@ class SageMakerClient:
         pipeline_description: Optional[
             "capo_sagemaker.types.pipeline_description.PipelineDescription"
         ] = None,
+        client_request_token: Optional[
+            "capo_sagemaker.types.idempotency_token.IdempotencyToken"
+        ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         parallelism_configuration: Optional[
             "capo_sagemaker.types.parallelism_configuration.ParallelismConfiguration"
@@ -6086,7 +6531,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
         if pipeline_display_name is not None:
             input_["pipeline_display_name"] = pipeline_display_name
         if pipeline_definition is not None:
@@ -6095,8 +6541,10 @@ class SageMakerClient:
             input_["pipeline_definition_s3_location"] = pipeline_definition_s3_location
         if pipeline_description is not None:
             input_["pipeline_description"] = pipeline_description
-        input_["client_request_token"] = client_request_token
-        input_["role_arn"] = role_arn
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if tags is not None:
             input_["tags"] = tags
         if parallelism_configuration is not None:
@@ -6111,10 +6559,12 @@ class SageMakerClient:
 
     def create_presigned_domain_url(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        user_profile_name: "capo_sagemaker.types.user_profile_name.UserProfileName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        user_profile_name: Optional[
+            "capo_sagemaker.types.user_profile_name.UserProfileName"
+        ] = None,
         session_expiration_duration_in_seconds: Optional[
             "capo_sagemaker.types.session_expiration_duration_in_seconds.SessionExpirationDurationInSeconds"
         ] = None,
@@ -6155,8 +6605,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_presigned_domain_url_request.CreatePresignedDomainUrlRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["user_profile_name"] = user_profile_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if user_profile_name is not None:
+            input_["user_profile_name"] = user_profile_name
         if session_expiration_duration_in_seconds is not None:
             input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
@@ -6177,9 +6629,9 @@ class SageMakerClient:
 
     def create_presigned_mlflow_app_url(
         self,
-        arn: "capo_sagemaker.types.mlflow_app_arn.MlflowAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.mlflow_app_arn.MlflowAppArn"] = None,
         expires_in_seconds: Optional[
             "capo_sagemaker.types.expires_in_seconds.ExpiresInSeconds"
         ] = None,
@@ -6215,7 +6667,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_presigned_mlflow_app_url_request.CreatePresignedMlflowAppUrlRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if expires_in_seconds is not None:
             input_["expires_in_seconds"] = expires_in_seconds
         if session_expiration_duration_in_seconds is not None:
@@ -6232,9 +6685,11 @@ class SageMakerClient:
 
     def create_presigned_mlflow_tracking_server_url(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
         expires_in_seconds: Optional[
             "capo_sagemaker.types.expires_in_seconds.ExpiresInSeconds"
         ] = None,
@@ -6270,7 +6725,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_presigned_mlflow_tracking_server_url_request.CreatePresignedMlflowTrackingServerUrlRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
         if expires_in_seconds is not None:
             input_["expires_in_seconds"] = expires_in_seconds
         if session_expiration_duration_in_seconds is not None:
@@ -6287,9 +6743,11 @@ class SageMakerClient:
 
     def create_presigned_notebook_instance_url(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
         session_expiration_duration_in_seconds: Optional[
             "capo_sagemaker.types.session_expiration_duration_in_seconds.SessionExpirationDurationInSeconds"
         ] = None,
@@ -6320,7 +6778,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_presigned_notebook_instance_url_input.CreatePresignedNotebookInstanceUrlInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
         if session_expiration_duration_in_seconds is not None:
             input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
@@ -6335,10 +6794,6 @@ class SageMakerClient:
 
     def create_processing_job(
         self,
-        processing_job_name: "capo_sagemaker.types.processing_job_name.ProcessingJobName",
-        processing_resources: "capo_sagemaker.types.processing_resources.ProcessingResources",
-        app_specification: "capo_sagemaker.types.app_specification.AppSpecification",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         processing_inputs: Optional[
@@ -6347,8 +6802,17 @@ class SageMakerClient:
         processing_output_config: Optional[
             "capo_sagemaker.types.processing_output_config.ProcessingOutputConfig"
         ] = None,
+        processing_job_name: Optional[
+            "capo_sagemaker.types.processing_job_name.ProcessingJobName"
+        ] = None,
+        processing_resources: Optional[
+            "capo_sagemaker.types.processing_resources.ProcessingResources"
+        ] = None,
         stopping_condition: Optional[
             "capo_sagemaker.types.processing_stopping_condition.ProcessingStoppingCondition"
+        ] = None,
+        app_specification: Optional[
+            "capo_sagemaker.types.app_specification.AppSpecification"
         ] = None,
         environment: Optional[
             "capo_sagemaker.types.processing_environment_map.ProcessingEnvironmentMap"
@@ -6356,6 +6820,7 @@ class SageMakerClient:
         network_config: Optional[
             "capo_sagemaker.types.network_config.NetworkConfig"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         experiment_config: Optional[
             "capo_sagemaker.types.experiment_config.ExperimentConfig"
@@ -6402,16 +6867,20 @@ class SageMakerClient:
             input_["processing_inputs"] = processing_inputs
         if processing_output_config is not None:
             input_["processing_output_config"] = processing_output_config
-        input_["processing_job_name"] = processing_job_name
-        input_["processing_resources"] = processing_resources
+        if processing_job_name is not None:
+            input_["processing_job_name"] = processing_job_name
+        if processing_resources is not None:
+            input_["processing_resources"] = processing_resources
         if stopping_condition is not None:
             input_["stopping_condition"] = stopping_condition
-        input_["app_specification"] = app_specification
+        if app_specification is not None:
+            input_["app_specification"] = app_specification
         if environment is not None:
             input_["environment"] = environment
         if network_config is not None:
             input_["network_config"] = network_config
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if tags is not None:
             input_["tags"] = tags
         if experiment_config is not None:
@@ -6426,9 +6895,11 @@ class SageMakerClient:
 
     def create_project(
         self,
-        project_name: "capo_sagemaker.types.project_entity_name.ProjectEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        project_name: Optional[
+            "capo_sagemaker.types.project_entity_name.ProjectEntityName"
+        ] = None,
         project_description: Optional[
             "capo_sagemaker.types.entity_description.EntityDescription"
         ] = None,
@@ -6470,7 +6941,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
-        input_["project_name"] = project_name
+        if project_name is not None:
+            input_["project_name"] = project_name
         if project_description is not None:
             input_["project_description"] = project_description
         if service_catalog_provisioning_details is not None:
@@ -6491,10 +6963,10 @@ class SageMakerClient:
 
     def create_space(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        space_name: "capo_sagemaker.types.space_name.SpaceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         space_settings: Optional[
             "capo_sagemaker.types.space_settings.SpaceSettings"
@@ -6542,8 +7014,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_space_request.CreateSpaceRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["space_name"] = space_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if space_name is not None:
+            input_["space_name"] = space_name
         if tags is not None:
             input_["tags"] = tags
         if space_settings is not None:
@@ -6564,11 +7038,17 @@ class SageMakerClient:
 
     def create_studio_lifecycle_config(
         self,
-        studio_lifecycle_config_name: "capo_sagemaker.types.studio_lifecycle_config_name.StudioLifecycleConfigName",
-        studio_lifecycle_config_content: "capo_sagemaker.types.studio_lifecycle_config_content.StudioLifecycleConfigContent",
-        studio_lifecycle_config_app_type: "capo_sagemaker.types.studio_lifecycle_config_app_type.StudioLifecycleConfigAppType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        studio_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.studio_lifecycle_config_name.StudioLifecycleConfigName"
+        ] = None,
+        studio_lifecycle_config_content: Optional[
+            "capo_sagemaker.types.studio_lifecycle_config_content.StudioLifecycleConfigContent"
+        ] = None,
+        studio_lifecycle_config_app_type: Optional[
+            "capo_sagemaker.types.studio_lifecycle_config_app_type.StudioLifecycleConfigAppType"
+        ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> "capo_sagemaker.types.create_studio_lifecycle_config_response.CreateStudioLifecycleConfigResponse":
         """<p>Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.</p>
@@ -6600,9 +7080,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_studio_lifecycle_config_request.CreateStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
-        input_["studio_lifecycle_config_content"] = studio_lifecycle_config_content
-        input_["studio_lifecycle_config_app_type"] = studio_lifecycle_config_app_type
+        if studio_lifecycle_config_name is not None:
+            input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
+        if studio_lifecycle_config_content is not None:
+            input_["studio_lifecycle_config_content"] = studio_lifecycle_config_content
+        if studio_lifecycle_config_app_type is not None:
+            input_["studio_lifecycle_config_app_type"] = (
+                studio_lifecycle_config_app_type
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -6615,19 +7100,23 @@ class SageMakerClient:
 
     def create_training_job(
         self,
-        training_job_name: "capo_sagemaker.types.training_job_name.TrainingJobName",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
-        output_data_config: "capo_sagemaker.types.output_data_config.OutputDataConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_job_name: Optional[
+            "capo_sagemaker.types.training_job_name.TrainingJobName"
+        ] = None,
         hyper_parameters: Optional[
             "capo_sagemaker.types.hyper_parameters.HyperParameters"
         ] = None,
         algorithm_specification: Optional[
             "capo_sagemaker.types.algorithm_specification.AlgorithmSpecification"
         ] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         input_data_config: Optional[
             "capo_sagemaker.types.input_data_config.InputDataConfig"
+        ] = None,
+        output_data_config: Optional[
+            "capo_sagemaker.types.output_data_config.OutputDataConfig"
         ] = None,
         resource_config: Optional[
             "capo_sagemaker.types.resource_config.ResourceConfig"
@@ -6743,15 +7232,18 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_training_job_request.CreateTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["training_job_name"] = training_job_name
+        if training_job_name is not None:
+            input_["training_job_name"] = training_job_name
         if hyper_parameters is not None:
             input_["hyper_parameters"] = hyper_parameters
         if algorithm_specification is not None:
             input_["algorithm_specification"] = algorithm_specification
-        input_["role_arn"] = role_arn
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if input_data_config is not None:
             input_["input_data_config"] = input_data_config
-        input_["output_data_config"] = output_data_config
+        if output_data_config is not None:
+            input_["output_data_config"] = output_data_config
         if resource_config is not None:
             input_["resource_config"] = resource_config
         if vpc_config is not None:
@@ -6808,10 +7300,14 @@ class SageMakerClient:
 
     def create_training_plan(
         self,
-        training_plan_name: "capo_sagemaker.types.training_plan_name.TrainingPlanName",
-        training_plan_offering_id: "capo_sagemaker.types.training_plan_offering_id.TrainingPlanOfferingId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_plan_name: Optional[
+            "capo_sagemaker.types.training_plan_name.TrainingPlanName"
+        ] = None,
+        training_plan_offering_id: Optional[
+            "capo_sagemaker.types.training_plan_offering_id.TrainingPlanOfferingId"
+        ] = None,
         spare_instance_count_per_ultra_server: Optional[
             "capo_sagemaker.types.spare_instance_count_per_ultra_server.SpareInstanceCountPerUltraServer"
         ] = None,
@@ -6850,8 +7346,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_training_plan_request.CreateTrainingPlanRequest = {}  # type: ignore[typeddict-item]
-        input_["training_plan_name"] = training_plan_name
-        input_["training_plan_offering_id"] = training_plan_offering_id
+        if training_plan_name is not None:
+            input_["training_plan_name"] = training_plan_name
+        if training_plan_offering_id is not None:
+            input_["training_plan_offering_id"] = training_plan_offering_id
         if spare_instance_count_per_ultra_server is not None:
             input_["spare_instance_count_per_ultra_server"] = (
                 spare_instance_count_per_ultra_server
@@ -6868,13 +7366,12 @@ class SageMakerClient:
 
     def create_transform_job(
         self,
-        transform_job_name: "capo_sagemaker.types.transform_job_name.TransformJobName",
-        model_name: "capo_sagemaker.types.model_name.ModelName",
-        transform_input: "capo_sagemaker.types.transform_input.TransformInput",
-        transform_output: "capo_sagemaker.types.transform_output.TransformOutput",
-        transform_resources: "capo_sagemaker.types.transform_resources.TransformResources",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        transform_job_name: Optional[
+            "capo_sagemaker.types.transform_job_name.TransformJobName"
+        ] = None,
+        model_name: Optional["capo_sagemaker.types.model_name.ModelName"] = None,
         max_concurrent_transforms: Optional[
             "capo_sagemaker.types.max_concurrent_transforms.MaxConcurrentTransforms"
         ] = None,
@@ -6890,8 +7387,17 @@ class SageMakerClient:
         environment: Optional[
             "capo_sagemaker.types.transform_environment_map.TransformEnvironmentMap"
         ] = None,
+        transform_input: Optional[
+            "capo_sagemaker.types.transform_input.TransformInput"
+        ] = None,
+        transform_output: Optional[
+            "capo_sagemaker.types.transform_output.TransformOutput"
+        ] = None,
         data_capture_config: Optional[
             "capo_sagemaker.types.batch_data_capture_config.BatchDataCaptureConfig"
+        ] = None,
+        transform_resources: Optional[
+            "capo_sagemaker.types.transform_resources.TransformResources"
         ] = None,
         data_processing: Optional[
             "capo_sagemaker.types.data_processing.DataProcessing"
@@ -6943,8 +7449,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_transform_job_request.CreateTransformJobRequest = {}  # type: ignore[typeddict-item]
-        input_["transform_job_name"] = transform_job_name
-        input_["model_name"] = model_name
+        if transform_job_name is not None:
+            input_["transform_job_name"] = transform_job_name
+        if model_name is not None:
+            input_["model_name"] = model_name
         if max_concurrent_transforms is not None:
             input_["max_concurrent_transforms"] = max_concurrent_transforms
         if model_client_config is not None:
@@ -6955,11 +7463,14 @@ class SageMakerClient:
             input_["batch_strategy"] = batch_strategy
         if environment is not None:
             input_["environment"] = environment
-        input_["transform_input"] = transform_input
-        input_["transform_output"] = transform_output
+        if transform_input is not None:
+            input_["transform_input"] = transform_input
+        if transform_output is not None:
+            input_["transform_output"] = transform_output
         if data_capture_config is not None:
             input_["data_capture_config"] = data_capture_config
-        input_["transform_resources"] = transform_resources
+        if transform_resources is not None:
+            input_["transform_resources"] = transform_resources
         if data_processing is not None:
             input_["data_processing"] = data_processing
         if tags is not None:
@@ -6976,11 +7487,15 @@ class SageMakerClient:
 
     def create_trial(
         self,
-        trial_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
-        experiment_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         display_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
+        experiment_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
         metadata_properties: Optional[
@@ -7018,10 +7533,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_trial_request.CreateTrialRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_name"] = trial_name
+        if trial_name is not None:
+            input_["trial_name"] = trial_name
         if display_name is not None:
             input_["display_name"] = display_name
-        input_["experiment_name"] = experiment_name
+        if experiment_name is not None:
+            input_["experiment_name"] = experiment_name
         if metadata_properties is not None:
             input_["metadata_properties"] = metadata_properties
         if tags is not None:
@@ -7036,9 +7553,11 @@ class SageMakerClient:
 
     def create_trial_component(
         self,
-        trial_component_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         display_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
@@ -7095,7 +7614,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_trial_component_request.CreateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
         if display_name is not None:
             input_["display_name"] = display_name
         if status is not None:
@@ -7124,10 +7644,12 @@ class SageMakerClient:
 
     def create_user_profile(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        user_profile_name: "capo_sagemaker.types.user_profile_name.UserProfileName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        user_profile_name: Optional[
+            "capo_sagemaker.types.user_profile_name.UserProfileName"
+        ] = None,
         single_sign_on_user_identifier: Optional[
             "capo_sagemaker.types.single_sign_on_user_identifier.SingleSignOnUserIdentifier"
         ] = None,
@@ -7171,8 +7693,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_user_profile_request.CreateUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["user_profile_name"] = user_profile_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if user_profile_name is not None:
+            input_["user_profile_name"] = user_profile_name
         if single_sign_on_user_identifier is not None:
             input_["single_sign_on_user_identifier"] = single_sign_on_user_identifier
         if single_sign_on_user_value is not None:
@@ -7191,7 +7715,6 @@ class SageMakerClient:
 
     def create_workforce(
         self,
-        workforce_name: "capo_sagemaker.types.workforce_name.WorkforceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         cognito_config: Optional[
@@ -7200,6 +7723,9 @@ class SageMakerClient:
         oidc_config: Optional["capo_sagemaker.types.oidc_config.OidcConfig"] = None,
         source_ip_config: Optional[
             "capo_sagemaker.types.source_ip_config.SourceIpConfig"
+        ] = None,
+        workforce_name: Optional[
+            "capo_sagemaker.types.workforce_name.WorkforceName"
         ] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
         workforce_vpc_config: Optional[
@@ -7245,7 +7771,8 @@ class SageMakerClient:
             input_["oidc_config"] = oidc_config
         if source_ip_config is not None:
             input_["source_ip_config"] = source_ip_config
-        input_["workforce_name"] = workforce_name
+        if workforce_name is not None:
+            input_["workforce_name"] = workforce_name
         if tags is not None:
             input_["tags"] = tags
         if workforce_vpc_config is not None:
@@ -7262,14 +7789,18 @@ class SageMakerClient:
 
     def create_workteam(
         self,
-        workteam_name: "capo_sagemaker.types.workteam_name.WorkteamName",
-        member_definitions: "capo_sagemaker.types.member_definitions.MemberDefinitions",
-        description: "capo_sagemaker.types.string200.String200",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_name: Optional[
+            "capo_sagemaker.types.workteam_name.WorkteamName"
+        ] = None,
         workforce_name: Optional[
             "capo_sagemaker.types.workforce_name.WorkforceName"
         ] = None,
+        member_definitions: Optional[
+            "capo_sagemaker.types.member_definitions.MemberDefinitions"
+        ] = None,
+        description: Optional["capo_sagemaker.types.string200.String200"] = None,
         notification_configuration: Optional[
             "capo_sagemaker.types.notification_configuration.NotificationConfiguration"
         ] = None,
@@ -7311,11 +7842,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.create_workteam_request.CreateWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input_["workteam_name"] = workteam_name
+        if workteam_name is not None:
+            input_["workteam_name"] = workteam_name
         if workforce_name is not None:
             input_["workforce_name"] = workforce_name
-        input_["member_definitions"] = member_definitions
-        input_["description"] = description
+        if member_definitions is not None:
+            input_["member_definitions"] = member_definitions
+        if description is not None:
+            input_["description"] = description
         if notification_configuration is not None:
             input_["notification_configuration"] = notification_configuration
         if worker_access_configuration is not None:
@@ -7332,9 +7866,11 @@ class SageMakerClient:
 
     def delete_action(
         self,
-        action_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        action_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_action_response.DeleteActionResponse":
         """<p>Deletes an action.</p>
 
@@ -7362,7 +7898,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_action_request.DeleteActionRequest = {}  # type: ignore[typeddict-item]
-        input_["action_name"] = action_name
+        if action_name is not None:
+            input_["action_name"] = action_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7373,9 +7910,11 @@ class SageMakerClient:
 
     def delete_ai_benchmark_job(
         self,
-        ai_benchmark_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_benchmark_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_ai_benchmark_job_response.DeleteAIBenchmarkJobResponse":
         """<p>Deletes the specified AI benchmark job.</p>
 
@@ -7403,7 +7942,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_ai_benchmark_job_request.DeleteAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
+        if ai_benchmark_job_name is not None:
+            input_["ai_benchmark_job_name"] = ai_benchmark_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7414,9 +7954,11 @@ class SageMakerClient:
 
     def delete_ai_recommendation_job(
         self,
-        ai_recommendation_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_recommendation_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_ai_recommendation_job_response.DeleteAIRecommendationJobResponse":
         """<p>Deletes the specified AI recommendation job.</p>
 
@@ -7444,7 +7986,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_ai_recommendation_job_request.DeleteAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
+        if ai_recommendation_job_name is not None:
+            input_["ai_recommendation_job_name"] = ai_recommendation_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7455,9 +7998,11 @@ class SageMakerClient:
 
     def delete_ai_workload_config(
         self,
-        ai_workload_config_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_workload_config_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_ai_workload_config_response.DeleteAIWorkloadConfigResponse":
         """<p>Deletes the specified AI workload configuration. You cannot delete a configuration that is referenced by an active benchmark job.</p>
 
@@ -7486,7 +8031,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_ai_workload_config_request.DeleteAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_workload_config_name"] = ai_workload_config_name
+        if ai_workload_config_name is not None:
+            input_["ai_workload_config_name"] = ai_workload_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7497,9 +8043,9 @@ class SageMakerClient:
 
     def delete_algorithm(
         self,
-        algorithm_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        algorithm_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> None:
         """<p>Removes the specified algorithm from your account.</p>
 
@@ -7525,7 +8071,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_algorithm_input.DeleteAlgorithmInput = {}  # type: ignore[typeddict-item]
-        input_["algorithm_name"] = algorithm_name
+        if algorithm_name is not None:
+            input_["algorithm_name"] = algorithm_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7536,15 +8083,15 @@ class SageMakerClient:
 
     def delete_app(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        app_type: "capo_sagemaker.types.app_type.AppType",
-        app_name: "capo_sagemaker.types.app_name.AppName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
         user_profile_name: Optional[
             "capo_sagemaker.types.user_profile_name.UserProfileName"
         ] = None,
         space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
+        app_type: Optional["capo_sagemaker.types.app_type.AppType"] = None,
+        app_name: Optional["capo_sagemaker.types.app_name.AppName"] = None,
     ) -> None:
         """<p>Used to stop and delete an app.</p>
 
@@ -7575,13 +8122,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
         if user_profile_name is not None:
             input_["user_profile_name"] = user_profile_name
         if space_name is not None:
             input_["space_name"] = space_name
-        input_["app_type"] = app_type
-        input_["app_name"] = app_name
+        if app_type is not None:
+            input_["app_type"] = app_type
+        if app_name is not None:
+            input_["app_name"] = app_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7592,9 +8142,11 @@ class SageMakerClient:
 
     def delete_app_image_config(
         self,
-        app_image_config_name: "capo_sagemaker.types.app_image_config_name.AppImageConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        app_image_config_name: Optional[
+            "capo_sagemaker.types.app_image_config_name.AppImageConfigName"
+        ] = None,
     ) -> None:
         """<p>Deletes an AppImageConfig.</p>
 
@@ -7620,7 +8172,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_app_image_config_request.DeleteAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["app_image_config_name"] = app_image_config_name
+        if app_image_config_name is not None:
+            input_["app_image_config_name"] = app_image_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7677,10 +8230,14 @@ class SageMakerClient:
 
     def delete_association(
         self,
-        source_arn: "capo_sagemaker.types.association_entity_arn.AssociationEntityArn",
-        destination_arn: "capo_sagemaker.types.association_entity_arn.AssociationEntityArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        source_arn: Optional[
+            "capo_sagemaker.types.association_entity_arn.AssociationEntityArn"
+        ] = None,
+        destination_arn: Optional[
+            "capo_sagemaker.types.association_entity_arn.AssociationEntityArn"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_association_response.DeleteAssociationResponse":
         """<p>Deletes an association.</p>
 
@@ -7709,8 +8266,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_association_request.DeleteAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["source_arn"] = source_arn
-        input_["destination_arn"] = destination_arn
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
+        if destination_arn is not None:
+            input_["destination_arn"] = destination_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7721,9 +8280,11 @@ class SageMakerClient:
 
     def delete_cluster(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_cluster_response.DeleteClusterResponse":
         """<p>Delete a SageMaker HyperPod cluster.</p>
 
@@ -7752,7 +8313,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7763,9 +8325,11 @@ class SageMakerClient:
 
     def delete_cluster_scheduler_config(
         self,
-        cluster_scheduler_config_id: "capo_sagemaker.types.cluster_scheduler_config_id.ClusterSchedulerConfigId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_scheduler_config_id: Optional[
+            "capo_sagemaker.types.cluster_scheduler_config_id.ClusterSchedulerConfigId"
+        ] = None,
     ) -> None:
         """<p>Deletes the cluster policy of the cluster.</p>
 
@@ -7791,7 +8355,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_cluster_scheduler_config_request.DeleteClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
+        if cluster_scheduler_config_id is not None:
+            input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7802,9 +8367,11 @@ class SageMakerClient:
 
     def delete_code_repository(
         self,
-        code_repository_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        code_repository_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified Git repository from your account.</p>
 
@@ -7829,7 +8396,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_code_repository_input.DeleteCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input_["code_repository_name"] = code_repository_name
+        if code_repository_name is not None:
+            input_["code_repository_name"] = code_repository_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7840,9 +8408,11 @@ class SageMakerClient:
 
     def delete_compilation_job(
         self,
-        compilation_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compilation_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified compilation job. This action deletes only the compilation job resource in Amazon SageMaker AI. It doesn't delete other resources that are related to that job, such as the model artifacts that the job creates, the compilation logs in CloudWatch, the compiled model, or the IAM role.</p> <p>You can delete a compilation job only if its current status is <code>COMPLETED</code>, <code>FAILED</code>, or <code>STOPPED</code>. If the job status is <code>STARTING</code> or <code>INPROGRESS</code>, stop the job, and then delete it after its status becomes <code>STOPPED</code>.</p>
 
@@ -7868,7 +8438,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_compilation_job_request.DeleteCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["compilation_job_name"] = compilation_job_name
+        if compilation_job_name is not None:
+            input_["compilation_job_name"] = compilation_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7879,9 +8450,11 @@ class SageMakerClient:
 
     def delete_compute_quota(
         self,
-        compute_quota_id: "capo_sagemaker.types.compute_quota_id.ComputeQuotaId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compute_quota_id: Optional[
+            "capo_sagemaker.types.compute_quota_id.ComputeQuotaId"
+        ] = None,
     ) -> None:
         """<p>Deletes the compute allocation from the cluster.</p>
 
@@ -7907,7 +8480,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_compute_quota_request.DeleteComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input_["compute_quota_id"] = compute_quota_id
+        if compute_quota_id is not None:
+            input_["compute_quota_id"] = compute_quota_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7918,9 +8492,9 @@ class SageMakerClient:
 
     def delete_context(
         self,
-        context_name: "capo_sagemaker.types.context_name.ContextName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        context_name: Optional["capo_sagemaker.types.context_name.ContextName"] = None,
     ) -> "capo_sagemaker.types.delete_context_response.DeleteContextResponse":
         """<p>Deletes an context.</p>
 
@@ -7948,7 +8522,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_context_request.DeleteContextRequest = {}  # type: ignore[typeddict-item]
-        input_["context_name"] = context_name
+        if context_name is not None:
+            input_["context_name"] = context_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7959,9 +8534,11 @@ class SageMakerClient:
 
     def delete_data_quality_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> None:
         """<p>Deletes a data quality monitoring job definition.</p>
 
@@ -7987,7 +8564,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_data_quality_job_definition_request.DeleteDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7998,9 +8576,11 @@ class SageMakerClient:
 
     def delete_device_fleet(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Deletes a fleet.</p>
 
@@ -8026,7 +8606,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_device_fleet_request.DeleteDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8037,9 +8618,9 @@ class SageMakerClient:
 
     def delete_domain(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
         retention_policy: Optional[
             "capo_sagemaker.types.retention_policy.RetentionPolicy"
         ] = None,
@@ -8070,7 +8651,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
         if retention_policy is not None:
             input_["retention_policy"] = retention_policy
 
@@ -8083,9 +8665,11 @@ class SageMakerClient:
 
     def delete_edge_deployment_plan(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.</p>
 
@@ -8111,7 +8695,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_edge_deployment_plan_request.DeleteEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8122,10 +8707,12 @@ class SageMakerClient:
 
     def delete_edge_deployment_stage(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        stage_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        stage_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> None:
         """<p>Delete a stage in an edge deployment plan if (and only if) the stage is inactive.</p>
 
@@ -8152,8 +8739,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_edge_deployment_stage_request.DeleteEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input_["stage_name"] = stage_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if stage_name is not None:
+            input_["stage_name"] = stage_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8164,9 +8753,11 @@ class SageMakerClient:
 
     def delete_endpoint(
         self,
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
     ) -> None:
         r"""<p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the endpoint was created. </p> <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't need to use the <a href=\"http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html\">RevokeGrant</a> API call.</p> <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants. You might still see these resources in your account for a few minutes after deleting your endpoint. Do not delete or revoke the permissions for your <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn\">ExecutionRoleArn</a> </code>, otherwise SageMaker cannot delete these resources.</p>
 
@@ -8191,7 +8782,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_endpoint_input.DeleteEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8202,9 +8794,11 @@ class SageMakerClient:
 
     def delete_endpoint_config(
         self,
-        endpoint_config_name: "capo_sagemaker.types.endpoint_config_name.EndpointConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_config_name: Optional[
+            "capo_sagemaker.types.endpoint_config_name.EndpointConfigName"
+        ] = None,
     ) -> None:
         """<p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API deletes only the specified configuration. It does not delete endpoints created using the configuration. </p> <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations are being performed on the endpoint. If you delete the <code>EndpointConfig</code> of an endpoint that is active or being created or updated you may lose visibility into the instance type the endpoint is using. The endpoint must be deleted in order to stop incurring charges.</p>
 
@@ -8229,7 +8823,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_endpoint_config_input.DeleteEndpointConfigInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_config_name"] = endpoint_config_name
+        if endpoint_config_name is not None:
+            input_["endpoint_config_name"] = endpoint_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8240,9 +8835,11 @@ class SageMakerClient:
 
     def delete_experiment(
         self,
-        experiment_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        experiment_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_experiment_response.DeleteExperimentResponse":
         r"""<p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted first. Use the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html\">ListTrials</a> API to get a list of the trials associated with the experiment.</p>
 
@@ -8270,7 +8867,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_experiment_request.DeleteExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["experiment_name"] = experiment_name
+        if experiment_name is not None:
+            input_["experiment_name"] = experiment_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8281,9 +8879,11 @@ class SageMakerClient:
 
     def delete_feature_group(
         self,
-        feature_group_name: "capo_sagemaker.types.feature_group_name.FeatureGroupName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        feature_group_name: Optional[
+            "capo_sagemaker.types.feature_group_name.FeatureGroupName"
+        ] = None,
     ) -> None:
         """<p>Delete the <code>FeatureGroup</code> and any data that was written to the <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p> <p>Data written into the <code>OfflineStore</code> will not be deleted. The Amazon Web Services Glue database and tables that are automatically created for your <code>OfflineStore</code> are not deleted. </p> <p>Note that it can take approximately 10-15 minutes to delete an <code>OnlineStore</code> <code>FeatureGroup</code> with the <code>InMemory</code> <code>StorageType</code>.</p>
 
@@ -8309,7 +8909,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_feature_group_request.DeleteFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["feature_group_name"] = feature_group_name
+        if feature_group_name is not None:
+            input_["feature_group_name"] = feature_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8320,9 +8921,11 @@ class SageMakerClient:
 
     def delete_flow_definition(
         self,
-        flow_definition_name: "capo_sagemaker.types.flow_definition_name.FlowDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        flow_definition_name: Optional[
+            "capo_sagemaker.types.flow_definition_name.FlowDefinitionName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_flow_definition_response.DeleteFlowDefinitionResponse":
         """<p>Deletes the specified flow definition.</p>
 
@@ -8351,7 +8954,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_flow_definition_request.DeleteFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_definition_name"] = flow_definition_name
+        if flow_definition_name is not None:
+            input_["flow_definition_name"] = flow_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8362,9 +8966,9 @@ class SageMakerClient:
 
     def delete_hub(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
     ) -> None:
         """<p>Delete a hub.</p>
 
@@ -8391,7 +8995,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_hub_request.DeleteHubRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8402,12 +9007,18 @@ class SageMakerClient:
 
     def delete_hub_content(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
-        hub_content_version: "capo_sagemaker.types.hub_content_version.HubContentVersion",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
+        hub_content_version: Optional[
+            "capo_sagemaker.types.hub_content_version.HubContentVersion"
+        ] = None,
     ) -> None:
         """<p>Delete the contents of a hub.</p>
 
@@ -8437,10 +9048,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_hub_content_request.DeleteHubContentRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_type"] = hub_content_type
-        input_["hub_content_name"] = hub_content_name
-        input_["hub_content_version"] = hub_content_version
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
+        if hub_content_version is not None:
+            input_["hub_content_version"] = hub_content_version
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8451,11 +9066,15 @@ class SageMakerClient:
 
     def delete_hub_content_reference(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
     ) -> None:
         """<p>Delete a hub content reference in order to remove a model from a private hub.</p>
 
@@ -8483,9 +9102,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_hub_content_reference_request.DeleteHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_type"] = hub_content_type
-        input_["hub_content_name"] = hub_content_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8496,9 +9118,11 @@ class SageMakerClient:
 
     def delete_human_task_ui(
         self,
-        human_task_ui_name: "capo_sagemaker.types.human_task_ui_name.HumanTaskUiName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        human_task_ui_name: Optional[
+            "capo_sagemaker.types.human_task_ui_name.HumanTaskUiName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_human_task_ui_response.DeleteHumanTaskUiResponse":
         r"""<p>Use this operation to delete a human task user interface (worker task template).</p> <p> To see a list of human task user interfaces (work task templates) in your account, use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html\">ListHumanTaskUis</a>. When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
 
@@ -8526,7 +9150,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_human_task_ui_request.DeleteHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
-        input_["human_task_ui_name"] = human_task_ui_name
+        if human_task_ui_name is not None:
+            input_["human_task_ui_name"] = human_task_ui_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8537,9 +9162,11 @@ class SageMakerClient:
 
     def delete_hyper_parameter_tuning_job(
         self,
-        hyper_parameter_tuning_job_name: "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hyper_parameter_tuning_job_name: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
+        ] = None,
     ) -> None:
         """<p>Deletes a hyperparameter tuning job. The <code>DeleteHyperParameterTuningJob</code> API deletes only the tuning job entry that was created in SageMaker when you called the <code>CreateHyperParameterTuningJob</code> API. It does not delete training jobs, artifacts, or the IAM role that you specified when creating the model.</p>
 
@@ -8564,7 +9191,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_hyper_parameter_tuning_job_request.DeleteHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        if hyper_parameter_tuning_job_name is not None:
+            input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8575,9 +9203,9 @@ class SageMakerClient:
 
     def delete_image(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
     ) -> "capo_sagemaker.types.delete_image_response.DeleteImageResponse":
         """<p>Deletes a SageMaker AI image and all versions of the image. The container images aren't deleted.</p>
 
@@ -8606,7 +9234,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8617,9 +9246,9 @@ class SageMakerClient:
 
     def delete_image_version(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         version: Optional[
             "capo_sagemaker.types.image_version_number.ImageVersionNumber"
         ] = None,
@@ -8658,7 +9287,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_image_version_request.DeleteImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
         if version is not None:
             input_["version"] = version
         if alias is not None:
@@ -8673,9 +9303,11 @@ class SageMakerClient:
 
     def delete_inference_component(
         self,
-        inference_component_name: "capo_sagemaker.types.inference_component_name.InferenceComponentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        inference_component_name: Optional[
+            "capo_sagemaker.types.inference_component_name.InferenceComponentName"
+        ] = None,
     ) -> None:
         """<p>Deletes an inference component.</p>
 
@@ -8700,7 +9332,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_inference_component_input.DeleteInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input_["inference_component_name"] = inference_component_name
+        if inference_component_name is not None:
+            input_["inference_component_name"] = inference_component_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8711,9 +9344,11 @@ class SageMakerClient:
 
     def delete_inference_experiment(
         self,
-        name: "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional[
+            "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_inference_experiment_response.DeleteInferenceExperimentResponse":
         """<p>Deletes an inference experiment.</p> <note> <p> This operation does not delete your endpoint, variants, or any underlying resources. This operation only deletes the metadata of your experiment. </p> </note>
 
@@ -8742,7 +9377,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_inference_experiment_request.DeleteInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8753,10 +9389,10 @@ class SageMakerClient:
 
     def delete_job(
         self,
-        job_name: "capo_sagemaker.types.job_name.JobName",
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional["capo_sagemaker.types.job_name.JobName"] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
     ) -> "capo_sagemaker.types.delete_job_response.DeleteJobResponse":
         """<p>Deletes a job. This operation is idempotent. If the job is currently running, you must stop it before deleting it by calling <code>StopJob</code>.</p> <p>The following operations are related to <code>DeleteJob</code>:</p> <ul> <li> <p> <code>CreateJob</code> </p> </li> <li> <p> <code>StopJob</code> </p> </li> <li> <p> <code>DescribeJob</code> </p> </li> </ul>
 
@@ -8786,8 +9422,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["job_category"] = job_category
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if job_category is not None:
+            input_["job_category"] = job_category
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8798,9 +9436,9 @@ class SageMakerClient:
 
     def delete_mlflow_app(
         self,
-        arn: "capo_sagemaker.types.mlflow_app_arn.MlflowAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.mlflow_app_arn.MlflowAppArn"] = None,
     ) -> "capo_sagemaker.types.delete_mlflow_app_response.DeleteMlflowAppResponse":
         """<p>Deletes an MLflow App.</p>
 
@@ -8828,7 +9466,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_mlflow_app_request.DeleteMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8839,9 +9478,11 @@ class SageMakerClient:
 
     def delete_mlflow_tracking_server(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_mlflow_tracking_server_response.DeleteMlflowTrackingServerResponse":
         r"""<p>Deletes an MLflow Tracking Server. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-cleanup.html.html\">Clean up MLflow resources</a>.</p>
 
@@ -8869,7 +9510,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_mlflow_tracking_server_request.DeleteMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8880,9 +9522,9 @@ class SageMakerClient:
 
     def delete_model(
         self,
-        model_name: "capo_sagemaker.types.model_name.ModelName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_name: Optional["capo_sagemaker.types.model_name.ModelName"] = None,
     ) -> None:
         """<p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model. </p>
 
@@ -8907,7 +9549,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_input.DeleteModelInput = {}  # type: ignore[typeddict-item]
-        input_["model_name"] = model_name
+        if model_name is not None:
+            input_["model_name"] = model_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8918,9 +9561,11 @@ class SageMakerClient:
 
     def delete_model_bias_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> None:
         """<p>Deletes an Amazon SageMaker AI model bias job definition.</p>
 
@@ -8946,7 +9591,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_bias_job_definition_request.DeleteModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8957,9 +9603,9 @@ class SageMakerClient:
 
     def delete_model_card(
         self,
-        model_card_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> None:
         """<p>Deletes an Amazon SageMaker Model Card.</p>
 
@@ -8986,7 +9632,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_card_request.DeleteModelCardRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8997,9 +9644,11 @@ class SageMakerClient:
 
     def delete_model_explainability_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> None:
         """<p>Deletes an Amazon SageMaker AI model explainability job definition.</p>
 
@@ -9025,7 +9674,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_explainability_job_definition_request.DeleteModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9036,9 +9686,11 @@ class SageMakerClient:
 
     def delete_model_package(
         self,
-        model_package_name: "capo_sagemaker.types.versioned_arn_or_name.VersionedArnOrName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_name: Optional[
+            "capo_sagemaker.types.versioned_arn_or_name.VersionedArnOrName"
+        ] = None,
     ) -> None:
         """<p>Deletes a model package.</p> <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
 
@@ -9064,7 +9716,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_package_input.DeleteModelPackageInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_name"] = model_package_name
+        if model_package_name is not None:
+            input_["model_package_name"] = model_package_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9075,9 +9728,11 @@ class SageMakerClient:
 
     def delete_model_package_group(
         self,
-        model_package_group_name: "capo_sagemaker.types.arn_or_name.ArnOrName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_group_name: Optional[
+            "capo_sagemaker.types.arn_or_name.ArnOrName"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified model group.</p>
 
@@ -9103,7 +9758,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_package_group_input.DeleteModelPackageGroupInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_group_name"] = model_package_group_name
+        if model_package_group_name is not None:
+            input_["model_package_group_name"] = model_package_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9114,9 +9770,11 @@ class SageMakerClient:
 
     def delete_model_package_group_policy(
         self,
-        model_package_group_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_group_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Deletes a model group resource policy.</p>
 
@@ -9141,7 +9799,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_package_group_policy_input.DeleteModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_group_name"] = model_package_group_name
+        if model_package_group_name is not None:
+            input_["model_package_group_name"] = model_package_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9152,9 +9811,11 @@ class SageMakerClient:
 
     def delete_model_quality_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> None:
         """<p>Deletes the secified model quality monitoring job definition.</p>
 
@@ -9180,7 +9841,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_model_quality_job_definition_request.DeleteModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9191,9 +9853,11 @@ class SageMakerClient:
 
     def delete_monitoring_schedule(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
     ) -> None:
         """<p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped. This does not delete the job execution history of the monitoring schedule. </p>
 
@@ -9219,7 +9883,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_monitoring_schedule_request.DeleteMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9230,9 +9895,11 @@ class SageMakerClient:
 
     def delete_notebook_instance(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
     ) -> None:
         """<p> Deletes an SageMaker AI notebook instance. Before you can delete a notebook instance, you must call the <code>StopNotebookInstance</code> API. </p> <important> <p>When you delete a notebook instance, you lose all of your data. SageMaker AI removes the ML compute instance, and deletes the ML storage volume and the network interface associated with the notebook instance. </p> </important>
 
@@ -9257,7 +9924,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_notebook_instance_input.DeleteNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9268,9 +9936,11 @@ class SageMakerClient:
 
     def delete_notebook_instance_lifecycle_config(
         self,
-        notebook_instance_lifecycle_config_name: "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName"
+        ] = None,
     ) -> None:
         """<p>Deletes a notebook instance lifecycle configuration.</p>
 
@@ -9295,9 +9965,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_notebook_instance_lifecycle_config_input.DeleteNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_lifecycle_config_name"] = (
-            notebook_instance_lifecycle_config_name
-        )
+        if notebook_instance_lifecycle_config_name is not None:
+            input_["notebook_instance_lifecycle_config_name"] = (
+                notebook_instance_lifecycle_config_name
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9308,9 +9979,11 @@ class SageMakerClient:
 
     def delete_optimization_job(
         self,
-        optimization_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        optimization_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Deletes an optimization job.</p>
 
@@ -9336,7 +10009,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_optimization_job_request.DeleteOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["optimization_job_name"] = optimization_job_name
+        if optimization_job_name is not None:
+            input_["optimization_job_name"] = optimization_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9347,9 +10021,9 @@ class SageMakerClient:
 
     def delete_partner_app(
         self,
-        arn: "capo_sagemaker.types.partner_app_arn.PartnerAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.partner_app_arn.PartnerAppArn"] = None,
         client_token: Optional["capo_sagemaker.types.client_token.ClientToken"] = None,
     ) -> "capo_sagemaker.types.delete_partner_app_response.DeletePartnerAppResponse":
         """<p>Deletes a SageMaker Partner AI App.</p>
@@ -9380,7 +10054,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_partner_app_request.DeletePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if client_token is not None:
             input_["client_token"] = client_token
 
@@ -9393,10 +10068,14 @@ class SageMakerClient:
 
     def delete_pipeline(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name.PipelineName",
-        client_request_token: "capo_sagemaker.types.idempotency_token.IdempotencyToken",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name.PipelineName"
+        ] = None,
+        client_request_token: Optional[
+            "capo_sagemaker.types.idempotency_token.IdempotencyToken"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_pipeline_response.DeletePipelineResponse":
         """<p>Deletes a pipeline if there are no running instances of the pipeline. To delete a pipeline, you must stop all running instances of the pipeline using the <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the pipeline are deleted.</p>
 
@@ -9426,8 +10105,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
-        input_["client_request_token"] = client_request_token
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9438,9 +10119,11 @@ class SageMakerClient:
 
     def delete_processing_job(
         self,
-        processing_job_name: "capo_sagemaker.types.processing_job_name.ProcessingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        processing_job_name: Optional[
+            "capo_sagemaker.types.processing_job_name.ProcessingJobName"
+        ] = None,
     ) -> None:
         """<p>Deletes a processing job. After Amazon SageMaker deletes a processing job, all of the metadata for the processing job is lost. You can delete only processing jobs that are in a terminal state (<code>Stopped</code>, <code>Failed</code>, or <code>Completed</code>). You cannot delete a job that is in the <code>InProgress</code> or <code>Stopping</code> state. After deleting the job, you can reuse its name to create another processing job.</p>
 
@@ -9467,7 +10150,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_processing_job_request.DeleteProcessingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["processing_job_name"] = processing_job_name
+        if processing_job_name is not None:
+            input_["processing_job_name"] = processing_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9478,9 +10162,11 @@ class SageMakerClient:
 
     def delete_project(
         self,
-        project_name: "capo_sagemaker.types.project_entity_name.ProjectEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        project_name: Optional[
+            "capo_sagemaker.types.project_entity_name.ProjectEntityName"
+        ] = None,
     ) -> None:
         """<p>Delete the specified project.</p>
 
@@ -9506,7 +10192,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
-        input_["project_name"] = project_name
+        if project_name is not None:
+            input_["project_name"] = project_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9517,10 +10204,10 @@ class SageMakerClient:
 
     def delete_space(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        space_name: "capo_sagemaker.types.space_name.SpaceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
     ) -> None:
         """<p>Used to delete a space.</p>
 
@@ -9548,8 +10235,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_space_request.DeleteSpaceRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["space_name"] = space_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if space_name is not None:
+            input_["space_name"] = space_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9560,9 +10249,11 @@ class SageMakerClient:
 
     def delete_studio_lifecycle_config(
         self,
-        studio_lifecycle_config_name: "capo_sagemaker.types.studio_lifecycle_config_name.StudioLifecycleConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        studio_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.studio_lifecycle_config_name.StudioLifecycleConfigName"
+        ] = None,
     ) -> None:
         """<p>Deletes the Amazon SageMaker AI Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.</p>
 
@@ -9589,7 +10280,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_studio_lifecycle_config_request.DeleteStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
+        if studio_lifecycle_config_name is not None:
+            input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9600,10 +10292,10 @@ class SageMakerClient:
 
     def delete_tags(
         self,
-        resource_arn: "capo_sagemaker.types.resource_arn.ResourceArn",
-        tag_keys: "capo_sagemaker.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource_arn: Optional["capo_sagemaker.types.resource_arn.ResourceArn"] = None,
+        tag_keys: Optional["capo_sagemaker.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_sagemaker.types.delete_tags_output.DeleteTagsOutput":
         """<p>Deletes the specified tags from an SageMaker resource.</p> <p>To list a resource's tags, use the <code>ListTags</code> API. </p> <note> <p>When you call this API to delete tags from a hyperparameter tuning job, the deleted tags are not removed from training jobs that the hyperparameter tuning job launched before you called this API.</p> </note> <note> <p>When you call this API to delete tags from a SageMaker Domain or User Profile, the deleted tags are not removed from Apps that the SageMaker Domain or User Profile launched before you called this API.</p> </note>
 
@@ -9631,8 +10323,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_tags_input.DeleteTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9643,9 +10337,11 @@ class SageMakerClient:
 
     def delete_training_job(
         self,
-        training_job_name: "capo_sagemaker.types.training_job_name.TrainingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_job_name: Optional[
+            "capo_sagemaker.types.training_job_name.TrainingJobName"
+        ] = None,
     ) -> None:
         r"""<p>Deletes a training job. After SageMaker deletes a training job, all of the metadata for the training job is lost. You can delete only training jobs that are in a terminal state (<code>Stopped</code>, <code>Failed</code>, or <code>Completed</code>) and don't retain an <code>Available</code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/train-warm-pools.html\">managed warm pool</a>. You cannot delete a job that is in the <code>InProgress</code> or <code>Stopping</code> state. After deleting the job, you can reuse its name to create another training job.</p>
 
@@ -9672,7 +10368,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_training_job_request.DeleteTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["training_job_name"] = training_job_name
+        if training_job_name is not None:
+            input_["training_job_name"] = training_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9683,9 +10380,11 @@ class SageMakerClient:
 
     def delete_trial(
         self,
-        trial_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_trial_response.DeleteTrialResponse":
         r"""<p>Deletes the specified trial. All trial components that make up the trial must be deleted first. Use the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html\">DescribeTrialComponent</a> API to get the list of trial components.</p>
 
@@ -9713,7 +10412,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_trial_request.DeleteTrialRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_name"] = trial_name
+        if trial_name is not None:
+            input_["trial_name"] = trial_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9724,9 +10424,11 @@ class SageMakerClient:
 
     def delete_trial_component(
         self,
-        trial_component_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_trial_component_response.DeleteTrialComponentResponse":
         r"""<p>Deletes the specified trial component. A trial component must be disassociated from all trials before the trial component can be deleted. To disassociate a trial component from a trial, call the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html\">DisassociateTrialComponent</a> API.</p>
 
@@ -9754,7 +10456,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_trial_component_request.DeleteTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9765,10 +10468,12 @@ class SageMakerClient:
 
     def delete_user_profile(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        user_profile_name: "capo_sagemaker.types.user_profile_name.UserProfileName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        user_profile_name: Optional[
+            "capo_sagemaker.types.user_profile_name.UserProfileName"
+        ] = None,
     ) -> None:
         """<p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS volume, including data, notebooks, and other artifacts.</p>
 
@@ -9796,8 +10501,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_user_profile_request.DeleteUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["user_profile_name"] = user_profile_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if user_profile_name is not None:
+            input_["user_profile_name"] = user_profile_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9808,9 +10515,11 @@ class SageMakerClient:
 
     def delete_workforce(
         self,
-        workforce_name: "capo_sagemaker.types.workforce_name.WorkforceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workforce_name: Optional[
+            "capo_sagemaker.types.workforce_name.WorkforceName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_workforce_response.DeleteWorkforceResponse":
         r"""<p>Use this operation to delete a workforce.</p> <p>If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use this operation to delete the existing workforce and then use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html\">CreateWorkforce</a> to create a new workforce.</p> <important> <p>If a private workforce contains one or more work teams, you must use the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html\">DeleteWorkteam</a> operation to delete all work teams before you delete the workforce. If you try to delete a workforce that contains one or more work teams, you will receive a <code>ResourceInUse</code> error.</p> </important>
 
@@ -9837,7 +10546,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_workforce_request.DeleteWorkforceRequest = {}  # type: ignore[typeddict-item]
-        input_["workforce_name"] = workforce_name
+        if workforce_name is not None:
+            input_["workforce_name"] = workforce_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9848,9 +10558,11 @@ class SageMakerClient:
 
     def delete_workteam(
         self,
-        workteam_name: "capo_sagemaker.types.workteam_name.WorkteamName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_name: Optional[
+            "capo_sagemaker.types.workteam_name.WorkteamName"
+        ] = None,
     ) -> "capo_sagemaker.types.delete_workteam_response.DeleteWorkteamResponse":
         """<p>Deletes an existing work team. This operation can't be undone.</p>
 
@@ -9878,7 +10590,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.delete_workteam_request.DeleteWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input_["workteam_name"] = workteam_name
+        if workteam_name is not None:
+            input_["workteam_name"] = workteam_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9889,10 +10602,12 @@ class SageMakerClient:
 
     def deregister_devices(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
-        device_names: "capo_sagemaker.types.device_names.DeviceNames",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        device_names: Optional["capo_sagemaker.types.device_names.DeviceNames"] = None,
     ) -> None:
         """<p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
 
@@ -9918,8 +10633,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.deregister_devices_request.DeregisterDevicesRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
-        input_["device_names"] = device_names
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
+        if device_names is not None:
+            input_["device_names"] = device_names
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9930,9 +10647,11 @@ class SageMakerClient:
 
     def describe_action(
         self,
-        action_name: "capo_sagemaker.types.experiment_entity_name_or_arn.ExperimentEntityNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        action_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name_or_arn.ExperimentEntityNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_action_response.DescribeActionResponse":
         """<p>Describes an action.</p>
 
@@ -9960,7 +10679,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_action_request.DescribeActionRequest = {}  # type: ignore[typeddict-item]
-        input_["action_name"] = action_name
+        if action_name is not None:
+            input_["action_name"] = action_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9971,9 +10691,11 @@ class SageMakerClient:
 
     def describe_ai_benchmark_job(
         self,
-        ai_benchmark_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_benchmark_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_ai_benchmark_job_response.DescribeAIBenchmarkJobResponse":
         """<p>Returns details of an AI benchmark job, including its status, configuration, target endpoint, and timing information.</p>
 
@@ -10001,7 +10723,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_ai_benchmark_job_request.DescribeAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
+        if ai_benchmark_job_name is not None:
+            input_["ai_benchmark_job_name"] = ai_benchmark_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10012,9 +10735,11 @@ class SageMakerClient:
 
     def describe_ai_recommendation_job(
         self,
-        ai_recommendation_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_recommendation_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_ai_recommendation_job_response.DescribeAIRecommendationJobResponse":
         """<p>Returns details of an AI recommendation job, including its status, model source, performance targets, optimization recommendations, and deployment configurations.</p>
 
@@ -10042,7 +10767,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_ai_recommendation_job_request.DescribeAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
+        if ai_recommendation_job_name is not None:
+            input_["ai_recommendation_job_name"] = ai_recommendation_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10053,9 +10779,11 @@ class SageMakerClient:
 
     def describe_ai_workload_config(
         self,
-        ai_workload_config_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_workload_config_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_ai_workload_config_response.DescribeAIWorkloadConfigResponse":
         """<p>Returns details of an AI workload configuration, including the dataset configuration, benchmark tool settings, tags, and creation time.</p>
 
@@ -10083,7 +10811,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_ai_workload_config_request.DescribeAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_workload_config_name"] = ai_workload_config_name
+        if ai_workload_config_name is not None:
+            input_["ai_workload_config_name"] = ai_workload_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10094,9 +10823,9 @@ class SageMakerClient:
 
     def describe_algorithm(
         self,
-        algorithm_name: "capo_sagemaker.types.arn_or_name.ArnOrName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        algorithm_name: Optional["capo_sagemaker.types.arn_or_name.ArnOrName"] = None,
     ) -> "capo_sagemaker.types.describe_algorithm_output.DescribeAlgorithmOutput":
         """<p>Returns a description of the specified algorithm that is in your account.</p>
 
@@ -10123,7 +10852,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_algorithm_input.DescribeAlgorithmInput = {}  # type: ignore[typeddict-item]
-        input_["algorithm_name"] = algorithm_name
+        if algorithm_name is not None:
+            input_["algorithm_name"] = algorithm_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10134,15 +10864,15 @@ class SageMakerClient:
 
     def describe_app(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        app_type: "capo_sagemaker.types.app_type.AppType",
-        app_name: "capo_sagemaker.types.app_name.AppName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
         user_profile_name: Optional[
             "capo_sagemaker.types.user_profile_name.UserProfileName"
         ] = None,
         space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
+        app_type: Optional["capo_sagemaker.types.app_type.AppType"] = None,
+        app_name: Optional["capo_sagemaker.types.app_name.AppName"] = None,
     ) -> "capo_sagemaker.types.describe_app_response.DescribeAppResponse":
         """<p>Describes the app.</p>
 
@@ -10174,13 +10904,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_app_request.DescribeAppRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
         if user_profile_name is not None:
             input_["user_profile_name"] = user_profile_name
         if space_name is not None:
             input_["space_name"] = space_name
-        input_["app_type"] = app_type
-        input_["app_name"] = app_name
+        if app_type is not None:
+            input_["app_type"] = app_type
+        if app_name is not None:
+            input_["app_name"] = app_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10191,9 +10924,11 @@ class SageMakerClient:
 
     def describe_app_image_config(
         self,
-        app_image_config_name: "capo_sagemaker.types.app_image_config_name.AppImageConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        app_image_config_name: Optional[
+            "capo_sagemaker.types.app_image_config_name.AppImageConfigName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_app_image_config_response.DescribeAppImageConfigResponse":
         """<p>Describes an AppImageConfig.</p>
 
@@ -10221,7 +10956,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_app_image_config_request.DescribeAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["app_image_config_name"] = app_image_config_name
+        if app_image_config_name is not None:
+            input_["app_image_config_name"] = app_image_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10232,9 +10968,9 @@ class SageMakerClient:
 
     def describe_artifact(
         self,
-        artifact_arn: "capo_sagemaker.types.artifact_arn.ArtifactArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        artifact_arn: Optional["capo_sagemaker.types.artifact_arn.ArtifactArn"] = None,
     ) -> "capo_sagemaker.types.describe_artifact_response.DescribeArtifactResponse":
         """<p>Describes an artifact.</p>
 
@@ -10262,7 +10998,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_artifact_request.DescribeArtifactRequest = {}  # type: ignore[typeddict-item]
-        input_["artifact_arn"] = artifact_arn
+        if artifact_arn is not None:
+            input_["artifact_arn"] = artifact_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10273,9 +11010,11 @@ class SageMakerClient:
 
     def describe_auto_ml_job(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_auto_ml_job_response.DescribeAutoMLJobResponse":
         r"""<p>Returns information about an AutoML job created by calling <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html\">CreateAutoMLJob</a>.</p> <note> <p>AutoML jobs created by calling <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html\">CreateAutoMLJobV2</a> cannot be described by <code>DescribeAutoMLJob</code>.</p> </note>
 
@@ -10303,7 +11042,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_auto_ml_job_request.DescribeAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_ml_job_name"] = auto_ml_job_name
+        if auto_ml_job_name is not None:
+            input_["auto_ml_job_name"] = auto_ml_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10314,9 +11054,11 @@ class SageMakerClient:
 
     def describe_auto_ml_job_v2(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_auto_ml_job_v2_response.DescribeAutoMLJobV2Response":
         r"""<p>Returns information about an AutoML job created by calling <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html\">CreateAutoMLJobV2</a> or <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html\">CreateAutoMLJob</a>.</p>
 
@@ -10344,7 +11086,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_auto_ml_job_v2_request.DescribeAutoMLJobV2Request = {}  # type: ignore[typeddict-item]
-        input_["auto_ml_job_name"] = auto_ml_job_name
+        if auto_ml_job_name is not None:
+            input_["auto_ml_job_name"] = auto_ml_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10355,9 +11098,11 @@ class SageMakerClient:
 
     def describe_cluster(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_cluster_response.DescribeClusterResponse":
         """<p>Retrieves information of a SageMaker HyperPod cluster.</p>
 
@@ -10385,7 +11130,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10396,10 +11142,12 @@ class SageMakerClient:
 
     def describe_cluster_event(
         self,
-        event_id: "capo_sagemaker.types.event_id.EventId",
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        event_id: Optional["capo_sagemaker.types.event_id.EventId"] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_cluster_event_response.DescribeClusterEventResponse":
         """<p>Retrieves detailed information about a specific event for a given HyperPod cluster. This functionality is only supported when the <code>NodeProvisioningMode</code> is set to <code>Continuous</code>.</p>
 
@@ -10428,8 +11176,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_cluster_event_request.DescribeClusterEventRequest = {}  # type: ignore[typeddict-item]
-        input_["event_id"] = event_id
-        input_["cluster_name"] = cluster_name
+        if event_id is not None:
+            input_["event_id"] = event_id
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10440,9 +11190,11 @@ class SageMakerClient:
 
     def describe_cluster_node(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         node_id: Optional["capo_sagemaker.types.cluster_node_id.ClusterNodeId"] = None,
         node_logical_id: Optional[
             "capo_sagemaker.types.cluster_node_logical_id.ClusterNodeLogicalId"
@@ -10476,7 +11228,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_cluster_node_request.DescribeClusterNodeRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if node_id is not None:
             input_["node_id"] = node_id
         if node_logical_id is not None:
@@ -10491,9 +11244,11 @@ class SageMakerClient:
 
     def describe_cluster_scheduler_config(
         self,
-        cluster_scheduler_config_id: "capo_sagemaker.types.cluster_scheduler_config_id.ClusterSchedulerConfigId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_scheduler_config_id: Optional[
+            "capo_sagemaker.types.cluster_scheduler_config_id.ClusterSchedulerConfigId"
+        ] = None,
         cluster_scheduler_config_version: Optional[
             "capo_sagemaker.types.integer.Integer"
         ] = None,
@@ -10525,7 +11280,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_cluster_scheduler_config_request.DescribeClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
+        if cluster_scheduler_config_id is not None:
+            input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
         if cluster_scheduler_config_version is not None:
             input_["cluster_scheduler_config_version"] = (
                 cluster_scheduler_config_version
@@ -10540,9 +11296,11 @@ class SageMakerClient:
 
     def describe_code_repository(
         self,
-        code_repository_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        code_repository_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_code_repository_output.DescribeCodeRepositoryOutput":
         """<p>Gets details about the specified Git repository.</p>
 
@@ -10569,7 +11327,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_code_repository_input.DescribeCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input_["code_repository_name"] = code_repository_name
+        if code_repository_name is not None:
+            input_["code_repository_name"] = code_repository_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10580,9 +11339,11 @@ class SageMakerClient:
 
     def describe_compilation_job(
         self,
-        compilation_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compilation_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_compilation_job_response.DescribeCompilationJobResponse":
         r"""<p>Returns information about a model compilation job.</p> <p>To create a model compilation job, use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html\">CreateCompilationJob</a>. To get information about multiple model compilation jobs, use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html\">ListCompilationJobs</a>.</p>
 
@@ -10610,7 +11371,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_compilation_job_request.DescribeCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["compilation_job_name"] = compilation_job_name
+        if compilation_job_name is not None:
+            input_["compilation_job_name"] = compilation_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10621,9 +11383,11 @@ class SageMakerClient:
 
     def describe_compute_quota(
         self,
-        compute_quota_id: "capo_sagemaker.types.compute_quota_id.ComputeQuotaId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compute_quota_id: Optional[
+            "capo_sagemaker.types.compute_quota_id.ComputeQuotaId"
+        ] = None,
         compute_quota_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
     ) -> "capo_sagemaker.types.describe_compute_quota_response.DescribeComputeQuotaResponse":
         """<p>Description of the compute allocation definition.</p>
@@ -10653,7 +11417,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_compute_quota_request.DescribeComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input_["compute_quota_id"] = compute_quota_id
+        if compute_quota_id is not None:
+            input_["compute_quota_id"] = compute_quota_id
         if compute_quota_version is not None:
             input_["compute_quota_version"] = compute_quota_version
 
@@ -10666,9 +11431,11 @@ class SageMakerClient:
 
     def describe_context(
         self,
-        context_name: "capo_sagemaker.types.context_name_or_arn.ContextNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        context_name: Optional[
+            "capo_sagemaker.types.context_name_or_arn.ContextNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_context_response.DescribeContextResponse":
         """<p>Describes a context.</p>
 
@@ -10696,7 +11463,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_context_request.DescribeContextRequest = {}  # type: ignore[typeddict-item]
-        input_["context_name"] = context_name
+        if context_name is not None:
+            input_["context_name"] = context_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10707,9 +11475,11 @@ class SageMakerClient:
 
     def describe_data_quality_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_data_quality_job_definition_response.DescribeDataQualityJobDefinitionResponse":
         """<p>Gets the details of a data quality monitoring job definition.</p>
 
@@ -10737,7 +11507,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_data_quality_job_definition_request.DescribeDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10748,11 +11519,13 @@ class SageMakerClient:
 
     def describe_device(
         self,
-        device_name: "capo_sagemaker.types.entity_name.EntityName",
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
+        device_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_device_response.DescribeDeviceResponse":
         """<p>Describes the device.</p>
 
@@ -10784,8 +11557,10 @@ class SageMakerClient:
         input_: capo_sagemaker.types.describe_device_request.DescribeDeviceRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["device_name"] = device_name
-        input_["device_fleet_name"] = device_fleet_name
+        if device_name is not None:
+            input_["device_name"] = device_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10796,9 +11571,11 @@ class SageMakerClient:
 
     def describe_device_fleet(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_device_fleet_response.DescribeDeviceFleetResponse":
         """<p>A description of the fleet the device belongs to.</p>
 
@@ -10826,7 +11603,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_device_fleet_request.DescribeDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10837,9 +11615,9 @@ class SageMakerClient:
 
     def describe_domain(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
     ) -> "capo_sagemaker.types.describe_domain_response.DescribeDomainResponse":
         """<p>The description of the domain.</p>
 
@@ -10867,7 +11645,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10878,9 +11657,11 @@ class SageMakerClient:
 
     def describe_edge_deployment_plan(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_sagemaker.types.deployment_stage_max_results.DeploymentStageMaxResults"
@@ -10914,7 +11695,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_edge_deployment_plan_request.DescribeEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -10929,9 +11711,11 @@ class SageMakerClient:
 
     def describe_edge_packaging_job(
         self,
-        edge_packaging_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_packaging_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_edge_packaging_job_response.DescribeEdgePackagingJobResponse":
         """<p>A description of edge packaging jobs.</p>
 
@@ -10959,7 +11743,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_edge_packaging_job_request.DescribeEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_packaging_job_name"] = edge_packaging_job_name
+        if edge_packaging_job_name is not None:
+            input_["edge_packaging_job_name"] = edge_packaging_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -10970,9 +11755,11 @@ class SageMakerClient:
 
     def describe_endpoint(
         self,
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_endpoint_output.DescribeEndpointOutput":
         """<p>Returns the description of an endpoint.</p>
 
@@ -10999,7 +11786,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_endpoint_input.DescribeEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11010,9 +11798,11 @@ class SageMakerClient:
 
     def describe_endpoint_config(
         self,
-        endpoint_config_name: "capo_sagemaker.types.endpoint_config_name.EndpointConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_config_name: Optional[
+            "capo_sagemaker.types.endpoint_config_name.EndpointConfigName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_endpoint_config_output.DescribeEndpointConfigOutput":
         """<p>Returns the description of an endpoint configuration created using the <code>CreateEndpointConfig</code> API.</p>
 
@@ -11039,7 +11829,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_endpoint_config_input.DescribeEndpointConfigInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_config_name"] = endpoint_config_name
+        if endpoint_config_name is not None:
+            input_["endpoint_config_name"] = endpoint_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11050,9 +11841,11 @@ class SageMakerClient:
 
     def describe_experiment(
         self,
-        experiment_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        experiment_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_experiment_response.DescribeExperimentResponse":
         """<p>Provides a list of an experiment's properties.</p>
 
@@ -11080,7 +11873,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_experiment_request.DescribeExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["experiment_name"] = experiment_name
+        if experiment_name is not None:
+            input_["experiment_name"] = experiment_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11091,9 +11885,11 @@ class SageMakerClient:
 
     def describe_feature_group(
         self,
-        feature_group_name: "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        feature_group_name: Optional[
+            "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
     ) -> "capo_sagemaker.types.describe_feature_group_response.DescribeFeatureGroupResponse":
         """<p>Use this operation to describe a <code>FeatureGroup</code>. The response includes information on the creation time, <code>FeatureGroup</code> name, the unique identifier for each <code>FeatureGroup</code>, and more.</p>
@@ -11123,7 +11919,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_feature_group_request.DescribeFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["feature_group_name"] = feature_group_name
+        if feature_group_name is not None:
+            input_["feature_group_name"] = feature_group_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -11136,10 +11933,12 @@ class SageMakerClient:
 
     def describe_feature_metadata(
         self,
-        feature_group_name: "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
-        feature_name: "capo_sagemaker.types.feature_name.FeatureName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        feature_group_name: Optional[
+            "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
+        ] = None,
+        feature_name: Optional["capo_sagemaker.types.feature_name.FeatureName"] = None,
     ) -> "capo_sagemaker.types.describe_feature_metadata_response.DescribeFeatureMetadataResponse":
         """<p>Shows the metadata for a feature within a feature group.</p>
 
@@ -11168,8 +11967,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_feature_metadata_request.DescribeFeatureMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["feature_group_name"] = feature_group_name
-        input_["feature_name"] = feature_name
+        if feature_group_name is not None:
+            input_["feature_group_name"] = feature_group_name
+        if feature_name is not None:
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11180,9 +11981,11 @@ class SageMakerClient:
 
     def describe_flow_definition(
         self,
-        flow_definition_name: "capo_sagemaker.types.flow_definition_name.FlowDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        flow_definition_name: Optional[
+            "capo_sagemaker.types.flow_definition_name.FlowDefinitionName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_flow_definition_response.DescribeFlowDefinitionResponse":
         """<p>Returns information about the specified flow definition.</p>
 
@@ -11210,7 +12013,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_flow_definition_request.DescribeFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_definition_name"] = flow_definition_name
+        if flow_definition_name is not None:
+            input_["flow_definition_name"] = flow_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11221,9 +12025,9 @@ class SageMakerClient:
 
     def describe_hub(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
     ) -> "capo_sagemaker.types.describe_hub_response.DescribeHubResponse":
         """<p>Describes a hub.</p>
 
@@ -11251,7 +12055,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_hub_request.DescribeHubRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11262,11 +12067,15 @@ class SageMakerClient:
 
     def describe_hub_content(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
         hub_content_version: Optional[
             "capo_sagemaker.types.hub_content_version.HubContentVersion"
         ] = None,
@@ -11302,9 +12111,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_hub_content_request.DescribeHubContentRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_type"] = hub_content_type
-        input_["hub_content_name"] = hub_content_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
         if hub_content_version is not None:
             input_["hub_content_version"] = hub_content_version
 
@@ -11317,9 +12129,11 @@ class SageMakerClient:
 
     def describe_human_task_ui(
         self,
-        human_task_ui_name: "capo_sagemaker.types.human_task_ui_name.HumanTaskUiName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        human_task_ui_name: Optional[
+            "capo_sagemaker.types.human_task_ui_name.HumanTaskUiName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_human_task_ui_response.DescribeHumanTaskUiResponse":
         """<p>Returns information about the requested human task user interface (worker task template).</p>
 
@@ -11347,7 +12161,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_human_task_ui_request.DescribeHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
-        input_["human_task_ui_name"] = human_task_ui_name
+        if human_task_ui_name is not None:
+            input_["human_task_ui_name"] = human_task_ui_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11358,9 +12173,11 @@ class SageMakerClient:
 
     def describe_hyper_parameter_tuning_job(
         self,
-        hyper_parameter_tuning_job_name: "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hyper_parameter_tuning_job_name: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_hyper_parameter_tuning_job_response.DescribeHyperParameterTuningJobResponse":
         """<p>Returns a description of a hyperparameter tuning job, depending on the fields selected. These fields can include the name, Amazon Resource Name (ARN), job status of your tuning job and more.</p>
 
@@ -11388,7 +12205,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_hyper_parameter_tuning_job_request.DescribeHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        if hyper_parameter_tuning_job_name is not None:
+            input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11399,9 +12217,9 @@ class SageMakerClient:
 
     def describe_image(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
     ) -> "capo_sagemaker.types.describe_image_response.DescribeImageResponse":
         """<p>Describes a SageMaker AI image.</p>
 
@@ -11429,7 +12247,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_image_request.DescribeImageRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11440,9 +12259,9 @@ class SageMakerClient:
 
     def describe_image_version(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         version: Optional[
             "capo_sagemaker.types.image_version_number.ImageVersionNumber"
         ] = None,
@@ -11478,7 +12297,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_image_version_request.DescribeImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
         if version is not None:
             input_["version"] = version
         if alias is not None:
@@ -11493,9 +12313,11 @@ class SageMakerClient:
 
     def describe_inference_component(
         self,
-        inference_component_name: "capo_sagemaker.types.inference_component_name.InferenceComponentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        inference_component_name: Optional[
+            "capo_sagemaker.types.inference_component_name.InferenceComponentName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_inference_component_output.DescribeInferenceComponentOutput":
         """<p>Returns information about an inference component.</p>
 
@@ -11522,7 +12344,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_inference_component_input.DescribeInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input_["inference_component_name"] = inference_component_name
+        if inference_component_name is not None:
+            input_["inference_component_name"] = inference_component_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11533,9 +12356,11 @@ class SageMakerClient:
 
     def describe_inference_experiment(
         self,
-        name: "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional[
+            "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_inference_experiment_response.DescribeInferenceExperimentResponse":
         """<p>Returns details about an inference experiment.</p>
 
@@ -11563,7 +12388,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_inference_experiment_request.DescribeInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11574,9 +12400,11 @@ class SageMakerClient:
 
     def describe_inference_recommendations_job(
         self,
-        job_name: "capo_sagemaker.types.recommendation_job_name.RecommendationJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional[
+            "capo_sagemaker.types.recommendation_job_name.RecommendationJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_inference_recommendations_job_response.DescribeInferenceRecommendationsJobResponse":
         """<p>Provides the results of the Inference Recommender job. One or more recommendation jobs are returned.</p>
 
@@ -11604,7 +12432,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_inference_recommendations_job_request.DescribeInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        if job_name is not None:
+            input_["job_name"] = job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11615,10 +12444,10 @@ class SageMakerClient:
 
     def describe_job(
         self,
-        job_name: "capo_sagemaker.types.job_name.JobName",
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional["capo_sagemaker.types.job_name.JobName"] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
     ) -> "capo_sagemaker.types.describe_job_response.DescribeJobResponse":
         """<p>Returns detailed information about a job, including its current status, secondary status, configuration, and timestamps. Use <code>SecondaryStatus</code> for granular progress tracking and <code>SecondaryStatusTransitions</code> to see the full history of status changes with timestamps.</p> <p>The following operations are related to <code>DescribeJob</code>:</p> <ul> <li> <p> <code>CreateJob</code> </p> </li> <li> <p> <code>ListJobs</code> </p> </li> <li> <p> <code>StopJob</code> </p> </li> <li> <p> <code>DeleteJob</code> </p> </li> </ul>
 
@@ -11647,8 +12476,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["job_category"] = job_category
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if job_category is not None:
+            input_["job_category"] = job_category
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11659,9 +12490,9 @@ class SageMakerClient:
 
     def describe_job_schema_version(
         self,
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
         job_config_schema_version: Optional[
             "capo_sagemaker.types.job_schema_version.JobSchemaVersion"
         ] = None,
@@ -11693,7 +12524,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_job_schema_version_request.DescribeJobSchemaVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_category"] = job_category
+        if job_category is not None:
+            input_["job_category"] = job_category
         if job_config_schema_version is not None:
             input_["job_config_schema_version"] = job_config_schema_version
 
@@ -11706,9 +12538,11 @@ class SageMakerClient:
 
     def describe_labeling_job(
         self,
-        labeling_job_name: "capo_sagemaker.types.labeling_job_name.LabelingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        labeling_job_name: Optional[
+            "capo_sagemaker.types.labeling_job_name.LabelingJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_labeling_job_response.DescribeLabelingJobResponse":
         """<p>Gets information about a labeling job.</p>
 
@@ -11736,7 +12570,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_labeling_job_request.DescribeLabelingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["labeling_job_name"] = labeling_job_name
+        if labeling_job_name is not None:
+            input_["labeling_job_name"] = labeling_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11747,9 +12582,11 @@ class SageMakerClient:
 
     def describe_lineage_group(
         self,
-        lineage_group_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        lineage_group_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_lineage_group_response.DescribeLineageGroupResponse":
         r"""<p>Provides a list of properties for the requested lineage group. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html\"> Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
 
@@ -11777,7 +12614,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_lineage_group_request.DescribeLineageGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["lineage_group_name"] = lineage_group_name
+        if lineage_group_name is not None:
+            input_["lineage_group_name"] = lineage_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11788,9 +12626,9 @@ class SageMakerClient:
 
     def describe_mlflow_app(
         self,
-        arn: "capo_sagemaker.types.mlflow_app_arn.MlflowAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.mlflow_app_arn.MlflowAppArn"] = None,
     ) -> "capo_sagemaker.types.describe_mlflow_app_response.DescribeMlflowAppResponse":
         """<p>Returns information about an MLflow App.</p>
 
@@ -11818,7 +12656,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_mlflow_app_request.DescribeMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11829,9 +12668,11 @@ class SageMakerClient:
 
     def describe_mlflow_tracking_server(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_mlflow_tracking_server_response.DescribeMlflowTrackingServerResponse":
         """<p>Returns information about an MLflow Tracking Server.</p>
 
@@ -11859,7 +12700,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_mlflow_tracking_server_request.DescribeMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11870,9 +12712,9 @@ class SageMakerClient:
 
     def describe_model(
         self,
-        model_name: "capo_sagemaker.types.model_name.ModelName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_name: Optional["capo_sagemaker.types.model_name.ModelName"] = None,
     ) -> "capo_sagemaker.types.describe_model_output.DescribeModelOutput":
         """<p>Describes a model that you created using the <code>CreateModel</code> API.</p>
 
@@ -11899,7 +12741,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_input.DescribeModelInput = {}  # type: ignore[typeddict-item]
-        input_["model_name"] = model_name
+        if model_name is not None:
+            input_["model_name"] = model_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11910,9 +12753,11 @@ class SageMakerClient:
 
     def describe_model_bias_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_model_bias_job_definition_response.DescribeModelBiasJobDefinitionResponse":
         """<p>Returns a description of a model bias job definition.</p>
 
@@ -11940,7 +12785,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_bias_job_definition_request.DescribeModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11951,9 +12797,11 @@ class SageMakerClient:
 
     def describe_model_card(
         self,
-        model_card_name: "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional[
+            "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn"
+        ] = None,
         model_card_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
         included_data: Optional[
             "capo_sagemaker.types.included_data.IncludedData"
@@ -11987,7 +12835,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_card_request.DescribeModelCardRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
         if model_card_version is not None:
             input_["model_card_version"] = model_card_version
         if included_data is not None:
@@ -12002,9 +12851,11 @@ class SageMakerClient:
 
     def describe_model_card_export_job(
         self,
-        model_card_export_job_arn: "capo_sagemaker.types.model_card_export_job_arn.ModelCardExportJobArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_export_job_arn: Optional[
+            "capo_sagemaker.types.model_card_export_job_arn.ModelCardExportJobArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_model_card_export_job_response.DescribeModelCardExportJobResponse":
         """<p>Describes an Amazon SageMaker Model Card export job.</p>
 
@@ -12032,7 +12883,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_card_export_job_request.DescribeModelCardExportJobRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_export_job_arn"] = model_card_export_job_arn
+        if model_card_export_job_arn is not None:
+            input_["model_card_export_job_arn"] = model_card_export_job_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12043,9 +12895,11 @@ class SageMakerClient:
 
     def describe_model_explainability_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_model_explainability_job_definition_response.DescribeModelExplainabilityJobDefinitionResponse":
         """<p>Returns a description of a model explainability job definition.</p>
 
@@ -12073,7 +12927,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_explainability_job_definition_request.DescribeModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12084,9 +12939,11 @@ class SageMakerClient:
 
     def describe_model_package(
         self,
-        model_package_name: "capo_sagemaker.types.versioned_arn_or_name.VersionedArnOrName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_name: Optional[
+            "capo_sagemaker.types.versioned_arn_or_name.VersionedArnOrName"
+        ] = None,
         included_data: Optional[
             "capo_sagemaker.types.included_data.IncludedData"
         ] = None,
@@ -12119,7 +12976,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_package_input.DescribeModelPackageInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_name"] = model_package_name
+        if model_package_name is not None:
+            input_["model_package_name"] = model_package_name
         if included_data is not None:
             input_["included_data"] = included_data
 
@@ -12132,9 +12990,11 @@ class SageMakerClient:
 
     def describe_model_package_group(
         self,
-        model_package_group_name: "capo_sagemaker.types.arn_or_name.ArnOrName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_group_name: Optional[
+            "capo_sagemaker.types.arn_or_name.ArnOrName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_model_package_group_output.DescribeModelPackageGroupOutput":
         """<p>Gets a description for the specified model group.</p>
 
@@ -12161,7 +13021,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_package_group_input.DescribeModelPackageGroupInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_group_name"] = model_package_group_name
+        if model_package_group_name is not None:
+            input_["model_package_group_name"] = model_package_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12172,9 +13033,11 @@ class SageMakerClient:
 
     def describe_model_quality_job_definition(
         self,
-        job_definition_name: "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_definition_name: Optional[
+            "capo_sagemaker.types.monitoring_job_definition_name.MonitoringJobDefinitionName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_model_quality_job_definition_response.DescribeModelQualityJobDefinitionResponse":
         """<p>Returns a description of a model quality job definition.</p>
 
@@ -12202,7 +13065,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_model_quality_job_definition_request.DescribeModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12213,9 +13077,11 @@ class SageMakerClient:
 
     def describe_monitoring_schedule(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_monitoring_schedule_response.DescribeMonitoringScheduleResponse":
         """<p>Describes the schedule for a monitoring job.</p>
 
@@ -12243,7 +13109,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_monitoring_schedule_request.DescribeMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12254,9 +13121,11 @@ class SageMakerClient:
 
     def describe_notebook_instance(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_notebook_instance_output.DescribeNotebookInstanceOutput":
         """<p>Returns information about a notebook instance.</p>
 
@@ -12283,7 +13152,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_notebook_instance_input.DescribeNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12294,9 +13164,11 @@ class SageMakerClient:
 
     def describe_notebook_instance_lifecycle_config(
         self,
-        notebook_instance_lifecycle_config_name: "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_notebook_instance_lifecycle_config_output.DescribeNotebookInstanceLifecycleConfigOutput":
         r"""<p>Returns a description of a notebook instance lifecycle configuration.</p> <p>For information about notebook instance lifestyle configurations, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html\">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
 
@@ -12323,9 +13195,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_notebook_instance_lifecycle_config_input.DescribeNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_lifecycle_config_name"] = (
-            notebook_instance_lifecycle_config_name
-        )
+        if notebook_instance_lifecycle_config_name is not None:
+            input_["notebook_instance_lifecycle_config_name"] = (
+                notebook_instance_lifecycle_config_name
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12336,9 +13209,11 @@ class SageMakerClient:
 
     def describe_optimization_job(
         self,
-        optimization_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        optimization_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_optimization_job_response.DescribeOptimizationJobResponse":
         """<p>Provides the properties of the specified optimization job.</p>
 
@@ -12366,7 +13241,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_optimization_job_request.DescribeOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["optimization_job_name"] = optimization_job_name
+        if optimization_job_name is not None:
+            input_["optimization_job_name"] = optimization_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12377,9 +13253,9 @@ class SageMakerClient:
 
     def describe_partner_app(
         self,
-        arn: "capo_sagemaker.types.partner_app_arn.PartnerAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.partner_app_arn.PartnerAppArn"] = None,
         include_available_upgrade: Optional[
             "capo_sagemaker.types.boolean.Boolean"
         ] = None,
@@ -12413,7 +13289,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_partner_app_request.DescribePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if include_available_upgrade is not None:
             input_["include_available_upgrade"] = include_available_upgrade
 
@@ -12426,9 +13303,11 @@ class SageMakerClient:
 
     def describe_pipeline(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn"
+        ] = None,
         pipeline_version_id: Optional[
             "capo_sagemaker.types.pipeline_version_id.PipelineVersionId"
         ] = None,
@@ -12460,7 +13339,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_pipeline_request.DescribePipelineRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
         if pipeline_version_id is not None:
             input_["pipeline_version_id"] = pipeline_version_id
 
@@ -12473,9 +13353,11 @@ class SageMakerClient:
 
     def describe_pipeline_definition_for_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_pipeline_definition_for_execution_response.DescribePipelineDefinitionForExecutionResponse":
         """<p>Describes the details of an execution's pipeline definition.</p>
 
@@ -12503,7 +13385,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_pipeline_definition_for_execution_request.DescribePipelineDefinitionForExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_execution_arn"] = pipeline_execution_arn
+        if pipeline_execution_arn is not None:
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12514,9 +13397,11 @@ class SageMakerClient:
 
     def describe_pipeline_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_pipeline_execution_response.DescribePipelineExecutionResponse":
         """<p>Describes the details of a pipeline execution.</p>
 
@@ -12544,7 +13429,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_pipeline_execution_request.DescribePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_execution_arn"] = pipeline_execution_arn
+        if pipeline_execution_arn is not None:
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12555,9 +13441,11 @@ class SageMakerClient:
 
     def describe_processing_job(
         self,
-        processing_job_name: "capo_sagemaker.types.processing_job_name.ProcessingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        processing_job_name: Optional[
+            "capo_sagemaker.types.processing_job_name.ProcessingJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_processing_job_response.DescribeProcessingJobResponse":
         """<p>Returns a description of a processing job.</p>
 
@@ -12585,7 +13473,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_processing_job_request.DescribeProcessingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["processing_job_name"] = processing_job_name
+        if processing_job_name is not None:
+            input_["processing_job_name"] = processing_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12596,9 +13485,11 @@ class SageMakerClient:
 
     def describe_project(
         self,
-        project_name: "capo_sagemaker.types.project_entity_name.ProjectEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        project_name: Optional[
+            "capo_sagemaker.types.project_entity_name.ProjectEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_project_output.DescribeProjectOutput":
         """<p>Describes the details of a project.</p>
 
@@ -12625,7 +13516,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_project_input.DescribeProjectInput = {}  # type: ignore[typeddict-item]
-        input_["project_name"] = project_name
+        if project_name is not None:
+            input_["project_name"] = project_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12636,9 +13528,11 @@ class SageMakerClient:
 
     def describe_reserved_capacity(
         self,
-        reserved_capacity_arn: "capo_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        reserved_capacity_arn: Optional[
+            "capo_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_reserved_capacity_response.DescribeReservedCapacityResponse":
         """<p>Retrieves details about a reserved capacity.</p>
 
@@ -12666,7 +13560,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_reserved_capacity_request.DescribeReservedCapacityRequest = {}  # type: ignore[typeddict-item]
-        input_["reserved_capacity_arn"] = reserved_capacity_arn
+        if reserved_capacity_arn is not None:
+            input_["reserved_capacity_arn"] = reserved_capacity_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12677,10 +13572,10 @@ class SageMakerClient:
 
     def describe_space(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        space_name: "capo_sagemaker.types.space_name.SpaceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
     ) -> "capo_sagemaker.types.describe_space_response.DescribeSpaceResponse":
         """<p>Describes the space.</p>
 
@@ -12709,8 +13604,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_space_request.DescribeSpaceRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["space_name"] = space_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if space_name is not None:
+            input_["space_name"] = space_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12721,9 +13618,11 @@ class SageMakerClient:
 
     def describe_studio_lifecycle_config(
         self,
-        studio_lifecycle_config_name: "capo_sagemaker.types.studio_lifecycle_config_name.StudioLifecycleConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        studio_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.studio_lifecycle_config_name.StudioLifecycleConfigName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_studio_lifecycle_config_response.DescribeStudioLifecycleConfigResponse":
         """<p>Describes the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
 
@@ -12751,7 +13650,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_studio_lifecycle_config_request.DescribeStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
+        if studio_lifecycle_config_name is not None:
+            input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12762,9 +13662,9 @@ class SageMakerClient:
 
     def describe_subscribed_workteam(
         self,
-        workteam_arn: "capo_sagemaker.types.workteam_arn.WorkteamArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_arn: Optional["capo_sagemaker.types.workteam_arn.WorkteamArn"] = None,
     ) -> "capo_sagemaker.types.describe_subscribed_workteam_response.DescribeSubscribedWorkteamResponse":
         """<p>Gets information about a work team provided by a vendor. It returns details about the subscription with a vendor in the Amazon Web Services Marketplace.</p>
 
@@ -12791,7 +13691,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_subscribed_workteam_request.DescribeSubscribedWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input_["workteam_arn"] = workteam_arn
+        if workteam_arn is not None:
+            input_["workteam_arn"] = workteam_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12802,9 +13703,11 @@ class SageMakerClient:
 
     def describe_training_job(
         self,
-        training_job_name: "capo_sagemaker.types.training_job_name.TrainingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_job_name: Optional[
+            "capo_sagemaker.types.training_job_name.TrainingJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_training_job_response.DescribeTrainingJobResponse":
         """<p>Returns information about a training job. </p> <p>Some of the attributes below only appear if the training job successfully starts. If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and, depending on the <code>FailureReason</code>, attributes like <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>, <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code> may not be present in the response.</p>
 
@@ -12832,7 +13735,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_training_job_request.DescribeTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["training_job_name"] = training_job_name
+        if training_job_name is not None:
+            input_["training_job_name"] = training_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12843,9 +13747,11 @@ class SageMakerClient:
 
     def describe_training_plan(
         self,
-        training_plan_name: "capo_sagemaker.types.training_plan_name.TrainingPlanName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_plan_name: Optional[
+            "capo_sagemaker.types.training_plan_name.TrainingPlanName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_training_plan_response.DescribeTrainingPlanResponse":
         """<p>Retrieves detailed information about a specific training plan.</p>
 
@@ -12873,7 +13779,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_training_plan_request.DescribeTrainingPlanRequest = {}  # type: ignore[typeddict-item]
-        input_["training_plan_name"] = training_plan_name
+        if training_plan_name is not None:
+            input_["training_plan_name"] = training_plan_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12884,9 +13791,11 @@ class SageMakerClient:
 
     def describe_training_plan_extension_history(
         self,
-        training_plan_arn: "capo_sagemaker.types.training_plan_arn.TrainingPlanArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_plan_arn: Optional[
+            "capo_sagemaker.types.training_plan_arn.TrainingPlanArn"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "capo_sagemaker.types.describe_training_plan_extension_history_response.DescribeTrainingPlanExtensionHistoryResponse":
@@ -12918,7 +13827,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_training_plan_extension_history_request.DescribeTrainingPlanExtensionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["training_plan_arn"] = training_plan_arn
+        if training_plan_arn is not None:
+            input_["training_plan_arn"] = training_plan_arn
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -12933,17 +13843,19 @@ class SageMakerClient:
 
     def iter_describe_training_plan_extension_history(
         self,
-        training_plan_arn: "capo_sagemaker.types.training_plan_arn.TrainingPlanArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_plan_arn: Optional[
+            "capo_sagemaker.types.training_plan_arn.TrainingPlanArn"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "Iterator[capo_sagemaker.types.training_plan_extension.TrainingPlanExtension]":
         _token = next_token
         while True:
             _response = self.describe_training_plan_extension_history(
-                training_plan_arn,
                 config_overrides=config_overrides,
+                training_plan_arn=training_plan_arn,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -12956,9 +13868,11 @@ class SageMakerClient:
 
     def describe_transform_job(
         self,
-        transform_job_name: "capo_sagemaker.types.transform_job_name.TransformJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        transform_job_name: Optional[
+            "capo_sagemaker.types.transform_job_name.TransformJobName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_transform_job_response.DescribeTransformJobResponse":
         """<p>Returns information about a transform job.</p>
 
@@ -12986,7 +13900,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_transform_job_request.DescribeTransformJobRequest = {}  # type: ignore[typeddict-item]
-        input_["transform_job_name"] = transform_job_name
+        if transform_job_name is not None:
+            input_["transform_job_name"] = transform_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12997,9 +13912,11 @@ class SageMakerClient:
 
     def describe_trial(
         self,
-        trial_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_trial_response.DescribeTrialResponse":
         """<p>Provides a list of a trial's properties.</p>
 
@@ -13027,7 +13944,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_trial_request.DescribeTrialRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_name"] = trial_name
+        if trial_name is not None:
+            input_["trial_name"] = trial_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13038,9 +13956,11 @@ class SageMakerClient:
 
     def describe_trial_component(
         self,
-        trial_component_name: "capo_sagemaker.types.experiment_entity_name_or_arn.ExperimentEntityNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name_or_arn.ExperimentEntityNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_trial_component_response.DescribeTrialComponentResponse":
         """<p>Provides a list of a trials component's properties.</p>
 
@@ -13068,7 +13988,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_trial_component_request.DescribeTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13079,10 +14000,12 @@ class SageMakerClient:
 
     def describe_user_profile(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        user_profile_name: "capo_sagemaker.types.user_profile_name.UserProfileName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        user_profile_name: Optional[
+            "capo_sagemaker.types.user_profile_name.UserProfileName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_user_profile_response.DescribeUserProfileResponse":
         """<p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>
 
@@ -13112,8 +14035,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_user_profile_request.DescribeUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["user_profile_name"] = user_profile_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if user_profile_name is not None:
+            input_["user_profile_name"] = user_profile_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13124,9 +14049,11 @@ class SageMakerClient:
 
     def describe_workforce(
         self,
-        workforce_name: "capo_sagemaker.types.workforce_name.WorkforceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workforce_name: Optional[
+            "capo_sagemaker.types.workforce_name.WorkforceName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_workforce_response.DescribeWorkforceResponse":
         r"""<p>Lists private workforce information, including workforce name, Amazon Resource Name (ARN), and, if applicable, allowed IP address ranges (<a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\">CIDRs</a>). Allowable IP address ranges are the IP addresses that workers can use to access tasks. </p> <important> <p>This operation applies only to private workforces.</p> </important>
 
@@ -13153,7 +14080,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_workforce_request.DescribeWorkforceRequest = {}  # type: ignore[typeddict-item]
-        input_["workforce_name"] = workforce_name
+        if workforce_name is not None:
+            input_["workforce_name"] = workforce_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13164,9 +14092,11 @@ class SageMakerClient:
 
     def describe_workteam(
         self,
-        workteam_name: "capo_sagemaker.types.workteam_name.WorkteamName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_name: Optional[
+            "capo_sagemaker.types.workteam_name.WorkteamName"
+        ] = None,
     ) -> "capo_sagemaker.types.describe_workteam_response.DescribeWorkteamResponse":
         """<p>Gets information about a specific work team. You can see information such as the creation date, the last updated date, membership information, and the work team's Amazon Resource Name (ARN).</p>
 
@@ -13193,7 +14123,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.describe_workteam_request.DescribeWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input_["workteam_name"] = workteam_name
+        if workteam_name is not None:
+            input_["workteam_name"] = workteam_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13204,11 +14135,11 @@ class SageMakerClient:
 
     def detach_cluster_node_volume(
         self,
-        cluster_arn: "capo_sagemaker.types.cluster_arn.ClusterArn",
-        node_id: "capo_sagemaker.types.cluster_node_id.ClusterNodeId",
-        volume_id: "capo_sagemaker.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_arn: Optional["capo_sagemaker.types.cluster_arn.ClusterArn"] = None,
+        node_id: Optional["capo_sagemaker.types.cluster_node_id.ClusterNodeId"] = None,
+        volume_id: Optional["capo_sagemaker.types.volume_id.VolumeId"] = None,
     ) -> "capo_sagemaker.types.detach_cluster_node_volume_response.DetachClusterNodeVolumeResponse":
         """<p> Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your EKS orchestrated SageMaker HyperPod cluster.</p> <p> This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod EKS clusters. </p>
 
@@ -13238,9 +14169,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.detach_cluster_node_volume_request.DetachClusterNodeVolumeRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_arn"] = cluster_arn
-        input_["node_id"] = node_id
-        input_["volume_id"] = volume_id
+        if cluster_arn is not None:
+            input_["cluster_arn"] = cluster_arn
+        if node_id is not None:
+            input_["node_id"] = node_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13284,10 +14218,14 @@ class SageMakerClient:
 
     def disassociate_trial_component(
         self,
-        trial_component_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
-        trial_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
+        trial_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.disassociate_trial_component_response.DisassociateTrialComponentResponse":
         r"""<p>Disassociates a trial component from a trial. This doesn't effect other trials the component is associated with. Before you can delete a component, you must disassociate the component from all trials it is associated with. To associate a trial component with a trial, call the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html\">AssociateTrialComponent</a> API.</p> <p>To get a list of the trials a component is associated with, use the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html\">Search</a> API. Specify <code>ExperimentTrialComponent</code> for the <code>Resource</code> parameter. The list appears in the response under <code>Results.TrialComponent.Parents</code>.</p>
 
@@ -13316,8 +14254,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.disassociate_trial_component_request.DisassociateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
-        input_["trial_name"] = trial_name
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
+        if trial_name is not None:
+            input_["trial_name"] = trial_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13361,9 +14301,11 @@ class SageMakerClient:
 
     def extend_training_plan(
         self,
-        training_plan_extension_offering_id: "capo_sagemaker.types.training_plan_extension_offering_id.TrainingPlanExtensionOfferingId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_plan_extension_offering_id: Optional[
+            "capo_sagemaker.types.training_plan_extension_offering_id.TrainingPlanExtensionOfferingId"
+        ] = None,
     ) -> (
         "capo_sagemaker.types.extend_training_plan_response.ExtendTrainingPlanResponse"
     ):
@@ -13393,9 +14335,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.extend_training_plan_request.ExtendTrainingPlanRequest = {}  # type: ignore[typeddict-item]
-        input_["training_plan_extension_offering_id"] = (
-            training_plan_extension_offering_id
-        )
+        if training_plan_extension_offering_id is not None:
+            input_["training_plan_extension_offering_id"] = (
+                training_plan_extension_offering_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13406,9 +14349,11 @@ class SageMakerClient:
 
     def get_device_fleet_report(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.get_device_fleet_report_response.GetDeviceFleetReportResponse":
         """<p>Describes a fleet.</p>
 
@@ -13435,7 +14380,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.get_device_fleet_report_request.GetDeviceFleetReportRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13446,9 +14392,11 @@ class SageMakerClient:
 
     def get_lineage_group_policy(
         self,
-        lineage_group_name: "capo_sagemaker.types.lineage_group_name_or_arn.LineageGroupNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        lineage_group_name: Optional[
+            "capo_sagemaker.types.lineage_group_name_or_arn.LineageGroupNameOrArn"
+        ] = None,
     ) -> "capo_sagemaker.types.get_lineage_group_policy_response.GetLineageGroupPolicyResponse":
         """<p>The resource policy for the lineage group.</p>
 
@@ -13476,7 +14424,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.get_lineage_group_policy_request.GetLineageGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["lineage_group_name"] = lineage_group_name
+        if lineage_group_name is not None:
+            input_["lineage_group_name"] = lineage_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13487,9 +14436,11 @@ class SageMakerClient:
 
     def get_model_package_group_policy(
         self,
-        model_package_group_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_group_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.get_model_package_group_policy_output.GetModelPackageGroupPolicyOutput":
         r"""<p>Gets a resource policy that manages access for a model group. For information about resource policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">Identity-based policies and resource-based policies</a> in the <i>Amazon Web Services Identity and Access Management User Guide.</i>.</p>
 
@@ -13516,7 +14467,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.get_model_package_group_policy_input.GetModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_group_name"] = model_package_group_name
+        if model_package_group_name is not None:
+            input_["model_package_group_name"] = model_package_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -13560,9 +14512,11 @@ class SageMakerClient:
 
     def get_scaling_configuration_recommendation(
         self,
-        inference_recommendations_job_name: "capo_sagemaker.types.recommendation_job_name.RecommendationJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        inference_recommendations_job_name: Optional[
+            "capo_sagemaker.types.recommendation_job_name.RecommendationJobName"
+        ] = None,
         recommendation_id: Optional["capo_sagemaker.types.string.String"] = None,
         endpoint_name: Optional[
             "capo_sagemaker.types.endpoint_name.EndpointName"
@@ -13604,9 +14558,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.get_scaling_configuration_recommendation_request.GetScalingConfigurationRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_recommendations_job_name"] = (
-            inference_recommendations_job_name
-        )
+        if inference_recommendations_job_name is not None:
+            input_["inference_recommendations_job_name"] = (
+                inference_recommendations_job_name
+            )
         if recommendation_id is not None:
             input_["recommendation_id"] = recommendation_id
         if endpoint_name is not None:
@@ -13625,9 +14580,9 @@ class SageMakerClient:
 
     def get_search_suggestions(
         self,
-        resource: "capo_sagemaker.types.resource_type.ResourceType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource: Optional["capo_sagemaker.types.resource_type.ResourceType"] = None,
         suggestion_query: Optional[
             "capo_sagemaker.types.suggestion_query.SuggestionQuery"
         ] = None,
@@ -13658,7 +14613,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.get_search_suggestions_request.GetSearchSuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
+        if resource is not None:
+            input_["resource"] = resource
         if suggestion_query is not None:
             input_["suggestion_query"] = suggestion_query
 
@@ -13671,16 +14627,21 @@ class SageMakerClient:
 
     def import_hub_content(
         self,
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        document_schema_version: "capo_sagemaker.types.document_schema_version.DocumentSchemaVersion",
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_document: "capo_sagemaker.types.hub_content_document.HubContentDocument",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
         hub_content_version: Optional[
             "capo_sagemaker.types.hub_content_version.HubContentVersion"
         ] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        document_schema_version: Optional[
+            "capo_sagemaker.types.document_schema_version.DocumentSchemaVersion"
+        ] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
         hub_content_display_name: Optional[
             "capo_sagemaker.types.hub_content_display_name.HubContentDisplayName"
         ] = None,
@@ -13689,6 +14650,9 @@ class SageMakerClient:
         ] = None,
         hub_content_markdown: Optional[
             "capo_sagemaker.types.hub_content_markdown.HubContentMarkdown"
+        ] = None,
+        hub_content_document: Optional[
+            "capo_sagemaker.types.hub_content_document.HubContentDocument"
         ] = None,
         support_status: Optional[
             "capo_sagemaker.types.hub_content_support_status.HubContentSupportStatus"
@@ -13737,19 +14701,24 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.import_hub_content_request.ImportHubContentRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_content_name"] = hub_content_name
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
         if hub_content_version is not None:
             input_["hub_content_version"] = hub_content_version
-        input_["hub_content_type"] = hub_content_type
-        input_["document_schema_version"] = document_schema_version
-        input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if document_schema_version is not None:
+            input_["document_schema_version"] = document_schema_version
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
         if hub_content_display_name is not None:
             input_["hub_content_display_name"] = hub_content_display_name
         if hub_content_description is not None:
             input_["hub_content_description"] = hub_content_description
         if hub_content_markdown is not None:
             input_["hub_content_markdown"] = hub_content_markdown
-        input_["hub_content_document"] = hub_content_document
+        if hub_content_document is not None:
+            input_["hub_content_document"] = hub_content_document
         if support_status is not None:
             input_["support_status"] = support_status
         if hub_content_search_keywords is not None:
@@ -14339,9 +15308,9 @@ class SageMakerClient:
 
     def list_aliases(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         alias: Optional[
             "capo_sagemaker.types.sage_maker_image_version_alias.SageMakerImageVersionAlias"
         ] = None,
@@ -14381,7 +15350,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
         if alias is not None:
             input_["alias"] = alias
         if version is not None:
@@ -14400,9 +15370,9 @@ class SageMakerClient:
 
     def iter_list_aliases(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         alias: Optional[
             "capo_sagemaker.types.sage_maker_image_version_alias.SageMakerImageVersionAlias"
         ] = None,
@@ -14415,8 +15385,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_aliases(
-                image_name,
                 config_overrides=config_overrides,
+                image_name=image_name,
                 alias=alias,
                 version=version,
                 max_results=max_results,
@@ -15055,9 +16025,11 @@ class SageMakerClient:
 
     def list_candidates_for_auto_ml_job(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
         status_equals: Optional[
             "capo_sagemaker.types.candidate_status.CandidateStatus"
         ] = None,
@@ -15107,7 +16079,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_candidates_for_auto_ml_job_request.ListCandidatesForAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_ml_job_name"] = auto_ml_job_name
+        if auto_ml_job_name is not None:
+            input_["auto_ml_job_name"] = auto_ml_job_name
         if status_equals is not None:
             input_["status_equals"] = status_equals
         if candidate_name_equals is not None:
@@ -15130,9 +16103,11 @@ class SageMakerClient:
 
     def iter_list_candidates_for_auto_ml_job(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
         status_equals: Optional[
             "capo_sagemaker.types.candidate_status.CandidateStatus"
         ] = None,
@@ -15153,8 +16128,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_candidates_for_auto_ml_job(
-                auto_ml_job_name,
                 config_overrides=config_overrides,
+                auto_ml_job_name=auto_ml_job_name,
                 status_equals=status_equals,
                 candidate_name_equals=candidate_name_equals,
                 sort_order=sort_order,
@@ -15171,9 +16146,11 @@ class SageMakerClient:
 
     def list_cluster_events(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         instance_group_name: Optional[
             "capo_sagemaker.types.cluster_instance_group_name.ClusterInstanceGroupName"
         ] = None,
@@ -15225,7 +16202,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_cluster_events_request.ListClusterEventsRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if instance_group_name is not None:
             input_["instance_group_name"] = instance_group_name
         if node_id is not None:
@@ -15254,9 +16232,11 @@ class SageMakerClient:
 
     def iter_list_cluster_events(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         instance_group_name: Optional[
             "capo_sagemaker.types.cluster_instance_group_name.ClusterInstanceGroupName"
         ] = None,
@@ -15276,8 +16256,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_cluster_events(
-                cluster_name,
                 config_overrides=config_overrides,
+                cluster_name=cluster_name,
                 instance_group_name=instance_group_name,
                 node_id=node_id,
                 event_time_after=event_time_after,
@@ -15297,9 +16277,11 @@ class SageMakerClient:
 
     def list_cluster_nodes(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         creation_time_after: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
@@ -15351,7 +16333,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_cluster_nodes_request.ListClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -15378,9 +16361,11 @@ class SageMakerClient:
 
     def iter_list_cluster_nodes(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         creation_time_after: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
@@ -15401,8 +16386,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_cluster_nodes(
-                cluster_name,
                 config_overrides=config_overrides,
+                cluster_name=cluster_name,
                 creation_time_after=creation_time_after,
                 creation_time_before=creation_time_before,
                 instance_group_name_contains=instance_group_name_contains,
@@ -17464,10 +18449,12 @@ class SageMakerClient:
 
     def list_hub_contents(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
         name_contains: Optional[
             "capo_sagemaker.types.name_contains.NameContains"
         ] = None,
@@ -17522,8 +18509,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_hub_contents_request.ListHubContentsRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_type"] = hub_content_type
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
         if name_contains is not None:
             input_["name_contains"] = name_contains
         if max_schema_version is not None:
@@ -17550,11 +18539,15 @@ class SageMakerClient:
 
     def list_hub_content_versions(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
         min_version: Optional[
             "capo_sagemaker.types.hub_content_version.HubContentVersion"
         ] = None,
@@ -17610,9 +18603,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_hub_content_versions_request.ListHubContentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_type"] = hub_content_type
-        input_["hub_content_name"] = hub_content_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
         if min_version is not None:
             input_["min_version"] = min_version
         if max_schema_version is not None:
@@ -18088,7 +19084,6 @@ class SageMakerClient:
 
     def list_image_versions(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         creation_time_after: Optional[
@@ -18097,6 +19092,7 @@ class SageMakerClient:
         creation_time_before: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         last_modified_time_after: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
@@ -18150,7 +19146,8 @@ class SageMakerClient:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
             input_["creation_time_before"] = creation_time_before
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
         if last_modified_time_after is not None:
             input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
@@ -18173,7 +19170,6 @@ class SageMakerClient:
 
     def iter_list_image_versions(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         creation_time_after: Optional[
@@ -18182,6 +19178,7 @@ class SageMakerClient:
         creation_time_before: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         last_modified_time_after: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
@@ -18200,10 +19197,10 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_image_versions(
-                image_name,
                 config_overrides=config_overrides,
                 creation_time_after=creation_time_after,
                 creation_time_before=creation_time_before,
+                image_name=image_name,
                 last_modified_time_after=last_modified_time_after,
                 last_modified_time_before=last_modified_time_before,
                 max_results=max_results,
@@ -18698,9 +19695,11 @@ class SageMakerClient:
 
     def list_inference_recommendations_job_steps(
         self,
-        job_name: "capo_sagemaker.types.recommendation_job_name.RecommendationJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional[
+            "capo_sagemaker.types.recommendation_job_name.RecommendationJobName"
+        ] = None,
         status: Optional[
             "capo_sagemaker.types.recommendation_job_status.RecommendationJobStatus"
         ] = None,
@@ -18740,7 +19739,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_inference_recommendations_job_steps_request.ListInferenceRecommendationsJobStepsRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        if job_name is not None:
+            input_["job_name"] = job_name
         if status is not None:
             input_["status"] = status
         if step_type is not None:
@@ -18759,9 +19759,11 @@ class SageMakerClient:
 
     def iter_list_inference_recommendations_job_steps(
         self,
-        job_name: "capo_sagemaker.types.recommendation_job_name.RecommendationJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional[
+            "capo_sagemaker.types.recommendation_job_name.RecommendationJobName"
+        ] = None,
         status: Optional[
             "capo_sagemaker.types.recommendation_job_status.RecommendationJobStatus"
         ] = None,
@@ -18774,8 +19776,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_inference_recommendations_job_steps(
-                job_name,
                 config_overrides=config_overrides,
+                job_name=job_name,
                 status=status,
                 step_type=step_type,
                 max_results=max_results,
@@ -18790,9 +19792,9 @@ class SageMakerClient:
 
     def list_jobs(
         self,
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         creation_time_after: Optional[
@@ -18849,7 +19851,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["job_category"] = job_category
+        if job_category is not None:
+            input_["job_category"] = job_category
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -18880,9 +19883,9 @@ class SageMakerClient:
 
     def iter_list_jobs(
         self,
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         creation_time_after: Optional[
@@ -18907,8 +19910,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_jobs(
-                job_category,
                 config_overrides=config_overrides,
+                job_category=job_category,
                 next_token=_token,
                 max_results=max_results,
                 creation_time_after=creation_time_after,
@@ -18929,9 +19932,9 @@ class SageMakerClient:
 
     def list_job_schema_versions(
         self,
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "capo_sagemaker.types.list_job_schema_versions_response.ListJobSchemaVersionsResponse":
@@ -18963,7 +19966,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_job_schema_versions_request.ListJobSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["job_category"] = job_category
+        if job_category is not None:
+            input_["job_category"] = job_category
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -18978,17 +19982,17 @@ class SageMakerClient:
 
     def iter_list_job_schema_versions(
         self,
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "Iterator[capo_sagemaker.types.job_config_schema_version_summary.JobConfigSchemaVersionSummary]":
         _token = next_token
         while True:
             _response = self.list_job_schema_versions(
-                job_category,
                 config_overrides=config_overrides,
+                job_category=job_category,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -19139,9 +20143,9 @@ class SageMakerClient:
 
     def list_labeling_jobs_for_workteam(
         self,
-        workteam_arn: "capo_sagemaker.types.workteam_arn.WorkteamArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_arn: Optional["capo_sagemaker.types.workteam_arn.WorkteamArn"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         creation_time_after: Optional[
@@ -19191,7 +20195,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_labeling_jobs_for_workteam_request.ListLabelingJobsForWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input_["workteam_arn"] = workteam_arn
+        if workteam_arn is not None:
+            input_["workteam_arn"] = workteam_arn
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -19216,9 +20221,9 @@ class SageMakerClient:
 
     def iter_list_labeling_jobs_for_workteam(
         self,
-        workteam_arn: "capo_sagemaker.types.workteam_arn.WorkteamArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_arn: Optional["capo_sagemaker.types.workteam_arn.WorkteamArn"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         creation_time_after: Optional[
@@ -19238,8 +20243,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_labeling_jobs_for_workteam(
-                workteam_arn,
                 config_overrides=config_overrides,
+                workteam_arn=workteam_arn,
                 max_results=max_results,
                 next_token=_token,
                 creation_time_after=creation_time_after,
@@ -19717,9 +20722,9 @@ class SageMakerClient:
 
     def list_model_card_export_jobs(
         self,
-        model_card_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
         model_card_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
         creation_time_after: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
@@ -19776,7 +20781,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_model_card_export_jobs_request.ListModelCardExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
         if model_card_version is not None:
             input_["model_card_version"] = model_card_version
         if creation_time_after is not None:
@@ -19807,9 +20813,9 @@ class SageMakerClient:
 
     def iter_list_model_card_export_jobs(
         self,
-        model_card_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
         model_card_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
         creation_time_after: Optional[
             "capo_sagemaker.types.timestamp.Timestamp"
@@ -19835,8 +20841,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_model_card_export_jobs(
-                model_card_name,
                 config_overrides=config_overrides,
+                model_card_name=model_card_name,
                 model_card_version=model_card_version,
                 creation_time_after=creation_time_after,
                 creation_time_before=creation_time_before,
@@ -19978,7 +20984,6 @@ class SageMakerClient:
 
     def list_model_card_versions(
         self,
-        model_card_name: "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         creation_time_after: Optional[
@@ -19988,6 +20993,9 @@ class SageMakerClient:
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
+        model_card_name: Optional[
+            "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn"
+        ] = None,
         model_card_status: Optional[
             "capo_sagemaker.types.model_card_status.ModelCardStatus"
         ] = None,
@@ -20038,7 +21046,8 @@ class SageMakerClient:
             input_["creation_time_before"] = creation_time_before
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
         if model_card_status is not None:
             input_["model_card_status"] = model_card_status
         if next_token is not None:
@@ -20057,7 +21066,6 @@ class SageMakerClient:
 
     def iter_list_model_card_versions(
         self,
-        model_card_name: "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         creation_time_after: Optional[
@@ -20067,6 +21075,9 @@ class SageMakerClient:
             "capo_sagemaker.types.timestamp.Timestamp"
         ] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
+        model_card_name: Optional[
+            "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn"
+        ] = None,
         model_card_status: Optional[
             "capo_sagemaker.types.model_card_status.ModelCardStatus"
         ] = None,
@@ -20081,11 +21092,11 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_model_card_versions(
-                model_card_name,
                 config_overrides=config_overrides,
                 creation_time_after=creation_time_after,
                 creation_time_before=creation_time_before,
                 max_results=max_results,
+                model_card_name=model_card_name,
                 model_card_status=model_card_status,
                 next_token=_token,
                 sort_by=sort_by,
@@ -20929,9 +21940,11 @@ class SageMakerClient:
 
     def list_monitoring_alerts(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "capo_sagemaker.types.list_monitoring_alerts_response.ListMonitoringAlertsResponse":
@@ -20963,7 +21976,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_monitoring_alerts_request.ListMonitoringAlertsRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -20978,9 +21992,11 @@ class SageMakerClient:
 
     def iter_list_monitoring_alerts(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> (
@@ -20989,8 +22005,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_monitoring_alerts(
-                monitoring_schedule_name,
                 config_overrides=config_overrides,
+                monitoring_schedule_name=monitoring_schedule_name,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -21905,9 +22921,11 @@ class SageMakerClient:
 
     def list_pipeline_executions(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn"
+        ] = None,
         created_after: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         created_before: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         sort_by: Optional[
@@ -21949,7 +22967,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_pipeline_executions_request.ListPipelineExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
         if created_after is not None:
             input_["created_after"] = created_after
         if created_before is not None:
@@ -21972,9 +22991,11 @@ class SageMakerClient:
 
     def iter_list_pipeline_executions(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn"
+        ] = None,
         created_after: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         created_before: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         sort_by: Optional[
@@ -21987,8 +23008,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_pipeline_executions(
-                pipeline_name,
                 config_overrides=config_overrides,
+                pipeline_name=pipeline_name,
                 created_after=created_after,
                 created_before=created_before,
                 sort_by=sort_by,
@@ -22088,9 +23109,11 @@ class SageMakerClient:
 
     def list_pipeline_parameters_for_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "capo_sagemaker.types.list_pipeline_parameters_for_execution_response.ListPipelineParametersForExecutionResponse":
@@ -22122,7 +23145,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_pipeline_parameters_for_execution_request.ListPipelineParametersForExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_execution_arn"] = pipeline_execution_arn
+        if pipeline_execution_arn is not None:
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -22137,17 +23161,19 @@ class SageMakerClient:
 
     def iter_list_pipeline_parameters_for_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
     ) -> "Iterator[capo_sagemaker.types.parameter.Parameter]":
         _token = next_token
         while True:
             _response = self.list_pipeline_parameters_for_execution(
-                pipeline_execution_arn,
                 config_overrides=config_overrides,
+                pipeline_execution_arn=pipeline_execution_arn,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -22264,9 +23290,11 @@ class SageMakerClient:
 
     def list_pipeline_versions(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn"
+        ] = None,
         created_after: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         created_before: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         sort_order: Optional["capo_sagemaker.types.sort_order.SortOrder"] = None,
@@ -22304,7 +23332,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_pipeline_versions_request.ListPipelineVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
         if created_after is not None:
             input_["created_after"] = created_after
         if created_before is not None:
@@ -22325,9 +23354,11 @@ class SageMakerClient:
 
     def iter_list_pipeline_versions(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn"
+        ] = None,
         created_after: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         created_before: Optional["capo_sagemaker.types.timestamp.Timestamp"] = None,
         sort_order: Optional["capo_sagemaker.types.sort_order.SortOrder"] = None,
@@ -22339,8 +23370,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_pipeline_versions(
-                pipeline_name,
                 config_overrides=config_overrides,
+                pipeline_name=pipeline_name,
                 created_after=created_after,
                 created_before=created_before,
                 sort_order=sort_order,
@@ -22775,17 +23806,19 @@ class SageMakerClient:
 
     def list_stage_devices(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        stage_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_sagemaker.types.list_max_results.ListMaxResults"
         ] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         exclude_devices_deployed_in_other_stage: Optional[
             "capo_sagemaker.types.boolean.Boolean"
         ] = None,
+        stage_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> "capo_sagemaker.types.list_stage_devices_response.ListStageDevicesResponse":
         """<p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
 
@@ -22820,12 +23853,14 @@ class SageMakerClient:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
         if exclude_devices_deployed_in_other_stage is not None:
             input_["exclude_devices_deployed_in_other_stage"] = (
                 exclude_devices_deployed_in_other_stage
             )
-        input_["stage_name"] = stage_name
+        if stage_name is not None:
+            input_["stage_name"] = stage_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -22836,27 +23871,29 @@ class SageMakerClient:
 
     def iter_list_stage_devices(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        stage_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_sagemaker.types.list_max_results.ListMaxResults"
         ] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         exclude_devices_deployed_in_other_stage: Optional[
             "capo_sagemaker.types.boolean.Boolean"
         ] = None,
+        stage_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> "Iterator[capo_sagemaker.types.device_deployment_summary.DeviceDeploymentSummary]":
         _token = next_token
         while True:
             _response = self.list_stage_devices(
-                edge_deployment_plan_name,
-                stage_name,
                 config_overrides=config_overrides,
                 next_token=_token,
                 max_results=max_results,
+                edge_deployment_plan_name=edge_deployment_plan_name,
                 exclude_devices_deployed_in_other_stage=exclude_devices_deployed_in_other_stage,
+                stage_name=stage_name,
             )
             _page = _resolve_path(_response, ("device_deployment_summaries",))
             for _item in _page or []:
@@ -23086,9 +24123,9 @@ class SageMakerClient:
 
     def list_tags(
         self,
-        resource_arn: "capo_sagemaker.types.resource_arn.ResourceArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource_arn: Optional["capo_sagemaker.types.resource_arn.ResourceArn"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_sagemaker.types.list_tags_max_results.ListTagsMaxResults"
@@ -23119,7 +24156,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_tags_input.ListTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -23134,9 +24172,9 @@ class SageMakerClient:
 
     def iter_list_tags(
         self,
-        resource_arn: "capo_sagemaker.types.resource_arn.ResourceArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource_arn: Optional["capo_sagemaker.types.resource_arn.ResourceArn"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_sagemaker.types.list_tags_max_results.ListTagsMaxResults"
@@ -23145,8 +24183,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_tags(
-                resource_arn,
                 config_overrides=config_overrides,
+                resource_arn=resource_arn,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -23317,9 +24355,11 @@ class SageMakerClient:
 
     def list_training_jobs_for_hyper_parameter_tuning_job(
         self,
-        hyper_parameter_tuning_job_name: "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hyper_parameter_tuning_job_name: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         status_equals: Optional[
@@ -23361,7 +24401,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_training_jobs_for_hyper_parameter_tuning_job_request.ListTrainingJobsForHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        if hyper_parameter_tuning_job_name is not None:
+            input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -23382,9 +24423,11 @@ class SageMakerClient:
 
     def iter_list_training_jobs_for_hyper_parameter_tuning_job(
         self,
-        hyper_parameter_tuning_job_name: "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hyper_parameter_tuning_job_name: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
+        ] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         status_equals: Optional[
@@ -23398,8 +24441,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.list_training_jobs_for_hyper_parameter_tuning_job(
-                hyper_parameter_tuning_job_name,
                 config_overrides=config_overrides,
+                hyper_parameter_tuning_job_name=hyper_parameter_tuning_job_name,
                 next_token=_token,
                 max_results=max_results,
                 status_equals=status_equals,
@@ -23893,9 +24936,11 @@ class SageMakerClient:
 
     def list_ultra_servers_by_reserved_capacity(
         self,
-        reserved_capacity_arn: "capo_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        reserved_capacity_arn: Optional[
+            "capo_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn"
+        ] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
     ) -> "capo_sagemaker.types.list_ultra_servers_by_reserved_capacity_response.ListUltraServersByReservedCapacityResponse":
@@ -23927,7 +24972,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.list_ultra_servers_by_reserved_capacity_request.ListUltraServersByReservedCapacityRequest = {}  # type: ignore[typeddict-item]
-        input_["reserved_capacity_arn"] = reserved_capacity_arn
+        if reserved_capacity_arn is not None:
+            input_["reserved_capacity_arn"] = reserved_capacity_arn
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -23942,17 +24988,19 @@ class SageMakerClient:
 
     def iter_list_ultra_servers_by_reserved_capacity(
         self,
-        reserved_capacity_arn: "capo_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        reserved_capacity_arn: Optional[
+            "capo_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn"
+        ] = None,
         max_results: Optional["capo_sagemaker.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_sagemaker.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_sagemaker.types.ultra_server.UltraServer]":
         _token = next_token
         while True:
             _response = self.list_ultra_servers_by_reserved_capacity(
-                reserved_capacity_arn,
                 config_overrides=config_overrides,
+                reserved_capacity_arn=reserved_capacity_arn,
                 max_results=max_results,
                 next_token=_token,
             )
@@ -24247,10 +25295,14 @@ class SageMakerClient:
 
     def put_model_package_group_policy(
         self,
-        model_package_group_name: "capo_sagemaker.types.entity_name.EntityName",
-        resource_policy: "capo_sagemaker.types.policy_string.PolicyString",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_group_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        resource_policy: Optional[
+            "capo_sagemaker.types.policy_string.PolicyString"
+        ] = None,
     ) -> "capo_sagemaker.types.put_model_package_group_policy_output.PutModelPackageGroupPolicyOutput":
         r"""<p>Adds a resouce policy to control access to a model group. For information about resoure policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">Identity-based policies and resource-based policies</a> in the <i>Amazon Web Services Identity and Access Management User Guide.</i>.</p>
 
@@ -24279,8 +25331,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.put_model_package_group_policy_input.PutModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_group_name"] = model_package_group_name
-        input_["resource_policy"] = resource_policy
+        if model_package_group_name is not None:
+            input_["model_package_group_name"] = model_package_group_name
+        if resource_policy is not None:
+            input_["resource_policy"] = resource_policy
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -24363,10 +25417,12 @@ class SageMakerClient:
 
     def register_devices(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
-        devices: "capo_sagemaker.types.devices.Devices",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        devices: Optional["capo_sagemaker.types.devices.Devices"] = None,
         tags: Optional["capo_sagemaker.types.tag_list.TagList"] = None,
     ) -> None:
         """<p>Register devices.</p>
@@ -24395,8 +25451,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.register_devices_request.RegisterDevicesRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
-        input_["devices"] = devices
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
+        if devices is not None:
+            input_["devices"] = devices
         if tags is not None:
             input_["tags"] = tags
 
@@ -24409,11 +25467,11 @@ class SageMakerClient:
 
     def render_ui_template(
         self,
-        task: "capo_sagemaker.types.renderable_task.RenderableTask",
-        role_arn: "capo_sagemaker.types.role_arn.RoleArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         ui_template: Optional["capo_sagemaker.types.ui_template.UiTemplate"] = None,
+        task: Optional["capo_sagemaker.types.renderable_task.RenderableTask"] = None,
+        role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         human_task_ui_arn: Optional[
             "capo_sagemaker.types.human_task_ui_arn.HumanTaskUiArn"
         ] = None,
@@ -24449,8 +25507,10 @@ class SageMakerClient:
         input_: capo_sagemaker.types.render_ui_template_request.RenderUiTemplateRequest = {}  # type: ignore[typeddict-item]
         if ui_template is not None:
             input_["ui_template"] = ui_template
-        input_["task"] = task
-        input_["role_arn"] = role_arn
+        if task is not None:
+            input_["task"] = task
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
         if human_task_ui_arn is not None:
             input_["human_task_ui_arn"] = human_task_ui_arn
 
@@ -24463,10 +25523,14 @@ class SageMakerClient:
 
     def retry_pipeline_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
-        client_request_token: "capo_sagemaker.types.idempotency_token.IdempotencyToken",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
+        client_request_token: Optional[
+            "capo_sagemaker.types.idempotency_token.IdempotencyToken"
+        ] = None,
         parallelism_configuration: Optional[
             "capo_sagemaker.types.parallelism_configuration.ParallelismConfiguration"
         ] = None,
@@ -24501,8 +25565,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.retry_pipeline_execution_request.RetryPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_execution_arn"] = pipeline_execution_arn
-        input_["client_request_token"] = client_request_token
+        if pipeline_execution_arn is not None:
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
         if parallelism_configuration is not None:
             input_["parallelism_configuration"] = parallelism_configuration
 
@@ -24515,9 +25581,9 @@ class SageMakerClient:
 
     def search(
         self,
-        resource: "capo_sagemaker.types.resource_type.ResourceType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource: Optional["capo_sagemaker.types.resource_type.ResourceType"] = None,
         search_expression: Optional[
             "capo_sagemaker.types.search_expression.SearchExpression"
         ] = None,
@@ -24564,7 +25630,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.search_request.SearchRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
+        if resource is not None:
+            input_["resource"] = resource
         if search_expression is not None:
             input_["search_expression"] = search_expression
         if sort_by is not None:
@@ -24589,9 +25656,9 @@ class SageMakerClient:
 
     def iter_search(
         self,
-        resource: "capo_sagemaker.types.resource_type.ResourceType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource: Optional["capo_sagemaker.types.resource_type.ResourceType"] = None,
         search_expression: Optional[
             "capo_sagemaker.types.search_expression.SearchExpression"
         ] = None,
@@ -24613,8 +25680,8 @@ class SageMakerClient:
         _token = next_token
         while True:
             _response = self.search(
-                resource,
                 config_overrides=config_overrides,
+                resource=resource,
                 search_expression=search_expression,
                 sort_by=sort_by,
                 sort_order=sort_order,
@@ -24718,9 +25785,11 @@ class SageMakerClient:
 
     def send_pipeline_execution_step_failure(
         self,
-        callback_token: "capo_sagemaker.types.callback_token.CallbackToken",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        callback_token: Optional[
+            "capo_sagemaker.types.callback_token.CallbackToken"
+        ] = None,
         failure_reason: Optional["capo_sagemaker.types.string256.String256"] = None,
         client_request_token: Optional[
             "capo_sagemaker.types.idempotency_token.IdempotencyToken"
@@ -24756,7 +25825,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.send_pipeline_execution_step_failure_request.SendPipelineExecutionStepFailureRequest = {}  # type: ignore[typeddict-item]
-        input_["callback_token"] = callback_token
+        if callback_token is not None:
+            input_["callback_token"] = callback_token
         if failure_reason is not None:
             input_["failure_reason"] = failure_reason
         if client_request_token is not None:
@@ -24771,9 +25841,11 @@ class SageMakerClient:
 
     def send_pipeline_execution_step_success(
         self,
-        callback_token: "capo_sagemaker.types.callback_token.CallbackToken",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        callback_token: Optional[
+            "capo_sagemaker.types.callback_token.CallbackToken"
+        ] = None,
         output_parameters: Optional[
             "capo_sagemaker.types.output_parameter_list.OutputParameterList"
         ] = None,
@@ -24811,7 +25883,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.send_pipeline_execution_step_success_request.SendPipelineExecutionStepSuccessRequest = {}  # type: ignore[typeddict-item]
-        input_["callback_token"] = callback_token
+        if callback_token is not None:
+            input_["callback_token"] = callback_token
         if output_parameters is not None:
             input_["output_parameters"] = output_parameters
         if client_request_token is not None:
@@ -24870,10 +25943,12 @@ class SageMakerClient:
 
     def start_edge_deployment_stage(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        stage_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        stage_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> None:
         """<p>Starts a stage in an edge deployment plan.</p>
 
@@ -24899,8 +25974,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_edge_deployment_stage_request.StartEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input_["stage_name"] = stage_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if stage_name is not None:
+            input_["stage_name"] = stage_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -24911,9 +25988,11 @@ class SageMakerClient:
 
     def start_inference_experiment(
         self,
-        name: "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional[
+            "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName"
+        ] = None,
     ) -> "capo_sagemaker.types.start_inference_experiment_response.StartInferenceExperimentResponse":
         """<p>Starts an inference experiment.</p>
 
@@ -24942,7 +26021,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_inference_experiment_request.StartInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -24953,9 +26033,11 @@ class SageMakerClient:
 
     def start_mlflow_tracking_server(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
     ) -> "capo_sagemaker.types.start_mlflow_tracking_server_response.StartMlflowTrackingServerResponse":
         """<p>Programmatically start an MLflow Tracking Server.</p>
 
@@ -24984,7 +26066,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_mlflow_tracking_server_request.StartMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -24995,9 +26078,11 @@ class SageMakerClient:
 
     def start_monitoring_schedule(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
     ) -> None:
         """<p>Starts a previously stopped monitoring schedule.</p> <note> <p>By default, when you successfully create a new schedule, the status of a monitoring schedule is <code>scheduled</code>.</p> </note>
 
@@ -25023,7 +26108,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_monitoring_schedule_request.StartMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25034,9 +26120,11 @@ class SageMakerClient:
 
     def start_notebook_instance(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
     ) -> None:
         """<p>Launches an ML compute instance with the latest version of the libraries and attaches your ML storage volume. After configuring the notebook instance, SageMaker AI sets the notebook instance status to <code>InService</code>. A notebook instance's status must be <code>InService</code> before you can connect to your Jupyter notebook. </p>
 
@@ -25062,7 +26150,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_notebook_instance_input.StartNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25073,10 +26162,11 @@ class SageMakerClient:
 
     def start_pipeline_execution(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn",
-        client_request_token: "capo_sagemaker.types.idempotency_token.IdempotencyToken",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name_or_arn.PipelineNameOrArn"
+        ] = None,
         pipeline_execution_display_name: Optional[
             "capo_sagemaker.types.pipeline_execution_name.PipelineExecutionName"
         ] = None,
@@ -25085,6 +26175,9 @@ class SageMakerClient:
         ] = None,
         pipeline_execution_description: Optional[
             "capo_sagemaker.types.pipeline_execution_description.PipelineExecutionDescription"
+        ] = None,
+        client_request_token: Optional[
+            "capo_sagemaker.types.idempotency_token.IdempotencyToken"
         ] = None,
         parallelism_configuration: Optional[
             "capo_sagemaker.types.parallelism_configuration.ParallelismConfiguration"
@@ -25135,14 +26228,16 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_pipeline_execution_request.StartPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
         if pipeline_execution_display_name is not None:
             input_["pipeline_execution_display_name"] = pipeline_execution_display_name
         if pipeline_parameters is not None:
             input_["pipeline_parameters"] = pipeline_parameters
         if pipeline_execution_description is not None:
             input_["pipeline_execution_description"] = pipeline_execution_description
-        input_["client_request_token"] = client_request_token
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
         if parallelism_configuration is not None:
             input_["parallelism_configuration"] = parallelism_configuration
         if selective_execution_config is not None:
@@ -25161,9 +26256,11 @@ class SageMakerClient:
 
     def start_session(
         self,
-        resource_identifier: "capo_sagemaker.types.resource_identifier.ResourceIdentifier",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        resource_identifier: Optional[
+            "capo_sagemaker.types.resource_identifier.ResourceIdentifier"
+        ] = None,
     ) -> "capo_sagemaker.types.start_session_response.StartSessionResponse":
         """<p>Initiates a remote connection session between a local integrated development environments (IDEs) and a remote SageMaker space.</p>
 
@@ -25192,7 +26289,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_identifier"] = resource_identifier
+        if resource_identifier is not None:
+            input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25203,9 +26301,11 @@ class SageMakerClient:
 
     def stop_ai_benchmark_job(
         self,
-        ai_benchmark_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_benchmark_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> (
         "capo_sagemaker.types.stop_ai_benchmark_job_response.StopAIBenchmarkJobResponse"
     ):
@@ -25235,7 +26335,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_ai_benchmark_job_request.StopAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
+        if ai_benchmark_job_name is not None:
+            input_["ai_benchmark_job_name"] = ai_benchmark_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25246,9 +26347,11 @@ class SageMakerClient:
 
     def stop_ai_recommendation_job(
         self,
-        ai_recommendation_job_name: "capo_sagemaker.types.ai_entity_name.AIEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        ai_recommendation_job_name: Optional[
+            "capo_sagemaker.types.ai_entity_name.AIEntityName"
+        ] = None,
     ) -> "capo_sagemaker.types.stop_ai_recommendation_job_response.StopAIRecommendationJobResponse":
         """<p>Stops a running AI recommendation job.</p>
 
@@ -25276,7 +26379,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_ai_recommendation_job_request.StopAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
+        if ai_recommendation_job_name is not None:
+            input_["ai_recommendation_job_name"] = ai_recommendation_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25287,9 +26391,11 @@ class SageMakerClient:
 
     def stop_auto_ml_job(
         self,
-        auto_ml_job_name: "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        auto_ml_job_name: Optional[
+            "capo_sagemaker.types.auto_ml_job_name.AutoMLJobName"
+        ] = None,
     ) -> None:
         """<p>A method for forcing a running job to shut down.</p>
 
@@ -25315,7 +26421,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_auto_ml_job_request.StopAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_ml_job_name"] = auto_ml_job_name
+        if auto_ml_job_name is not None:
+            input_["auto_ml_job_name"] = auto_ml_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25326,9 +26433,11 @@ class SageMakerClient:
 
     def stop_compilation_job(
         self,
-        compilation_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compilation_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Stops a model compilation job.</p> <p> To stop a job, Amazon SageMaker AI sends the algorithm the SIGTERM signal. This gracefully shuts the job down. If the job hasn't stopped, it sends the SIGKILL signal.</p> <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker AI changes the <code>CompilationJobStatus</code> of the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to <code>Stopped</code>. </p>
 
@@ -25354,7 +26463,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_compilation_job_request.StopCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["compilation_job_name"] = compilation_job_name
+        if compilation_job_name is not None:
+            input_["compilation_job_name"] = compilation_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25365,10 +26475,12 @@ class SageMakerClient:
 
     def stop_edge_deployment_stage(
         self,
-        edge_deployment_plan_name: "capo_sagemaker.types.entity_name.EntityName",
-        stage_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_deployment_plan_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        stage_name: Optional["capo_sagemaker.types.entity_name.EntityName"] = None,
     ) -> None:
         """<p>Stops a stage in an edge deployment plan.</p>
 
@@ -25394,8 +26506,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_edge_deployment_stage_request.StopEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input_["stage_name"] = stage_name
+        if edge_deployment_plan_name is not None:
+            input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        if stage_name is not None:
+            input_["stage_name"] = stage_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25406,9 +26520,11 @@ class SageMakerClient:
 
     def stop_edge_packaging_job(
         self,
-        edge_packaging_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        edge_packaging_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Request to stop an edge packaging job.</p>
 
@@ -25433,7 +26549,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_edge_packaging_job_request.StopEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["edge_packaging_job_name"] = edge_packaging_job_name
+        if edge_packaging_job_name is not None:
+            input_["edge_packaging_job_name"] = edge_packaging_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25444,9 +26561,11 @@ class SageMakerClient:
 
     def stop_hyper_parameter_tuning_job(
         self,
-        hyper_parameter_tuning_job_name: "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hyper_parameter_tuning_job_name: Optional[
+            "capo_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
+        ] = None,
     ) -> None:
         """<p>Stops a running hyperparameter tuning job and all running training jobs that the tuning job launched.</p> <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the tuning job moves to the <code>Stopped</code> state, it releases all reserved resources for the tuning job.</p>
 
@@ -25472,7 +26591,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_hyper_parameter_tuning_job_request.StopHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        if hyper_parameter_tuning_job_name is not None:
+            input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25483,10 +26603,14 @@ class SageMakerClient:
 
     def stop_inference_experiment(
         self,
-        name: "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName",
-        model_variant_actions: "capo_sagemaker.types.model_variant_action_map.ModelVariantActionMap",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional[
+            "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName"
+        ] = None,
+        model_variant_actions: Optional[
+            "capo_sagemaker.types.model_variant_action_map.ModelVariantActionMap"
+        ] = None,
         desired_model_variants: Optional[
             "capo_sagemaker.types.model_variant_config_list.ModelVariantConfigList"
         ] = None,
@@ -25528,8 +26652,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_inference_experiment_request.StopInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["model_variant_actions"] = model_variant_actions
+        if name is not None:
+            input_["name"] = name
+        if model_variant_actions is not None:
+            input_["model_variant_actions"] = model_variant_actions
         if desired_model_variants is not None:
             input_["desired_model_variants"] = desired_model_variants
         if desired_state is not None:
@@ -25546,9 +26672,11 @@ class SageMakerClient:
 
     def stop_inference_recommendations_job(
         self,
-        job_name: "capo_sagemaker.types.recommendation_job_name.RecommendationJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional[
+            "capo_sagemaker.types.recommendation_job_name.RecommendationJobName"
+        ] = None,
     ) -> None:
         """<p>Stops an Inference Recommender job.</p>
 
@@ -25574,7 +26702,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_inference_recommendations_job_request.StopInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        if job_name is not None:
+            input_["job_name"] = job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25585,10 +26714,10 @@ class SageMakerClient:
 
     def stop_job(
         self,
-        job_name: "capo_sagemaker.types.job_name.JobName",
-        job_category: "capo_sagemaker.types.job_category.JobCategory",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        job_name: Optional["capo_sagemaker.types.job_name.JobName"] = None,
+        job_category: Optional["capo_sagemaker.types.job_category.JobCategory"] = None,
     ) -> "capo_sagemaker.types.stop_job_response.StopJobResponse":
         """<p>Stops a running job. When you call <code>StopJob</code>, Amazon SageMaker sets the job status to <code>Stopping</code>. After the job stops, the status changes to <code>Stopped</code>. Partial results may be available in the output location if the job was in progress. To delete a stopped job, call <code>DeleteJob</code>.</p> <p>The following operations are related to <code>StopJob</code>:</p> <ul> <li> <p> <code>CreateJob</code> </p> </li> <li> <p> <code>DescribeJob</code> </p> </li> <li> <p> <code>DeleteJob</code> </p> </li> </ul>
 
@@ -25617,8 +26746,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["job_category"] = job_category
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if job_category is not None:
+            input_["job_category"] = job_category
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25629,9 +26760,11 @@ class SageMakerClient:
 
     def stop_labeling_job(
         self,
-        labeling_job_name: "capo_sagemaker.types.labeling_job_name.LabelingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        labeling_job_name: Optional[
+            "capo_sagemaker.types.labeling_job_name.LabelingJobName"
+        ] = None,
     ) -> None:
         """<p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
 
@@ -25657,7 +26790,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_labeling_job_request.StopLabelingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["labeling_job_name"] = labeling_job_name
+        if labeling_job_name is not None:
+            input_["labeling_job_name"] = labeling_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25668,9 +26802,11 @@ class SageMakerClient:
 
     def stop_mlflow_tracking_server(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
     ) -> "capo_sagemaker.types.stop_mlflow_tracking_server_response.StopMlflowTrackingServerResponse":
         """<p>Programmatically stop an MLflow Tracking Server.</p>
 
@@ -25699,7 +26835,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_mlflow_tracking_server_request.StopMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25710,9 +26847,11 @@ class SageMakerClient:
 
     def stop_monitoring_schedule(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
     ) -> None:
         """<p>Stops a previously started monitoring schedule.</p>
 
@@ -25738,7 +26877,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_monitoring_schedule_request.StopMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25749,9 +26889,11 @@ class SageMakerClient:
 
     def stop_notebook_instance(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
     ) -> None:
         """<p>Terminates the ML compute instance. Before terminating the instance, SageMaker AI disconnects the ML storage volume from it. SageMaker AI preserves the ML storage volume. SageMaker AI stops charging you for the ML compute instance when you call <code>StopNotebookInstance</code>.</p> <p>To access data on the ML storage volume for a notebook instance that has been terminated, call the <code>StartNotebookInstance</code> API. <code>StartNotebookInstance</code> launches another ML compute instance, configures it, and attaches the preserved ML storage volume so you can continue your work. </p>
 
@@ -25776,7 +26918,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_notebook_instance_input.StopNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25787,9 +26930,11 @@ class SageMakerClient:
 
     def stop_optimization_job(
         self,
-        optimization_job_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        optimization_job_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
     ) -> None:
         """<p>Ends a running inference optimization job.</p>
 
@@ -25815,7 +26960,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_optimization_job_request.StopOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["optimization_job_name"] = optimization_job_name
+        if optimization_job_name is not None:
+            input_["optimization_job_name"] = optimization_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25826,10 +26972,14 @@ class SageMakerClient:
 
     def stop_pipeline_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
-        client_request_token: "capo_sagemaker.types.idempotency_token.IdempotencyToken",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
+        client_request_token: Optional[
+            "capo_sagemaker.types.idempotency_token.IdempotencyToken"
+        ] = None,
     ) -> "capo_sagemaker.types.stop_pipeline_execution_response.StopPipelineExecutionResponse":
         r"""<p>Stops a pipeline execution.</p> <p> <b>Callback Step</b> </p> <p>A pipeline execution won't stop while a callback step is running. When you call <code>StopPipelineExecution</code> on a pipeline execution with a running callback step, SageMaker Pipelines sends an additional Amazon SQS message to the specified SQS queue. The body of the SQS message contains a \"Status\" field which is set to \"Stopping\".</p> <p>You should add logic to your Amazon SQS message consumer to take any needed action (for example, resource cleanup) upon receipt of the message followed by a call to <code>SendPipelineExecutionStepSuccess</code> or <code>SendPipelineExecutionStepFailure</code>.</p> <p>Only when SageMaker Pipelines receives one of these calls will it stop the pipeline execution.</p> <p> <b>Lambda Step</b> </p> <p>A pipeline execution can't be stopped while a lambda step is running because the Lambda function invoked by the lambda step can't be stopped. If you attempt to stop the execution while the Lambda function is running, the pipeline waits for the Lambda function to finish or until the timeout is hit, whichever occurs first, and then stops. If the Lambda function finishes, the pipeline execution status is <code>Stopped</code>. If the timeout is hit the pipeline execution status is <code>Failed</code>.</p>
 
@@ -25859,8 +27009,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_pipeline_execution_request.StopPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_execution_arn"] = pipeline_execution_arn
-        input_["client_request_token"] = client_request_token
+        if pipeline_execution_arn is not None:
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
+        if client_request_token is not None:
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25871,9 +27023,11 @@ class SageMakerClient:
 
     def stop_processing_job(
         self,
-        processing_job_name: "capo_sagemaker.types.processing_job_name.ProcessingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        processing_job_name: Optional[
+            "capo_sagemaker.types.processing_job_name.ProcessingJobName"
+        ] = None,
     ) -> None:
         """<p>Stops a processing job.</p>
 
@@ -25899,7 +27053,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_processing_job_request.StopProcessingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["processing_job_name"] = processing_job_name
+        if processing_job_name is not None:
+            input_["processing_job_name"] = processing_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25910,9 +27065,11 @@ class SageMakerClient:
 
     def stop_training_job(
         self,
-        training_job_name: "capo_sagemaker.types.training_job_name.TrainingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_job_name: Optional[
+            "capo_sagemaker.types.training_job_name.TrainingJobName"
+        ] = None,
     ) -> None:
         """<p>Stops a training job. To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost. </p> <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to <code>Stopped</code>.</p>
 
@@ -25938,7 +27095,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_training_job_request.StopTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["training_job_name"] = training_job_name
+        if training_job_name is not None:
+            input_["training_job_name"] = training_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25949,9 +27107,11 @@ class SageMakerClient:
 
     def stop_transform_job(
         self,
-        transform_job_name: "capo_sagemaker.types.transform_job_name.TransformJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        transform_job_name: Optional[
+            "capo_sagemaker.types.transform_job_name.TransformJobName"
+        ] = None,
     ) -> None:
         """<p>Stops a batch transform job.</p> <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job changes to <code>Stopping</code>. After Amazon SageMaker stops the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
 
@@ -25977,7 +27137,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.stop_transform_job_request.StopTransformJobRequest = {}  # type: ignore[typeddict-item]
-        input_["transform_job_name"] = transform_job_name
+        if transform_job_name is not None:
+            input_["transform_job_name"] = transform_job_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -25988,9 +27149,11 @@ class SageMakerClient:
 
     def update_action(
         self,
-        action_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        action_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         description: Optional[
             "capo_sagemaker.types.experiment_description.ExperimentDescription"
         ] = None,
@@ -26033,7 +27196,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_action_request.UpdateActionRequest = {}  # type: ignore[typeddict-item]
-        input_["action_name"] = action_name
+        if action_name is not None:
+            input_["action_name"] = action_name
         if description is not None:
             input_["description"] = description
         if status is not None:
@@ -26052,9 +27216,11 @@ class SageMakerClient:
 
     def update_app_image_config(
         self,
-        app_image_config_name: "capo_sagemaker.types.app_image_config_name.AppImageConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        app_image_config_name: Optional[
+            "capo_sagemaker.types.app_image_config_name.AppImageConfigName"
+        ] = None,
         kernel_gateway_image_config: Optional[
             "capo_sagemaker.types.kernel_gateway_image_config.KernelGatewayImageConfig"
         ] = None,
@@ -26094,7 +27260,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_app_image_config_request.UpdateAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["app_image_config_name"] = app_image_config_name
+        if app_image_config_name is not None:
+            input_["app_image_config_name"] = app_image_config_name
         if kernel_gateway_image_config is not None:
             input_["kernel_gateway_image_config"] = kernel_gateway_image_config
         if jupyter_lab_app_image_config is not None:
@@ -26111,9 +27278,9 @@ class SageMakerClient:
 
     def update_artifact(
         self,
-        artifact_arn: "capo_sagemaker.types.artifact_arn.ArtifactArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        artifact_arn: Optional["capo_sagemaker.types.artifact_arn.ArtifactArn"] = None,
         artifact_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
@@ -26154,7 +27321,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_artifact_request.UpdateArtifactRequest = {}  # type: ignore[typeddict-item]
-        input_["artifact_arn"] = artifact_arn
+        if artifact_arn is not None:
+            input_["artifact_arn"] = artifact_arn
         if artifact_name is not None:
             input_["artifact_name"] = artifact_name
         if properties is not None:
@@ -26171,9 +27339,11 @@ class SageMakerClient:
 
     def update_cluster(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         instance_groups: Optional[
             "capo_sagemaker.types.cluster_instance_group_specifications.ClusterInstanceGroupSpecifications"
         ] = None,
@@ -26240,7 +27410,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if instance_groups is not None:
             input_["instance_groups"] = instance_groups
         if restricted_instance_groups is not None:
@@ -26273,10 +27444,12 @@ class SageMakerClient:
 
     def update_cluster_scheduler_config(
         self,
-        cluster_scheduler_config_id: "capo_sagemaker.types.cluster_scheduler_config_id.ClusterSchedulerConfigId",
-        target_version: "capo_sagemaker.types.integer.Integer",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_scheduler_config_id: Optional[
+            "capo_sagemaker.types.cluster_scheduler_config_id.ClusterSchedulerConfigId"
+        ] = None,
+        target_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
         scheduler_config: Optional[
             "capo_sagemaker.types.scheduler_config.SchedulerConfig"
         ] = None,
@@ -26315,8 +27488,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_cluster_scheduler_config_request.UpdateClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
-        input_["target_version"] = target_version
+        if cluster_scheduler_config_id is not None:
+            input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
+        if target_version is not None:
+            input_["target_version"] = target_version
         if scheduler_config is not None:
             input_["scheduler_config"] = scheduler_config
         if description is not None:
@@ -26331,9 +27506,11 @@ class SageMakerClient:
 
     def update_cluster_software(
         self,
-        cluster_name: "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        cluster_name: Optional[
+            "capo_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
+        ] = None,
         instance_groups: Optional[
             "capo_sagemaker.types.update_cluster_software_instance_groups.UpdateClusterSoftwareInstanceGroups"
         ] = None,
@@ -26372,7 +27549,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_cluster_software_request.UpdateClusterSoftwareRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_name"] = cluster_name
+        if cluster_name is not None:
+            input_["cluster_name"] = cluster_name
         if instance_groups is not None:
             input_["instance_groups"] = instance_groups
         if deployment_config is not None:
@@ -26389,9 +27567,11 @@ class SageMakerClient:
 
     def update_code_repository(
         self,
-        code_repository_name: "capo_sagemaker.types.entity_name.EntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        code_repository_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         git_config: Optional[
             "capo_sagemaker.types.git_config_for_update.GitConfigForUpdate"
         ] = None,
@@ -26425,7 +27605,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_code_repository_input.UpdateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input_["code_repository_name"] = code_repository_name
+        if code_repository_name is not None:
+            input_["code_repository_name"] = code_repository_name
         if git_config is not None:
             input_["git_config"] = git_config
 
@@ -26438,10 +27619,12 @@ class SageMakerClient:
 
     def update_compute_quota(
         self,
-        compute_quota_id: "capo_sagemaker.types.compute_quota_id.ComputeQuotaId",
-        target_version: "capo_sagemaker.types.integer.Integer",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        compute_quota_id: Optional[
+            "capo_sagemaker.types.compute_quota_id.ComputeQuotaId"
+        ] = None,
+        target_version: Optional["capo_sagemaker.types.integer.Integer"] = None,
         compute_quota_config: Optional[
             "capo_sagemaker.types.compute_quota_config.ComputeQuotaConfig"
         ] = None,
@@ -26490,8 +27673,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_compute_quota_request.UpdateComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input_["compute_quota_id"] = compute_quota_id
-        input_["target_version"] = target_version
+        if compute_quota_id is not None:
+            input_["compute_quota_id"] = compute_quota_id
+        if target_version is not None:
+            input_["target_version"] = target_version
         if compute_quota_config is not None:
             input_["compute_quota_config"] = compute_quota_config
         if compute_quota_target is not None:
@@ -26510,9 +27695,9 @@ class SageMakerClient:
 
     def update_context(
         self,
-        context_name: "capo_sagemaker.types.context_name.ContextName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        context_name: Optional["capo_sagemaker.types.context_name.ContextName"] = None,
         description: Optional[
             "capo_sagemaker.types.experiment_description.ExperimentDescription"
         ] = None,
@@ -26553,7 +27738,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_context_request.UpdateContextRequest = {}  # type: ignore[typeddict-item]
-        input_["context_name"] = context_name
+        if context_name is not None:
+            input_["context_name"] = context_name
         if description is not None:
             input_["description"] = description
         if properties is not None:
@@ -26570,13 +27756,17 @@ class SageMakerClient:
 
     def update_device_fleet(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
-        output_config: "capo_sagemaker.types.edge_output_config.EdgeOutputConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
         role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
         description: Optional[
             "capo_sagemaker.types.device_fleet_description.DeviceFleetDescription"
+        ] = None,
+        output_config: Optional[
+            "capo_sagemaker.types.edge_output_config.EdgeOutputConfig"
         ] = None,
         enable_iot_role_alias: Optional[
             "capo_sagemaker.types.enable_iot_role_alias.EnableIotRoleAlias"
@@ -26610,12 +27800,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_device_fleet_request.UpdateDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if description is not None:
             input_["description"] = description
-        input_["output_config"] = output_config
+        if output_config is not None:
+            input_["output_config"] = output_config
         if enable_iot_role_alias is not None:
             input_["enable_iot_role_alias"] = enable_iot_role_alias
 
@@ -26628,10 +27820,12 @@ class SageMakerClient:
 
     def update_devices(
         self,
-        device_fleet_name: "capo_sagemaker.types.entity_name.EntityName",
-        devices: "capo_sagemaker.types.devices.Devices",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker.types.entity_name.EntityName"
+        ] = None,
+        devices: Optional["capo_sagemaker.types.devices.Devices"] = None,
     ) -> None:
         """<p>Updates one or more devices in a fleet.</p>
 
@@ -26657,8 +27851,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_devices_request.UpdateDevicesRequest = {}  # type: ignore[typeddict-item]
-        input_["device_fleet_name"] = device_fleet_name
-        input_["devices"] = devices
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
+        if devices is not None:
+            input_["devices"] = devices
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -26669,9 +27865,9 @@ class SageMakerClient:
 
     def update_domain(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
         default_user_settings: Optional[
             "capo_sagemaker.types.user_settings.UserSettings"
         ] = None,
@@ -26733,7 +27929,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
         if default_user_settings is not None:
             input_["default_user_settings"] = default_user_settings
         if domain_settings_for_update is not None:
@@ -26762,10 +27959,14 @@ class SageMakerClient:
 
     def update_endpoint(
         self,
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
-        endpoint_config_name: "capo_sagemaker.types.endpoint_config_name.EndpointConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
+        endpoint_config_name: Optional[
+            "capo_sagemaker.types.endpoint_config_name.EndpointConfigName"
+        ] = None,
         retain_all_variant_properties: Optional[
             "capo_sagemaker.types.boolean.Boolean"
         ] = None,
@@ -26810,8 +28011,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_endpoint_input.UpdateEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
-        input_["endpoint_config_name"] = endpoint_config_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
+        if endpoint_config_name is not None:
+            input_["endpoint_config_name"] = endpoint_config_name
         if retain_all_variant_properties is not None:
             input_["retain_all_variant_properties"] = retain_all_variant_properties
         if exclude_retained_variant_properties is not None:
@@ -26832,10 +28035,14 @@ class SageMakerClient:
 
     def update_endpoint_weights_and_capacities(
         self,
-        endpoint_name: "capo_sagemaker.types.endpoint_name.EndpointName",
-        desired_weights_and_capacities: "capo_sagemaker.types.desired_weight_and_capacity_list.DesiredWeightAndCapacityList",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        endpoint_name: Optional[
+            "capo_sagemaker.types.endpoint_name.EndpointName"
+        ] = None,
+        desired_weights_and_capacities: Optional[
+            "capo_sagemaker.types.desired_weight_and_capacity_list.DesiredWeightAndCapacityList"
+        ] = None,
     ) -> "capo_sagemaker.types.update_endpoint_weights_and_capacities_output.UpdateEndpointWeightsAndCapacitiesOutput":
         r"""<p>Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After updating the endpoint, it sets the status to <code>InService</code>. To check the status of an endpoint, use the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html\">DescribeEndpoint</a> API. </p>
 
@@ -26864,8 +28071,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_endpoint_weights_and_capacities_input.UpdateEndpointWeightsAndCapacitiesInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
-        input_["desired_weights_and_capacities"] = desired_weights_and_capacities
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
+        if desired_weights_and_capacities is not None:
+            input_["desired_weights_and_capacities"] = desired_weights_and_capacities
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -26876,9 +28085,11 @@ class SageMakerClient:
 
     def update_experiment(
         self,
-        experiment_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        experiment_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         display_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
@@ -26915,7 +28126,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_experiment_request.UpdateExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["experiment_name"] = experiment_name
+        if experiment_name is not None:
+            input_["experiment_name"] = experiment_name
         if display_name is not None:
             input_["display_name"] = display_name
         if description is not None:
@@ -26930,9 +28142,11 @@ class SageMakerClient:
 
     def update_feature_group(
         self,
-        feature_group_name: "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        feature_group_name: Optional[
+            "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
+        ] = None,
         feature_additions: Optional[
             "capo_sagemaker.types.feature_additions.FeatureAdditions"
         ] = None,
@@ -26974,7 +28188,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_feature_group_request.UpdateFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["feature_group_name"] = feature_group_name
+        if feature_group_name is not None:
+            input_["feature_group_name"] = feature_group_name
         if feature_additions is not None:
             input_["feature_additions"] = feature_additions
         if online_store_config is not None:
@@ -26991,10 +28206,12 @@ class SageMakerClient:
 
     def update_feature_metadata(
         self,
-        feature_group_name: "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
-        feature_name: "capo_sagemaker.types.feature_name.FeatureName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        feature_group_name: Optional[
+            "capo_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
+        ] = None,
+        feature_name: Optional["capo_sagemaker.types.feature_name.FeatureName"] = None,
         description: Optional[
             "capo_sagemaker.types.feature_description.FeatureDescription"
         ] = None,
@@ -27033,8 +28250,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_feature_metadata_request.UpdateFeatureMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["feature_group_name"] = feature_group_name
-        input_["feature_name"] = feature_name
+        if feature_group_name is not None:
+            input_["feature_group_name"] = feature_group_name
+        if feature_name is not None:
+            input_["feature_name"] = feature_name
         if description is not None:
             input_["description"] = description
         if parameter_additions is not None:
@@ -27051,9 +28270,9 @@ class SageMakerClient:
 
     def update_hub(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
         hub_description: Optional[
             "capo_sagemaker.types.hub_description.HubDescription"
         ] = None,
@@ -27093,7 +28312,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_hub_request.UpdateHubRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
         if hub_description is not None:
             input_["hub_description"] = hub_description
         if hub_display_name is not None:
@@ -27110,12 +28330,18 @@ class SageMakerClient:
 
     def update_hub_content(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
-        hub_content_version: "capo_sagemaker.types.hub_content_version.HubContentVersion",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
+        hub_content_version: Optional[
+            "capo_sagemaker.types.hub_content_version.HubContentVersion"
+        ] = None,
         hub_content_display_name: Optional[
             "capo_sagemaker.types.hub_content_display_name.HubContentDisplayName"
         ] = None,
@@ -27167,10 +28393,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_hub_content_request.UpdateHubContentRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_name"] = hub_content_name
-        input_["hub_content_type"] = hub_content_type
-        input_["hub_content_version"] = hub_content_version
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
+        if hub_content_version is not None:
+            input_["hub_content_version"] = hub_content_version
         if hub_content_display_name is not None:
             input_["hub_content_display_name"] = hub_content_display_name
         if hub_content_description is not None:
@@ -27191,11 +28421,15 @@ class SageMakerClient:
 
     def update_hub_content_reference(
         self,
-        hub_name: "capo_sagemaker.types.hub_name_or_arn.HubNameOrArn",
-        hub_content_name: "capo_sagemaker.types.hub_content_name.HubContentName",
-        hub_content_type: "capo_sagemaker.types.hub_content_type.HubContentType",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        hub_name: Optional["capo_sagemaker.types.hub_name_or_arn.HubNameOrArn"] = None,
+        hub_content_name: Optional[
+            "capo_sagemaker.types.hub_content_name.HubContentName"
+        ] = None,
+        hub_content_type: Optional[
+            "capo_sagemaker.types.hub_content_type.HubContentType"
+        ] = None,
         min_version: Optional[
             "capo_sagemaker.types.hub_content_version.HubContentVersion"
         ] = None,
@@ -27230,9 +28464,12 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_hub_content_reference_request.UpdateHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
-        input_["hub_name"] = hub_name
-        input_["hub_content_name"] = hub_content_name
-        input_["hub_content_type"] = hub_content_type
+        if hub_name is not None:
+            input_["hub_name"] = hub_name
+        if hub_content_name is not None:
+            input_["hub_content_name"] = hub_content_name
+        if hub_content_type is not None:
+            input_["hub_content_type"] = hub_content_type
         if min_version is not None:
             input_["min_version"] = min_version
 
@@ -27245,7 +28482,6 @@ class SageMakerClient:
 
     def update_image(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
         delete_properties: Optional[
@@ -27257,6 +28493,7 @@ class SageMakerClient:
         display_name: Optional[
             "capo_sagemaker.types.image_display_name.ImageDisplayName"
         ] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         role_arn: Optional["capo_sagemaker.types.role_arn.RoleArn"] = None,
     ) -> "capo_sagemaker.types.update_image_response.UpdateImageResponse":
         r"""<p>Updates the properties of a SageMaker AI image. To change the image's tags, use the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html\">AddTags</a> and <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html\">DeleteTags</a> APIs.</p>
@@ -27296,7 +28533,8 @@ class SageMakerClient:
             input_["description"] = description
         if display_name is not None:
             input_["display_name"] = display_name
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
         if role_arn is not None:
             input_["role_arn"] = role_arn
 
@@ -27309,9 +28547,9 @@ class SageMakerClient:
 
     def update_image_version(
         self,
-        image_name: "capo_sagemaker.types.image_name.ImageName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        image_name: Optional["capo_sagemaker.types.image_name.ImageName"] = None,
         alias: Optional[
             "capo_sagemaker.types.sage_maker_image_version_alias.SageMakerImageVersionAlias"
         ] = None,
@@ -27378,7 +28616,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_image_version_request.UpdateImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
+        if image_name is not None:
+            input_["image_name"] = image_name
         if alias is not None:
             input_["alias"] = alias
         if version is not None:
@@ -27411,9 +28650,11 @@ class SageMakerClient:
 
     def update_inference_component(
         self,
-        inference_component_name: "capo_sagemaker.types.inference_component_name.InferenceComponentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        inference_component_name: Optional[
+            "capo_sagemaker.types.inference_component_name.InferenceComponentName"
+        ] = None,
         specification: Optional[
             "capo_sagemaker.types.inference_component_specification.InferenceComponentSpecification"
         ] = None,
@@ -27457,7 +28698,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_inference_component_input.UpdateInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input_["inference_component_name"] = inference_component_name
+        if inference_component_name is not None:
+            input_["inference_component_name"] = inference_component_name
         if specification is not None:
             input_["specification"] = specification
         if specifications is not None:
@@ -27476,10 +28718,14 @@ class SageMakerClient:
 
     def update_inference_component_runtime_config(
         self,
-        inference_component_name: "capo_sagemaker.types.inference_component_name.InferenceComponentName",
-        desired_runtime_config: "capo_sagemaker.types.inference_component_runtime_config.InferenceComponentRuntimeConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        inference_component_name: Optional[
+            "capo_sagemaker.types.inference_component_name.InferenceComponentName"
+        ] = None,
+        desired_runtime_config: Optional[
+            "capo_sagemaker.types.inference_component_runtime_config.InferenceComponentRuntimeConfig"
+        ] = None,
     ) -> "capo_sagemaker.types.update_inference_component_runtime_config_output.UpdateInferenceComponentRuntimeConfigOutput":
         """<p>Runtime settings for a model that is deployed with an inference component.</p>
 
@@ -27508,8 +28754,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_inference_component_runtime_config_input.UpdateInferenceComponentRuntimeConfigInput = {}  # type: ignore[typeddict-item]
-        input_["inference_component_name"] = inference_component_name
-        input_["desired_runtime_config"] = desired_runtime_config
+        if inference_component_name is not None:
+            input_["inference_component_name"] = inference_component_name
+        if desired_runtime_config is not None:
+            input_["desired_runtime_config"] = desired_runtime_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -27520,9 +28768,11 @@ class SageMakerClient:
 
     def update_inference_experiment(
         self,
-        name: "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        name: Optional[
+            "capo_sagemaker.types.inference_experiment_name.InferenceExperimentName"
+        ] = None,
         schedule: Optional[
             "capo_sagemaker.types.inference_experiment_schedule.InferenceExperimentSchedule"
         ] = None,
@@ -27571,7 +28821,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_inference_experiment_request.UpdateInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if schedule is not None:
             input_["schedule"] = schedule
         if description is not None:
@@ -27592,9 +28843,9 @@ class SageMakerClient:
 
     def update_mlflow_app(
         self,
-        arn: "capo_sagemaker.types.mlflow_app_arn.MlflowAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.mlflow_app_arn.MlflowAppArn"] = None,
         name: Optional["capo_sagemaker.types.mlflow_app_name.MlflowAppName"] = None,
         artifact_store_uri: Optional["capo_sagemaker.types.s3_uri.S3Uri"] = None,
         model_registration_mode: Optional[
@@ -27643,7 +28894,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_mlflow_app_request.UpdateMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if name is not None:
             input_["name"] = name
         if artifact_store_uri is not None:
@@ -27666,9 +28918,11 @@ class SageMakerClient:
 
     def update_mlflow_tracking_server(
         self,
-        tracking_server_name: "capo_sagemaker.types.tracking_server_name.TrackingServerName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        tracking_server_name: Optional[
+            "capo_sagemaker.types.tracking_server_name.TrackingServerName"
+        ] = None,
         artifact_store_uri: Optional["capo_sagemaker.types.s3_uri.S3Uri"] = None,
         tracking_server_size: Optional[
             "capo_sagemaker.types.tracking_server_size.TrackingServerSize"
@@ -27720,7 +28974,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_mlflow_tracking_server_request.UpdateMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input_["tracking_server_name"] = tracking_server_name
+        if tracking_server_name is not None:
+            input_["tracking_server_name"] = tracking_server_name
         if artifact_store_uri is not None:
             input_["artifact_store_uri"] = artifact_store_uri
         if tracking_server_size is not None:
@@ -27743,9 +28998,11 @@ class SageMakerClient:
 
     def update_model_card(
         self,
-        model_card_name: "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_card_name: Optional[
+            "capo_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn"
+        ] = None,
         content: Optional[
             "capo_sagemaker.types.model_card_content.ModelCardContent"
         ] = None,
@@ -27783,7 +29040,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_model_card_request.UpdateModelCardRequest = {}  # type: ignore[typeddict-item]
-        input_["model_card_name"] = model_card_name
+        if model_card_name is not None:
+            input_["model_card_name"] = model_card_name
         if content is not None:
             input_["content"] = content
         if model_card_status is not None:
@@ -27798,9 +29056,11 @@ class SageMakerClient:
 
     def update_model_package(
         self,
-        model_package_arn: "capo_sagemaker.types.model_package_arn.ModelPackageArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        model_package_arn: Optional[
+            "capo_sagemaker.types.model_package_arn.ModelPackageArn"
+        ] = None,
         model_approval_status: Optional[
             "capo_sagemaker.types.model_approval_status.ModelApprovalStatus"
         ] = None,
@@ -27870,7 +29130,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_model_package_input.UpdateModelPackageInput = {}  # type: ignore[typeddict-item]
-        input_["model_package_arn"] = model_package_arn
+        if model_package_arn is not None:
+            input_["model_package_arn"] = model_package_arn
         if model_approval_status is not None:
             input_["model_approval_status"] = model_approval_status
         if model_package_registration_type is not None:
@@ -27907,12 +29168,20 @@ class SageMakerClient:
 
     def update_monitoring_alert(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
-        monitoring_alert_name: "capo_sagemaker.types.monitoring_alert_name.MonitoringAlertName",
-        datapoints_to_alert: "capo_sagemaker.types.monitoring_datapoints_to_alert.MonitoringDatapointsToAlert",
-        evaluation_period: "capo_sagemaker.types.monitoring_evaluation_period.MonitoringEvaluationPeriod",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
+        monitoring_alert_name: Optional[
+            "capo_sagemaker.types.monitoring_alert_name.MonitoringAlertName"
+        ] = None,
+        datapoints_to_alert: Optional[
+            "capo_sagemaker.types.monitoring_datapoints_to_alert.MonitoringDatapointsToAlert"
+        ] = None,
+        evaluation_period: Optional[
+            "capo_sagemaker.types.monitoring_evaluation_period.MonitoringEvaluationPeriod"
+        ] = None,
     ) -> "capo_sagemaker.types.update_monitoring_alert_response.UpdateMonitoringAlertResponse":
         """<p>Update the parameters of a model monitor alert.</p>
 
@@ -27944,10 +29213,14 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_monitoring_alert_request.UpdateMonitoringAlertRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
-        input_["monitoring_alert_name"] = monitoring_alert_name
-        input_["datapoints_to_alert"] = datapoints_to_alert
-        input_["evaluation_period"] = evaluation_period
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_alert_name is not None:
+            input_["monitoring_alert_name"] = monitoring_alert_name
+        if datapoints_to_alert is not None:
+            input_["datapoints_to_alert"] = datapoints_to_alert
+        if evaluation_period is not None:
+            input_["evaluation_period"] = evaluation_period
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -27958,10 +29231,14 @@ class SageMakerClient:
 
     def update_monitoring_schedule(
         self,
-        monitoring_schedule_name: "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName",
-        monitoring_schedule_config: "capo_sagemaker.types.monitoring_schedule_config.MonitoringScheduleConfig",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        monitoring_schedule_name: Optional[
+            "capo_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
+        ] = None,
+        monitoring_schedule_config: Optional[
+            "capo_sagemaker.types.monitoring_schedule_config.MonitoringScheduleConfig"
+        ] = None,
     ) -> "capo_sagemaker.types.update_monitoring_schedule_response.UpdateMonitoringScheduleResponse":
         """<p>Updates a previously created schedule.</p>
 
@@ -27991,8 +29268,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_monitoring_schedule_request.UpdateMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input_["monitoring_schedule_name"] = monitoring_schedule_name
-        input_["monitoring_schedule_config"] = monitoring_schedule_config
+        if monitoring_schedule_name is not None:
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
+        if monitoring_schedule_config is not None:
+            input_["monitoring_schedule_config"] = monitoring_schedule_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -28003,9 +29282,11 @@ class SageMakerClient:
 
     def update_notebook_instance(
         self,
-        notebook_instance_name: "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_name: Optional[
+            "capo_sagemaker.types.notebook_instance_name.NotebookInstanceName"
+        ] = None,
         instance_type: Optional[
             "capo_sagemaker.types.instance_type.InstanceType"
         ] = None,
@@ -28089,7 +29370,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_notebook_instance_input.UpdateNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_name"] = notebook_instance_name
+        if notebook_instance_name is not None:
+            input_["notebook_instance_name"] = notebook_instance_name
         if instance_type is not None:
             input_["instance_type"] = instance_type
         if ip_address_type is not None:
@@ -28136,9 +29418,11 @@ class SageMakerClient:
 
     def update_notebook_instance_lifecycle_config(
         self,
-        notebook_instance_lifecycle_config_name: "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        notebook_instance_lifecycle_config_name: Optional[
+            "capo_sagemaker.types.notebook_instance_lifecycle_config_name.NotebookInstanceLifecycleConfigName"
+        ] = None,
         on_create: Optional[
             "capo_sagemaker.types.notebook_instance_lifecycle_config_list.NotebookInstanceLifecycleConfigList"
         ] = None,
@@ -28174,9 +29458,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_notebook_instance_lifecycle_config_input.UpdateNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_instance_lifecycle_config_name"] = (
-            notebook_instance_lifecycle_config_name
-        )
+        if notebook_instance_lifecycle_config_name is not None:
+            input_["notebook_instance_lifecycle_config_name"] = (
+                notebook_instance_lifecycle_config_name
+            )
         if on_create is not None:
             input_["on_create"] = on_create
         if on_start is not None:
@@ -28191,9 +29476,9 @@ class SageMakerClient:
 
     def update_partner_app(
         self,
-        arn: "capo_sagemaker.types.partner_app_arn.PartnerAppArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        arn: Optional["capo_sagemaker.types.partner_app_arn.PartnerAppArn"] = None,
         maintenance_config: Optional[
             "capo_sagemaker.types.partner_app_maintenance_config.PartnerAppMaintenanceConfig"
         ] = None,
@@ -28250,7 +29535,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_partner_app_request.UpdatePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if maintenance_config is not None:
             input_["maintenance_config"] = maintenance_config
         if tier is not None:
@@ -28281,9 +29567,11 @@ class SageMakerClient:
 
     def update_pipeline(
         self,
-        pipeline_name: "capo_sagemaker.types.pipeline_name.PipelineName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_name: Optional[
+            "capo_sagemaker.types.pipeline_name.PipelineName"
+        ] = None,
         pipeline_display_name: Optional[
             "capo_sagemaker.types.pipeline_name.PipelineName"
         ] = None,
@@ -28334,7 +29622,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_name"] = pipeline_name
+        if pipeline_name is not None:
+            input_["pipeline_name"] = pipeline_name
         if pipeline_display_name is not None:
             input_["pipeline_display_name"] = pipeline_display_name
         if pipeline_definition is not None:
@@ -28357,9 +29646,11 @@ class SageMakerClient:
 
     def update_pipeline_execution(
         self,
-        pipeline_execution_arn: "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_execution_arn: Optional[
+            "capo_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
+        ] = None,
         pipeline_execution_description: Optional[
             "capo_sagemaker.types.pipeline_execution_description.PipelineExecutionDescription"
         ] = None,
@@ -28400,7 +29691,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_pipeline_execution_request.UpdatePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_execution_arn"] = pipeline_execution_arn
+        if pipeline_execution_arn is not None:
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
         if pipeline_execution_description is not None:
             input_["pipeline_execution_description"] = pipeline_execution_description
         if pipeline_execution_display_name is not None:
@@ -28417,10 +29709,12 @@ class SageMakerClient:
 
     def update_pipeline_version(
         self,
-        pipeline_arn: "capo_sagemaker.types.pipeline_arn.PipelineArn",
-        pipeline_version_id: "capo_sagemaker.types.pipeline_version_id.PipelineVersionId",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        pipeline_arn: Optional["capo_sagemaker.types.pipeline_arn.PipelineArn"] = None,
+        pipeline_version_id: Optional[
+            "capo_sagemaker.types.pipeline_version_id.PipelineVersionId"
+        ] = None,
         pipeline_version_display_name: Optional[
             "capo_sagemaker.types.pipeline_version_name.PipelineVersionName"
         ] = None,
@@ -28458,8 +29752,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_pipeline_version_request.UpdatePipelineVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["pipeline_arn"] = pipeline_arn
-        input_["pipeline_version_id"] = pipeline_version_id
+        if pipeline_arn is not None:
+            input_["pipeline_arn"] = pipeline_arn
+        if pipeline_version_id is not None:
+            input_["pipeline_version_id"] = pipeline_version_id
         if pipeline_version_display_name is not None:
             input_["pipeline_version_display_name"] = pipeline_version_display_name
         if pipeline_version_description is not None:
@@ -28474,9 +29770,11 @@ class SageMakerClient:
 
     def update_project(
         self,
-        project_name: "capo_sagemaker.types.project_entity_name.ProjectEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        project_name: Optional[
+            "capo_sagemaker.types.project_entity_name.ProjectEntityName"
+        ] = None,
         project_description: Optional[
             "capo_sagemaker.types.entity_description.EntityDescription"
         ] = None,
@@ -28518,7 +29816,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
-        input_["project_name"] = project_name
+        if project_name is not None:
+            input_["project_name"] = project_name
         if project_description is not None:
             input_["project_description"] = project_description
         if service_catalog_provisioning_update_details is not None:
@@ -28539,10 +29838,10 @@ class SageMakerClient:
 
     def update_space(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        space_name: "capo_sagemaker.types.space_name.SpaceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        space_name: Optional["capo_sagemaker.types.space_name.SpaceName"] = None,
         space_settings: Optional[
             "capo_sagemaker.types.space_settings.SpaceSettings"
         ] = None,
@@ -28581,8 +29880,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_space_request.UpdateSpaceRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["space_name"] = space_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if space_name is not None:
+            input_["space_name"] = space_name
         if space_settings is not None:
             input_["space_settings"] = space_settings
         if space_display_name is not None:
@@ -28597,9 +29898,11 @@ class SageMakerClient:
 
     def update_training_job(
         self,
-        training_job_name: "capo_sagemaker.types.training_job_name.TrainingJobName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        training_job_name: Optional[
+            "capo_sagemaker.types.training_job_name.TrainingJobName"
+        ] = None,
         profiler_config: Optional[
             "capo_sagemaker.types.profiler_config_for_update.ProfilerConfigForUpdate"
         ] = None,
@@ -28644,7 +29947,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_training_job_request.UpdateTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input_["training_job_name"] = training_job_name
+        if training_job_name is not None:
+            input_["training_job_name"] = training_job_name
         if profiler_config is not None:
             input_["profiler_config"] = profiler_config
         if profiler_rule_configurations is not None:
@@ -28663,9 +29967,11 @@ class SageMakerClient:
 
     def update_trial(
         self,
-        trial_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         display_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
@@ -28698,7 +30004,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_trial_request.UpdateTrialRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_name"] = trial_name
+        if trial_name is not None:
+            input_["trial_name"] = trial_name
         if display_name is not None:
             input_["display_name"] = display_name
 
@@ -28711,9 +30018,11 @@ class SageMakerClient:
 
     def update_trial_component(
         self,
-        trial_component_name: "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
         display_name: Optional[
             "capo_sagemaker.types.experiment_entity_name.ExperimentEntityName"
         ] = None,
@@ -28778,7 +30087,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_trial_component_request.UpdateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
         if display_name is not None:
             input_["display_name"] = display_name
         if status is not None:
@@ -28809,10 +30119,12 @@ class SageMakerClient:
 
     def update_user_profile(
         self,
-        domain_id: "capo_sagemaker.types.domain_id.DomainId",
-        user_profile_name: "capo_sagemaker.types.user_profile_name.UserProfileName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        domain_id: Optional["capo_sagemaker.types.domain_id.DomainId"] = None,
+        user_profile_name: Optional[
+            "capo_sagemaker.types.user_profile_name.UserProfileName"
+        ] = None,
         user_settings: Optional[
             "capo_sagemaker.types.user_settings.UserSettings"
         ] = None,
@@ -28847,8 +30159,10 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_user_profile_request.UpdateUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["domain_id"] = domain_id
-        input_["user_profile_name"] = user_profile_name
+        if domain_id is not None:
+            input_["domain_id"] = domain_id
+        if user_profile_name is not None:
+            input_["user_profile_name"] = user_profile_name
         if user_settings is not None:
             input_["user_settings"] = user_settings
 
@@ -28861,9 +30175,11 @@ class SageMakerClient:
 
     def update_workforce(
         self,
-        workforce_name: "capo_sagemaker.types.workforce_name.WorkforceName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workforce_name: Optional[
+            "capo_sagemaker.types.workforce_name.WorkforceName"
+        ] = None,
         source_ip_config: Optional[
             "capo_sagemaker.types.source_ip_config.SourceIpConfig"
         ] = None,
@@ -28905,7 +30221,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_workforce_request.UpdateWorkforceRequest = {}  # type: ignore[typeddict-item]
-        input_["workforce_name"] = workforce_name
+        if workforce_name is not None:
+            input_["workforce_name"] = workforce_name
         if source_ip_config is not None:
             input_["source_ip_config"] = source_ip_config
         if oidc_config is not None:
@@ -28924,9 +30241,11 @@ class SageMakerClient:
 
     def update_workteam(
         self,
-        workteam_name: "capo_sagemaker.types.workteam_name.WorkteamName",
         *,
         config_overrides: Optional[SageMakerClientConfig] = None,
+        workteam_name: Optional[
+            "capo_sagemaker.types.workteam_name.WorkteamName"
+        ] = None,
         member_definitions: Optional[
             "capo_sagemaker.types.member_definitions.MemberDefinitions"
         ] = None,
@@ -28968,7 +30287,8 @@ class SageMakerClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker.types.update_workteam_request.UpdateWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input_["workteam_name"] = workteam_name
+        if workteam_name is not None:
+            input_["workteam_name"] = workteam_name
         if member_definitions is not None:
             input_["member_definitions"] = member_definitions
         if description is not None:

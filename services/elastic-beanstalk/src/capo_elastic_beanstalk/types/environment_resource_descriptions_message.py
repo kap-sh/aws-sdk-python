@@ -23,11 +23,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environment_resources" in value:
         import capo_elastic_beanstalk.types.environment_resource_description
 
         capo_elastic_beanstalk.types.environment_resource_description.serialize_query(
-            value["environment_resources"], pairs, f"{prefix}.EnvironmentResources"
+            value["environment_resources"], pairs, f"{key_prefix}EnvironmentResources"
         )
 
 

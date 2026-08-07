@@ -23,15 +23,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache_snapshot_name" in value:
         pairs.append(
             (
-                f"{prefix}.ServerlessCacheSnapshotName",
+                f"{key_prefix}ServerlessCacheSnapshotName",
                 str(value["serverless_cache_snapshot_name"]),
             )
         )
     if "s3_bucket_name" in value:
-        pairs.append((f"{prefix}.S3BucketName", str(value["s3_bucket_name"])))
+        pairs.append((f"{key_prefix}S3BucketName", str(value["s3_bucket_name"])))
 
 
 def deserialize_query(el: Element) -> ExportServerlessCacheSnapshotRequest:

@@ -51,31 +51,32 @@ class EventDescription(TypedDict, closed=True):
 def serialize_query(
     value: EventDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event_date" in value:
         import capo_elastic_beanstalk.types.event_date
 
         capo_elastic_beanstalk.types.event_date.serialize_query(
-            value["event_date"], pairs, f"{prefix}.EventDate"
+            value["event_date"], pairs, f"{key_prefix}EventDate"
         )
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "version_label" in value:
-        pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+        pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "template_name" in value:
-        pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+        pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "platform_arn" in value:
-        pairs.append((f"{prefix}.PlatformArn", str(value["platform_arn"])))
+        pairs.append((f"{key_prefix}PlatformArn", str(value["platform_arn"])))
     if "request_id" in value:
-        pairs.append((f"{prefix}.RequestId", str(value["request_id"])))
+        pairs.append((f"{key_prefix}RequestId", str(value["request_id"])))
     if "severity" in value:
         import capo_elastic_beanstalk.types.event_severity
 
         capo_elastic_beanstalk.types.event_severity.serialize_query(
-            value["severity"], pairs, f"{prefix}.Severity"
+            value["severity"], pairs, f"{key_prefix}Severity"
         )
 
 

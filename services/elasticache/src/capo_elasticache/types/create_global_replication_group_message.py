@@ -29,24 +29,25 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_replication_group_id_suffix" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupIdSuffix",
+                f"{key_prefix}GlobalReplicationGroupIdSuffix",
                 str(value["global_replication_group_id_suffix"]),
             )
         )
     if "global_replication_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupDescription",
+                f"{key_prefix}GlobalReplicationGroupDescription",
                 str(value["global_replication_group_description"]),
             )
         )
     if "primary_replication_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.PrimaryReplicationGroupId",
+                f"{key_prefix}PrimaryReplicationGroupId",
                 str(value["primary_replication_group_id"]),
             )
         )

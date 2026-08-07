@@ -24,10 +24,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.access_policies_status
 
     capo_cloudsearch.types.access_policies_status.serialize_query(
-        value["access_policies"], pairs, f"{prefix}.AccessPolicies"
+        value["access_policies"], pairs, f"{key_prefix}AccessPolicies"
     )
 
 

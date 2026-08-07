@@ -67,84 +67,85 @@ class DBClusterSnapshot(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterSnapshot, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_neptune.types.availability_zones
 
         capo_neptune.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterSnapshotIdentifier",
+                f"{key_prefix}DBClusterSnapshotIdentifier",
                 str(value["db_cluster_snapshot_identifier"]),
             )
         )
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "snapshot_create_time" in value:
         import capo_neptune.types.t_stamp
 
         capo_neptune.types.t_stamp.serialize_query(
-            value["snapshot_create_time"], pairs, f"{prefix}.SnapshotCreateTime"
+            value["snapshot_create_time"], pairs, f"{key_prefix}SnapshotCreateTime"
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "allocated_storage" in value:
-        pairs.append((f"{prefix}.AllocatedStorage", str(value["allocated_storage"])))
+        pairs.append((f"{key_prefix}AllocatedStorage", str(value["allocated_storage"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "cluster_create_time" in value:
         import capo_neptune.types.t_stamp
 
         capo_neptune.types.t_stamp.serialize_query(
-            value["cluster_create_time"], pairs, f"{prefix}.ClusterCreateTime"
+            value["cluster_create_time"], pairs, f"{key_prefix}ClusterCreateTime"
         )
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "license_model" in value:
-        pairs.append((f"{prefix}.LicenseModel", str(value["license_model"])))
+        pairs.append((f"{key_prefix}LicenseModel", str(value["license_model"])))
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "percent_progress" in value:
-        pairs.append((f"{prefix}.PercentProgress", str(value["percent_progress"])))
+        pairs.append((f"{key_prefix}PercentProgress", str(value["percent_progress"])))
     if "storage_encrypted" in value:
         pairs.append(
             (
-                f"{prefix}.StorageEncrypted",
+                f"{key_prefix}StorageEncrypted",
                 "true" if value["storage_encrypted"] else "false",
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "db_cluster_snapshot_arn" in value:
         pairs.append(
-            (f"{prefix}.DBClusterSnapshotArn", str(value["db_cluster_snapshot_arn"]))
+            (f"{key_prefix}DBClusterSnapshotArn", str(value["db_cluster_snapshot_arn"]))
         )
     if "source_db_cluster_snapshot_arn" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBClusterSnapshotArn",
+                f"{key_prefix}SourceDBClusterSnapshotArn",
                 str(value["source_db_cluster_snapshot_arn"]),
             )
         )
     if "iam_database_authentication_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.IAMDatabaseAuthenticationEnabled",
+                f"{key_prefix}IAMDatabaseAuthenticationEnabled",
                 "true" if value["iam_database_authentication_enabled"] else "false",
             )
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
 
 
 def deserialize_query(el: Element) -> DBClusterSnapshot:

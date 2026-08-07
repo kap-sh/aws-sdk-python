@@ -201,9 +201,11 @@ class AsyncRoute53RecoveryReadinessClient:
 
     async def create_cell(
         self,
-        cell_name: "capo_route53_recovery_readiness.types.__string.__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        cell_name: Optional[
+            "capo_route53_recovery_readiness.types.__string.__string"
+        ] = None,
         cells: Optional[
             "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string"
         ] = None,
@@ -243,7 +245,8 @@ class AsyncRoute53RecoveryReadinessClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.create_cell_request.CreateCellRequest = {}  # type: ignore[typeddict-item]
-        input_["cell_name"] = cell_name
+        if cell_name is not None:
+            input_["cell_name"] = cell_name
         if cells is not None:
             input_["cells"] = cells
         if tags is not None:
@@ -258,9 +261,11 @@ class AsyncRoute53RecoveryReadinessClient:
 
     async def create_cross_account_authorization(
         self,
-        cross_account_authorization: "capo_route53_recovery_readiness.types.cross_account_authorization.CrossAccountAuthorization",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        cross_account_authorization: Optional[
+            "capo_route53_recovery_readiness.types.cross_account_authorization.CrossAccountAuthorization"
+        ] = None,
     ) -> "capo_route53_recovery_readiness.types.create_cross_account_authorization_response.CreateCrossAccountAuthorizationResponse":
         """<p>Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.</p>
 
@@ -293,7 +298,8 @@ class AsyncRoute53RecoveryReadinessClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.create_cross_account_authorization_request.CreateCrossAccountAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input_["cross_account_authorization"] = cross_account_authorization
+        if cross_account_authorization is not None:
+            input_["cross_account_authorization"] = cross_account_authorization
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -304,10 +310,14 @@ class AsyncRoute53RecoveryReadinessClient:
 
     async def create_readiness_check(
         self,
-        readiness_check_name: "capo_route53_recovery_readiness.types.__string.__string",
-        resource_set_name: "capo_route53_recovery_readiness.types.__string.__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        readiness_check_name: Optional[
+            "capo_route53_recovery_readiness.types.__string.__string"
+        ] = None,
+        resource_set_name: Optional[
+            "capo_route53_recovery_readiness.types.__string.__string"
+        ] = None,
         tags: Optional["capo_route53_recovery_readiness.types.tags.Tags"] = None,
     ) -> "capo_route53_recovery_readiness.types.create_readiness_check_response.CreateReadinessCheckResponse":
         """<p>Creates a readiness check in an account. A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that Application Recovery Controller is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.</p>
@@ -342,8 +352,10 @@ class AsyncRoute53RecoveryReadinessClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.create_readiness_check_request.CreateReadinessCheckRequest = {}  # type: ignore[typeddict-item]
-        input_["readiness_check_name"] = readiness_check_name
-        input_["resource_set_name"] = resource_set_name
+        if readiness_check_name is not None:
+            input_["readiness_check_name"] = readiness_check_name
+        if resource_set_name is not None:
+            input_["resource_set_name"] = resource_set_name
         if tags is not None:
             input_["tags"] = tags
 
@@ -356,11 +368,13 @@ class AsyncRoute53RecoveryReadinessClient:
 
     async def create_recovery_group(
         self,
-        recovery_group_name: "capo_route53_recovery_readiness.types.__string.__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
         cells: Optional[
             "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string"
+        ] = None,
+        recovery_group_name: Optional[
+            "capo_route53_recovery_readiness.types.__string.__string"
         ] = None,
         tags: Optional["capo_route53_recovery_readiness.types.tags.Tags"] = None,
     ) -> "capo_route53_recovery_readiness.types.create_recovery_group_response.CreateRecoveryGroupResponse":
@@ -398,7 +412,8 @@ class AsyncRoute53RecoveryReadinessClient:
         input_: capo_route53_recovery_readiness.types.create_recovery_group_request.CreateRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
         if cells is not None:
             input_["cells"] = cells
-        input_["recovery_group_name"] = recovery_group_name
+        if recovery_group_name is not None:
+            input_["recovery_group_name"] = recovery_group_name
         if tags is not None:
             input_["tags"] = tags
 
@@ -411,11 +426,17 @@ class AsyncRoute53RecoveryReadinessClient:
 
     async def create_resource_set(
         self,
-        resource_set_name: "capo_route53_recovery_readiness.types.__string.__string",
-        resource_set_type: "capo_route53_recovery_readiness.types.__string_pattern_awsa_za_z09_a_za_z09.__stringPatternAWSAZaZ09AZaZ09",
-        resources: "capo_route53_recovery_readiness.types.__list_of_resource.__listOfResource",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        resource_set_name: Optional[
+            "capo_route53_recovery_readiness.types.__string.__string"
+        ] = None,
+        resource_set_type: Optional[
+            "capo_route53_recovery_readiness.types.__string_pattern_awsa_za_z09_a_za_z09.__stringPatternAWSAZaZ09AZaZ09"
+        ] = None,
+        resources: Optional[
+            "capo_route53_recovery_readiness.types.__list_of_resource.__listOfResource"
+        ] = None,
         tags: Optional["capo_route53_recovery_readiness.types.tags.Tags"] = None,
     ) -> "capo_route53_recovery_readiness.types.create_resource_set_response.CreateResourceSetResponse":
         """<p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
@@ -452,9 +473,12 @@ class AsyncRoute53RecoveryReadinessClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.create_resource_set_request.CreateResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_set_name"] = resource_set_name
-        input_["resource_set_type"] = resource_set_type
-        input_["resources"] = resources
+        if resource_set_name is not None:
+            input_["resource_set_name"] = resource_set_name
+        if resource_set_type is not None:
+            input_["resource_set_type"] = resource_set_type
+        if resources is not None:
+            input_["resources"] = resources
         if tags is not None:
             input_["tags"] = tags
 
@@ -1804,9 +1828,9 @@ class AsyncRoute53RecoveryReadinessClient:
     async def tag_resource(
         self,
         resource_arn: "capo_route53_recovery_readiness.types.__string.__string",
-        tags: "capo_route53_recovery_readiness.types.tags.Tags",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        tags: Optional["capo_route53_recovery_readiness.types.tags.Tags"] = None,
     ) -> "capo_route53_recovery_readiness.types.tag_resource_response.TagResourceResponse":
         """<p>Adds a tag to a resource.</p>
 
@@ -1839,7 +1863,8 @@ class AsyncRoute53RecoveryReadinessClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1851,9 +1876,11 @@ class AsyncRoute53RecoveryReadinessClient:
     async def untag_resource(
         self,
         resource_arn: "capo_route53_recovery_readiness.types.__string.__string",
-        tag_keys: "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        tag_keys: Optional[
+            "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """<p>Removes a tag from a resource.</p>
 
@@ -1884,7 +1911,8 @@ class AsyncRoute53RecoveryReadinessClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1896,9 +1924,11 @@ class AsyncRoute53RecoveryReadinessClient:
     async def update_cell(
         self,
         cell_name: "capo_route53_recovery_readiness.types.__string.__string",
-        cells: "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        cells: Optional[
+            "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> (
         "capo_route53_recovery_readiness.types.update_cell_response.UpdateCellResponse"
     ):
@@ -1935,7 +1965,8 @@ class AsyncRoute53RecoveryReadinessClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.update_cell_request.UpdateCellRequest = {}  # type: ignore[typeddict-item]
         input_["cell_name"] = cell_name
-        input_["cells"] = cells
+        if cells is not None:
+            input_["cells"] = cells
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1947,9 +1978,11 @@ class AsyncRoute53RecoveryReadinessClient:
     async def update_readiness_check(
         self,
         readiness_check_name: "capo_route53_recovery_readiness.types.__string.__string",
-        resource_set_name: "capo_route53_recovery_readiness.types.__string.__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        resource_set_name: Optional[
+            "capo_route53_recovery_readiness.types.__string.__string"
+        ] = None,
     ) -> "capo_route53_recovery_readiness.types.update_readiness_check_response.UpdateReadinessCheckResponse":
         """<p>Updates a readiness check.</p>
 
@@ -1984,7 +2017,8 @@ class AsyncRoute53RecoveryReadinessClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.update_readiness_check_request.UpdateReadinessCheckRequest = {}  # type: ignore[typeddict-item]
         input_["readiness_check_name"] = readiness_check_name
-        input_["resource_set_name"] = resource_set_name
+        if resource_set_name is not None:
+            input_["resource_set_name"] = resource_set_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1995,10 +2029,12 @@ class AsyncRoute53RecoveryReadinessClient:
 
     async def update_recovery_group(
         self,
-        cells: "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string",
         recovery_group_name: "capo_route53_recovery_readiness.types.__string.__string",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        cells: Optional[
+            "capo_route53_recovery_readiness.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> "capo_route53_recovery_readiness.types.update_recovery_group_response.UpdateRecoveryGroupResponse":
         """<p>Updates a recovery group.</p>
 
@@ -2032,7 +2068,8 @@ class AsyncRoute53RecoveryReadinessClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.update_recovery_group_request.UpdateRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["cells"] = cells
+        if cells is not None:
+            input_["cells"] = cells
         input_["recovery_group_name"] = recovery_group_name
 
         response = await aexecute_pipeline(
@@ -2045,10 +2082,14 @@ class AsyncRoute53RecoveryReadinessClient:
     async def update_resource_set(
         self,
         resource_set_name: "capo_route53_recovery_readiness.types.__string.__string",
-        resource_set_type: "capo_route53_recovery_readiness.types.__string_pattern_awsa_za_z09_a_za_z09.__stringPatternAWSAZaZ09AZaZ09",
-        resources: "capo_route53_recovery_readiness.types.__list_of_resource.__listOfResource",
         *,
         config_overrides: Optional[AsyncRoute53RecoveryReadinessClientConfig] = None,
+        resource_set_type: Optional[
+            "capo_route53_recovery_readiness.types.__string_pattern_awsa_za_z09_a_za_z09.__stringPatternAWSAZaZ09AZaZ09"
+        ] = None,
+        resources: Optional[
+            "capo_route53_recovery_readiness.types.__list_of_resource.__listOfResource"
+        ] = None,
     ) -> "capo_route53_recovery_readiness.types.update_resource_set_response.UpdateResourceSetResponse":
         """<p>Updates a resource set.</p>
 
@@ -2084,8 +2125,10 @@ class AsyncRoute53RecoveryReadinessClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_route53_recovery_readiness.types.update_resource_set_request.UpdateResourceSetRequest = {}  # type: ignore[typeddict-item]
         input_["resource_set_name"] = resource_set_name
-        input_["resource_set_type"] = resource_set_type
-        input_["resources"] = resources
+        if resource_set_type is not None:
+            input_["resource_set_type"] = resource_set_type
+        if resources is not None:
+            input_["resources"] = resources
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

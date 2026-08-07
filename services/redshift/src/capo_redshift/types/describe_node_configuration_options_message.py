@@ -40,32 +40,35 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action_type" in value:
         import capo_redshift.types.action_type
 
         capo_redshift.types.action_type.serialize_query(
-            value["action_type"], pairs, f"{prefix}.ActionType"
+            value["action_type"], pairs, f"{key_prefix}ActionType"
         )
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "snapshot_arn" in value:
-        pairs.append((f"{prefix}.SnapshotArn", str(value["snapshot_arn"])))
+        pairs.append((f"{key_prefix}SnapshotArn", str(value["snapshot_arn"])))
     if "owner_account" in value:
-        pairs.append((f"{prefix}.OwnerAccount", str(value["owner_account"])))
+        pairs.append((f"{key_prefix}OwnerAccount", str(value["owner_account"])))
     if "filters" in value:
         import capo_redshift.types.node_configuration_options_filter_list
 
         capo_redshift.types.node_configuration_options_filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filter"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribeNodeConfigurationOptionsMessage:

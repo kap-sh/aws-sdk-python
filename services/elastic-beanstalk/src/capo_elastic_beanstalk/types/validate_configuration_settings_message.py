@@ -35,15 +35,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "template_name" in value:
-        pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+        pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     import capo_elastic_beanstalk.types.configuration_option_settings_list
 
     capo_elastic_beanstalk.types.configuration_option_settings_list.serialize_query(
-        value["option_settings"], pairs, f"{prefix}.OptionSettings"
+        value["option_settings"], pairs, f"{key_prefix}OptionSettings"
     )
 
 

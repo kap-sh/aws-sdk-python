@@ -23,8 +23,9 @@ class DescribeReceiptRuleRequest(TypedDict, closed=True):
 def serialize_query(
     value: DescribeReceiptRuleRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RuleSetName", str(value["rule_set_name"])))
-    pairs.append((f"{prefix}.RuleName", str(value["rule_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RuleSetName", str(value["rule_set_name"])))
+    pairs.append((f"{key_prefix}RuleName", str(value["rule_name"])))
 
 
 def deserialize_query(el: Element) -> DescribeReceiptRuleRequest:

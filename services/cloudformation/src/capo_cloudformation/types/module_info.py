@@ -26,11 +26,12 @@ class ModuleInfo(TypedDict, closed=True):
 def serialize_query(
     value: ModuleInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_hierarchy" in value:
-        pairs.append((f"{prefix}.TypeHierarchy", str(value["type_hierarchy"])))
+        pairs.append((f"{key_prefix}TypeHierarchy", str(value["type_hierarchy"])))
     if "logical_id_hierarchy" in value:
         pairs.append(
-            (f"{prefix}.LogicalIdHierarchy", str(value["logical_id_hierarchy"]))
+            (f"{key_prefix}LogicalIdHierarchy", str(value["logical_id_hierarchy"]))
         )
 
 

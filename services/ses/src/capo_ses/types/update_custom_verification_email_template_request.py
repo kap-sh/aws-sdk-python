@@ -41,20 +41,29 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "from_email_address" in value:
-        pairs.append((f"{prefix}.FromEmailAddress", str(value["from_email_address"])))
+        pairs.append(
+            (f"{key_prefix}FromEmailAddress", str(value["from_email_address"]))
+        )
     if "template_subject" in value:
-        pairs.append((f"{prefix}.TemplateSubject", str(value["template_subject"])))
+        pairs.append((f"{key_prefix}TemplateSubject", str(value["template_subject"])))
     if "template_content" in value:
-        pairs.append((f"{prefix}.TemplateContent", str(value["template_content"])))
+        pairs.append((f"{key_prefix}TemplateContent", str(value["template_content"])))
     if "success_redirection_url" in value:
         pairs.append(
-            (f"{prefix}.SuccessRedirectionURL", str(value["success_redirection_url"]))
+            (
+                f"{key_prefix}SuccessRedirectionURL",
+                str(value["success_redirection_url"]),
+            )
         )
     if "failure_redirection_url" in value:
         pairs.append(
-            (f"{prefix}.FailureRedirectionURL", str(value["failure_redirection_url"]))
+            (
+                f"{key_prefix}FailureRedirectionURL",
+                str(value["failure_redirection_url"]),
+            )
         )
 
 

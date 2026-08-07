@@ -24,15 +24,16 @@ class DataStorage(TypedDict, closed=True):
 def serialize_query(
     value: DataStorage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "maximum" in value:
-        pairs.append((f"{prefix}.Maximum", str(value["maximum"])))
+        pairs.append((f"{key_prefix}Maximum", str(value["maximum"])))
     if "minimum" in value:
-        pairs.append((f"{prefix}.Minimum", str(value["minimum"])))
+        pairs.append((f"{key_prefix}Minimum", str(value["minimum"])))
     if "unit" in value:
         import capo_elasticache.types.data_storage_unit
 
         capo_elasticache.types.data_storage_unit.serialize_query(
-            value["unit"], pairs, f"{prefix}.Unit"
+            value["unit"], pairs, f"{key_prefix}Unit"
         )
 
 

@@ -227,9 +227,9 @@ class MediaConvertClient:
 
     def associate_certificate(
         self,
-        arn: "capo_mediaconvert.types.__string.__string",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
+        arn: Optional["capo_mediaconvert.types.__string.__string"] = None,
     ) -> "capo_mediaconvert.types.associate_certificate_response.AssociateCertificateResponse":
         """Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
 
@@ -263,7 +263,8 @@ class MediaConvertClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconvert.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -321,8 +322,6 @@ class MediaConvertClient:
 
     def create_job(
         self,
-        role: "capo_mediaconvert.types.__string.__string",
-        settings: "capo_mediaconvert.types.job_settings.JobSettings",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
         acceleration_settings: Optional[
@@ -345,6 +344,8 @@ class MediaConvertClient:
             "capo_mediaconvert.types.__integer_min_negative50_max50.__integerMinNegative50Max50"
         ] = None,
         queue: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        role: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        settings: Optional["capo_mediaconvert.types.job_settings.JobSettings"] = None,
         simulate_reserved_queue: Optional[
             "capo_mediaconvert.types.simulate_reserved_queue.SimulateReservedQueue"
         ] = None,
@@ -419,8 +420,10 @@ class MediaConvertClient:
             input_["priority"] = priority
         if queue is not None:
             input_["queue"] = queue
-        input_["role"] = role
-        input_["settings"] = settings
+        if role is not None:
+            input_["role"] = role
+        if settings is not None:
+            input_["settings"] = settings
         if simulate_reserved_queue is not None:
             input_["simulate_reserved_queue"] = simulate_reserved_queue
         if status_update_interval is not None:
@@ -439,8 +442,6 @@ class MediaConvertClient:
 
     def create_job_template(
         self,
-        name: "capo_mediaconvert.types.__string.__string",
-        settings: "capo_mediaconvert.types.job_template_settings.JobTemplateSettings",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
         acceleration_settings: Optional[
@@ -451,10 +452,14 @@ class MediaConvertClient:
         hop_destinations: Optional[
             "capo_mediaconvert.types.__list_of_hop_destination.__listOfHopDestination"
         ] = None,
+        name: Optional["capo_mediaconvert.types.__string.__string"] = None,
         priority: Optional[
             "capo_mediaconvert.types.__integer_min_negative50_max50.__integerMinNegative50Max50"
         ] = None,
         queue: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        settings: Optional[
+            "capo_mediaconvert.types.job_template_settings.JobTemplateSettings"
+        ] = None,
         status_update_interval: Optional[
             "capo_mediaconvert.types.status_update_interval.StatusUpdateInterval"
         ] = None,
@@ -513,12 +518,14 @@ class MediaConvertClient:
             input_["description"] = description
         if hop_destinations is not None:
             input_["hop_destinations"] = hop_destinations
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if priority is not None:
             input_["priority"] = priority
         if queue is not None:
             input_["queue"] = queue
-        input_["settings"] = settings
+        if settings is not None:
+            input_["settings"] = settings
         if status_update_interval is not None:
             input_["status_update_interval"] = status_update_interval
         if tags is not None:
@@ -533,12 +540,14 @@ class MediaConvertClient:
 
     def create_preset(
         self,
-        name: "capo_mediaconvert.types.__string.__string",
-        settings: "capo_mediaconvert.types.preset_settings.PresetSettings",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
         category: Optional["capo_mediaconvert.types.__string.__string"] = None,
         description: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        name: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        settings: Optional[
+            "capo_mediaconvert.types.preset_settings.PresetSettings"
+        ] = None,
         tags: Optional[
             "capo_mediaconvert.types.__map_of__string.__mapOf__string"
         ] = None,
@@ -583,8 +592,10 @@ class MediaConvertClient:
             input_["category"] = category
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
-        input_["settings"] = settings
+        if name is not None:
+            input_["name"] = name
+        if settings is not None:
+            input_["settings"] = settings
         if tags is not None:
             input_["tags"] = tags
 
@@ -597,7 +608,6 @@ class MediaConvertClient:
 
     def create_queue(
         self,
-        name: "capo_mediaconvert.types.__string.__string",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
         concurrent_jobs: Optional["capo_mediaconvert.types.__integer.__integer"] = None,
@@ -605,6 +615,7 @@ class MediaConvertClient:
         maximum_concurrent_feeds: Optional[
             "capo_mediaconvert.types.__integer_min0.__integerMin0"
         ] = None,
+        name: Optional["capo_mediaconvert.types.__string.__string"] = None,
         pricing_plan: Optional[
             "capo_mediaconvert.types.pricing_plan.PricingPlan"
         ] = None,
@@ -661,7 +672,8 @@ class MediaConvertClient:
             input_["description"] = description
         if maximum_concurrent_feeds is not None:
             input_["maximum_concurrent_feeds"] = maximum_concurrent_feeds
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if pricing_plan is not None:
             input_["pricing_plan"] = pricing_plan
         if reservation_plan_settings is not None:
@@ -680,10 +692,10 @@ class MediaConvertClient:
 
     def create_resource_share(
         self,
-        job_id: "capo_mediaconvert.types.__string.__string",
-        support_case_id: "capo_mediaconvert.types.__string.__string",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
+        job_id: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        support_case_id: Optional["capo_mediaconvert.types.__string.__string"] = None,
     ) -> "capo_mediaconvert.types.create_resource_share_response.CreateResourceShareResponse":
         """Create a new resource share request for MediaConvert resources with AWS Support.
 
@@ -718,8 +730,10 @@ class MediaConvertClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconvert.types.create_resource_share_request.CreateResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
-        input_["support_case_id"] = support_case_id
+        if job_id is not None:
+            input_["job_id"] = job_id
+        if support_case_id is not None:
+            input_["support_case_id"] = support_case_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1870,9 +1884,9 @@ class MediaConvertClient:
 
     def put_policy(
         self,
-        policy: "capo_mediaconvert.types.policy.Policy",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
+        policy: Optional["capo_mediaconvert.types.policy.Policy"] = None,
     ) -> "capo_mediaconvert.types.put_policy_response.PutPolicyResponse":
         """Create or change your policy. For more information about policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
@@ -1906,7 +1920,8 @@ class MediaConvertClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconvert.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy"] = policy
+        if policy is not None:
+            input_["policy"] = policy
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2082,10 +2097,12 @@ class MediaConvertClient:
 
     def tag_resource(
         self,
-        arn: "capo_mediaconvert.types.__string.__string",
-        tags: "capo_mediaconvert.types.__map_of__string.__mapOf__string",
         *,
         config_overrides: Optional[MediaConvertClientConfig] = None,
+        arn: Optional["capo_mediaconvert.types.__string.__string"] = None,
+        tags: Optional[
+            "capo_mediaconvert.types.__map_of__string.__mapOf__string"
+        ] = None,
     ) -> "capo_mediaconvert.types.tag_resource_response.TagResourceResponse":
         """Add tags to a MediaConvert queue, preset, job, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-mediaconvert-resources.html.
 
@@ -2120,8 +2137,10 @@ class MediaConvertClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconvert.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
-        input_["tags"] = tags
+        if arn is not None:
+            input_["arn"] = arn
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

@@ -27,18 +27,21 @@ class UnprocessedUpdateAction(TypedDict, closed=True):
 def serialize_query(
     value: UnprocessedUpdateAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
     if "error_type" in value:
-        pairs.append((f"{prefix}.ErrorType", str(value["error_type"])))
+        pairs.append((f"{key_prefix}ErrorType", str(value["error_type"])))
     if "error_message" in value:
-        pairs.append((f"{prefix}.ErrorMessage", str(value["error_message"])))
+        pairs.append((f"{key_prefix}ErrorMessage", str(value["error_message"])))
 
 
 def deserialize_query(el: Element) -> UnprocessedUpdateAction:

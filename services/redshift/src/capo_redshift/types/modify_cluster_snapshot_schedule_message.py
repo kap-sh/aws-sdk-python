@@ -28,16 +28,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "schedule_identifier" in value:
         pairs.append(
-            (f"{prefix}.ScheduleIdentifier", str(value["schedule_identifier"]))
+            (f"{key_prefix}ScheduleIdentifier", str(value["schedule_identifier"]))
         )
     if "disassociate_schedule" in value:
         pairs.append(
             (
-                f"{prefix}.DisassociateSchedule",
+                f"{key_prefix}DisassociateSchedule",
                 "true" if value["disassociate_schedule"] else "false",
             )
         )

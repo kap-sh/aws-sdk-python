@@ -5,6 +5,12 @@ from . import _protocol as _protocol
 from ._auth._identity import Credentials as Credentials
 from ._auth._identity import Identity as Identity
 from ._auth._providers import (
+    AssumeRoleCredentialsProvider as AssumeRoleCredentialsProvider,
+)
+from ._auth._providers import (
+    AssumeRoleError as AssumeRoleError,
+)
+from ._auth._providers import (
     CachedProvider as CachedProvider,
 )
 from ._auth._providers import (
@@ -23,10 +29,22 @@ from ._auth._providers import (
     IdentityProvider as IdentityProvider,
 )
 from ._auth._providers import (
+    MissingDependencyError as MissingDependencyError,
+)
+from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
 from ._auth._providers import (
+    SsoCredentialsProvider as SsoCredentialsProvider,
+)
+from ._auth._providers import (
+    SSOError as SSOError,
+)
+from ._auth._providers import (
     StaticAwsCredentialsProvider as StaticAwsCredentialsProvider,
+)
+from ._auth._providers import (
+    WebIdentityCredentialsProvider as WebIdentityCredentialsProvider,
 )
 from ._auth._signers import Signer as Signer
 from ._auth._signers import SigV4Signer as SigV4Signer

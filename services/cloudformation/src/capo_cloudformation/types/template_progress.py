@@ -36,18 +36,19 @@ class TemplateProgress(TypedDict, closed=True):
 def serialize_query(
     value: TemplateProgress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resources_succeeded" in value:
         pairs.append(
-            (f"{prefix}.ResourcesSucceeded", str(value["resources_succeeded"]))
+            (f"{key_prefix}ResourcesSucceeded", str(value["resources_succeeded"]))
         )
     if "resources_failed" in value:
-        pairs.append((f"{prefix}.ResourcesFailed", str(value["resources_failed"])))
+        pairs.append((f"{key_prefix}ResourcesFailed", str(value["resources_failed"])))
     if "resources_processing" in value:
         pairs.append(
-            (f"{prefix}.ResourcesProcessing", str(value["resources_processing"]))
+            (f"{key_prefix}ResourcesProcessing", str(value["resources_processing"]))
         )
     if "resources_pending" in value:
-        pairs.append((f"{prefix}.ResourcesPending", str(value["resources_pending"])))
+        pairs.append((f"{key_prefix}ResourcesPending", str(value["resources_pending"])))
 
 
 def deserialize_query(el: Element) -> TemplateProgress:

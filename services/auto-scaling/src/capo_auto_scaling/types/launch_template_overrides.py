@@ -39,26 +39,27 @@ class LaunchTemplateOverrides(TypedDict, closed=True):
 def serialize_query(
     value: LaunchTemplateOverrides, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "weighted_capacity" in value:
-        pairs.append((f"{prefix}.WeightedCapacity", str(value["weighted_capacity"])))
+        pairs.append((f"{key_prefix}WeightedCapacity", str(value["weighted_capacity"])))
     if "launch_template_specification" in value:
         import capo_auto_scaling.types.launch_template_specification
 
         capo_auto_scaling.types.launch_template_specification.serialize_query(
             value["launch_template_specification"],
             pairs,
-            f"{prefix}.LaunchTemplateSpecification",
+            f"{key_prefix}LaunchTemplateSpecification",
         )
     if "instance_requirements" in value:
         import capo_auto_scaling.types.instance_requirements
 
         capo_auto_scaling.types.instance_requirements.serialize_query(
-            value["instance_requirements"], pairs, f"{prefix}.InstanceRequirements"
+            value["instance_requirements"], pairs, f"{key_prefix}InstanceRequirements"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
 
 
 def deserialize_query(el: Element) -> LaunchTemplateOverrides:

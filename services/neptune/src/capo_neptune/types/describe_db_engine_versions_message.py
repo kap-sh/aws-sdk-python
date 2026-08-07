@@ -43,14 +43,15 @@ class DescribeDBEngineVersionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBEngineVersionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "db_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.DBParameterGroupFamily",
+                f"{key_prefix}DBParameterGroupFamily",
                 str(value["db_parameter_group_family"]),
             )
         )
@@ -58,27 +59,27 @@ def serialize_query(
         import capo_neptune.types.filter_list
 
         capo_neptune.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "default_only" in value:
         pairs.append(
-            (f"{prefix}.DefaultOnly", "true" if value["default_only"] else "false")
+            (f"{key_prefix}DefaultOnly", "true" if value["default_only"] else "false")
         )
     if "list_supported_character_sets" in value:
         pairs.append(
             (
-                f"{prefix}.ListSupportedCharacterSets",
+                f"{key_prefix}ListSupportedCharacterSets",
                 "true" if value["list_supported_character_sets"] else "false",
             )
         )
     if "list_supported_timezones" in value:
         pairs.append(
             (
-                f"{prefix}.ListSupportedTimezones",
+                f"{key_prefix}ListSupportedTimezones",
                 "true" if value["list_supported_timezones"] else "false",
             )
         )

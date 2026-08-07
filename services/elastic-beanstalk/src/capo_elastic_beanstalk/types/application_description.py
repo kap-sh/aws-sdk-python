@@ -50,35 +50,38 @@ class ApplicationDescription(TypedDict, closed=True):
 def serialize_query(
     value: ApplicationDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_arn" in value:
-        pairs.append((f"{prefix}.ApplicationArn", str(value["application_arn"])))
+        pairs.append((f"{key_prefix}ApplicationArn", str(value["application_arn"])))
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "date_created" in value:
         import capo_elastic_beanstalk.types.creation_date
 
         capo_elastic_beanstalk.types.creation_date.serialize_query(
-            value["date_created"], pairs, f"{prefix}.DateCreated"
+            value["date_created"], pairs, f"{key_prefix}DateCreated"
         )
     if "date_updated" in value:
         import capo_elastic_beanstalk.types.update_date
 
         capo_elastic_beanstalk.types.update_date.serialize_query(
-            value["date_updated"], pairs, f"{prefix}.DateUpdated"
+            value["date_updated"], pairs, f"{key_prefix}DateUpdated"
         )
     if "versions" in value:
         import capo_elastic_beanstalk.types.version_labels_list
 
         capo_elastic_beanstalk.types.version_labels_list.serialize_query(
-            value["versions"], pairs, f"{prefix}.Versions"
+            value["versions"], pairs, f"{key_prefix}Versions"
         )
     if "configuration_templates" in value:
         import capo_elastic_beanstalk.types.configuration_template_names_list
 
         capo_elastic_beanstalk.types.configuration_template_names_list.serialize_query(
-            value["configuration_templates"], pairs, f"{prefix}.ConfigurationTemplates"
+            value["configuration_templates"],
+            pairs,
+            f"{key_prefix}ConfigurationTemplates",
         )
     if "resource_lifecycle_config" in value:
         import capo_elastic_beanstalk.types.application_resource_lifecycle_config
@@ -86,7 +89,7 @@ def serialize_query(
         capo_elastic_beanstalk.types.application_resource_lifecycle_config.serialize_query(
             value["resource_lifecycle_config"],
             pairs,
-            f"{prefix}.ResourceLifecycleConfig",
+            f"{key_prefix}ResourceLifecycleConfig",
         )
 
 

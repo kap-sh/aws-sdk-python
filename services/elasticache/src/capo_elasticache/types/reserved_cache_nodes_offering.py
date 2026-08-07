@@ -40,32 +40,33 @@ class ReservedCacheNodesOffering(TypedDict, closed=True):
 def serialize_query(
     value: ReservedCacheNodesOffering, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_cache_nodes_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedCacheNodesOfferingId",
+                f"{key_prefix}ReservedCacheNodesOfferingId",
                 str(value["reserved_cache_nodes_offering_id"]),
             )
         )
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "fixed_price" in value:
-        pairs.append((f"{prefix}.FixedPrice", str(value["fixed_price"])))
+        pairs.append((f"{key_prefix}FixedPrice", str(value["fixed_price"])))
     if "usage_price" in value:
-        pairs.append((f"{prefix}.UsagePrice", str(value["usage_price"])))
+        pairs.append((f"{key_prefix}UsagePrice", str(value["usage_price"])))
     if "product_description" in value:
         pairs.append(
-            (f"{prefix}.ProductDescription", str(value["product_description"]))
+            (f"{key_prefix}ProductDescription", str(value["product_description"]))
         )
     if "offering_type" in value:
-        pairs.append((f"{prefix}.OfferingType", str(value["offering_type"])))
+        pairs.append((f"{key_prefix}OfferingType", str(value["offering_type"])))
     if "recurring_charges" in value:
         import capo_elasticache.types.recurring_charge_list
 
         capo_elasticache.types.recurring_charge_list.serialize_query(
-            value["recurring_charges"], pairs, f"{prefix}.RecurringCharges"
+            value["recurring_charges"], pairs, f"{key_prefix}RecurringCharges"
         )
 
 

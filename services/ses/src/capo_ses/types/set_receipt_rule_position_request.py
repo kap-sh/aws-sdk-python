@@ -25,10 +25,11 @@ class SetReceiptRulePositionRequest(TypedDict, closed=True):
 def serialize_query(
     value: SetReceiptRulePositionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RuleSetName", str(value["rule_set_name"])))
-    pairs.append((f"{prefix}.RuleName", str(value["rule_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RuleSetName", str(value["rule_set_name"])))
+    pairs.append((f"{key_prefix}RuleName", str(value["rule_name"])))
     if "after" in value:
-        pairs.append((f"{prefix}.After", str(value["after"])))
+        pairs.append((f"{key_prefix}After", str(value["after"])))
 
 
 def deserialize_query(el: Element) -> SetReceiptRulePositionRequest:

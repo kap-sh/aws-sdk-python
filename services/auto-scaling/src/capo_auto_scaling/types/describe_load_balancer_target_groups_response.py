@@ -26,16 +26,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_target_groups" in value:
         import capo_auto_scaling.types.load_balancer_target_group_states
 
         capo_auto_scaling.types.load_balancer_target_group_states.serialize_query(
             value["load_balancer_target_groups"],
             pairs,
-            f"{prefix}.LoadBalancerTargetGroups",
+            f"{key_prefix}LoadBalancerTargetGroups",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeLoadBalancerTargetGroupsResponse:

@@ -22,8 +22,9 @@ class DeleteSuggesterRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteSuggesterRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
-    pairs.append((f"{prefix}.SuggesterName", str(value["suggester_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
+    pairs.append((f"{key_prefix}SuggesterName", str(value["suggester_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteSuggesterRequest:

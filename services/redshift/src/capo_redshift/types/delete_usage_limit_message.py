@@ -19,8 +19,9 @@ class DeleteUsageLimitMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteUsageLimitMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "usage_limit_id" in value:
-        pairs.append((f"{prefix}.UsageLimitId", str(value["usage_limit_id"])))
+        pairs.append((f"{key_prefix}UsageLimitId", str(value["usage_limit_id"])))
 
 
 def deserialize_query(el: Element) -> DeleteUsageLimitMessage:

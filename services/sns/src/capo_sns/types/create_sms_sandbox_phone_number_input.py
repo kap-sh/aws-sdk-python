@@ -23,12 +23,13 @@ class CreateSMSSandboxPhoneNumberInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateSMSSandboxPhoneNumberInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.PhoneNumber", str(value["phone_number"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PhoneNumber", str(value["phone_number"])))
     if "language_code" in value:
         import capo_sns.types.language_code_string
 
         capo_sns.types.language_code_string.serialize_query(
-            value["language_code"], pairs, f"{prefix}.LanguageCode"
+            value["language_code"], pairs, f"{key_prefix}LanguageCode"
         )
 
 

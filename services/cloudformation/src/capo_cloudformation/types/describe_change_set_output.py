@@ -107,103 +107,104 @@ class DescribeChangeSetOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeChangeSetOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "change_set_id" in value:
-        pairs.append((f"{prefix}.ChangeSetId", str(value["change_set_id"])))
+        pairs.append((f"{key_prefix}ChangeSetId", str(value["change_set_id"])))
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "parameters" in value:
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "creation_time" in value:
         import capo_cloudformation.types.creation_time
 
         capo_cloudformation.types.creation_time.serialize_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "execution_status" in value:
         import capo_cloudformation.types.execution_status
 
         capo_cloudformation.types.execution_status.serialize_query(
-            value["execution_status"], pairs, f"{prefix}.ExecutionStatus"
+            value["execution_status"], pairs, f"{key_prefix}ExecutionStatus"
         )
     if "status" in value:
         import capo_cloudformation.types.change_set_status
 
         capo_cloudformation.types.change_set_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "stack_drift_status" in value:
         import capo_cloudformation.types.stack_drift_status
 
         capo_cloudformation.types.stack_drift_status.serialize_query(
-            value["stack_drift_status"], pairs, f"{prefix}.StackDriftStatus"
+            value["stack_drift_status"], pairs, f"{key_prefix}StackDriftStatus"
         )
     if "notification_ar_ns" in value:
         import capo_cloudformation.types.notification_ar_ns
 
         capo_cloudformation.types.notification_ar_ns.serialize_query(
-            value["notification_ar_ns"], pairs, f"{prefix}.NotificationARNs"
+            value["notification_ar_ns"], pairs, f"{key_prefix}NotificationARNs"
         )
     if "rollback_configuration" in value:
         import capo_cloudformation.types.rollback_configuration
 
         capo_cloudformation.types.rollback_configuration.serialize_query(
-            value["rollback_configuration"], pairs, f"{prefix}.RollbackConfiguration"
+            value["rollback_configuration"], pairs, f"{key_prefix}RollbackConfiguration"
         )
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "tags" in value:
         import capo_cloudformation.types.tags
 
         capo_cloudformation.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "changes" in value:
         import capo_cloudformation.types.changes
 
         capo_cloudformation.types.changes.serialize_query(
-            value["changes"], pairs, f"{prefix}.Changes"
+            value["changes"], pairs, f"{key_prefix}Changes"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "include_nested_stacks" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeNestedStacks",
+                f"{key_prefix}IncludeNestedStacks",
                 "true" if value["include_nested_stacks"] else "false",
             )
         )
     if "parent_change_set_id" in value:
         pairs.append(
-            (f"{prefix}.ParentChangeSetId", str(value["parent_change_set_id"]))
+            (f"{key_prefix}ParentChangeSetId", str(value["parent_change_set_id"]))
         )
     if "root_change_set_id" in value:
-        pairs.append((f"{prefix}.RootChangeSetId", str(value["root_change_set_id"])))
+        pairs.append((f"{key_prefix}RootChangeSetId", str(value["root_change_set_id"])))
     if "on_stack_failure" in value:
         import capo_cloudformation.types.on_stack_failure
 
         capo_cloudformation.types.on_stack_failure.serialize_query(
-            value["on_stack_failure"], pairs, f"{prefix}.OnStackFailure"
+            value["on_stack_failure"], pairs, f"{key_prefix}OnStackFailure"
         )
     if "import_existing_resources" in value:
         pairs.append(
             (
-                f"{prefix}.ImportExistingResources",
+                f"{key_prefix}ImportExistingResources",
                 "true" if value["import_existing_resources"] else "false",
             )
         )
@@ -211,7 +212,7 @@ def serialize_query(
         import capo_cloudformation.types.deployment_mode
 
         capo_cloudformation.types.deployment_mode.serialize_query(
-            value["deployment_mode"], pairs, f"{prefix}.DeploymentMode"
+            value["deployment_mode"], pairs, f"{key_prefix}DeploymentMode"
         )
 
 

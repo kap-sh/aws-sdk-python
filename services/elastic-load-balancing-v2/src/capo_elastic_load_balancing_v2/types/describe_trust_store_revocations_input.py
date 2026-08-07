@@ -32,18 +32,19 @@ class DescribeTrustStoreRevocationsInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTrustStoreRevocationsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "revocation_ids" in value:
         import capo_elastic_load_balancing_v2.types.revocation_ids
 
         capo_elastic_load_balancing_v2.types.revocation_ids.serialize_query(
-            value["revocation_ids"], pairs, f"{prefix}.RevocationIds"
+            value["revocation_ids"], pairs, f"{key_prefix}RevocationIds"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "page_size" in value:
-        pairs.append((f"{prefix}.PageSize", str(value["page_size"])))
+        pairs.append((f"{key_prefix}PageSize", str(value["page_size"])))
 
 
 def deserialize_query(el: Element) -> DescribeTrustStoreRevocationsInput:

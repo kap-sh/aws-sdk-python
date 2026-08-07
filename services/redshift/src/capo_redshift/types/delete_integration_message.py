@@ -19,8 +19,9 @@ class DeleteIntegrationMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteIntegrationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "integration_arn" in value:
-        pairs.append((f"{prefix}.IntegrationArn", str(value["integration_arn"])))
+        pairs.append((f"{key_prefix}IntegrationArn", str(value["integration_arn"])))
 
 
 def deserialize_query(el: Element) -> DeleteIntegrationMessage:

@@ -25,24 +25,27 @@ class LakehouseConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: LakehouseConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "lakehouse_idc_application_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LakehouseIdcApplicationArn",
+                f"{key_prefix}LakehouseIdcApplicationArn",
                 str(value["lakehouse_idc_application_arn"]),
             )
         )
     if "lakehouse_registration_status" in value:
         pairs.append(
             (
-                f"{prefix}.LakehouseRegistrationStatus",
+                f"{key_prefix}LakehouseRegistrationStatus",
                 str(value["lakehouse_registration_status"]),
             )
         )
     if "catalog_arn" in value:
-        pairs.append((f"{prefix}.CatalogArn", str(value["catalog_arn"])))
+        pairs.append((f"{key_prefix}CatalogArn", str(value["catalog_arn"])))
 
 
 def deserialize_query(el: Element) -> LakehouseConfiguration:

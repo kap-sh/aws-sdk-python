@@ -279,10 +279,10 @@ class BatchClient:
 
     def cancel_job(
         self,
-        job_id: "capo_batch.types.string.String",
-        reason: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_id: Optional["capo_batch.types.string.String"] = None,
+        reason: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.cancel_job_response.CancelJobResponse":
         """<p>Cancels a job in an Batch job queue. Jobs that are in a <code>SUBMITTED</code>, <code>PENDING</code>, or <code>RUNNABLE</code> state are cancelled and the job status is updated to <code>FAILED</code>.</p> <note> <p>A <code>PENDING</code> job is canceled after all dependency jobs are completed. Therefore, it may take longer than expected to cancel a job in <code>PENDING</code> status.</p> <p>When you try to cancel an array parent job in <code>PENDING</code>, Batch attempts to cancel all child jobs. The array parent job is canceled when all child jobs are completed.</p> </note> <p>Jobs that progressed to the <code>STARTING</code> or <code>RUNNING</code> state aren't canceled. However, the API operation still succeeds, even if no job is canceled. These jobs must be terminated with the <a>TerminateJob</a> operation.</p>
 
@@ -318,8 +318,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
-        input_["reason"] = reason
+        if job_id is not None:
+            input_["job_id"] = job_id
+        if reason is not None:
+            input_["reason"] = reason
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -330,10 +332,10 @@ class BatchClient:
 
     def create_compute_environment(
         self,
-        compute_environment_name: "capo_batch.types.string.String",
-        type: "capo_batch.types.ce_type.CEType",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        compute_environment_name: Optional["capo_batch.types.string.String"] = None,
+        type: Optional["capo_batch.types.ce_type.CEType"] = None,
         state: Optional["capo_batch.types.ce_state.CEState"] = None,
         unmanagedv_cpus: Optional["capo_batch.types.integer.Integer"] = None,
         compute_resources: Optional[
@@ -391,8 +393,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.create_compute_environment_request.CreateComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input_["compute_environment_name"] = compute_environment_name
-        input_["type"] = type
+        if compute_environment_name is not None:
+            input_["compute_environment_name"] = compute_environment_name
+        if type is not None:
+            input_["type"] = type
         if state is not None:
             input_["state"] = state
         if unmanagedv_cpus is not None:
@@ -417,9 +421,9 @@ class BatchClient:
 
     def create_consumable_resource(
         self,
-        consumable_resource_name: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        consumable_resource_name: Optional["capo_batch.types.string.String"] = None,
         total_quantity: Optional["capo_batch.types.long.Long"] = None,
         resource_type: Optional["capo_batch.types.string.String"] = None,
         tags: Optional["capo_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
@@ -460,7 +464,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.create_consumable_resource_request.CreateConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["consumable_resource_name"] = consumable_resource_name
+        if consumable_resource_name is not None:
+            input_["consumable_resource_name"] = consumable_resource_name
         if total_quantity is not None:
             input_["total_quantity"] = total_quantity
         if resource_type is not None:
@@ -477,12 +482,12 @@ class BatchClient:
 
     def create_job_queue(
         self,
-        job_queue_name: "capo_batch.types.string.String",
-        priority: "capo_batch.types.integer.Integer",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_queue_name: Optional["capo_batch.types.string.String"] = None,
         state: Optional["capo_batch.types.jq_state.JQState"] = None,
         scheduling_policy_arn: Optional["capo_batch.types.string.String"] = None,
+        priority: Optional["capo_batch.types.integer.Integer"] = None,
         compute_environment_order: Optional[
             "capo_batch.types.compute_environment_orders.ComputeEnvironmentOrders"
         ] = None,
@@ -540,12 +545,14 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.create_job_queue_request.CreateJobQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["job_queue_name"] = job_queue_name
+        if job_queue_name is not None:
+            input_["job_queue_name"] = job_queue_name
         if state is not None:
             input_["state"] = state
         if scheduling_policy_arn is not None:
             input_["scheduling_policy_arn"] = scheduling_policy_arn
-        input_["priority"] = priority
+        if priority is not None:
+            input_["priority"] = priority
         if compute_environment_order is not None:
             input_["compute_environment_order"] = compute_environment_order
         if service_environment_order is not None:
@@ -566,13 +573,19 @@ class BatchClient:
 
     def create_quota_share(
         self,
-        quota_share_name: "capo_batch.types.string.String",
-        job_queue: "capo_batch.types.string.String",
-        capacity_limits: "capo_batch.types.quota_share_capacity_limits.QuotaShareCapacityLimits",
-        resource_sharing_configuration: "capo_batch.types.quota_share_resource_sharing_configuration.QuotaShareResourceSharingConfiguration",
-        preemption_configuration: "capo_batch.types.quota_share_preemption_configuration.QuotaSharePreemptionConfiguration",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        quota_share_name: Optional["capo_batch.types.string.String"] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
+        capacity_limits: Optional[
+            "capo_batch.types.quota_share_capacity_limits.QuotaShareCapacityLimits"
+        ] = None,
+        resource_sharing_configuration: Optional[
+            "capo_batch.types.quota_share_resource_sharing_configuration.QuotaShareResourceSharingConfiguration"
+        ] = None,
+        preemption_configuration: Optional[
+            "capo_batch.types.quota_share_preemption_configuration.QuotaSharePreemptionConfiguration"
+        ] = None,
         state: Optional["capo_batch.types.quota_share_state.QuotaShareState"] = None,
         tags: Optional["capo_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "capo_batch.types.create_quota_share_response.CreateQuotaShareResponse":
@@ -609,11 +622,16 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.create_quota_share_request.CreateQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input_["quota_share_name"] = quota_share_name
-        input_["job_queue"] = job_queue
-        input_["capacity_limits"] = capacity_limits
-        input_["resource_sharing_configuration"] = resource_sharing_configuration
-        input_["preemption_configuration"] = preemption_configuration
+        if quota_share_name is not None:
+            input_["quota_share_name"] = quota_share_name
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
+        if capacity_limits is not None:
+            input_["capacity_limits"] = capacity_limits
+        if resource_sharing_configuration is not None:
+            input_["resource_sharing_configuration"] = resource_sharing_configuration
+        if preemption_configuration is not None:
+            input_["preemption_configuration"] = preemption_configuration
         if state is not None:
             input_["state"] = state
         if tags is not None:
@@ -628,9 +646,9 @@ class BatchClient:
 
     def create_scheduling_policy(
         self,
-        name: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        name: Optional["capo_batch.types.string.String"] = None,
         quota_share_policy: Optional[
             "capo_batch.types.quota_share_policy.QuotaSharePolicy"
         ] = None,
@@ -669,7 +687,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.create_scheduling_policy_request.CreateSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if quota_share_policy is not None:
             input_["quota_share_policy"] = quota_share_policy
         if fairshare_policy is not None:
@@ -686,13 +705,17 @@ class BatchClient:
 
     def create_service_environment(
         self,
-        service_environment_name: "capo_batch.types.string.String",
-        service_environment_type: "capo_batch.types.service_environment_type.ServiceEnvironmentType",
-        capacity_limits: "capo_batch.types.capacity_limits.CapacityLimits",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        service_environment_name: Optional["capo_batch.types.string.String"] = None,
+        service_environment_type: Optional[
+            "capo_batch.types.service_environment_type.ServiceEnvironmentType"
+        ] = None,
         state: Optional[
             "capo_batch.types.service_environment_state.ServiceEnvironmentState"
+        ] = None,
+        capacity_limits: Optional[
+            "capo_batch.types.capacity_limits.CapacityLimits"
         ] = None,
         tags: Optional["capo_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "capo_batch.types.create_service_environment_response.CreateServiceEnvironmentResponse":
@@ -727,11 +750,14 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.create_service_environment_request.CreateServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input_["service_environment_name"] = service_environment_name
-        input_["service_environment_type"] = service_environment_type
+        if service_environment_name is not None:
+            input_["service_environment_name"] = service_environment_name
+        if service_environment_type is not None:
+            input_["service_environment_type"] = service_environment_type
         if state is not None:
             input_["state"] = state
-        input_["capacity_limits"] = capacity_limits
+        if capacity_limits is not None:
+            input_["capacity_limits"] = capacity_limits
         if tags is not None:
             input_["tags"] = tags
 
@@ -744,9 +770,9 @@ class BatchClient:
 
     def delete_compute_environment(
         self,
-        compute_environment: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        compute_environment: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.delete_compute_environment_response.DeleteComputeEnvironmentResponse":
         """<p>Deletes an Batch compute environment.</p> <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use Fargate resources must terminate all active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute environment enters an invalid state.</p>
 
@@ -781,7 +807,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.delete_compute_environment_request.DeleteComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input_["compute_environment"] = compute_environment
+        if compute_environment is not None:
+            input_["compute_environment"] = compute_environment
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -792,9 +819,9 @@ class BatchClient:
 
     def delete_consumable_resource(
         self,
-        consumable_resource: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        consumable_resource: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.delete_consumable_resource_response.DeleteConsumableResourceResponse":
         """<p>Deletes the specified consumable resource.</p>
 
@@ -829,7 +856,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.delete_consumable_resource_request.DeleteConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["consumable_resource"] = consumable_resource
+        if consumable_resource is not None:
+            input_["consumable_resource"] = consumable_resource
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -840,9 +868,9 @@ class BatchClient:
 
     def delete_job_queue(
         self,
-        job_queue: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.delete_job_queue_response.DeleteJobQueueResponse":
         """<p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated when you delete a job queue.</p> <p>It's not necessary to disassociate compute environments from a queue before submitting a <code>DeleteJobQueue</code> request.</p>
 
@@ -877,7 +905,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.delete_job_queue_request.DeleteJobQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["job_queue"] = job_queue
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -888,9 +917,9 @@ class BatchClient:
 
     def delete_quota_share(
         self,
-        quota_share_arn: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        quota_share_arn: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.delete_quota_share_response.DeleteQuotaShareResponse":
         """<p>Deletes the specified quota share. You must first disable submissions for the share by updating the state to <code>DISABLED</code> using the <a>UpdateQuotaShare</a> operation. All jobs in the share are eventually terminated when you delete a quota share.</p>
 
@@ -919,7 +948,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.delete_quota_share_request.DeleteQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input_["quota_share_arn"] = quota_share_arn
+        if quota_share_arn is not None:
+            input_["quota_share_arn"] = quota_share_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -930,9 +960,9 @@ class BatchClient:
 
     def delete_scheduling_policy(
         self,
-        arn: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        arn: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.delete_scheduling_policy_response.DeleteSchedulingPolicyResponse":
         """<p>Deletes the specified scheduling policy.</p> <p>You can't delete a scheduling policy that's used in any job queues.</p>
 
@@ -961,7 +991,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.delete_scheduling_policy_request.DeleteSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -972,9 +1003,9 @@ class BatchClient:
 
     def delete_service_environment(
         self,
-        service_environment: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        service_environment: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.delete_service_environment_response.DeleteServiceEnvironmentResponse":
         """<p>Deletes a Service environment. Before you can delete a service environment, you must first set its state to <code>DISABLED</code> with the <code>UpdateServiceEnvironment</code> API operation and disassociate it from any job queues with the <code>UpdateJobQueue</code> API operation.</p>
 
@@ -1003,7 +1034,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.delete_service_environment_request.DeleteServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input_["service_environment"] = service_environment
+        if service_environment is not None:
+            input_["service_environment"] = service_environment
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1014,9 +1046,9 @@ class BatchClient:
 
     def deregister_job_definition(
         self,
-        job_definition: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_definition: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.deregister_job_definition_response.DeregisterJobDefinitionResponse":
         """<p>Deregisters an Batch job definition. Job definitions are permanently deleted after 180 days.</p>
 
@@ -1051,7 +1083,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.deregister_job_definition_request.DeregisterJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition"] = job_definition
+        if job_definition is not None:
+            input_["job_definition"] = job_definition
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1148,9 +1181,9 @@ class BatchClient:
 
     def describe_consumable_resource(
         self,
-        consumable_resource: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        consumable_resource: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.describe_consumable_resource_response.DescribeConsumableResourceResponse":
         """<p>Returns a description of the specified consumable resource.</p>
 
@@ -1185,7 +1218,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.describe_consumable_resource_request.DescribeConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["consumable_resource"] = consumable_resource
+        if consumable_resource is not None:
+            input_["consumable_resource"] = consumable_resource
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1368,9 +1402,9 @@ class BatchClient:
 
     def describe_jobs(
         self,
-        jobs: "capo_batch.types.string_list.StringList",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        jobs: Optional["capo_batch.types.string_list.StringList"] = None,
     ) -> "capo_batch.types.describe_jobs_response.DescribeJobsResponse":
         """<p>Describes a list of Batch jobs.</p>
 
@@ -1405,7 +1439,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.describe_jobs_request.DescribeJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["jobs"] = jobs
+        if jobs is not None:
+            input_["jobs"] = jobs
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1416,9 +1451,9 @@ class BatchClient:
 
     def describe_quota_share(
         self,
-        quota_share_arn: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        quota_share_arn: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.describe_quota_share_response.DescribeQuotaShareResponse":
         """<p>Returns a description of the specified quota share.</p>
 
@@ -1447,7 +1482,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.describe_quota_share_request.DescribeQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input_["quota_share_arn"] = quota_share_arn
+        if quota_share_arn is not None:
+            input_["quota_share_arn"] = quota_share_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1458,9 +1494,9 @@ class BatchClient:
 
     def describe_scheduling_policies(
         self,
-        arns: "capo_batch.types.string_list.StringList",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        arns: Optional["capo_batch.types.string_list.StringList"] = None,
     ) -> "capo_batch.types.describe_scheduling_policies_response.DescribeSchedulingPoliciesResponse":
         """<p>Describes one or more of your scheduling policies.</p>
 
@@ -1489,7 +1525,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.describe_scheduling_policies_request.DescribeSchedulingPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["arns"] = arns
+        if arns is not None:
+            input_["arns"] = arns
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1580,9 +1617,9 @@ class BatchClient:
 
     def describe_service_job(
         self,
-        job_id: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_id: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.describe_service_job_response.DescribeServiceJobResponse":
         """<p>The details of a service job.</p>
 
@@ -1611,7 +1648,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.describe_service_job_request.DescribeServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
+        if job_id is not None:
+            input_["job_id"] = job_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1622,9 +1660,9 @@ class BatchClient:
 
     def get_job_queue_snapshot(
         self,
-        job_queue: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.get_job_queue_snapshot_response.GetJobQueueSnapshotResponse":
         """<p>Provides a snapshot of job queue state, including ordering of <code>RUNNABLE</code> jobs, as well as capacity utilization for already dispatched jobs. The first 100 <code>RUNNABLE</code> jobs in the job queue are listed in order of dispatch. For job queues with an attached quota-share policy, the first <code>RUNNABLE</code> job in each quota share is also listed. Capacity utilization for the job queue is provided, as well as break downs by share for job queues with attached fair-share or quota-share scheduling policies.</p>
 
@@ -1653,7 +1691,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.get_job_queue_snapshot_request.GetJobQueueSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["job_queue"] = job_queue
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1858,9 +1897,9 @@ class BatchClient:
 
     def list_jobs_by_consumable_resource(
         self,
-        consumable_resource: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        consumable_resource: Optional["capo_batch.types.string.String"] = None,
         filters: Optional[
             "capo_batch.types.list_jobs_by_consumable_resource_filter_list.ListJobsByConsumableResourceFilterList"
         ] = None,
@@ -1903,7 +1942,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.list_jobs_by_consumable_resource_request.ListJobsByConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["consumable_resource"] = consumable_resource
+        if consumable_resource is not None:
+            input_["consumable_resource"] = consumable_resource
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -1920,9 +1960,9 @@ class BatchClient:
 
     def iter_list_jobs_by_consumable_resource(
         self,
-        consumable_resource: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        consumable_resource: Optional["capo_batch.types.string.String"] = None,
         filters: Optional[
             "capo_batch.types.list_jobs_by_consumable_resource_filter_list.ListJobsByConsumableResourceFilterList"
         ] = None,
@@ -1932,8 +1972,8 @@ class BatchClient:
         _token = next_token
         while True:
             _response = self.list_jobs_by_consumable_resource(
-                consumable_resource,
                 config_overrides=config_overrides,
+                consumable_resource=consumable_resource,
                 filters=filters,
                 max_results=max_results,
                 next_token=_token,
@@ -1947,9 +1987,9 @@ class BatchClient:
 
     def list_quota_shares(
         self,
-        job_queue: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
         max_results: Optional["capo_batch.types.integer.Integer"] = None,
         next_token: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.list_quota_shares_response.ListQuotaSharesResponse":
@@ -1982,7 +2022,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.list_quota_shares_request.ListQuotaSharesRequest = {}  # type: ignore[typeddict-item]
-        input_["job_queue"] = job_queue
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1997,17 +2038,17 @@ class BatchClient:
 
     def iter_list_quota_shares(
         self,
-        job_queue: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
         max_results: Optional["capo_batch.types.integer.Integer"] = None,
         next_token: Optional["capo_batch.types.string.String"] = None,
     ) -> "Iterator[capo_batch.types.quota_share_detail.QuotaShareDetail]":
         _token = next_token
         while True:
             _response = self.list_quota_shares(
-                job_queue,
                 config_overrides=config_overrides,
+                job_queue=job_queue,
                 max_results=max_results,
                 next_token=_token,
             )
@@ -2230,10 +2271,10 @@ class BatchClient:
 
     def register_job_definition(
         self,
-        job_definition_name: "capo_batch.types.string.String",
-        type: "capo_batch.types.job_definition_type.JobDefinitionType",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_definition_name: Optional["capo_batch.types.string.String"] = None,
+        type: Optional["capo_batch.types.job_definition_type.JobDefinitionType"] = None,
         parameters: Optional["capo_batch.types.parameters_map.ParametersMap"] = None,
         scheduling_priority: Optional["capo_batch.types.integer.Integer"] = None,
         container_properties: Optional[
@@ -2311,8 +2352,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.register_job_definition_request.RegisterJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["job_definition_name"] = job_definition_name
-        input_["type"] = type
+        if job_definition_name is not None:
+            input_["job_definition_name"] = job_definition_name
+        if type is not None:
+            input_["type"] = type
         if parameters is not None:
             input_["parameters"] = parameters
         if scheduling_priority is not None:
@@ -2347,11 +2390,10 @@ class BatchClient:
 
     def submit_job(
         self,
-        job_name: "capo_batch.types.string.String",
-        job_queue: "capo_batch.types.string.String",
-        job_definition: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_name: Optional["capo_batch.types.string.String"] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
         share_identifier: Optional["capo_batch.types.string.String"] = None,
         scheduling_priority_override: Optional[
             "capo_batch.types.integer.Integer"
@@ -2362,6 +2404,7 @@ class BatchClient:
         depends_on: Optional[
             "capo_batch.types.job_dependency_list.JobDependencyList"
         ] = None,
+        job_definition: Optional["capo_batch.types.string.String"] = None,
         parameters: Optional["capo_batch.types.parameters_map.ParametersMap"] = None,
         container_overrides: Optional[
             "capo_batch.types.container_overrides.ContainerOverrides"
@@ -2434,8 +2477,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.submit_job_request.SubmitJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["job_queue"] = job_queue
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
         if share_identifier is not None:
             input_["share_identifier"] = share_identifier
         if scheduling_priority_override is not None:
@@ -2444,7 +2489,8 @@ class BatchClient:
             input_["array_properties"] = array_properties
         if depends_on is not None:
             input_["depends_on"] = depends_on
-        input_["job_definition"] = job_definition
+        if job_definition is not None:
+            input_["job_definition"] = job_definition
         if parameters is not None:
             input_["parameters"] = parameters
         if container_overrides is not None:
@@ -2477,16 +2523,18 @@ class BatchClient:
 
     def submit_service_job(
         self,
-        job_name: "capo_batch.types.string.String",
-        job_queue: "capo_batch.types.string.String",
-        service_request_payload: "capo_batch.types.string.String",
-        service_job_type: "capo_batch.types.service_job_type.ServiceJobType",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_name: Optional["capo_batch.types.string.String"] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
         retry_strategy: Optional[
             "capo_batch.types.service_job_retry_strategy.ServiceJobRetryStrategy"
         ] = None,
         scheduling_priority: Optional["capo_batch.types.integer.Integer"] = None,
+        service_request_payload: Optional["capo_batch.types.string.String"] = None,
+        service_job_type: Optional[
+            "capo_batch.types.service_job_type.ServiceJobType"
+        ] = None,
         share_identifier: Optional["capo_batch.types.string.String"] = None,
         quota_share_name: Optional["capo_batch.types.string.String"] = None,
         preemption_configuration: Optional[
@@ -2538,14 +2586,18 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.submit_service_job_request.SubmitServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["job_queue"] = job_queue
+        if job_name is not None:
+            input_["job_name"] = job_name
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
         if retry_strategy is not None:
             input_["retry_strategy"] = retry_strategy
         if scheduling_priority is not None:
             input_["scheduling_priority"] = scheduling_priority
-        input_["service_request_payload"] = service_request_payload
-        input_["service_job_type"] = service_job_type
+        if service_request_payload is not None:
+            input_["service_request_payload"] = service_request_payload
+        if service_job_type is not None:
+            input_["service_job_type"] = service_job_type
         if share_identifier is not None:
             input_["share_identifier"] = share_identifier
         if quota_share_name is not None:
@@ -2569,9 +2621,9 @@ class BatchClient:
     def tag_resource(
         self,
         resource_arn: "capo_batch.types.string.String",
-        tags: "capo_batch.types.tagris_tags_map.TagrisTagsMap",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        tags: Optional["capo_batch.types.tagris_tags_map.TagrisTagsMap"] = None,
     ) -> "capo_batch.types.tag_resource_response.TagResourceResponse":
         r"""<p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags on a resource aren't specified in the request parameters, they aren't changed. When a resource is deleted, the tags that are associated with that resource are deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
 
@@ -2608,7 +2660,8 @@ class BatchClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2619,10 +2672,10 @@ class BatchClient:
 
     def terminate_job(
         self,
-        job_id: "capo_batch.types.string.String",
-        reason: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_id: Optional["capo_batch.types.string.String"] = None,
+        reason: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.terminate_job_response.TerminateJobResponse":
         """<p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the <code>STARTING</code> state are cancelled.</p>
 
@@ -2658,8 +2711,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.terminate_job_request.TerminateJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
-        input_["reason"] = reason
+        if job_id is not None:
+            input_["job_id"] = job_id
+        if reason is not None:
+            input_["reason"] = reason
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2670,10 +2725,10 @@ class BatchClient:
 
     def terminate_service_job(
         self,
-        job_id: "capo_batch.types.string.String",
-        reason: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_id: Optional["capo_batch.types.string.String"] = None,
+        reason: Optional["capo_batch.types.string.String"] = None,
     ) -> "capo_batch.types.terminate_service_job_response.TerminateServiceJobResponse":
         """<p>Terminates a service job in a job queue. </p>
 
@@ -2703,8 +2758,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.terminate_service_job_request.TerminateServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
-        input_["reason"] = reason
+        if job_id is not None:
+            input_["job_id"] = job_id
+        if reason is not None:
+            input_["reason"] = reason
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2716,9 +2773,9 @@ class BatchClient:
     def untag_resource(
         self,
         resource_arn: "capo_batch.types.string.String",
-        tag_keys: "capo_batch.types.tag_keys_list.TagKeysList",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        tag_keys: Optional["capo_batch.types.tag_keys_list.TagKeysList"] = None,
     ) -> "capo_batch.types.untag_resource_response.UntagResourceResponse":
         """<p>Deletes specified tags from an Batch resource.</p>
 
@@ -2755,7 +2812,8 @@ class BatchClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2766,9 +2824,9 @@ class BatchClient:
 
     def update_compute_environment(
         self,
-        compute_environment: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        compute_environment: Optional["capo_batch.types.string.String"] = None,
         state: Optional["capo_batch.types.ce_state.CEState"] = None,
         unmanagedv_cpus: Optional["capo_batch.types.integer.Integer"] = None,
         compute_resources: Optional[
@@ -2817,7 +2875,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_compute_environment_request.UpdateComputeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input_["compute_environment"] = compute_environment
+        if compute_environment is not None:
+            input_["compute_environment"] = compute_environment
         if state is not None:
             input_["state"] = state
         if unmanagedv_cpus is not None:
@@ -2840,9 +2899,9 @@ class BatchClient:
 
     def update_consumable_resource(
         self,
-        consumable_resource: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        consumable_resource: Optional["capo_batch.types.string.String"] = None,
         operation: Optional["capo_batch.types.string.String"] = None,
         quantity: Optional["capo_batch.types.long.Long"] = None,
         client_token: Optional[
@@ -2885,7 +2944,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_consumable_resource_request.UpdateConsumableResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["consumable_resource"] = consumable_resource
+        if consumable_resource is not None:
+            input_["consumable_resource"] = consumable_resource
         if operation is not None:
             input_["operation"] = operation
         if quantity is not None:
@@ -2902,9 +2962,9 @@ class BatchClient:
 
     def update_job_queue(
         self,
-        job_queue: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_queue: Optional["capo_batch.types.string.String"] = None,
         state: Optional["capo_batch.types.jq_state.JQState"] = None,
         scheduling_policy_arn: Optional["capo_batch.types.string.String"] = None,
         priority: Optional["capo_batch.types.integer.Integer"] = None,
@@ -2957,7 +3017,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_job_queue_request.UpdateJobQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["job_queue"] = job_queue
+        if job_queue is not None:
+            input_["job_queue"] = job_queue
         if state is not None:
             input_["state"] = state
         if scheduling_policy_arn is not None:
@@ -2980,9 +3041,9 @@ class BatchClient:
 
     def update_quota_share(
         self,
-        quota_share_arn: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        quota_share_arn: Optional["capo_batch.types.string.String"] = None,
         capacity_limits: Optional[
             "capo_batch.types.quota_share_capacity_limits.QuotaShareCapacityLimits"
         ] = None,
@@ -3025,7 +3086,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_quota_share_request.UpdateQuotaShareRequest = {}  # type: ignore[typeddict-item]
-        input_["quota_share_arn"] = quota_share_arn
+        if quota_share_arn is not None:
+            input_["quota_share_arn"] = quota_share_arn
         if capacity_limits is not None:
             input_["capacity_limits"] = capacity_limits
         if resource_sharing_configuration is not None:
@@ -3044,9 +3106,9 @@ class BatchClient:
 
     def update_scheduling_policy(
         self,
-        arn: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        arn: Optional["capo_batch.types.string.String"] = None,
         quota_share_policy: Optional[
             "capo_batch.types.quota_share_policy.QuotaSharePolicy"
         ] = None,
@@ -3083,7 +3145,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_scheduling_policy_request.UpdateSchedulingPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        if arn is not None:
+            input_["arn"] = arn
         if quota_share_policy is not None:
             input_["quota_share_policy"] = quota_share_policy
         if fairshare_policy is not None:
@@ -3098,9 +3161,9 @@ class BatchClient:
 
     def update_service_environment(
         self,
-        service_environment: "capo_batch.types.string.String",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        service_environment: Optional["capo_batch.types.string.String"] = None,
         state: Optional[
             "capo_batch.types.service_environment_state.ServiceEnvironmentState"
         ] = None,
@@ -3137,7 +3200,8 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_service_environment_request.UpdateServiceEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input_["service_environment"] = service_environment
+        if service_environment is not None:
+            input_["service_environment"] = service_environment
         if state is not None:
             input_["state"] = state
         if capacity_limits is not None:
@@ -3152,10 +3216,10 @@ class BatchClient:
 
     def update_service_job(
         self,
-        job_id: "capo_batch.types.string.String",
-        scheduling_priority: "capo_batch.types.integer.Integer",
         *,
         config_overrides: Optional[BatchClientConfig] = None,
+        job_id: Optional["capo_batch.types.string.String"] = None,
+        scheduling_priority: Optional["capo_batch.types.integer.Integer"] = None,
     ) -> "capo_batch.types.update_service_job_response.UpdateServiceJobResponse":
         """<p>Updates the priority of a specified service job in an Batch job queue.</p>
 
@@ -3185,8 +3249,10 @@ class BatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_batch.types.update_service_job_request.UpdateServiceJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
-        input_["scheduling_priority"] = scheduling_priority
+        if job_id is not None:
+            input_["job_id"] = job_id
+        if scheduling_priority is not None:
+            input_["scheduling_priority"] = scheduling_priority
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

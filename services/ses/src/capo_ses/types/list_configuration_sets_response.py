@@ -24,14 +24,15 @@ class ListConfigurationSetsResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListConfigurationSetsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "configuration_sets" in value:
         import capo_ses.types.configuration_sets
 
         capo_ses.types.configuration_sets.serialize_query(
-            value["configuration_sets"], pairs, f"{prefix}.ConfigurationSets"
+            value["configuration_sets"], pairs, f"{key_prefix}ConfigurationSets"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListConfigurationSetsResponse:

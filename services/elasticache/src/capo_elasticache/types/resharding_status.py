@@ -19,11 +19,12 @@ class ReshardingStatus(TypedDict, closed=True):
 def serialize_query(
     value: ReshardingStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "slot_migration" in value:
         import capo_elasticache.types.slot_migration
 
         capo_elasticache.types.slot_migration.serialize_query(
-            value["slot_migration"], pairs, f"{prefix}.SlotMigration"
+            value["slot_migration"], pairs, f"{key_prefix}SlotMigration"
         )
 
 

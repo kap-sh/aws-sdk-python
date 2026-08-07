@@ -26,17 +26,18 @@ class BatchDeleteClusterSnapshotsResult(TypedDict, closed=True):
 def serialize_query(
     value: BatchDeleteClusterSnapshotsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resources" in value:
         import capo_redshift.types.snapshot_identifier_list
 
         capo_redshift.types.snapshot_identifier_list.serialize_query(
-            value["resources"], pairs, f"{prefix}.Resources"
+            value["resources"], pairs, f"{key_prefix}Resources"
         )
     if "errors" in value:
         import capo_redshift.types.batch_snapshot_operation_error_list
 
         capo_redshift.types.batch_snapshot_operation_error_list.serialize_query(
-            value["errors"], pairs, f"{prefix}.Errors"
+            value["errors"], pairs, f"{key_prefix}Errors"
         )
 
 

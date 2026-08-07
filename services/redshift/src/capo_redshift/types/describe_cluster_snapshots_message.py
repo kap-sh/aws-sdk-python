@@ -51,55 +51,61 @@ class DescribeClusterSnapshotsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeClusterSnapshotsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "snapshot_arn" in value:
-        pairs.append((f"{prefix}.SnapshotArn", str(value["snapshot_arn"])))
+        pairs.append((f"{key_prefix}SnapshotArn", str(value["snapshot_arn"])))
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "start_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "owner_account" in value:
-        pairs.append((f"{prefix}.OwnerAccount", str(value["owner_account"])))
+        pairs.append((f"{key_prefix}OwnerAccount", str(value["owner_account"])))
     if "tag_keys" in value:
         import capo_redshift.types.tag_key_list
 
         capo_redshift.types.tag_key_list.serialize_query(
-            value["tag_keys"], pairs, f"{prefix}.TagKeys"
+            value["tag_keys"], pairs, f"{key_prefix}TagKeys"
         )
     if "tag_values" in value:
         import capo_redshift.types.tag_value_list
 
         capo_redshift.types.tag_value_list.serialize_query(
-            value["tag_values"], pairs, f"{prefix}.TagValues"
+            value["tag_values"], pairs, f"{key_prefix}TagValues"
         )
     if "cluster_exists" in value:
         pairs.append(
-            (f"{prefix}.ClusterExists", "true" if value["cluster_exists"] else "false")
+            (
+                f"{key_prefix}ClusterExists",
+                "true" if value["cluster_exists"] else "false",
+            )
         )
     if "sorting_entities" in value:
         import capo_redshift.types.snapshot_sorting_entity_list
 
         capo_redshift.types.snapshot_sorting_entity_list.serialize_query(
-            value["sorting_entities"], pairs, f"{prefix}.SortingEntities"
+            value["sorting_entities"], pairs, f"{key_prefix}SortingEntities"
         )
 
 

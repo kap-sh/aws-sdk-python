@@ -26,20 +26,21 @@ class ModifyClusterSubnetGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterSubnetGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_subnet_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterSubnetGroupName",
+                f"{key_prefix}ClusterSubnetGroupName",
                 str(value["cluster_subnet_group_name"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "subnet_ids" in value:
         import capo_redshift.types.subnet_identifier_list
 
         capo_redshift.types.subnet_identifier_list.serialize_query(
-            value["subnet_ids"], pairs, f"{prefix}.SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
         )
 
 

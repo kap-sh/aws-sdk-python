@@ -20,7 +20,8 @@ class ConfigurationSet(TypedDict, closed=True):
 def serialize_query(
     value: ConfigurationSet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
 
 
 def deserialize_query(el: Element) -> ConfigurationSet:

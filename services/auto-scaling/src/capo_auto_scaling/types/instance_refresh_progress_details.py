@@ -26,17 +26,18 @@ class InstanceRefreshProgressDetails(TypedDict, closed=True):
 def serialize_query(
     value: InstanceRefreshProgressDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "live_pool_progress" in value:
         import capo_auto_scaling.types.instance_refresh_live_pool_progress
 
         capo_auto_scaling.types.instance_refresh_live_pool_progress.serialize_query(
-            value["live_pool_progress"], pairs, f"{prefix}.LivePoolProgress"
+            value["live_pool_progress"], pairs, f"{key_prefix}LivePoolProgress"
         )
     if "warm_pool_progress" in value:
         import capo_auto_scaling.types.instance_refresh_warm_pool_progress
 
         capo_auto_scaling.types.instance_refresh_warm_pool_progress.serialize_query(
-            value["warm_pool_progress"], pairs, f"{prefix}.WarmPoolProgress"
+            value["warm_pool_progress"], pairs, f"{key_prefix}WarmPoolProgress"
         )
 
 

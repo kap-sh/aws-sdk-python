@@ -25,14 +25,15 @@ class MessageAttributeValue(TypedDict, closed=True):
 def serialize_query(
     value: MessageAttributeValue, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DataType", str(value["data_type"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DataType", str(value["data_type"])))
     if "string_value" in value:
-        pairs.append((f"{prefix}.StringValue", str(value["string_value"])))
+        pairs.append((f"{key_prefix}StringValue", str(value["string_value"])))
     if "binary_value" in value:
         import capo_sns.types.binary
 
         capo_sns.types.binary.serialize_query(
-            value["binary_value"], pairs, f"{prefix}.BinaryValue"
+            value["binary_value"], pairs, f"{key_prefix}BinaryValue"
         )
 
 

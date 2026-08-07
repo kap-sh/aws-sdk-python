@@ -31,20 +31,21 @@ class ModifyCapacityReservationInput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyCapacityReservationInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "minimum_load_balancer_capacity" in value:
         import capo_elastic_load_balancing_v2.types.minimum_load_balancer_capacity
 
         capo_elastic_load_balancing_v2.types.minimum_load_balancer_capacity.serialize_query(
             value["minimum_load_balancer_capacity"],
             pairs,
-            f"{prefix}.MinimumLoadBalancerCapacity",
+            f"{key_prefix}MinimumLoadBalancerCapacity",
         )
     if "reset_capacity_reservation" in value:
         pairs.append(
             (
-                f"{prefix}.ResetCapacityReservation",
+                f"{key_prefix}ResetCapacityReservation",
                 "true" if value["reset_capacity_reservation"] else "false",
             )
         )

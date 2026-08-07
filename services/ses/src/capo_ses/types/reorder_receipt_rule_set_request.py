@@ -23,11 +23,12 @@ class ReorderReceiptRuleSetRequest(TypedDict, closed=True):
 def serialize_query(
     value: ReorderReceiptRuleSetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RuleSetName", str(value["rule_set_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RuleSetName", str(value["rule_set_name"])))
     import capo_ses.types.receipt_rule_names_list
 
     capo_ses.types.receipt_rule_names_list.serialize_query(
-        value["rule_names"], pairs, f"{prefix}.RuleNames"
+        value["rule_names"], pairs, f"{key_prefix}RuleNames"
     )
 
 

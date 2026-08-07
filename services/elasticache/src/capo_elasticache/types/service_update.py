@@ -56,27 +56,32 @@ class ServiceUpdate(TypedDict, closed=True):
 def serialize_query(
     value: ServiceUpdate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
     if "service_update_release_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
             value["service_update_release_date"],
             pairs,
-            f"{prefix}.ServiceUpdateReleaseDate",
+            f"{key_prefix}ServiceUpdateReleaseDate",
         )
     if "service_update_end_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["service_update_end_date"], pairs, f"{prefix}.ServiceUpdateEndDate"
+            value["service_update_end_date"], pairs, f"{key_prefix}ServiceUpdateEndDate"
         )
     if "service_update_severity" in value:
         import capo_elasticache.types.service_update_severity
 
         capo_elasticache.types.service_update_severity.serialize_query(
-            value["service_update_severity"], pairs, f"{prefix}.ServiceUpdateSeverity"
+            value["service_update_severity"],
+            pairs,
+            f"{key_prefix}ServiceUpdateSeverity",
         )
     if "service_update_recommended_apply_by_date" in value:
         import capo_elasticache.types.t_stamp
@@ -84,18 +89,18 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["service_update_recommended_apply_by_date"],
             pairs,
-            f"{prefix}.ServiceUpdateRecommendedApplyByDate",
+            f"{key_prefix}ServiceUpdateRecommendedApplyByDate",
         )
     if "service_update_status" in value:
         import capo_elasticache.types.service_update_status
 
         capo_elasticache.types.service_update_status.serialize_query(
-            value["service_update_status"], pairs, f"{prefix}.ServiceUpdateStatus"
+            value["service_update_status"], pairs, f"{key_prefix}ServiceUpdateStatus"
         )
     if "service_update_description" in value:
         pairs.append(
             (
-                f"{prefix}.ServiceUpdateDescription",
+                f"{key_prefix}ServiceUpdateDescription",
                 str(value["service_update_description"]),
             )
         )
@@ -103,16 +108,16 @@ def serialize_query(
         import capo_elasticache.types.service_update_type
 
         capo_elasticache.types.service_update_type.serialize_query(
-            value["service_update_type"], pairs, f"{prefix}.ServiceUpdateType"
+            value["service_update_type"], pairs, f"{key_prefix}ServiceUpdateType"
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "auto_update_after_recommended_apply_by_date" in value:
         pairs.append(
             (
-                f"{prefix}.AutoUpdateAfterRecommendedApplyByDate",
+                f"{key_prefix}AutoUpdateAfterRecommendedApplyByDate",
                 "true"
                 if value["auto_update_after_recommended_apply_by_date"]
                 else "false",
@@ -120,7 +125,7 @@ def serialize_query(
         )
     if "estimated_update_time" in value:
         pairs.append(
-            (f"{prefix}.EstimatedUpdateTime", str(value["estimated_update_time"]))
+            (f"{key_prefix}EstimatedUpdateTime", str(value["estimated_update_time"]))
         )
 
 

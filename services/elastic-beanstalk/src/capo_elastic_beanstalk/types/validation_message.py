@@ -36,18 +36,19 @@ class ValidationMessage(TypedDict, closed=True):
 def serialize_query(
     value: ValidationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "severity" in value:
         import capo_elastic_beanstalk.types.validation_severity
 
         capo_elastic_beanstalk.types.validation_severity.serialize_query(
-            value["severity"], pairs, f"{prefix}.Severity"
+            value["severity"], pairs, f"{key_prefix}Severity"
         )
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "option_name" in value:
-        pairs.append((f"{prefix}.OptionName", str(value["option_name"])))
+        pairs.append((f"{key_prefix}OptionName", str(value["option_name"])))
 
 
 def deserialize_query(el: Element) -> ValidationMessage:

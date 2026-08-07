@@ -32,32 +32,33 @@ class ClusterSecurityGroup(TypedDict, closed=True):
 def serialize_query(
     value: ClusterSecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterSecurityGroupName",
+                f"{key_prefix}ClusterSecurityGroupName",
                 str(value["cluster_security_group_name"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "ec2_security_groups" in value:
         import capo_redshift.types.ec2_security_group_list
 
         capo_redshift.types.ec2_security_group_list.serialize_query(
-            value["ec2_security_groups"], pairs, f"{prefix}.EC2SecurityGroups"
+            value["ec2_security_groups"], pairs, f"{key_prefix}EC2SecurityGroups"
         )
     if "ip_ranges" in value:
         import capo_redshift.types.ip_range_list
 
         capo_redshift.types.ip_range_list.serialize_query(
-            value["ip_ranges"], pairs, f"{prefix}.IPRanges"
+            value["ip_ranges"], pairs, f"{key_prefix}IPRanges"
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

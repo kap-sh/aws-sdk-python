@@ -22,9 +22,10 @@ class CloneReceiptRuleSetRequest(TypedDict, closed=True):
 def serialize_query(
     value: CloneReceiptRuleSetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.RuleSetName", str(value["rule_set_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}RuleSetName", str(value["rule_set_name"])))
     pairs.append(
-        (f"{prefix}.OriginalRuleSetName", str(value["original_rule_set_name"]))
+        (f"{key_prefix}OriginalRuleSetName", str(value["original_rule_set_name"]))
     )
 
 

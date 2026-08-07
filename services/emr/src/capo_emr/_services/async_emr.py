@@ -321,10 +321,14 @@ class AsyncEMRClient:
 
     async def add_instance_fleet(
         self,
-        cluster_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        instance_fleet: "capo_emr.types.instance_fleet_config.InstanceFleetConfig",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        instance_fleet: Optional[
+            "capo_emr.types.instance_fleet_config.InstanceFleetConfig"
+        ] = None,
     ) -> "capo_emr.types.add_instance_fleet_output.AddInstanceFleetOutput":
         """<p>Adds an instance fleet to a running cluster.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x.</p> </note>
 
@@ -355,8 +359,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.add_instance_fleet_input.AddInstanceFleetInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["instance_fleet"] = instance_fleet
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if instance_fleet is not None:
+            input_["instance_fleet"] = instance_fleet
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -367,10 +373,14 @@ class AsyncEMRClient:
 
     async def add_instance_groups(
         self,
-        instance_groups: "capo_emr.types.instance_group_config_list.InstanceGroupConfigList",
-        job_flow_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        instance_groups: Optional[
+            "capo_emr.types.instance_group_config_list.InstanceGroupConfigList"
+        ] = None,
+        job_flow_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
     ) -> "capo_emr.types.add_instance_groups_output.AddInstanceGroupsOutput":
         """<p>Adds one or more instance groups to a running cluster.</p>
 
@@ -400,8 +410,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.add_instance_groups_input.AddInstanceGroupsInput = {}  # type: ignore[typeddict-item]
-        input_["instance_groups"] = instance_groups
-        input_["job_flow_id"] = job_flow_id
+        if instance_groups is not None:
+            input_["instance_groups"] = instance_groups
+        if job_flow_id is not None:
+            input_["job_flow_id"] = job_flow_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -412,10 +424,12 @@ class AsyncEMRClient:
 
     async def add_job_flow_steps(
         self,
-        job_flow_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        steps: "capo_emr.types.step_config_list.StepConfigList",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        job_flow_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        steps: Optional["capo_emr.types.step_config_list.StepConfigList"] = None,
         execution_role_arn: Optional["capo_emr.types.arn_type.ArnType"] = None,
     ) -> "capo_emr.types.add_job_flow_steps_output.AddJobFlowStepsOutput":
         """<p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed in each job flow.</p> <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using SSH to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop.</p> <p>A step specifies the location of a JAR file stored either on the master node of the cluster or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step.</p> <p>Amazon EMR executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.</p> <p>You can only add steps to a cluster that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.</p> <note> <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total of 10240 characters.</p> </note>
@@ -447,8 +461,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.add_job_flow_steps_input.AddJobFlowStepsInput = {}  # type: ignore[typeddict-item]
-        input_["job_flow_id"] = job_flow_id
-        input_["steps"] = steps
+        if job_flow_id is not None:
+            input_["job_flow_id"] = job_flow_id
+        if steps is not None:
+            input_["steps"] = steps
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
 
@@ -461,10 +477,10 @@ class AsyncEMRClient:
 
     async def add_tags(
         self,
-        resource_id: "capo_emr.types.resource_id.ResourceId",
-        tags: "capo_emr.types.tag_list.TagList",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        resource_id: Optional["capo_emr.types.resource_id.ResourceId"] = None,
+        tags: Optional["capo_emr.types.tag_list.TagList"] = None,
         cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> "capo_emr.types.add_tags_output.AddTagsOutput":
         r"""<p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio. Tags make it easier to associate resources in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html\">Tag Clusters</a>. </p>
@@ -495,8 +511,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_id"] = resource_id
-        input_["tags"] = tags
+        if resource_id is not None:
+            input_["resource_id"] = resource_id
+        if tags is not None:
+            input_["tags"] = tags
         if cluster_id is not None:
             input_["cluster_id"] = cluster_id
 
@@ -509,10 +527,12 @@ class AsyncEMRClient:
 
     async def cancel_steps(
         self,
-        cluster_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        step_ids: "capo_emr.types.step_ids_list.StepIdsList",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        step_ids: Optional["capo_emr.types.step_ids_list.StepIdsList"] = None,
         step_cancellation_option: Optional[
             "capo_emr.types.step_cancellation_option.StepCancellationOption"
         ] = None,
@@ -547,8 +567,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.cancel_steps_input.CancelStepsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["step_ids"] = step_ids
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if step_ids is not None:
+            input_["step_ids"] = step_ids
         if step_cancellation_option is not None:
             input_["step_cancellation_option"] = step_cancellation_option
 
@@ -561,9 +583,9 @@ class AsyncEMRClient:
 
     async def create_persistent_app_ui(
         self,
-        target_resource_arn: "capo_emr.types.arn_type.ArnType",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        target_resource_arn: Optional["capo_emr.types.arn_type.ArnType"] = None,
         emr_containers_config: Optional[
             "capo_emr.types.emr_containers_config.EMRContainersConfig"
         ] = None,
@@ -603,7 +625,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.create_persistent_app_ui_input.CreatePersistentAppUIInput = {}  # type: ignore[typeddict-item]
-        input_["target_resource_arn"] = target_resource_arn
+        if target_resource_arn is not None:
+            input_["target_resource_arn"] = target_resource_arn
         if emr_containers_config is not None:
             input_["emr_containers_config"] = emr_containers_config
         if tags is not None:
@@ -622,10 +645,10 @@ class AsyncEMRClient:
 
     async def create_security_configuration(
         self,
-        name: "capo_emr.types.xml_string.XmlString",
-        security_configuration: "capo_emr.types.string.String",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        name: Optional["capo_emr.types.xml_string.XmlString"] = None,
+        security_configuration: Optional["capo_emr.types.string.String"] = None,
     ) -> "capo_emr.types.create_security_configuration_output.CreateSecurityConfigurationOutput":
         r"""<p>Creates a security configuration, which is stored in the service and can be specified when a cluster is created.</p>
 
@@ -656,8 +679,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.create_security_configuration_input.CreateSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["security_configuration"] = security_configuration
+        if name is not None:
+            input_["name"] = name
+        if security_configuration is not None:
+            input_["security_configuration"] = security_configuration
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -668,20 +693,28 @@ class AsyncEMRClient:
 
     async def create_studio(
         self,
-        name: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        auth_mode: "capo_emr.types.auth_mode.AuthMode",
-        vpc_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        subnet_ids: "capo_emr.types.subnet_id_list.SubnetIdList",
-        service_role: "capo_emr.types.xml_string.XmlString",
-        workspace_security_group_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        engine_security_group_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        default_s3_location: "capo_emr.types.xml_string.XmlString",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        name: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         description: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
+        auth_mode: Optional["capo_emr.types.auth_mode.AuthMode"] = None,
+        vpc_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        subnet_ids: Optional["capo_emr.types.subnet_id_list.SubnetIdList"] = None,
+        service_role: Optional["capo_emr.types.xml_string.XmlString"] = None,
         user_role: Optional["capo_emr.types.xml_string.XmlString"] = None,
+        workspace_security_group_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        engine_security_group_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        default_s3_location: Optional["capo_emr.types.xml_string.XmlString"] = None,
         idp_auth_url: Optional["capo_emr.types.xml_string.XmlString"] = None,
         idp_relay_state_parameter_name: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
@@ -740,18 +773,26 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.create_studio_input.CreateStudioInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
-        input_["auth_mode"] = auth_mode
-        input_["vpc_id"] = vpc_id
-        input_["subnet_ids"] = subnet_ids
-        input_["service_role"] = service_role
+        if auth_mode is not None:
+            input_["auth_mode"] = auth_mode
+        if vpc_id is not None:
+            input_["vpc_id"] = vpc_id
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
+        if service_role is not None:
+            input_["service_role"] = service_role
         if user_role is not None:
             input_["user_role"] = user_role
-        input_["workspace_security_group_id"] = workspace_security_group_id
-        input_["engine_security_group_id"] = engine_security_group_id
-        input_["default_s3_location"] = default_s3_location
+        if workspace_security_group_id is not None:
+            input_["workspace_security_group_id"] = workspace_security_group_id
+        if engine_security_group_id is not None:
+            input_["engine_security_group_id"] = engine_security_group_id
+        if default_s3_location is not None:
+            input_["default_s3_location"] = default_s3_location
         if idp_auth_url is not None:
             input_["idp_auth_url"] = idp_auth_url
         if idp_relay_state_parameter_name is not None:
@@ -778,15 +819,19 @@ class AsyncEMRClient:
 
     async def create_studio_session_mapping(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        identity_type: "capo_emr.types.identity_type.IdentityType",
-        session_policy_arn: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         identity_id: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
         identity_name: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        identity_type: Optional["capo_emr.types.identity_type.IdentityType"] = None,
+        session_policy_arn: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
     ) -> None:
@@ -820,13 +865,16 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.create_studio_session_mapping_input.CreateStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
         if identity_id is not None:
             input_["identity_id"] = identity_id
         if identity_name is not None:
             input_["identity_name"] = identity_name
-        input_["identity_type"] = identity_type
-        input_["session_policy_arn"] = session_policy_arn
+        if identity_type is not None:
+            input_["identity_type"] = identity_type
+        if session_policy_arn is not None:
+            input_["session_policy_arn"] = session_policy_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -837,9 +885,9 @@ class AsyncEMRClient:
 
     async def delete_security_configuration(
         self,
-        name: "capo_emr.types.xml_string.XmlString",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        name: Optional["capo_emr.types.xml_string.XmlString"] = None,
     ) -> "capo_emr.types.delete_security_configuration_output.DeleteSecurityConfigurationOutput":
         """<p>Deletes a security configuration.</p>
 
@@ -869,7 +917,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.delete_security_configuration_input.DeleteSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -880,9 +929,11 @@ class AsyncEMRClient:
 
     async def delete_studio(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
     ) -> None:
         """<p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
 
@@ -910,7 +961,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.delete_studio_input.DeleteStudioInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -921,16 +973,18 @@ class AsyncEMRClient:
 
     async def delete_studio_session_mapping(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        identity_type: "capo_emr.types.identity_type.IdentityType",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         identity_id: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
         identity_name: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
+        identity_type: Optional["capo_emr.types.identity_type.IdentityType"] = None,
     ) -> None:
         r"""<p>Removes a user or group from an Amazon EMR Studio.</p>
 
@@ -961,12 +1015,14 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.delete_studio_session_mapping_input.DeleteStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
         if identity_id is not None:
             input_["identity_id"] = identity_id
         if identity_name is not None:
             input_["identity_name"] = identity_name
-        input_["identity_type"] = identity_type
+        if identity_type is not None:
+            input_["identity_type"] = identity_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -977,9 +1033,9 @@ class AsyncEMRClient:
 
     async def describe_cluster(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> "capo_emr.types.describe_cluster_output.DescribeClusterOutput":
         """<p>Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on.</p>
 
@@ -1009,7 +1065,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.describe_cluster_input.DescribeClusterInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1077,9 +1134,11 @@ class AsyncEMRClient:
 
     async def describe_notebook_execution(
         self,
-        notebook_execution_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        notebook_execution_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
     ) -> "capo_emr.types.describe_notebook_execution_output.DescribeNotebookExecutionOutput":
         """<p>Provides details of a notebook execution.</p>
 
@@ -1109,7 +1168,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.describe_notebook_execution_input.DescribeNotebookExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_execution_id"] = notebook_execution_id
+        if notebook_execution_id is not None:
+            input_["notebook_execution_id"] = notebook_execution_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1120,9 +1180,11 @@ class AsyncEMRClient:
 
     async def describe_persistent_app_ui(
         self,
-        persistent_app_ui_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        persistent_app_ui_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
     ) -> (
         "capo_emr.types.describe_persistent_app_ui_output.DescribePersistentAppUIOutput"
     ):
@@ -1154,7 +1216,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.describe_persistent_app_ui_input.DescribePersistentAppUIInput = {}  # type: ignore[typeddict-item]
-        input_["persistent_app_ui_id"] = persistent_app_ui_id
+        if persistent_app_ui_id is not None:
+            input_["persistent_app_ui_id"] = persistent_app_ui_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1219,9 +1282,9 @@ class AsyncEMRClient:
 
     async def describe_security_configuration(
         self,
-        name: "capo_emr.types.xml_string.XmlString",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        name: Optional["capo_emr.types.xml_string.XmlString"] = None,
     ) -> "capo_emr.types.describe_security_configuration_output.DescribeSecurityConfigurationOutput":
         """<p>Provides the details of a security configuration by returning the configuration JSON.</p>
 
@@ -1251,7 +1314,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.describe_security_configuration_input.DescribeSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1262,10 +1326,10 @@ class AsyncEMRClient:
 
     async def describe_step(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        step_id: "capo_emr.types.step_id.StepId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        step_id: Optional["capo_emr.types.step_id.StepId"] = None,
     ) -> "capo_emr.types.describe_step_output.DescribeStepOutput":
         """<p>Provides more detail about the cluster step.</p>
 
@@ -1296,8 +1360,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.describe_step_input.DescribeStepInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["step_id"] = step_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if step_id is not None:
+            input_["step_id"] = step_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1308,9 +1374,11 @@ class AsyncEMRClient:
 
     async def describe_studio(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
     ) -> "capo_emr.types.describe_studio_output.DescribeStudioOutput":
         """<p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio access URL, and so on.</p>
 
@@ -1340,7 +1408,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.describe_studio_input.DescribeStudioInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1351,9 +1420,9 @@ class AsyncEMRClient:
 
     async def get_auto_termination_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> "capo_emr.types.get_auto_termination_policy_output.GetAutoTerminationPolicyOutput":
         """<p>Returns the auto-termination policy for an Amazon EMR cluster.</p>
 
@@ -1381,7 +1450,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_auto_termination_policy_input.GetAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1428,9 +1498,11 @@ class AsyncEMRClient:
 
     async def get_cluster_session_credentials(
         self,
-        cluster_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         execution_role_arn: Optional["capo_emr.types.arn_type.ArnType"] = None,
     ) -> "capo_emr.types.get_cluster_session_credentials_output.GetClusterSessionCredentialsOutput":
         """<p>Provides temporary, HTTP basic credentials that are associated with a given runtime IAM role and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username and password authentication.</p>
@@ -1462,7 +1534,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_cluster_session_credentials_input.GetClusterSessionCredentialsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
 
@@ -1475,9 +1548,9 @@ class AsyncEMRClient:
 
     async def get_managed_scaling_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> (
         "capo_emr.types.get_managed_scaling_policy_output.GetManagedScalingPolicyOutput"
     ):
@@ -1507,7 +1580,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_managed_scaling_policy_input.GetManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1518,9 +1592,11 @@ class AsyncEMRClient:
 
     async def get_on_cluster_app_ui_presigned_url(
         self,
-        cluster_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         on_cluster_app_ui_type: Optional[
             "capo_emr.types.on_cluster_app_ui_type.OnClusterAppUIType"
         ] = None,
@@ -1562,7 +1638,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_on_cluster_app_ui_presigned_url_input.GetOnClusterAppUIPresignedURLInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if on_cluster_app_ui_type is not None:
             input_["on_cluster_app_ui_type"] = on_cluster_app_ui_type
         if application_id is not None:
@@ -1581,9 +1658,11 @@ class AsyncEMRClient:
 
     async def get_persistent_app_ui_presigned_url(
         self,
-        persistent_app_ui_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        persistent_app_ui_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         persistent_app_ui_type: Optional[
             "capo_emr.types.persistent_app_ui_type.PersistentAppUIType"
         ] = None,
@@ -1625,7 +1704,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_persistent_app_ui_presigned_url_input.GetPersistentAppUIPresignedURLInput = {}  # type: ignore[typeddict-item]
-        input_["persistent_app_ui_id"] = persistent_app_ui_id
+        if persistent_app_ui_id is not None:
+            input_["persistent_app_ui_id"] = persistent_app_ui_id
         if persistent_app_ui_type is not None:
             input_["persistent_app_ui_type"] = persistent_app_ui_type
         if application_id is not None:
@@ -1644,10 +1724,10 @@ class AsyncEMRClient:
 
     async def get_session(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        session_id: "capo_emr.types.session_id.SessionId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        session_id: Optional["capo_emr.types.session_id.SessionId"] = None,
     ) -> "capo_emr.types.get_session_output.GetSessionOutput":
         """<p>Returns detailed information about a session.</p>
 
@@ -1678,8 +1758,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_session_input.GetSessionInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["session_id"] = session_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if session_id is not None:
+            input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1690,10 +1772,10 @@ class AsyncEMRClient:
 
     async def get_session_endpoint(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        session_id: "capo_emr.types.session_id.SessionId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        session_id: Optional["capo_emr.types.session_id.SessionId"] = None,
     ) -> "capo_emr.types.get_session_endpoint_output.GetSessionEndpointOutput":
         """<p>Returns the Spark Connect endpoint URL and a time-limited authentication token for the specified session. Use the endpoint and token to connect a PySpark client to the session. Call this operation again when the token expires to obtain a new one.</p>
 
@@ -1724,8 +1806,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_session_endpoint_input.GetSessionEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["session_id"] = session_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if session_id is not None:
+            input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1736,16 +1820,18 @@ class AsyncEMRClient:
 
     async def get_studio_session_mapping(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        identity_type: "capo_emr.types.identity_type.IdentityType",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         identity_id: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
         identity_name: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
+        identity_type: Optional["capo_emr.types.identity_type.IdentityType"] = None,
     ) -> (
         "capo_emr.types.get_studio_session_mapping_output.GetStudioSessionMappingOutput"
     ):
@@ -1780,12 +1866,14 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.get_studio_session_mapping_input.GetStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
         if identity_id is not None:
             input_["identity_id"] = identity_id
         if identity_name is not None:
             input_["identity_name"] = identity_name
-        input_["identity_type"] = identity_type
+        if identity_type is not None:
+            input_["identity_type"] = identity_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1796,9 +1884,9 @@ class AsyncEMRClient:
 
     async def list_bootstrap_actions(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
     ) -> "capo_emr.types.list_bootstrap_actions_output.ListBootstrapActionsOutput":
         """<p>Provides information about the bootstrap actions associated with a cluster.</p>
@@ -1830,7 +1918,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_bootstrap_actions_input.ListBootstrapActionsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if marker is not None:
             input_["marker"] = marker
 
@@ -1843,16 +1932,16 @@ class AsyncEMRClient:
 
     async def iter_list_bootstrap_actions(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
     ) -> "AsyncIterator[capo_emr.types.command.Command]":
         _token = marker
         while True:
             _response = await self.list_bootstrap_actions(
-                cluster_id,
                 config_overrides=config_overrides,
+                cluster_id=cluster_id,
                 marker=_token,
             )
             _page = _resolve_path(_response, ("bootstrap_actions",))
@@ -1949,9 +2038,9 @@ class AsyncEMRClient:
 
     async def list_instance_fleets(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
     ) -> "capo_emr.types.list_instance_fleets_output.ListInstanceFleetsOutput":
         """<p>Lists all available details about the instance fleets in a cluster.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.</p> </note>
@@ -1983,7 +2072,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_instance_fleets_input.ListInstanceFleetsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if marker is not None:
             input_["marker"] = marker
 
@@ -1996,16 +2086,16 @@ class AsyncEMRClient:
 
     async def iter_list_instance_fleets(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
     ) -> "AsyncIterator[capo_emr.types.instance_fleet.InstanceFleet]":
         _token = marker
         while True:
             _response = await self.list_instance_fleets(
-                cluster_id,
                 config_overrides=config_overrides,
+                cluster_id=cluster_id,
                 marker=_token,
             )
             _page = _resolve_path(_response, ("instance_fleets",))
@@ -2017,9 +2107,9 @@ class AsyncEMRClient:
 
     async def list_instance_groups(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
     ) -> "capo_emr.types.list_instance_groups_output.ListInstanceGroupsOutput":
         """<p>Provides all available details about the instance groups in a cluster.</p>
@@ -2051,7 +2141,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_instance_groups_input.ListInstanceGroupsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if marker is not None:
             input_["marker"] = marker
 
@@ -2064,16 +2155,16 @@ class AsyncEMRClient:
 
     async def iter_list_instance_groups(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
     ) -> "AsyncIterator[capo_emr.types.instance_group.InstanceGroup]":
         _token = marker
         while True:
             _response = await self.list_instance_groups(
-                cluster_id,
                 config_overrides=config_overrides,
+                cluster_id=cluster_id,
                 marker=_token,
             )
             _page = _resolve_path(_response, ("instance_groups",))
@@ -2085,9 +2176,9 @@ class AsyncEMRClient:
 
     async def list_instances(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         instance_group_id: Optional[
             "capo_emr.types.instance_group_id.InstanceGroupId"
         ] = None,
@@ -2139,7 +2230,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_instances_input.ListInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if instance_group_id is not None:
             input_["instance_group_id"] = instance_group_id
         if instance_group_types is not None:
@@ -2162,9 +2254,9 @@ class AsyncEMRClient:
 
     async def iter_list_instances(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         instance_group_id: Optional[
             "capo_emr.types.instance_group_id.InstanceGroupId"
         ] = None,
@@ -2185,8 +2277,8 @@ class AsyncEMRClient:
         _token = marker
         while True:
             _response = await self.list_instances(
-                cluster_id,
                 config_overrides=config_overrides,
+                cluster_id=cluster_id,
                 instance_group_id=instance_group_id,
                 instance_group_types=instance_group_types,
                 instance_fleet_id=instance_fleet_id,
@@ -2423,9 +2515,9 @@ class AsyncEMRClient:
 
     async def list_sessions(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         session_states: Optional[
             "capo_emr.types.session_state_list.SessionStateList"
         ] = None,
@@ -2465,7 +2557,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if session_states is not None:
             input_["session_states"] = session_states
         if next_token is not None:
@@ -2482,9 +2575,9 @@ class AsyncEMRClient:
 
     async def iter_list_sessions(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         session_states: Optional[
             "capo_emr.types.session_state_list.SessionStateList"
         ] = None,
@@ -2496,8 +2589,8 @@ class AsyncEMRClient:
         _token = next_token
         while True:
             _response = await self.list_sessions(
-                cluster_id,
                 config_overrides=config_overrides,
+                cluster_id=cluster_id,
                 session_states=session_states,
                 next_token=_token,
                 max_results=max_results,
@@ -2511,9 +2604,9 @@ class AsyncEMRClient:
 
     async def list_steps(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         step_states: Optional["capo_emr.types.step_state_list.StepStateList"] = None,
         step_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
@@ -2547,7 +2640,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_steps_input.ListStepsInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if step_states is not None:
             input_["step_states"] = step_states
         if step_ids is not None:
@@ -2564,9 +2658,9 @@ class AsyncEMRClient:
 
     async def iter_list_steps(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         step_states: Optional["capo_emr.types.step_state_list.StepStateList"] = None,
         step_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
         marker: Optional["capo_emr.types.marker.Marker"] = None,
@@ -2574,8 +2668,8 @@ class AsyncEMRClient:
         _token = marker
         while True:
             _response = await self.list_steps(
-                cluster_id,
                 config_overrides=config_overrides,
+                cluster_id=cluster_id,
                 step_states=step_states,
                 step_ids=step_ids,
                 marker=_token,
@@ -2731,9 +2825,9 @@ class AsyncEMRClient:
 
     async def list_supported_instance_types(
         self,
-        release_label: "capo_emr.types.string.String",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        release_label: Optional["capo_emr.types.string.String"] = None,
         marker: Optional["capo_emr.types.string.String"] = None,
     ) -> "capo_emr.types.list_supported_instance_types_output.ListSupportedInstanceTypesOutput":
         r"""<p>A list of the instance types that Amazon EMR supports. You can filter the list by Amazon Web Services Region and Amazon EMR release. </p>
@@ -2765,7 +2859,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.list_supported_instance_types_input.ListSupportedInstanceTypesInput = {}  # type: ignore[typeddict-item]
-        input_["release_label"] = release_label
+        if release_label is not None:
+            input_["release_label"] = release_label
         if marker is not None:
             input_["marker"] = marker
 
@@ -2778,9 +2873,9 @@ class AsyncEMRClient:
 
     async def modify_cluster(
         self,
-        cluster_id: "capo_emr.types.string.String",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.string.String"] = None,
         step_concurrency_level: Optional["capo_emr.types.integer.Integer"] = None,
         extended_support: Optional[
             "capo_emr.types.boolean_object.BooleanObject"
@@ -2816,7 +2911,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.modify_cluster_input.ModifyClusterInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if step_concurrency_level is not None:
             input_["step_concurrency_level"] = step_concurrency_level
         if extended_support is not None:
@@ -2831,10 +2927,12 @@ class AsyncEMRClient:
 
     async def modify_instance_fleet(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        instance_fleet: "capo_emr.types.instance_fleet_modify_config.InstanceFleetModifyConfig",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        instance_fleet: Optional[
+            "capo_emr.types.instance_fleet_modify_config.InstanceFleetModifyConfig"
+        ] = None,
     ) -> None:
         """<p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the specified InstanceFleetID within the cluster specified using ClusterID. The call either succeeds or fails atomically.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.</p> </note>
 
@@ -2863,8 +2961,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.modify_instance_fleet_input.ModifyInstanceFleetInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["instance_fleet"] = instance_fleet
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if instance_fleet is not None:
+            input_["instance_fleet"] = instance_fleet
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2922,11 +3022,15 @@ class AsyncEMRClient:
 
     async def put_auto_scaling_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        instance_group_id: "capo_emr.types.instance_group_id.InstanceGroupId",
-        auto_scaling_policy: "capo_emr.types.auto_scaling_policy.AutoScalingPolicy",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        instance_group_id: Optional[
+            "capo_emr.types.instance_group_id.InstanceGroupId"
+        ] = None,
+        auto_scaling_policy: Optional[
+            "capo_emr.types.auto_scaling_policy.AutoScalingPolicy"
+        ] = None,
     ) -> "capo_emr.types.put_auto_scaling_policy_output.PutAutoScalingPolicyOutput":
         """<p>Creates or updates an automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates Amazon EC2 instances in response to the value of a CloudWatch metric.</p>
 
@@ -2956,9 +3060,12 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.put_auto_scaling_policy_input.PutAutoScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["instance_group_id"] = instance_group_id
-        input_["auto_scaling_policy"] = auto_scaling_policy
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if instance_group_id is not None:
+            input_["instance_group_id"] = instance_group_id
+        if auto_scaling_policy is not None:
+            input_["auto_scaling_policy"] = auto_scaling_policy
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2969,9 +3076,9 @@ class AsyncEMRClient:
 
     async def put_auto_termination_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         auto_termination_policy: Optional[
             "capo_emr.types.auto_termination_policy.AutoTerminationPolicy"
         ] = None,
@@ -3003,7 +3110,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.put_auto_termination_policy_input.PutAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if auto_termination_policy is not None:
             input_["auto_termination_policy"] = auto_termination_policy
 
@@ -3016,9 +3124,11 @@ class AsyncEMRClient:
 
     async def put_block_public_access_configuration(
         self,
-        block_public_access_configuration: "capo_emr.types.block_public_access_configuration.BlockPublicAccessConfiguration",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        block_public_access_configuration: Optional[
+            "capo_emr.types.block_public_access_configuration.BlockPublicAccessConfiguration"
+        ] = None,
     ) -> "capo_emr.types.put_block_public_access_configuration_output.PutBlockPublicAccessConfigurationOutput":
         r"""<p>Creates or updates an Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html\">Configure Block Public Access for Amazon EMR</a> in the <i>Amazon EMR Management Guide</i>.</p>
 
@@ -3048,7 +3158,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.put_block_public_access_configuration_input.PutBlockPublicAccessConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["block_public_access_configuration"] = block_public_access_configuration
+        if block_public_access_configuration is not None:
+            input_["block_public_access_configuration"] = (
+                block_public_access_configuration
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3059,10 +3172,12 @@ class AsyncEMRClient:
 
     async def put_managed_scaling_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        managed_scaling_policy: "capo_emr.types.managed_scaling_policy.ManagedScalingPolicy",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        managed_scaling_policy: Optional[
+            "capo_emr.types.managed_scaling_policy.ManagedScalingPolicy"
+        ] = None,
     ) -> (
         "capo_emr.types.put_managed_scaling_policy_output.PutManagedScalingPolicyOutput"
     ):
@@ -3093,8 +3208,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.put_managed_scaling_policy_input.PutManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["managed_scaling_policy"] = managed_scaling_policy
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if managed_scaling_policy is not None:
+            input_["managed_scaling_policy"] = managed_scaling_policy
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3105,10 +3222,12 @@ class AsyncEMRClient:
 
     async def remove_auto_scaling_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        instance_group_id: "capo_emr.types.instance_group_id.InstanceGroupId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        instance_group_id: Optional[
+            "capo_emr.types.instance_group_id.InstanceGroupId"
+        ] = None,
     ) -> (
         "capo_emr.types.remove_auto_scaling_policy_output.RemoveAutoScalingPolicyOutput"
     ):
@@ -3139,8 +3258,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.remove_auto_scaling_policy_input.RemoveAutoScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["instance_group_id"] = instance_group_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if instance_group_id is not None:
+            input_["instance_group_id"] = instance_group_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3151,9 +3272,9 @@ class AsyncEMRClient:
 
     async def remove_auto_termination_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> "capo_emr.types.remove_auto_termination_policy_output.RemoveAutoTerminationPolicyOutput":
         """<p>Removes an auto-termination policy from an Amazon EMR cluster.</p>
 
@@ -3181,7 +3302,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.remove_auto_termination_policy_input.RemoveAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3192,9 +3314,9 @@ class AsyncEMRClient:
 
     async def remove_managed_scaling_policy(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> "capo_emr.types.remove_managed_scaling_policy_output.RemoveManagedScalingPolicyOutput":
         """<p> Removes a managed scaling policy from a specified Amazon EMR cluster. </p>
 
@@ -3222,7 +3344,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.remove_managed_scaling_policy_input.RemoveManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3233,10 +3356,10 @@ class AsyncEMRClient:
 
     async def remove_tags(
         self,
-        resource_id: "capo_emr.types.resource_id.ResourceId",
-        tag_keys: "capo_emr.types.string_list.StringList",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        resource_id: Optional["capo_emr.types.resource_id.ResourceId"] = None,
+        tag_keys: Optional["capo_emr.types.string_list.StringList"] = None,
         cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
     ) -> "capo_emr.types.remove_tags_output.RemoveTagsOutput":
         r"""<p>Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR Studio. Tags make it easier to associate resources in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html\">Tag Clusters</a>. </p> <p>The following example removes the stack tag with value Prod from a cluster:</p>
@@ -3269,8 +3392,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
-        input_["resource_id"] = resource_id
-        input_["tag_keys"] = tag_keys
+        if resource_id is not None:
+            input_["resource_id"] = resource_id
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
         if cluster_id is not None:
             input_["cluster_id"] = cluster_id
 
@@ -3283,10 +3408,11 @@ class AsyncEMRClient:
 
     async def run_job_flow(
         self,
-        name: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        instances: "capo_emr.types.job_flow_instances_config.JobFlowInstancesConfig",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        name: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         log_uri: Optional["capo_emr.types.xml_string.XmlString"] = None,
         log_encryption_kms_key_id: Optional[
             "capo_emr.types.xml_string.XmlString"
@@ -3297,6 +3423,9 @@ class AsyncEMRClient:
         ] = None,
         release_label: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        instances: Optional[
+            "capo_emr.types.job_flow_instances_config.JobFlowInstancesConfig"
         ] = None,
         steps: Optional["capo_emr.types.step_config_list.StepConfigList"] = None,
         step_execution_role_arn: Optional["capo_emr.types.arn_type.ArnType"] = None,
@@ -3417,7 +3546,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.run_job_flow_input.RunJobFlowInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if log_uri is not None:
             input_["log_uri"] = log_uri
         if log_encryption_kms_key_id is not None:
@@ -3428,7 +3558,8 @@ class AsyncEMRClient:
             input_["ami_version"] = ami_version
         if release_label is not None:
             input_["release_label"] = release_label
-        input_["instances"] = instances
+        if instances is not None:
+            input_["instances"] = instances
         if steps is not None:
             input_["steps"] = steps
         if step_execution_role_arn is not None:
@@ -3495,10 +3626,12 @@ class AsyncEMRClient:
 
     async def set_keep_job_flow_alive_when_no_steps(
         self,
-        job_flow_ids: "capo_emr.types.xml_string_list.XmlStringList",
-        keep_job_flow_alive_when_no_steps: "capo_emr.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        job_flow_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
+        keep_job_flow_alive_when_no_steps: Optional[
+            "capo_emr.types.boolean.Boolean"
+        ] = None,
     ) -> None:
         r"""<p>You can use the <code>SetKeepJobFlowAliveWhenNoSteps</code> to configure a cluster (job flow) to terminate after the step execution, i.e., all your steps are executed. If you want a transient cluster that shuts down after the last of the current executing steps are completed, you can configure <code>SetKeepJobFlowAliveWhenNoSteps</code> to false. If you want a long running cluster, configure <code>SetKeepJobFlowAliveWhenNoSteps</code> to true.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html\">Managing Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>.</p>
 
@@ -3526,8 +3659,12 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.set_keep_job_flow_alive_when_no_steps_input.SetKeepJobFlowAliveWhenNoStepsInput = {}  # type: ignore[typeddict-item]
-        input_["job_flow_ids"] = job_flow_ids
-        input_["keep_job_flow_alive_when_no_steps"] = keep_job_flow_alive_when_no_steps
+        if job_flow_ids is not None:
+            input_["job_flow_ids"] = job_flow_ids
+        if keep_job_flow_alive_when_no_steps is not None:
+            input_["keep_job_flow_alive_when_no_steps"] = (
+                keep_job_flow_alive_when_no_steps
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3538,10 +3675,10 @@ class AsyncEMRClient:
 
     async def set_termination_protection(
         self,
-        job_flow_ids: "capo_emr.types.xml_string_list.XmlStringList",
-        termination_protected: "capo_emr.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        job_flow_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
+        termination_protected: Optional["capo_emr.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<p>SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon EC2 <code>DisableAPITermination</code> API on all Amazon EC2 instances in a cluster.</p> <p> <code>SetTerminationProtection</code> is used to prevent accidental termination of a cluster and to ensure that in the event of an error, the instances persist so that you can recover any data stored in their ephemeral instance storage.</p> <p> To terminate a cluster that has been locked by setting <code>SetTerminationProtection</code> to <code>true</code>, you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code> in which you set the value to <code>false</code>. </p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html\">Managing Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. </p>
 
@@ -3569,8 +3706,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.set_termination_protection_input.SetTerminationProtectionInput = {}  # type: ignore[typeddict-item]
-        input_["job_flow_ids"] = job_flow_ids
-        input_["termination_protected"] = termination_protected
+        if job_flow_ids is not None:
+            input_["job_flow_ids"] = job_flow_ids
+        if termination_protected is not None:
+            input_["termination_protected"] = termination_protected
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3581,10 +3720,12 @@ class AsyncEMRClient:
 
     async def set_unhealthy_node_replacement(
         self,
-        job_flow_ids: "capo_emr.types.xml_string_list.XmlStringList",
-        unhealthy_node_replacement: "capo_emr.types.boolean_object.BooleanObject",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        job_flow_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
+        unhealthy_node_replacement: Optional[
+            "capo_emr.types.boolean_object.BooleanObject"
+        ] = None,
     ) -> None:
         r"""<p>Specify whether to enable unhealthy node replacement, which lets Amazon EMR gracefully replace core nodes on a cluster if any nodes become unhealthy. For example, a node becomes unhealthy if disk usage is above 90%. If unhealthy node replacement is on and <code>TerminationProtected</code> are off, Amazon EMR immediately terminates the unhealthy core nodes. To use unhealthy node replacement and retain unhealthy core nodes, use to turn on termination protection. In such cases, Amazon EMR adds the unhealthy nodes to a denylist, reducing job interruptions and failures.</p> <p>If unhealthy node replacement is on, Amazon EMR notifies YARN and other applications on the cluster to stop scheduling tasks with these nodes, moves the data, and then terminates the nodes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-node-replacement.html\">graceful node replacement</a> in the <i>Amazon EMR Management Guide</i>.</p>
 
@@ -3612,8 +3753,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.set_unhealthy_node_replacement_input.SetUnhealthyNodeReplacementInput = {}  # type: ignore[typeddict-item]
-        input_["job_flow_ids"] = job_flow_ids
-        input_["unhealthy_node_replacement"] = unhealthy_node_replacement
+        if job_flow_ids is not None:
+            input_["job_flow_ids"] = job_flow_ids
+        if unhealthy_node_replacement is not None:
+            input_["unhealthy_node_replacement"] = unhealthy_node_replacement
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3624,10 +3767,10 @@ class AsyncEMRClient:
 
     async def set_visible_to_all_users(
         self,
-        job_flow_ids: "capo_emr.types.xml_string_list.XmlStringList",
-        visible_to_all_users: "capo_emr.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        job_flow_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
+        visible_to_all_users: Optional["capo_emr.types.boolean.Boolean"] = None,
     ) -> None:
         r"""<important> <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be visible to all users in your account. To restrict cluster access using an IAM policy, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-IAM.html\">Identity and Access Management for Amazon EMR</a>. </p> </important> <p>Sets the <a>Cluster$VisibleToAllUsers</a> value for an Amazon EMR cluster. When <code>true</code>, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions on the cluster, regardless of IAM permissions policies attached to other IAM principals.</p> <p>This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a> parameter.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users\">Understanding the Amazon EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
 
@@ -3655,8 +3798,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.set_visible_to_all_users_input.SetVisibleToAllUsersInput = {}  # type: ignore[typeddict-item]
-        input_["job_flow_ids"] = job_flow_ids
-        input_["visible_to_all_users"] = visible_to_all_users
+        if job_flow_ids is not None:
+            input_["job_flow_ids"] = job_flow_ids
+        if visible_to_all_users is not None:
+            input_["visible_to_all_users"] = visible_to_all_users
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3667,8 +3812,6 @@ class AsyncEMRClient:
 
     async def start_notebook_execution(
         self,
-        execution_engine: "capo_emr.types.execution_engine_config.ExecutionEngineConfig",
-        service_role: "capo_emr.types.xml_string.XmlString",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
         editor_id: Optional[
@@ -3679,6 +3822,10 @@ class AsyncEMRClient:
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
         notebook_params: Optional["capo_emr.types.xml_string.XmlString"] = None,
+        execution_engine: Optional[
+            "capo_emr.types.execution_engine_config.ExecutionEngineConfig"
+        ] = None,
+        service_role: Optional["capo_emr.types.xml_string.XmlString"] = None,
         notebook_instance_security_group_id: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
@@ -3743,8 +3890,10 @@ class AsyncEMRClient:
             input_["notebook_execution_name"] = notebook_execution_name
         if notebook_params is not None:
             input_["notebook_params"] = notebook_params
-        input_["execution_engine"] = execution_engine
-        input_["service_role"] = service_role
+        if execution_engine is not None:
+            input_["execution_engine"] = execution_engine
+        if service_role is not None:
+            input_["service_role"] = service_role
         if notebook_instance_security_group_id is not None:
             input_["notebook_instance_security_group_id"] = (
                 notebook_instance_security_group_id
@@ -3769,12 +3918,12 @@ class AsyncEMRClient:
 
     async def start_session(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
         name: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
         execution_role_arn: Optional["capo_emr.types.iam_role_arn.IAMRoleArn"] = None,
         engine_configurations: Optional[
             "capo_emr.types.configuration_list.ConfigurationList"
@@ -3825,7 +3974,8 @@ class AsyncEMRClient:
         input_: capo_emr.types.start_session_input.StartSessionInput = {}  # type: ignore[typeddict-item]
         if name is not None:
             input_["name"] = name
-        input_["cluster_id"] = cluster_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if engine_configurations is not None:
@@ -3848,9 +3998,11 @@ class AsyncEMRClient:
 
     async def stop_notebook_execution(
         self,
-        notebook_execution_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        notebook_execution_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
     ) -> None:
         """<p>Stops a notebook execution.</p>
 
@@ -3878,7 +4030,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.stop_notebook_execution_input.StopNotebookExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["notebook_execution_id"] = notebook_execution_id
+        if notebook_execution_id is not None:
+            input_["notebook_execution_id"] = notebook_execution_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3889,9 +4042,9 @@ class AsyncEMRClient:
 
     async def terminate_job_flows(
         self,
-        job_flow_ids: "capo_emr.types.xml_string_list.XmlStringList",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        job_flow_ids: Optional["capo_emr.types.xml_string_list.XmlStringList"] = None,
     ) -> None:
         """<p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut down, any step not yet completed is canceled and the Amazon EC2 instances on which the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.</p> <p>The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code> is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.</p>
 
@@ -3918,7 +4071,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.terminate_job_flows_input.TerminateJobFlowsInput = {}  # type: ignore[typeddict-item]
-        input_["job_flow_ids"] = job_flow_ids
+        if job_flow_ids is not None:
+            input_["job_flow_ids"] = job_flow_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3929,10 +4083,10 @@ class AsyncEMRClient:
 
     async def terminate_session(
         self,
-        cluster_id: "capo_emr.types.cluster_id.ClusterId",
-        session_id: "capo_emr.types.session_id.SessionId",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        cluster_id: Optional["capo_emr.types.cluster_id.ClusterId"] = None,
+        session_id: Optional["capo_emr.types.session_id.SessionId"] = None,
     ) -> "capo_emr.types.terminate_session_output.TerminateSessionOutput":
         """<p>Terminates an active session. After you call this operation, the session enters the <code>TERMINATING</code> state and then transitions to <code>TERMINATED</code>.</p>
 
@@ -3963,8 +4117,10 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.terminate_session_input.TerminateSessionInput = {}  # type: ignore[typeddict-item]
-        input_["cluster_id"] = cluster_id
-        input_["session_id"] = session_id
+        if cluster_id is not None:
+            input_["cluster_id"] = cluster_id
+        if session_id is not None:
+            input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3975,9 +4131,11 @@ class AsyncEMRClient:
 
     async def update_studio(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         name: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
@@ -4019,7 +4177,8 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.update_studio_input.UpdateStudioInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -4040,15 +4199,19 @@ class AsyncEMRClient:
 
     async def update_studio_session_mapping(
         self,
-        studio_id: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
-        identity_type: "capo_emr.types.identity_type.IdentityType",
-        session_policy_arn: "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256",
         *,
         config_overrides: Optional[AsyncEMRClientConfig] = None,
+        studio_id: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
         identity_id: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
         identity_name: Optional[
+            "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
+        ] = None,
+        identity_type: Optional["capo_emr.types.identity_type.IdentityType"] = None,
+        session_policy_arn: Optional[
             "capo_emr.types.xml_string_max_len256.XmlStringMaxLen256"
         ] = None,
     ) -> None:
@@ -4082,13 +4245,16 @@ class AsyncEMRClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_emr.types.update_studio_session_mapping_input.UpdateStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input_["studio_id"] = studio_id
+        if studio_id is not None:
+            input_["studio_id"] = studio_id
         if identity_id is not None:
             input_["identity_id"] = identity_id
         if identity_name is not None:
             input_["identity_name"] = identity_name
-        input_["identity_type"] = identity_type
-        input_["session_policy_arn"] = session_policy_arn
+        if identity_type is not None:
+            input_["identity_type"] = identity_type
+        if session_policy_arn is not None:
+            input_["session_policy_arn"] = session_policy_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

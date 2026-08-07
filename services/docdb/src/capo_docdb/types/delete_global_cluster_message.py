@@ -21,10 +21,11 @@ class DeleteGlobalClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteGlobalClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterIdentifier",
+                f"{key_prefix}GlobalClusterIdentifier",
                 str(value["global_cluster_identifier"]),
             )
         )

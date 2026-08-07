@@ -112,56 +112,59 @@ class Stack(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Stack, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "change_set_id" in value:
-        pairs.append((f"{prefix}.ChangeSetId", str(value["change_set_id"])))
+        pairs.append((f"{key_prefix}ChangeSetId", str(value["change_set_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "parameters" in value:
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "creation_time" in value:
         import capo_cloudformation.types.creation_time
 
         capo_cloudformation.types.creation_time.serialize_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "deletion_time" in value:
         import capo_cloudformation.types.deletion_time
 
         capo_cloudformation.types.deletion_time.serialize_query(
-            value["deletion_time"], pairs, f"{prefix}.DeletionTime"
+            value["deletion_time"], pairs, f"{key_prefix}DeletionTime"
         )
     if "last_updated_time" in value:
         import capo_cloudformation.types.last_updated_time
 
         capo_cloudformation.types.last_updated_time.serialize_query(
-            value["last_updated_time"], pairs, f"{prefix}.LastUpdatedTime"
+            value["last_updated_time"], pairs, f"{key_prefix}LastUpdatedTime"
         )
     if "rollback_configuration" in value:
         import capo_cloudformation.types.rollback_configuration
 
         capo_cloudformation.types.rollback_configuration.serialize_query(
-            value["rollback_configuration"], pairs, f"{prefix}.RollbackConfiguration"
+            value["rollback_configuration"], pairs, f"{key_prefix}RollbackConfiguration"
         )
     if "stack_status" in value:
         import capo_cloudformation.types.stack_status
 
         capo_cloudformation.types.stack_status.serialize_query(
-            value["stack_status"], pairs, f"{prefix}.StackStatus"
+            value["stack_status"], pairs, f"{key_prefix}StackStatus"
         )
     if "stack_status_reason" in value:
-        pairs.append((f"{prefix}.StackStatusReason", str(value["stack_status_reason"])))
+        pairs.append(
+            (f"{key_prefix}StackStatusReason", str(value["stack_status_reason"]))
+        )
     if "disable_rollback" in value:
         pairs.append(
             (
-                f"{prefix}.DisableRollback",
+                f"{key_prefix}DisableRollback",
                 "true" if value["disable_rollback"] else "false",
             )
         )
@@ -169,51 +172,53 @@ def serialize_query(value: Stack, pairs: list[tuple[str, str]], prefix: str) -> 
         import capo_cloudformation.types.notification_ar_ns
 
         capo_cloudformation.types.notification_ar_ns.serialize_query(
-            value["notification_ar_ns"], pairs, f"{prefix}.NotificationARNs"
+            value["notification_ar_ns"], pairs, f"{key_prefix}NotificationARNs"
         )
     if "timeout_in_minutes" in value:
-        pairs.append((f"{prefix}.TimeoutInMinutes", str(value["timeout_in_minutes"])))
+        pairs.append(
+            (f"{key_prefix}TimeoutInMinutes", str(value["timeout_in_minutes"]))
+        )
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "outputs" in value:
         import capo_cloudformation.types.outputs
 
         capo_cloudformation.types.outputs.serialize_query(
-            value["outputs"], pairs, f"{prefix}.Outputs"
+            value["outputs"], pairs, f"{key_prefix}Outputs"
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleARN", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleARN", str(value["role_arn"])))
     if "tags" in value:
         import capo_cloudformation.types.tags
 
         capo_cloudformation.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "enable_termination_protection" in value:
         pairs.append(
             (
-                f"{prefix}.EnableTerminationProtection",
+                f"{key_prefix}EnableTerminationProtection",
                 "true" if value["enable_termination_protection"] else "false",
             )
         )
     if "parent_id" in value:
-        pairs.append((f"{prefix}.ParentId", str(value["parent_id"])))
+        pairs.append((f"{key_prefix}ParentId", str(value["parent_id"])))
     if "root_id" in value:
-        pairs.append((f"{prefix}.RootId", str(value["root_id"])))
+        pairs.append((f"{key_prefix}RootId", str(value["root_id"])))
     if "drift_information" in value:
         import capo_cloudformation.types.stack_drift_information
 
         capo_cloudformation.types.stack_drift_information.serialize_query(
-            value["drift_information"], pairs, f"{prefix}.DriftInformation"
+            value["drift_information"], pairs, f"{key_prefix}DriftInformation"
         )
     if "retain_except_on_create" in value:
         pairs.append(
             (
-                f"{prefix}.RetainExceptOnCreate",
+                f"{key_prefix}RetainExceptOnCreate",
                 "true" if value["retain_except_on_create"] else "false",
             )
         )
@@ -221,19 +226,19 @@ def serialize_query(value: Stack, pairs: list[tuple[str, str]], prefix: str) -> 
         import capo_cloudformation.types.deletion_mode
 
         capo_cloudformation.types.deletion_mode.serialize_query(
-            value["deletion_mode"], pairs, f"{prefix}.DeletionMode"
+            value["deletion_mode"], pairs, f"{key_prefix}DeletionMode"
         )
     if "detailed_status" in value:
         import capo_cloudformation.types.detailed_status
 
         capo_cloudformation.types.detailed_status.serialize_query(
-            value["detailed_status"], pairs, f"{prefix}.DetailedStatus"
+            value["detailed_status"], pairs, f"{key_prefix}DetailedStatus"
         )
     if "last_operations" in value:
         import capo_cloudformation.types.last_operations
 
         capo_cloudformation.types.last_operations.serialize_query(
-            value["last_operations"], pairs, f"{prefix}.LastOperations"
+            value["last_operations"], pairs, f"{key_prefix}LastOperations"
         )
 
 

@@ -26,17 +26,20 @@ class ChangeSetHookTargetDetails(TypedDict, closed=True):
 def serialize_query(
     value: ChangeSetHookTargetDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_type" in value:
         import capo_cloudformation.types.hook_target_type
 
         capo_cloudformation.types.hook_target_type.serialize_query(
-            value["target_type"], pairs, f"{prefix}.TargetType"
+            value["target_type"], pairs, f"{key_prefix}TargetType"
         )
     if "resource_target_details" in value:
         import capo_cloudformation.types.change_set_hook_resource_target_details
 
         capo_cloudformation.types.change_set_hook_resource_target_details.serialize_query(
-            value["resource_target_details"], pairs, f"{prefix}.ResourceTargetDetails"
+            value["resource_target_details"],
+            pairs,
+            f"{key_prefix}ResourceTargetDetails",
         )
 
 

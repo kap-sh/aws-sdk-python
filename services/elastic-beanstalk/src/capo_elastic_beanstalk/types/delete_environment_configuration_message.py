@@ -25,8 +25,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
-    pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
+    pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteEnvironmentConfigurationMessage:

@@ -74,52 +74,59 @@ class PlatformSummary(TypedDict, closed=True):
 def serialize_query(
     value: PlatformSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_arn" in value:
-        pairs.append((f"{prefix}.PlatformArn", str(value["platform_arn"])))
+        pairs.append((f"{key_prefix}PlatformArn", str(value["platform_arn"])))
     if "platform_owner" in value:
-        pairs.append((f"{prefix}.PlatformOwner", str(value["platform_owner"])))
+        pairs.append((f"{key_prefix}PlatformOwner", str(value["platform_owner"])))
     if "platform_status" in value:
         import capo_elastic_beanstalk.types.platform_status
 
         capo_elastic_beanstalk.types.platform_status.serialize_query(
-            value["platform_status"], pairs, f"{prefix}.PlatformStatus"
+            value["platform_status"], pairs, f"{key_prefix}PlatformStatus"
         )
     if "platform_category" in value:
-        pairs.append((f"{prefix}.PlatformCategory", str(value["platform_category"])))
+        pairs.append((f"{key_prefix}PlatformCategory", str(value["platform_category"])))
     if "operating_system_name" in value:
         pairs.append(
-            (f"{prefix}.OperatingSystemName", str(value["operating_system_name"]))
+            (f"{key_prefix}OperatingSystemName", str(value["operating_system_name"]))
         )
     if "operating_system_version" in value:
         pairs.append(
-            (f"{prefix}.OperatingSystemVersion", str(value["operating_system_version"]))
+            (
+                f"{key_prefix}OperatingSystemVersion",
+                str(value["operating_system_version"]),
+            )
         )
     if "supported_tier_list" in value:
         import capo_elastic_beanstalk.types.supported_tier_list
 
         capo_elastic_beanstalk.types.supported_tier_list.serialize_query(
-            value["supported_tier_list"], pairs, f"{prefix}.SupportedTierList"
+            value["supported_tier_list"], pairs, f"{key_prefix}SupportedTierList"
         )
     if "supported_addon_list" in value:
         import capo_elastic_beanstalk.types.supported_addon_list
 
         capo_elastic_beanstalk.types.supported_addon_list.serialize_query(
-            value["supported_addon_list"], pairs, f"{prefix}.SupportedAddonList"
+            value["supported_addon_list"], pairs, f"{key_prefix}SupportedAddonList"
         )
     if "platform_lifecycle_state" in value:
         pairs.append(
-            (f"{prefix}.PlatformLifecycleState", str(value["platform_lifecycle_state"]))
+            (
+                f"{key_prefix}PlatformLifecycleState",
+                str(value["platform_lifecycle_state"]),
+            )
         )
     if "platform_version" in value:
-        pairs.append((f"{prefix}.PlatformVersion", str(value["platform_version"])))
+        pairs.append((f"{key_prefix}PlatformVersion", str(value["platform_version"])))
     if "platform_branch_name" in value:
         pairs.append(
-            (f"{prefix}.PlatformBranchName", str(value["platform_branch_name"]))
+            (f"{key_prefix}PlatformBranchName", str(value["platform_branch_name"]))
         )
     if "platform_branch_lifecycle_state" in value:
         pairs.append(
             (
-                f"{prefix}.PlatformBranchLifecycleState",
+                f"{key_prefix}PlatformBranchLifecycleState",
                 str(value["platform_branch_lifecycle_state"]),
             )
         )

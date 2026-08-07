@@ -21,10 +21,11 @@ class InstanceReusePolicy(TypedDict, closed=True):
 def serialize_query(
     value: InstanceReusePolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reuse_on_scale_in" in value:
         pairs.append(
             (
-                f"{prefix}.ReuseOnScaleIn",
+                f"{key_prefix}ReuseOnScaleIn",
                 "true" if value["reuse_on_scale_in"] else "false",
             )
         )

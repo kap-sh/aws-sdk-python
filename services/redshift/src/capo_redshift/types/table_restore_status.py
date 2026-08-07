@@ -54,54 +54,67 @@ class TableRestoreStatus(TypedDict, closed=True):
 def serialize_query(
     value: TableRestoreStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "table_restore_request_id" in value:
         pairs.append(
-            (f"{prefix}.TableRestoreRequestId", str(value["table_restore_request_id"]))
+            (
+                f"{key_prefix}TableRestoreRequestId",
+                str(value["table_restore_request_id"]),
+            )
         )
     if "status" in value:
         import capo_redshift.types.table_restore_status_type
 
         capo_redshift.types.table_restore_status_type.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "request_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["request_time"], pairs, f"{prefix}.RequestTime"
+            value["request_time"], pairs, f"{key_prefix}RequestTime"
         )
     if "progress_in_mega_bytes" in value:
         pairs.append(
-            (f"{prefix}.ProgressInMegaBytes", str(value["progress_in_mega_bytes"]))
+            (f"{key_prefix}ProgressInMegaBytes", str(value["progress_in_mega_bytes"]))
         )
     if "total_data_in_mega_bytes" in value:
         pairs.append(
-            (f"{prefix}.TotalDataInMegaBytes", str(value["total_data_in_mega_bytes"]))
+            (
+                f"{key_prefix}TotalDataInMegaBytes",
+                str(value["total_data_in_mega_bytes"]),
+            )
         )
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "source_database_name" in value:
         pairs.append(
-            (f"{prefix}.SourceDatabaseName", str(value["source_database_name"]))
+            (f"{key_prefix}SourceDatabaseName", str(value["source_database_name"]))
         )
     if "source_schema_name" in value:
-        pairs.append((f"{prefix}.SourceSchemaName", str(value["source_schema_name"])))
+        pairs.append(
+            (f"{key_prefix}SourceSchemaName", str(value["source_schema_name"]))
+        )
     if "source_table_name" in value:
-        pairs.append((f"{prefix}.SourceTableName", str(value["source_table_name"])))
+        pairs.append((f"{key_prefix}SourceTableName", str(value["source_table_name"])))
     if "target_database_name" in value:
         pairs.append(
-            (f"{prefix}.TargetDatabaseName", str(value["target_database_name"]))
+            (f"{key_prefix}TargetDatabaseName", str(value["target_database_name"]))
         )
     if "target_schema_name" in value:
-        pairs.append((f"{prefix}.TargetSchemaName", str(value["target_schema_name"])))
+        pairs.append(
+            (f"{key_prefix}TargetSchemaName", str(value["target_schema_name"]))
+        )
     if "new_table_name" in value:
-        pairs.append((f"{prefix}.NewTableName", str(value["new_table_name"])))
+        pairs.append((f"{key_prefix}NewTableName", str(value["new_table_name"])))
 
 
 def deserialize_query(el: Element) -> TableRestoreStatus:

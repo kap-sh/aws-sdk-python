@@ -22,13 +22,14 @@ class CustomDomainAssociationsMessage(TypedDict, closed=True):
 def serialize_query(
     value: CustomDomainAssociationsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "associations" in value:
         import capo_redshift.types.association_list
 
         capo_redshift.types.association_list.serialize_query(
-            value["associations"], pairs, f"{prefix}.Associations"
+            value["associations"], pairs, f"{key_prefix}Associations"
         )
 
 

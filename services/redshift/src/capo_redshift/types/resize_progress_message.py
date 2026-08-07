@@ -75,21 +75,26 @@ class ResizeProgressMessage(TypedDict, closed=True):
 def serialize_query(
     value: ResizeProgressMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_node_type" in value:
-        pairs.append((f"{prefix}.TargetNodeType", str(value["target_node_type"])))
+        pairs.append((f"{key_prefix}TargetNodeType", str(value["target_node_type"])))
     if "target_number_of_nodes" in value:
         pairs.append(
-            (f"{prefix}.TargetNumberOfNodes", str(value["target_number_of_nodes"]))
+            (f"{key_prefix}TargetNumberOfNodes", str(value["target_number_of_nodes"]))
         )
     if "target_cluster_type" in value:
-        pairs.append((f"{prefix}.TargetClusterType", str(value["target_cluster_type"])))
+        pairs.append(
+            (f"{key_prefix}TargetClusterType", str(value["target_cluster_type"]))
+        )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "import_tables_completed" in value:
         import capo_redshift.types.import_tables_completed
 
         capo_redshift.types.import_tables_completed.serialize_query(
-            value["import_tables_completed"], pairs, f"{prefix}.ImportTablesCompleted"
+            value["import_tables_completed"],
+            pairs,
+            f"{key_prefix}ImportTablesCompleted",
         )
     if "import_tables_in_progress" in value:
         import capo_redshift.types.import_tables_in_progress
@@ -97,7 +102,7 @@ def serialize_query(
         capo_redshift.types.import_tables_in_progress.serialize_query(
             value["import_tables_in_progress"],
             pairs,
-            f"{prefix}.ImportTablesInProgress",
+            f"{key_prefix}ImportTablesInProgress",
         )
     if "import_tables_not_started" in value:
         import capo_redshift.types.import_tables_not_started
@@ -105,49 +110,49 @@ def serialize_query(
         capo_redshift.types.import_tables_not_started.serialize_query(
             value["import_tables_not_started"],
             pairs,
-            f"{prefix}.ImportTablesNotStarted",
+            f"{key_prefix}ImportTablesNotStarted",
         )
     if "avg_resize_rate_in_mega_bytes_per_second" in value:
         pairs.append(
             (
-                f"{prefix}.AvgResizeRateInMegaBytesPerSecond",
+                f"{key_prefix}AvgResizeRateInMegaBytesPerSecond",
                 str(value["avg_resize_rate_in_mega_bytes_per_second"]),
             )
         )
     if "total_resize_data_in_mega_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.TotalResizeDataInMegaBytes",
+                f"{key_prefix}TotalResizeDataInMegaBytes",
                 str(value["total_resize_data_in_mega_bytes"]),
             )
         )
     if "progress_in_mega_bytes" in value:
         pairs.append(
-            (f"{prefix}.ProgressInMegaBytes", str(value["progress_in_mega_bytes"]))
+            (f"{key_prefix}ProgressInMegaBytes", str(value["progress_in_mega_bytes"]))
         )
     if "elapsed_time_in_seconds" in value:
         pairs.append(
-            (f"{prefix}.ElapsedTimeInSeconds", str(value["elapsed_time_in_seconds"]))
+            (f"{key_prefix}ElapsedTimeInSeconds", str(value["elapsed_time_in_seconds"]))
         )
     if "estimated_time_to_completion_in_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.EstimatedTimeToCompletionInSeconds",
+                f"{key_prefix}EstimatedTimeToCompletionInSeconds",
                 str(value["estimated_time_to_completion_in_seconds"]),
             )
         )
     if "resize_type" in value:
-        pairs.append((f"{prefix}.ResizeType", str(value["resize_type"])))
+        pairs.append((f"{key_prefix}ResizeType", str(value["resize_type"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "target_encryption_type" in value:
         pairs.append(
-            (f"{prefix}.TargetEncryptionType", str(value["target_encryption_type"]))
+            (f"{key_prefix}TargetEncryptionType", str(value["target_encryption_type"]))
         )
     if "data_transfer_progress_percent" in value:
         pairs.append(
             (
-                f"{prefix}.DataTransferProgressPercent",
+                f"{key_prefix}DataTransferProgressPercent",
                 str(value["data_transfer_progress_percent"]),
             )
         )

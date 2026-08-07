@@ -24,10 +24,11 @@ class DeferredMaintenanceWindow(TypedDict, closed=True):
 def serialize_query(
     value: DeferredMaintenanceWindow, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "defer_maintenance_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DeferMaintenanceIdentifier",
+                f"{key_prefix}DeferMaintenanceIdentifier",
                 str(value["defer_maintenance_identifier"]),
             )
         )
@@ -37,7 +38,7 @@ def serialize_query(
         capo_redshift.types.t_stamp.serialize_query(
             value["defer_maintenance_start_time"],
             pairs,
-            f"{prefix}.DeferMaintenanceStartTime",
+            f"{key_prefix}DeferMaintenanceStartTime",
         )
     if "defer_maintenance_end_time" in value:
         import capo_redshift.types.t_stamp
@@ -45,7 +46,7 @@ def serialize_query(
         capo_redshift.types.t_stamp.serialize_query(
             value["defer_maintenance_end_time"],
             pairs,
-            f"{prefix}.DeferMaintenanceEndTime",
+            f"{key_prefix}DeferMaintenanceEndTime",
         )
 
 

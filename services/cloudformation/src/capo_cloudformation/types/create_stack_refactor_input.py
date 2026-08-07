@@ -34,12 +34,13 @@ class CreateStackRefactorInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateStackRefactorInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "enable_stack_creation" in value:
         pairs.append(
             (
-                f"{prefix}.EnableStackCreation",
+                f"{key_prefix}EnableStackCreation",
                 "true" if value["enable_stack_creation"] else "false",
             )
         )
@@ -47,13 +48,13 @@ def serialize_query(
         import capo_cloudformation.types.resource_mappings
 
         capo_cloudformation.types.resource_mappings.serialize_query(
-            value["resource_mappings"], pairs, f"{prefix}.ResourceMappings"
+            value["resource_mappings"], pairs, f"{key_prefix}ResourceMappings"
         )
     if "stack_definitions" in value:
         import capo_cloudformation.types.stack_definitions
 
         capo_cloudformation.types.stack_definitions.serialize_query(
-            value["stack_definitions"], pairs, f"{prefix}.StackDefinitions"
+            value["stack_definitions"], pairs, f"{key_prefix}StackDefinitions"
         )
 
 

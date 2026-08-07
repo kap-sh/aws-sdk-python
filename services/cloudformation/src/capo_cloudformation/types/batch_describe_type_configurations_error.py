@@ -29,17 +29,18 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "error_code" in value:
-        pairs.append((f"{prefix}.ErrorCode", str(value["error_code"])))
+        pairs.append((f"{key_prefix}ErrorCode", str(value["error_code"])))
     if "error_message" in value:
-        pairs.append((f"{prefix}.ErrorMessage", str(value["error_message"])))
+        pairs.append((f"{key_prefix}ErrorMessage", str(value["error_message"])))
     if "type_configuration_identifier" in value:
         import capo_cloudformation.types.type_configuration_identifier
 
         capo_cloudformation.types.type_configuration_identifier.serialize_query(
             value["type_configuration_identifier"],
             pairs,
-            f"{prefix}.TypeConfigurationIdentifier",
+            f"{key_prefix}TypeConfigurationIdentifier",
         )
 
 

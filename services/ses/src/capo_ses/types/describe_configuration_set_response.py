@@ -34,35 +34,36 @@ class DescribeConfigurationSetResponse(TypedDict, closed=True):
 def serialize_query(
     value: DescribeConfigurationSetResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "configuration_set" in value:
         import capo_ses.types.configuration_set
 
         capo_ses.types.configuration_set.serialize_query(
-            value["configuration_set"], pairs, f"{prefix}.ConfigurationSet"
+            value["configuration_set"], pairs, f"{key_prefix}ConfigurationSet"
         )
     if "event_destinations" in value:
         import capo_ses.types.event_destinations
 
         capo_ses.types.event_destinations.serialize_query(
-            value["event_destinations"], pairs, f"{prefix}.EventDestinations"
+            value["event_destinations"], pairs, f"{key_prefix}EventDestinations"
         )
     if "tracking_options" in value:
         import capo_ses.types.tracking_options
 
         capo_ses.types.tracking_options.serialize_query(
-            value["tracking_options"], pairs, f"{prefix}.TrackingOptions"
+            value["tracking_options"], pairs, f"{key_prefix}TrackingOptions"
         )
     if "delivery_options" in value:
         import capo_ses.types.delivery_options
 
         capo_ses.types.delivery_options.serialize_query(
-            value["delivery_options"], pairs, f"{prefix}.DeliveryOptions"
+            value["delivery_options"], pairs, f"{key_prefix}DeliveryOptions"
         )
     if "reputation_options" in value:
         import capo_ses.types.reputation_options
 
         capo_ses.types.reputation_options.serialize_query(
-            value["reputation_options"], pairs, f"{prefix}.ReputationOptions"
+            value["reputation_options"], pairs, f"{key_prefix}ReputationOptions"
         )
 
 

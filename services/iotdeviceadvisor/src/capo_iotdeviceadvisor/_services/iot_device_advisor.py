@@ -163,9 +163,11 @@ class IotDeviceAdvisorClient:
 
     def create_suite_definition(
         self,
-        suite_definition_configuration: "capo_iotdeviceadvisor.types.suite_definition_configuration.SuiteDefinitionConfiguration",
         *,
         config_overrides: Optional[IotDeviceAdvisorClientConfig] = None,
+        suite_definition_configuration: Optional[
+            "capo_iotdeviceadvisor.types.suite_definition_configuration.SuiteDefinitionConfiguration"
+        ] = None,
         tags: Optional["capo_iotdeviceadvisor.types.tag_map.TagMap"] = None,
         client_token: Optional[
             "capo_iotdeviceadvisor.types.client_token.ClientToken"
@@ -200,7 +202,8 @@ class IotDeviceAdvisorClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_iotdeviceadvisor.types.create_suite_definition_request.CreateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["suite_definition_configuration"] = suite_definition_configuration
+        if suite_definition_configuration is not None:
+            input_["suite_definition_configuration"] = suite_definition_configuration
         if tags is not None:
             input_["tags"] = tags
         if client_token is not None:
@@ -614,11 +617,13 @@ class IotDeviceAdvisorClient:
     def start_suite_run(
         self,
         suite_definition_id: "capo_iotdeviceadvisor.types.uuid.UUID",
-        suite_run_configuration: "capo_iotdeviceadvisor.types.suite_run_configuration.SuiteRunConfiguration",
         *,
         config_overrides: Optional[IotDeviceAdvisorClientConfig] = None,
         suite_definition_version: Optional[
             "capo_iotdeviceadvisor.types.suite_definition_version.SuiteDefinitionVersion"
+        ] = None,
+        suite_run_configuration: Optional[
+            "capo_iotdeviceadvisor.types.suite_run_configuration.SuiteRunConfiguration"
         ] = None,
         tags: Optional["capo_iotdeviceadvisor.types.tag_map.TagMap"] = None,
     ) -> "capo_iotdeviceadvisor.types.start_suite_run_response.StartSuiteRunResponse":
@@ -656,7 +661,8 @@ class IotDeviceAdvisorClient:
         input_["suite_definition_id"] = suite_definition_id
         if suite_definition_version is not None:
             input_["suite_definition_version"] = suite_definition_version
-        input_["suite_run_configuration"] = suite_run_configuration
+        if suite_run_configuration is not None:
+            input_["suite_run_configuration"] = suite_run_configuration
         if tags is not None:
             input_["tags"] = tags
 
@@ -716,9 +722,9 @@ class IotDeviceAdvisorClient:
     def tag_resource(
         self,
         resource_arn: "capo_iotdeviceadvisor.types.amazon_resource_name.AmazonResourceName",
-        tags: "capo_iotdeviceadvisor.types.tag_map.TagMap",
         *,
         config_overrides: Optional[IotDeviceAdvisorClientConfig] = None,
+        tags: Optional["capo_iotdeviceadvisor.types.tag_map.TagMap"] = None,
     ) -> "capo_iotdeviceadvisor.types.tag_resource_response.TagResourceResponse":
         r"""<p>Adds to and modifies existing tags of an IoT Device Advisor resource.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">TagResource</a> action.</p>
 
@@ -750,7 +756,8 @@ class IotDeviceAdvisorClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_iotdeviceadvisor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -762,9 +769,11 @@ class IotDeviceAdvisorClient:
     def untag_resource(
         self,
         resource_arn: "capo_iotdeviceadvisor.types.amazon_resource_name.AmazonResourceName",
-        tag_keys: "capo_iotdeviceadvisor.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[IotDeviceAdvisorClientConfig] = None,
+        tag_keys: Optional[
+            "capo_iotdeviceadvisor.types.tag_key_list.TagKeyList"
+        ] = None,
     ) -> "capo_iotdeviceadvisor.types.untag_resource_response.UntagResourceResponse":
         r"""<p>Removes tags from an IoT Device Advisor resource.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UntagResource</a> action.</p>
 
@@ -796,7 +805,8 @@ class IotDeviceAdvisorClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_iotdeviceadvisor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -808,9 +818,11 @@ class IotDeviceAdvisorClient:
     def update_suite_definition(
         self,
         suite_definition_id: "capo_iotdeviceadvisor.types.uuid.UUID",
-        suite_definition_configuration: "capo_iotdeviceadvisor.types.suite_definition_configuration.SuiteDefinitionConfiguration",
         *,
         config_overrides: Optional[IotDeviceAdvisorClientConfig] = None,
+        suite_definition_configuration: Optional[
+            "capo_iotdeviceadvisor.types.suite_definition_configuration.SuiteDefinitionConfiguration"
+        ] = None,
     ) -> "capo_iotdeviceadvisor.types.update_suite_definition_response.UpdateSuiteDefinitionResponse":
         r"""<p>Updates a Device Advisor test suite.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">UpdateSuiteDefinition</a> action.</p>
 
@@ -841,7 +853,8 @@ class IotDeviceAdvisorClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_iotdeviceadvisor.types.update_suite_definition_request.UpdateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
         input_["suite_definition_id"] = suite_definition_id
-        input_["suite_definition_configuration"] = suite_definition_configuration
+        if suite_definition_configuration is not None:
+            input_["suite_definition_configuration"] = suite_definition_configuration
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

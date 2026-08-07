@@ -21,11 +21,12 @@ class AccessPoliciesStatus(TypedDict, closed=True):
 def serialize_query(
     value: AccessPoliciesStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Options", str(value["options"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Options", str(value["options"])))
     import capo_cloudsearch.types.option_status
 
     capo_cloudsearch.types.option_status.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
 
 

@@ -24,14 +24,15 @@ class AutoScalingGroupsType(TypedDict, closed=True):
 def serialize_query(
     value: AutoScalingGroupsType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_groups" in value:
         import capo_auto_scaling.types.auto_scaling_groups
 
         capo_auto_scaling.types.auto_scaling_groups.serialize_query(
-            value["auto_scaling_groups"], pairs, f"{prefix}.AutoScalingGroups"
+            value["auto_scaling_groups"], pairs, f"{key_prefix}AutoScalingGroups"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> AutoScalingGroupsType:

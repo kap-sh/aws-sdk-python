@@ -19,8 +19,9 @@ class TestRenderTemplateResponse(TypedDict, closed=True):
 def serialize_query(
     value: TestRenderTemplateResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rendered_template" in value:
-        pairs.append((f"{prefix}.RenderedTemplate", str(value["rendered_template"])))
+        pairs.append((f"{key_prefix}RenderedTemplate", str(value["rendered_template"])))
 
 
 def deserialize_query(el: Element) -> TestRenderTemplateResponse:

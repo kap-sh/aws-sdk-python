@@ -21,10 +21,11 @@ class UpdateScalingParametersResponse(TypedDict, closed=True):
 def serialize_query(
     value: UpdateScalingParametersResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.scaling_parameters_status
 
     capo_cloudsearch.types.scaling_parameters_status.serialize_query(
-        value["scaling_parameters"], pairs, f"{prefix}.ScalingParameters"
+        value["scaling_parameters"], pairs, f"{key_prefix}ScalingParameters"
     )
 
 

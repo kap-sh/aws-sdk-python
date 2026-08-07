@@ -29,12 +29,13 @@ class SetStackPolicyInput(TypedDict, closed=True):
 def serialize_query(
     value: SetStackPolicyInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "stack_policy_body" in value:
-        pairs.append((f"{prefix}.StackPolicyBody", str(value["stack_policy_body"])))
+        pairs.append((f"{key_prefix}StackPolicyBody", str(value["stack_policy_body"])))
     if "stack_policy_url" in value:
-        pairs.append((f"{prefix}.StackPolicyURL", str(value["stack_policy_url"])))
+        pairs.append((f"{key_prefix}StackPolicyURL", str(value["stack_policy_url"])))
 
 
 def deserialize_query(el: Element) -> SetStackPolicyInput:

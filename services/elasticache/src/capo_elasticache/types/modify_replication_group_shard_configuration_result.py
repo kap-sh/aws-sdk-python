@@ -22,11 +22,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group" in value:
         import capo_elasticache.types.replication_group
 
         capo_elasticache.types.replication_group.serialize_query(
-            value["replication_group"], pairs, f"{prefix}.ReplicationGroup"
+            value["replication_group"], pairs, f"{key_prefix}ReplicationGroup"
         )
 
 

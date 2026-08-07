@@ -24,14 +24,15 @@ class ListRecommendationsResult(TypedDict, closed=True):
 def serialize_query(
     value: ListRecommendationsResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "recommendations" in value:
         import capo_redshift.types.recommendation_list
 
         capo_redshift.types.recommendation_list.serialize_query(
-            value["recommendations"], pairs, f"{prefix}.Recommendations"
+            value["recommendations"], pairs, f"{key_prefix}Recommendations"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> ListRecommendationsResult:

@@ -24,17 +24,18 @@ class RevisionTarget(TypedDict, closed=True):
 def serialize_query(
     value: RevisionTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "database_revision" in value:
-        pairs.append((f"{prefix}.DatabaseRevision", str(value["database_revision"])))
+        pairs.append((f"{key_prefix}DatabaseRevision", str(value["database_revision"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "database_revision_release_date" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
             value["database_revision_release_date"],
             pairs,
-            f"{prefix}.DatabaseRevisionReleaseDate",
+            f"{key_prefix}DatabaseRevisionReleaseDate",
         )
 
 

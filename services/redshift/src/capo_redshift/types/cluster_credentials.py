@@ -25,15 +25,16 @@ class ClusterCredentials(TypedDict, closed=True):
 def serialize_query(
     value: ClusterCredentials, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_user" in value:
-        pairs.append((f"{prefix}.DbUser", str(value["db_user"])))
+        pairs.append((f"{key_prefix}DbUser", str(value["db_user"])))
     if "db_password" in value:
-        pairs.append((f"{prefix}.DbPassword", str(value["db_password"])))
+        pairs.append((f"{key_prefix}DbPassword", str(value["db_password"])))
     if "expiration" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["expiration"], pairs, f"{prefix}.Expiration"
+            value["expiration"], pairs, f"{key_prefix}Expiration"
         )
 
 

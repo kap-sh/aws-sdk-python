@@ -26,15 +26,16 @@ class DetachTrafficSourcesType(TypedDict, closed=True):
 def serialize_query(
     value: DetachTrafficSourcesType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "traffic_sources" in value:
         import capo_auto_scaling.types.traffic_sources
 
         capo_auto_scaling.types.traffic_sources.serialize_query(
-            value["traffic_sources"], pairs, f"{prefix}.TrafficSources"
+            value["traffic_sources"], pairs, f"{key_prefix}TrafficSources"
         )
 
 

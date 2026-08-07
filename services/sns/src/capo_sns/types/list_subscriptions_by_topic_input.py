@@ -23,9 +23,10 @@ class ListSubscriptionsByTopicInput(TypedDict, closed=True):
 def serialize_query(
     value: ListSubscriptionsByTopicInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListSubscriptionsByTopicInput:

@@ -24,13 +24,14 @@ class CacheEngineVersionMessage(TypedDict, closed=True):
 def serialize_query(
     value: CacheEngineVersionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "cache_engine_versions" in value:
         import capo_elasticache.types.cache_engine_version_list
 
         capo_elasticache.types.cache_engine_version_list.serialize_query(
-            value["cache_engine_versions"], pairs, f"{prefix}.CacheEngineVersions"
+            value["cache_engine_versions"], pairs, f"{key_prefix}CacheEngineVersions"
         )
 
 

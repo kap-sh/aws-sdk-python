@@ -23,11 +23,12 @@ class SetEndpointAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: SetEndpointAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.EndpointArn", str(value["endpoint_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EndpointArn", str(value["endpoint_arn"])))
     import capo_sns.types.map_string_to_string
 
     capo_sns.types.map_string_to_string.serialize_query(
-        value["attributes"], pairs, f"{prefix}.Attributes"
+        value["attributes"], pairs, f"{key_prefix}Attributes"
     )
 
 

@@ -32,26 +32,27 @@ class ResourceChangeDetail(TypedDict, closed=True):
 def serialize_query(
     value: ResourceChangeDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target" in value:
         import capo_cloudformation.types.resource_target_definition
 
         capo_cloudformation.types.resource_target_definition.serialize_query(
-            value["target"], pairs, f"{prefix}.Target"
+            value["target"], pairs, f"{key_prefix}Target"
         )
     if "evaluation" in value:
         import capo_cloudformation.types.evaluation_type
 
         capo_cloudformation.types.evaluation_type.serialize_query(
-            value["evaluation"], pairs, f"{prefix}.Evaluation"
+            value["evaluation"], pairs, f"{key_prefix}Evaluation"
         )
     if "change_source" in value:
         import capo_cloudformation.types.change_source
 
         capo_cloudformation.types.change_source.serialize_query(
-            value["change_source"], pairs, f"{prefix}.ChangeSource"
+            value["change_source"], pairs, f"{key_prefix}ChangeSource"
         )
     if "causing_entity" in value:
-        pairs.append((f"{prefix}.CausingEntity", str(value["causing_entity"])))
+        pairs.append((f"{key_prefix}CausingEntity", str(value["causing_entity"])))
 
 
 def deserialize_query(el: Element) -> ResourceChangeDetail:

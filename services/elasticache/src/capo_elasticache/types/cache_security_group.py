@@ -30,25 +30,26 @@ class CacheSecurityGroup(TypedDict, closed=True):
 def serialize_query(
     value: CacheSecurityGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "owner_id" in value:
-        pairs.append((f"{prefix}.OwnerId", str(value["owner_id"])))
+        pairs.append((f"{key_prefix}OwnerId", str(value["owner_id"])))
     if "cache_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheSecurityGroupName",
+                f"{key_prefix}CacheSecurityGroupName",
                 str(value["cache_security_group_name"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "ec2_security_groups" in value:
         import capo_elasticache.types.ec2_security_group_list
 
         capo_elasticache.types.ec2_security_group_list.serialize_query(
-            value["ec2_security_groups"], pairs, f"{prefix}.EC2SecurityGroups"
+            value["ec2_security_groups"], pairs, f"{key_prefix}EC2SecurityGroups"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> CacheSecurityGroup:

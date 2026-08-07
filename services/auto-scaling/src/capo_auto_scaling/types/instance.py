@@ -64,28 +64,29 @@ class Instance(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Instance, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:
         pairs.append(
-            (f"{prefix}.AvailabilityZoneId", str(value["availability_zone_id"]))
+            (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
         )
     if "lifecycle_state" in value:
         import capo_auto_scaling.types.lifecycle_state
 
         capo_auto_scaling.types.lifecycle_state.serialize_query(
-            value["lifecycle_state"], pairs, f"{prefix}.LifecycleState"
+            value["lifecycle_state"], pairs, f"{key_prefix}LifecycleState"
         )
     if "health_status" in value:
-        pairs.append((f"{prefix}.HealthStatus", str(value["health_status"])))
+        pairs.append((f"{key_prefix}HealthStatus", str(value["health_status"])))
     if "launch_configuration_name" in value:
         pairs.append(
             (
-                f"{prefix}.LaunchConfigurationName",
+                f"{key_prefix}LaunchConfigurationName",
                 str(value["launch_configuration_name"]),
             )
         )
@@ -93,19 +94,19 @@ def serialize_query(value: Instance, pairs: list[tuple[str, str]], prefix: str) 
         import capo_auto_scaling.types.launch_template_specification
 
         capo_auto_scaling.types.launch_template_specification.serialize_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "protected_from_scale_in" in value:
         pairs.append(
             (
-                f"{prefix}.ProtectedFromScaleIn",
+                f"{key_prefix}ProtectedFromScaleIn",
                 "true" if value["protected_from_scale_in"] else "false",
             )
         )
     if "weighted_capacity" in value:
-        pairs.append((f"{prefix}.WeightedCapacity", str(value["weighted_capacity"])))
+        pairs.append((f"{key_prefix}WeightedCapacity", str(value["weighted_capacity"])))
 
 
 def deserialize_query(el: Element) -> Instance:

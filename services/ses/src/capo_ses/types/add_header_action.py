@@ -23,8 +23,9 @@ class AddHeaderAction(TypedDict, closed=True):
 def serialize_query(
     value: AddHeaderAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.HeaderName", str(value["header_name"])))
-    pairs.append((f"{prefix}.HeaderValue", str(value["header_value"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}HeaderName", str(value["header_name"])))
+    pairs.append((f"{key_prefix}HeaderValue", str(value["header_value"])))
 
 
 def deserialize_query(el: Element) -> AddHeaderAction:

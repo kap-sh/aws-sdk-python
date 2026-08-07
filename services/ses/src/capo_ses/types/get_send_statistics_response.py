@@ -21,11 +21,12 @@ class GetSendStatisticsResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetSendStatisticsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "send_data_points" in value:
         import capo_ses.types.send_data_point_list
 
         capo_ses.types.send_data_point_list.serialize_query(
-            value["send_data_points"], pairs, f"{prefix}.SendDataPoints"
+            value["send_data_points"], pairs, f"{key_prefix}SendDataPoints"
         )
 
 

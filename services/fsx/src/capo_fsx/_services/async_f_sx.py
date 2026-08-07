@@ -319,12 +319,14 @@ class AsyncFSxClient:
 
     async def associate_file_system_aliases(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
-        aliases: "capo_fsx.types.alternate_dns_names.AlternateDNSNames",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
+        aliases: Optional[
+            "capo_fsx.types.alternate_dns_names.AlternateDNSNames"
         ] = None,
     ) -> "capo_fsx.types.associate_file_system_aliases_response.AssociateFileSystemAliasesResponse":
         r"""<p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system. A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html\">Working with DNS Aliases</a> and <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html\">Walkthrough 5: Using DNS aliases to access your file system</a>, including additional steps you must take to be able to access your file system using a DNS alias.</p> <p>The system response shows the DNS aliases that Amazon FSx is attempting to associate with the file system. Use the API operation to monitor the status of the aliases Amazon FSx is associating with the file system.</p>
@@ -359,8 +361,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.associate_file_system_aliases_request.AssociateFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_system_id"] = file_system_id
-        input_["aliases"] = aliases
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
+        if aliases is not None:
+            input_["aliases"] = aliases
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -371,9 +375,9 @@ class AsyncFSxClient:
 
     async def cancel_data_repository_task(
         self,
-        task_id: "capo_fsx.types.task_id.TaskId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        task_id: Optional["capo_fsx.types.task_id.TaskId"] = None,
     ) -> "capo_fsx.types.cancel_data_repository_task_response.CancelDataRepositoryTaskResponse":
         """<p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel an export task, Amazon FSx does the following.</p> <ul> <li> <p>Any files that FSx has already exported are not reverted.</p> </li> <li> <p>FSx continues to export any files that are in-flight when the cancel operation is received.</p> </li> <li> <p>FSx does not export any files that have not yet been exported.</p> </li> </ul> <p>For a release task, Amazon FSx will stop releasing files upon cancellation. Any files that have already been released will remain in the released state.</p>
 
@@ -406,7 +410,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.cancel_data_repository_task_request.CancelDataRepositoryTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["task_id"] = task_id
+        if task_id is not None:
+            input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -417,11 +422,13 @@ class AsyncFSxClient:
 
     async def copy_backup(
         self,
-        source_backup_id: "capo_fsx.types.source_backup_id.SourceBackupId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        source_backup_id: Optional[
+            "capo_fsx.types.source_backup_id.SourceBackupId"
         ] = None,
         source_region: Optional["capo_fsx.types.region.Region"] = None,
         kms_key_id: Optional["capo_fsx.types.kms_key_id.KmsKeyId"] = None,
@@ -475,7 +482,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.copy_backup_request.CopyBackupRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["source_backup_id"] = source_backup_id
+        if source_backup_id is not None:
+            input_["source_backup_id"] = source_backup_id
         if source_region is not None:
             input_["source_region"] = source_region
         if kms_key_id is not None:
@@ -494,13 +502,13 @@ class AsyncFSxClient:
 
     async def copy_snapshot_and_update_volume(
         self,
-        volume_id: "capo_fsx.types.volume_id.VolumeId",
-        source_snapshot_arn: "capo_fsx.types.resource_arn.ResourceARN",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        volume_id: Optional["capo_fsx.types.volume_id.VolumeId"] = None,
+        source_snapshot_arn: Optional["capo_fsx.types.resource_arn.ResourceARN"] = None,
         copy_strategy: Optional[
             "capo_fsx.types.open_zfs_copy_strategy.OpenZFSCopyStrategy"
         ] = None,
@@ -542,8 +550,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.copy_snapshot_and_update_volume_request.CopySnapshotAndUpdateVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["volume_id"] = volume_id
-        input_["source_snapshot_arn"] = source_snapshot_arn
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
+        if source_snapshot_arn is not None:
+            input_["source_snapshot_arn"] = source_snapshot_arn
         if copy_strategy is not None:
             input_["copy_strategy"] = copy_strategy
         if options is not None:
@@ -558,12 +568,16 @@ class AsyncFSxClient:
 
     async def create_and_attach_s3_access_point(
         self,
-        name: "capo_fsx.types.s3_access_point_attachment_name.S3AccessPointAttachmentName",
-        type: "capo_fsx.types.s3_access_point_attachment_type.S3AccessPointAttachmentType",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        name: Optional[
+            "capo_fsx.types.s3_access_point_attachment_name.S3AccessPointAttachmentName"
+        ] = None,
+        type: Optional[
+            "capo_fsx.types.s3_access_point_attachment_type.S3AccessPointAttachmentType"
         ] = None,
         open_zfs_configuration: Optional[
             "capo_fsx.types.create_and_attach_s3_access_point_open_zfs_configuration.CreateAndAttachS3AccessPointOpenZFSConfiguration"
@@ -615,8 +629,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.create_and_attach_s3_access_point_request.CreateAndAttachS3AccessPointRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["name"] = name
-        input_["type"] = type
+        if name is not None:
+            input_["name"] = name
+        if type is not None:
+            input_["type"] = type
         if open_zfs_configuration is not None:
             input_["open_zfs_configuration"] = open_zfs_configuration
         if ontap_configuration is not None:
@@ -697,11 +713,13 @@ class AsyncFSxClient:
 
     async def create_data_repository_association(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
-        data_repository_path: "capo_fsx.types.archive_path.ArchivePath",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
         file_system_path: Optional["capo_fsx.types.namespace.Namespace"] = None,
+        data_repository_path: Optional[
+            "capo_fsx.types.archive_path.ArchivePath"
+        ] = None,
         batch_import_meta_data_on_create: Optional[
             "capo_fsx.types.batch_import_meta_data_on_create.BatchImportMetaDataOnCreate"
         ] = None,
@@ -750,10 +768,12 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.create_data_repository_association_request.CreateDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["file_system_id"] = file_system_id
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
         if file_system_path is not None:
             input_["file_system_path"] = file_system_path
-        input_["data_repository_path"] = data_repository_path
+        if data_repository_path is not None:
+            input_["data_repository_path"] = data_repository_path
         if batch_import_meta_data_on_create is not None:
             input_["batch_import_meta_data_on_create"] = (
                 batch_import_meta_data_on_create
@@ -776,14 +796,16 @@ class AsyncFSxClient:
 
     async def create_data_repository_task(
         self,
-        type: "capo_fsx.types.data_repository_task_type.DataRepositoryTaskType",
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
-        report: "capo_fsx.types.completion_report.CompletionReport",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        type: Optional[
+            "capo_fsx.types.data_repository_task_type.DataRepositoryTaskType"
+        ] = None,
         paths: Optional[
             "capo_fsx.types.data_repository_task_paths.DataRepositoryTaskPaths"
         ] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
+        report: Optional["capo_fsx.types.completion_report.CompletionReport"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -832,11 +854,14 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.create_data_repository_task_request.CreateDataRepositoryTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["type"] = type
+        if type is not None:
+            input_["type"] = type
         if paths is not None:
             input_["paths"] = paths
-        input_["file_system_id"] = file_system_id
-        input_["report"] = report
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
+        if report is not None:
+            input_["report"] = report
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
         if tags is not None:
@@ -855,15 +880,21 @@ class AsyncFSxClient:
 
     async def create_file_cache(
         self,
-        file_cache_type: "capo_fsx.types.file_cache_type.FileCacheType",
-        file_cache_type_version: "capo_fsx.types.file_system_type_version.FileSystemTypeVersion",
-        storage_capacity: "capo_fsx.types.storage_capacity.StorageCapacity",
-        subnet_ids: "capo_fsx.types.subnet_ids.SubnetIds",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        file_cache_type: Optional[
+            "capo_fsx.types.file_cache_type.FileCacheType"
+        ] = None,
+        file_cache_type_version: Optional[
+            "capo_fsx.types.file_system_type_version.FileSystemTypeVersion"
+        ] = None,
+        storage_capacity: Optional[
+            "capo_fsx.types.storage_capacity.StorageCapacity"
+        ] = None,
+        subnet_ids: Optional["capo_fsx.types.subnet_ids.SubnetIds"] = None,
         security_group_ids: Optional[
             "capo_fsx.types.security_group_ids.SecurityGroupIds"
         ] = None,
@@ -922,10 +953,14 @@ class AsyncFSxClient:
         input_: capo_fsx.types.create_file_cache_request.CreateFileCacheRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_cache_type"] = file_cache_type
-        input_["file_cache_type_version"] = file_cache_type_version
-        input_["storage_capacity"] = storage_capacity
-        input_["subnet_ids"] = subnet_ids
+        if file_cache_type is not None:
+            input_["file_cache_type"] = file_cache_type
+        if file_cache_type_version is not None:
+            input_["file_cache_type_version"] = file_cache_type_version
+        if storage_capacity is not None:
+            input_["storage_capacity"] = storage_capacity
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
             input_["security_group_ids"] = security_group_ids
         if tags is not None:
@@ -950,17 +985,19 @@ class AsyncFSxClient:
 
     async def create_file_system(
         self,
-        file_system_type: "capo_fsx.types.file_system_type.FileSystemType",
-        subnet_ids: "capo_fsx.types.subnet_ids.SubnetIds",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        file_system_type: Optional[
+            "capo_fsx.types.file_system_type.FileSystemType"
+        ] = None,
         storage_capacity: Optional[
             "capo_fsx.types.storage_capacity.StorageCapacity"
         ] = None,
         storage_type: Optional["capo_fsx.types.storage_type.StorageType"] = None,
+        subnet_ids: Optional["capo_fsx.types.subnet_ids.SubnetIds"] = None,
         security_group_ids: Optional[
             "capo_fsx.types.security_group_ids.SecurityGroupIds"
         ] = None,
@@ -1031,12 +1068,14 @@ class AsyncFSxClient:
         input_: capo_fsx.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_system_type"] = file_system_type
+        if file_system_type is not None:
+            input_["file_system_type"] = file_system_type
         if storage_capacity is not None:
             input_["storage_capacity"] = storage_capacity
         if storage_type is not None:
             input_["storage_type"] = storage_type
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
             input_["security_group_ids"] = security_group_ids
         if tags is not None:
@@ -1065,13 +1104,13 @@ class AsyncFSxClient:
 
     async def create_file_system_from_backup(
         self,
-        backup_id: "capo_fsx.types.backup_id.BackupId",
-        subnet_ids: "capo_fsx.types.subnet_ids.SubnetIds",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        backup_id: Optional["capo_fsx.types.backup_id.BackupId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        subnet_ids: Optional["capo_fsx.types.subnet_ids.SubnetIds"] = None,
         security_group_ids: Optional[
             "capo_fsx.types.security_group_ids.SecurityGroupIds"
         ] = None,
@@ -1139,10 +1178,12 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.create_file_system_from_backup_request.CreateFileSystemFromBackupRequest = {}  # type: ignore[typeddict-item]
-        input_["backup_id"] = backup_id
+        if backup_id is not None:
+            input_["backup_id"] = backup_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
             input_["security_group_ids"] = security_group_ids
         if tags is not None:
@@ -1173,13 +1214,13 @@ class AsyncFSxClient:
 
     async def create_snapshot(
         self,
-        name: "capo_fsx.types.snapshot_name.SnapshotName",
-        volume_id: "capo_fsx.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        name: Optional["capo_fsx.types.snapshot_name.SnapshotName"] = None,
+        volume_id: Optional["capo_fsx.types.volume_id.VolumeId"] = None,
         tags: Optional["capo_fsx.types.tags.Tags"] = None,
     ) -> "capo_fsx.types.create_snapshot_response.CreateSnapshotResponse":
         r"""<p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With snapshots, you can easily undo file changes and compare file versions by restoring the volume to a previous version.</p> <p>If a snapshot with the specified client request token exists, and the parameters match, this operation returns the description of the existing snapshot. If a snapshot with the specified client request token exists, and the parameters don't match, this operation returns <code>IncompatibleParameterError</code>. If a snapshot with the specified client request token doesn't exist, <code>CreateSnapshot</code> does the following:</p> <ul> <li> <p>Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle state of <code>CREATING</code>.</p> </li> <li> <p>Returns the description of the snapshot.</p> </li> </ul> <p>By using the idempotent operation, you can retry a <code>CreateSnapshot</code> operation without the risk of creating an extra snapshot. This approach can be useful when an initial call fails in a way that makes it unclear whether a snapshot was created. If you use the same client request token and the initial call created a snapshot, the operation returns a successful result because all the parameters are the same.</p> <p>The <code>CreateSnapshot</code> operation returns while the snapshot's lifecycle state is still <code>CREATING</code>. You can check the snapshot creation status by calling the <a href=\"https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html\">DescribeSnapshots</a> operation, which returns the snapshot state along with other information.</p>
@@ -1215,8 +1256,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["name"] = name
-        input_["volume_id"] = volume_id
+        if name is not None:
+            input_["name"] = name
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if tags is not None:
             input_["tags"] = tags
 
@@ -1229,8 +1272,6 @@ class AsyncFSxClient:
 
     async def create_storage_virtual_machine(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
-        name: "capo_fsx.types.storage_virtual_machine_name.StorageVirtualMachineName",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         active_directory_configuration: Optional[
@@ -1238,6 +1279,10 @@ class AsyncFSxClient:
         ] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
+        name: Optional[
+            "capo_fsx.types.storage_virtual_machine_name.StorageVirtualMachineName"
         ] = None,
         svm_admin_password: Optional[
             "capo_fsx.types.admin_password.AdminPassword"
@@ -1287,8 +1332,10 @@ class AsyncFSxClient:
             input_["active_directory_configuration"] = active_directory_configuration
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_system_id"] = file_system_id
-        input_["name"] = name
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
+        if name is not None:
+            input_["name"] = name
         if svm_admin_password is not None:
             input_["svm_admin_password"] = svm_admin_password
         if tags is not None:
@@ -1305,13 +1352,13 @@ class AsyncFSxClient:
 
     async def create_volume(
         self,
-        volume_type: "capo_fsx.types.volume_type.VolumeType",
-        name: "capo_fsx.types.volume_name.VolumeName",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        volume_type: Optional["capo_fsx.types.volume_type.VolumeType"] = None,
+        name: Optional["capo_fsx.types.volume_name.VolumeName"] = None,
         ontap_configuration: Optional[
             "capo_fsx.types.create_ontap_volume_configuration.CreateOntapVolumeConfiguration"
         ] = None,
@@ -1359,8 +1406,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.create_volume_request.CreateVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["volume_type"] = volume_type
-        input_["name"] = name
+        if volume_type is not None:
+            input_["volume_type"] = volume_type
+        if name is not None:
+            input_["name"] = name
         if ontap_configuration is not None:
             input_["ontap_configuration"] = ontap_configuration
         if tags is not None:
@@ -1377,13 +1426,13 @@ class AsyncFSxClient:
 
     async def create_volume_from_backup(
         self,
-        backup_id: "capo_fsx.types.backup_id.BackupId",
-        name: "capo_fsx.types.volume_name.VolumeName",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        backup_id: Optional["capo_fsx.types.backup_id.BackupId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        name: Optional["capo_fsx.types.volume_name.VolumeName"] = None,
         ontap_configuration: Optional[
             "capo_fsx.types.create_ontap_volume_configuration.CreateOntapVolumeConfiguration"
         ] = None,
@@ -1424,10 +1473,12 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.create_volume_from_backup_request.CreateVolumeFromBackupRequest = {}  # type: ignore[typeddict-item]
-        input_["backup_id"] = backup_id
+        if backup_id is not None:
+            input_["backup_id"] = backup_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if ontap_configuration is not None:
             input_["ontap_configuration"] = ontap_configuration
         if tags is not None:
@@ -1442,9 +1493,9 @@ class AsyncFSxClient:
 
     async def delete_backup(
         self,
-        backup_id: "capo_fsx.types.backup_id.BackupId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        backup_id: Optional["capo_fsx.types.backup_id.BackupId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -1489,7 +1540,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.delete_backup_request.DeleteBackupRequest = {}  # type: ignore[typeddict-item]
-        input_["backup_id"] = backup_id
+        if backup_id is not None:
+            input_["backup_id"] = backup_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
 
@@ -1502,9 +1554,11 @@ class AsyncFSxClient:
 
     async def delete_data_repository_association(
         self,
-        association_id: "capo_fsx.types.data_repository_association_id.DataRepositoryAssociationId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        association_id: Optional[
+            "capo_fsx.types.data_repository_association_id.DataRepositoryAssociationId"
+        ] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -1544,7 +1598,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.delete_data_repository_association_request.DeleteDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
         if delete_data_in_file_system is not None:
@@ -1559,9 +1614,9 @@ class AsyncFSxClient:
 
     async def delete_file_cache(
         self,
-        file_cache_id: "capo_fsx.types.file_cache_id.FileCacheId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        file_cache_id: Optional["capo_fsx.types.file_cache_id.FileCacheId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -1597,7 +1652,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.delete_file_cache_request.DeleteFileCacheRequest = {}  # type: ignore[typeddict-item]
-        input_["file_cache_id"] = file_cache_id
+        if file_cache_id is not None:
+            input_["file_cache_id"] = file_cache_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
 
@@ -1610,9 +1666,9 @@ class AsyncFSxClient:
 
     async def delete_file_system(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -1665,7 +1721,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input_["file_system_id"] = file_system_id
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
         if windows_configuration is not None:
@@ -1684,12 +1741,12 @@ class AsyncFSxClient:
 
     async def delete_snapshot(
         self,
-        snapshot_id: "capo_fsx.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        snapshot_id: Optional["capo_fsx.types.snapshot_id.SnapshotId"] = None,
     ) -> "capo_fsx.types.delete_snapshot_response.DeleteSnapshotResponse":
         """<p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a file system backup. </p> <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with the lifecycle status of <code>DELETING</code> until the deletion is complete.</p>
 
@@ -1722,7 +1779,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["snapshot_id"] = snapshot_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1733,11 +1791,13 @@ class AsyncFSxClient:
 
     async def delete_storage_virtual_machine(
         self,
-        storage_virtual_machine_id: "capo_fsx.types.storage_virtual_machine_id.StorageVirtualMachineId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        storage_virtual_machine_id: Optional[
+            "capo_fsx.types.storage_virtual_machine_id.StorageVirtualMachineId"
         ] = None,
     ) -> "capo_fsx.types.delete_storage_virtual_machine_response.DeleteStorageVirtualMachineResponse":
         """<p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
@@ -1772,7 +1832,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.delete_storage_virtual_machine_request.DeleteStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["storage_virtual_machine_id"] = storage_virtual_machine_id
+        if storage_virtual_machine_id is not None:
+            input_["storage_virtual_machine_id"] = storage_virtual_machine_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1783,12 +1844,12 @@ class AsyncFSxClient:
 
     async def delete_volume(
         self,
-        volume_id: "capo_fsx.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        volume_id: Optional["capo_fsx.types.volume_id.VolumeId"] = None,
         ontap_configuration: Optional[
             "capo_fsx.types.delete_volume_ontap_configuration.DeleteVolumeOntapConfiguration"
         ] = None,
@@ -1831,7 +1892,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if ontap_configuration is not None:
             input_["ontap_configuration"] = ontap_configuration
         if open_zfs_configuration is not None:
@@ -2075,12 +2137,12 @@ class AsyncFSxClient:
 
     async def describe_file_system_aliases(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
         max_results: Optional["capo_fsx.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_fsx.types.next_token.NextToken"] = None,
     ) -> "capo_fsx.types.describe_file_system_aliases_response.DescribeFileSystemAliasesResponse":
@@ -2117,7 +2179,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.describe_file_system_aliases_request.DescribeFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_system_id"] = file_system_id
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -2566,11 +2629,13 @@ class AsyncFSxClient:
 
     async def detach_and_delete_s3_access_point(
         self,
-        name: "capo_fsx.types.s3_access_point_attachment_name.S3AccessPointAttachmentName",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        name: Optional[
+            "capo_fsx.types.s3_access_point_attachment_name.S3AccessPointAttachmentName"
         ] = None,
     ) -> "capo_fsx.types.detach_and_delete_s3_access_point_response.DetachAndDeleteS3AccessPointResponse":
         """<p>Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.</p> <p>The requester requires the following permission to perform this action:</p> <ul> <li> <p> <code>fsx:DetachAndDeleteS3AccessPoint</code> </p> </li> <li> <p> <code>s3:DeleteAccessPoint</code> </p> </li> </ul>
@@ -2606,7 +2671,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.detach_and_delete_s3_access_point_request.DetachAndDeleteS3AccessPointRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2617,12 +2683,14 @@ class AsyncFSxClient:
 
     async def disassociate_file_system_aliases(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
-        aliases: "capo_fsx.types.alternate_dns_names.AlternateDNSNames",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
+        aliases: Optional[
+            "capo_fsx.types.alternate_dns_names.AlternateDNSNames"
         ] = None,
     ) -> "capo_fsx.types.disassociate_file_system_aliases_response.DisassociateFileSystemAliasesResponse":
         r"""<p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not associated with the file system, Amazon FSx responds with an HTTP status code 400 (Bad Request). For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html\">Working with DNS Aliases</a>.</p> <p>The system generated response showing the DNS aliases that Amazon FSx is attempting to disassociate from the file system. Use the API operation to monitor the status of the aliases Amazon FSx is disassociating with the file system.</p>
@@ -2657,8 +2725,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.disassociate_file_system_aliases_request.DisassociateFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_system_id"] = file_system_id
-        input_["aliases"] = aliases
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
+        if aliases is not None:
+            input_["aliases"] = aliases
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2669,9 +2739,9 @@ class AsyncFSxClient:
 
     async def list_tags_for_resource(
         self,
-        resource_arn: "capo_fsx.types.resource_arn.ResourceARN",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        resource_arn: Optional["capo_fsx.types.resource_arn.ResourceARN"] = None,
         max_results: Optional["capo_fsx.types.max_results.MaxResults"] = None,
         next_token: Optional["capo_fsx.types.next_token.NextToken"] = None,
     ) -> "capo_fsx.types.list_tags_for_resource_response.ListTagsForResourceResponse":
@@ -2714,7 +2784,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -2729,9 +2800,9 @@ class AsyncFSxClient:
 
     async def release_file_system_nfs_v3_locks(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -2764,7 +2835,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.release_file_system_nfs_v3_locks_request.ReleaseFileSystemNfsV3LocksRequest = {}  # type: ignore[typeddict-item]
-        input_["file_system_id"] = file_system_id
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
 
@@ -2777,13 +2849,13 @@ class AsyncFSxClient:
 
     async def restore_volume_from_snapshot(
         self,
-        volume_id: "capo_fsx.types.volume_id.VolumeId",
-        snapshot_id: "capo_fsx.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        volume_id: Optional["capo_fsx.types.volume_id.VolumeId"] = None,
+        snapshot_id: Optional["capo_fsx.types.snapshot_id.SnapshotId"] = None,
         options: Optional[
             "capo_fsx.types.restore_open_zfs_volume_options.RestoreOpenZFSVolumeOptions"
         ] = None,
@@ -2821,8 +2893,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.restore_volume_from_snapshot_request.RestoreVolumeFromSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["volume_id"] = volume_id
-        input_["snapshot_id"] = snapshot_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
         if options is not None:
             input_["options"] = options
 
@@ -2835,12 +2909,12 @@ class AsyncFSxClient:
 
     async def start_misconfigured_state_recovery(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
     ) -> "capo_fsx.types.start_misconfigured_state_recovery_response.StartMisconfiguredStateRecoveryResponse":
         """<p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to initiate the process of Amazon FSx attempting to reconnect to the file system.</p>
 
@@ -2870,7 +2944,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.start_misconfigured_state_recovery_request.StartMisconfiguredStateRecoveryRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["file_system_id"] = file_system_id
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2881,10 +2956,10 @@ class AsyncFSxClient:
 
     async def tag_resource(
         self,
-        resource_arn: "capo_fsx.types.resource_arn.ResourceARN",
-        tags: "capo_fsx.types.tags.Tags",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        resource_arn: Optional["capo_fsx.types.resource_arn.ResourceARN"] = None,
+        tags: Optional["capo_fsx.types.tags.Tags"] = None,
     ) -> "capo_fsx.types.tag_resource_response.TagResourceResponse":
         """<p>Tags an Amazon FSx resource.</p>
 
@@ -2924,8 +2999,10 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2936,10 +3013,10 @@ class AsyncFSxClient:
 
     async def untag_resource(
         self,
-        resource_arn: "capo_fsx.types.resource_arn.ResourceARN",
-        tag_keys: "capo_fsx.types.tag_keys.TagKeys",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        resource_arn: Optional["capo_fsx.types.resource_arn.ResourceARN"] = None,
+        tag_keys: Optional["capo_fsx.types.tag_keys.TagKeys"] = None,
     ) -> "capo_fsx.types.untag_resource_response.UntagResourceResponse":
         """<p>This action removes a tag from an Amazon FSx resource.</p>
 
@@ -2979,8 +3056,10 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2991,9 +3070,11 @@ class AsyncFSxClient:
 
     async def update_data_repository_association(
         self,
-        association_id: "capo_fsx.types.data_repository_association_id.DataRepositoryAssociationId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        association_id: Optional[
+            "capo_fsx.types.data_repository_association_id.DataRepositoryAssociationId"
+        ] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -3035,7 +3116,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.update_data_repository_association_request.UpdateDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        if association_id is not None:
+            input_["association_id"] = association_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
         if imported_file_chunk_size is not None:
@@ -3052,9 +3134,9 @@ class AsyncFSxClient:
 
     async def update_file_cache(
         self,
-        file_cache_id: "capo_fsx.types.file_cache_id.FileCacheId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        file_cache_id: Optional["capo_fsx.types.file_cache_id.FileCacheId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -3096,7 +3178,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.update_file_cache_request.UpdateFileCacheRequest = {}  # type: ignore[typeddict-item]
-        input_["file_cache_id"] = file_cache_id
+        if file_cache_id is not None:
+            input_["file_cache_id"] = file_cache_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
         if lustre_configuration is not None:
@@ -3111,9 +3194,9 @@ class AsyncFSxClient:
 
     async def update_file_system(
         self,
-        file_system_id: "capo_fsx.types.file_system_id.FileSystemId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
+        file_system_id: Optional["capo_fsx.types.file_system_id.FileSystemId"] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -3178,7 +3261,8 @@ class AsyncFSxClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_fsx.types.update_file_system_request.UpdateFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input_["file_system_id"] = file_system_id
+        if file_system_id is not None:
+            input_["file_system_id"] = file_system_id
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
         if storage_capacity is not None:
@@ -3261,13 +3345,13 @@ class AsyncFSxClient:
 
     async def update_snapshot(
         self,
-        name: "capo_fsx.types.snapshot_name.SnapshotName",
-        snapshot_id: "capo_fsx.types.snapshot_id.SnapshotId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        name: Optional["capo_fsx.types.snapshot_name.SnapshotName"] = None,
+        snapshot_id: Optional["capo_fsx.types.snapshot_id.SnapshotId"] = None,
     ) -> "capo_fsx.types.update_snapshot_response.UpdateSnapshotResponse":
         """<p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
 
@@ -3301,8 +3385,10 @@ class AsyncFSxClient:
         input_: capo_fsx.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["name"] = name
-        input_["snapshot_id"] = snapshot_id
+        if name is not None:
+            input_["name"] = name
+        if snapshot_id is not None:
+            input_["snapshot_id"] = snapshot_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3313,7 +3399,6 @@ class AsyncFSxClient:
 
     async def update_storage_virtual_machine(
         self,
-        storage_virtual_machine_id: "capo_fsx.types.storage_virtual_machine_id.StorageVirtualMachineId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         active_directory_configuration: Optional[
@@ -3321,6 +3406,9 @@ class AsyncFSxClient:
         ] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
+        ] = None,
+        storage_virtual_machine_id: Optional[
+            "capo_fsx.types.storage_virtual_machine_id.StorageVirtualMachineId"
         ] = None,
         svm_admin_password: Optional[
             "capo_fsx.types.admin_password.AdminPassword"
@@ -3363,7 +3451,8 @@ class AsyncFSxClient:
             input_["active_directory_configuration"] = active_directory_configuration
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["storage_virtual_machine_id"] = storage_virtual_machine_id
+        if storage_virtual_machine_id is not None:
+            input_["storage_virtual_machine_id"] = storage_virtual_machine_id
         if svm_admin_password is not None:
             input_["svm_admin_password"] = svm_admin_password
 
@@ -3376,12 +3465,12 @@ class AsyncFSxClient:
 
     async def update_volume(
         self,
-        volume_id: "capo_fsx.types.volume_id.VolumeId",
         *,
         config_overrides: Optional[AsyncFSxClientConfig] = None,
         client_request_token: Optional[
             "capo_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
+        volume_id: Optional["capo_fsx.types.volume_id.VolumeId"] = None,
         ontap_configuration: Optional[
             "capo_fsx.types.update_ontap_volume_configuration.UpdateOntapVolumeConfiguration"
         ] = None,
@@ -3426,7 +3515,8 @@ class AsyncFSxClient:
         input_: capo_fsx.types.update_volume_request.UpdateVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
-        input_["volume_id"] = volume_id
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
         if ontap_configuration is not None:
             input_["ontap_configuration"] = ontap_configuration
         if name is not None:

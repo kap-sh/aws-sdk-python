@@ -21,8 +21,9 @@ class MinimumLoadBalancerCapacity(TypedDict, closed=True):
 def serialize_query(
     value: MinimumLoadBalancerCapacity, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_units" in value:
-        pairs.append((f"{prefix}.CapacityUnits", str(value["capacity_units"])))
+        pairs.append((f"{key_prefix}CapacityUnits", str(value["capacity_units"])))
 
 
 def deserialize_query(el: Element) -> MinimumLoadBalancerCapacity:

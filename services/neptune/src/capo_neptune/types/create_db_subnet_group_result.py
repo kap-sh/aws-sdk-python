@@ -18,11 +18,12 @@ class CreateDBSubnetGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateDBSubnetGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_subnet_group" in value:
         import capo_neptune.types.db_subnet_group
 
         capo_neptune.types.db_subnet_group.serialize_query(
-            value["db_subnet_group"], pairs, f"{prefix}.DBSubnetGroup"
+            value["db_subnet_group"], pairs, f"{key_prefix}DBSubnetGroup"
         )
 
 

@@ -23,9 +23,10 @@ class UpdateApplicationMessage(TypedDict, closed=True):
 def serialize_query(
     value: UpdateApplicationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
 
 
 def deserialize_query(el: Element) -> UpdateApplicationMessage:

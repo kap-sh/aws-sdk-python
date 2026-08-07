@@ -25,16 +25,17 @@ class ReservedNodeConfigurationOption(TypedDict, closed=True):
 def serialize_query(
     value: ReservedNodeConfigurationOption, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_reserved_node" in value:
         import capo_redshift.types.reserved_node
 
         capo_redshift.types.reserved_node.serialize_query(
-            value["source_reserved_node"], pairs, f"{prefix}.SourceReservedNode"
+            value["source_reserved_node"], pairs, f"{key_prefix}SourceReservedNode"
         )
     if "target_reserved_node_count" in value:
         pairs.append(
             (
-                f"{prefix}.TargetReservedNodeCount",
+                f"{key_prefix}TargetReservedNodeCount",
                 str(value["target_reserved_node_count"]),
             )
         )
@@ -44,7 +45,7 @@ def serialize_query(
         capo_redshift.types.reserved_node_offering.serialize_query(
             value["target_reserved_node_offering"],
             pairs,
-            f"{prefix}.TargetReservedNodeOffering",
+            f"{key_prefix}TargetReservedNodeOffering",
         )
 
 

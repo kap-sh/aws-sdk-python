@@ -20,7 +20,8 @@ class CheckDNSAvailabilityMessage(TypedDict, closed=True):
 def serialize_query(
     value: CheckDNSAvailabilityMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.CNAMEPrefix", str(value["cname_prefix"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}CNAMEPrefix", str(value["cname_prefix"])))
 
 
 def deserialize_query(el: Element) -> CheckDNSAvailabilityMessage:

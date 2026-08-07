@@ -21,9 +21,10 @@ class TrackingOptions(TypedDict, closed=True):
 def serialize_query(
     value: TrackingOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "custom_redirect_domain" in value:
         pairs.append(
-            (f"{prefix}.CustomRedirectDomain", str(value["custom_redirect_domain"]))
+            (f"{key_prefix}CustomRedirectDomain", str(value["custom_redirect_domain"]))
         )
 
 

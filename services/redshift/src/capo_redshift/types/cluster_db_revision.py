@@ -29,12 +29,15 @@ class ClusterDbRevision(TypedDict, closed=True):
 def serialize_query(
     value: ClusterDbRevision, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "current_database_revision" in value:
         pairs.append(
             (
-                f"{prefix}.CurrentDatabaseRevision",
+                f"{key_prefix}CurrentDatabaseRevision",
                 str(value["current_database_revision"]),
             )
         )
@@ -44,13 +47,13 @@ def serialize_query(
         capo_redshift.types.t_stamp.serialize_query(
             value["database_revision_release_date"],
             pairs,
-            f"{prefix}.DatabaseRevisionReleaseDate",
+            f"{key_prefix}DatabaseRevisionReleaseDate",
         )
     if "revision_targets" in value:
         import capo_redshift.types.revision_targets_list
 
         capo_redshift.types.revision_targets_list.serialize_query(
-            value["revision_targets"], pairs, f"{prefix}.RevisionTargets"
+            value["revision_targets"], pairs, f"{key_prefix}RevisionTargets"
         )
 
 

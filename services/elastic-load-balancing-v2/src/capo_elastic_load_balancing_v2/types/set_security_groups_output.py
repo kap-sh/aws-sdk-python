@@ -26,11 +26,12 @@ class SetSecurityGroupsOutput(TypedDict, closed=True):
 def serialize_query(
     value: SetSecurityGroupsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "security_group_ids" in value:
         import capo_elastic_load_balancing_v2.types.security_groups
 
         capo_elastic_load_balancing_v2.types.security_groups.serialize_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "enforce_security_group_inbound_rules_on_private_link_traffic" in value:
         import capo_elastic_load_balancing_v2.types.enforce_security_group_inbound_rules_on_private_link_traffic_enum
@@ -38,7 +39,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.enforce_security_group_inbound_rules_on_private_link_traffic_enum.serialize_query(
             value["enforce_security_group_inbound_rules_on_private_link_traffic"],
             pairs,
-            f"{prefix}.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+            f"{key_prefix}EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
         )
 
 

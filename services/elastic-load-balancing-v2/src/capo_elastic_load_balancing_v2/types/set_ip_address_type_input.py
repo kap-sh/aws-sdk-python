@@ -26,13 +26,14 @@ class SetIpAddressTypeInput(TypedDict, closed=True):
 def serialize_query(
     value: SetIpAddressTypeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "ip_address_type" in value:
         import capo_elastic_load_balancing_v2.types.ip_address_type
 
         capo_elastic_load_balancing_v2.types.ip_address_type.serialize_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
 
 

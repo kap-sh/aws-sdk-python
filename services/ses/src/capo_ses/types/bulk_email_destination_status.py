@@ -25,16 +25,17 @@ class BulkEmailDestinationStatus(TypedDict, closed=True):
 def serialize_query(
     value: BulkEmailDestinationStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_ses.types.bulk_email_status
 
         capo_ses.types.bulk_email_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "error" in value:
-        pairs.append((f"{prefix}.Error", str(value["error"])))
+        pairs.append((f"{key_prefix}Error", str(value["error"])))
     if "message_id" in value:
-        pairs.append((f"{prefix}.MessageId", str(value["message_id"])))
+        pairs.append((f"{key_prefix}MessageId", str(value["message_id"])))
 
 
 def deserialize_query(el: Element) -> BulkEmailDestinationStatus:

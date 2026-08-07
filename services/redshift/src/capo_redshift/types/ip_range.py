@@ -22,15 +22,16 @@ class IPRange(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: IPRange, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "cidrip" in value:
-        pairs.append((f"{prefix}.CIDRIP", str(value["cidrip"])))
+        pairs.append((f"{key_prefix}CIDRIP", str(value["cidrip"])))
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

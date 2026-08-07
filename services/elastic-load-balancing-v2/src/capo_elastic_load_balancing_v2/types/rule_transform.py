@@ -31,11 +31,12 @@ class RuleTransform(TypedDict, closed=True):
 def serialize_query(
     value: RuleTransform, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_elastic_load_balancing_v2.types.transform_type_enum
 
         capo_elastic_load_balancing_v2.types.transform_type_enum.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "host_header_rewrite_config" in value:
         import capo_elastic_load_balancing_v2.types.host_header_rewrite_config
@@ -43,13 +44,13 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.host_header_rewrite_config.serialize_query(
             value["host_header_rewrite_config"],
             pairs,
-            f"{prefix}.HostHeaderRewriteConfig",
+            f"{key_prefix}HostHeaderRewriteConfig",
         )
     if "url_rewrite_config" in value:
         import capo_elastic_load_balancing_v2.types.url_rewrite_config
 
         capo_elastic_load_balancing_v2.types.url_rewrite_config.serialize_query(
-            value["url_rewrite_config"], pairs, f"{prefix}.UrlRewriteConfig"
+            value["url_rewrite_config"], pairs, f"{key_prefix}UrlRewriteConfig"
         )
 
 

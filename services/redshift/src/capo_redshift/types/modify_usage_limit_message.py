@@ -27,15 +27,16 @@ class ModifyUsageLimitMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyUsageLimitMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "usage_limit_id" in value:
-        pairs.append((f"{prefix}.UsageLimitId", str(value["usage_limit_id"])))
+        pairs.append((f"{key_prefix}UsageLimitId", str(value["usage_limit_id"])))
     if "amount" in value:
-        pairs.append((f"{prefix}.Amount", str(value["amount"])))
+        pairs.append((f"{key_prefix}Amount", str(value["amount"])))
     if "breach_action" in value:
         import capo_redshift.types.usage_limit_breach_action
 
         capo_redshift.types.usage_limit_breach_action.serialize_query(
-            value["breach_action"], pairs, f"{prefix}.BreachAction"
+            value["breach_action"], pairs, f"{key_prefix}BreachAction"
         )
 
 

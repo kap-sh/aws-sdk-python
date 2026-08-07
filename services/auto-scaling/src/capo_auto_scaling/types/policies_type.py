@@ -24,14 +24,15 @@ class PoliciesType(TypedDict, closed=True):
 def serialize_query(
     value: PoliciesType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scaling_policies" in value:
         import capo_auto_scaling.types.scaling_policies
 
         capo_auto_scaling.types.scaling_policies.serialize_query(
-            value["scaling_policies"], pairs, f"{prefix}.ScalingPolicies"
+            value["scaling_policies"], pairs, f"{key_prefix}ScalingPolicies"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> PoliciesType:

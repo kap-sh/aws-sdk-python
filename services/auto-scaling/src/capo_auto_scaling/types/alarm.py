@@ -22,10 +22,11 @@ class Alarm(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Alarm, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarm_name" in value:
-        pairs.append((f"{prefix}.AlarmName", str(value["alarm_name"])))
+        pairs.append((f"{key_prefix}AlarmName", str(value["alarm_name"])))
     if "alarm_arn" in value:
-        pairs.append((f"{prefix}.AlarmARN", str(value["alarm_arn"])))
+        pairs.append((f"{key_prefix}AlarmARN", str(value["alarm_arn"])))
 
 
 def deserialize_query(el: Element) -> Alarm:

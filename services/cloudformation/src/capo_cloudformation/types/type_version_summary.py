@@ -44,36 +44,37 @@ class TypeVersionSummary(TypedDict, closed=True):
 def serialize_query(
     value: TypeVersionSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "version_id" in value:
-        pairs.append((f"{prefix}.VersionId", str(value["version_id"])))
+        pairs.append((f"{key_prefix}VersionId", str(value["version_id"])))
     if "is_default_version" in value:
         pairs.append(
             (
-                f"{prefix}.IsDefaultVersion",
+                f"{key_prefix}IsDefaultVersion",
                 "true" if value["is_default_version"] else "false",
             )
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "time_created" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["time_created"], pairs, f"{prefix}.TimeCreated"
+            value["time_created"], pairs, f"{key_prefix}TimeCreated"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "public_version_number" in value:
         pairs.append(
-            (f"{prefix}.PublicVersionNumber", str(value["public_version_number"]))
+            (f"{key_prefix}PublicVersionNumber", str(value["public_version_number"]))
         )
 
 

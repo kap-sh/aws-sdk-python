@@ -31,20 +31,21 @@ class ModifyEventSubscriptionMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyEventSubscriptionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscription_name" in value:
-        pairs.append((f"{prefix}.SubscriptionName", str(value["subscription_name"])))
+        pairs.append((f"{key_prefix}SubscriptionName", str(value["subscription_name"])))
     if "sns_topic_arn" in value:
-        pairs.append((f"{prefix}.SnsTopicArn", str(value["sns_topic_arn"])))
+        pairs.append((f"{key_prefix}SnsTopicArn", str(value["sns_topic_arn"])))
     if "source_type" in value:
-        pairs.append((f"{prefix}.SourceType", str(value["source_type"])))
+        pairs.append((f"{key_prefix}SourceType", str(value["source_type"])))
     if "event_categories" in value:
         import capo_neptune.types.event_categories_list
 
         capo_neptune.types.event_categories_list.serialize_query(
-            value["event_categories"], pairs, f"{prefix}.EventCategories"
+            value["event_categories"], pairs, f"{key_prefix}EventCategories"
         )
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
 
 
 def deserialize_query(el: Element) -> ModifyEventSubscriptionMessage:

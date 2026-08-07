@@ -21,8 +21,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message_id" in value:
-        pairs.append((f"{prefix}.MessageId", str(value["message_id"])))
+        pairs.append((f"{key_prefix}MessageId", str(value["message_id"])))
 
 
 def deserialize_query(el: Element) -> SendCustomVerificationEmailResponse:

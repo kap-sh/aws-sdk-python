@@ -31,17 +31,18 @@ class Deployment(TypedDict, closed=True):
 def serialize_query(
     value: Deployment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "version_label" in value:
-        pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+        pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "deployment_id" in value:
-        pairs.append((f"{prefix}.DeploymentId", str(value["deployment_id"])))
+        pairs.append((f"{key_prefix}DeploymentId", str(value["deployment_id"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "deployment_time" in value:
         import capo_elastic_beanstalk.types.deployment_timestamp
 
         capo_elastic_beanstalk.types.deployment_timestamp.serialize_query(
-            value["deployment_time"], pairs, f"{prefix}.DeploymentTime"
+            value["deployment_time"], pairs, f"{key_prefix}DeploymentTime"
         )
 
 

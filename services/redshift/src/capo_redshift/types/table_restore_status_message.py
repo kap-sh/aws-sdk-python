@@ -24,16 +24,17 @@ class TableRestoreStatusMessage(TypedDict, closed=True):
 def serialize_query(
     value: TableRestoreStatusMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "table_restore_status_details" in value:
         import capo_redshift.types.table_restore_status_list
 
         capo_redshift.types.table_restore_status_list.serialize_query(
             value["table_restore_status_details"],
             pairs,
-            f"{prefix}.TableRestoreStatusDetails",
+            f"{key_prefix}TableRestoreStatusDetails",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> TableRestoreStatusMessage:

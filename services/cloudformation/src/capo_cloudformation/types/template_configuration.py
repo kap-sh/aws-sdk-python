@@ -26,17 +26,18 @@ class TemplateConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: TemplateConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "deletion_policy" in value:
         import capo_cloudformation.types.generated_template_deletion_policy
 
         capo_cloudformation.types.generated_template_deletion_policy.serialize_query(
-            value["deletion_policy"], pairs, f"{prefix}.DeletionPolicy"
+            value["deletion_policy"], pairs, f"{key_prefix}DeletionPolicy"
         )
     if "update_replace_policy" in value:
         import capo_cloudformation.types.generated_template_update_replace_policy
 
         capo_cloudformation.types.generated_template_update_replace_policy.serialize_query(
-            value["update_replace_policy"], pairs, f"{prefix}.UpdateReplacePolicy"
+            value["update_replace_policy"], pairs, f"{key_prefix}UpdateReplacePolicy"
         )
 
 

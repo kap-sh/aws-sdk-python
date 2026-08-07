@@ -25,14 +25,15 @@ class DomainMembership(TypedDict, closed=True):
 def serialize_query(
     value: DomainMembership, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "domain" in value:
-        pairs.append((f"{prefix}.Domain", str(value["domain"])))
+        pairs.append((f"{key_prefix}Domain", str(value["domain"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "fqdn" in value:
-        pairs.append((f"{prefix}.FQDN", str(value["fqdn"])))
+        pairs.append((f"{key_prefix}FQDN", str(value["fqdn"])))
     if "iam_role_name" in value:
-        pairs.append((f"{prefix}.IAMRoleName", str(value["iam_role_name"])))
+        pairs.append((f"{key_prefix}IAMRoleName", str(value["iam_role_name"])))
 
 
 def deserialize_query(el: Element) -> DomainMembership:

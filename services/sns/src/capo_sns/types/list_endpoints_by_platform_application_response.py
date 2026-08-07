@@ -24,14 +24,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "endpoints" in value:
         import capo_sns.types.list_of_endpoints
 
         capo_sns.types.list_of_endpoints.serialize_query(
-            value["endpoints"], pairs, f"{prefix}.Endpoints"
+            value["endpoints"], pairs, f"{key_prefix}Endpoints"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListEndpointsByPlatformApplicationResponse:

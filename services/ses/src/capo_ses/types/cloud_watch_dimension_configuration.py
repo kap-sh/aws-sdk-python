@@ -28,14 +28,15 @@ class CloudWatchDimensionConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: CloudWatchDimensionConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DimensionName", str(value["dimension_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DimensionName", str(value["dimension_name"])))
     import capo_ses.types.dimension_value_source
 
     capo_ses.types.dimension_value_source.serialize_query(
-        value["dimension_value_source"], pairs, f"{prefix}.DimensionValueSource"
+        value["dimension_value_source"], pairs, f"{key_prefix}DimensionValueSource"
     )
     pairs.append(
-        (f"{prefix}.DefaultDimensionValue", str(value["default_dimension_value"]))
+        (f"{key_prefix}DefaultDimensionValue", str(value["default_dimension_value"]))
     )
 
 

@@ -26,15 +26,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "serverless_cache_snapshots" in value:
         import capo_elasticache.types.serverless_cache_snapshot_list
 
         capo_elasticache.types.serverless_cache_snapshot_list.serialize_query(
             value["serverless_cache_snapshots"],
             pairs,
-            f"{prefix}.ServerlessCacheSnapshots",
+            f"{key_prefix}ServerlessCacheSnapshots",
         )
 
 

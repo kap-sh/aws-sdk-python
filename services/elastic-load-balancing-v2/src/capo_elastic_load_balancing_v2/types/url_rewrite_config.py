@@ -21,11 +21,12 @@ class UrlRewriteConfig(TypedDict, closed=True):
 def serialize_query(
     value: UrlRewriteConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rewrites" in value:
         import capo_elastic_load_balancing_v2.types.rewrite_config_list
 
         capo_elastic_load_balancing_v2.types.rewrite_config_list.serialize_query(
-            value["rewrites"], pairs, f"{prefix}.Rewrites"
+            value["rewrites"], pairs, f"{key_prefix}Rewrites"
         )
 
 

@@ -41,33 +41,36 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "lakehouse_registration" in value:
         import capo_redshift.types.lakehouse_registration
 
         capo_redshift.types.lakehouse_registration.serialize_query(
-            value["lakehouse_registration"], pairs, f"{prefix}.LakehouseRegistration"
+            value["lakehouse_registration"], pairs, f"{key_prefix}LakehouseRegistration"
         )
     if "catalog_name" in value:
-        pairs.append((f"{prefix}.CatalogName", str(value["catalog_name"])))
+        pairs.append((f"{key_prefix}CatalogName", str(value["catalog_name"])))
     if "lakehouse_idc_registration" in value:
         import capo_redshift.types.lakehouse_idc_registration
 
         capo_redshift.types.lakehouse_idc_registration.serialize_query(
             value["lakehouse_idc_registration"],
             pairs,
-            f"{prefix}.LakehouseIdcRegistration",
+            f"{key_prefix}LakehouseIdcRegistration",
         )
     if "lakehouse_idc_application_arn" in value:
         pairs.append(
             (
-                f"{prefix}.LakehouseIdcApplicationArn",
+                f"{key_prefix}LakehouseIdcApplicationArn",
                 str(value["lakehouse_idc_application_arn"]),
             )
         )
     if "dry_run" in value:
-        pairs.append((f"{prefix}.DryRun", "true" if value["dry_run"] else "false"))
+        pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
 
 
 def deserialize_query(el: Element) -> ModifyLakehouseConfigurationMessage:

@@ -36,20 +36,21 @@ class TrustStoreRevocation(TypedDict, closed=True):
 def serialize_query(
     value: TrustStoreRevocation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "revocation_id" in value:
-        pairs.append((f"{prefix}.RevocationId", str(value["revocation_id"])))
+        pairs.append((f"{key_prefix}RevocationId", str(value["revocation_id"])))
     if "revocation_type" in value:
         import capo_elastic_load_balancing_v2.types.revocation_type
 
         capo_elastic_load_balancing_v2.types.revocation_type.serialize_query(
-            value["revocation_type"], pairs, f"{prefix}.RevocationType"
+            value["revocation_type"], pairs, f"{key_prefix}RevocationType"
         )
     if "number_of_revoked_entries" in value:
         pairs.append(
             (
-                f"{prefix}.NumberOfRevokedEntries",
+                f"{key_prefix}NumberOfRevokedEntries",
                 str(value["number_of_revoked_entries"]),
             )
         )

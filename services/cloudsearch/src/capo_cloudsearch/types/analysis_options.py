@@ -32,18 +32,19 @@ class AnalysisOptions(TypedDict, closed=True):
 def serialize_query(
     value: AnalysisOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "synonyms" in value:
-        pairs.append((f"{prefix}.Synonyms", str(value["synonyms"])))
+        pairs.append((f"{key_prefix}Synonyms", str(value["synonyms"])))
     if "stopwords" in value:
-        pairs.append((f"{prefix}.Stopwords", str(value["stopwords"])))
+        pairs.append((f"{key_prefix}Stopwords", str(value["stopwords"])))
     if "stemming_dictionary" in value:
         pairs.append(
-            (f"{prefix}.StemmingDictionary", str(value["stemming_dictionary"]))
+            (f"{key_prefix}StemmingDictionary", str(value["stemming_dictionary"]))
         )
     if "japanese_tokenization_dictionary" in value:
         pairs.append(
             (
-                f"{prefix}.JapaneseTokenizationDictionary",
+                f"{key_prefix}JapaneseTokenizationDictionary",
                 str(value["japanese_tokenization_dictionary"]),
             )
         )
@@ -51,7 +52,7 @@ def serialize_query(
         import capo_cloudsearch.types.algorithmic_stemming
 
         capo_cloudsearch.types.algorithmic_stemming.serialize_query(
-            value["algorithmic_stemming"], pairs, f"{prefix}.AlgorithmicStemming"
+            value["algorithmic_stemming"], pairs, f"{key_prefix}AlgorithmicStemming"
         )
 
 

@@ -50,47 +50,50 @@ class PendingModifiedValues(TypedDict, closed=True):
 def serialize_query(
     value: PendingModifiedValues, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "master_user_password" in value:
         pairs.append(
-            (f"{prefix}.MasterUserPassword", str(value["master_user_password"]))
+            (f"{key_prefix}MasterUserPassword", str(value["master_user_password"]))
         )
     if "node_type" in value:
-        pairs.append((f"{prefix}.NodeType", str(value["node_type"])))
+        pairs.append((f"{key_prefix}NodeType", str(value["node_type"])))
     if "number_of_nodes" in value:
-        pairs.append((f"{prefix}.NumberOfNodes", str(value["number_of_nodes"])))
+        pairs.append((f"{key_prefix}NumberOfNodes", str(value["number_of_nodes"])))
     if "cluster_type" in value:
-        pairs.append((f"{prefix}.ClusterType", str(value["cluster_type"])))
+        pairs.append((f"{key_prefix}ClusterType", str(value["cluster_type"])))
     if "cluster_version" in value:
-        pairs.append((f"{prefix}.ClusterVersion", str(value["cluster_version"])))
+        pairs.append((f"{key_prefix}ClusterVersion", str(value["cluster_version"])))
     if "automated_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.AutomatedSnapshotRetentionPeriod",
+                f"{key_prefix}AutomatedSnapshotRetentionPeriod",
                 str(value["automated_snapshot_retention_period"]),
             )
         )
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
     if "enhanced_vpc_routing" in value:
         pairs.append(
             (
-                f"{prefix}.EnhancedVpcRouting",
+                f"{key_prefix}EnhancedVpcRouting",
                 "true" if value["enhanced_vpc_routing"] else "false",
             )
         )
     if "maintenance_track_name" in value:
         pairs.append(
-            (f"{prefix}.MaintenanceTrackName", str(value["maintenance_track_name"]))
+            (f"{key_prefix}MaintenanceTrackName", str(value["maintenance_track_name"]))
         )
     if "encryption_type" in value:
-        pairs.append((f"{prefix}.EncryptionType", str(value["encryption_type"])))
+        pairs.append((f"{key_prefix}EncryptionType", str(value["encryption_type"])))
 
 
 def deserialize_query(el: Element) -> PendingModifiedValues:

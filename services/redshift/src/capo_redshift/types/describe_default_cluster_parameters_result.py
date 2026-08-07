@@ -22,13 +22,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "default_cluster_parameters" in value:
         import capo_redshift.types.default_cluster_parameters
 
         capo_redshift.types.default_cluster_parameters.serialize_query(
             value["default_cluster_parameters"],
             pairs,
-            f"{prefix}.DefaultClusterParameters",
+            f"{key_prefix}DefaultClusterParameters",
         )
 
 

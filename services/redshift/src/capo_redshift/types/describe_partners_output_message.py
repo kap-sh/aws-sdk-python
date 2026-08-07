@@ -21,13 +21,14 @@ class DescribePartnersOutputMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribePartnersOutputMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "partner_integration_info_list" in value:
         import capo_redshift.types.partner_integration_info_list
 
         capo_redshift.types.partner_integration_info_list.serialize_query(
             value["partner_integration_info_list"],
             pairs,
-            f"{prefix}.PartnerIntegrationInfoList",
+            f"{key_prefix}PartnerIntegrationInfoList",
         )
 
 

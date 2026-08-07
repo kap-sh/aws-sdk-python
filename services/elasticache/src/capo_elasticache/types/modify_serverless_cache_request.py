@@ -49,44 +49,50 @@ class ModifyServerlessCacheRequest(TypedDict, closed=True):
 def serialize_query(
     value: ModifyServerlessCacheRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache_name" in value:
         pairs.append(
-            (f"{prefix}.ServerlessCacheName", str(value["serverless_cache_name"]))
+            (f"{key_prefix}ServerlessCacheName", str(value["serverless_cache_name"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "cache_usage_limits" in value:
         import capo_elasticache.types.cache_usage_limits
 
         capo_elasticache.types.cache_usage_limits.serialize_query(
-            value["cache_usage_limits"], pairs, f"{prefix}.CacheUsageLimits"
+            value["cache_usage_limits"], pairs, f"{key_prefix}CacheUsageLimits"
         )
     if "remove_user_group" in value:
         pairs.append(
             (
-                f"{prefix}.RemoveUserGroup",
+                f"{key_prefix}RemoveUserGroup",
                 "true" if value["remove_user_group"] else "false",
             )
         )
     if "user_group_id" in value:
-        pairs.append((f"{prefix}.UserGroupId", str(value["user_group_id"])))
+        pairs.append((f"{key_prefix}UserGroupId", str(value["user_group_id"])))
     if "security_group_ids" in value:
         import capo_elasticache.types.security_group_ids_list
 
         capo_elasticache.types.security_group_ids_list.serialize_query(
-            value["security_group_ids"], pairs, f"{prefix}.SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
         )
     if "snapshot_retention_limit" in value:
         pairs.append(
-            (f"{prefix}.SnapshotRetentionLimit", str(value["snapshot_retention_limit"]))
+            (
+                f"{key_prefix}SnapshotRetentionLimit",
+                str(value["snapshot_retention_limit"]),
+            )
         )
     if "daily_snapshot_time" in value:
-        pairs.append((f"{prefix}.DailySnapshotTime", str(value["daily_snapshot_time"])))
+        pairs.append(
+            (f"{key_prefix}DailySnapshotTime", str(value["daily_snapshot_time"]))
+        )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "major_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MajorEngineVersion", str(value["major_engine_version"]))
+            (f"{key_prefix}MajorEngineVersion", str(value["major_engine_version"]))
         )
 
 

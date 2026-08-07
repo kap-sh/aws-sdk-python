@@ -31,12 +31,13 @@ class OptionSpecification(TypedDict, closed=True):
 def serialize_query(
     value: OptionSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "option_name" in value:
-        pairs.append((f"{prefix}.OptionName", str(value["option_name"])))
+        pairs.append((f"{key_prefix}OptionName", str(value["option_name"])))
 
 
 def deserialize_query(el: Element) -> OptionSpecification:

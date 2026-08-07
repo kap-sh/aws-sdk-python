@@ -36,23 +36,24 @@ class DescribeTypeInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTypeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "version_id" in value:
-        pairs.append((f"{prefix}.VersionId", str(value["version_id"])))
+        pairs.append((f"{key_prefix}VersionId", str(value["version_id"])))
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "public_version_number" in value:
         pairs.append(
-            (f"{prefix}.PublicVersionNumber", str(value["public_version_number"]))
+            (f"{key_prefix}PublicVersionNumber", str(value["public_version_number"]))
         )
 
 

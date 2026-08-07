@@ -34,19 +34,20 @@ class SubscribeInput(TypedDict, closed=True):
 def serialize_query(
     value: SubscribeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "attributes" in value:
         import capo_sns.types.subscription_attributes_map
 
         capo_sns.types.subscription_attributes_map.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
     pairs.append(
         (
-            f"{prefix}.ReturnSubscriptionArn",
+            f"{key_prefix}ReturnSubscriptionArn",
             "true" if value.get("return_subscription_arn", False) else "false",
         )
     )

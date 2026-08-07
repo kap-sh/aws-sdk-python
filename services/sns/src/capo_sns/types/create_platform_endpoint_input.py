@@ -27,17 +27,18 @@ class CreatePlatformEndpointInput(TypedDict, closed=True):
 def serialize_query(
     value: CreatePlatformEndpointInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.PlatformApplicationArn", str(value["platform_application_arn"]))
+        (f"{key_prefix}PlatformApplicationArn", str(value["platform_application_arn"]))
     )
-    pairs.append((f"{prefix}.Token", str(value["token"])))
+    pairs.append((f"{key_prefix}Token", str(value["token"])))
     if "custom_user_data" in value:
-        pairs.append((f"{prefix}.CustomUserData", str(value["custom_user_data"])))
+        pairs.append((f"{key_prefix}CustomUserData", str(value["custom_user_data"])))
     if "attributes" in value:
         import capo_sns.types.map_string_to_string
 
         capo_sns.types.map_string_to_string.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

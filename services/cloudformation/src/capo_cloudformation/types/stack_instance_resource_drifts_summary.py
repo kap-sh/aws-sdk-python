@@ -50,13 +50,16 @@ class StackInstanceResourceDriftsSummary(TypedDict, closed=True):
 def serialize_query(
     value: StackInstanceResourceDriftsSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "physical_resource_id" in value:
         pairs.append(
-            (f"{prefix}.PhysicalResourceId", str(value["physical_resource_id"]))
+            (f"{key_prefix}PhysicalResourceId", str(value["physical_resource_id"]))
         )
     if "physical_resource_id_context" in value:
         import capo_cloudformation.types.physical_resource_id_context
@@ -64,15 +67,15 @@ def serialize_query(
         capo_cloudformation.types.physical_resource_id_context.serialize_query(
             value["physical_resource_id_context"],
             pairs,
-            f"{prefix}.PhysicalResourceIdContext",
+            f"{key_prefix}PhysicalResourceIdContext",
         )
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "property_differences" in value:
         import capo_cloudformation.types.property_differences
 
         capo_cloudformation.types.property_differences.serialize_query(
-            value["property_differences"], pairs, f"{prefix}.PropertyDifferences"
+            value["property_differences"], pairs, f"{key_prefix}PropertyDifferences"
         )
     if "stack_resource_drift_status" in value:
         import capo_cloudformation.types.stack_resource_drift_status
@@ -80,13 +83,13 @@ def serialize_query(
         capo_cloudformation.types.stack_resource_drift_status.serialize_query(
             value["stack_resource_drift_status"],
             pairs,
-            f"{prefix}.StackResourceDriftStatus",
+            f"{key_prefix}StackResourceDriftStatus",
         )
     if "timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["timestamp"], pairs, f"{prefix}.Timestamp"
+            value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
 
 

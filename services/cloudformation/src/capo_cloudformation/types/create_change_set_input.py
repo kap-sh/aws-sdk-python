@@ -98,16 +98,17 @@ class CreateChangeSetInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateChangeSetInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "template_url" in value:
-        pairs.append((f"{prefix}.TemplateURL", str(value["template_url"])))
+        pairs.append((f"{key_prefix}TemplateURL", str(value["template_url"])))
     if "use_previous_template" in value:
         pairs.append(
             (
-                f"{prefix}.UsePreviousTemplate",
+                f"{key_prefix}UsePreviousTemplate",
                 "true" if value["use_previous_template"] else "false",
             )
         )
@@ -115,62 +116,62 @@ def serialize_query(
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "resource_types" in value:
         import capo_cloudformation.types.resource_types
 
         capo_cloudformation.types.resource_types.serialize_query(
-            value["resource_types"], pairs, f"{prefix}.ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
         )
     if "role_arn" in value:
-        pairs.append((f"{prefix}.RoleARN", str(value["role_arn"])))
+        pairs.append((f"{key_prefix}RoleARN", str(value["role_arn"])))
     if "rollback_configuration" in value:
         import capo_cloudformation.types.rollback_configuration
 
         capo_cloudformation.types.rollback_configuration.serialize_query(
-            value["rollback_configuration"], pairs, f"{prefix}.RollbackConfiguration"
+            value["rollback_configuration"], pairs, f"{key_prefix}RollbackConfiguration"
         )
     if "notification_ar_ns" in value:
         import capo_cloudformation.types.notification_ar_ns
 
         capo_cloudformation.types.notification_ar_ns.serialize_query(
-            value["notification_ar_ns"], pairs, f"{prefix}.NotificationARNs"
+            value["notification_ar_ns"], pairs, f"{key_prefix}NotificationARNs"
         )
     if "tags" in value:
         import capo_cloudformation.types.tags
 
         capo_cloudformation.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "change_set_type" in value:
         import capo_cloudformation.types.change_set_type
 
         capo_cloudformation.types.change_set_type.serialize_query(
-            value["change_set_type"], pairs, f"{prefix}.ChangeSetType"
+            value["change_set_type"], pairs, f"{key_prefix}ChangeSetType"
         )
     if "resources_to_import" in value:
         import capo_cloudformation.types.resources_to_import
 
         capo_cloudformation.types.resources_to_import.serialize_query(
-            value["resources_to_import"], pairs, f"{prefix}.ResourcesToImport"
+            value["resources_to_import"], pairs, f"{key_prefix}ResourcesToImport"
         )
     if "include_nested_stacks" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeNestedStacks",
+                f"{key_prefix}IncludeNestedStacks",
                 "true" if value["include_nested_stacks"] else "false",
             )
         )
@@ -178,12 +179,12 @@ def serialize_query(
         import capo_cloudformation.types.on_stack_failure
 
         capo_cloudformation.types.on_stack_failure.serialize_query(
-            value["on_stack_failure"], pairs, f"{prefix}.OnStackFailure"
+            value["on_stack_failure"], pairs, f"{key_prefix}OnStackFailure"
         )
     if "import_existing_resources" in value:
         pairs.append(
             (
-                f"{prefix}.ImportExistingResources",
+                f"{key_prefix}ImportExistingResources",
                 "true" if value["import_existing_resources"] else "false",
             )
         )
@@ -191,7 +192,7 @@ def serialize_query(
         import capo_cloudformation.types.deployment_mode
 
         capo_cloudformation.types.deployment_mode.serialize_query(
-            value["deployment_mode"], pairs, f"{prefix}.DeploymentMode"
+            value["deployment_mode"], pairs, f"{key_prefix}DeploymentMode"
         )
 
 

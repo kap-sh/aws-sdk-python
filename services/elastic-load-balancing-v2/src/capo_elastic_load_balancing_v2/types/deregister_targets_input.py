@@ -26,13 +26,14 @@ class DeregisterTargetsInput(TypedDict, closed=True):
 def serialize_query(
     value: DeregisterTargetsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_group_arn" in value:
-        pairs.append((f"{prefix}.TargetGroupArn", str(value["target_group_arn"])))
+        pairs.append((f"{key_prefix}TargetGroupArn", str(value["target_group_arn"])))
     if "targets" in value:
         import capo_elastic_load_balancing_v2.types.target_descriptions
 
         capo_elastic_load_balancing_v2.types.target_descriptions.serialize_query(
-            value["targets"], pairs, f"{prefix}.Targets"
+            value["targets"], pairs, f"{key_prefix}Targets"
         )
 
 

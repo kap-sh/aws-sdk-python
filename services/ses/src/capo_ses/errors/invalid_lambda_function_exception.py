@@ -22,10 +22,11 @@ class InvalidLambdaFunctionException_(TypedDict, closed=True):
 def serialize_query(
     value: InvalidLambdaFunctionException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "function_arn" in value:
-        pairs.append((f"{prefix}.FunctionArn", str(value["function_arn"])))
+        pairs.append((f"{key_prefix}FunctionArn", str(value["function_arn"])))
     if "message" in value:
-        pairs.append((f"{prefix}.message", str(value["message"])))
+        pairs.append((f"{key_prefix}message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> InvalidLambdaFunctionException_:

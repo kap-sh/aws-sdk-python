@@ -32,22 +32,23 @@ class IncreaseReplicaCountMessage(TypedDict, closed=True):
 def serialize_query(
     value: IncreaseReplicaCountMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "new_replica_count" in value:
-        pairs.append((f"{prefix}.NewReplicaCount", str(value["new_replica_count"])))
+        pairs.append((f"{key_prefix}NewReplicaCount", str(value["new_replica_count"])))
     if "replica_configuration" in value:
         import capo_elasticache.types.replica_configuration_list
 
         capo_elasticache.types.replica_configuration_list.serialize_query(
-            value["replica_configuration"], pairs, f"{prefix}.ReplicaConfiguration"
+            value["replica_configuration"], pairs, f"{key_prefix}ReplicaConfiguration"
         )
     if "apply_immediately" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyImmediately",
+                f"{key_prefix}ApplyImmediately",
                 "true" if value["apply_immediately"] else "false",
             )
         )

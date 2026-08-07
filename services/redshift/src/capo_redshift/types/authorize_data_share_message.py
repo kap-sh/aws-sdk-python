@@ -24,15 +24,16 @@ class AuthorizeDataShareMessage(TypedDict, closed=True):
 def serialize_query(
     value: AuthorizeDataShareMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_share_arn" in value:
-        pairs.append((f"{prefix}.DataShareArn", str(value["data_share_arn"])))
+        pairs.append((f"{key_prefix}DataShareArn", str(value["data_share_arn"])))
     if "consumer_identifier" in value:
         pairs.append(
-            (f"{prefix}.ConsumerIdentifier", str(value["consumer_identifier"]))
+            (f"{key_prefix}ConsumerIdentifier", str(value["consumer_identifier"]))
         )
     if "allow_writes" in value:
         pairs.append(
-            (f"{prefix}.AllowWrites", "true" if value["allow_writes"] else "false")
+            (f"{key_prefix}AllowWrites", "true" if value["allow_writes"] else "false")
         )
 
 

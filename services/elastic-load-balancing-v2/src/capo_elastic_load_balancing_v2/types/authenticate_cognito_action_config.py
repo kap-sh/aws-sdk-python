@@ -56,25 +56,30 @@ class AuthenticateCognitoActionConfig(TypedDict, closed=True):
 def serialize_query(
     value: AuthenticateCognitoActionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_pool_arn" in value:
-        pairs.append((f"{prefix}.UserPoolArn", str(value["user_pool_arn"])))
+        pairs.append((f"{key_prefix}UserPoolArn", str(value["user_pool_arn"])))
     if "user_pool_client_id" in value:
-        pairs.append((f"{prefix}.UserPoolClientId", str(value["user_pool_client_id"])))
+        pairs.append(
+            (f"{key_prefix}UserPoolClientId", str(value["user_pool_client_id"]))
+        )
     if "user_pool_domain" in value:
-        pairs.append((f"{prefix}.UserPoolDomain", str(value["user_pool_domain"])))
+        pairs.append((f"{key_prefix}UserPoolDomain", str(value["user_pool_domain"])))
     if "session_cookie_name" in value:
-        pairs.append((f"{prefix}.SessionCookieName", str(value["session_cookie_name"])))
+        pairs.append(
+            (f"{key_prefix}SessionCookieName", str(value["session_cookie_name"]))
+        )
     if "scope" in value:
-        pairs.append((f"{prefix}.Scope", str(value["scope"])))
+        pairs.append((f"{key_prefix}Scope", str(value["scope"])))
     if "session_timeout" in value:
-        pairs.append((f"{prefix}.SessionTimeout", str(value["session_timeout"])))
+        pairs.append((f"{key_prefix}SessionTimeout", str(value["session_timeout"])))
     if "authentication_request_extra_params" in value:
         import capo_elastic_load_balancing_v2.types.authenticate_cognito_action_authentication_request_extra_params
 
         capo_elastic_load_balancing_v2.types.authenticate_cognito_action_authentication_request_extra_params.serialize_query(
             value["authentication_request_extra_params"],
             pairs,
-            f"{prefix}.AuthenticationRequestExtraParams",
+            f"{key_prefix}AuthenticationRequestExtraParams",
         )
     if "on_unauthenticated_request" in value:
         import capo_elastic_load_balancing_v2.types.authenticate_cognito_action_conditional_behavior_enum
@@ -82,7 +87,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.authenticate_cognito_action_conditional_behavior_enum.serialize_query(
             value["on_unauthenticated_request"],
             pairs,
-            f"{prefix}.OnUnauthenticatedRequest",
+            f"{key_prefix}OnUnauthenticatedRequest",
         )
 
 

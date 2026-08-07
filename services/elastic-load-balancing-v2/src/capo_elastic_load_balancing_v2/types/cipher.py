@@ -22,10 +22,11 @@ class Cipher(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Cipher, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
 
 
 def deserialize_query(el: Element) -> Cipher:

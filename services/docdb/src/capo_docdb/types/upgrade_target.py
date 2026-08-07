@@ -28,20 +28,21 @@ class UpgradeTarget(TypedDict, closed=True):
 def serialize_query(
     value: UpgradeTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "auto_upgrade" in value:
         pairs.append(
-            (f"{prefix}.AutoUpgrade", "true" if value["auto_upgrade"] else "false")
+            (f"{key_prefix}AutoUpgrade", "true" if value["auto_upgrade"] else "false")
         )
     if "is_major_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.IsMajorVersionUpgrade",
+                f"{key_prefix}IsMajorVersionUpgrade",
                 "true" if value["is_major_version_upgrade"] else "false",
             )
         )

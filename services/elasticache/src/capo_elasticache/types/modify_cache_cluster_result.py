@@ -18,11 +18,12 @@ class ModifyCacheClusterResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyCacheClusterResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster" in value:
         import capo_elasticache.types.cache_cluster
 
         capo_elasticache.types.cache_cluster.serialize_query(
-            value["cache_cluster"], pairs, f"{prefix}.CacheCluster"
+            value["cache_cluster"], pairs, f"{key_prefix}CacheCluster"
         )
 
 

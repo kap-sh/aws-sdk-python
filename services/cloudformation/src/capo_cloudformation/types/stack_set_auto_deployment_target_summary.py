@@ -26,15 +26,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "organizational_unit_id" in value:
         pairs.append(
-            (f"{prefix}.OrganizationalUnitId", str(value["organizational_unit_id"]))
+            (f"{key_prefix}OrganizationalUnitId", str(value["organizational_unit_id"]))
         )
     if "regions" in value:
         import capo_cloudformation.types.region_list
 
         capo_cloudformation.types.region_list.serialize_query(
-            value["regions"], pairs, f"{prefix}.Regions"
+            value["regions"], pairs, f"{key_prefix}Regions"
         )
 
 

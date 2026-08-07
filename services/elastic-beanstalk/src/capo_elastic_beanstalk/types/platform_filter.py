@@ -31,15 +31,16 @@ class PlatformFilter(TypedDict, closed=True):
 def serialize_query(
     value: PlatformFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
     if "operator" in value:
-        pairs.append((f"{prefix}.Operator", str(value["operator"])))
+        pairs.append((f"{key_prefix}Operator", str(value["operator"])))
     if "values" in value:
         import capo_elastic_beanstalk.types.platform_filter_value_list
 
         capo_elastic_beanstalk.types.platform_filter_value_list.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

@@ -43,16 +43,17 @@ class NodeGroupConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: NodeGroupConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
     if "slots" in value:
-        pairs.append((f"{prefix}.Slots", str(value["slots"])))
+        pairs.append((f"{key_prefix}Slots", str(value["slots"])))
     if "replica_count" in value:
-        pairs.append((f"{prefix}.ReplicaCount", str(value["replica_count"])))
+        pairs.append((f"{key_prefix}ReplicaCount", str(value["replica_count"])))
     if "primary_availability_zone" in value:
         pairs.append(
             (
-                f"{prefix}.PrimaryAvailabilityZone",
+                f"{key_prefix}PrimaryAvailabilityZone",
                 str(value["primary_availability_zone"]),
             )
         )
@@ -62,15 +63,17 @@ def serialize_query(
         capo_elasticache.types.availability_zones_list.serialize_query(
             value["replica_availability_zones"],
             pairs,
-            f"{prefix}.ReplicaAvailabilityZones",
+            f"{key_prefix}ReplicaAvailabilityZones",
         )
     if "primary_outpost_arn" in value:
-        pairs.append((f"{prefix}.PrimaryOutpostArn", str(value["primary_outpost_arn"])))
+        pairs.append(
+            (f"{key_prefix}PrimaryOutpostArn", str(value["primary_outpost_arn"]))
+        )
     if "replica_outpost_arns" in value:
         import capo_elasticache.types.outpost_arns_list
 
         capo_elasticache.types.outpost_arns_list.serialize_query(
-            value["replica_outpost_arns"], pairs, f"{prefix}.ReplicaOutpostArns"
+            value["replica_outpost_arns"], pairs, f"{key_prefix}ReplicaOutpostArns"
         )
 
 

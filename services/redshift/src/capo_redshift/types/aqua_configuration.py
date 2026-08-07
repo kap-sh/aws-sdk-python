@@ -24,11 +24,12 @@ class AquaConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: AquaConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "aqua_status" in value:
         import capo_redshift.types.aqua_status
 
         capo_redshift.types.aqua_status.serialize_query(
-            value["aqua_status"], pairs, f"{prefix}.AquaStatus"
+            value["aqua_status"], pairs, f"{key_prefix}AquaStatus"
         )
     if "aqua_configuration_status" in value:
         import capo_redshift.types.aqua_configuration_status
@@ -36,7 +37,7 @@ def serialize_query(
         capo_redshift.types.aqua_configuration_status.serialize_query(
             value["aqua_configuration_status"],
             pairs,
-            f"{prefix}.AquaConfigurationStatus",
+            f"{key_prefix}AquaConfigurationStatus",
         )
 
 

@@ -25,16 +25,17 @@ class DeactivateTypeInput(TypedDict, closed=True):
 def serialize_query(
     value: DeactivateTypeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "type" in value:
         import capo_cloudformation.types.third_party_type
 
         capo_cloudformation.types.third_party_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> DeactivateTypeInput:

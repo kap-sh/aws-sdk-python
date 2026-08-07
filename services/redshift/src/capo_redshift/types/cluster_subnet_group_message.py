@@ -24,13 +24,14 @@ class ClusterSubnetGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ClusterSubnetGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "cluster_subnet_groups" in value:
         import capo_redshift.types.cluster_subnet_groups
 
         capo_redshift.types.cluster_subnet_groups.serialize_query(
-            value["cluster_subnet_groups"], pairs, f"{prefix}.ClusterSubnetGroups"
+            value["cluster_subnet_groups"], pairs, f"{key_prefix}ClusterSubnetGroups"
         )
 
 

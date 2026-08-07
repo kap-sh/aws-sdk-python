@@ -36,18 +36,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_scan_id" in value:
-        pairs.append((f"{prefix}.ResourceScanId", str(value["resource_scan_id"])))
+        pairs.append((f"{key_prefix}ResourceScanId", str(value["resource_scan_id"])))
     if "resources" in value:
         import capo_cloudformation.types.scanned_resource_identifiers
 
         capo_cloudformation.types.scanned_resource_identifiers.serialize_query(
-            value["resources"], pairs, f"{prefix}.Resources"
+            value["resources"], pairs, f"{key_prefix}Resources"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_query(el: Element) -> ListResourceScanRelatedResourcesInput:

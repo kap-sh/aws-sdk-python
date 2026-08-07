@@ -25,10 +25,13 @@ class LoadBalancerState(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancerState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_name" in value:
-        pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
+        pairs.append(
+            (f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"]))
+        )
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
 
 
 def deserialize_query(el: Element) -> LoadBalancerState:

@@ -31,20 +31,21 @@ class BouncedRecipientInfo(TypedDict, closed=True):
 def serialize_query(
     value: BouncedRecipientInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Recipient", str(value["recipient"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Recipient", str(value["recipient"])))
     if "recipient_arn" in value:
-        pairs.append((f"{prefix}.RecipientArn", str(value["recipient_arn"])))
+        pairs.append((f"{key_prefix}RecipientArn", str(value["recipient_arn"])))
     if "bounce_type" in value:
         import capo_ses.types.bounce_type
 
         capo_ses.types.bounce_type.serialize_query(
-            value["bounce_type"], pairs, f"{prefix}.BounceType"
+            value["bounce_type"], pairs, f"{key_prefix}BounceType"
         )
     if "recipient_dsn_fields" in value:
         import capo_ses.types.recipient_dsn_fields
 
         capo_ses.types.recipient_dsn_fields.serialize_query(
-            value["recipient_dsn_fields"], pairs, f"{prefix}.RecipientDsnFields"
+            value["recipient_dsn_fields"], pairs, f"{key_prefix}RecipientDsnFields"
         )
 
 

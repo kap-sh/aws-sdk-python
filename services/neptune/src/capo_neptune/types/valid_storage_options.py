@@ -29,25 +29,26 @@ class ValidStorageOptions(TypedDict, closed=True):
 def serialize_query(
     value: ValidStorageOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "storage_size" in value:
         import capo_neptune.types.range_list
 
         capo_neptune.types.range_list.serialize_query(
-            value["storage_size"], pairs, f"{prefix}.StorageSize"
+            value["storage_size"], pairs, f"{key_prefix}StorageSize"
         )
     if "provisioned_iops" in value:
         import capo_neptune.types.range_list
 
         capo_neptune.types.range_list.serialize_query(
-            value["provisioned_iops"], pairs, f"{prefix}.ProvisionedIops"
+            value["provisioned_iops"], pairs, f"{key_prefix}ProvisionedIops"
         )
     if "iops_to_storage_ratio" in value:
         import capo_neptune.types.double_range_list
 
         capo_neptune.types.double_range_list.serialize_query(
-            value["iops_to_storage_ratio"], pairs, f"{prefix}.IopsToStorageRatio"
+            value["iops_to_storage_ratio"], pairs, f"{key_prefix}IopsToStorageRatio"
         )
 
 

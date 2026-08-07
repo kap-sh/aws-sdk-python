@@ -24,14 +24,15 @@ class ListPlatformApplicationsResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListPlatformApplicationsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_applications" in value:
         import capo_sns.types.list_of_platform_applications
 
         capo_sns.types.list_of_platform_applications.serialize_query(
-            value["platform_applications"], pairs, f"{prefix}.PlatformApplications"
+            value["platform_applications"], pairs, f"{key_prefix}PlatformApplications"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListPlatformApplicationsResponse:

@@ -32,25 +32,28 @@ class DeploymentTargets(TypedDict, closed=True):
 def serialize_query(
     value: DeploymentTargets, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "accounts" in value:
         import capo_cloudformation.types.account_list
 
         capo_cloudformation.types.account_list.serialize_query(
-            value["accounts"], pairs, f"{prefix}.Accounts"
+            value["accounts"], pairs, f"{key_prefix}Accounts"
         )
     if "accounts_url" in value:
-        pairs.append((f"{prefix}.AccountsUrl", str(value["accounts_url"])))
+        pairs.append((f"{key_prefix}AccountsUrl", str(value["accounts_url"])))
     if "organizational_unit_ids" in value:
         import capo_cloudformation.types.organizational_unit_id_list
 
         capo_cloudformation.types.organizational_unit_id_list.serialize_query(
-            value["organizational_unit_ids"], pairs, f"{prefix}.OrganizationalUnitIds"
+            value["organizational_unit_ids"],
+            pairs,
+            f"{key_prefix}OrganizationalUnitIds",
         )
     if "account_filter_type" in value:
         import capo_cloudformation.types.account_filter_type
 
         capo_cloudformation.types.account_filter_type.serialize_query(
-            value["account_filter_type"], pairs, f"{prefix}.AccountFilterType"
+            value["account_filter_type"], pairs, f"{key_prefix}AccountFilterType"
         )
 
 

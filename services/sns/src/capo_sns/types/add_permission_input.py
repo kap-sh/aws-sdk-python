@@ -29,17 +29,18 @@ class AddPermissionInput(TypedDict, closed=True):
 def serialize_query(
     value: AddPermissionInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.Label", str(value["label"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}Label", str(value["label"])))
     import capo_sns.types.delegates_list
 
     capo_sns.types.delegates_list.serialize_query(
-        value["aws_account_id"], pairs, f"{prefix}.AWSAccountId"
+        value["aws_account_id"], pairs, f"{key_prefix}AWSAccountId"
     )
     import capo_sns.types.actions_list
 
     capo_sns.types.actions_list.serialize_query(
-        value["action_name"], pairs, f"{prefix}.ActionName"
+        value["action_name"], pairs, f"{key_prefix}ActionName"
     )
 
 

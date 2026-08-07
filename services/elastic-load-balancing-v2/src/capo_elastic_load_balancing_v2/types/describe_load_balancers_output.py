@@ -24,14 +24,15 @@ class DescribeLoadBalancersOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeLoadBalancersOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancers" in value:
         import capo_elastic_load_balancing_v2.types.load_balancers
 
         capo_elastic_load_balancing_v2.types.load_balancers.serialize_query(
-            value["load_balancers"], pairs, f"{prefix}.LoadBalancers"
+            value["load_balancers"], pairs, f"{key_prefix}LoadBalancers"
         )
     if "next_marker" in value:
-        pairs.append((f"{prefix}.NextMarker", str(value["next_marker"])))
+        pairs.append((f"{key_prefix}NextMarker", str(value["next_marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeLoadBalancersOutput:

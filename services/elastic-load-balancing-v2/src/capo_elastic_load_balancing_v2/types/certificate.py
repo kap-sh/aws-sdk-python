@@ -24,11 +24,12 @@ class Certificate(TypedDict, closed=True):
 def serialize_query(
     value: Certificate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate_arn" in value:
-        pairs.append((f"{prefix}.CertificateArn", str(value["certificate_arn"])))
+        pairs.append((f"{key_prefix}CertificateArn", str(value["certificate_arn"])))
     if "is_default" in value:
         pairs.append(
-            (f"{prefix}.IsDefault", "true" if value["is_default"] else "false")
+            (f"{key_prefix}IsDefault", "true" if value["is_default"] else "false")
         )
 
 

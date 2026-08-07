@@ -34,25 +34,29 @@ class SwapEnvironmentCNAMEsMessage(TypedDict, closed=True):
 def serialize_query(
     value: SwapEnvironmentCNAMEsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_environment_id" in value:
         pairs.append(
-            (f"{prefix}.SourceEnvironmentId", str(value["source_environment_id"]))
+            (f"{key_prefix}SourceEnvironmentId", str(value["source_environment_id"]))
         )
     if "source_environment_name" in value:
         pairs.append(
-            (f"{prefix}.SourceEnvironmentName", str(value["source_environment_name"]))
+            (
+                f"{key_prefix}SourceEnvironmentName",
+                str(value["source_environment_name"]),
+            )
         )
     if "destination_environment_id" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationEnvironmentId",
+                f"{key_prefix}DestinationEnvironmentId",
                 str(value["destination_environment_id"]),
             )
         )
     if "destination_environment_name" in value:
         pairs.append(
             (
-                f"{prefix}.DestinationEnvironmentName",
+                f"{key_prefix}DestinationEnvironmentName",
                 str(value["destination_environment_name"]),
             )
         )

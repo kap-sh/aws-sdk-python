@@ -198,11 +198,13 @@ class schemasClient:
 
     def create_discoverer(
         self,
-        source_arn: "capo_schemas.types.__string_min20_max1600.__stringMin20Max1600",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
         description: Optional[
             "capo_schemas.types.__string_min0_max256.__stringMin0Max256"
+        ] = None,
+        source_arn: Optional[
+            "capo_schemas.types.__string_min20_max1600.__stringMin20Max1600"
         ] = None,
         cross_account: Optional["capo_schemas.types.__boolean.__boolean"] = None,
         tags: Optional["capo_schemas.types.tags.Tags"] = None,
@@ -243,7 +245,8 @@ class schemasClient:
         input_: capo_schemas.types.create_discoverer_request.CreateDiscovererRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
             input_["description"] = description
-        input_["source_arn"] = source_arn
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
         if cross_account is not None:
             input_["cross_account"] = cross_account
         if tags is not None:
@@ -314,16 +317,18 @@ class schemasClient:
 
     def create_schema(
         self,
-        content: "capo_schemas.types.__string_min1_max100000.__stringMin1Max100000",
         registry_name: "capo_schemas.types.__string.__string",
         schema_name: "capo_schemas.types.__string.__string",
-        type: "capo_schemas.types.type.Type",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        content: Optional[
+            "capo_schemas.types.__string_min1_max100000.__stringMin1Max100000"
+        ] = None,
         description: Optional[
             "capo_schemas.types.__string_min0_max256.__stringMin0Max256"
         ] = None,
         tags: Optional["capo_schemas.types.tags.Tags"] = None,
+        type: Optional["capo_schemas.types.type.Type"] = None,
     ) -> "capo_schemas.types.create_schema_response.CreateSchemaResponse":
         """<p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
 
@@ -359,14 +364,16 @@ class schemasClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_schemas.types.create_schema_request.CreateSchemaRequest = {}  # type: ignore[typeddict-item]
-        input_["content"] = content
+        if content is not None:
+            input_["content"] = content
         if description is not None:
             input_["description"] = description
         input_["registry_name"] = registry_name
         input_["schema_name"] = schema_name
         if tags is not None:
             input_["tags"] = tags
-        input_["type"] = type
+        if type is not None:
+            input_["type"] = type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -812,10 +819,10 @@ class schemasClient:
         self,
         registry_name: "capo_schemas.types.__string.__string",
         schema_name: "capo_schemas.types.__string.__string",
-        type: "capo_schemas.types.__string.__string",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
         schema_version: Optional["capo_schemas.types.__string.__string"] = None,
+        type: Optional["capo_schemas.types.__string.__string"] = None,
     ) -> "capo_schemas.types.export_schema_response.ExportSchemaResponse":
         """export_schema
 
@@ -855,7 +862,8 @@ class schemasClient:
         input_["schema_name"] = schema_name
         if schema_version is not None:
             input_["schema_version"] = schema_version
-        input_["type"] = type
+        if type is not None:
+            input_["type"] = type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -922,10 +930,12 @@ class schemasClient:
 
     def get_discovered_schema(
         self,
-        events: "capo_schemas.types.__list_of_get_discovered_schema_version_item_input.__listOfGetDiscoveredSchemaVersionItemInput",
-        type: "capo_schemas.types.type.Type",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        events: Optional[
+            "capo_schemas.types.__list_of_get_discovered_schema_version_item_input.__listOfGetDiscoveredSchemaVersionItemInput"
+        ] = None,
+        type: Optional["capo_schemas.types.type.Type"] = None,
     ) -> (
         "capo_schemas.types.get_discovered_schema_response.GetDiscoveredSchemaResponse"
     ):
@@ -960,8 +970,10 @@ class schemasClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_schemas.types.get_discovered_schema_request.GetDiscoveredSchemaRequest = {}  # type: ignore[typeddict-item]
-        input_["events"] = events
-        input_["type"] = type
+        if events is not None:
+            input_["events"] = events
+        if type is not None:
+            input_["type"] = type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1448,9 +1460,11 @@ class schemasClient:
 
     def put_resource_policy(
         self,
-        policy: "capo_schemas.types.synthesized_json__string.SynthesizedJson__string",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        policy: Optional[
+            "capo_schemas.types.synthesized_json__string.SynthesizedJson__string"
+        ] = None,
         registry_name: Optional["capo_schemas.types.__string.__string"] = None,
         revision_id: Optional["capo_schemas.types.__string.__string"] = None,
     ) -> "capo_schemas.types.put_resource_policy_response.PutResourcePolicyResponse":
@@ -1488,7 +1502,8 @@ class schemasClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_schemas.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy"] = policy
+        if policy is not None:
+            input_["policy"] = policy
         if registry_name is not None:
             input_["registry_name"] = registry_name
         if revision_id is not None:
@@ -1503,10 +1518,10 @@ class schemasClient:
 
     def search_schemas(
         self,
-        keywords: "capo_schemas.types.__string.__string",
         registry_name: "capo_schemas.types.__string.__string",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        keywords: Optional["capo_schemas.types.__string.__string"] = None,
         limit: Optional["capo_schemas.types.__integer.__integer"] = None,
         next_token: Optional["capo_schemas.types.__string.__string"] = None,
     ) -> "capo_schemas.types.search_schemas_response.SearchSchemasResponse":
@@ -1542,7 +1557,8 @@ class schemasClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_schemas.types.search_schemas_request.SearchSchemasRequest = {}  # type: ignore[typeddict-item]
-        input_["keywords"] = keywords
+        if keywords is not None:
+            input_["keywords"] = keywords
         if limit is not None:
             input_["limit"] = limit
         if next_token is not None:
@@ -1558,19 +1574,19 @@ class schemasClient:
 
     def iter_search_schemas(
         self,
-        keywords: "capo_schemas.types.__string.__string",
         registry_name: "capo_schemas.types.__string.__string",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        keywords: Optional["capo_schemas.types.__string.__string"] = None,
         limit: Optional["capo_schemas.types.__integer.__integer"] = None,
         next_token: Optional["capo_schemas.types.__string.__string"] = None,
     ) -> "Iterator[capo_schemas.types.search_schema_summary.SearchSchemaSummary]":
         _token = next_token
         while True:
             _response = self.search_schemas(
-                keywords,
                 registry_name,
                 config_overrides=config_overrides,
+                keywords=keywords,
                 limit=limit,
                 next_token=_token,
             )
@@ -1676,9 +1692,9 @@ class schemasClient:
     def tag_resource(
         self,
         resource_arn: "capo_schemas.types.__string.__string",
-        tags: "capo_schemas.types.tags.Tags",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        tags: Optional["capo_schemas.types.tags.Tags"] = None,
     ) -> None:
         """<p>Add tags to a resource.</p>
 
@@ -1709,7 +1725,8 @@ class schemasClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_schemas.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1721,9 +1738,11 @@ class schemasClient:
     def untag_resource(
         self,
         resource_arn: "capo_schemas.types.__string.__string",
-        tag_keys: "capo_schemas.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[schemasClientConfig] = None,
+        tag_keys: Optional[
+            "capo_schemas.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """<p>Removes tags from a resource.</p>
 
@@ -1754,7 +1773,8 @@ class schemasClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_schemas.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

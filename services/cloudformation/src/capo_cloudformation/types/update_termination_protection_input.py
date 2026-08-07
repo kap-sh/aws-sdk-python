@@ -24,15 +24,16 @@ class UpdateTerminationProtectionInput(TypedDict, closed=True):
 def serialize_query(
     value: UpdateTerminationProtectionInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enable_termination_protection" in value:
         pairs.append(
             (
-                f"{prefix}.EnableTerminationProtection",
+                f"{key_prefix}EnableTerminationProtection",
                 "true" if value["enable_termination_protection"] else "false",
             )
         )
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
 
 
 def deserialize_query(el: Element) -> UpdateTerminationProtectionInput:

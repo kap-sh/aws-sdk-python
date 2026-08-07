@@ -19,11 +19,12 @@ class ExitStandbyAnswer(TypedDict, closed=True):
 def serialize_query(
     value: ExitStandbyAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "activities" in value:
         import capo_auto_scaling.types.activities
 
         capo_auto_scaling.types.activities.serialize_query(
-            value["activities"], pairs, f"{prefix}.Activities"
+            value["activities"], pairs, f"{key_prefix}Activities"
         )
 
 

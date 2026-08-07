@@ -19,9 +19,13 @@ class DeleteSnapshotCopyGrantMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteSnapshotCopyGrantMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_copy_grant_name" in value:
         pairs.append(
-            (f"{prefix}.SnapshotCopyGrantName", str(value["snapshot_copy_grant_name"]))
+            (
+                f"{key_prefix}SnapshotCopyGrantName",
+                str(value["snapshot_copy_grant_name"]),
+            )
         )
 
 

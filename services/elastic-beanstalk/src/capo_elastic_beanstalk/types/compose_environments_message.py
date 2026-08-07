@@ -29,15 +29,16 @@ class ComposeEnvironmentsMessage(TypedDict, closed=True):
 def serialize_query(
     value: ComposeEnvironmentsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "group_name" in value:
-        pairs.append((f"{prefix}.GroupName", str(value["group_name"])))
+        pairs.append((f"{key_prefix}GroupName", str(value["group_name"])))
     if "version_labels" in value:
         import capo_elastic_beanstalk.types.version_labels
 
         capo_elastic_beanstalk.types.version_labels.serialize_query(
-            value["version_labels"], pairs, f"{prefix}.VersionLabels"
+            value["version_labels"], pairs, f"{key_prefix}VersionLabels"
         )
 
 

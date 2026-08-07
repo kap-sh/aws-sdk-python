@@ -44,26 +44,27 @@ class ChangeSetHook(TypedDict, closed=True):
 def serialize_query(
     value: ChangeSetHook, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "invocation_point" in value:
         import capo_cloudformation.types.hook_invocation_point
 
         capo_cloudformation.types.hook_invocation_point.serialize_query(
-            value["invocation_point"], pairs, f"{prefix}.InvocationPoint"
+            value["invocation_point"], pairs, f"{key_prefix}InvocationPoint"
         )
     if "failure_mode" in value:
         import capo_cloudformation.types.hook_failure_mode
 
         capo_cloudformation.types.hook_failure_mode.serialize_query(
-            value["failure_mode"], pairs, f"{prefix}.FailureMode"
+            value["failure_mode"], pairs, f"{key_prefix}FailureMode"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "type_version_id" in value:
-        pairs.append((f"{prefix}.TypeVersionId", str(value["type_version_id"])))
+        pairs.append((f"{key_prefix}TypeVersionId", str(value["type_version_id"])))
     if "type_configuration_version_id" in value:
         pairs.append(
             (
-                f"{prefix}.TypeConfigurationVersionId",
+                f"{key_prefix}TypeConfigurationVersionId",
                 str(value["type_configuration_version_id"]),
             )
         )
@@ -71,7 +72,7 @@ def serialize_query(
         import capo_cloudformation.types.change_set_hook_target_details
 
         capo_cloudformation.types.change_set_hook_target_details.serialize_query(
-            value["target_details"], pairs, f"{prefix}.TargetDetails"
+            value["target_details"], pairs, f"{key_prefix}TargetDetails"
         )
 
 

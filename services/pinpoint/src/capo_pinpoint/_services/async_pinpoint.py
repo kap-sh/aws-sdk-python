@@ -407,9 +407,11 @@ class AsyncPinpointClient:
 
     async def create_app(
         self,
-        create_application_request: "capo_pinpoint.types.create_application_request.CreateApplicationRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        create_application_request: Optional[
+            "capo_pinpoint.types.create_application_request.CreateApplicationRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_app_response.CreateAppResponse":
         """<p>Creates an application.</p>
 
@@ -441,7 +443,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
-        input_["create_application_request"] = create_application_request
+        if create_application_request is not None:
+            input_["create_application_request"] = create_application_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -453,9 +456,11 @@ class AsyncPinpointClient:
     async def create_campaign(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        write_campaign_request: "capo_pinpoint.types.write_campaign_request.WriteCampaignRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_campaign_request: Optional[
+            "capo_pinpoint.types.write_campaign_request.WriteCampaignRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_campaign_response.CreateCampaignResponse":
         """<p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
 
@@ -491,7 +496,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["write_campaign_request"] = write_campaign_request
+        if write_campaign_request is not None:
+            input_["write_campaign_request"] = write_campaign_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -502,10 +508,12 @@ class AsyncPinpointClient:
 
     async def create_email_template(
         self,
-        email_template_request: "capo_pinpoint.types.email_template_request.EmailTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        email_template_request: Optional[
+            "capo_pinpoint.types.email_template_request.EmailTemplateRequest"
+        ] = None,
     ) -> (
         "capo_pinpoint.types.create_email_template_response.CreateEmailTemplateResponse"
     ):
@@ -540,7 +548,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_email_template_request.CreateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["email_template_request"] = email_template_request
+        if email_template_request is not None:
+            input_["email_template_request"] = email_template_request
         input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
@@ -553,9 +562,11 @@ class AsyncPinpointClient:
     async def create_export_job(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        export_job_request: "capo_pinpoint.types.export_job_request.ExportJobRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        export_job_request: Optional[
+            "capo_pinpoint.types.export_job_request.ExportJobRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_export_job_response.CreateExportJobResponse":
         """<p>Creates an export job for an application.</p>
 
@@ -591,7 +602,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_export_job_request.CreateExportJobRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["export_job_request"] = export_job_request
+        if export_job_request is not None:
+            input_["export_job_request"] = export_job_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -603,9 +615,11 @@ class AsyncPinpointClient:
     async def create_import_job(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        import_job_request: "capo_pinpoint.types.import_job_request.ImportJobRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        import_job_request: Optional[
+            "capo_pinpoint.types.import_job_request.ImportJobRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_import_job_response.CreateImportJobResponse":
         """<p>Creates an import job for an application.</p>
 
@@ -641,7 +655,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_import_job_request.CreateImportJobRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["import_job_request"] = import_job_request
+        if import_job_request is not None:
+            input_["import_job_request"] = import_job_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -652,10 +667,12 @@ class AsyncPinpointClient:
 
     async def create_in_app_template(
         self,
-        in_app_template_request: "capo_pinpoint.types.in_app_template_request.InAppTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        in_app_template_request: Optional[
+            "capo_pinpoint.types.in_app_template_request.InAppTemplateRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_in_app_template_response.CreateInAppTemplateResponse":
         """<p>Creates a new message template for messages using the in-app message channel.</p>
 
@@ -688,7 +705,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_in_app_template_request.CreateInAppTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["in_app_template_request"] = in_app_template_request
+        if in_app_template_request is not None:
+            input_["in_app_template_request"] = in_app_template_request
         input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
@@ -701,9 +719,11 @@ class AsyncPinpointClient:
     async def create_journey(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        write_journey_request: "capo_pinpoint.types.write_journey_request.WriteJourneyRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_journey_request: Optional[
+            "capo_pinpoint.types.write_journey_request.WriteJourneyRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_journey_response.CreateJourneyResponse":
         """<p>Creates a journey for an application.</p>
 
@@ -739,7 +759,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_journey_request.CreateJourneyRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["write_journey_request"] = write_journey_request
+        if write_journey_request is not None:
+            input_["write_journey_request"] = write_journey_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -750,10 +771,12 @@ class AsyncPinpointClient:
 
     async def create_push_template(
         self,
-        push_notification_template_request: "capo_pinpoint.types.push_notification_template_request.PushNotificationTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        push_notification_template_request: Optional[
+            "capo_pinpoint.types.push_notification_template_request.PushNotificationTemplateRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_push_template_response.CreatePushTemplateResponse":
         """<p>Creates a message template for messages that are sent through a push notification channel.</p>
 
@@ -786,9 +809,10 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_push_template_request.CreatePushTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["push_notification_template_request"] = (
-            push_notification_template_request
-        )
+        if push_notification_template_request is not None:
+            input_["push_notification_template_request"] = (
+                push_notification_template_request
+            )
         input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
@@ -800,9 +824,11 @@ class AsyncPinpointClient:
 
     async def create_recommender_configuration(
         self,
-        create_recommender_configuration: "capo_pinpoint.types.create_recommender_configuration_shape.CreateRecommenderConfigurationShape",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        create_recommender_configuration: Optional[
+            "capo_pinpoint.types.create_recommender_configuration_shape.CreateRecommenderConfigurationShape"
+        ] = None,
     ) -> "capo_pinpoint.types.create_recommender_configuration_response.CreateRecommenderConfigurationResponse":
         """<p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
 
@@ -834,7 +860,10 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_recommender_configuration_request.CreateRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["create_recommender_configuration"] = create_recommender_configuration
+        if create_recommender_configuration is not None:
+            input_["create_recommender_configuration"] = (
+                create_recommender_configuration
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -846,9 +875,11 @@ class AsyncPinpointClient:
     async def create_segment(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        write_segment_request: "capo_pinpoint.types.write_segment_request.WriteSegmentRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_segment_request: Optional[
+            "capo_pinpoint.types.write_segment_request.WriteSegmentRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_segment_response.CreateSegmentResponse":
         """<p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
 
@@ -884,7 +915,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_segment_request.CreateSegmentRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["write_segment_request"] = write_segment_request
+        if write_segment_request is not None:
+            input_["write_segment_request"] = write_segment_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -895,10 +927,12 @@ class AsyncPinpointClient:
 
     async def create_sms_template(
         self,
-        sms_template_request: "capo_pinpoint.types.sms_template_request.SMSTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        sms_template_request: Optional[
+            "capo_pinpoint.types.sms_template_request.SMSTemplateRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.create_sms_template_response.CreateSmsTemplateResponse":
         """<p>Creates a message template for messages that are sent through the SMS channel.</p>
 
@@ -931,7 +965,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_sms_template_request.CreateSmsTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["sms_template_request"] = sms_template_request
+        if sms_template_request is not None:
+            input_["sms_template_request"] = sms_template_request
         input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
@@ -944,9 +979,11 @@ class AsyncPinpointClient:
     async def create_voice_template(
         self,
         template_name: "capo_pinpoint.types.__string.__string",
-        voice_template_request: "capo_pinpoint.types.voice_template_request.VoiceTemplateRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        voice_template_request: Optional[
+            "capo_pinpoint.types.voice_template_request.VoiceTemplateRequest"
+        ] = None,
     ) -> (
         "capo_pinpoint.types.create_voice_template_response.CreateVoiceTemplateResponse"
     ):
@@ -982,7 +1019,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.create_voice_template_request.CreateVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
         input_["template_name"] = template_name
-        input_["voice_template_request"] = voice_template_request
+        if voice_template_request is not None:
+            input_["voice_template_request"] = voice_template_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5022,9 +5060,11 @@ class AsyncPinpointClient:
 
     async def phone_number_validate(
         self,
-        number_validate_request: "capo_pinpoint.types.number_validate_request.NumberValidateRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        number_validate_request: Optional[
+            "capo_pinpoint.types.number_validate_request.NumberValidateRequest"
+        ] = None,
     ) -> (
         "capo_pinpoint.types.phone_number_validate_response.PhoneNumberValidateResponse"
     ):
@@ -5058,7 +5098,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.phone_number_validate_request.PhoneNumberValidateRequest = {}  # type: ignore[typeddict-item]
-        input_["number_validate_request"] = number_validate_request
+        if number_validate_request is not None:
+            input_["number_validate_request"] = number_validate_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5070,9 +5111,11 @@ class AsyncPinpointClient:
     async def put_events(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        events_request: "capo_pinpoint.types.events_request.EventsRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        events_request: Optional[
+            "capo_pinpoint.types.events_request.EventsRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.put_events_response.PutEventsResponse":
         """<p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
 
@@ -5108,7 +5151,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["events_request"] = events_request
+        if events_request is not None:
+            input_["events_request"] = events_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5120,9 +5164,11 @@ class AsyncPinpointClient:
     async def put_event_stream(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        write_event_stream: "capo_pinpoint.types.write_event_stream.WriteEventStream",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_event_stream: Optional[
+            "capo_pinpoint.types.write_event_stream.WriteEventStream"
+        ] = None,
     ) -> "capo_pinpoint.types.put_event_stream_response.PutEventStreamResponse":
         """<p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
 
@@ -5158,7 +5204,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.put_event_stream_request.PutEventStreamRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["write_event_stream"] = write_event_stream
+        if write_event_stream is not None:
+            input_["write_event_stream"] = write_event_stream
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5171,9 +5218,11 @@ class AsyncPinpointClient:
         self,
         application_id: "capo_pinpoint.types.__string.__string",
         attribute_type: "capo_pinpoint.types.__string.__string",
-        update_attributes_request: "capo_pinpoint.types.update_attributes_request.UpdateAttributesRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        update_attributes_request: Optional[
+            "capo_pinpoint.types.update_attributes_request.UpdateAttributesRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.remove_attributes_response.RemoveAttributesResponse":
         """<p>Removes one or more custom attributes, of the same attribute type, from the application. Existing endpoints still have the attributes but Amazon Pinpoint will stop capturing new or changed values for these attributes.</p>
 
@@ -5211,7 +5260,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.remove_attributes_request.RemoveAttributesRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
         input_["attribute_type"] = attribute_type
-        input_["update_attributes_request"] = update_attributes_request
+        if update_attributes_request is not None:
+            input_["update_attributes_request"] = update_attributes_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5223,9 +5273,11 @@ class AsyncPinpointClient:
     async def send_messages(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        message_request: "capo_pinpoint.types.message_request.MessageRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        message_request: Optional[
+            "capo_pinpoint.types.message_request.MessageRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.send_messages_response.SendMessagesResponse":
         """<p>Creates and sends a direct message.</p>
 
@@ -5261,7 +5313,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.send_messages_request.SendMessagesRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["message_request"] = message_request
+        if message_request is not None:
+            input_["message_request"] = message_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5273,9 +5326,11 @@ class AsyncPinpointClient:
     async def send_otp_message(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        send_otp_message_request_parameters: "capo_pinpoint.types.send_otp_message_request_parameters.SendOTPMessageRequestParameters",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        send_otp_message_request_parameters: Optional[
+            "capo_pinpoint.types.send_otp_message_request_parameters.SendOTPMessageRequestParameters"
+        ] = None,
     ) -> "capo_pinpoint.types.send_otp_message_response.SendOTPMessageResponse":
         """<p>Send an OTP message</p>
 
@@ -5311,9 +5366,10 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.send_otp_message_request.SendOTPMessageRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["send_otp_message_request_parameters"] = (
-            send_otp_message_request_parameters
-        )
+        if send_otp_message_request_parameters is not None:
+            input_["send_otp_message_request_parameters"] = (
+                send_otp_message_request_parameters
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5325,9 +5381,11 @@ class AsyncPinpointClient:
     async def send_users_messages(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        send_users_message_request: "capo_pinpoint.types.send_users_message_request.SendUsersMessageRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        send_users_message_request: Optional[
+            "capo_pinpoint.types.send_users_message_request.SendUsersMessageRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.send_users_messages_response.SendUsersMessagesResponse":
         """<p>Creates and sends a message to a list of users.</p>
 
@@ -5363,7 +5421,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.send_users_messages_request.SendUsersMessagesRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["send_users_message_request"] = send_users_message_request
+        if send_users_message_request is not None:
+            input_["send_users_message_request"] = send_users_message_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5375,9 +5434,9 @@ class AsyncPinpointClient:
     async def tag_resource(
         self,
         resource_arn: "capo_pinpoint.types.__string.__string",
-        tags_model: "capo_pinpoint.types.tags_model.TagsModel",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        tags_model: Optional["capo_pinpoint.types.tags_model.TagsModel"] = None,
     ) -> None:
         """<p>Adds one or more tags (keys and values) to an application, campaign, message template, or segment.</p>
 
@@ -5404,7 +5463,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags_model"] = tags_model
+        if tags_model is not None:
+            input_["tags_model"] = tags_model
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5416,9 +5476,9 @@ class AsyncPinpointClient:
     async def untag_resource(
         self,
         resource_arn: "capo_pinpoint.types.__string.__string",
-        tag_keys: "capo_pinpoint.types.list_of__string.ListOf__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        tag_keys: Optional["capo_pinpoint.types.list_of__string.ListOf__string"] = None,
     ) -> None:
         """<p>Removes one or more tags (keys and values) from an application, campaign, message template, or segment.</p>
 
@@ -5446,7 +5506,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5457,10 +5518,12 @@ class AsyncPinpointClient:
 
     async def update_adm_channel(
         self,
-        adm_channel_request: "capo_pinpoint.types.adm_channel_request.ADMChannelRequest",
         application_id: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        adm_channel_request: Optional[
+            "capo_pinpoint.types.adm_channel_request.ADMChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_adm_channel_response.UpdateAdmChannelResponse":
         """<p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
 
@@ -5495,7 +5558,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_adm_channel_request.UpdateAdmChannelRequest = {}  # type: ignore[typeddict-item]
-        input_["adm_channel_request"] = adm_channel_request
+        if adm_channel_request is not None:
+            input_["adm_channel_request"] = adm_channel_request
         input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
@@ -5507,10 +5571,12 @@ class AsyncPinpointClient:
 
     async def update_apns_channel(
         self,
-        apns_channel_request: "capo_pinpoint.types.apns_channel_request.APNSChannelRequest",
         application_id: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        apns_channel_request: Optional[
+            "capo_pinpoint.types.apns_channel_request.APNSChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_apns_channel_response.UpdateApnsChannelResponse":
         """<p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
 
@@ -5545,7 +5611,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_apns_channel_request.UpdateApnsChannelRequest = {}  # type: ignore[typeddict-item]
-        input_["apns_channel_request"] = apns_channel_request
+        if apns_channel_request is not None:
+            input_["apns_channel_request"] = apns_channel_request
         input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
@@ -5557,10 +5624,12 @@ class AsyncPinpointClient:
 
     async def update_apns_sandbox_channel(
         self,
-        apns_sandbox_channel_request: "capo_pinpoint.types.apns_sandbox_channel_request.APNSSandboxChannelRequest",
         application_id: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        apns_sandbox_channel_request: Optional[
+            "capo_pinpoint.types.apns_sandbox_channel_request.APNSSandboxChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_apns_sandbox_channel_response.UpdateApnsSandboxChannelResponse":
         """<p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
 
@@ -5595,7 +5664,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_apns_sandbox_channel_request.UpdateApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input_["apns_sandbox_channel_request"] = apns_sandbox_channel_request
+        if apns_sandbox_channel_request is not None:
+            input_["apns_sandbox_channel_request"] = apns_sandbox_channel_request
         input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
@@ -5607,10 +5677,12 @@ class AsyncPinpointClient:
 
     async def update_apns_voip_channel(
         self,
-        apns_voip_channel_request: "capo_pinpoint.types.apns_voip_channel_request.APNSVoipChannelRequest",
         application_id: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        apns_voip_channel_request: Optional[
+            "capo_pinpoint.types.apns_voip_channel_request.APNSVoipChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_apns_voip_channel_response.UpdateApnsVoipChannelResponse":
         """<p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
 
@@ -5645,7 +5717,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_apns_voip_channel_request.UpdateApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
-        input_["apns_voip_channel_request"] = apns_voip_channel_request
+        if apns_voip_channel_request is not None:
+            input_["apns_voip_channel_request"] = apns_voip_channel_request
         input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
@@ -5657,10 +5730,12 @@ class AsyncPinpointClient:
 
     async def update_apns_voip_sandbox_channel(
         self,
-        apns_voip_sandbox_channel_request: "capo_pinpoint.types.apns_voip_sandbox_channel_request.APNSVoipSandboxChannelRequest",
         application_id: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        apns_voip_sandbox_channel_request: Optional[
+            "capo_pinpoint.types.apns_voip_sandbox_channel_request.APNSVoipSandboxChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_apns_voip_sandbox_channel_response.UpdateApnsVoipSandboxChannelResponse":
         """<p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>
 
@@ -5695,7 +5770,10 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_apns_voip_sandbox_channel_request.UpdateApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input_["apns_voip_sandbox_channel_request"] = apns_voip_sandbox_channel_request
+        if apns_voip_sandbox_channel_request is not None:
+            input_["apns_voip_sandbox_channel_request"] = (
+                apns_voip_sandbox_channel_request
+            )
         input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
@@ -5708,9 +5786,11 @@ class AsyncPinpointClient:
     async def update_application_settings(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        write_application_settings_request: "capo_pinpoint.types.write_application_settings_request.WriteApplicationSettingsRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_application_settings_request: Optional[
+            "capo_pinpoint.types.write_application_settings_request.WriteApplicationSettingsRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_application_settings_response.UpdateApplicationSettingsResponse":
         """<p>Updates the settings for an application.</p>
 
@@ -5746,9 +5826,10 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_application_settings_request.UpdateApplicationSettingsRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["write_application_settings_request"] = (
-            write_application_settings_request
-        )
+        if write_application_settings_request is not None:
+            input_["write_application_settings_request"] = (
+                write_application_settings_request
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5760,9 +5841,11 @@ class AsyncPinpointClient:
     async def update_baidu_channel(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        baidu_channel_request: "capo_pinpoint.types.baidu_channel_request.BaiduChannelRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        baidu_channel_request: Optional[
+            "capo_pinpoint.types.baidu_channel_request.BaiduChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_baidu_channel_response.UpdateBaiduChannelResponse":
         """<p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
 
@@ -5798,7 +5881,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_baidu_channel_request.UpdateBaiduChannelRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["baidu_channel_request"] = baidu_channel_request
+        if baidu_channel_request is not None:
+            input_["baidu_channel_request"] = baidu_channel_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5811,9 +5895,11 @@ class AsyncPinpointClient:
         self,
         application_id: "capo_pinpoint.types.__string.__string",
         campaign_id: "capo_pinpoint.types.__string.__string",
-        write_campaign_request: "capo_pinpoint.types.write_campaign_request.WriteCampaignRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_campaign_request: Optional[
+            "capo_pinpoint.types.write_campaign_request.WriteCampaignRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_campaign_response.UpdateCampaignResponse":
         """<p>Updates the configuration and other settings for a campaign.</p>
 
@@ -5851,7 +5937,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
         input_["campaign_id"] = campaign_id
-        input_["write_campaign_request"] = write_campaign_request
+        if write_campaign_request is not None:
+            input_["write_campaign_request"] = write_campaign_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5863,9 +5950,11 @@ class AsyncPinpointClient:
     async def update_email_channel(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        email_channel_request: "capo_pinpoint.types.email_channel_request.EmailChannelRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        email_channel_request: Optional[
+            "capo_pinpoint.types.email_channel_request.EmailChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_email_channel_response.UpdateEmailChannelResponse":
         """<p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>
 
@@ -5901,7 +5990,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_email_channel_request.UpdateEmailChannelRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["email_channel_request"] = email_channel_request
+        if email_channel_request is not None:
+            input_["email_channel_request"] = email_channel_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5912,11 +6002,13 @@ class AsyncPinpointClient:
 
     async def update_email_template(
         self,
-        email_template_request: "capo_pinpoint.types.email_template_request.EmailTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
         create_new_version: Optional["capo_pinpoint.types.__boolean.__boolean"] = None,
+        email_template_request: Optional[
+            "capo_pinpoint.types.email_template_request.EmailTemplateRequest"
+        ] = None,
         version: Optional["capo_pinpoint.types.__string.__string"] = None,
     ) -> (
         "capo_pinpoint.types.update_email_template_response.UpdateEmailTemplateResponse"
@@ -5958,7 +6050,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_email_template_request.UpdateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
             input_["create_new_version"] = create_new_version
-        input_["email_template_request"] = email_template_request
+        if email_template_request is not None:
+            input_["email_template_request"] = email_template_request
         input_["template_name"] = template_name
         if version is not None:
             input_["version"] = version
@@ -5974,9 +6067,11 @@ class AsyncPinpointClient:
         self,
         application_id: "capo_pinpoint.types.__string.__string",
         endpoint_id: "capo_pinpoint.types.__string.__string",
-        endpoint_request: "capo_pinpoint.types.endpoint_request.EndpointRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        endpoint_request: Optional[
+            "capo_pinpoint.types.endpoint_request.EndpointRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_endpoint_response.UpdateEndpointResponse":
         """<p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
 
@@ -6014,7 +6109,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_endpoint_request.UpdateEndpointRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
         input_["endpoint_id"] = endpoint_id
-        input_["endpoint_request"] = endpoint_request
+        if endpoint_request is not None:
+            input_["endpoint_request"] = endpoint_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6026,9 +6122,11 @@ class AsyncPinpointClient:
     async def update_endpoints_batch(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        endpoint_batch_request: "capo_pinpoint.types.endpoint_batch_request.EndpointBatchRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        endpoint_batch_request: Optional[
+            "capo_pinpoint.types.endpoint_batch_request.EndpointBatchRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_endpoints_batch_response.UpdateEndpointsBatchResponse":
         """<p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
 
@@ -6064,7 +6162,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_endpoints_batch_request.UpdateEndpointsBatchRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["endpoint_batch_request"] = endpoint_batch_request
+        if endpoint_batch_request is not None:
+            input_["endpoint_batch_request"] = endpoint_batch_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6076,9 +6175,11 @@ class AsyncPinpointClient:
     async def update_gcm_channel(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        gcm_channel_request: "capo_pinpoint.types.gcm_channel_request.GCMChannelRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        gcm_channel_request: Optional[
+            "capo_pinpoint.types.gcm_channel_request.GCMChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_gcm_channel_response.UpdateGcmChannelResponse":
         """<p>Enables the GCM channel for an application or updates the status and settings of the GCM channel for an application.</p>
 
@@ -6114,7 +6215,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_gcm_channel_request.UpdateGcmChannelRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["gcm_channel_request"] = gcm_channel_request
+        if gcm_channel_request is not None:
+            input_["gcm_channel_request"] = gcm_channel_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6125,11 +6227,13 @@ class AsyncPinpointClient:
 
     async def update_in_app_template(
         self,
-        in_app_template_request: "capo_pinpoint.types.in_app_template_request.InAppTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
         create_new_version: Optional["capo_pinpoint.types.__boolean.__boolean"] = None,
+        in_app_template_request: Optional[
+            "capo_pinpoint.types.in_app_template_request.InAppTemplateRequest"
+        ] = None,
         version: Optional["capo_pinpoint.types.__string.__string"] = None,
     ) -> "capo_pinpoint.types.update_in_app_template_response.UpdateInAppTemplateResponse":
         r"""<p>Updates an existing message template for messages sent through the in-app message channel.</p>
@@ -6169,7 +6273,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_in_app_template_request.UpdateInAppTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
             input_["create_new_version"] = create_new_version
-        input_["in_app_template_request"] = in_app_template_request
+        if in_app_template_request is not None:
+            input_["in_app_template_request"] = in_app_template_request
         input_["template_name"] = template_name
         if version is not None:
             input_["version"] = version
@@ -6185,9 +6290,11 @@ class AsyncPinpointClient:
         self,
         application_id: "capo_pinpoint.types.__string.__string",
         journey_id: "capo_pinpoint.types.__string.__string",
-        write_journey_request: "capo_pinpoint.types.write_journey_request.WriteJourneyRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_journey_request: Optional[
+            "capo_pinpoint.types.write_journey_request.WriteJourneyRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_journey_response.UpdateJourneyResponse":
         """<p>Updates the configuration and other settings for a journey.</p>
 
@@ -6226,7 +6333,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_journey_request.UpdateJourneyRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
         input_["journey_id"] = journey_id
-        input_["write_journey_request"] = write_journey_request
+        if write_journey_request is not None:
+            input_["write_journey_request"] = write_journey_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6239,9 +6347,11 @@ class AsyncPinpointClient:
         self,
         application_id: "capo_pinpoint.types.__string.__string",
         journey_id: "capo_pinpoint.types.__string.__string",
-        journey_state_request: "capo_pinpoint.types.journey_state_request.JourneyStateRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        journey_state_request: Optional[
+            "capo_pinpoint.types.journey_state_request.JourneyStateRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_journey_state_response.UpdateJourneyStateResponse":
         """<p>Cancels (stops) an active journey.</p>
 
@@ -6279,7 +6389,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_journey_state_request.UpdateJourneyStateRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
         input_["journey_id"] = journey_id
-        input_["journey_state_request"] = journey_state_request
+        if journey_state_request is not None:
+            input_["journey_state_request"] = journey_state_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6290,11 +6401,13 @@ class AsyncPinpointClient:
 
     async def update_push_template(
         self,
-        push_notification_template_request: "capo_pinpoint.types.push_notification_template_request.PushNotificationTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
         create_new_version: Optional["capo_pinpoint.types.__boolean.__boolean"] = None,
+        push_notification_template_request: Optional[
+            "capo_pinpoint.types.push_notification_template_request.PushNotificationTemplateRequest"
+        ] = None,
         version: Optional["capo_pinpoint.types.__string.__string"] = None,
     ) -> "capo_pinpoint.types.update_push_template_response.UpdatePushTemplateResponse":
         r"""<p>Updates an existing message template for messages that are sent through a push notification channel.</p>
@@ -6334,9 +6447,10 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
             input_["create_new_version"] = create_new_version
-        input_["push_notification_template_request"] = (
-            push_notification_template_request
-        )
+        if push_notification_template_request is not None:
+            input_["push_notification_template_request"] = (
+                push_notification_template_request
+            )
         input_["template_name"] = template_name
         if version is not None:
             input_["version"] = version
@@ -6351,9 +6465,11 @@ class AsyncPinpointClient:
     async def update_recommender_configuration(
         self,
         recommender_id: "capo_pinpoint.types.__string.__string",
-        update_recommender_configuration: "capo_pinpoint.types.update_recommender_configuration_shape.UpdateRecommenderConfigurationShape",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        update_recommender_configuration: Optional[
+            "capo_pinpoint.types.update_recommender_configuration_shape.UpdateRecommenderConfigurationShape"
+        ] = None,
     ) -> "capo_pinpoint.types.update_recommender_configuration_response.UpdateRecommenderConfigurationResponse":
         """<p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
 
@@ -6389,7 +6505,10 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_recommender_configuration_request.UpdateRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
         input_["recommender_id"] = recommender_id
-        input_["update_recommender_configuration"] = update_recommender_configuration
+        if update_recommender_configuration is not None:
+            input_["update_recommender_configuration"] = (
+                update_recommender_configuration
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6402,9 +6521,11 @@ class AsyncPinpointClient:
         self,
         application_id: "capo_pinpoint.types.__string.__string",
         segment_id: "capo_pinpoint.types.__string.__string",
-        write_segment_request: "capo_pinpoint.types.write_segment_request.WriteSegmentRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        write_segment_request: Optional[
+            "capo_pinpoint.types.write_segment_request.WriteSegmentRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_segment_response.UpdateSegmentResponse":
         """<p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
 
@@ -6442,7 +6563,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_segment_request.UpdateSegmentRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
         input_["segment_id"] = segment_id
-        input_["write_segment_request"] = write_segment_request
+        if write_segment_request is not None:
+            input_["write_segment_request"] = write_segment_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6454,9 +6576,11 @@ class AsyncPinpointClient:
     async def update_sms_channel(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        sms_channel_request: "capo_pinpoint.types.sms_channel_request.SMSChannelRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        sms_channel_request: Optional[
+            "capo_pinpoint.types.sms_channel_request.SMSChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_sms_channel_response.UpdateSmsChannelResponse":
         """<p>Enables the SMS channel for an application or updates the status and settings of the SMS channel for an application.</p>
 
@@ -6492,7 +6616,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_sms_channel_request.UpdateSmsChannelRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["sms_channel_request"] = sms_channel_request
+        if sms_channel_request is not None:
+            input_["sms_channel_request"] = sms_channel_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6503,11 +6628,13 @@ class AsyncPinpointClient:
 
     async def update_sms_template(
         self,
-        sms_template_request: "capo_pinpoint.types.sms_template_request.SMSTemplateRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
         create_new_version: Optional["capo_pinpoint.types.__boolean.__boolean"] = None,
+        sms_template_request: Optional[
+            "capo_pinpoint.types.sms_template_request.SMSTemplateRequest"
+        ] = None,
         version: Optional["capo_pinpoint.types.__string.__string"] = None,
     ) -> "capo_pinpoint.types.update_sms_template_response.UpdateSmsTemplateResponse":
         r"""<p>Updates an existing message template for messages that are sent through the SMS channel.</p>
@@ -6547,7 +6674,8 @@ class AsyncPinpointClient:
         input_: capo_pinpoint.types.update_sms_template_request.UpdateSmsTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
             input_["create_new_version"] = create_new_version
-        input_["sms_template_request"] = sms_template_request
+        if sms_template_request is not None:
+            input_["sms_template_request"] = sms_template_request
         input_["template_name"] = template_name
         if version is not None:
             input_["version"] = version
@@ -6561,11 +6689,13 @@ class AsyncPinpointClient:
 
     async def update_template_active_version(
         self,
-        template_active_version_request: "capo_pinpoint.types.template_active_version_request.TemplateActiveVersionRequest",
         template_name: "capo_pinpoint.types.__string.__string",
         template_type: "capo_pinpoint.types.__string.__string",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        template_active_version_request: Optional[
+            "capo_pinpoint.types.template_active_version_request.TemplateActiveVersionRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_template_active_version_response.UpdateTemplateActiveVersionResponse":
         """<p>Changes the status of a specific version of a message template to <i>active</i>.</p>
 
@@ -6601,7 +6731,8 @@ class AsyncPinpointClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_template_active_version_request.UpdateTemplateActiveVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["template_active_version_request"] = template_active_version_request
+        if template_active_version_request is not None:
+            input_["template_active_version_request"] = template_active_version_request
         input_["template_name"] = template_name
         input_["template_type"] = template_type
 
@@ -6615,9 +6746,11 @@ class AsyncPinpointClient:
     async def update_voice_channel(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        voice_channel_request: "capo_pinpoint.types.voice_channel_request.VoiceChannelRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        voice_channel_request: Optional[
+            "capo_pinpoint.types.voice_channel_request.VoiceChannelRequest"
+        ] = None,
     ) -> "capo_pinpoint.types.update_voice_channel_response.UpdateVoiceChannelResponse":
         """<p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
 
@@ -6653,7 +6786,8 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.update_voice_channel_request.UpdateVoiceChannelRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["voice_channel_request"] = voice_channel_request
+        if voice_channel_request is not None:
+            input_["voice_channel_request"] = voice_channel_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6665,11 +6799,13 @@ class AsyncPinpointClient:
     async def update_voice_template(
         self,
         template_name: "capo_pinpoint.types.__string.__string",
-        voice_template_request: "capo_pinpoint.types.voice_template_request.VoiceTemplateRequest",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
         create_new_version: Optional["capo_pinpoint.types.__boolean.__boolean"] = None,
         version: Optional["capo_pinpoint.types.__string.__string"] = None,
+        voice_template_request: Optional[
+            "capo_pinpoint.types.voice_template_request.VoiceTemplateRequest"
+        ] = None,
     ) -> (
         "capo_pinpoint.types.update_voice_template_response.UpdateVoiceTemplateResponse"
     ):
@@ -6713,7 +6849,8 @@ class AsyncPinpointClient:
         input_["template_name"] = template_name
         if version is not None:
             input_["version"] = version
-        input_["voice_template_request"] = voice_template_request
+        if voice_template_request is not None:
+            input_["voice_template_request"] = voice_template_request
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6725,9 +6862,11 @@ class AsyncPinpointClient:
     async def verify_otp_message(
         self,
         application_id: "capo_pinpoint.types.__string.__string",
-        verify_otp_message_request_parameters: "capo_pinpoint.types.verify_otp_message_request_parameters.VerifyOTPMessageRequestParameters",
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
+        verify_otp_message_request_parameters: Optional[
+            "capo_pinpoint.types.verify_otp_message_request_parameters.VerifyOTPMessageRequestParameters"
+        ] = None,
     ) -> "capo_pinpoint.types.verify_otp_message_response.VerifyOTPMessageResponse":
         """<p>Verify an OTP</p>
 
@@ -6763,9 +6902,10 @@ class AsyncPinpointClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_pinpoint.types.verify_otp_message_request.VerifyOTPMessageRequest = {}  # type: ignore[typeddict-item]
         input_["application_id"] = application_id
-        input_["verify_otp_message_request_parameters"] = (
-            verify_otp_message_request_parameters
-        )
+        if verify_otp_message_request_parameters is not None:
+            input_["verify_otp_message_request_parameters"] = (
+                verify_otp_message_request_parameters
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

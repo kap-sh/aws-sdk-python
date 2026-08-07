@@ -24,17 +24,18 @@ class DefaultClusterParameters(TypedDict, closed=True):
 def serialize_query(
     value: DefaultClusterParameters, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_group_family" in value:
         pairs.append(
-            (f"{prefix}.ParameterGroupFamily", str(value["parameter_group_family"]))
+            (f"{key_prefix}ParameterGroupFamily", str(value["parameter_group_family"]))
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "parameters" in value:
         import capo_redshift.types.parameters_list
 
         capo_redshift.types.parameters_list.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
 
 

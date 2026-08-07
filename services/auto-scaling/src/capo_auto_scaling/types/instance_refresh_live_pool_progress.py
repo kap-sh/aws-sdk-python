@@ -24,12 +24,15 @@ class InstanceRefreshLivePoolProgress(TypedDict, closed=True):
 def serialize_query(
     value: InstanceRefreshLivePoolProgress, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "percentage_complete" in value:
         pairs.append(
-            (f"{prefix}.PercentageComplete", str(value["percentage_complete"]))
+            (f"{key_prefix}PercentageComplete", str(value["percentage_complete"]))
         )
     if "instances_to_update" in value:
-        pairs.append((f"{prefix}.InstancesToUpdate", str(value["instances_to_update"])))
+        pairs.append(
+            (f"{key_prefix}InstancesToUpdate", str(value["instances_to_update"]))
+        )
 
 
 def deserialize_query(el: Element) -> InstanceRefreshLivePoolProgress:

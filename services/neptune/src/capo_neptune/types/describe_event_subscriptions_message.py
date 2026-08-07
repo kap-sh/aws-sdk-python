@@ -27,18 +27,19 @@ class DescribeEventSubscriptionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEventSubscriptionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscription_name" in value:
-        pairs.append((f"{prefix}.SubscriptionName", str(value["subscription_name"])))
+        pairs.append((f"{key_prefix}SubscriptionName", str(value["subscription_name"])))
     if "filters" in value:
         import capo_neptune.types.filter_list
 
         capo_neptune.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeEventSubscriptionsMessage:

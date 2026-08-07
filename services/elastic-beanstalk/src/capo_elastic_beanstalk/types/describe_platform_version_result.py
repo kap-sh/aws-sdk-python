@@ -21,11 +21,12 @@ class DescribePlatformVersionResult(TypedDict, closed=True):
 def serialize_query(
     value: DescribePlatformVersionResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_description" in value:
         import capo_elastic_beanstalk.types.platform_description
 
         capo_elastic_beanstalk.types.platform_description.serialize_query(
-            value["platform_description"], pairs, f"{prefix}.PlatformDescription"
+            value["platform_description"], pairs, f"{key_prefix}PlatformDescription"
         )
 
 

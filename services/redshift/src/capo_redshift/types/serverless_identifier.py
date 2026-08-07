@@ -21,13 +21,14 @@ class ServerlessIdentifier(TypedDict, closed=True):
 def serialize_query(
     value: ServerlessIdentifier, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace_identifier" in value:
         pairs.append(
-            (f"{prefix}.NamespaceIdentifier", str(value["namespace_identifier"]))
+            (f"{key_prefix}NamespaceIdentifier", str(value["namespace_identifier"]))
         )
     if "workgroup_identifier" in value:
         pairs.append(
-            (f"{prefix}.WorkgroupIdentifier", str(value["workgroup_identifier"]))
+            (f"{key_prefix}WorkgroupIdentifier", str(value["workgroup_identifier"]))
         )
 
 

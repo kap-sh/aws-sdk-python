@@ -109,7 +109,6 @@ class FlowResource:
 
     def create(
         self,
-        name: str,
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
         availability_zone: Optional[str] = None,
@@ -119,6 +118,7 @@ class FlowResource:
         media_streams: Optional[
             "capo_mediaconnect.types.__list_of_add_media_stream_request.__listOfAddMediaStreamRequest"
         ] = None,
+        name: Optional[str] = None,
         outputs: Optional[
             "capo_mediaconnect.types.__list_of_add_output_request.__listOfAddOutputRequest"
         ] = None,
@@ -199,7 +199,8 @@ class FlowResource:
             input_["entitlements"] = entitlements
         if media_streams is not None:
             input_["media_streams"] = media_streams
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if outputs is not None:
             input_["outputs"] = outputs
         if source is not None:
@@ -451,9 +452,11 @@ class FlowResource:
     def add_flow_media_streams(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        media_streams: "capo_mediaconnect.types.__list_of_add_media_stream_request.__listOfAddMediaStreamRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        media_streams: Optional[
+            "capo_mediaconnect.types.__list_of_add_media_stream_request.__listOfAddMediaStreamRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_media_streams_response.AddFlowMediaStreamsResponse":
         """<p> Adds media streams to an existing flow. After you add a media stream to a flow, you can associate it with a source and/or an output that uses the ST 2110 JPEG XS or CDI protocol.</p>
 
@@ -488,7 +491,8 @@ class FlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_media_streams_request.AddFlowMediaStreamsRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["media_streams"] = media_streams
+        if media_streams is not None:
+            input_["media_streams"] = media_streams
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -500,9 +504,11 @@ class FlowResource:
     def add_flow_outputs(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        outputs: "capo_mediaconnect.types.__list_of_add_output_request.__listOfAddOutputRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        outputs: Optional[
+            "capo_mediaconnect.types.__list_of_add_output_request.__listOfAddOutputRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_outputs_response.AddFlowOutputsResponse":
         """<p> Adds outputs to an existing flow. You can create up to 50 outputs per flow.</p>
 
@@ -538,7 +544,8 @@ class FlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_outputs_request.AddFlowOutputsRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["outputs"] = outputs
+        if outputs is not None:
+            input_["outputs"] = outputs
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -550,9 +557,11 @@ class FlowResource:
     def add_flow_sources(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        sources: "capo_mediaconnect.types.__list_of_set_source_request.__listOfSetSourceRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        sources: Optional[
+            "capo_mediaconnect.types.__list_of_set_source_request.__listOfSetSourceRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_sources_response.AddFlowSourcesResponse":
         """<p> Adds sources to a flow.</p>
 
@@ -587,7 +596,8 @@ class FlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_sources_request.AddFlowSourcesRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["sources"] = sources
+        if sources is not None:
+            input_["sources"] = sources
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -599,9 +609,11 @@ class FlowResource:
     def add_flow_vpc_interfaces(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        vpc_interfaces: "capo_mediaconnect.types.__list_of_vpc_interface_request.__listOfVpcInterfaceRequest",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        vpc_interfaces: Optional[
+            "capo_mediaconnect.types.__list_of_vpc_interface_request.__listOfVpcInterfaceRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_vpc_interfaces_response.AddFlowVpcInterfacesResponse":
         """<p> Adds VPC interfaces to a flow.</p>
 
@@ -636,7 +648,8 @@ class FlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_vpc_interfaces_request.AddFlowVpcInterfacesRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["vpc_interfaces"] = vpc_interfaces
+        if vpc_interfaces is not None:
+            input_["vpc_interfaces"] = vpc_interfaces
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -739,10 +752,12 @@ class FlowResource:
 
     def grant_flow_entitlements(
         self,
-        entitlements: "capo_mediaconnect.types.__list_of_grant_entitlement_request.__listOfGrantEntitlementRequest",
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        entitlements: Optional[
+            "capo_mediaconnect.types.__list_of_grant_entitlement_request.__listOfGrantEntitlementRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.grant_flow_entitlements_response.GrantFlowEntitlementsResponse":
         """<p> Grants entitlements to an existing flow.</p>
 
@@ -777,7 +792,8 @@ class FlowResource:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.grant_flow_entitlements_request.GrantFlowEntitlementsRequest = {}  # type: ignore[typeddict-item]
-        input_["entitlements"] = entitlements
+        if entitlements is not None:
+            input_["entitlements"] = entitlements
         input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
@@ -1576,7 +1592,6 @@ class AsyncFlowResource:
 
     async def create(
         self,
-        name: str,
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
         availability_zone: Optional[str] = None,
@@ -1586,6 +1601,7 @@ class AsyncFlowResource:
         media_streams: Optional[
             "capo_mediaconnect.types.__list_of_add_media_stream_request.__listOfAddMediaStreamRequest"
         ] = None,
+        name: Optional[str] = None,
         outputs: Optional[
             "capo_mediaconnect.types.__list_of_add_output_request.__listOfAddOutputRequest"
         ] = None,
@@ -1667,7 +1683,8 @@ class AsyncFlowResource:
             input_["entitlements"] = entitlements
         if media_streams is not None:
             input_["media_streams"] = media_streams
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if outputs is not None:
             input_["outputs"] = outputs
         if source is not None:
@@ -1923,9 +1940,11 @@ class AsyncFlowResource:
     async def add_flow_media_streams(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        media_streams: "capo_mediaconnect.types.__list_of_add_media_stream_request.__listOfAddMediaStreamRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        media_streams: Optional[
+            "capo_mediaconnect.types.__list_of_add_media_stream_request.__listOfAddMediaStreamRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_media_streams_response.AddFlowMediaStreamsResponse":
         """<p> Adds media streams to an existing flow. After you add a media stream to a flow, you can associate it with a source and/or an output that uses the ST 2110 JPEG XS or CDI protocol.</p>
 
@@ -1961,7 +1980,8 @@ class AsyncFlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_media_streams_request.AddFlowMediaStreamsRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["media_streams"] = media_streams
+        if media_streams is not None:
+            input_["media_streams"] = media_streams
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1973,9 +1993,11 @@ class AsyncFlowResource:
     async def add_flow_outputs(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        outputs: "capo_mediaconnect.types.__list_of_add_output_request.__listOfAddOutputRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        outputs: Optional[
+            "capo_mediaconnect.types.__list_of_add_output_request.__listOfAddOutputRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_outputs_response.AddFlowOutputsResponse":
         """<p> Adds outputs to an existing flow. You can create up to 50 outputs per flow.</p>
 
@@ -2012,7 +2034,8 @@ class AsyncFlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_outputs_request.AddFlowOutputsRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["outputs"] = outputs
+        if outputs is not None:
+            input_["outputs"] = outputs
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2024,9 +2047,11 @@ class AsyncFlowResource:
     async def add_flow_sources(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        sources: "capo_mediaconnect.types.__list_of_set_source_request.__listOfSetSourceRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        sources: Optional[
+            "capo_mediaconnect.types.__list_of_set_source_request.__listOfSetSourceRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_sources_response.AddFlowSourcesResponse":
         """<p> Adds sources to a flow.</p>
 
@@ -2062,7 +2087,8 @@ class AsyncFlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_sources_request.AddFlowSourcesRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["sources"] = sources
+        if sources is not None:
+            input_["sources"] = sources
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2074,9 +2100,11 @@ class AsyncFlowResource:
     async def add_flow_vpc_interfaces(
         self,
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
-        vpc_interfaces: "capo_mediaconnect.types.__list_of_vpc_interface_request.__listOfVpcInterfaceRequest",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        vpc_interfaces: Optional[
+            "capo_mediaconnect.types.__list_of_vpc_interface_request.__listOfVpcInterfaceRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.add_flow_vpc_interfaces_response.AddFlowVpcInterfacesResponse":
         """<p> Adds VPC interfaces to a flow.</p>
 
@@ -2112,7 +2140,8 @@ class AsyncFlowResource:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.add_flow_vpc_interfaces_request.AddFlowVpcInterfacesRequest = {}  # type: ignore[typeddict-item]
         input_["flow_arn"] = flow_arn
-        input_["vpc_interfaces"] = vpc_interfaces
+        if vpc_interfaces is not None:
+            input_["vpc_interfaces"] = vpc_interfaces
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2217,10 +2246,12 @@ class AsyncFlowResource:
 
     async def grant_flow_entitlements(
         self,
-        entitlements: "capo_mediaconnect.types.__list_of_grant_entitlement_request.__listOfGrantEntitlementRequest",
         flow_arn: "capo_mediaconnect.types.flow_arn.FlowArn",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        entitlements: Optional[
+            "capo_mediaconnect.types.__list_of_grant_entitlement_request.__listOfGrantEntitlementRequest"
+        ] = None,
     ) -> "capo_mediaconnect.types.grant_flow_entitlements_response.GrantFlowEntitlementsResponse":
         """<p> Grants entitlements to an existing flow.</p>
 
@@ -2256,7 +2287,8 @@ class AsyncFlowResource:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.grant_flow_entitlements_request.GrantFlowEntitlementsRequest = {}  # type: ignore[typeddict-item]
-        input_["entitlements"] = entitlements
+        if entitlements is not None:
+            input_["entitlements"] = entitlements
         input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(

@@ -19,10 +19,11 @@ class DeleteHsmClientCertificateMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteHsmClientCertificateMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_client_certificate_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmClientCertificateIdentifier",
+                f"{key_prefix}HsmClientCertificateIdentifier",
                 str(value["hsm_client_certificate_identifier"]),
             )
         )

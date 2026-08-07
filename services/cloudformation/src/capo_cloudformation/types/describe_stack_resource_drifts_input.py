@@ -32,20 +32,21 @@ class DescribeStackResourceDriftsInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackResourceDriftsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "stack_resource_drift_status_filters" in value:
         import capo_cloudformation.types.stack_resource_drift_status_filters
 
         capo_cloudformation.types.stack_resource_drift_status_filters.serialize_query(
             value["stack_resource_drift_status_filters"],
             pairs,
-            f"{prefix}.StackResourceDriftStatusFilters",
+            f"{key_prefix}StackResourceDriftStatusFilters",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
 
 
 def deserialize_query(el: Element) -> DescribeStackResourceDriftsInput:

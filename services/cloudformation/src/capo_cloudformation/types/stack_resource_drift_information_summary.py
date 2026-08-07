@@ -26,19 +26,20 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_resource_drift_status" in value:
         import capo_cloudformation.types.stack_resource_drift_status
 
         capo_cloudformation.types.stack_resource_drift_status.serialize_query(
             value["stack_resource_drift_status"],
             pairs,
-            f"{prefix}.StackResourceDriftStatus",
+            f"{key_prefix}StackResourceDriftStatus",
         )
     if "last_check_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["last_check_timestamp"], pairs, f"{prefix}.LastCheckTimestamp"
+            value["last_check_timestamp"], pairs, f"{key_prefix}LastCheckTimestamp"
         )
 
 

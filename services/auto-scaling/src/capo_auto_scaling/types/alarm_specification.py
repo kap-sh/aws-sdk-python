@@ -19,11 +19,12 @@ class AlarmSpecification(TypedDict, closed=True):
 def serialize_query(
     value: AlarmSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "alarms" in value:
         import capo_auto_scaling.types.alarm_list
 
         capo_auto_scaling.types.alarm_list.serialize_query(
-            value["alarms"], pairs, f"{prefix}.Alarms"
+            value["alarms"], pairs, f"{key_prefix}Alarms"
         )
 
 

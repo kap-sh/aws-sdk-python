@@ -32,21 +32,22 @@ class HookTarget(TypedDict, closed=True):
 def serialize_query(
     value: HookTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_type" in value:
         import capo_cloudformation.types.hook_target_type
 
         capo_cloudformation.types.hook_target_type.serialize_query(
-            value["target_type"], pairs, f"{prefix}.TargetType"
+            value["target_type"], pairs, f"{key_prefix}TargetType"
         )
     if "target_type_name" in value:
-        pairs.append((f"{prefix}.TargetTypeName", str(value["target_type_name"])))
+        pairs.append((f"{key_prefix}TargetTypeName", str(value["target_type_name"])))
     if "target_id" in value:
-        pairs.append((f"{prefix}.TargetId", str(value["target_id"])))
+        pairs.append((f"{key_prefix}TargetId", str(value["target_id"])))
     if "action" in value:
         import capo_cloudformation.types.hook_target_action
 
         capo_cloudformation.types.hook_target_action.serialize_query(
-            value["action"], pairs, f"{prefix}.Action"
+            value["action"], pairs, f"{key_prefix}Action"
         )
 
 

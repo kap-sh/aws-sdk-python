@@ -24,13 +24,14 @@ class ModifyEndpointAccessMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyEndpointAccessMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "endpoint_name" in value:
-        pairs.append((f"{prefix}.EndpointName", str(value["endpoint_name"])))
+        pairs.append((f"{key_prefix}EndpointName", str(value["endpoint_name"])))
     if "vpc_security_group_ids" in value:
         import capo_redshift.types.vpc_security_group_id_list
 
         capo_redshift.types.vpc_security_group_id_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
 
 

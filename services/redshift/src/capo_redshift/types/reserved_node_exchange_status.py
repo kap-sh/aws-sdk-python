@@ -40,10 +40,11 @@ class ReservedNodeExchangeStatus(TypedDict, closed=True):
 def serialize_query(
     value: ReservedNodeExchangeStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node_exchange_request_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedNodeExchangeRequestId",
+                f"{key_prefix}ReservedNodeExchangeRequestId",
                 str(value["reserved_node_exchange_request_id"]),
             )
         )
@@ -51,50 +52,50 @@ def serialize_query(
         import capo_redshift.types.reserved_node_exchange_status_type
 
         capo_redshift.types.reserved_node_exchange_status_type.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "request_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["request_time"], pairs, f"{prefix}.RequestTime"
+            value["request_time"], pairs, f"{key_prefix}RequestTime"
         )
     if "source_reserved_node_id" in value:
         pairs.append(
-            (f"{prefix}.SourceReservedNodeId", str(value["source_reserved_node_id"]))
+            (f"{key_prefix}SourceReservedNodeId", str(value["source_reserved_node_id"]))
         )
     if "source_reserved_node_type" in value:
         pairs.append(
             (
-                f"{prefix}.SourceReservedNodeType",
+                f"{key_prefix}SourceReservedNodeType",
                 str(value["source_reserved_node_type"]),
             )
         )
     if "source_reserved_node_count" in value:
         pairs.append(
             (
-                f"{prefix}.SourceReservedNodeCount",
+                f"{key_prefix}SourceReservedNodeCount",
                 str(value["source_reserved_node_count"]),
             )
         )
     if "target_reserved_node_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.TargetReservedNodeOfferingId",
+                f"{key_prefix}TargetReservedNodeOfferingId",
                 str(value["target_reserved_node_offering_id"]),
             )
         )
     if "target_reserved_node_type" in value:
         pairs.append(
             (
-                f"{prefix}.TargetReservedNodeType",
+                f"{key_prefix}TargetReservedNodeType",
                 str(value["target_reserved_node_type"]),
             )
         )
     if "target_reserved_node_count" in value:
         pairs.append(
             (
-                f"{prefix}.TargetReservedNodeCount",
+                f"{key_prefix}TargetReservedNodeCount",
                 str(value["target_reserved_node_count"]),
             )
         )

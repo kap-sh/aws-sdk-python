@@ -161,11 +161,17 @@ class DLMClient:
 
     def create_lifecycle_policy(
         self,
-        execution_role_arn: "capo_dlm.types.execution_role_arn.ExecutionRoleArn",
-        description: "capo_dlm.types.policy_description.PolicyDescription",
-        state: "capo_dlm.types.settable_policy_state_values.SettablePolicyStateValues",
         *,
         config_overrides: Optional[DLMClientConfig] = None,
+        execution_role_arn: Optional[
+            "capo_dlm.types.execution_role_arn.ExecutionRoleArn"
+        ] = None,
+        description: Optional[
+            "capo_dlm.types.policy_description.PolicyDescription"
+        ] = None,
+        state: Optional[
+            "capo_dlm.types.settable_policy_state_values.SettablePolicyStateValues"
+        ] = None,
         policy_details: Optional["capo_dlm.types.policy_details.PolicyDetails"] = None,
         tags: Optional["capo_dlm.types.tag_map.TagMap"] = None,
         default_policy: Optional[
@@ -229,9 +235,12 @@ class DLMClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_dlm.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["execution_role_arn"] = execution_role_arn
-        input_["description"] = description
-        input_["state"] = state
+        if execution_role_arn is not None:
+            input_["execution_role_arn"] = execution_role_arn
+        if description is not None:
+            input_["description"] = description
+        if state is not None:
+            input_["state"] = state
         if policy_details is not None:
             input_["policy_details"] = policy_details
         if tags is not None:
@@ -467,9 +476,9 @@ class DLMClient:
     def tag_resource(
         self,
         resource_arn: "capo_dlm.types.policy_arn.PolicyArn",
-        tags: "capo_dlm.types.tag_map.TagMap",
         *,
         config_overrides: Optional[DLMClientConfig] = None,
+        tags: Optional["capo_dlm.types.tag_map.TagMap"] = None,
     ) -> "capo_dlm.types.tag_resource_response.TagResourceResponse":
         """<p>Adds the specified tags to the specified resource.</p>
 
@@ -501,7 +510,8 @@ class DLMClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_dlm.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -513,9 +523,9 @@ class DLMClient:
     def untag_resource(
         self,
         resource_arn: "capo_dlm.types.policy_arn.PolicyArn",
-        tag_keys: "capo_dlm.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[DLMClientConfig] = None,
+        tag_keys: Optional["capo_dlm.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_dlm.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes the specified tags from the specified resource.</p>
 
@@ -547,7 +557,8 @@ class DLMClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_dlm.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

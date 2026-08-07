@@ -24,15 +24,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedNodeOfferingId",
+                f"{key_prefix}ReservedNodeOfferingId",
                 str(value["reserved_node_offering_id"]),
             )
         )
     if "node_count" in value:
-        pairs.append((f"{prefix}.NodeCount", str(value["node_count"])))
+        pairs.append((f"{key_prefix}NodeCount", str(value["node_count"])))
 
 
 def deserialize_query(el: Element) -> PurchaseReservedNodeOfferingMessage:

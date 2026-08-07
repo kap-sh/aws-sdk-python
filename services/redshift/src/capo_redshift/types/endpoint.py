@@ -25,15 +25,16 @@ class Endpoint(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Endpoint, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "vpc_endpoints" in value:
         import capo_redshift.types.vpc_endpoints_list
 
         capo_redshift.types.vpc_endpoints_list.serialize_query(
-            value["vpc_endpoints"], pairs, f"{prefix}.VpcEndpoints"
+            value["vpc_endpoints"], pairs, f"{key_prefix}VpcEndpoints"
         )
 
 

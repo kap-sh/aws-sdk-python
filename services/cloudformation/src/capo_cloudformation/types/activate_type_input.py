@@ -49,40 +49,43 @@ class ActivateTypeInput(TypedDict, closed=True):
 def serialize_query(
     value: ActivateTypeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.third_party_type
 
         capo_cloudformation.types.third_party_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "public_type_arn" in value:
-        pairs.append((f"{prefix}.PublicTypeArn", str(value["public_type_arn"])))
+        pairs.append((f"{key_prefix}PublicTypeArn", str(value["public_type_arn"])))
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "type_name_alias" in value:
-        pairs.append((f"{prefix}.TypeNameAlias", str(value["type_name_alias"])))
+        pairs.append((f"{key_prefix}TypeNameAlias", str(value["type_name_alias"])))
     if "auto_update" in value:
         pairs.append(
-            (f"{prefix}.AutoUpdate", "true" if value["auto_update"] else "false")
+            (f"{key_prefix}AutoUpdate", "true" if value["auto_update"] else "false")
         )
     if "logging_config" in value:
         import capo_cloudformation.types.logging_config
 
         capo_cloudformation.types.logging_config.serialize_query(
-            value["logging_config"], pairs, f"{prefix}.LoggingConfig"
+            value["logging_config"], pairs, f"{key_prefix}LoggingConfig"
         )
     if "execution_role_arn" in value:
-        pairs.append((f"{prefix}.ExecutionRoleArn", str(value["execution_role_arn"])))
+        pairs.append(
+            (f"{key_prefix}ExecutionRoleArn", str(value["execution_role_arn"]))
+        )
     if "version_bump" in value:
         import capo_cloudformation.types.version_bump
 
         capo_cloudformation.types.version_bump.serialize_query(
-            value["version_bump"], pairs, f"{prefix}.VersionBump"
+            value["version_bump"], pairs, f"{key_prefix}VersionBump"
         )
     if "major_version" in value:
-        pairs.append((f"{prefix}.MajorVersion", str(value["major_version"])))
+        pairs.append((f"{key_prefix}MajorVersion", str(value["major_version"])))
 
 
 def deserialize_query(el: Element) -> ActivateTypeInput:

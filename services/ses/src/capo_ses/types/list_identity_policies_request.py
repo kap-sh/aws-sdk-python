@@ -20,7 +20,8 @@ class ListIdentityPoliciesRequest(TypedDict, closed=True):
 def serialize_query(
     value: ListIdentityPoliciesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Identity", str(value["identity"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Identity", str(value["identity"])))
 
 
 def deserialize_query(el: Element) -> ListIdentityPoliciesRequest:

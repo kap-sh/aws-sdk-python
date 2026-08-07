@@ -56,27 +56,30 @@ class DescribeUpdateActionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeUpdateActionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
     if "replication_group_ids" in value:
         import capo_elasticache.types.replication_group_id_list
 
         capo_elasticache.types.replication_group_id_list.serialize_query(
-            value["replication_group_ids"], pairs, f"{prefix}.ReplicationGroupIds"
+            value["replication_group_ids"], pairs, f"{key_prefix}ReplicationGroupIds"
         )
     if "cache_cluster_ids" in value:
         import capo_elasticache.types.cache_cluster_id_list
 
         capo_elasticache.types.cache_cluster_id_list.serialize_query(
-            value["cache_cluster_ids"], pairs, f"{prefix}.CacheClusterIds"
+            value["cache_cluster_ids"], pairs, f"{key_prefix}CacheClusterIds"
         )
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "service_update_status" in value:
         import capo_elasticache.types.service_update_status_list
 
         capo_elasticache.types.service_update_status_list.serialize_query(
-            value["service_update_status"], pairs, f"{prefix}.ServiceUpdateStatus"
+            value["service_update_status"], pairs, f"{key_prefix}ServiceUpdateStatus"
         )
     if "service_update_time_range" in value:
         import capo_elasticache.types.time_range_filter
@@ -84,25 +87,25 @@ def serialize_query(
         capo_elasticache.types.time_range_filter.serialize_query(
             value["service_update_time_range"],
             pairs,
-            f"{prefix}.ServiceUpdateTimeRange",
+            f"{key_prefix}ServiceUpdateTimeRange",
         )
     if "update_action_status" in value:
         import capo_elasticache.types.update_action_status_list
 
         capo_elasticache.types.update_action_status_list.serialize_query(
-            value["update_action_status"], pairs, f"{prefix}.UpdateActionStatus"
+            value["update_action_status"], pairs, f"{key_prefix}UpdateActionStatus"
         )
     if "show_node_level_update_status" in value:
         pairs.append(
             (
-                f"{prefix}.ShowNodeLevelUpdateStatus",
+                f"{key_prefix}ShowNodeLevelUpdateStatus",
                 "true" if value["show_node_level_update_status"] else "false",
             )
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeUpdateActionsMessage:

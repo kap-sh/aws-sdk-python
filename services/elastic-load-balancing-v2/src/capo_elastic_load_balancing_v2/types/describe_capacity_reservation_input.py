@@ -21,8 +21,9 @@ class DescribeCapacityReservationInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeCapacityReservationInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
 
 
 def deserialize_query(el: Element) -> DescribeCapacityReservationInput:

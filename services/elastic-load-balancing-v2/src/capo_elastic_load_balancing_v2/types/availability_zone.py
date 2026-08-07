@@ -35,23 +35,28 @@ class AvailabilityZone(TypedDict, closed=True):
 def serialize_query(
     value: AvailabilityZone, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "zone_name" in value:
-        pairs.append((f"{prefix}.ZoneName", str(value["zone_name"])))
+        pairs.append((f"{key_prefix}ZoneName", str(value["zone_name"])))
     if "subnet_id" in value:
-        pairs.append((f"{prefix}.SubnetId", str(value["subnet_id"])))
+        pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
     if "outpost_id" in value:
-        pairs.append((f"{prefix}.OutpostId", str(value["outpost_id"])))
+        pairs.append((f"{key_prefix}OutpostId", str(value["outpost_id"])))
     if "load_balancer_addresses" in value:
         import capo_elastic_load_balancing_v2.types.load_balancer_addresses
 
         capo_elastic_load_balancing_v2.types.load_balancer_addresses.serialize_query(
-            value["load_balancer_addresses"], pairs, f"{prefix}.LoadBalancerAddresses"
+            value["load_balancer_addresses"],
+            pairs,
+            f"{key_prefix}LoadBalancerAddresses",
         )
     if "source_nat_ipv6_prefixes" in value:
         import capo_elastic_load_balancing_v2.types.source_nat_ipv6_prefixes
 
         capo_elastic_load_balancing_v2.types.source_nat_ipv6_prefixes.serialize_query(
-            value["source_nat_ipv6_prefixes"], pairs, f"{prefix}.SourceNatIpv6Prefixes"
+            value["source_nat_ipv6_prefixes"],
+            pairs,
+            f"{key_prefix}SourceNatIpv6Prefixes",
         )
 
 

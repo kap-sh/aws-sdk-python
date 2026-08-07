@@ -29,26 +29,29 @@ class DeleteClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "skip_final_cluster_snapshot" in value:
         pairs.append(
             (
-                f"{prefix}.SkipFinalClusterSnapshot",
+                f"{key_prefix}SkipFinalClusterSnapshot",
                 "true" if value["skip_final_cluster_snapshot"] else "false",
             )
         )
     if "final_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.FinalClusterSnapshotIdentifier",
+                f"{key_prefix}FinalClusterSnapshotIdentifier",
                 str(value["final_cluster_snapshot_identifier"]),
             )
         )
     if "final_cluster_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.FinalClusterSnapshotRetentionPeriod",
+                f"{key_prefix}FinalClusterSnapshotRetentionPeriod",
                 str(value["final_cluster_snapshot_retention_period"]),
             )
         )

@@ -24,13 +24,14 @@ class SecondaryClusterInfo(TypedDict, closed=True):
 def serialize_query(
     value: SecondaryClusterInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "cluster_nodes" in value:
         import capo_redshift.types.cluster_nodes_list
 
         capo_redshift.types.cluster_nodes_list.serialize_query(
-            value["cluster_nodes"], pairs, f"{prefix}.ClusterNodes"
+            value["cluster_nodes"], pairs, f"{key_prefix}ClusterNodes"
         )
 
 

@@ -31,16 +31,17 @@ class InstanceMetadataOptions(TypedDict, closed=True):
 def serialize_query(
     value: InstanceMetadataOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "http_tokens" in value:
         import capo_auto_scaling.types.instance_metadata_http_tokens_state
 
         capo_auto_scaling.types.instance_metadata_http_tokens_state.serialize_query(
-            value["http_tokens"], pairs, f"{prefix}.HttpTokens"
+            value["http_tokens"], pairs, f"{key_prefix}HttpTokens"
         )
     if "http_put_response_hop_limit" in value:
         pairs.append(
             (
-                f"{prefix}.HttpPutResponseHopLimit",
+                f"{key_prefix}HttpPutResponseHopLimit",
                 str(value["http_put_response_hop_limit"]),
             )
         )
@@ -48,7 +49,7 @@ def serialize_query(
         import capo_auto_scaling.types.instance_metadata_endpoint_state
 
         capo_auto_scaling.types.instance_metadata_endpoint_state.serialize_query(
-            value["http_endpoint"], pairs, f"{prefix}.HttpEndpoint"
+            value["http_endpoint"], pairs, f"{key_prefix}HttpEndpoint"
         )
 
 

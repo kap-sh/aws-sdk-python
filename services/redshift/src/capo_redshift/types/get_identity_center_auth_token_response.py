@@ -22,13 +22,14 @@ class GetIdentityCenterAuthTokenResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetIdentityCenterAuthTokenResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "token" in value:
-        pairs.append((f"{prefix}.Token", str(value["token"])))
+        pairs.append((f"{key_prefix}Token", str(value["token"])))
     if "expiration_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["expiration_time"], pairs, f"{prefix}.ExpirationTime"
+            value["expiration_time"], pairs, f"{key_prefix}ExpirationTime"
         )
 
 

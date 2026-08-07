@@ -29,12 +29,13 @@ class ModifyIntegrationMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyIntegrationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "integration_arn" in value:
-        pairs.append((f"{prefix}.IntegrationArn", str(value["integration_arn"])))
+        pairs.append((f"{key_prefix}IntegrationArn", str(value["integration_arn"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "integration_name" in value:
-        pairs.append((f"{prefix}.IntegrationName", str(value["integration_name"])))
+        pairs.append((f"{key_prefix}IntegrationName", str(value["integration_name"])))
 
 
 def deserialize_query(el: Element) -> ModifyIntegrationMessage:

@@ -23,11 +23,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "storage" in value:
         import capo_neptune.types.valid_storage_options_list
 
         capo_neptune.types.valid_storage_options_list.serialize_query(
-            value["storage"], pairs, f"{prefix}.Storage"
+            value["storage"], pairs, f"{key_prefix}Storage"
         )
 
 

@@ -28,31 +28,32 @@ class CopyClusterSnapshotMessage(TypedDict, closed=True):
 def serialize_query(
     value: CopyClusterSnapshotMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceSnapshotIdentifier",
+                f"{key_prefix}SourceSnapshotIdentifier",
                 str(value["source_snapshot_identifier"]),
             )
         )
     if "source_snapshot_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceSnapshotClusterIdentifier",
+                f"{key_prefix}SourceSnapshotClusterIdentifier",
                 str(value["source_snapshot_cluster_identifier"]),
             )
         )
     if "target_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.TargetSnapshotIdentifier",
+                f"{key_prefix}TargetSnapshotIdentifier",
                 str(value["target_snapshot_identifier"]),
             )
         )
     if "manual_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.ManualSnapshotRetentionPeriod",
+                f"{key_prefix}ManualSnapshotRetentionPeriod",
                 str(value["manual_snapshot_retention_period"]),
             )
         )

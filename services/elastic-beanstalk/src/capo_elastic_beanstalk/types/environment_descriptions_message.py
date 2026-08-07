@@ -24,14 +24,15 @@ class EnvironmentDescriptionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: EnvironmentDescriptionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "environments" in value:
         import capo_elastic_beanstalk.types.environment_descriptions_list
 
         capo_elastic_beanstalk.types.environment_descriptions_list.serialize_query(
-            value["environments"], pairs, f"{prefix}.Environments"
+            value["environments"], pairs, f"{key_prefix}Environments"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> EnvironmentDescriptionsMessage:

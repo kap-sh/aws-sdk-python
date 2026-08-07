@@ -26,11 +26,14 @@ class CheckDNSAvailabilityResultMessage(TypedDict, closed=True):
 def serialize_query(
     value: CheckDNSAvailabilityResultMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "available" in value:
-        pairs.append((f"{prefix}.Available", "true" if value["available"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Available", "true" if value["available"] else "false")
+        )
     if "fully_qualified_cname" in value:
         pairs.append(
-            (f"{prefix}.FullyQualifiedCNAME", str(value["fully_qualified_cname"]))
+            (f"{key_prefix}FullyQualifiedCNAME", str(value["fully_qualified_cname"]))
         )
 
 

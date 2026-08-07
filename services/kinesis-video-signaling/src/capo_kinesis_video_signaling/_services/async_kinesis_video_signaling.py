@@ -133,9 +133,11 @@ class AsyncKinesisVideoSignalingClient:
 
     async def get_ice_server_config(
         self,
-        channel_arn: "capo_kinesis_video_signaling.types.resource_arn.ResourceARN",
         *,
         config_overrides: Optional[AsyncKinesisVideoSignalingClientConfig] = None,
+        channel_arn: Optional[
+            "capo_kinesis_video_signaling.types.resource_arn.ResourceARN"
+        ] = None,
         client_id: Optional[
             "capo_kinesis_video_signaling.types.client_id.ClientId"
         ] = None,
@@ -179,7 +181,8 @@ class AsyncKinesisVideoSignalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kinesis_video_signaling.types.get_ice_server_config_request.GetIceServerConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["channel_arn"] = channel_arn
+        if channel_arn is not None:
+            input_["channel_arn"] = channel_arn
         if client_id is not None:
             input_["client_id"] = client_id
         if service is not None:
@@ -196,11 +199,17 @@ class AsyncKinesisVideoSignalingClient:
 
     async def send_alexa_offer_to_master(
         self,
-        channel_arn: "capo_kinesis_video_signaling.types.resource_arn.ResourceARN",
-        sender_client_id: "capo_kinesis_video_signaling.types.client_id.ClientId",
-        message_payload: "capo_kinesis_video_signaling.types.message_payload.MessagePayload",
         *,
         config_overrides: Optional[AsyncKinesisVideoSignalingClientConfig] = None,
+        channel_arn: Optional[
+            "capo_kinesis_video_signaling.types.resource_arn.ResourceARN"
+        ] = None,
+        sender_client_id: Optional[
+            "capo_kinesis_video_signaling.types.client_id.ClientId"
+        ] = None,
+        message_payload: Optional[
+            "capo_kinesis_video_signaling.types.message_payload.MessagePayload"
+        ] = None,
     ) -> "capo_kinesis_video_signaling.types.send_alexa_offer_to_master_response.SendAlexaOfferToMasterResponse":
         """<p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer. The offer is delivered as soon as the master is connected to the specified signaling channel. This API returns the SDP answer from the connected master. If the master is not connected to the signaling channel, redelivery requests are made until the message expires.</p>
 
@@ -234,9 +243,12 @@ class AsyncKinesisVideoSignalingClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_kinesis_video_signaling.types.send_alexa_offer_to_master_request.SendAlexaOfferToMasterRequest = {}  # type: ignore[typeddict-item]
-        input_["channel_arn"] = channel_arn
-        input_["sender_client_id"] = sender_client_id
-        input_["message_payload"] = message_payload
+        if channel_arn is not None:
+            input_["channel_arn"] = channel_arn
+        if sender_client_id is not None:
+            input_["sender_client_id"] = sender_client_id
+        if message_payload is not None:
+            input_["message_payload"] = message_payload
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

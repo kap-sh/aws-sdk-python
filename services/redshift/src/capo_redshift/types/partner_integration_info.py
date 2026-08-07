@@ -41,29 +41,30 @@ class PartnerIntegrationInfo(TypedDict, closed=True):
 def serialize_query(
     value: PartnerIntegrationInfo, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "database_name" in value:
-        pairs.append((f"{prefix}.DatabaseName", str(value["database_name"])))
+        pairs.append((f"{key_prefix}DatabaseName", str(value["database_name"])))
     if "partner_name" in value:
-        pairs.append((f"{prefix}.PartnerName", str(value["partner_name"])))
+        pairs.append((f"{key_prefix}PartnerName", str(value["partner_name"])))
     if "status" in value:
         import capo_redshift.types.partner_integration_status
 
         capo_redshift.types.partner_integration_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "created_at" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["created_at"], pairs, f"{prefix}.CreatedAt"
+            value["created_at"], pairs, f"{key_prefix}CreatedAt"
         )
     if "updated_at" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["updated_at"], pairs, f"{prefix}.UpdatedAt"
+            value["updated_at"], pairs, f"{key_prefix}UpdatedAt"
         )
 
 

@@ -19,11 +19,12 @@ class ProcessesType(TypedDict, closed=True):
 def serialize_query(
     value: ProcessesType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "processes" in value:
         import capo_auto_scaling.types.processes
 
         capo_auto_scaling.types.processes.serialize_query(
-            value["processes"], pairs, f"{prefix}.Processes"
+            value["processes"], pairs, f"{key_prefix}Processes"
         )
 
 

@@ -40,29 +40,30 @@ class InboundIntegration(TypedDict, closed=True):
 def serialize_query(
     value: InboundIntegration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "integration_arn" in value:
-        pairs.append((f"{prefix}.IntegrationArn", str(value["integration_arn"])))
+        pairs.append((f"{key_prefix}IntegrationArn", str(value["integration_arn"])))
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "target_arn" in value:
-        pairs.append((f"{prefix}.TargetArn", str(value["target_arn"])))
+        pairs.append((f"{key_prefix}TargetArn", str(value["target_arn"])))
     if "status" in value:
         import capo_redshift.types.zero_etl_integration_status
 
         capo_redshift.types.zero_etl_integration_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "errors" in value:
         import capo_redshift.types.integration_error_list
 
         capo_redshift.types.integration_error_list.serialize_query(
-            value["errors"], pairs, f"{prefix}.Errors"
+            value["errors"], pairs, f"{key_prefix}Errors"
         )
     if "create_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
 
 

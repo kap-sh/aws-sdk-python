@@ -211,10 +211,10 @@ class AsyncApiGatewayManagementApiClient:
 
     async def post_to_connection(
         self,
-        data: "capo_apigatewaymanagementapi.types.data.Data",
         connection_id: "capo_apigatewaymanagementapi.types.__string.__string",
         *,
         config_overrides: Optional[AsyncApiGatewayManagementApiClientConfig] = None,
+        data: Optional["capo_apigatewaymanagementapi.types.data.Data"] = None,
     ) -> None:
         """<p>Sends the provided data to the specified connection.</p>
 
@@ -245,7 +245,8 @@ class AsyncApiGatewayManagementApiClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_apigatewaymanagementapi.types.post_to_connection_request.PostToConnectionRequest = {}  # type: ignore[typeddict-item]
-        input_["data"] = data
+        if data is not None:
+            input_["data"] = data
         input_["connection_id"] = connection_id
 
         response = await aexecute_pipeline(

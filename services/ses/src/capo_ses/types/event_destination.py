@@ -39,14 +39,15 @@ class EventDestination(TypedDict, closed=True):
 def serialize_query(
     value: EventDestination, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
     pairs.append(
-        (f"{prefix}.Enabled", "true" if value.get("enabled", False) else "false")
+        (f"{key_prefix}Enabled", "true" if value.get("enabled", False) else "false")
     )
     import capo_ses.types.event_types
 
     capo_ses.types.event_types.serialize_query(
-        value["matching_event_types"], pairs, f"{prefix}.MatchingEventTypes"
+        value["matching_event_types"], pairs, f"{key_prefix}MatchingEventTypes"
     )
     if "kinesis_firehose_destination" in value:
         import capo_ses.types.kinesis_firehose_destination
@@ -54,19 +55,21 @@ def serialize_query(
         capo_ses.types.kinesis_firehose_destination.serialize_query(
             value["kinesis_firehose_destination"],
             pairs,
-            f"{prefix}.KinesisFirehoseDestination",
+            f"{key_prefix}KinesisFirehoseDestination",
         )
     if "cloud_watch_destination" in value:
         import capo_ses.types.cloud_watch_destination
 
         capo_ses.types.cloud_watch_destination.serialize_query(
-            value["cloud_watch_destination"], pairs, f"{prefix}.CloudWatchDestination"
+            value["cloud_watch_destination"],
+            pairs,
+            f"{key_prefix}CloudWatchDestination",
         )
     if "sns_destination" in value:
         import capo_ses.types.sns_destination
 
         capo_ses.types.sns_destination.serialize_query(
-            value["sns_destination"], pairs, f"{prefix}.SNSDestination"
+            value["sns_destination"], pairs, f"{key_prefix}SNSDestination"
         )
 
 

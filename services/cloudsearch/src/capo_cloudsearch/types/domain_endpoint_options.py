@@ -24,15 +24,16 @@ class DomainEndpointOptions(TypedDict, closed=True):
 def serialize_query(
     value: DomainEndpointOptions, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enforce_https" in value:
         pairs.append(
-            (f"{prefix}.EnforceHTTPS", "true" if value["enforce_https"] else "false")
+            (f"{key_prefix}EnforceHTTPS", "true" if value["enforce_https"] else "false")
         )
     if "tls_security_policy" in value:
         import capo_cloudsearch.types.tls_security_policy
 
         capo_cloudsearch.types.tls_security_policy.serialize_query(
-            value["tls_security_policy"], pairs, f"{prefix}.TLSSecurityPolicy"
+            value["tls_security_policy"], pairs, f"{key_prefix}TLSSecurityPolicy"
         )
 
 

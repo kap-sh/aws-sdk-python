@@ -29,10 +29,11 @@ class Association(TypedDict, closed=True):
 def serialize_query(
     value: Association, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "custom_domain_certificate_arn" in value:
         pairs.append(
             (
-                f"{prefix}.CustomDomainCertificateArn",
+                f"{key_prefix}CustomDomainCertificateArn",
                 str(value["custom_domain_certificate_arn"]),
             )
         )
@@ -42,7 +43,7 @@ def serialize_query(
         capo_redshift.types.t_stamp.serialize_query(
             value["custom_domain_certificate_expiry_date"],
             pairs,
-            f"{prefix}.CustomDomainCertificateExpiryDate",
+            f"{key_prefix}CustomDomainCertificateExpiryDate",
         )
     if "certificate_associations" in value:
         import capo_redshift.types.certificate_association_list
@@ -50,7 +51,7 @@ def serialize_query(
         capo_redshift.types.certificate_association_list.serialize_query(
             value["certificate_associations"],
             pairs,
-            f"{prefix}.CertificateAssociations",
+            f"{key_prefix}CertificateAssociations",
         )
 
 

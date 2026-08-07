@@ -24,12 +24,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.mail_from_domain_attributes
 
     capo_ses.types.mail_from_domain_attributes.serialize_query(
         value["mail_from_domain_attributes"],
         pairs,
-        f"{prefix}.MailFromDomainAttributes",
+        f"{key_prefix}MailFromDomainAttributes",
     )
 
 

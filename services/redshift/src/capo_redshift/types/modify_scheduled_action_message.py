@@ -38,24 +38,25 @@ class ModifyScheduledActionMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyScheduledActionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_action_name" in value:
         pairs.append(
-            (f"{prefix}.ScheduledActionName", str(value["scheduled_action_name"]))
+            (f"{key_prefix}ScheduledActionName", str(value["scheduled_action_name"]))
         )
     if "target_action" in value:
         import capo_redshift.types.scheduled_action_type
 
         capo_redshift.types.scheduled_action_type.serialize_query(
-            value["target_action"], pairs, f"{prefix}.TargetAction"
+            value["target_action"], pairs, f"{key_prefix}TargetAction"
         )
     if "schedule" in value:
-        pairs.append((f"{prefix}.Schedule", str(value["schedule"])))
+        pairs.append((f"{key_prefix}Schedule", str(value["schedule"])))
     if "iam_role" in value:
-        pairs.append((f"{prefix}.IamRole", str(value["iam_role"])))
+        pairs.append((f"{key_prefix}IamRole", str(value["iam_role"])))
     if "scheduled_action_description" in value:
         pairs.append(
             (
-                f"{prefix}.ScheduledActionDescription",
+                f"{key_prefix}ScheduledActionDescription",
                 str(value["scheduled_action_description"]),
             )
         )
@@ -63,16 +64,16 @@ def serialize_query(
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "enable" in value:
-        pairs.append((f"{prefix}.Enable", "true" if value["enable"] else "false"))
+        pairs.append((f"{key_prefix}Enable", "true" if value["enable"] else "false"))
 
 
 def deserialize_query(el: Element) -> ModifyScheduledActionMessage:

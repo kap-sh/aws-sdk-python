@@ -26,14 +26,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_schedules" in value:
         import capo_redshift.types.snapshot_schedule_list
 
         capo_redshift.types.snapshot_schedule_list.serialize_query(
-            value["snapshot_schedules"], pairs, f"{prefix}.SnapshotSchedules"
+            value["snapshot_schedules"], pairs, f"{key_prefix}SnapshotSchedules"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeSnapshotSchedulesOutputMessage:

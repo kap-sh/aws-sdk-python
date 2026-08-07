@@ -56,53 +56,54 @@ class DomainStatus(TypedDict, closed=True):
 def serialize_query(
     value: DomainStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainId", str(value["domain_id"])))
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainId", str(value["domain_id"])))
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
     if "created" in value:
-        pairs.append((f"{prefix}.Created", "true" if value["created"] else "false"))
+        pairs.append((f"{key_prefix}Created", "true" if value["created"] else "false"))
     if "deleted" in value:
-        pairs.append((f"{prefix}.Deleted", "true" if value["deleted"] else "false"))
+        pairs.append((f"{key_prefix}Deleted", "true" if value["deleted"] else "false"))
     if "doc_service" in value:
         import capo_cloudsearch.types.service_endpoint
 
         capo_cloudsearch.types.service_endpoint.serialize_query(
-            value["doc_service"], pairs, f"{prefix}.DocService"
+            value["doc_service"], pairs, f"{key_prefix}DocService"
         )
     if "search_service" in value:
         import capo_cloudsearch.types.service_endpoint
 
         capo_cloudsearch.types.service_endpoint.serialize_query(
-            value["search_service"], pairs, f"{prefix}.SearchService"
+            value["search_service"], pairs, f"{key_prefix}SearchService"
         )
     pairs.append(
         (
-            f"{prefix}.RequiresIndexDocuments",
+            f"{key_prefix}RequiresIndexDocuments",
             "true" if value["requires_index_documents"] else "false",
         )
     )
     if "processing" in value:
         pairs.append(
-            (f"{prefix}.Processing", "true" if value["processing"] else "false")
+            (f"{key_prefix}Processing", "true" if value["processing"] else "false")
         )
     if "search_instance_type" in value:
         pairs.append(
-            (f"{prefix}.SearchInstanceType", str(value["search_instance_type"]))
+            (f"{key_prefix}SearchInstanceType", str(value["search_instance_type"]))
         )
     if "search_partition_count" in value:
         pairs.append(
-            (f"{prefix}.SearchPartitionCount", str(value["search_partition_count"]))
+            (f"{key_prefix}SearchPartitionCount", str(value["search_partition_count"]))
         )
     if "search_instance_count" in value:
         pairs.append(
-            (f"{prefix}.SearchInstanceCount", str(value["search_instance_count"]))
+            (f"{key_prefix}SearchInstanceCount", str(value["search_instance_count"]))
         )
     if "limits" in value:
         import capo_cloudsearch.types.limits
 
         capo_cloudsearch.types.limits.serialize_query(
-            value["limits"], pairs, f"{prefix}.Limits"
+            value["limits"], pairs, f"{key_prefix}Limits"
         )
 
 

@@ -19,10 +19,11 @@ class DeleteCacheSecurityGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteCacheSecurityGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheSecurityGroupName",
+                f"{key_prefix}CacheSecurityGroupName",
                 str(value["cache_security_group_name"]),
             )
         )

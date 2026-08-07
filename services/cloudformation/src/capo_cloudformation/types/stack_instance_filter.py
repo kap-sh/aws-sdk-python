@@ -26,14 +26,15 @@ class StackInstanceFilter(TypedDict, closed=True):
 def serialize_query(
     value: StackInstanceFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
         import capo_cloudformation.types.stack_instance_filter_name
 
         capo_cloudformation.types.stack_instance_filter_name.serialize_query(
-            value["name"], pairs, f"{prefix}.Name"
+            value["name"], pairs, f"{key_prefix}Name"
         )
     if "values" in value:
-        pairs.append((f"{prefix}.Values", str(value["values"])))
+        pairs.append((f"{key_prefix}Values", str(value["values"])))
 
 
 def deserialize_query(el: Element) -> StackInstanceFilter:

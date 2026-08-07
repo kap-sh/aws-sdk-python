@@ -24,10 +24,11 @@ class DBClusterSnapshotAttributesResult(TypedDict, closed=True):
 def serialize_query(
     value: DBClusterSnapshotAttributesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterSnapshotIdentifier",
+                f"{key_prefix}DBClusterSnapshotIdentifier",
                 str(value["db_cluster_snapshot_identifier"]),
             )
         )
@@ -37,7 +38,7 @@ def serialize_query(
         capo_neptune.types.db_cluster_snapshot_attribute_list.serialize_query(
             value["db_cluster_snapshot_attributes"],
             pairs,
-            f"{prefix}.DBClusterSnapshotAttributes",
+            f"{key_prefix}DBClusterSnapshotAttributes",
         )
 
 

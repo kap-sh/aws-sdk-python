@@ -20,13 +20,14 @@ class Filter(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Filter, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "values" in value:
         import capo_elasticache.types.filter_value_list
 
         capo_elasticache.types.filter_value_list.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

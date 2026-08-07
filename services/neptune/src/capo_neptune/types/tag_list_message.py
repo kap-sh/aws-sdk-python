@@ -19,11 +19,12 @@ class TagListMessage(TypedDict, closed=True):
 def serialize_query(
     value: TagListMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tag_list" in value:
         import capo_neptune.types.tag_list
 
         capo_neptune.types.tag_list.serialize_query(
-            value["tag_list"], pairs, f"{prefix}.TagList"
+            value["tag_list"], pairs, f"{key_prefix}TagList"
         )
 
 

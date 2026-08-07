@@ -17,8 +17,9 @@ class Topic(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Topic, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
 
 
 def deserialize_query(el: Element) -> Topic:

@@ -23,11 +23,14 @@ class StopAction(TypedDict, closed=True):
 def serialize_query(
     value: StopAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.stop_scope
 
-    capo_ses.types.stop_scope.serialize_query(value["scope"], pairs, f"{prefix}.Scope")
+    capo_ses.types.stop_scope.serialize_query(
+        value["scope"], pairs, f"{key_prefix}Scope"
+    )
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
 
 
 def deserialize_query(el: Element) -> StopAction:

@@ -45,26 +45,27 @@ class TypeConfigurationDetails(TypedDict, closed=True):
 def serialize_query(
     value: TypeConfigurationDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "alias" in value:
-        pairs.append((f"{prefix}.Alias", str(value["alias"])))
+        pairs.append((f"{key_prefix}Alias", str(value["alias"])))
     if "configuration" in value:
-        pairs.append((f"{prefix}.Configuration", str(value["configuration"])))
+        pairs.append((f"{key_prefix}Configuration", str(value["configuration"])))
     if "last_updated" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["last_updated"], pairs, f"{prefix}.LastUpdated"
+            value["last_updated"], pairs, f"{key_prefix}LastUpdated"
         )
     if "type_arn" in value:
-        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+        pairs.append((f"{key_prefix}TypeArn", str(value["type_arn"])))
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "is_default_configuration" in value:
         pairs.append(
             (
-                f"{prefix}.IsDefaultConfiguration",
+                f"{key_prefix}IsDefaultConfiguration",
                 "true" if value["is_default_configuration"] else "false",
             )
         )

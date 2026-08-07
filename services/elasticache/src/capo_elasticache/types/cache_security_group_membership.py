@@ -21,15 +21,16 @@ class CacheSecurityGroupMembership(TypedDict, closed=True):
 def serialize_query(
     value: CacheSecurityGroupMembership, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.CacheSecurityGroupName",
+                f"{key_prefix}CacheSecurityGroupName",
                 str(value["cache_security_group_name"]),
             )
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> CacheSecurityGroupMembership:

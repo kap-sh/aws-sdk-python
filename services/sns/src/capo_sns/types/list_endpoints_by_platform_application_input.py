@@ -24,11 +24,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.PlatformApplicationArn", str(value["platform_application_arn"]))
+        (f"{key_prefix}PlatformApplicationArn", str(value["platform_application_arn"]))
     )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListEndpointsByPlatformApplicationInput:

@@ -23,12 +23,15 @@ class ClusterNode(TypedDict, closed=True):
 def serialize_query(
     value: ClusterNode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_role" in value:
-        pairs.append((f"{prefix}.NodeRole", str(value["node_role"])))
+        pairs.append((f"{key_prefix}NodeRole", str(value["node_role"])))
     if "private_ip_address" in value:
-        pairs.append((f"{prefix}.PrivateIPAddress", str(value["private_ip_address"])))
+        pairs.append(
+            (f"{key_prefix}PrivateIPAddress", str(value["private_ip_address"]))
+        )
     if "public_ip_address" in value:
-        pairs.append((f"{prefix}.PublicIPAddress", str(value["public_ip_address"])))
+        pairs.append((f"{key_prefix}PublicIPAddress", str(value["public_ip_address"])))
 
 
 def deserialize_query(el: Element) -> ClusterNode:

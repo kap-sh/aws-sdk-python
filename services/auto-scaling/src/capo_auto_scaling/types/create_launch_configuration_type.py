@@ -101,79 +101,82 @@ class CreateLaunchConfigurationType(TypedDict, closed=True):
 def serialize_query(
     value: CreateLaunchConfigurationType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_configuration_name" in value:
         pairs.append(
             (
-                f"{prefix}.LaunchConfigurationName",
+                f"{key_prefix}LaunchConfigurationName",
                 str(value["launch_configuration_name"]),
             )
         )
     if "image_id" in value:
-        pairs.append((f"{prefix}.ImageId", str(value["image_id"])))
+        pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
     if "key_name" in value:
-        pairs.append((f"{prefix}.KeyName", str(value["key_name"])))
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "security_groups" in value:
         import capo_auto_scaling.types.security_groups
 
         capo_auto_scaling.types.security_groups.serialize_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "classic_link_vpc_id" in value:
-        pairs.append((f"{prefix}.ClassicLinkVPCId", str(value["classic_link_vpc_id"])))
+        pairs.append(
+            (f"{key_prefix}ClassicLinkVPCId", str(value["classic_link_vpc_id"]))
+        )
     if "classic_link_vpc_security_groups" in value:
         import capo_auto_scaling.types.classic_link_vpc_security_groups
 
         capo_auto_scaling.types.classic_link_vpc_security_groups.serialize_query(
             value["classic_link_vpc_security_groups"],
             pairs,
-            f"{prefix}.ClassicLinkVPCSecurityGroups",
+            f"{key_prefix}ClassicLinkVPCSecurityGroups",
         )
     if "user_data" in value:
-        pairs.append((f"{prefix}.UserData", str(value["user_data"])))
+        pairs.append((f"{key_prefix}UserData", str(value["user_data"])))
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "instance_type" in value:
-        pairs.append((f"{prefix}.InstanceType", str(value["instance_type"])))
+        pairs.append((f"{key_prefix}InstanceType", str(value["instance_type"])))
     if "kernel_id" in value:
-        pairs.append((f"{prefix}.KernelId", str(value["kernel_id"])))
+        pairs.append((f"{key_prefix}KernelId", str(value["kernel_id"])))
     if "ramdisk_id" in value:
-        pairs.append((f"{prefix}.RamdiskId", str(value["ramdisk_id"])))
+        pairs.append((f"{key_prefix}RamdiskId", str(value["ramdisk_id"])))
     if "block_device_mappings" in value:
         import capo_auto_scaling.types.block_device_mappings
 
         capo_auto_scaling.types.block_device_mappings.serialize_query(
-            value["block_device_mappings"], pairs, f"{prefix}.BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
         )
     if "instance_monitoring" in value:
         import capo_auto_scaling.types.instance_monitoring
 
         capo_auto_scaling.types.instance_monitoring.serialize_query(
-            value["instance_monitoring"], pairs, f"{prefix}.InstanceMonitoring"
+            value["instance_monitoring"], pairs, f"{key_prefix}InstanceMonitoring"
         )
     if "spot_price" in value:
-        pairs.append((f"{prefix}.SpotPrice", str(value["spot_price"])))
+        pairs.append((f"{key_prefix}SpotPrice", str(value["spot_price"])))
     if "iam_instance_profile" in value:
         pairs.append(
-            (f"{prefix}.IamInstanceProfile", str(value["iam_instance_profile"]))
+            (f"{key_prefix}IamInstanceProfile", str(value["iam_instance_profile"]))
         )
     if "ebs_optimized" in value:
         pairs.append(
-            (f"{prefix}.EbsOptimized", "true" if value["ebs_optimized"] else "false")
+            (f"{key_prefix}EbsOptimized", "true" if value["ebs_optimized"] else "false")
         )
     if "associate_public_ip_address" in value:
         pairs.append(
             (
-                f"{prefix}.AssociatePublicIpAddress",
+                f"{key_prefix}AssociatePublicIpAddress",
                 "true" if value["associate_public_ip_address"] else "false",
             )
         )
     if "placement_tenancy" in value:
-        pairs.append((f"{prefix}.PlacementTenancy", str(value["placement_tenancy"])))
+        pairs.append((f"{key_prefix}PlacementTenancy", str(value["placement_tenancy"])))
     if "metadata_options" in value:
         import capo_auto_scaling.types.instance_metadata_options
 
         capo_auto_scaling.types.instance_metadata_options.serialize_query(
-            value["metadata_options"], pairs, f"{prefix}.MetadataOptions"
+            value["metadata_options"], pairs, f"{key_prefix}MetadataOptions"
         )
 
 

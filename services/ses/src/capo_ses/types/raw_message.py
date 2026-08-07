@@ -20,10 +20,11 @@ class RawMessage(TypedDict, closed=True):
 def serialize_query(
     value: RawMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.raw_message_data
 
     capo_ses.types.raw_message_data.serialize_query(
-        value["data"], pairs, f"{prefix}.Data"
+        value["data"], pairs, f"{key_prefix}Data"
     )
 
 

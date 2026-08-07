@@ -146,10 +146,12 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
 
     async def batch_get_record(
         self,
-        identifiers: "capo_sagemaker_featurestore_runtime.types.batch_get_record_identifiers.BatchGetRecordIdentifiers",
         *,
         config_overrides: Optional[
             AsyncSageMakerFeatureStoreRuntimeClientConfig
+        ] = None,
+        identifiers: Optional[
+            "capo_sagemaker_featurestore_runtime.types.batch_get_record_identifiers.BatchGetRecordIdentifiers"
         ] = None,
         expiration_time_response: Optional[
             "capo_sagemaker_featurestore_runtime.types.expiration_time_response.ExpirationTimeResponse"
@@ -186,7 +188,8 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_featurestore_runtime.types.batch_get_record_request.BatchGetRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["identifiers"] = identifiers
+        if identifiers is not None:
+            input_["identifiers"] = identifiers
         if expiration_time_response is not None:
             input_["expiration_time_response"] = expiration_time_response
 
@@ -200,11 +203,15 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
     async def delete_record(
         self,
         feature_group_name: "capo_sagemaker_featurestore_runtime.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
-        record_identifier_value_as_string: "capo_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString",
-        event_time: "capo_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString",
         *,
         config_overrides: Optional[
             AsyncSageMakerFeatureStoreRuntimeClientConfig
+        ] = None,
+        record_identifier_value_as_string: Optional[
+            "capo_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString"
+        ] = None,
+        event_time: Optional[
+            "capo_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString"
         ] = None,
         target_stores: Optional[
             "capo_sagemaker_featurestore_runtime.types.target_stores.TargetStores"
@@ -246,8 +253,12 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_featurestore_runtime.types.delete_record_request.DeleteRecordRequest = {}  # type: ignore[typeddict-item]
         input_["feature_group_name"] = feature_group_name
-        input_["record_identifier_value_as_string"] = record_identifier_value_as_string
-        input_["event_time"] = event_time
+        if record_identifier_value_as_string is not None:
+            input_["record_identifier_value_as_string"] = (
+                record_identifier_value_as_string
+            )
+        if event_time is not None:
+            input_["event_time"] = event_time
         if target_stores is not None:
             input_["target_stores"] = target_stores
         if deletion_mode is not None:
@@ -263,10 +274,12 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
     async def get_record(
         self,
         feature_group_name: "capo_sagemaker_featurestore_runtime.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
-        record_identifier_value_as_string: "capo_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString",
         *,
         config_overrides: Optional[
             AsyncSageMakerFeatureStoreRuntimeClientConfig
+        ] = None,
+        record_identifier_value_as_string: Optional[
+            "capo_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString"
         ] = None,
         feature_names: Optional[
             "capo_sagemaker_featurestore_runtime.types.feature_names.FeatureNames"
@@ -310,7 +323,10 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_featurestore_runtime.types.get_record_request.GetRecordRequest = {}  # type: ignore[typeddict-item]
         input_["feature_group_name"] = feature_group_name
-        input_["record_identifier_value_as_string"] = record_identifier_value_as_string
+        if record_identifier_value_as_string is not None:
+            input_["record_identifier_value_as_string"] = (
+                record_identifier_value_as_string
+            )
         if feature_names is not None:
             input_["feature_names"] = feature_names
         if expiration_time_response is not None:
@@ -326,10 +342,12 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
     async def put_record(
         self,
         feature_group_name: "capo_sagemaker_featurestore_runtime.types.feature_group_name_or_arn.FeatureGroupNameOrArn",
-        record: "capo_sagemaker_featurestore_runtime.types.record.Record",
         *,
         config_overrides: Optional[
             AsyncSageMakerFeatureStoreRuntimeClientConfig
+        ] = None,
+        record: Optional[
+            "capo_sagemaker_featurestore_runtime.types.record.Record"
         ] = None,
         target_stores: Optional[
             "capo_sagemaker_featurestore_runtime.types.target_stores.TargetStores"
@@ -370,7 +388,8 @@ class AsyncSageMakerFeatureStoreRuntimeClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_featurestore_runtime.types.put_record_request.PutRecordRequest = {}  # type: ignore[typeddict-item]
         input_["feature_group_name"] = feature_group_name
-        input_["record"] = record
+        if record is not None:
+            input_["record"] = record
         if target_stores is not None:
             input_["target_stores"] = target_stores
         if ttl_duration is not None:

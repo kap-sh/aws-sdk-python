@@ -36,28 +36,29 @@ class ListTypeRegistrationsInput(TypedDict, closed=True):
 def serialize_query(
     value: ListTypeRegistrationsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "type_arn" in value:
-        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+        pairs.append((f"{key_prefix}TypeArn", str(value["type_arn"])))
     if "registration_status_filter" in value:
         import capo_cloudformation.types.registration_status
 
         capo_cloudformation.types.registration_status.serialize_query(
             value["registration_status_filter"],
             pairs,
-            f"{prefix}.RegistrationStatusFilter",
+            f"{key_prefix}RegistrationStatusFilter",
         )
     if "max_results" in value:
-        pairs.append((f"{prefix}.MaxResults", str(value["max_results"])))
+        pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListTypeRegistrationsInput:

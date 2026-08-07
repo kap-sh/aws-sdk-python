@@ -19,8 +19,9 @@ class EstimateTemplateCostOutput(TypedDict, closed=True):
 def serialize_query(
     value: EstimateTemplateCostOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "url" in value:
-        pairs.append((f"{prefix}.Url", str(value["url"])))
+        pairs.append((f"{key_prefix}Url", str(value["url"])))
 
 
 def deserialize_query(el: Element) -> EstimateTemplateCostOutput:

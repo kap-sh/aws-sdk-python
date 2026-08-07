@@ -26,14 +26,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_versions" in value:
         import capo_elastic_beanstalk.types.application_version_description_list
 
         capo_elastic_beanstalk.types.application_version_description_list.serialize_query(
-            value["application_versions"], pairs, f"{prefix}.ApplicationVersions"
+            value["application_versions"], pairs, f"{key_prefix}ApplicationVersions"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ApplicationVersionDescriptionsMessage:

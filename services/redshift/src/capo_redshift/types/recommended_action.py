@@ -28,17 +28,18 @@ class RecommendedAction(TypedDict, closed=True):
 def serialize_query(
     value: RecommendedAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "text" in value:
-        pairs.append((f"{prefix}.Text", str(value["text"])))
+        pairs.append((f"{key_prefix}Text", str(value["text"])))
     if "database" in value:
-        pairs.append((f"{prefix}.Database", str(value["database"])))
+        pairs.append((f"{key_prefix}Database", str(value["database"])))
     if "command" in value:
-        pairs.append((f"{prefix}.Command", str(value["command"])))
+        pairs.append((f"{key_prefix}Command", str(value["command"])))
     if "type" in value:
         import capo_redshift.types.recommended_action_type
 
         capo_redshift.types.recommended_action_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
 
 

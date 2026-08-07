@@ -35,34 +35,35 @@ class RestoreStatus(TypedDict, closed=True):
 def serialize_query(
     value: RestoreStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "current_restore_rate_in_mega_bytes_per_second" in value:
         pairs.append(
             (
-                f"{prefix}.CurrentRestoreRateInMegaBytesPerSecond",
+                f"{key_prefix}CurrentRestoreRateInMegaBytesPerSecond",
                 str(value["current_restore_rate_in_mega_bytes_per_second"]),
             )
         )
     if "snapshot_size_in_mega_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.SnapshotSizeInMegaBytes",
+                f"{key_prefix}SnapshotSizeInMegaBytes",
                 str(value["snapshot_size_in_mega_bytes"]),
             )
         )
     if "progress_in_mega_bytes" in value:
         pairs.append(
-            (f"{prefix}.ProgressInMegaBytes", str(value["progress_in_mega_bytes"]))
+            (f"{key_prefix}ProgressInMegaBytes", str(value["progress_in_mega_bytes"]))
         )
     if "elapsed_time_in_seconds" in value:
         pairs.append(
-            (f"{prefix}.ElapsedTimeInSeconds", str(value["elapsed_time_in_seconds"]))
+            (f"{key_prefix}ElapsedTimeInSeconds", str(value["elapsed_time_in_seconds"]))
         )
     if "estimated_time_to_completion_in_seconds" in value:
         pairs.append(
             (
-                f"{prefix}.EstimatedTimeToCompletionInSeconds",
+                f"{key_prefix}EstimatedTimeToCompletionInSeconds",
                 str(value["estimated_time_to_completion_in_seconds"]),
             )
         )

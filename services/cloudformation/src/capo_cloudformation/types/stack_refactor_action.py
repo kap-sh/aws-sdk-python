@@ -64,53 +64,54 @@ class StackRefactorAction(TypedDict, closed=True):
 def serialize_query(
     value: StackRefactorAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action" in value:
         import capo_cloudformation.types.stack_refactor_action_type
 
         capo_cloudformation.types.stack_refactor_action_type.serialize_query(
-            value["action"], pairs, f"{prefix}.Action"
+            value["action"], pairs, f"{key_prefix}Action"
         )
     if "entity" in value:
         import capo_cloudformation.types.stack_refactor_action_entity
 
         capo_cloudformation.types.stack_refactor_action_entity.serialize_query(
-            value["entity"], pairs, f"{prefix}.Entity"
+            value["entity"], pairs, f"{key_prefix}Entity"
         )
     if "physical_resource_id" in value:
         pairs.append(
-            (f"{prefix}.PhysicalResourceId", str(value["physical_resource_id"]))
+            (f"{key_prefix}PhysicalResourceId", str(value["physical_resource_id"]))
         )
     if "resource_identifier" in value:
         pairs.append(
-            (f"{prefix}.ResourceIdentifier", str(value["resource_identifier"]))
+            (f"{key_prefix}ResourceIdentifier", str(value["resource_identifier"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "detection" in value:
         import capo_cloudformation.types.stack_refactor_detection
 
         capo_cloudformation.types.stack_refactor_detection.serialize_query(
-            value["detection"], pairs, f"{prefix}.Detection"
+            value["detection"], pairs, f"{key_prefix}Detection"
         )
     if "detection_reason" in value:
-        pairs.append((f"{prefix}.DetectionReason", str(value["detection_reason"])))
+        pairs.append((f"{key_prefix}DetectionReason", str(value["detection_reason"])))
     if "tag_resources" in value:
         import capo_cloudformation.types.stack_refactor_tag_resources
 
         capo_cloudformation.types.stack_refactor_tag_resources.serialize_query(
-            value["tag_resources"], pairs, f"{prefix}.TagResources"
+            value["tag_resources"], pairs, f"{key_prefix}TagResources"
         )
     if "untag_resources" in value:
         import capo_cloudformation.types.stack_refactor_untag_resources
 
         capo_cloudformation.types.stack_refactor_untag_resources.serialize_query(
-            value["untag_resources"], pairs, f"{prefix}.UntagResources"
+            value["untag_resources"], pairs, f"{key_prefix}UntagResources"
         )
     if "resource_mapping" in value:
         import capo_cloudformation.types.resource_mapping
 
         capo_cloudformation.types.resource_mapping.serialize_query(
-            value["resource_mapping"], pairs, f"{prefix}.ResourceMapping"
+            value["resource_mapping"], pairs, f"{key_prefix}ResourceMapping"
         )
 
 

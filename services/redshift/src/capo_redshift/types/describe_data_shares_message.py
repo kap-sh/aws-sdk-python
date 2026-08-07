@@ -24,12 +24,13 @@ class DescribeDataSharesMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDataSharesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_share_arn" in value:
-        pairs.append((f"{prefix}.DataShareArn", str(value["data_share_arn"])))
+        pairs.append((f"{key_prefix}DataShareArn", str(value["data_share_arn"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDataSharesMessage:

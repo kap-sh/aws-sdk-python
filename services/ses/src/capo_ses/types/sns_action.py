@@ -23,12 +23,13 @@ class SNSAction(TypedDict, closed=True):
 def serialize_query(
     value: SNSAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
     if "encoding" in value:
         import capo_ses.types.sns_action_encoding
 
         capo_ses.types.sns_action_encoding.serialize_query(
-            value["encoding"], pairs, f"{prefix}.Encoding"
+            value["encoding"], pairs, f"{key_prefix}Encoding"
         )
 
 

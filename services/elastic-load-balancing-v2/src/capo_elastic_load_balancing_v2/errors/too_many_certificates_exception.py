@@ -21,8 +21,9 @@ class TooManyCertificatesException_(TypedDict, closed=True):
 def serialize_query(
     value: TooManyCertificatesException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> TooManyCertificatesException_:

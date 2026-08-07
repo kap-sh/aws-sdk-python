@@ -131,9 +131,11 @@ class AsyncSageMakerMetricsClient:
 
     async def batch_get_metrics(
         self,
-        metric_queries: "capo_sagemaker_metrics.types.metric_query_list.MetricQueryList",
         *,
         config_overrides: Optional[AsyncSageMakerMetricsClientConfig] = None,
+        metric_queries: Optional[
+            "capo_sagemaker_metrics.types.metric_query_list.MetricQueryList"
+        ] = None,
     ) -> "capo_sagemaker_metrics.types.batch_get_metrics_response.BatchGetMetricsResponse":
         """<p>Used to retrieve training metrics from SageMaker.</p>
 
@@ -161,7 +163,8 @@ class AsyncSageMakerMetricsClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_metrics.types.batch_get_metrics_request.BatchGetMetricsRequest = {}  # type: ignore[typeddict-item]
-        input_["metric_queries"] = metric_queries
+        if metric_queries is not None:
+            input_["metric_queries"] = metric_queries
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -172,10 +175,14 @@ class AsyncSageMakerMetricsClient:
 
     async def batch_put_metrics(
         self,
-        trial_component_name: "capo_sagemaker_metrics.types.experiment_entity_name.ExperimentEntityName",
-        metric_data: "capo_sagemaker_metrics.types.raw_metric_data_list.RawMetricDataList",
         *,
         config_overrides: Optional[AsyncSageMakerMetricsClientConfig] = None,
+        trial_component_name: Optional[
+            "capo_sagemaker_metrics.types.experiment_entity_name.ExperimentEntityName"
+        ] = None,
+        metric_data: Optional[
+            "capo_sagemaker_metrics.types.raw_metric_data_list.RawMetricDataList"
+        ] = None,
     ) -> "capo_sagemaker_metrics.types.batch_put_metrics_response.BatchPutMetricsResponse":
         """<p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio. </p>
 
@@ -204,8 +211,10 @@ class AsyncSageMakerMetricsClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_metrics.types.batch_put_metrics_request.BatchPutMetricsRequest = {}  # type: ignore[typeddict-item]
-        input_["trial_component_name"] = trial_component_name
-        input_["metric_data"] = metric_data
+        if trial_component_name is not None:
+            input_["trial_component_name"] = trial_component_name
+        if metric_data is not None:
+            input_["metric_data"] = metric_data
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -42,31 +42,34 @@ class ResourceDetail(TypedDict, closed=True):
 def serialize_query(
     value: ResourceDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "resource_identifier" in value:
         import capo_cloudformation.types.resource_identifier_properties
 
         capo_cloudformation.types.resource_identifier_properties.serialize_query(
-            value["resource_identifier"], pairs, f"{prefix}.ResourceIdentifier"
+            value["resource_identifier"], pairs, f"{key_prefix}ResourceIdentifier"
         )
     if "resource_status" in value:
         import capo_cloudformation.types.generated_template_resource_status
 
         capo_cloudformation.types.generated_template_resource_status.serialize_query(
-            value["resource_status"], pairs, f"{prefix}.ResourceStatus"
+            value["resource_status"], pairs, f"{key_prefix}ResourceStatus"
         )
     if "resource_status_reason" in value:
         pairs.append(
-            (f"{prefix}.ResourceStatusReason", str(value["resource_status_reason"]))
+            (f"{key_prefix}ResourceStatusReason", str(value["resource_status_reason"]))
         )
     if "warnings" in value:
         import capo_cloudformation.types.warning_details
 
         capo_cloudformation.types.warning_details.serialize_query(
-            value["warnings"], pairs, f"{prefix}.Warnings"
+            value["warnings"], pairs, f"{key_prefix}Warnings"
         )
 
 

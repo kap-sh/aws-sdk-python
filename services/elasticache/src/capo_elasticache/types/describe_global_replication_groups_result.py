@@ -26,15 +26,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "global_replication_groups" in value:
         import capo_elasticache.types.global_replication_group_list
 
         capo_elasticache.types.global_replication_group_list.serialize_query(
             value["global_replication_groups"],
             pairs,
-            f"{prefix}.GlobalReplicationGroups",
+            f"{key_prefix}GlobalReplicationGroups",
         )
 
 

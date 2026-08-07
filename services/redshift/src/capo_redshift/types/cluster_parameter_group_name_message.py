@@ -21,13 +21,14 @@ class ClusterParameterGroupNameMessage(TypedDict, closed=True):
 def serialize_query(
     value: ClusterParameterGroupNameMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_group_name" in value:
         pairs.append(
-            (f"{prefix}.ParameterGroupName", str(value["parameter_group_name"]))
+            (f"{key_prefix}ParameterGroupName", str(value["parameter_group_name"]))
         )
     if "parameter_group_status" in value:
         pairs.append(
-            (f"{prefix}.ParameterGroupStatus", str(value["parameter_group_status"]))
+            (f"{key_prefix}ParameterGroupStatus", str(value["parameter_group_status"]))
         )
 
 

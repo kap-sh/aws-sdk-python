@@ -30,24 +30,25 @@ class ModifyGlobalClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyGlobalClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalClusterIdentifier",
+                f"{key_prefix}GlobalClusterIdentifier",
                 str(value["global_cluster_identifier"]),
             )
         )
     if "new_global_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.NewGlobalClusterIdentifier",
+                f"{key_prefix}NewGlobalClusterIdentifier",
                 str(value["new_global_cluster_identifier"]),
             )
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )

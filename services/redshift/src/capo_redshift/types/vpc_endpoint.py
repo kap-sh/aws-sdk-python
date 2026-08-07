@@ -26,15 +26,16 @@ class VpcEndpoint(TypedDict, closed=True):
 def serialize_query(
     value: VpcEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "vpc_endpoint_id" in value:
-        pairs.append((f"{prefix}.VpcEndpointId", str(value["vpc_endpoint_id"])))
+        pairs.append((f"{key_prefix}VpcEndpointId", str(value["vpc_endpoint_id"])))
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "network_interfaces" in value:
         import capo_redshift.types.network_interface_list
 
         capo_redshift.types.network_interface_list.serialize_query(
-            value["network_interfaces"], pairs, f"{prefix}.NetworkInterfaces"
+            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterfaces"
         )
 
 

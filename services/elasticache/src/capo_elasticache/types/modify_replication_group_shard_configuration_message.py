@@ -42,16 +42,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "node_group_count" in value:
-        pairs.append((f"{prefix}.NodeGroupCount", str(value["node_group_count"])))
+        pairs.append((f"{key_prefix}NodeGroupCount", str(value["node_group_count"])))
     if "apply_immediately" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyImmediately",
+                f"{key_prefix}ApplyImmediately",
                 "true" if value["apply_immediately"] else "false",
             )
         )
@@ -61,19 +62,19 @@ def serialize_query(
         capo_elasticache.types.resharding_configuration_list.serialize_query(
             value["resharding_configuration"],
             pairs,
-            f"{prefix}.ReshardingConfiguration",
+            f"{key_prefix}ReshardingConfiguration",
         )
     if "node_groups_to_remove" in value:
         import capo_elasticache.types.node_groups_to_remove_list
 
         capo_elasticache.types.node_groups_to_remove_list.serialize_query(
-            value["node_groups_to_remove"], pairs, f"{prefix}.NodeGroupsToRemove"
+            value["node_groups_to_remove"], pairs, f"{key_prefix}NodeGroupsToRemove"
         )
     if "node_groups_to_retain" in value:
         import capo_elasticache.types.node_groups_to_retain_list
 
         capo_elasticache.types.node_groups_to_retain_list.serialize_query(
-            value["node_groups_to_retain"], pairs, f"{prefix}.NodeGroupsToRetain"
+            value["node_groups_to_retain"], pairs, f"{key_prefix}NodeGroupsToRetain"
         )
 
 

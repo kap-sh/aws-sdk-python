@@ -30,14 +30,15 @@ class SetIdentityMailFromDomainRequest(TypedDict, closed=True):
 def serialize_query(
     value: SetIdentityMailFromDomainRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Identity", str(value["identity"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Identity", str(value["identity"])))
     if "mail_from_domain" in value:
-        pairs.append((f"{prefix}.MailFromDomain", str(value["mail_from_domain"])))
+        pairs.append((f"{key_prefix}MailFromDomain", str(value["mail_from_domain"])))
     if "behavior_on_mx_failure" in value:
         import capo_ses.types.behavior_on_mx_failure
 
         capo_ses.types.behavior_on_mx_failure.serialize_query(
-            value["behavior_on_mx_failure"], pairs, f"{prefix}.BehaviorOnMXFailure"
+            value["behavior_on_mx_failure"], pairs, f"{key_prefix}BehaviorOnMXFailure"
         )
 
 

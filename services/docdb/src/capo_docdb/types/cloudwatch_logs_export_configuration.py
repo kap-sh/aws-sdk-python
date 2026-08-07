@@ -21,17 +21,18 @@ class CloudwatchLogsExportConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: CloudwatchLogsExportConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "enable_log_types" in value:
         import capo_docdb.types.log_type_list
 
         capo_docdb.types.log_type_list.serialize_query(
-            value["enable_log_types"], pairs, f"{prefix}.EnableLogTypes"
+            value["enable_log_types"], pairs, f"{key_prefix}EnableLogTypes"
         )
     if "disable_log_types" in value:
         import capo_docdb.types.log_type_list
 
         capo_docdb.types.log_type_list.serialize_query(
-            value["disable_log_types"], pairs, f"{prefix}.DisableLogTypes"
+            value["disable_log_types"], pairs, f"{key_prefix}DisableLogTypes"
         )
 
 

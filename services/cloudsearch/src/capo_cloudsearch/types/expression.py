@@ -21,8 +21,9 @@ class Expression(TypedDict, closed=True):
 def serialize_query(
     value: Expression, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ExpressionName", str(value["expression_name"])))
-    pairs.append((f"{prefix}.ExpressionValue", str(value["expression_value"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ExpressionName", str(value["expression_name"])))
+    pairs.append((f"{key_prefix}ExpressionValue", str(value["expression_value"])))
 
 
 def deserialize_query(el: Element) -> Expression:

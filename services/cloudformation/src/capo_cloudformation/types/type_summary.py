@@ -63,49 +63,54 @@ class TypeSummary(TypedDict, closed=True):
 def serialize_query(
     value: TypeSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "default_version_id" in value:
-        pairs.append((f"{prefix}.DefaultVersionId", str(value["default_version_id"])))
+        pairs.append(
+            (f"{key_prefix}DefaultVersionId", str(value["default_version_id"]))
+        )
     if "type_arn" in value:
-        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+        pairs.append((f"{key_prefix}TypeArn", str(value["type_arn"])))
     if "last_updated" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["last_updated"], pairs, f"{prefix}.LastUpdated"
+            value["last_updated"], pairs, f"{key_prefix}LastUpdated"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "original_type_name" in value:
-        pairs.append((f"{prefix}.OriginalTypeName", str(value["original_type_name"])))
+        pairs.append(
+            (f"{key_prefix}OriginalTypeName", str(value["original_type_name"]))
+        )
     if "public_version_number" in value:
         pairs.append(
-            (f"{prefix}.PublicVersionNumber", str(value["public_version_number"]))
+            (f"{key_prefix}PublicVersionNumber", str(value["public_version_number"]))
         )
     if "latest_public_version" in value:
         pairs.append(
-            (f"{prefix}.LatestPublicVersion", str(value["latest_public_version"]))
+            (f"{key_prefix}LatestPublicVersion", str(value["latest_public_version"]))
         )
     if "publisher_identity" in value:
         import capo_cloudformation.types.identity_provider
 
         capo_cloudformation.types.identity_provider.serialize_query(
-            value["publisher_identity"], pairs, f"{prefix}.PublisherIdentity"
+            value["publisher_identity"], pairs, f"{key_prefix}PublisherIdentity"
         )
     if "publisher_name" in value:
-        pairs.append((f"{prefix}.PublisherName", str(value["publisher_name"])))
+        pairs.append((f"{key_prefix}PublisherName", str(value["publisher_name"])))
     if "is_activated" in value:
         pairs.append(
-            (f"{prefix}.IsActivated", "true" if value["is_activated"] else "false")
+            (f"{key_prefix}IsActivated", "true" if value["is_activated"] else "false")
         )
 
 

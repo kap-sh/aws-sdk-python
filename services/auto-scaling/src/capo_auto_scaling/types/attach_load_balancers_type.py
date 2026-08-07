@@ -26,15 +26,16 @@ class AttachLoadBalancersType(TypedDict, closed=True):
 def serialize_query(
     value: AttachLoadBalancersType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "load_balancer_names" in value:
         import capo_auto_scaling.types.load_balancer_names
 
         capo_auto_scaling.types.load_balancer_names.serialize_query(
-            value["load_balancer_names"], pairs, f"{prefix}.LoadBalancerNames"
+            value["load_balancer_names"], pairs, f"{key_prefix}LoadBalancerNames"
         )
 
 

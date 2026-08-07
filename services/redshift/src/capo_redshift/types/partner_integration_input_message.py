@@ -36,14 +36,17 @@ class PartnerIntegrationInputMessage(TypedDict, closed=True):
 def serialize_query(
     value: PartnerIntegrationInputMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account_id" in value:
-        pairs.append((f"{prefix}.AccountId", str(value["account_id"])))
+        pairs.append((f"{key_prefix}AccountId", str(value["account_id"])))
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "database_name" in value:
-        pairs.append((f"{prefix}.DatabaseName", str(value["database_name"])))
+        pairs.append((f"{key_prefix}DatabaseName", str(value["database_name"])))
     if "partner_name" in value:
-        pairs.append((f"{prefix}.PartnerName", str(value["partner_name"])))
+        pairs.append((f"{key_prefix}PartnerName", str(value["partner_name"])))
 
 
 def deserialize_query(el: Element) -> PartnerIntegrationInputMessage:

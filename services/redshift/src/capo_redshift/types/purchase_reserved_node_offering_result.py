@@ -18,11 +18,12 @@ class PurchaseReservedNodeOfferingResult(TypedDict, closed=True):
 def serialize_query(
     value: PurchaseReservedNodeOfferingResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node" in value:
         import capo_redshift.types.reserved_node
 
         capo_redshift.types.reserved_node.serialize_query(
-            value["reserved_node"], pairs, f"{prefix}.ReservedNode"
+            value["reserved_node"], pairs, f"{key_prefix}ReservedNode"
         )
 
 

@@ -21,10 +21,11 @@ class ReferenceLink(TypedDict, closed=True):
 def serialize_query(
     value: ReferenceLink, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "text" in value:
-        pairs.append((f"{prefix}.Text", str(value["text"])))
+        pairs.append((f"{key_prefix}Text", str(value["text"])))
     if "link" in value:
-        pairs.append((f"{prefix}.Link", str(value["link"])))
+        pairs.append((f"{key_prefix}Link", str(value["link"])))
 
 
 def deserialize_query(el: Element) -> ReferenceLink:

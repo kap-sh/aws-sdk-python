@@ -21,11 +21,12 @@ class DeleteServerlessCacheResponse(TypedDict, closed=True):
 def serialize_query(
     value: DeleteServerlessCacheResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache" in value:
         import capo_elasticache.types.serverless_cache
 
         capo_elasticache.types.serverless_cache.serialize_query(
-            value["serverless_cache"], pairs, f"{prefix}.ServerlessCache"
+            value["serverless_cache"], pairs, f"{key_prefix}ServerlessCache"
         )
 
 

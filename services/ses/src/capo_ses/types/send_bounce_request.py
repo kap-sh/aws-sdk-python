@@ -39,25 +39,26 @@ class SendBounceRequest(TypedDict, closed=True):
 def serialize_query(
     value: SendBounceRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.OriginalMessageId", str(value["original_message_id"])))
-    pairs.append((f"{prefix}.BounceSender", str(value["bounce_sender"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}OriginalMessageId", str(value["original_message_id"])))
+    pairs.append((f"{key_prefix}BounceSender", str(value["bounce_sender"])))
     if "explanation" in value:
-        pairs.append((f"{prefix}.Explanation", str(value["explanation"])))
+        pairs.append((f"{key_prefix}Explanation", str(value["explanation"])))
     if "message_dsn" in value:
         import capo_ses.types.message_dsn
 
         capo_ses.types.message_dsn.serialize_query(
-            value["message_dsn"], pairs, f"{prefix}.MessageDsn"
+            value["message_dsn"], pairs, f"{key_prefix}MessageDsn"
         )
     import capo_ses.types.bounced_recipient_info_list
 
     capo_ses.types.bounced_recipient_info_list.serialize_query(
         value["bounced_recipient_info_list"],
         pairs,
-        f"{prefix}.BouncedRecipientInfoList",
+        f"{key_prefix}BouncedRecipientInfoList",
     )
     if "bounce_sender_arn" in value:
-        pairs.append((f"{prefix}.BounceSenderArn", str(value["bounce_sender_arn"])))
+        pairs.append((f"{key_prefix}BounceSenderArn", str(value["bounce_sender_arn"])))
 
 
 def deserialize_query(el: Element) -> SendBounceRequest:

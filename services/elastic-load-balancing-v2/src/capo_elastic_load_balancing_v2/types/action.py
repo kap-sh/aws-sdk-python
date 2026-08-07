@@ -57,19 +57,22 @@ class Action(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Action, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_elastic_load_balancing_v2.types.action_type_enum
 
         capo_elastic_load_balancing_v2.types.action_type_enum.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "target_group_arn" in value:
-        pairs.append((f"{prefix}.TargetGroupArn", str(value["target_group_arn"])))
+        pairs.append((f"{key_prefix}TargetGroupArn", str(value["target_group_arn"])))
     if "authenticate_oidc_config" in value:
         import capo_elastic_load_balancing_v2.types.authenticate_oidc_action_config
 
         capo_elastic_load_balancing_v2.types.authenticate_oidc_action_config.serialize_query(
-            value["authenticate_oidc_config"], pairs, f"{prefix}.AuthenticateOidcConfig"
+            value["authenticate_oidc_config"],
+            pairs,
+            f"{key_prefix}AuthenticateOidcConfig",
         )
     if "authenticate_cognito_config" in value:
         import capo_elastic_load_balancing_v2.types.authenticate_cognito_action_config
@@ -77,33 +80,33 @@ def serialize_query(value: Action, pairs: list[tuple[str, str]], prefix: str) ->
         capo_elastic_load_balancing_v2.types.authenticate_cognito_action_config.serialize_query(
             value["authenticate_cognito_config"],
             pairs,
-            f"{prefix}.AuthenticateCognitoConfig",
+            f"{key_prefix}AuthenticateCognitoConfig",
         )
     if "order" in value:
-        pairs.append((f"{prefix}.Order", str(value["order"])))
+        pairs.append((f"{key_prefix}Order", str(value["order"])))
     if "redirect_config" in value:
         import capo_elastic_load_balancing_v2.types.redirect_action_config
 
         capo_elastic_load_balancing_v2.types.redirect_action_config.serialize_query(
-            value["redirect_config"], pairs, f"{prefix}.RedirectConfig"
+            value["redirect_config"], pairs, f"{key_prefix}RedirectConfig"
         )
     if "fixed_response_config" in value:
         import capo_elastic_load_balancing_v2.types.fixed_response_action_config
 
         capo_elastic_load_balancing_v2.types.fixed_response_action_config.serialize_query(
-            value["fixed_response_config"], pairs, f"{prefix}.FixedResponseConfig"
+            value["fixed_response_config"], pairs, f"{key_prefix}FixedResponseConfig"
         )
     if "forward_config" in value:
         import capo_elastic_load_balancing_v2.types.forward_action_config
 
         capo_elastic_load_balancing_v2.types.forward_action_config.serialize_query(
-            value["forward_config"], pairs, f"{prefix}.ForwardConfig"
+            value["forward_config"], pairs, f"{key_prefix}ForwardConfig"
         )
     if "jwt_validation_config" in value:
         import capo_elastic_load_balancing_v2.types.jwt_validation_action_config
 
         capo_elastic_load_balancing_v2.types.jwt_validation_action_config.serialize_query(
-            value["jwt_validation_config"], pairs, f"{prefix}.JwtValidationConfig"
+            value["jwt_validation_config"], pairs, f"{key_prefix}JwtValidationConfig"
         )
 
 

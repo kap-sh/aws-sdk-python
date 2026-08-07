@@ -21,10 +21,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "redshift_idc_application_arn" in value:
         pairs.append(
             (
-                f"{prefix}.RedshiftIdcApplicationArn",
+                f"{key_prefix}RedshiftIdcApplicationArn",
                 str(value["redshift_idc_application_arn"]),
             )
         )

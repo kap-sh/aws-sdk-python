@@ -31,19 +31,20 @@ class DescribeTargetHealthInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeTargetHealthInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_group_arn" in value:
-        pairs.append((f"{prefix}.TargetGroupArn", str(value["target_group_arn"])))
+        pairs.append((f"{key_prefix}TargetGroupArn", str(value["target_group_arn"])))
     if "targets" in value:
         import capo_elastic_load_balancing_v2.types.target_descriptions
 
         capo_elastic_load_balancing_v2.types.target_descriptions.serialize_query(
-            value["targets"], pairs, f"{prefix}.Targets"
+            value["targets"], pairs, f"{key_prefix}Targets"
         )
     if "include" in value:
         import capo_elastic_load_balancing_v2.types.list_of_describe_target_health_include_options
 
         capo_elastic_load_balancing_v2.types.list_of_describe_target_health_include_options.serialize_query(
-            value["include"], pairs, f"{prefix}.Include"
+            value["include"], pairs, f"{key_prefix}Include"
         )
 
 

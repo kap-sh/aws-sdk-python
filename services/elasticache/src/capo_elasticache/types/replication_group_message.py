@@ -24,13 +24,14 @@ class ReplicationGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: ReplicationGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "replication_groups" in value:
         import capo_elasticache.types.replication_group_list
 
         capo_elasticache.types.replication_group_list.serialize_query(
-            value["replication_groups"], pairs, f"{prefix}.ReplicationGroups"
+            value["replication_groups"], pairs, f"{key_prefix}ReplicationGroups"
         )
 
 

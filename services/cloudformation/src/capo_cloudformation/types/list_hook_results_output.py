@@ -32,22 +32,23 @@ class ListHookResultsOutput(TypedDict, closed=True):
 def serialize_query(
     value: ListHookResultsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_type" in value:
         import capo_cloudformation.types.list_hook_results_target_type
 
         capo_cloudformation.types.list_hook_results_target_type.serialize_query(
-            value["target_type"], pairs, f"{prefix}.TargetType"
+            value["target_type"], pairs, f"{key_prefix}TargetType"
         )
     if "target_id" in value:
-        pairs.append((f"{prefix}.TargetId", str(value["target_id"])))
+        pairs.append((f"{key_prefix}TargetId", str(value["target_id"])))
     if "hook_results" in value:
         import capo_cloudformation.types.hook_result_summaries
 
         capo_cloudformation.types.hook_result_summaries.serialize_query(
-            value["hook_results"], pairs, f"{prefix}.HookResults"
+            value["hook_results"], pairs, f"{key_prefix}HookResults"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListHookResultsOutput:

@@ -24,14 +24,15 @@ class TaggedResource(TypedDict, closed=True):
 def serialize_query(
     value: TaggedResource, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tag" in value:
         import capo_redshift.types.tag
 
-        capo_redshift.types.tag.serialize_query(value["tag"], pairs, f"{prefix}.Tag")
+        capo_redshift.types.tag.serialize_query(value["tag"], pairs, f"{key_prefix}Tag")
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
 
 
 def deserialize_query(el: Element) -> TaggedResource:

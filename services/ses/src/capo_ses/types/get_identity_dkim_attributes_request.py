@@ -20,10 +20,11 @@ class GetIdentityDkimAttributesRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetIdentityDkimAttributesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.identity_list
 
     capo_ses.types.identity_list.serialize_query(
-        value["identities"], pairs, f"{prefix}.Identities"
+        value["identities"], pairs, f"{key_prefix}Identities"
     )
 
 

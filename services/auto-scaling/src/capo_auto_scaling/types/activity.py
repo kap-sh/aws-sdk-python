@@ -58,47 +58,51 @@ class Activity(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Activity, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "activity_id" in value:
-        pairs.append((f"{prefix}.ActivityId", str(value["activity_id"])))
+        pairs.append((f"{key_prefix}ActivityId", str(value["activity_id"])))
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "cause" in value:
-        pairs.append((f"{prefix}.Cause", str(value["cause"])))
+        pairs.append((f"{key_prefix}Cause", str(value["cause"])))
     if "start_time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "status_code" in value:
         import capo_auto_scaling.types.scaling_activity_status_code
 
         capo_auto_scaling.types.scaling_activity_status_code.serialize_query(
-            value["status_code"], pairs, f"{prefix}.StatusCode"
+            value["status_code"], pairs, f"{key_prefix}StatusCode"
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "progress" in value:
-        pairs.append((f"{prefix}.Progress", str(value["progress"])))
+        pairs.append((f"{key_prefix}Progress", str(value["progress"])))
     if "details" in value:
-        pairs.append((f"{prefix}.Details", str(value["details"])))
+        pairs.append((f"{key_prefix}Details", str(value["details"])))
     if "auto_scaling_group_state" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupState", str(value["auto_scaling_group_state"]))
+            (
+                f"{key_prefix}AutoScalingGroupState",
+                str(value["auto_scaling_group_state"]),
+            )
         )
     if "auto_scaling_group_arn" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupARN", str(value["auto_scaling_group_arn"]))
+            (f"{key_prefix}AutoScalingGroupARN", str(value["auto_scaling_group_arn"]))
         )
 
 

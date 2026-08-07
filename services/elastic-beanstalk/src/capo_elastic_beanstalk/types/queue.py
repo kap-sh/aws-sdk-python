@@ -19,10 +19,11 @@ class Queue(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Queue, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "url" in value:
-        pairs.append((f"{prefix}.URL", str(value["url"])))
+        pairs.append((f"{key_prefix}URL", str(value["url"])))
 
 
 def deserialize_query(el: Element) -> Queue:

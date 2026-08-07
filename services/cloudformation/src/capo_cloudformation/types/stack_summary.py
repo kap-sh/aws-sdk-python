@@ -60,55 +60,58 @@ class StackSummary(TypedDict, closed=True):
 def serialize_query(
     value: StackSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "template_description" in value:
         pairs.append(
-            (f"{prefix}.TemplateDescription", str(value["template_description"]))
+            (f"{key_prefix}TemplateDescription", str(value["template_description"]))
         )
     if "creation_time" in value:
         import capo_cloudformation.types.creation_time
 
         capo_cloudformation.types.creation_time.serialize_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "last_updated_time" in value:
         import capo_cloudformation.types.last_updated_time
 
         capo_cloudformation.types.last_updated_time.serialize_query(
-            value["last_updated_time"], pairs, f"{prefix}.LastUpdatedTime"
+            value["last_updated_time"], pairs, f"{key_prefix}LastUpdatedTime"
         )
     if "deletion_time" in value:
         import capo_cloudformation.types.deletion_time
 
         capo_cloudformation.types.deletion_time.serialize_query(
-            value["deletion_time"], pairs, f"{prefix}.DeletionTime"
+            value["deletion_time"], pairs, f"{key_prefix}DeletionTime"
         )
     if "stack_status" in value:
         import capo_cloudformation.types.stack_status
 
         capo_cloudformation.types.stack_status.serialize_query(
-            value["stack_status"], pairs, f"{prefix}.StackStatus"
+            value["stack_status"], pairs, f"{key_prefix}StackStatus"
         )
     if "stack_status_reason" in value:
-        pairs.append((f"{prefix}.StackStatusReason", str(value["stack_status_reason"])))
+        pairs.append(
+            (f"{key_prefix}StackStatusReason", str(value["stack_status_reason"]))
+        )
     if "parent_id" in value:
-        pairs.append((f"{prefix}.ParentId", str(value["parent_id"])))
+        pairs.append((f"{key_prefix}ParentId", str(value["parent_id"])))
     if "root_id" in value:
-        pairs.append((f"{prefix}.RootId", str(value["root_id"])))
+        pairs.append((f"{key_prefix}RootId", str(value["root_id"])))
     if "drift_information" in value:
         import capo_cloudformation.types.stack_drift_information_summary
 
         capo_cloudformation.types.stack_drift_information_summary.serialize_query(
-            value["drift_information"], pairs, f"{prefix}.DriftInformation"
+            value["drift_information"], pairs, f"{key_prefix}DriftInformation"
         )
     if "last_operations" in value:
         import capo_cloudformation.types.last_operations
 
         capo_cloudformation.types.last_operations.serialize_query(
-            value["last_operations"], pairs, f"{prefix}.LastOperations"
+            value["last_operations"], pairs, f"{key_prefix}LastOperations"
         )
 
 

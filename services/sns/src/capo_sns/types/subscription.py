@@ -31,16 +31,17 @@ class Subscription(TypedDict, closed=True):
 def serialize_query(
     value: Subscription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subscription_arn" in value:
-        pairs.append((f"{prefix}.SubscriptionArn", str(value["subscription_arn"])))
+        pairs.append((f"{key_prefix}SubscriptionArn", str(value["subscription_arn"])))
     if "owner" in value:
-        pairs.append((f"{prefix}.Owner", str(value["owner"])))
+        pairs.append((f"{key_prefix}Owner", str(value["owner"])))
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "endpoint" in value:
-        pairs.append((f"{prefix}.Endpoint", str(value["endpoint"])))
+        pairs.append((f"{key_prefix}Endpoint", str(value["endpoint"])))
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
 
 
 def deserialize_query(el: Element) -> Subscription:

@@ -24,10 +24,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.verification_attributes
 
     capo_ses.types.verification_attributes.serialize_query(
-        value["verification_attributes"], pairs, f"{prefix}.VerificationAttributes"
+        value["verification_attributes"], pairs, f"{key_prefix}VerificationAttributes"
     )
 
 

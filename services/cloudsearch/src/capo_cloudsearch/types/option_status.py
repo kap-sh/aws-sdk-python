@@ -31,26 +31,27 @@ class OptionStatus(TypedDict, closed=True):
 def serialize_query(
     value: OptionStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.update_timestamp
 
     capo_cloudsearch.types.update_timestamp.serialize_query(
-        value["creation_date"], pairs, f"{prefix}.CreationDate"
+        value["creation_date"], pairs, f"{key_prefix}CreationDate"
     )
     import capo_cloudsearch.types.update_timestamp
 
     capo_cloudsearch.types.update_timestamp.serialize_query(
-        value["update_date"], pairs, f"{prefix}.UpdateDate"
+        value["update_date"], pairs, f"{key_prefix}UpdateDate"
     )
-    pairs.append((f"{prefix}.UpdateVersion", str(value.get("update_version", 0))))
+    pairs.append((f"{key_prefix}UpdateVersion", str(value.get("update_version", 0))))
     import capo_cloudsearch.types.option_state
 
     capo_cloudsearch.types.option_state.serialize_query(
-        value["state"], pairs, f"{prefix}.State"
+        value["state"], pairs, f"{key_prefix}State"
     )
     if "pending_deletion" in value:
         pairs.append(
             (
-                f"{prefix}.PendingDeletion",
+                f"{key_prefix}PendingDeletion",
                 "true" if value["pending_deletion"] else "false",
             )
         )

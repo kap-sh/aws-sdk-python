@@ -22,10 +22,11 @@ class RollbackTrigger(TypedDict, closed=True):
 def serialize_query(
     value: RollbackTrigger, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
 
 
 def deserialize_query(el: Element) -> RollbackTrigger:

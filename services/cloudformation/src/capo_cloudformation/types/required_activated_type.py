@@ -29,17 +29,22 @@ class RequiredActivatedType(TypedDict, closed=True):
 def serialize_query(
     value: RequiredActivatedType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_name_alias" in value:
-        pairs.append((f"{prefix}.TypeNameAlias", str(value["type_name_alias"])))
+        pairs.append((f"{key_prefix}TypeNameAlias", str(value["type_name_alias"])))
     if "original_type_name" in value:
-        pairs.append((f"{prefix}.OriginalTypeName", str(value["original_type_name"])))
+        pairs.append(
+            (f"{key_prefix}OriginalTypeName", str(value["original_type_name"]))
+        )
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
     if "supported_major_versions" in value:
         import capo_cloudformation.types.supported_major_versions
 
         capo_cloudformation.types.supported_major_versions.serialize_query(
-            value["supported_major_versions"], pairs, f"{prefix}.SupportedMajorVersions"
+            value["supported_major_versions"],
+            pairs,
+            f"{key_prefix}SupportedMajorVersions",
         )
 
 

@@ -586,9 +586,11 @@ class CloudFormationClient:
 
     def batch_describe_type_configurations(
         self,
-        type_configuration_identifiers: "capo_cloudformation.types.type_configuration_identifiers.TypeConfigurationIdentifiers",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        type_configuration_identifiers: Optional[
+            "capo_cloudformation.types.type_configuration_identifiers.TypeConfigurationIdentifiers"
+        ] = None,
     ) -> "capo_cloudformation.types.batch_describe_type_configurations_output.BatchDescribeTypeConfigurationsOutput":
         r"""<p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry in your current account and Region.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html\">Edit configuration data for extensions in your account</a> in the <i>CloudFormation User Guide</i>.</p>
 
@@ -617,7 +619,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.batch_describe_type_configurations_input.BatchDescribeTypeConfigurationsInput = {}  # type: ignore[typeddict-item]
-        input_["type_configuration_identifiers"] = type_configuration_identifiers
+        if type_configuration_identifiers is not None:
+            input_["type_configuration_identifiers"] = type_configuration_identifiers
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -628,9 +631,9 @@ class CloudFormationClient:
 
     def cancel_update_stack(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         client_request_token: Optional[
             "capo_cloudformation.types.client_request_token.ClientRequestToken"
         ] = None,
@@ -660,7 +663,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.cancel_update_stack_input.CancelUpdateStackInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if client_request_token is not None:
             input_["client_request_token"] = client_request_token
 
@@ -673,9 +677,11 @@ class CloudFormationClient:
 
     def continue_update_rollback(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         role_arn: Optional["capo_cloudformation.types.role_arn.RoleARN"] = None,
         resources_to_skip: Optional[
             "capo_cloudformation.types.resources_to_skip.ResourcesToSkip"
@@ -713,7 +719,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.continue_update_rollback_input.ContinueUpdateRollbackInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if resources_to_skip is not None:
@@ -730,10 +737,11 @@ class CloudFormationClient:
 
     def create_change_set(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
-        change_set_name: "capo_cloudformation.types.change_set_name.ChangeSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         template_body: Optional[
             "capo_cloudformation.types.template_body.TemplateBody"
         ] = None,
@@ -758,6 +766,9 @@ class CloudFormationClient:
             "capo_cloudformation.types.notification_ar_ns.NotificationARNs"
         ] = None,
         tags: Optional["capo_cloudformation.types.tags.Tags"] = None,
+        change_set_name: Optional[
+            "capo_cloudformation.types.change_set_name.ChangeSetName"
+        ] = None,
         client_token: Optional[
             "capo_cloudformation.types.client_token.ClientToken"
         ] = None,
@@ -830,7 +841,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.create_change_set_input.CreateChangeSetInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if template_body is not None:
             input_["template_body"] = template_body
         if template_url is not None:
@@ -851,7 +863,8 @@ class CloudFormationClient:
             input_["notification_ar_ns"] = notification_ar_ns
         if tags is not None:
             input_["tags"] = tags
-        input_["change_set_name"] = change_set_name
+        if change_set_name is not None:
+            input_["change_set_name"] = change_set_name
         if client_token is not None:
             input_["client_token"] = client_token
         if description is not None:
@@ -878,11 +891,13 @@ class CloudFormationClient:
 
     def create_generated_template(
         self,
-        generated_template_name: "capo_cloudformation.types.generated_template_name.GeneratedTemplateName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
         resources: Optional[
             "capo_cloudformation.types.resource_definitions.ResourceDefinitions"
+        ] = None,
+        generated_template_name: Optional[
+            "capo_cloudformation.types.generated_template_name.GeneratedTemplateName"
         ] = None,
         stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         template_configuration: Optional[
@@ -928,7 +943,8 @@ class CloudFormationClient:
         input_: capo_cloudformation.types.create_generated_template_input.CreateGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
         if resources is not None:
             input_["resources"] = resources
-        input_["generated_template_name"] = generated_template_name
+        if generated_template_name is not None:
+            input_["generated_template_name"] = generated_template_name
         if stack_name is not None:
             input_["stack_name"] = stack_name
         if template_configuration is not None:
@@ -943,9 +959,9 @@ class CloudFormationClient:
 
     def create_stack(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         template_body: Optional[
             "capo_cloudformation.types.template_body.TemplateBody"
         ] = None,
@@ -1036,7 +1052,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.create_stack_input.CreateStackInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if template_body is not None:
             input_["template_body"] = template_body
         if template_url is not None:
@@ -1081,14 +1098,16 @@ class CloudFormationClient:
 
     def create_stack_instances(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        regions: "capo_cloudformation.types.region_list.RegionList",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         accounts: Optional["capo_cloudformation.types.account_list.AccountList"] = None,
         deployment_targets: Optional[
             "capo_cloudformation.types.deployment_targets.DeploymentTargets"
         ] = None,
+        regions: Optional["capo_cloudformation.types.region_list.RegionList"] = None,
         parameter_overrides: Optional[
             "capo_cloudformation.types.parameters.Parameters"
         ] = None,
@@ -1138,12 +1157,14 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.create_stack_instances_input.CreateStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if accounts is not None:
             input_["accounts"] = accounts
         if deployment_targets is not None:
             input_["deployment_targets"] = deployment_targets
-        input_["regions"] = regions
+        if regions is not None:
+            input_["regions"] = regions
         if parameter_overrides is not None:
             input_["parameter_overrides"] = parameter_overrides
         if operation_preferences is not None:
@@ -1162,7 +1183,6 @@ class CloudFormationClient:
 
     def create_stack_refactor(
         self,
-        stack_definitions: "capo_cloudformation.types.stack_definitions.StackDefinitions",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
         description: Optional[
@@ -1173,6 +1193,9 @@ class CloudFormationClient:
         ] = None,
         resource_mappings: Optional[
             "capo_cloudformation.types.resource_mappings.ResourceMappings"
+        ] = None,
+        stack_definitions: Optional[
+            "capo_cloudformation.types.stack_definitions.StackDefinitions"
         ] = None,
     ) -> "capo_cloudformation.types.create_stack_refactor_output.CreateStackRefactorOutput":
         """<p>Creates a refactor across multiple stacks, with the list of stacks and resources that are affected.</p>
@@ -1209,7 +1232,8 @@ class CloudFormationClient:
             input_["enable_stack_creation"] = enable_stack_creation
         if resource_mappings is not None:
             input_["resource_mappings"] = resource_mappings
-        input_["stack_definitions"] = stack_definitions
+        if stack_definitions is not None:
+            input_["stack_definitions"] = stack_definitions
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1220,9 +1244,11 @@ class CloudFormationClient:
 
     def create_stack_set(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         description: Optional[
             "capo_cloudformation.types.description.Description"
         ] = None,
@@ -1300,7 +1326,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.create_stack_set_input.CreateStackSetInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if description is not None:
             input_["description"] = description
         if template_body is not None:
@@ -1429,9 +1456,11 @@ class CloudFormationClient:
 
     def delete_change_set(
         self,
-        change_set_name: "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        change_set_name: Optional[
+            "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId"
+        ] = None,
         stack_name: Optional[
             "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
         ] = None,
@@ -1463,7 +1492,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.delete_change_set_input.DeleteChangeSetInput = {}  # type: ignore[typeddict-item]
-        input_["change_set_name"] = change_set_name
+        if change_set_name is not None:
+            input_["change_set_name"] = change_set_name
         if stack_name is not None:
             input_["stack_name"] = stack_name
 
@@ -1476,9 +1506,11 @@ class CloudFormationClient:
 
     def delete_generated_template(
         self,
-        generated_template_name: "capo_cloudformation.types.generated_template_name.GeneratedTemplateName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        generated_template_name: Optional[
+            "capo_cloudformation.types.generated_template_name.GeneratedTemplateName"
+        ] = None,
     ) -> None:
         """<p>Deleted a generated template.</p>
 
@@ -1511,7 +1543,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.delete_generated_template_input.DeleteGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
-        input_["generated_template_name"] = generated_template_name
+        if generated_template_name is not None:
+            input_["generated_template_name"] = generated_template_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1522,9 +1555,9 @@ class CloudFormationClient:
 
     def delete_stack(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         retain_resources: Optional[
             "capo_cloudformation.types.retain_resources.RetainResources"
         ] = None,
@@ -1564,7 +1597,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.delete_stack_input.DeleteStackInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if retain_resources is not None:
             input_["retain_resources"] = retain_resources
         if role_arn is not None:
@@ -1583,17 +1617,21 @@ class CloudFormationClient:
 
     def delete_stack_instances(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        regions: "capo_cloudformation.types.region_list.RegionList",
-        retain_stacks: "capo_cloudformation.types.retain_stacks.RetainStacks",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         accounts: Optional["capo_cloudformation.types.account_list.AccountList"] = None,
         deployment_targets: Optional[
             "capo_cloudformation.types.deployment_targets.DeploymentTargets"
         ] = None,
+        regions: Optional["capo_cloudformation.types.region_list.RegionList"] = None,
         operation_preferences: Optional[
             "capo_cloudformation.types.stack_set_operation_preferences.StackSetOperationPreferences"
+        ] = None,
+        retain_stacks: Optional[
+            "capo_cloudformation.types.retain_stacks.RetainStacks"
         ] = None,
         operation_id: Optional[
             "capo_cloudformation.types.client_request_token.ClientRequestToken"
@@ -1637,15 +1675,18 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.delete_stack_instances_input.DeleteStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if accounts is not None:
             input_["accounts"] = accounts
         if deployment_targets is not None:
             input_["deployment_targets"] = deployment_targets
-        input_["regions"] = regions
+        if regions is not None:
+            input_["regions"] = regions
         if operation_preferences is not None:
             input_["operation_preferences"] = operation_preferences
-        input_["retain_stacks"] = retain_stacks
+        if retain_stacks is not None:
+            input_["retain_stacks"] = retain_stacks
         if operation_id is not None:
             input_["operation_id"] = operation_id
         if call_as is not None:
@@ -1660,9 +1701,11 @@ class CloudFormationClient:
 
     def delete_stack_set(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         call_as: Optional["capo_cloudformation.types.call_as.CallAs"] = None,
     ) -> "capo_cloudformation.types.delete_stack_set_output.DeleteStackSetOutput":
         r"""<p>Deletes a StackSet. Before you can delete a StackSet, all its member stack instances must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
@@ -1693,7 +1736,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.delete_stack_set_input.DeleteStackSetInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if call_as is not None:
             input_["call_as"] = call_as
 
@@ -1825,9 +1869,11 @@ class CloudFormationClient:
 
     def describe_change_set(
         self,
-        change_set_name: "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        change_set_name: Optional[
+            "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId"
+        ] = None,
         stack_name: Optional[
             "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
         ] = None,
@@ -1865,7 +1911,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_change_set_input.DescribeChangeSetInput = {}  # type: ignore[typeddict-item]
-        input_["change_set_name"] = change_set_name
+        if change_set_name is not None:
+            input_["change_set_name"] = change_set_name
         if stack_name is not None:
             input_["stack_name"] = stack_name
         if next_token is not None:
@@ -1882,9 +1929,11 @@ class CloudFormationClient:
 
     def iter_describe_change_set(
         self,
-        change_set_name: "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        change_set_name: Optional[
+            "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId"
+        ] = None,
         stack_name: Optional[
             "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
         ] = None,
@@ -1896,8 +1945,8 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.describe_change_set(
-                change_set_name,
                 config_overrides=config_overrides,
+                change_set_name=change_set_name,
                 stack_name=stack_name,
                 next_token=_token,
                 include_property_values=include_property_values,
@@ -1911,9 +1960,11 @@ class CloudFormationClient:
 
     def describe_change_set_hooks(
         self,
-        change_set_name: "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        change_set_name: Optional[
+            "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId"
+        ] = None,
         stack_name: Optional[
             "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
         ] = None,
@@ -1951,7 +2002,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_change_set_hooks_input.DescribeChangeSetHooksInput = {}  # type: ignore[typeddict-item]
-        input_["change_set_name"] = change_set_name
+        if change_set_name is not None:
+            input_["change_set_name"] = change_set_name
         if stack_name is not None:
             input_["stack_name"] = stack_name
         if next_token is not None:
@@ -2064,9 +2116,11 @@ class CloudFormationClient:
 
     def describe_generated_template(
         self,
-        generated_template_name: "capo_cloudformation.types.generated_template_name.GeneratedTemplateName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        generated_template_name: Optional[
+            "capo_cloudformation.types.generated_template_name.GeneratedTemplateName"
+        ] = None,
     ) -> "capo_cloudformation.types.describe_generated_template_output.DescribeGeneratedTemplateOutput":
         """<p>Describes a generated template. The output includes details about the progress of the creation of a generated template started by a <code>CreateGeneratedTemplate</code> API action or the update of a generated template started with an <code>UpdateGeneratedTemplate</code> API action.</p>
 
@@ -2094,7 +2148,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_generated_template_input.DescribeGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
-        input_["generated_template_name"] = generated_template_name
+        if generated_template_name is not None:
+            input_["generated_template_name"] = generated_template_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2192,9 +2247,11 @@ class CloudFormationClient:
 
     def describe_resource_scan(
         self,
-        resource_scan_id: "capo_cloudformation.types.resource_scan_id.ResourceScanId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        resource_scan_id: Optional[
+            "capo_cloudformation.types.resource_scan_id.ResourceScanId"
+        ] = None,
     ) -> "capo_cloudformation.types.describe_resource_scan_output.DescribeResourceScanOutput":
         """<p>Describes details of a resource scan.</p>
 
@@ -2222,7 +2279,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_resource_scan_input.DescribeResourceScanInput = {}  # type: ignore[typeddict-item]
-        input_["resource_scan_id"] = resource_scan_id
+        if resource_scan_id is not None:
+            input_["resource_scan_id"] = resource_scan_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2233,9 +2291,11 @@ class CloudFormationClient:
 
     def describe_stack_drift_detection_status(
         self,
-        stack_drift_detection_id: "capo_cloudformation.types.stack_drift_detection_id.StackDriftDetectionId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_drift_detection_id: Optional[
+            "capo_cloudformation.types.stack_drift_detection_id.StackDriftDetectionId"
+        ] = None,
     ) -> "capo_cloudformation.types.describe_stack_drift_detection_status_output.DescribeStackDriftDetectionStatusOutput":
         r"""<p>Returns information about a stack drift detection operation. A stack drift detection operation detects whether a stack's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as defined in the stack template and any values specified as template parameters. A stack is considered to have drifted if one or more of its resources have drifted. For more information about stack and resource drift, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html\">Detect unmanaged configuration changes to stacks and resources with drift detection</a>.</p> <p>Use <a>DetectStackDrift</a> to initiate a stack drift detection operation. <code>DetectStackDrift</code> returns a <code>StackDriftDetectionId</code> you can use to monitor the progress of the operation using <code>DescribeStackDriftDetectionStatus</code>. Once the drift detection operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information about the stack and its resources.</p>
 
@@ -2262,7 +2322,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_drift_detection_status_input.DescribeStackDriftDetectionStatusInput = {}  # type: ignore[typeddict-item]
-        input_["stack_drift_detection_id"] = stack_drift_detection_id
+        if stack_drift_detection_id is not None:
+            input_["stack_drift_detection_id"] = stack_drift_detection_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2273,9 +2334,9 @@ class CloudFormationClient:
 
     def describe_stack_events(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "capo_cloudformation.types.describe_stack_events_output.DescribeStackEventsOutput":
         r"""<p>Returns all stack related events for a specified stack in reverse chronological order. For more information about a stack's event history, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html\">Understand CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.</p> <note> <p>You can list events for stacks that have failed to create or have been deleted by specifying the unique stack identifier (stack ID).</p> </note>
@@ -2304,7 +2365,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_events_input.DescribeStackEventsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -2317,16 +2379,16 @@ class CloudFormationClient:
 
     def iter_describe_stack_events(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_cloudformation.types.stack_event.StackEvent]":
         _token = next_token
         while True:
             _response = self.describe_stack_events(
-                stack_name,
                 config_overrides=config_overrides,
+                stack_name=stack_name,
                 next_token=_token,
             )
             _page = _resolve_path(_response, ("stack_events",))
@@ -2338,11 +2400,17 @@ class CloudFormationClient:
 
     def describe_stack_instance(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        stack_instance_account: "capo_cloudformation.types.account.Account",
-        stack_instance_region: "capo_cloudformation.types.region.Region",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
+        stack_instance_account: Optional[
+            "capo_cloudformation.types.account.Account"
+        ] = None,
+        stack_instance_region: Optional[
+            "capo_cloudformation.types.region.Region"
+        ] = None,
         call_as: Optional["capo_cloudformation.types.call_as.CallAs"] = None,
     ) -> "capo_cloudformation.types.describe_stack_instance_output.DescribeStackInstanceOutput":
         r"""<p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account, and Amazon Web Services Region.</p> <p>For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.</p>
@@ -2375,9 +2443,12 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_instance_input.DescribeStackInstanceInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
-        input_["stack_instance_account"] = stack_instance_account
-        input_["stack_instance_region"] = stack_instance_region
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
+        if stack_instance_account is not None:
+            input_["stack_instance_account"] = stack_instance_account
+        if stack_instance_region is not None:
+            input_["stack_instance_region"] = stack_instance_region
         if call_as is not None:
             input_["call_as"] = call_as
 
@@ -2390,9 +2461,11 @@ class CloudFormationClient:
 
     def describe_stack_refactor(
         self,
-        stack_refactor_id: "capo_cloudformation.types.stack_refactor_id.StackRefactorId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_refactor_id: Optional[
+            "capo_cloudformation.types.stack_refactor_id.StackRefactorId"
+        ] = None,
     ) -> "capo_cloudformation.types.describe_stack_refactor_output.DescribeStackRefactorOutput":
         """<p>Describes the stack refactor status.</p>
 
@@ -2420,7 +2493,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_refactor_input.DescribeStackRefactorInput = {}  # type: ignore[typeddict-item]
-        input_["stack_refactor_id"] = stack_refactor_id
+        if stack_refactor_id is not None:
+            input_["stack_refactor_id"] = stack_refactor_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2431,10 +2505,12 @@ class CloudFormationClient:
 
     def describe_stack_resource(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
-        logical_resource_id: "capo_cloudformation.types.logical_resource_id.LogicalResourceId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
+        logical_resource_id: Optional[
+            "capo_cloudformation.types.logical_resource_id.LogicalResourceId"
+        ] = None,
     ) -> "capo_cloudformation.types.describe_stack_resource_output.DescribeStackResourceOutput":
         """<p>Returns a description of the specified resource in the specified stack.</p> <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has been deleted.</p>
 
@@ -2462,8 +2538,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_resource_input.DescribeStackResourceInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["logical_resource_id"] = logical_resource_id
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if logical_resource_id is not None:
+            input_["logical_resource_id"] = logical_resource_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2474,9 +2552,11 @@ class CloudFormationClient:
 
     def describe_stack_resource_drifts(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         stack_resource_drift_status_filters: Optional[
             "capo_cloudformation.types.stack_resource_drift_status_filters.StackResourceDriftStatusFilters"
         ] = None,
@@ -2513,7 +2593,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_resource_drifts_input.DescribeStackResourceDriftsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if stack_resource_drift_status_filters is not None:
             input_["stack_resource_drift_status_filters"] = (
                 stack_resource_drift_status_filters
@@ -2697,9 +2778,11 @@ class CloudFormationClient:
 
     def describe_stack_set(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         call_as: Optional["capo_cloudformation.types.call_as.CallAs"] = None,
     ) -> "capo_cloudformation.types.describe_stack_set_output.DescribeStackSetOutput":
         r"""<p>Returns the description of the specified StackSet.</p> <note> <p>This API provides <i>strongly consistent</i> reads meaning it will always return the most up-to-date data.</p> </note>
@@ -2729,7 +2812,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_set_input.DescribeStackSetInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if call_as is not None:
             input_["call_as"] = call_as
 
@@ -2742,10 +2826,14 @@ class CloudFormationClient:
 
     def describe_stack_set_operation(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        operation_id: "capo_cloudformation.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
+        operation_id: Optional[
+            "capo_cloudformation.types.client_request_token.ClientRequestToken"
+        ] = None,
         call_as: Optional["capo_cloudformation.types.call_as.CallAs"] = None,
     ) -> "capo_cloudformation.types.describe_stack_set_operation_output.DescribeStackSetOperationOutput":
         r"""<p>Returns the description of the specified StackSet operation.</p> <note> <p>This API provides <i>strongly consistent</i> reads meaning it will always return the most up-to-date data.</p> </note>
@@ -2777,8 +2865,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_stack_set_operation_input.DescribeStackSetOperationInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
-        input_["operation_id"] = operation_id
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
+        if operation_id is not None:
+            input_["operation_id"] = operation_id
         if call_as is not None:
             input_["call_as"] = call_as
 
@@ -2860,9 +2950,11 @@ class CloudFormationClient:
 
     def describe_type_registration(
         self,
-        registration_token: "capo_cloudformation.types.registration_token.RegistrationToken",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        registration_token: Optional[
+            "capo_cloudformation.types.registration_token.RegistrationToken"
+        ] = None,
     ) -> "capo_cloudformation.types.describe_type_registration_output.DescribeTypeRegistrationOutput":
         """<p>Returns information about an extension's registration, including its current status and type and version identifiers.</p> <p>When you initiate a registration request using <a>RegisterType</a>, you can then use <a>DescribeTypeRegistration</a> to monitor the progress of that registration request.</p> <p>Once the registration request has completed, use <a>DescribeType</a> to return detailed information about an extension.</p>
 
@@ -2890,7 +2982,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.describe_type_registration_input.DescribeTypeRegistrationInput = {}  # type: ignore[typeddict-item]
-        input_["registration_token"] = registration_token
+        if registration_token is not None:
+            input_["registration_token"] = registration_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2901,9 +2994,11 @@ class CloudFormationClient:
 
     def detect_stack_drift(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         logical_resource_ids: Optional[
             "capo_cloudformation.types.logical_resource_ids.LogicalResourceIds"
         ] = None,
@@ -2934,7 +3029,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.detect_stack_drift_input.DetectStackDriftInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if logical_resource_ids is not None:
             input_["logical_resource_ids"] = logical_resource_ids
 
@@ -2947,10 +3043,14 @@ class CloudFormationClient:
 
     def detect_stack_resource_drift(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
-        logical_resource_id: "capo_cloudformation.types.logical_resource_id.LogicalResourceId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
+        logical_resource_id: Optional[
+            "capo_cloudformation.types.logical_resource_id.LogicalResourceId"
+        ] = None,
     ) -> "capo_cloudformation.types.detect_stack_resource_drift_output.DetectStackResourceDriftOutput":
         r"""<p>Returns information about whether a resource's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as defined in the stack template and any values specified as template parameters. This information includes actual and expected property values for resources in which CloudFormation detects drift. Only resource properties explicitly defined in the stack template are checked for drift. For more information about stack and resource drift, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html\">Detect unmanaged configuration changes to stacks and resources with drift detection</a>.</p> <p>Use <code>DetectStackResourceDrift</code> to detect drift on individual resources, or <a>DetectStackDrift</a> to detect drift on all resources in a given stack that support drift detection.</p> <p>Resources that don't currently support drift detection can't be checked. For a list of resources that support drift detection, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html\">Resource type support for imports and drift detection</a>.</p>
 
@@ -2978,8 +3078,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.detect_stack_resource_drift_input.DetectStackResourceDriftInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["logical_resource_id"] = logical_resource_id
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if logical_resource_id is not None:
+            input_["logical_resource_id"] = logical_resource_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2990,9 +3092,11 @@ class CloudFormationClient:
 
     def detect_stack_set_drift(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId"
+        ] = None,
         operation_preferences: Optional[
             "capo_cloudformation.types.stack_set_operation_preferences.StackSetOperationPreferences"
         ] = None,
@@ -3032,7 +3136,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.detect_stack_set_drift_input.DetectStackSetDriftInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if operation_preferences is not None:
             input_["operation_preferences"] = operation_preferences
         if operation_id is not None:
@@ -3102,9 +3207,11 @@ class CloudFormationClient:
 
     def execute_change_set(
         self,
-        change_set_name: "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        change_set_name: Optional[
+            "capo_cloudformation.types.change_set_name_or_id.ChangeSetNameOrId"
+        ] = None,
         stack_name: Optional[
             "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
         ] = None,
@@ -3151,7 +3258,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.execute_change_set_input.ExecuteChangeSetInput = {}  # type: ignore[typeddict-item]
-        input_["change_set_name"] = change_set_name
+        if change_set_name is not None:
+            input_["change_set_name"] = change_set_name
         if stack_name is not None:
             input_["stack_name"] = stack_name
         if client_request_token is not None:
@@ -3170,9 +3278,11 @@ class CloudFormationClient:
 
     def execute_stack_refactor(
         self,
-        stack_refactor_id: "capo_cloudformation.types.stack_refactor_id.StackRefactorId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_refactor_id: Optional[
+            "capo_cloudformation.types.stack_refactor_id.StackRefactorId"
+        ] = None,
     ) -> None:
         """<p>Executes the stack refactor operation.</p>
 
@@ -3197,7 +3307,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.execute_stack_refactor_input.ExecuteStackRefactorInput = {}  # type: ignore[typeddict-item]
-        input_["stack_refactor_id"] = stack_refactor_id
+        if stack_refactor_id is not None:
+            input_["stack_refactor_id"] = stack_refactor_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3208,11 +3319,13 @@ class CloudFormationClient:
 
     def get_generated_template(
         self,
-        generated_template_name: "capo_cloudformation.types.generated_template_name.GeneratedTemplateName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
         format: Optional[
             "capo_cloudformation.types.template_format.TemplateFormat"
+        ] = None,
+        generated_template_name: Optional[
+            "capo_cloudformation.types.generated_template_name.GeneratedTemplateName"
         ] = None,
     ) -> "capo_cloudformation.types.get_generated_template_output.GetGeneratedTemplateOutput":
         """<p>Retrieves a generated template. If the template is in an <code>InProgress</code> or <code>Pending</code> status then the template returned will be the template when the template was last in a <code>Complete</code> status. If the template has not yet been in a <code>Complete</code> status then an empty template will be returned.</p>
@@ -3254,7 +3367,8 @@ class CloudFormationClient:
         input_: capo_cloudformation.types.get_generated_template_input.GetGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
         if format is not None:
             input_["format"] = format
-        input_["generated_template_name"] = generated_template_name
+        if generated_template_name is not None:
+            input_["generated_template_name"] = generated_template_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3309,9 +3423,9 @@ class CloudFormationClient:
 
     def get_stack_policy(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
     ) -> "capo_cloudformation.types.get_stack_policy_output.GetStackPolicyOutput":
         """<p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null value is returned.</p>
 
@@ -3338,7 +3452,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.get_stack_policy_input.GetStackPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3477,9 +3592,11 @@ class CloudFormationClient:
 
     def import_stacks_to_stack_set(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId"
+        ] = None,
         stack_ids: Optional[
             "capo_cloudformation.types.stack_id_list.StackIdList"
         ] = None,
@@ -3535,7 +3652,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.import_stacks_to_stack_set_input.ImportStacksToStackSetInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if stack_ids is not None:
             input_["stack_ids"] = stack_ids
         if stack_ids_url is not None:
@@ -3558,9 +3676,11 @@ class CloudFormationClient:
 
     def list_change_sets(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "capo_cloudformation.types.list_change_sets_output.ListChangeSetsOutput":
         """<p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or <code>CREATE_PENDING</code> state.</p>
@@ -3589,7 +3709,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_change_sets_input.ListChangeSetsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -3602,16 +3723,18 @@ class CloudFormationClient:
 
     def iter_list_change_sets(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_cloudformation.types.change_set_summary.ChangeSetSummary]":
         _token = next_token
         while True:
             _response = self.list_change_sets(
-                stack_name,
                 config_overrides=config_overrides,
+                stack_name=stack_name,
                 next_token=_token,
             )
             _page = _resolve_path(_response, ("summaries",))
@@ -3817,9 +3940,11 @@ class CloudFormationClient:
 
     def list_imports(
         self,
-        export_name: "capo_cloudformation.types.export_name.ExportName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        export_name: Optional[
+            "capo_cloudformation.types.export_name.ExportName"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "capo_cloudformation.types.list_imports_output.ListImportsOutput":
         r"""<p>Lists all stacks that are importing an exported output value. To modify or remove an exported output value, first use this action to see which stacks are using it. To see the exported output values in your account, see <a>ListExports</a>.</p> <p>For more information about importing an exported output value, see the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/intrinsic-function-reference-importvalue.html\">Fn::ImportValue</a> function.</p>
@@ -3848,7 +3973,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_imports_input.ListImportsInput = {}  # type: ignore[typeddict-item]
-        input_["export_name"] = export_name
+        if export_name is not None:
+            input_["export_name"] = export_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -3861,16 +3987,18 @@ class CloudFormationClient:
 
     def iter_list_imports(
         self,
-        export_name: "capo_cloudformation.types.export_name.ExportName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        export_name: Optional[
+            "capo_cloudformation.types.export_name.ExportName"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_cloudformation.types.stack_name.StackName]":
         _token = next_token
         while True:
             _response = self.list_imports(
-                export_name,
                 config_overrides=config_overrides,
+                export_name=export_name,
                 next_token=_token,
             )
             _page = _resolve_path(_response, ("imports",))
@@ -3882,10 +4010,14 @@ class CloudFormationClient:
 
     def list_resource_scan_related_resources(
         self,
-        resource_scan_id: "capo_cloudformation.types.resource_scan_id.ResourceScanId",
-        resources: "capo_cloudformation.types.scanned_resource_identifiers.ScannedResourceIdentifiers",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        resource_scan_id: Optional[
+            "capo_cloudformation.types.resource_scan_id.ResourceScanId"
+        ] = None,
+        resources: Optional[
+            "capo_cloudformation.types.scanned_resource_identifiers.ScannedResourceIdentifiers"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.boxed_max_results.BoxedMaxResults"
@@ -3927,8 +4059,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_resource_scan_related_resources_input.ListResourceScanRelatedResourcesInput = {}  # type: ignore[typeddict-item]
-        input_["resource_scan_id"] = resource_scan_id
-        input_["resources"] = resources
+        if resource_scan_id is not None:
+            input_["resource_scan_id"] = resource_scan_id
+        if resources is not None:
+            input_["resources"] = resources
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -3943,10 +4077,14 @@ class CloudFormationClient:
 
     def iter_list_resource_scan_related_resources(
         self,
-        resource_scan_id: "capo_cloudformation.types.resource_scan_id.ResourceScanId",
-        resources: "capo_cloudformation.types.scanned_resource_identifiers.ScannedResourceIdentifiers",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        resource_scan_id: Optional[
+            "capo_cloudformation.types.resource_scan_id.ResourceScanId"
+        ] = None,
+        resources: Optional[
+            "capo_cloudformation.types.scanned_resource_identifiers.ScannedResourceIdentifiers"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.boxed_max_results.BoxedMaxResults"
@@ -3955,9 +4093,9 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.list_resource_scan_related_resources(
-                resource_scan_id,
-                resources,
                 config_overrides=config_overrides,
+                resource_scan_id=resource_scan_id,
+                resources=resources,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -3970,9 +4108,11 @@ class CloudFormationClient:
 
     def list_resource_scan_resources(
         self,
-        resource_scan_id: "capo_cloudformation.types.resource_scan_id.ResourceScanId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        resource_scan_id: Optional[
+            "capo_cloudformation.types.resource_scan_id.ResourceScanId"
+        ] = None,
         resource_identifier: Optional[
             "capo_cloudformation.types.resource_identifier.ResourceIdentifier"
         ] = None,
@@ -4029,7 +4169,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_resource_scan_resources_input.ListResourceScanResourcesInput = {}  # type: ignore[typeddict-item]
-        input_["resource_scan_id"] = resource_scan_id
+        if resource_scan_id is not None:
+            input_["resource_scan_id"] = resource_scan_id
         if resource_identifier is not None:
             input_["resource_identifier"] = resource_identifier
         if resource_type_prefix is not None:
@@ -4052,9 +4193,11 @@ class CloudFormationClient:
 
     def iter_list_resource_scan_resources(
         self,
-        resource_scan_id: "capo_cloudformation.types.resource_scan_id.ResourceScanId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        resource_scan_id: Optional[
+            "capo_cloudformation.types.resource_scan_id.ResourceScanId"
+        ] = None,
         resource_identifier: Optional[
             "capo_cloudformation.types.resource_identifier.ResourceIdentifier"
         ] = None,
@@ -4071,8 +4214,8 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.list_resource_scan_resources(
-                resource_scan_id,
                 config_overrides=config_overrides,
+                resource_scan_id=resource_scan_id,
                 resource_identifier=resource_identifier,
                 resource_type_prefix=resource_type_prefix,
                 tag_key=tag_key,
@@ -4171,18 +4314,26 @@ class CloudFormationClient:
 
     def list_stack_instance_resource_drifts(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId",
-        stack_instance_account: "capo_cloudformation.types.account.Account",
-        stack_instance_region: "capo_cloudformation.types.region.Region",
-        operation_id: "capo_cloudformation.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
         ] = None,
         stack_instance_resource_drift_statuses: Optional[
             "capo_cloudformation.types.stack_resource_drift_status_filters.StackResourceDriftStatusFilters"
+        ] = None,
+        stack_instance_account: Optional[
+            "capo_cloudformation.types.account.Account"
+        ] = None,
+        stack_instance_region: Optional[
+            "capo_cloudformation.types.region.Region"
+        ] = None,
+        operation_id: Optional[
+            "capo_cloudformation.types.client_request_token.ClientRequestToken"
         ] = None,
         call_as: Optional["capo_cloudformation.types.call_as.CallAs"] = None,
     ) -> "capo_cloudformation.types.list_stack_instance_resource_drifts_output.ListStackInstanceResourceDriftsOutput":
@@ -4221,7 +4372,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_instance_resource_drifts_input.ListStackInstanceResourceDriftsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4230,9 +4382,12 @@ class CloudFormationClient:
             input_["stack_instance_resource_drift_statuses"] = (
                 stack_instance_resource_drift_statuses
             )
-        input_["stack_instance_account"] = stack_instance_account
-        input_["stack_instance_region"] = stack_instance_region
-        input_["operation_id"] = operation_id
+        if stack_instance_account is not None:
+            input_["stack_instance_account"] = stack_instance_account
+        if stack_instance_region is not None:
+            input_["stack_instance_region"] = stack_instance_region
+        if operation_id is not None:
+            input_["operation_id"] = operation_id
         if call_as is not None:
             input_["call_as"] = call_as
 
@@ -4245,9 +4400,11 @@ class CloudFormationClient:
 
     def list_stack_instances(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4297,7 +4454,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_instances_input.ListStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4320,9 +4478,11 @@ class CloudFormationClient:
 
     def iter_list_stack_instances(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4341,8 +4501,8 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.list_stack_instances(
-                stack_set_name,
                 config_overrides=config_overrides,
+                stack_set_name=stack_set_name,
                 next_token=_token,
                 max_results=max_results,
                 filters=filters,
@@ -4359,9 +4519,11 @@ class CloudFormationClient:
 
     def list_stack_refactor_actions(
         self,
-        stack_refactor_id: "capo_cloudformation.types.stack_refactor_id.StackRefactorId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_refactor_id: Optional[
+            "capo_cloudformation.types.stack_refactor_id.StackRefactorId"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4394,7 +4556,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_refactor_actions_input.ListStackRefactorActionsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_refactor_id"] = stack_refactor_id
+        if stack_refactor_id is not None:
+            input_["stack_refactor_id"] = stack_refactor_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4409,9 +4572,11 @@ class CloudFormationClient:
 
     def iter_list_stack_refactor_actions(
         self,
-        stack_refactor_id: "capo_cloudformation.types.stack_refactor_id.StackRefactorId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_refactor_id: Optional[
+            "capo_cloudformation.types.stack_refactor_id.StackRefactorId"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4422,8 +4587,8 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.list_stack_refactor_actions(
-                stack_refactor_id,
                 config_overrides=config_overrides,
+                stack_refactor_id=stack_refactor_id,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -4518,9 +4683,9 @@ class CloudFormationClient:
 
     def list_stack_resources(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> (
         "capo_cloudformation.types.list_stack_resources_output.ListStackResourcesOutput"
@@ -4551,7 +4716,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_resources_input.ListStackResourcesInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -4564,16 +4730,16 @@ class CloudFormationClient:
 
     def iter_list_stack_resources(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
     ) -> "Iterator[capo_cloudformation.types.stack_resource_summary.StackResourceSummary]":
         _token = next_token
         while True:
             _response = self.list_stack_resources(
-                stack_name,
                 config_overrides=config_overrides,
+                stack_name=stack_name,
                 next_token=_token,
             )
             _page = _resolve_path(_response, ("stack_resource_summaries",))
@@ -4655,9 +4821,11 @@ class CloudFormationClient:
 
     def list_stack_set_auto_deployment_targets(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4693,7 +4861,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_set_auto_deployment_targets_input.ListStackSetAutoDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4710,10 +4879,14 @@ class CloudFormationClient:
 
     def list_stack_set_operation_results(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        operation_id: "capo_cloudformation.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
+        operation_id: Optional[
+            "capo_cloudformation.types.client_request_token.ClientRequestToken"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4755,8 +4928,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_set_operation_results_input.ListStackSetOperationResultsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
-        input_["operation_id"] = operation_id
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
+        if operation_id is not None:
+            input_["operation_id"] = operation_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4775,10 +4950,14 @@ class CloudFormationClient:
 
     def iter_list_stack_set_operation_results(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        operation_id: "capo_cloudformation.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
+        operation_id: Optional[
+            "capo_cloudformation.types.client_request_token.ClientRequestToken"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4791,9 +4970,9 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.list_stack_set_operation_results(
-                stack_set_name,
-                operation_id,
                 config_overrides=config_overrides,
+                stack_set_name=stack_set_name,
+                operation_id=operation_id,
                 next_token=_token,
                 max_results=max_results,
                 call_as=call_as,
@@ -4808,9 +4987,11 @@ class CloudFormationClient:
 
     def list_stack_set_operations(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4846,7 +5027,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.list_stack_set_operations_input.ListStackSetOperationsInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4863,9 +5045,11 @@ class CloudFormationClient:
 
     def iter_list_stack_set_operations(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         next_token: Optional["capo_cloudformation.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudformation.types.max_results.MaxResults"
@@ -4875,8 +5059,8 @@ class CloudFormationClient:
         _token = next_token
         while True:
             _response = self.list_stack_set_operations(
-                stack_set_name,
                 config_overrides=config_overrides,
+                stack_set_name=stack_set_name,
                 next_token=_token,
                 max_results=max_results,
                 call_as=call_as,
@@ -5284,10 +5468,14 @@ class CloudFormationClient:
 
     def record_handler_progress(
         self,
-        bearer_token: "capo_cloudformation.types.client_token.ClientToken",
-        operation_status: "capo_cloudformation.types.operation_status.OperationStatus",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        bearer_token: Optional[
+            "capo_cloudformation.types.client_token.ClientToken"
+        ] = None,
+        operation_status: Optional[
+            "capo_cloudformation.types.operation_status.OperationStatus"
+        ] = None,
         current_operation_status: Optional[
             "capo_cloudformation.types.operation_status.OperationStatus"
         ] = None,
@@ -5337,8 +5525,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.record_handler_progress_input.RecordHandlerProgressInput = {}  # type: ignore[typeddict-item]
-        input_["bearer_token"] = bearer_token
-        input_["operation_status"] = operation_status
+        if bearer_token is not None:
+            input_["bearer_token"] = bearer_token
+        if operation_status is not None:
+            input_["operation_status"] = operation_status
         if current_operation_status is not None:
             input_["current_operation_status"] = current_operation_status
         if status_message is not None:
@@ -5409,11 +5599,13 @@ class CloudFormationClient:
 
     def register_type(
         self,
-        type_name: "capo_cloudformation.types.type_name.TypeName",
-        schema_handler_package: "capo_cloudformation.types.s3_url.S3Url",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
         type: Optional["capo_cloudformation.types.registry_type.RegistryType"] = None,
+        type_name: Optional["capo_cloudformation.types.type_name.TypeName"] = None,
+        schema_handler_package: Optional[
+            "capo_cloudformation.types.s3_url.S3Url"
+        ] = None,
         logging_config: Optional[
             "capo_cloudformation.types.logging_config.LoggingConfig"
         ] = None,
@@ -5457,8 +5649,10 @@ class CloudFormationClient:
         input_: capo_cloudformation.types.register_type_input.RegisterTypeInput = {}  # type: ignore[typeddict-item]
         if type is not None:
             input_["type"] = type
-        input_["type_name"] = type_name
-        input_["schema_handler_package"] = schema_handler_package
+        if type_name is not None:
+            input_["type_name"] = type_name
+        if schema_handler_package is not None:
+            input_["schema_handler_package"] = schema_handler_package
         if logging_config is not None:
             input_["logging_config"] = logging_config
         if execution_role_arn is not None:
@@ -5475,9 +5669,11 @@ class CloudFormationClient:
 
     def rollback_stack(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
         role_arn: Optional["capo_cloudformation.types.role_arn.RoleARN"] = None,
         client_request_token: Optional[
             "capo_cloudformation.types.client_request_token.ClientRequestToken"
@@ -5515,7 +5711,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.rollback_stack_input.RollbackStackInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if client_request_token is not None:
@@ -5532,9 +5729,9 @@ class CloudFormationClient:
 
     def set_stack_policy(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         stack_policy_body: Optional[
             "capo_cloudformation.types.stack_policy_body.StackPolicyBody"
         ] = None,
@@ -5567,7 +5764,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.set_stack_policy_input.SetStackPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if stack_policy_body is not None:
             input_["stack_policy_body"] = stack_policy_body
         if stack_policy_url is not None:
@@ -5582,10 +5780,12 @@ class CloudFormationClient:
 
     def set_type_configuration(
         self,
-        configuration: "capo_cloudformation.types.type_configuration.TypeConfiguration",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
         type_arn: Optional["capo_cloudformation.types.type_arn.TypeArn"] = None,
+        configuration: Optional[
+            "capo_cloudformation.types.type_configuration.TypeConfiguration"
+        ] = None,
         configuration_alias: Optional[
             "capo_cloudformation.types.type_configuration_alias.TypeConfigurationAlias"
         ] = None,
@@ -5627,7 +5827,8 @@ class CloudFormationClient:
         input_: capo_cloudformation.types.set_type_configuration_input.SetTypeConfigurationInput = {}  # type: ignore[typeddict-item]
         if type_arn is not None:
             input_["type_arn"] = type_arn
-        input_["configuration"] = configuration
+        if configuration is not None:
+            input_["configuration"] = configuration
         if configuration_alias is not None:
             input_["configuration_alias"] = configuration_alias
         if type_name is not None:
@@ -5703,12 +5904,20 @@ class CloudFormationClient:
 
     def signal_resource(
         self,
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
-        logical_resource_id: "capo_cloudformation.types.logical_resource_id.LogicalResourceId",
-        unique_id: "capo_cloudformation.types.resource_signal_unique_id.ResourceSignalUniqueId",
-        status: "capo_cloudformation.types.resource_signal_status.ResourceSignalStatus",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
+        logical_resource_id: Optional[
+            "capo_cloudformation.types.logical_resource_id.LogicalResourceId"
+        ] = None,
+        unique_id: Optional[
+            "capo_cloudformation.types.resource_signal_unique_id.ResourceSignalUniqueId"
+        ] = None,
+        status: Optional[
+            "capo_cloudformation.types.resource_signal_status.ResourceSignalStatus"
+        ] = None,
     ) -> None:
         """<p>Sends a signal to the specified resource with a success or failure status. You can use the <code>SignalResource</code> operation in conjunction with a creation policy or update policy. CloudFormation doesn't proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The <code>SignalResource</code> operation is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.</p>
 
@@ -5736,10 +5945,14 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.signal_resource_input.SignalResourceInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["logical_resource_id"] = logical_resource_id
-        input_["unique_id"] = unique_id
-        input_["status"] = status
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if logical_resource_id is not None:
+            input_["logical_resource_id"] = logical_resource_id
+        if unique_id is not None:
+            input_["unique_id"] = unique_id
+        if status is not None:
+            input_["status"] = status
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5807,10 +6020,14 @@ class CloudFormationClient:
 
     def stop_stack_set_operation(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
-        operation_id: "capo_cloudformation.types.client_request_token.ClientRequestToken",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
+        operation_id: Optional[
+            "capo_cloudformation.types.client_request_token.ClientRequestToken"
+        ] = None,
         call_as: Optional["capo_cloudformation.types.call_as.CallAs"] = None,
     ) -> "capo_cloudformation.types.stop_stack_set_operation_output.StopStackSetOperationOutput":
         r"""<p>Stops an in-progress operation on a StackSet and its associated stack instances. StackSets will cancel all the unstarted stack instance deployments and wait for those are in-progress to complete.</p>
@@ -5843,8 +6060,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.stop_stack_set_operation_input.StopStackSetOperationInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
-        input_["operation_id"] = operation_id
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
+        if operation_id is not None:
+            input_["operation_id"] = operation_id
         if call_as is not None:
             input_["call_as"] = call_as
 
@@ -5922,9 +6141,11 @@ class CloudFormationClient:
 
     def update_generated_template(
         self,
-        generated_template_name: "capo_cloudformation.types.generated_template_name.GeneratedTemplateName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        generated_template_name: Optional[
+            "capo_cloudformation.types.generated_template_name.GeneratedTemplateName"
+        ] = None,
         new_generated_template_name: Optional[
             "capo_cloudformation.types.generated_template_name.GeneratedTemplateName"
         ] = None,
@@ -5988,7 +6209,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.update_generated_template_input.UpdateGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
-        input_["generated_template_name"] = generated_template_name
+        if generated_template_name is not None:
+            input_["generated_template_name"] = generated_template_name
         if new_generated_template_name is not None:
             input_["new_generated_template_name"] = new_generated_template_name
         if add_resources is not None:
@@ -6009,9 +6231,9 @@ class CloudFormationClient:
 
     def update_stack(
         self,
-        stack_name: "capo_cloudformation.types.stack_name.StackName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_name: Optional["capo_cloudformation.types.stack_name.StackName"] = None,
         template_body: Optional[
             "capo_cloudformation.types.template_body.TemplateBody"
         ] = None,
@@ -6102,7 +6324,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.update_stack_input.UpdateStackInput = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if template_body is not None:
             input_["template_body"] = template_body
         if template_url is not None:
@@ -6147,14 +6370,16 @@ class CloudFormationClient:
 
     def update_stack_instances(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId",
-        regions: "capo_cloudformation.types.region_list.RegionList",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name_or_id.StackSetNameOrId"
+        ] = None,
         accounts: Optional["capo_cloudformation.types.account_list.AccountList"] = None,
         deployment_targets: Optional[
             "capo_cloudformation.types.deployment_targets.DeploymentTargets"
         ] = None,
+        regions: Optional["capo_cloudformation.types.region_list.RegionList"] = None,
         parameter_overrides: Optional[
             "capo_cloudformation.types.parameters.Parameters"
         ] = None,
@@ -6204,12 +6429,14 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.update_stack_instances_input.UpdateStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if accounts is not None:
             input_["accounts"] = accounts
         if deployment_targets is not None:
             input_["deployment_targets"] = deployment_targets
-        input_["regions"] = regions
+        if regions is not None:
+            input_["regions"] = regions
         if parameter_overrides is not None:
             input_["parameter_overrides"] = parameter_overrides
         if operation_preferences is not None:
@@ -6228,9 +6455,11 @@ class CloudFormationClient:
 
     def update_stack_set(
         self,
-        stack_set_name: "capo_cloudformation.types.stack_set_name.StackSetName",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        stack_set_name: Optional[
+            "capo_cloudformation.types.stack_set_name.StackSetName"
+        ] = None,
         description: Optional[
             "capo_cloudformation.types.description.Description"
         ] = None,
@@ -6325,7 +6554,8 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.update_stack_set_input.UpdateStackSetInput = {}  # type: ignore[typeddict-item]
-        input_["stack_set_name"] = stack_set_name
+        if stack_set_name is not None:
+            input_["stack_set_name"] = stack_set_name
         if description is not None:
             input_["description"] = description
         if template_body is not None:
@@ -6372,10 +6602,14 @@ class CloudFormationClient:
 
     def update_termination_protection(
         self,
-        enable_termination_protection: "capo_cloudformation.types.enable_termination_protection.EnableTerminationProtection",
-        stack_name: "capo_cloudformation.types.stack_name_or_id.StackNameOrId",
         *,
         config_overrides: Optional[CloudFormationClientConfig] = None,
+        enable_termination_protection: Optional[
+            "capo_cloudformation.types.enable_termination_protection.EnableTerminationProtection"
+        ] = None,
+        stack_name: Optional[
+            "capo_cloudformation.types.stack_name_or_id.StackNameOrId"
+        ] = None,
     ) -> "capo_cloudformation.types.update_termination_protection_output.UpdateTerminationProtectionOutput":
         r"""<p>Updates termination protection for the specified stack. If a user attempts to delete a stack with termination protection enabled, the operation fails and the stack remains unchanged. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html\">Protect a CloudFormation stack from being deleted</a> in the <i>CloudFormation User Guide</i>.</p> <p>For <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">nested stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested stack.</p>
 
@@ -6403,8 +6637,10 @@ class CloudFormationClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudformation.types.update_termination_protection_input.UpdateTerminationProtectionInput = {}  # type: ignore[typeddict-item]
-        input_["enable_termination_protection"] = enable_termination_protection
-        input_["stack_name"] = stack_name
+        if enable_termination_protection is not None:
+            input_["enable_termination_protection"] = enable_termination_protection
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

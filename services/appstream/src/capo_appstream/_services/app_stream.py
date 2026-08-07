@@ -380,10 +380,10 @@ class AppStreamClient:
 
     def associate_app_block_builder_app_block(
         self,
-        app_block_arn: "capo_appstream.types.arn.Arn",
-        app_block_builder_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        app_block_arn: Optional["capo_appstream.types.arn.Arn"] = None,
+        app_block_builder_name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.associate_app_block_builder_app_block_result.AssociateAppBlockBuilderAppBlockResult":
         """<p>Associates the specified app block builder with the specified app block.</p>
 
@@ -416,8 +416,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.associate_app_block_builder_app_block_request.AssociateAppBlockBuilderAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["app_block_arn"] = app_block_arn
-        input_["app_block_builder_name"] = app_block_builder_name
+        if app_block_arn is not None:
+            input_["app_block_arn"] = app_block_arn
+        if app_block_builder_name is not None:
+            input_["app_block_builder_name"] = app_block_builder_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -428,10 +430,10 @@ class AppStreamClient:
 
     def associate_application_fleet(
         self,
-        fleet_name: "capo_appstream.types.name.Name",
-        application_arn: "capo_appstream.types.arn.Arn",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        fleet_name: Optional["capo_appstream.types.name.Name"] = None,
+        application_arn: Optional["capo_appstream.types.arn.Arn"] = None,
     ) -> "capo_appstream.types.associate_application_fleet_result.AssociateApplicationFleetResult":
         """<p>Associates the specified application with the specified fleet. This is only supported for Elastic fleets.</p>
 
@@ -464,8 +466,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.associate_application_fleet_request.AssociateApplicationFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["fleet_name"] = fleet_name
-        input_["application_arn"] = application_arn
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
+        if application_arn is not None:
+            input_["application_arn"] = application_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -476,11 +480,11 @@ class AppStreamClient:
 
     def associate_application_to_entitlement(
         self,
-        stack_name: "capo_appstream.types.name.Name",
-        entitlement_name: "capo_appstream.types.name.Name",
-        application_identifier: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
+        entitlement_name: Optional["capo_appstream.types.name.Name"] = None,
+        application_identifier: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.associate_application_to_entitlement_result.AssociateApplicationToEntitlementResult":
         """<p>Associates an application to entitle.</p>
 
@@ -513,9 +517,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.associate_application_to_entitlement_request.AssociateApplicationToEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["entitlement_name"] = entitlement_name
-        input_["application_identifier"] = application_identifier
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if entitlement_name is not None:
+            input_["entitlement_name"] = entitlement_name
+        if application_identifier is not None:
+            input_["application_identifier"] = application_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -526,10 +533,10 @@ class AppStreamClient:
 
     def associate_fleet(
         self,
-        fleet_name: "capo_appstream.types.string.String",
-        stack_name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        fleet_name: Optional["capo_appstream.types.string.String"] = None,
+        stack_name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.associate_fleet_result.AssociateFleetResult":
         """<p>Associates the specified fleet with the specified stack.</p>
 
@@ -563,8 +570,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.associate_fleet_request.AssociateFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["fleet_name"] = fleet_name
-        input_["stack_name"] = stack_name
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -575,10 +584,10 @@ class AppStreamClient:
 
     def associate_software_to_image_builder(
         self,
-        image_builder_name: "capo_appstream.types.name.Name",
-        software_names: "capo_appstream.types.string_list.StringList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        image_builder_name: Optional["capo_appstream.types.name.Name"] = None,
+        software_names: Optional["capo_appstream.types.string_list.StringList"] = None,
     ) -> "capo_appstream.types.associate_software_to_image_builder_result.AssociateSoftwareToImageBuilderResult":
         """<p>Associates license included application(s) with an existing image builder instance.</p>
 
@@ -611,8 +620,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.associate_software_to_image_builder_request.AssociateSoftwareToImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["image_builder_name"] = image_builder_name
-        input_["software_names"] = software_names
+        if image_builder_name is not None:
+            input_["image_builder_name"] = image_builder_name
+        if software_names is not None:
+            input_["software_names"] = software_names
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -623,9 +634,11 @@ class AppStreamClient:
 
     def batch_associate_user_stack(
         self,
-        user_stack_associations: "capo_appstream.types.user_stack_association_list.UserStackAssociationList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        user_stack_associations: Optional[
+            "capo_appstream.types.user_stack_association_list.UserStackAssociationList"
+        ] = None,
     ) -> "capo_appstream.types.batch_associate_user_stack_result.BatchAssociateUserStackResult":
         """<p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>
 
@@ -654,7 +667,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.batch_associate_user_stack_request.BatchAssociateUserStackRequest = {}  # type: ignore[typeddict-item]
-        input_["user_stack_associations"] = user_stack_associations
+        if user_stack_associations is not None:
+            input_["user_stack_associations"] = user_stack_associations
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -665,9 +679,11 @@ class AppStreamClient:
 
     def batch_disassociate_user_stack(
         self,
-        user_stack_associations: "capo_appstream.types.user_stack_association_list.UserStackAssociationList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        user_stack_associations: Optional[
+            "capo_appstream.types.user_stack_association_list.UserStackAssociationList"
+        ] = None,
     ) -> "capo_appstream.types.batch_disassociate_user_stack_result.BatchDisassociateUserStackResult":
         """<p>Disassociates the specified users from the specified stacks.</p>
 
@@ -696,7 +712,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.batch_disassociate_user_stack_request.BatchDisassociateUserStackRequest = {}  # type: ignore[typeddict-item]
-        input_["user_stack_associations"] = user_stack_associations
+        if user_stack_associations is not None:
+            input_["user_stack_associations"] = user_stack_associations
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -707,11 +724,13 @@ class AppStreamClient:
 
     def copy_image(
         self,
-        source_image_name: "capo_appstream.types.name.Name",
-        destination_image_name: "capo_appstream.types.name.Name",
-        destination_region: "capo_appstream.types.region_name.RegionName",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        source_image_name: Optional["capo_appstream.types.name.Name"] = None,
+        destination_image_name: Optional["capo_appstream.types.name.Name"] = None,
+        destination_region: Optional[
+            "capo_appstream.types.region_name.RegionName"
+        ] = None,
         destination_image_description: Optional[
             "capo_appstream.types.description.Description"
         ] = None,
@@ -750,9 +769,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.copy_image_request.CopyImageRequest = {}  # type: ignore[typeddict-item]
-        input_["source_image_name"] = source_image_name
-        input_["destination_image_name"] = destination_image_name
-        input_["destination_region"] = destination_region
+        if source_image_name is not None:
+            input_["source_image_name"] = source_image_name
+        if destination_image_name is not None:
+            input_["destination_image_name"] = destination_image_name
+        if destination_region is not None:
+            input_["destination_region"] = destination_region
         if destination_image_description is not None:
             input_["destination_image_description"] = destination_image_description
 
@@ -765,12 +787,14 @@ class AppStreamClient:
 
     def create_app_block(
         self,
-        name: "capo_appstream.types.name.Name",
-        source_s3_location: "capo_appstream.types.s3_location.S3Location",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
+        source_s3_location: Optional[
+            "capo_appstream.types.s3_location.S3Location"
+        ] = None,
         setup_script_details: Optional[
             "capo_appstream.types.script_details.ScriptDetails"
         ] = None,
@@ -818,12 +842,14 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_app_block_request.CreateAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if display_name is not None:
             input_["display_name"] = display_name
-        input_["source_s3_location"] = source_s3_location
+        if source_s3_location is not None:
+            input_["source_s3_location"] = source_s3_location
         if setup_script_details is not None:
             input_["setup_script_details"] = setup_script_details
         if tags is not None:
@@ -842,15 +868,17 @@ class AppStreamClient:
 
     def create_app_block_builder(
         self,
-        name: "capo_appstream.types.name.Name",
-        platform: "capo_appstream.types.app_block_builder_platform_type.AppBlockBuilderPlatformType",
-        instance_type: "capo_appstream.types.string.String",
-        vpc_config: "capo_appstream.types.vpc_config.VpcConfig",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         tags: Optional["capo_appstream.types.tags.Tags"] = None,
+        platform: Optional[
+            "capo_appstream.types.app_block_builder_platform_type.AppBlockBuilderPlatformType"
+        ] = None,
+        instance_type: Optional["capo_appstream.types.string.String"] = None,
+        vpc_config: Optional["capo_appstream.types.vpc_config.VpcConfig"] = None,
         enable_default_internet_access: Optional[
             "capo_appstream.types.boolean_object.BooleanObject"
         ] = None,
@@ -907,16 +935,20 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_app_block_builder_request.CreateAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if display_name is not None:
             input_["display_name"] = display_name
         if tags is not None:
             input_["tags"] = tags
-        input_["platform"] = platform
-        input_["instance_type"] = instance_type
-        input_["vpc_config"] = vpc_config
+        if platform is not None:
+            input_["platform"] = platform
+        if instance_type is not None:
+            input_["instance_type"] = instance_type
+        if vpc_config is not None:
+            input_["vpc_config"] = vpc_config
         if enable_default_internet_access is not None:
             input_["enable_default_internet_access"] = enable_default_internet_access
         if iam_role_arn is not None:
@@ -935,9 +967,9 @@ class AppStreamClient:
 
     def create_app_block_builder_streaming_url(
         self,
-        app_block_builder_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        app_block_builder_name: Optional["capo_appstream.types.name.Name"] = None,
         validity: Optional["capo_appstream.types.long.Long"] = None,
     ) -> "capo_appstream.types.create_app_block_builder_streaming_url_result.CreateAppBlockBuilderStreamingURLResult":
         """<p>Creates a URL to start a create app block builder streaming session.</p>
@@ -968,7 +1000,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_app_block_builder_streaming_url_request.CreateAppBlockBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
-        input_["app_block_builder_name"] = app_block_builder_name
+        if app_block_builder_name is not None:
+            input_["app_block_builder_name"] = app_block_builder_name
         if validity is not None:
             input_["validity"] = validity
 
@@ -981,18 +1014,22 @@ class AppStreamClient:
 
     def create_application(
         self,
-        name: "capo_appstream.types.name.Name",
-        icon_s3_location: "capo_appstream.types.s3_location.S3Location",
-        launch_path: "capo_appstream.types.string.String",
-        platforms: "capo_appstream.types.platforms.Platforms",
-        instance_families: "capo_appstream.types.string_list.StringList",
-        app_block_arn: "capo_appstream.types.arn.Arn",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
+        icon_s3_location: Optional[
+            "capo_appstream.types.s3_location.S3Location"
+        ] = None,
+        launch_path: Optional["capo_appstream.types.string.String"] = None,
         working_directory: Optional["capo_appstream.types.string.String"] = None,
         launch_parameters: Optional["capo_appstream.types.string.String"] = None,
+        platforms: Optional["capo_appstream.types.platforms.Platforms"] = None,
+        instance_families: Optional[
+            "capo_appstream.types.string_list.StringList"
+        ] = None,
+        app_block_arn: Optional["capo_appstream.types.arn.Arn"] = None,
         tags: Optional["capo_appstream.types.tags.Tags"] = None,
     ) -> "capo_appstream.types.create_application_result.CreateApplicationResult":
         """<p>Creates an application.</p> <p>Applications are a WorkSpaces Applications resource that stores the details about how to launch applications on Elastic fleet streaming instances. An application consists of the launch details, icon, and display name. Applications are associated with an app block that contains the application binaries and other files. The applications assigned to an Elastic fleet are the applications users can launch. </p> <p>This is only supported for Elastic fleets.</p>
@@ -1035,20 +1072,26 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if display_name is not None:
             input_["display_name"] = display_name
         if description is not None:
             input_["description"] = description
-        input_["icon_s3_location"] = icon_s3_location
-        input_["launch_path"] = launch_path
+        if icon_s3_location is not None:
+            input_["icon_s3_location"] = icon_s3_location
+        if launch_path is not None:
+            input_["launch_path"] = launch_path
         if working_directory is not None:
             input_["working_directory"] = working_directory
         if launch_parameters is not None:
             input_["launch_parameters"] = launch_parameters
-        input_["platforms"] = platforms
-        input_["instance_families"] = instance_families
-        input_["app_block_arn"] = app_block_arn
+        if platforms is not None:
+            input_["platforms"] = platforms
+        if instance_families is not None:
+            input_["instance_families"] = instance_families
+        if app_block_arn is not None:
+            input_["app_block_arn"] = app_block_arn
         if tags is not None:
             input_["tags"] = tags
 
@@ -1061,10 +1104,14 @@ class AppStreamClient:
 
     def create_directory_config(
         self,
-        directory_name: "capo_appstream.types.directory_name.DirectoryName",
-        organizational_unit_distinguished_names: "capo_appstream.types.organizational_unit_distinguished_names_list.OrganizationalUnitDistinguishedNamesList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        directory_name: Optional[
+            "capo_appstream.types.directory_name.DirectoryName"
+        ] = None,
+        organizational_unit_distinguished_names: Optional[
+            "capo_appstream.types.organizational_unit_distinguished_names_list.OrganizationalUnitDistinguishedNamesList"
+        ] = None,
         service_account_credentials: Optional[
             "capo_appstream.types.service_account_credentials.ServiceAccountCredentials"
         ] = None,
@@ -1106,10 +1153,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_directory_config_request.CreateDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["directory_name"] = directory_name
-        input_["organizational_unit_distinguished_names"] = (
-            organizational_unit_distinguished_names
-        )
+        if directory_name is not None:
+            input_["directory_name"] = directory_name
+        if organizational_unit_distinguished_names is not None:
+            input_["organizational_unit_distinguished_names"] = (
+                organizational_unit_distinguished_names
+            )
         if service_account_credentials is not None:
             input_["service_account_credentials"] = service_account_credentials
         if certificate_based_auth_properties is not None:
@@ -1126,13 +1175,17 @@ class AppStreamClient:
 
     def create_entitlement(
         self,
-        name: "capo_appstream.types.name.Name",
-        stack_name: "capo_appstream.types.name.Name",
-        app_visibility: "capo_appstream.types.app_visibility.AppVisibility",
-        attributes: "capo_appstream.types.entitlement_attribute_list.EntitlementAttributeList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
+        app_visibility: Optional[
+            "capo_appstream.types.app_visibility.AppVisibility"
+        ] = None,
+        attributes: Optional[
+            "capo_appstream.types.entitlement_attribute_list.EntitlementAttributeList"
+        ] = None,
     ) -> "capo_appstream.types.create_entitlement_result.CreateEntitlementResult":
         """<p>Creates a new entitlement. Entitlements control access to specific applications within a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user identities. WorkSpaces Applications user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application, or to applications managed by a dynamic app provider using the Dynamic Application Framework.</p>
 
@@ -1167,12 +1220,16 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["stack_name"] = stack_name
+        if name is not None:
+            input_["name"] = name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if description is not None:
             input_["description"] = description
-        input_["app_visibility"] = app_visibility
-        input_["attributes"] = attributes
+        if app_visibility is not None:
+            input_["app_visibility"] = app_visibility
+        if attributes is not None:
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1183,11 +1240,11 @@ class AppStreamClient:
 
     def create_export_image_task(
         self,
-        image_name: "capo_appstream.types.name.Name",
-        ami_name: "capo_appstream.types.ami_name.AmiName",
-        iam_role_arn: "capo_appstream.types.arn.Arn",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        image_name: Optional["capo_appstream.types.name.Name"] = None,
+        ami_name: Optional["capo_appstream.types.ami_name.AmiName"] = None,
+        iam_role_arn: Optional["capo_appstream.types.arn.Arn"] = None,
         tag_specifications: Optional["capo_appstream.types.tags.Tags"] = None,
         ami_description: Optional[
             "capo_appstream.types.description.Description"
@@ -1229,9 +1286,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_export_image_task_request.CreateExportImageTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["image_name"] = image_name
-        input_["ami_name"] = ami_name
-        input_["iam_role_arn"] = iam_role_arn
+        if image_name is not None:
+            input_["image_name"] = image_name
+        if ami_name is not None:
+            input_["ami_name"] = ami_name
+        if iam_role_arn is not None:
+            input_["iam_role_arn"] = iam_role_arn
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if ami_description is not None:
@@ -1246,12 +1306,12 @@ class AppStreamClient:
 
     def create_fleet(
         self,
-        name: "capo_appstream.types.name.Name",
-        instance_type: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         image_name: Optional["capo_appstream.types.name.Name"] = None,
         image_arn: Optional["capo_appstream.types.arn.Arn"] = None,
+        instance_type: Optional["capo_appstream.types.string.String"] = None,
         fleet_type: Optional["capo_appstream.types.fleet_type.FleetType"] = None,
         compute_capacity: Optional[
             "capo_appstream.types.compute_capacity.ComputeCapacity"
@@ -1356,12 +1416,14 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_fleet_request.CreateFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if image_name is not None:
             input_["image_name"] = image_name
         if image_arn is not None:
             input_["image_arn"] = image_arn
-        input_["instance_type"] = instance_type
+        if instance_type is not None:
+            input_["instance_type"] = instance_type
         if fleet_type is not None:
             input_["fleet_type"] = fleet_type
         if compute_capacity is not None:
@@ -1414,12 +1476,12 @@ class AppStreamClient:
 
     def create_image_builder(
         self,
-        name: "capo_appstream.types.name.Name",
-        instance_type: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         image_name: Optional["capo_appstream.types.string.String"] = None,
         image_arn: Optional["capo_appstream.types.arn.Arn"] = None,
+        instance_type: Optional["capo_appstream.types.string.String"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         vpc_config: Optional["capo_appstream.types.vpc_config.VpcConfig"] = None,
@@ -1502,12 +1564,14 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_image_builder_request.CreateImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if image_name is not None:
             input_["image_name"] = image_name
         if image_arn is not None:
             input_["image_arn"] = image_arn
-        input_["instance_type"] = instance_type
+        if instance_type is not None:
+            input_["instance_type"] = instance_type
         if description is not None:
             input_["description"] = description
         if display_name is not None:
@@ -1544,9 +1608,9 @@ class AppStreamClient:
 
     def create_image_builder_streaming_url(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
         validity: Optional["capo_appstream.types.long.Long"] = None,
     ) -> "capo_appstream.types.create_image_builder_streaming_url_result.CreateImageBuilderStreamingURLResult":
         """<p>Creates a URL to start an image builder streaming session.</p>
@@ -1577,7 +1641,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_image_builder_streaming_url_request.CreateImageBuilderStreamingURLRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if validity is not None:
             input_["validity"] = validity
 
@@ -1590,9 +1655,9 @@ class AppStreamClient:
 
     def create_imported_image(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         source_ami_id: Optional[
             "capo_appstream.types.photon_ami_id.PhotonAmiId"
         ] = None,
@@ -1662,7 +1727,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_imported_image_request.CreateImportedImageRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if source_ami_id is not None:
             input_["source_ami_id"] = source_ami_id
         if workspace_image_id is not None:
@@ -1693,9 +1759,9 @@ class AppStreamClient:
 
     def create_stack(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         storage_connectors: Optional[
@@ -1771,7 +1837,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_stack_request.CreateStackRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if display_name is not None:
@@ -1808,11 +1875,13 @@ class AppStreamClient:
 
     def create_streaming_url(
         self,
-        stack_name: "capo_appstream.types.string.String",
-        fleet_name: "capo_appstream.types.string.String",
-        user_id: "capo_appstream.types.streaming_url_user_id.StreamingUrlUserId",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.string.String"] = None,
+        fleet_name: Optional["capo_appstream.types.string.String"] = None,
+        user_id: Optional[
+            "capo_appstream.types.streaming_url_user_id.StreamingUrlUserId"
+        ] = None,
         application_id: Optional["capo_appstream.types.string.String"] = None,
         validity: Optional["capo_appstream.types.long.Long"] = None,
         session_context: Optional["capo_appstream.types.string.String"] = None,
@@ -1851,9 +1920,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_streaming_url_request.CreateStreamingURLRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["fleet_name"] = fleet_name
-        input_["user_id"] = user_id
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
+        if user_id is not None:
+            input_["user_id"] = user_id
         if application_id is not None:
             input_["application_id"] = application_id
         if validity is not None:
@@ -1870,15 +1942,23 @@ class AppStreamClient:
 
     def create_theme_for_stack(
         self,
-        stack_name: "capo_appstream.types.name.Name",
-        title_text: "capo_appstream.types.theme_title_text.ThemeTitleText",
-        theme_styling: "capo_appstream.types.theme_styling.ThemeStyling",
-        organization_logo_s3_location: "capo_appstream.types.s3_location.S3Location",
-        favicon_s3_location: "capo_appstream.types.s3_location.S3Location",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
         footer_links: Optional[
             "capo_appstream.types.theme_footer_links.ThemeFooterLinks"
+        ] = None,
+        title_text: Optional[
+            "capo_appstream.types.theme_title_text.ThemeTitleText"
+        ] = None,
+        theme_styling: Optional[
+            "capo_appstream.types.theme_styling.ThemeStyling"
+        ] = None,
+        organization_logo_s3_location: Optional[
+            "capo_appstream.types.s3_location.S3Location"
+        ] = None,
+        favicon_s3_location: Optional[
+            "capo_appstream.types.s3_location.S3Location"
         ] = None,
     ) -> "capo_appstream.types.create_theme_for_stack_result.CreateThemeForStackResult":
         """<p>Creates custom branding that customizes the appearance of the streaming application catalog page.</p>
@@ -1917,13 +1997,18 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_theme_for_stack_request.CreateThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if footer_links is not None:
             input_["footer_links"] = footer_links
-        input_["title_text"] = title_text
-        input_["theme_styling"] = theme_styling
-        input_["organization_logo_s3_location"] = organization_logo_s3_location
-        input_["favicon_s3_location"] = favicon_s3_location
+        if title_text is not None:
+            input_["title_text"] = title_text
+        if theme_styling is not None:
+            input_["theme_styling"] = theme_styling
+        if organization_logo_s3_location is not None:
+            input_["organization_logo_s3_location"] = organization_logo_s3_location
+        if favicon_s3_location is not None:
+            input_["favicon_s3_location"] = favicon_s3_location
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1934,10 +2019,10 @@ class AppStreamClient:
 
     def create_updated_image(
         self,
-        existing_image_name: "capo_appstream.types.name.Name",
-        new_image_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        existing_image_name: Optional["capo_appstream.types.name.Name"] = None,
+        new_image_name: Optional["capo_appstream.types.name.Name"] = None,
         new_image_description: Optional[
             "capo_appstream.types.description.Description"
         ] = None,
@@ -1984,8 +2069,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_updated_image_request.CreateUpdatedImageRequest = {}  # type: ignore[typeddict-item]
-        input_["existing_image_name"] = existing_image_name
-        input_["new_image_name"] = new_image_name
+        if existing_image_name is not None:
+            input_["existing_image_name"] = existing_image_name
+        if new_image_name is not None:
+            input_["new_image_name"] = new_image_name
         if new_image_description is not None:
             input_["new_image_description"] = new_image_description
         if new_image_display_name is not None:
@@ -2040,10 +2127,9 @@ class AppStreamClient:
 
     def create_user(
         self,
-        user_name: "capo_appstream.types.username.Username",
-        authentication_type: "capo_appstream.types.authentication_type.AuthenticationType",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        user_name: Optional["capo_appstream.types.username.Username"] = None,
         message_action: Optional[
             "capo_appstream.types.message_action.MessageAction"
         ] = None,
@@ -2052,6 +2138,9 @@ class AppStreamClient:
         ] = None,
         last_name: Optional[
             "capo_appstream.types.user_attribute_value.UserAttributeValue"
+        ] = None,
+        authentication_type: Optional[
+            "capo_appstream.types.authentication_type.AuthenticationType"
         ] = None,
     ) -> "capo_appstream.types.create_user_result.CreateUserResult":
         r"""<p>Creates a new user in the user pool.</p>
@@ -2088,14 +2177,16 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        if user_name is not None:
+            input_["user_name"] = user_name
         if message_action is not None:
             input_["message_action"] = message_action
         if first_name is not None:
             input_["first_name"] = first_name
         if last_name is not None:
             input_["last_name"] = last_name
-        input_["authentication_type"] = authentication_type
+        if authentication_type is not None:
+            input_["authentication_type"] = authentication_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2106,9 +2197,9 @@ class AppStreamClient:
 
     def delete_app_block(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_app_block_result.DeleteAppBlockResult":
         """<p>Deletes an app block.</p>
 
@@ -2138,7 +2229,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_app_block_request.DeleteAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2149,9 +2241,9 @@ class AppStreamClient:
 
     def delete_app_block_builder(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_app_block_builder_result.DeleteAppBlockBuilderResult":
         """<p>Deletes an app block builder.</p> <p>An app block builder can only be deleted when it has no association with an app block.</p>
 
@@ -2182,7 +2274,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_app_block_builder_request.DeleteAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2193,9 +2286,9 @@ class AppStreamClient:
 
     def delete_application(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_application_result.DeleteApplicationResult":
         """<p>Deletes an application.</p>
 
@@ -2226,7 +2319,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2237,9 +2331,11 @@ class AppStreamClient:
 
     def delete_directory_config(
         self,
-        directory_name: "capo_appstream.types.directory_name.DirectoryName",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        directory_name: Optional[
+            "capo_appstream.types.directory_name.DirectoryName"
+        ] = None,
     ) -> "capo_appstream.types.delete_directory_config_result.DeleteDirectoryConfigResult":
         """<p>Deletes the specified Directory Config object from WorkSpaces Applications. This object includes the information required to join streaming instances to an Active Directory domain.</p>
 
@@ -2268,7 +2364,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_directory_config_request.DeleteDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["directory_name"] = directory_name
+        if directory_name is not None:
+            input_["directory_name"] = directory_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2279,10 +2376,10 @@ class AppStreamClient:
 
     def delete_entitlement(
         self,
-        name: "capo_appstream.types.name.Name",
-        stack_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_entitlement_result.DeleteEntitlementResult":
         """<p>Deletes the specified entitlement.</p>
 
@@ -2314,8 +2411,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["stack_name"] = stack_name
+        if name is not None:
+            input_["name"] = name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2326,9 +2425,9 @@ class AppStreamClient:
 
     def delete_fleet(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.delete_fleet_result.DeleteFleetResult":
         """<p>Deletes the specified fleet.</p>
 
@@ -2358,7 +2457,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_fleet_request.DeleteFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2369,9 +2469,9 @@ class AppStreamClient:
 
     def delete_image(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_image_result.DeleteImageResult":
         """<p>Deletes the specified image. You cannot delete an image when it is in use. After you delete an image, you cannot provision new capacity using the image.</p>
 
@@ -2402,7 +2502,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2413,9 +2514,9 @@ class AppStreamClient:
 
     def delete_image_builder(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_image_builder_result.DeleteImageBuilderResult":
         """<p>Deletes the specified image builder and releases the capacity.</p>
 
@@ -2445,7 +2546,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_image_builder_request.DeleteImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2456,10 +2558,12 @@ class AppStreamClient:
 
     def delete_image_permissions(
         self,
-        name: "capo_appstream.types.name.Name",
-        shared_account_id: "capo_appstream.types.aws_account_id.AwsAccountId",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
+        shared_account_id: Optional[
+            "capo_appstream.types.aws_account_id.AwsAccountId"
+        ] = None,
     ) -> "capo_appstream.types.delete_image_permissions_result.DeleteImagePermissionsResult":
         """<p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>
 
@@ -2489,8 +2593,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_image_permissions_request.DeleteImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["shared_account_id"] = shared_account_id
+        if name is not None:
+            input_["name"] = name
+        if shared_account_id is not None:
+            input_["shared_account_id"] = shared_account_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2501,9 +2607,9 @@ class AppStreamClient:
 
     def delete_stack(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.delete_stack_result.DeleteStackResult":
         """<p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
 
@@ -2534,7 +2640,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_stack_request.DeleteStackRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2545,9 +2652,9 @@ class AppStreamClient:
 
     def delete_theme_for_stack(
         self,
-        stack_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.delete_theme_for_stack_result.DeleteThemeForStackResult":
         """<p>Deletes custom branding that customizes the appearance of the streaming application catalog page.</p>
 
@@ -2577,7 +2684,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_theme_for_stack_request.DeleteThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2623,10 +2731,12 @@ class AppStreamClient:
 
     def delete_user(
         self,
-        user_name: "capo_appstream.types.username.Username",
-        authentication_type: "capo_appstream.types.authentication_type.AuthenticationType",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        user_name: Optional["capo_appstream.types.username.Username"] = None,
+        authentication_type: Optional[
+            "capo_appstream.types.authentication_type.AuthenticationType"
+        ] = None,
     ) -> "capo_appstream.types.delete_user_result.DeleteUserResult":
         """<p>Deletes a user from the user pool.</p>
 
@@ -2655,8 +2765,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["authentication_type"] = authentication_type
+        if user_name is not None:
+            input_["user_name"] = user_name
+        if authentication_type is not None:
+            input_["authentication_type"] = authentication_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2930,9 +3042,9 @@ class AppStreamClient:
 
     def describe_app_license_usage(
         self,
-        billing_period: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        billing_period: Optional["capo_appstream.types.string.String"] = None,
         max_results: Optional["capo_appstream.types.integer.Integer"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.describe_app_license_usage_result.DescribeAppLicenseUsageResult":
@@ -2966,7 +3078,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.describe_app_license_usage_request.DescribeAppLicenseUsageRequest = {}  # type: ignore[typeddict-item]
-        input_["billing_period"] = billing_period
+        if billing_period is not None:
+            input_["billing_period"] = billing_period
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3033,10 +3146,10 @@ class AppStreamClient:
 
     def describe_entitlements(
         self,
-        stack_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
         name: Optional["capo_appstream.types.name.Name"] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
         max_results: Optional["capo_appstream.types.integer.Integer"] = None,
     ) -> "capo_appstream.types.describe_entitlements_result.DescribeEntitlementsResult":
@@ -3073,7 +3186,8 @@ class AppStreamClient:
         input_: capo_appstream.types.describe_entitlements_request.DescribeEntitlementsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
             input_["name"] = name
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -3184,9 +3298,9 @@ class AppStreamClient:
 
     def describe_image_permissions(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         max_results: Optional["capo_appstream.types.max_results.MaxResults"] = None,
         shared_aws_account_ids: Optional[
             "capo_appstream.types.aws_account_id_list.AwsAccountIdList"
@@ -3222,7 +3336,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.describe_image_permissions_request.DescribeImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if max_results is not None:
             input_["max_results"] = max_results
         if shared_aws_account_ids is not None:
@@ -3300,10 +3415,10 @@ class AppStreamClient:
 
     def describe_sessions(
         self,
-        stack_name: "capo_appstream.types.name.Name",
-        fleet_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
+        fleet_name: Optional["capo_appstream.types.name.Name"] = None,
         user_id: Optional["capo_appstream.types.user_id.UserId"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
         limit: Optional["capo_appstream.types.integer.Integer"] = None,
@@ -3344,8 +3459,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.describe_sessions_request.DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["fleet_name"] = fleet_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
         if user_id is not None:
             input_["user_id"] = user_id
         if next_token is not None:
@@ -3366,9 +3483,9 @@ class AppStreamClient:
 
     def describe_software_associations(
         self,
-        associated_resource: "capo_appstream.types.arn.Arn",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        associated_resource: Optional["capo_appstream.types.arn.Arn"] = None,
         max_results: Optional["capo_appstream.types.integer.Integer"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.describe_software_associations_result.DescribeSoftwareAssociationsResult":
@@ -3401,7 +3518,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.describe_software_associations_request.DescribeSoftwareAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["associated_resource"] = associated_resource
+        if associated_resource is not None:
+            input_["associated_resource"] = associated_resource
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3462,9 +3580,9 @@ class AppStreamClient:
 
     def describe_theme_for_stack(
         self,
-        stack_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.describe_theme_for_stack_result.DescribeThemeForStackResult":
         """<p>Retrieves a list that describes the theme for a specified stack. A theme is custom branding that customizes the appearance of the streaming application catalog page.</p>
 
@@ -3493,7 +3611,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.describe_theme_for_stack_request.DescribeThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3551,9 +3670,11 @@ class AppStreamClient:
 
     def describe_users(
         self,
-        authentication_type: "capo_appstream.types.authentication_type.AuthenticationType",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        authentication_type: Optional[
+            "capo_appstream.types.authentication_type.AuthenticationType"
+        ] = None,
         max_results: Optional["capo_appstream.types.integer.Integer"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.describe_users_result.DescribeUsersResult":
@@ -3587,7 +3708,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
-        input_["authentication_type"] = authentication_type
+        if authentication_type is not None:
+            input_["authentication_type"] = authentication_type
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3663,10 +3785,12 @@ class AppStreamClient:
 
     def disable_user(
         self,
-        user_name: "capo_appstream.types.username.Username",
-        authentication_type: "capo_appstream.types.authentication_type.AuthenticationType",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        user_name: Optional["capo_appstream.types.username.Username"] = None,
+        authentication_type: Optional[
+            "capo_appstream.types.authentication_type.AuthenticationType"
+        ] = None,
     ) -> "capo_appstream.types.disable_user_result.DisableUserResult":
         """<p>Disables the specified user in the user pool. Users can't sign in to WorkSpaces Applications until they are re-enabled. This action does not delete the user. </p>
 
@@ -3695,8 +3819,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["authentication_type"] = authentication_type
+        if user_name is not None:
+            input_["user_name"] = user_name
+        if authentication_type is not None:
+            input_["authentication_type"] = authentication_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3707,10 +3833,10 @@ class AppStreamClient:
 
     def disassociate_app_block_builder_app_block(
         self,
-        app_block_arn: "capo_appstream.types.arn.Arn",
-        app_block_builder_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        app_block_arn: Optional["capo_appstream.types.arn.Arn"] = None,
+        app_block_builder_name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.disassociate_app_block_builder_app_block_result.DisassociateAppBlockBuilderAppBlockResult":
         """<p>Disassociates a specified app block builder from a specified app block.</p>
 
@@ -3742,8 +3868,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.disassociate_app_block_builder_app_block_request.DisassociateAppBlockBuilderAppBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["app_block_arn"] = app_block_arn
-        input_["app_block_builder_name"] = app_block_builder_name
+        if app_block_arn is not None:
+            input_["app_block_arn"] = app_block_arn
+        if app_block_builder_name is not None:
+            input_["app_block_builder_name"] = app_block_builder_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3754,10 +3882,10 @@ class AppStreamClient:
 
     def disassociate_application_fleet(
         self,
-        fleet_name: "capo_appstream.types.name.Name",
-        application_arn: "capo_appstream.types.arn.Arn",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        fleet_name: Optional["capo_appstream.types.name.Name"] = None,
+        application_arn: Optional["capo_appstream.types.arn.Arn"] = None,
     ) -> "capo_appstream.types.disassociate_application_fleet_result.DisassociateApplicationFleetResult":
         """<p>Disassociates the specified application from the fleet.</p>
 
@@ -3788,8 +3916,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.disassociate_application_fleet_request.DisassociateApplicationFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["fleet_name"] = fleet_name
-        input_["application_arn"] = application_arn
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
+        if application_arn is not None:
+            input_["application_arn"] = application_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3800,11 +3930,11 @@ class AppStreamClient:
 
     def disassociate_application_from_entitlement(
         self,
-        stack_name: "capo_appstream.types.name.Name",
-        entitlement_name: "capo_appstream.types.name.Name",
-        application_identifier: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
+        entitlement_name: Optional["capo_appstream.types.name.Name"] = None,
+        application_identifier: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.disassociate_application_from_entitlement_result.DisassociateApplicationFromEntitlementResult":
         """<p>Deletes the specified application from the specified entitlement.</p>
 
@@ -3836,9 +3966,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.disassociate_application_from_entitlement_request.DisassociateApplicationFromEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["entitlement_name"] = entitlement_name
-        input_["application_identifier"] = application_identifier
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if entitlement_name is not None:
+            input_["entitlement_name"] = entitlement_name
+        if application_identifier is not None:
+            input_["application_identifier"] = application_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3849,10 +3982,10 @@ class AppStreamClient:
 
     def disassociate_fleet(
         self,
-        fleet_name: "capo_appstream.types.string.String",
-        stack_name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        fleet_name: Optional["capo_appstream.types.string.String"] = None,
+        stack_name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.disassociate_fleet_result.DisassociateFleetResult":
         """<p>Disassociates the specified fleet from the specified stack.</p>
 
@@ -3884,8 +4017,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.disassociate_fleet_request.DisassociateFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["fleet_name"] = fleet_name
-        input_["stack_name"] = stack_name
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3896,10 +4031,10 @@ class AppStreamClient:
 
     def disassociate_software_from_image_builder(
         self,
-        image_builder_name: "capo_appstream.types.name.Name",
-        software_names: "capo_appstream.types.string_list.StringList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        image_builder_name: Optional["capo_appstream.types.name.Name"] = None,
+        software_names: Optional["capo_appstream.types.string_list.StringList"] = None,
     ) -> "capo_appstream.types.disassociate_software_from_image_builder_result.DisassociateSoftwareFromImageBuilderResult":
         """<p>Removes license included application(s) association(s) from an image builder instance.</p>
 
@@ -3931,8 +4066,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.disassociate_software_from_image_builder_request.DisassociateSoftwareFromImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["image_builder_name"] = image_builder_name
-        input_["software_names"] = software_names
+        if image_builder_name is not None:
+            input_["image_builder_name"] = image_builder_name
+        if software_names is not None:
+            input_["software_names"] = software_names
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3943,9 +4080,9 @@ class AppStreamClient:
 
     def drain_session_instance(
         self,
-        session_id: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        session_id: Optional["capo_appstream.types.string.String"] = None,
     ) -> (
         "capo_appstream.types.drain_session_instance_result.DrainSessionInstanceResult"
     ):
@@ -3977,7 +4114,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.drain_session_instance_request.DrainSessionInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["session_id"] = session_id
+        if session_id is not None:
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3988,10 +4126,12 @@ class AppStreamClient:
 
     def enable_user(
         self,
-        user_name: "capo_appstream.types.username.Username",
-        authentication_type: "capo_appstream.types.authentication_type.AuthenticationType",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        user_name: Optional["capo_appstream.types.username.Username"] = None,
+        authentication_type: Optional[
+            "capo_appstream.types.authentication_type.AuthenticationType"
+        ] = None,
     ) -> "capo_appstream.types.enable_user_result.EnableUserResult":
         r"""<p>Enables a user in the user pool. After being enabled, users can sign in to WorkSpaces Applications and open applications from the stacks to which they are assigned.</p>
 
@@ -4021,8 +4161,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.enable_user_request.EnableUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["authentication_type"] = authentication_type
+        if user_name is not None:
+            input_["user_name"] = user_name
+        if authentication_type is not None:
+            input_["authentication_type"] = authentication_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4033,9 +4175,9 @@ class AppStreamClient:
 
     def expire_session(
         self,
-        session_id: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        session_id: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.expire_session_result.ExpireSessionResult":
         """<p>Immediately stops the specified streaming session.</p>
 
@@ -4062,7 +4204,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.expire_session_request.ExpireSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_id"] = session_id
+        if session_id is not None:
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4116,9 +4259,9 @@ class AppStreamClient:
 
     def list_associated_fleets(
         self,
-        stack_name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.string.String"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
     ) -> (
         "capo_appstream.types.list_associated_fleets_result.ListAssociatedFleetsResult"
@@ -4149,7 +4292,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.list_associated_fleets_request.ListAssociatedFleetsRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -4162,9 +4306,9 @@ class AppStreamClient:
 
     def list_associated_stacks(
         self,
-        fleet_name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        fleet_name: Optional["capo_appstream.types.string.String"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
     ) -> (
         "capo_appstream.types.list_associated_stacks_result.ListAssociatedStacksResult"
@@ -4195,7 +4339,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.list_associated_stacks_request.ListAssociatedStacksRequest = {}  # type: ignore[typeddict-item]
-        input_["fleet_name"] = fleet_name
+        if fleet_name is not None:
+            input_["fleet_name"] = fleet_name
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -4208,10 +4353,10 @@ class AppStreamClient:
 
     def list_entitled_applications(
         self,
-        stack_name: "capo_appstream.types.name.Name",
-        entitlement_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
+        entitlement_name: Optional["capo_appstream.types.name.Name"] = None,
         next_token: Optional["capo_appstream.types.string.String"] = None,
         max_results: Optional["capo_appstream.types.integer.Integer"] = None,
     ) -> "capo_appstream.types.list_entitled_applications_result.ListEntitledApplicationsResult":
@@ -4246,8 +4391,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.list_entitled_applications_request.ListEntitledApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
-        input_["entitlement_name"] = entitlement_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
+        if entitlement_name is not None:
+            input_["entitlement_name"] = entitlement_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4314,9 +4461,9 @@ class AppStreamClient:
 
     def list_tags_for_resource(
         self,
-        resource_arn: "capo_appstream.types.arn.Arn",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        resource_arn: Optional["capo_appstream.types.arn.Arn"] = None,
     ) -> "capo_appstream.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         r"""<p>Retrieves a list of all tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
@@ -4344,7 +4491,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4355,9 +4503,9 @@ class AppStreamClient:
 
     def start_app_block_builder(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> (
         "capo_appstream.types.start_app_block_builder_result.StartAppBlockBuilderResult"
     ):
@@ -4393,7 +4541,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.start_app_block_builder_request.StartAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4404,9 +4553,9 @@ class AppStreamClient:
 
     def start_fleet(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.start_fleet_result.StartFleetResult":
         """<p>Starts the specified fleet.</p>
 
@@ -4441,7 +4590,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.start_fleet_request.StartFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4452,9 +4602,9 @@ class AppStreamClient:
 
     def start_image_builder(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
         appstream_agent_version: Optional[
             "capo_appstream.types.appstream_agent_version.AppstreamAgentVersion"
         ] = None,
@@ -4490,7 +4640,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.start_image_builder_request.StartImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if appstream_agent_version is not None:
             input_["appstream_agent_version"] = appstream_agent_version
 
@@ -4503,9 +4654,9 @@ class AppStreamClient:
 
     def start_software_deployment_to_image_builder(
         self,
-        image_builder_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        image_builder_name: Optional["capo_appstream.types.name.Name"] = None,
         retry_failed_deployments: Optional[
             "capo_appstream.types.boolean.Boolean"
         ] = None,
@@ -4539,7 +4690,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.start_software_deployment_to_image_builder_request.StartSoftwareDeploymentToImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["image_builder_name"] = image_builder_name
+        if image_builder_name is not None:
+            input_["image_builder_name"] = image_builder_name
         if retry_failed_deployments is not None:
             input_["retry_failed_deployments"] = retry_failed_deployments
 
@@ -4552,9 +4704,9 @@ class AppStreamClient:
 
     def stop_app_block_builder(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
     ) -> "capo_appstream.types.stop_app_block_builder_result.StopAppBlockBuilderResult":
         """<p>Stops an app block builder.</p> <p>Stopping an app block builder terminates the instance, and the instance state is not persisted.</p>
 
@@ -4584,7 +4736,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.stop_app_block_builder_request.StopAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4595,9 +4748,9 @@ class AppStreamClient:
 
     def stop_fleet(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.stop_fleet_result.StopFleetResult":
         """<p>Stops the specified fleet.</p>
 
@@ -4626,7 +4779,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.stop_fleet_request.StopFleetRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4637,9 +4791,9 @@ class AppStreamClient:
 
     def stop_image_builder(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
     ) -> "capo_appstream.types.stop_image_builder_result.StopImageBuilderResult":
         """<p>Stops the specified image builder.</p>
 
@@ -4669,7 +4823,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.stop_image_builder_request.StopImageBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4680,10 +4835,10 @@ class AppStreamClient:
 
     def tag_resource(
         self,
-        resource_arn: "capo_appstream.types.arn.Arn",
-        tags: "capo_appstream.types.tags.Tags",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        resource_arn: Optional["capo_appstream.types.arn.Arn"] = None,
+        tags: Optional["capo_appstream.types.tags.Tags"] = None,
     ) -> "capo_appstream.types.tag_resource_response.TagResourceResponse":
         r"""<p>Adds or overwrites one or more tags for the specified WorkSpaces Applications resource. You can tag WorkSpaces Applications image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
@@ -4714,8 +4869,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4726,10 +4883,10 @@ class AppStreamClient:
 
     def untag_resource(
         self,
-        resource_arn: "capo_appstream.types.arn.Arn",
-        tag_keys: "capo_appstream.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        resource_arn: Optional["capo_appstream.types.arn.Arn"] = None,
+        tag_keys: Optional["capo_appstream.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_appstream.types.untag_resource_response.UntagResourceResponse":
         r"""<p>Disassociates one or more specified tags from the specified WorkSpaces Applications resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 
@@ -4758,8 +4915,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4770,9 +4929,9 @@ class AppStreamClient:
 
     def update_app_block_builder(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         platform: Optional["capo_appstream.types.platform_type.PlatformType"] = None,
@@ -4837,7 +4996,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.update_app_block_builder_request.UpdateAppBlockBuilderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if display_name is not None:
@@ -4868,9 +5028,9 @@ class AppStreamClient:
 
     def update_application(
         self,
-        name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         icon_s3_location: Optional[
@@ -4920,7 +5080,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if display_name is not None:
             input_["display_name"] = display_name
         if description is not None:
@@ -4947,9 +5108,11 @@ class AppStreamClient:
 
     def update_directory_config(
         self,
-        directory_name: "capo_appstream.types.directory_name.DirectoryName",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        directory_name: Optional[
+            "capo_appstream.types.directory_name.DirectoryName"
+        ] = None,
         organizational_unit_distinguished_names: Optional[
             "capo_appstream.types.organizational_unit_distinguished_names_list.OrganizationalUnitDistinguishedNamesList"
         ] = None,
@@ -4994,7 +5157,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.update_directory_config_request.UpdateDirectoryConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["directory_name"] = directory_name
+        if directory_name is not None:
+            input_["directory_name"] = directory_name
         if organizational_unit_distinguished_names is not None:
             input_["organizational_unit_distinguished_names"] = (
                 organizational_unit_distinguished_names
@@ -5015,10 +5179,10 @@ class AppStreamClient:
 
     def update_entitlement(
         self,
-        name: "capo_appstream.types.name.Name",
-        stack_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
         app_visibility: Optional[
             "capo_appstream.types.app_visibility.AppVisibility"
@@ -5060,8 +5224,10 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.update_entitlement_request.UpdateEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["stack_name"] = stack_name
+        if name is not None:
+            input_["name"] = name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if description is not None:
             input_["description"] = description
         if app_visibility is not None:
@@ -5250,11 +5416,15 @@ class AppStreamClient:
 
     def update_image_permissions(
         self,
-        name: "capo_appstream.types.name.Name",
-        shared_account_id: "capo_appstream.types.aws_account_id.AwsAccountId",
-        image_permissions: "capo_appstream.types.image_permissions.ImagePermissions",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        name: Optional["capo_appstream.types.name.Name"] = None,
+        shared_account_id: Optional[
+            "capo_appstream.types.aws_account_id.AwsAccountId"
+        ] = None,
+        image_permissions: Optional[
+            "capo_appstream.types.image_permissions.ImagePermissions"
+        ] = None,
     ) -> "capo_appstream.types.update_image_permissions_result.UpdateImagePermissionsResult":
         """<p>Adds or updates permissions for the specified private image. </p>
 
@@ -5286,9 +5456,12 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.update_image_permissions_request.UpdateImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["shared_account_id"] = shared_account_id
-        input_["image_permissions"] = image_permissions
+        if name is not None:
+            input_["name"] = name
+        if shared_account_id is not None:
+            input_["shared_account_id"] = shared_account_id
+        if image_permissions is not None:
+            input_["image_permissions"] = image_permissions
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5299,11 +5472,11 @@ class AppStreamClient:
 
     def update_stack(
         self,
-        name: "capo_appstream.types.string.String",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
         display_name: Optional["capo_appstream.types.display_name.DisplayName"] = None,
         description: Optional["capo_appstream.types.description.Description"] = None,
+        name: Optional["capo_appstream.types.string.String"] = None,
         storage_connectors: Optional[
             "capo_appstream.types.storage_connector_list.StorageConnectorList"
         ] = None,
@@ -5388,7 +5561,8 @@ class AppStreamClient:
             input_["display_name"] = display_name
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if storage_connectors is not None:
             input_["storage_connectors"] = storage_connectors
         if delete_storage_connectors is not None:
@@ -5423,9 +5597,9 @@ class AppStreamClient:
 
     def update_theme_for_stack(
         self,
-        stack_name: "capo_appstream.types.name.Name",
         *,
         config_overrides: Optional[AppStreamClientConfig] = None,
+        stack_name: Optional["capo_appstream.types.name.Name"] = None,
         footer_links: Optional[
             "capo_appstream.types.theme_footer_links.ThemeFooterLinks"
         ] = None,
@@ -5484,7 +5658,8 @@ class AppStreamClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_appstream.types.update_theme_for_stack_request.UpdateThemeForStackRequest = {}  # type: ignore[typeddict-item]
-        input_["stack_name"] = stack_name
+        if stack_name is not None:
+            input_["stack_name"] = stack_name
         if footer_links is not None:
             input_["footer_links"] = footer_links
         if title_text is not None:

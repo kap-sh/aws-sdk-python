@@ -20,7 +20,8 @@ class VerifyDomainIdentityRequest(TypedDict, closed=True):
 def serialize_query(
     value: VerifyDomainIdentityRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Domain", str(value["domain"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Domain", str(value["domain"])))
 
 
 def deserialize_query(el: Element) -> VerifyDomainIdentityRequest:

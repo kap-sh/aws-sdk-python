@@ -25,12 +25,13 @@ class CreatePlatformApplicationInput(TypedDict, closed=True):
 def serialize_query(
     value: CreatePlatformApplicationInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
-    pairs.append((f"{prefix}.Platform", str(value["platform"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
+    pairs.append((f"{key_prefix}Platform", str(value["platform"])))
     import capo_sns.types.map_string_to_string
 
     capo_sns.types.map_string_to_string.serialize_query(
-        value["attributes"], pairs, f"{prefix}.Attributes"
+        value["attributes"], pairs, f"{key_prefix}Attributes"
     )
 
 

@@ -19,8 +19,9 @@ class DeleteUserGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteUserGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_group_id" in value:
-        pairs.append((f"{prefix}.UserGroupId", str(value["user_group_id"])))
+        pairs.append((f"{key_prefix}UserGroupId", str(value["user_group_id"])))
 
 
 def deserialize_query(el: Element) -> DeleteUserGroupMessage:

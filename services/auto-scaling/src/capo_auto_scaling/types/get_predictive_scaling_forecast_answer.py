@@ -27,23 +27,24 @@ class GetPredictiveScalingForecastAnswer(TypedDict, closed=True):
 def serialize_query(
     value: GetPredictiveScalingForecastAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_forecast" in value:
         import capo_auto_scaling.types.load_forecasts
 
         capo_auto_scaling.types.load_forecasts.serialize_query(
-            value["load_forecast"], pairs, f"{prefix}.LoadForecast"
+            value["load_forecast"], pairs, f"{key_prefix}LoadForecast"
         )
     if "capacity_forecast" in value:
         import capo_auto_scaling.types.capacity_forecast
 
         capo_auto_scaling.types.capacity_forecast.serialize_query(
-            value["capacity_forecast"], pairs, f"{prefix}.CapacityForecast"
+            value["capacity_forecast"], pairs, f"{key_prefix}CapacityForecast"
         )
     if "update_time" in value:
         import capo_auto_scaling.types.timestamp_type
 
         capo_auto_scaling.types.timestamp_type.serialize_query(
-            value["update_time"], pairs, f"{prefix}.UpdateTime"
+            value["update_time"], pairs, f"{key_prefix}UpdateTime"
         )
 
 

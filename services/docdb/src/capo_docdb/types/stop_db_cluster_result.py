@@ -18,11 +18,12 @@ class StopDBClusterResult(TypedDict, closed=True):
 def serialize_query(
     value: StopDBClusterResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster" in value:
         import capo_docdb.types.db_cluster
 
         capo_docdb.types.db_cluster.serialize_query(
-            value["db_cluster"], pairs, f"{prefix}.DBCluster"
+            value["db_cluster"], pairs, f"{key_prefix}DBCluster"
         )
 
 

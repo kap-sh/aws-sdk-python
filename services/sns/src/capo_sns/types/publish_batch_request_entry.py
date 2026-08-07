@@ -38,24 +38,28 @@ class PublishBatchRequestEntry(TypedDict, closed=True):
 def serialize_query(
     value: PublishBatchRequestEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Id", str(value["id"])))
-    pairs.append((f"{prefix}.Message", str(value["message"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Id", str(value["id"])))
+    pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "subject" in value:
-        pairs.append((f"{prefix}.Subject", str(value["subject"])))
+        pairs.append((f"{key_prefix}Subject", str(value["subject"])))
     if "message_structure" in value:
-        pairs.append((f"{prefix}.MessageStructure", str(value["message_structure"])))
+        pairs.append((f"{key_prefix}MessageStructure", str(value["message_structure"])))
     if "message_attributes" in value:
         import capo_sns.types.message_attribute_map
 
         capo_sns.types.message_attribute_map.serialize_query(
-            value["message_attributes"], pairs, f"{prefix}.MessageAttributes"
+            value["message_attributes"], pairs, f"{key_prefix}MessageAttributes"
         )
     if "message_deduplication_id" in value:
         pairs.append(
-            (f"{prefix}.MessageDeduplicationId", str(value["message_deduplication_id"]))
+            (
+                f"{key_prefix}MessageDeduplicationId",
+                str(value["message_deduplication_id"]),
+            )
         )
     if "message_group_id" in value:
-        pairs.append((f"{prefix}.MessageGroupId", str(value["message_group_id"])))
+        pairs.append((f"{key_prefix}MessageGroupId", str(value["message_group_id"])))
 
 
 def deserialize_query(el: Element) -> PublishBatchRequestEntry:

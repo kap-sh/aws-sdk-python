@@ -42,40 +42,41 @@ class DescribeScheduledActionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeScheduledActionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scheduled_action_name" in value:
         pairs.append(
-            (f"{prefix}.ScheduledActionName", str(value["scheduled_action_name"]))
+            (f"{key_prefix}ScheduledActionName", str(value["scheduled_action_name"]))
         )
     if "target_action_type" in value:
         import capo_redshift.types.scheduled_action_type_values
 
         capo_redshift.types.scheduled_action_type_values.serialize_query(
-            value["target_action_type"], pairs, f"{prefix}.TargetActionType"
+            value["target_action_type"], pairs, f"{key_prefix}TargetActionType"
         )
     if "start_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "active" in value:
-        pairs.append((f"{prefix}.Active", "true" if value["active"] else "false"))
+        pairs.append((f"{key_prefix}Active", "true" if value["active"] else "false"))
     if "filters" in value:
         import capo_redshift.types.scheduled_action_filter_list
 
         capo_redshift.types.scheduled_action_filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
 
 
 def deserialize_query(el: Element) -> DescribeScheduledActionsMessage:

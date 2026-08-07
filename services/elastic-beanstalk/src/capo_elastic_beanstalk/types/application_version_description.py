@@ -56,47 +56,53 @@ class ApplicationVersionDescription(TypedDict, closed=True):
 def serialize_query(
     value: ApplicationVersionDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_version_arn" in value:
         pairs.append(
-            (f"{prefix}.ApplicationVersionArn", str(value["application_version_arn"]))
+            (
+                f"{key_prefix}ApplicationVersionArn",
+                str(value["application_version_arn"]),
+            )
         )
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "version_label" in value:
-        pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+        pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "source_build_information" in value:
         import capo_elastic_beanstalk.types.source_build_information
 
         capo_elastic_beanstalk.types.source_build_information.serialize_query(
-            value["source_build_information"], pairs, f"{prefix}.SourceBuildInformation"
+            value["source_build_information"],
+            pairs,
+            f"{key_prefix}SourceBuildInformation",
         )
     if "build_arn" in value:
-        pairs.append((f"{prefix}.BuildArn", str(value["build_arn"])))
+        pairs.append((f"{key_prefix}BuildArn", str(value["build_arn"])))
     if "source_bundle" in value:
         import capo_elastic_beanstalk.types.s3_location
 
         capo_elastic_beanstalk.types.s3_location.serialize_query(
-            value["source_bundle"], pairs, f"{prefix}.SourceBundle"
+            value["source_bundle"], pairs, f"{key_prefix}SourceBundle"
         )
     if "date_created" in value:
         import capo_elastic_beanstalk.types.creation_date
 
         capo_elastic_beanstalk.types.creation_date.serialize_query(
-            value["date_created"], pairs, f"{prefix}.DateCreated"
+            value["date_created"], pairs, f"{key_prefix}DateCreated"
         )
     if "date_updated" in value:
         import capo_elastic_beanstalk.types.update_date
 
         capo_elastic_beanstalk.types.update_date.serialize_query(
-            value["date_updated"], pairs, f"{prefix}.DateUpdated"
+            value["date_updated"], pairs, f"{key_prefix}DateUpdated"
         )
     if "status" in value:
         import capo_elastic_beanstalk.types.application_version_status
 
         capo_elastic_beanstalk.types.application_version_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

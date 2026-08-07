@@ -24,15 +24,16 @@ class StartResourceScanInput(TypedDict, closed=True):
 def serialize_query(
     value: StartResourceScanInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
     if "scan_filters" in value:
         import capo_cloudformation.types.scan_filters
 
         capo_cloudformation.types.scan_filters.serialize_query(
-            value["scan_filters"], pairs, f"{prefix}.ScanFilters"
+            value["scan_filters"], pairs, f"{key_prefix}ScanFilters"
         )
 
 

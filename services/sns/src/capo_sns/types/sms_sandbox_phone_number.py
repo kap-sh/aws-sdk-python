@@ -24,13 +24,14 @@ class SMSSandboxPhoneNumber(TypedDict, closed=True):
 def serialize_query(
     value: SMSSandboxPhoneNumber, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "phone_number" in value:
-        pairs.append((f"{prefix}.PhoneNumber", str(value["phone_number"])))
+        pairs.append((f"{key_prefix}PhoneNumber", str(value["phone_number"])))
     if "status" in value:
         import capo_sns.types.sms_sandbox_phone_number_verification_status
 
         capo_sns.types.sms_sandbox_phone_number_verification_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

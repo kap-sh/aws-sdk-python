@@ -25,10 +25,11 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
-    pairs.append((f"{prefix}.Identity", str(value["identity"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Identity", str(value["identity"])))
     pairs.append(
         (
-            f"{prefix}.ForwardingEnabled",
+            f"{key_prefix}ForwardingEnabled",
             "true" if value.get("forwarding_enabled", False) else "false",
         )
     )

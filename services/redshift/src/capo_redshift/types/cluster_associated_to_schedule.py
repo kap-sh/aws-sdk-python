@@ -24,15 +24,18 @@ class ClusterAssociatedToSchedule(TypedDict, closed=True):
 def serialize_query(
     value: ClusterAssociatedToSchedule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "schedule_association_state" in value:
         import capo_redshift.types.schedule_state
 
         capo_redshift.types.schedule_state.serialize_query(
             value["schedule_association_state"],
             pairs,
-            f"{prefix}.ScheduleAssociationState",
+            f"{key_prefix}ScheduleAssociationState",
         )
 
 

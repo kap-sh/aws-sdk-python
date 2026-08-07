@@ -22,14 +22,15 @@ class DescribeStackEventsOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeStackEventsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_events" in value:
         import capo_cloudformation.types.stack_events
 
         capo_cloudformation.types.stack_events.serialize_query(
-            value["stack_events"], pairs, f"{prefix}.StackEvents"
+            value["stack_events"], pairs, f"{key_prefix}StackEvents"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeStackEventsOutput:

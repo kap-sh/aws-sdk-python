@@ -35,32 +35,33 @@ class LogDeliveryConfigurationRequest(TypedDict, closed=True):
 def serialize_query(
     value: LogDeliveryConfigurationRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "log_type" in value:
         import capo_elasticache.types.log_type
 
         capo_elasticache.types.log_type.serialize_query(
-            value["log_type"], pairs, f"{prefix}.LogType"
+            value["log_type"], pairs, f"{key_prefix}LogType"
         )
     if "destination_type" in value:
         import capo_elasticache.types.destination_type
 
         capo_elasticache.types.destination_type.serialize_query(
-            value["destination_type"], pairs, f"{prefix}.DestinationType"
+            value["destination_type"], pairs, f"{key_prefix}DestinationType"
         )
     if "destination_details" in value:
         import capo_elasticache.types.destination_details
 
         capo_elasticache.types.destination_details.serialize_query(
-            value["destination_details"], pairs, f"{prefix}.DestinationDetails"
+            value["destination_details"], pairs, f"{key_prefix}DestinationDetails"
         )
     if "log_format" in value:
         import capo_elasticache.types.log_format
 
         capo_elasticache.types.log_format.serialize_query(
-            value["log_format"], pairs, f"{prefix}.LogFormat"
+            value["log_format"], pairs, f"{key_prefix}LogFormat"
         )
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
 
 
 def deserialize_query(el: Element) -> LogDeliveryConfigurationRequest:

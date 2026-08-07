@@ -213,48 +213,51 @@ class Cluster(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "node_type" in value:
-        pairs.append((f"{prefix}.NodeType", str(value["node_type"])))
+        pairs.append((f"{key_prefix}NodeType", str(value["node_type"])))
     if "cluster_status" in value:
-        pairs.append((f"{prefix}.ClusterStatus", str(value["cluster_status"])))
+        pairs.append((f"{key_prefix}ClusterStatus", str(value["cluster_status"])))
     if "cluster_availability_status" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterAvailabilityStatus",
+                f"{key_prefix}ClusterAvailabilityStatus",
                 str(value["cluster_availability_status"]),
             )
         )
     if "modify_status" in value:
-        pairs.append((f"{prefix}.ModifyStatus", str(value["modify_status"])))
+        pairs.append((f"{key_prefix}ModifyStatus", str(value["modify_status"])))
     if "master_username" in value:
-        pairs.append((f"{prefix}.MasterUsername", str(value["master_username"])))
+        pairs.append((f"{key_prefix}MasterUsername", str(value["master_username"])))
     if "db_name" in value:
-        pairs.append((f"{prefix}.DBName", str(value["db_name"])))
+        pairs.append((f"{key_prefix}DBName", str(value["db_name"])))
     if "endpoint" in value:
         import capo_redshift.types.endpoint
 
         capo_redshift.types.endpoint.serialize_query(
-            value["endpoint"], pairs, f"{prefix}.Endpoint"
+            value["endpoint"], pairs, f"{key_prefix}Endpoint"
         )
     if "cluster_create_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["cluster_create_time"], pairs, f"{prefix}.ClusterCreateTime"
+            value["cluster_create_time"], pairs, f"{key_prefix}ClusterCreateTime"
         )
     if "automated_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.AutomatedSnapshotRetentionPeriod",
+                f"{key_prefix}AutomatedSnapshotRetentionPeriod",
                 str(value["automated_snapshot_retention_period"]),
             )
         )
     if "manual_snapshot_retention_period" in value:
         pairs.append(
             (
-                f"{prefix}.ManualSnapshotRetentionPeriod",
+                f"{key_prefix}ManualSnapshotRetentionPeriod",
                 str(value["manual_snapshot_retention_period"]),
             )
         )
@@ -262,35 +265,39 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         import capo_redshift.types.cluster_security_group_membership_list
 
         capo_redshift.types.cluster_security_group_membership_list.serialize_query(
-            value["cluster_security_groups"], pairs, f"{prefix}.ClusterSecurityGroups"
+            value["cluster_security_groups"],
+            pairs,
+            f"{key_prefix}ClusterSecurityGroups",
         )
     if "vpc_security_groups" in value:
         import capo_redshift.types.vpc_security_group_membership_list
 
         capo_redshift.types.vpc_security_group_membership_list.serialize_query(
-            value["vpc_security_groups"], pairs, f"{prefix}.VpcSecurityGroups"
+            value["vpc_security_groups"], pairs, f"{key_prefix}VpcSecurityGroups"
         )
     if "cluster_parameter_groups" in value:
         import capo_redshift.types.cluster_parameter_group_status_list
 
         capo_redshift.types.cluster_parameter_group_status_list.serialize_query(
-            value["cluster_parameter_groups"], pairs, f"{prefix}.ClusterParameterGroups"
+            value["cluster_parameter_groups"],
+            pairs,
+            f"{key_prefix}ClusterParameterGroups",
         )
     if "cluster_subnet_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterSubnetGroupName",
+                f"{key_prefix}ClusterSubnetGroupName",
                 str(value["cluster_subnet_group_name"]),
             )
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "availability_zone" in value:
-        pairs.append((f"{prefix}.AvailabilityZone", str(value["availability_zone"])))
+        pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "preferred_maintenance_window" in value:
         pairs.append(
             (
-                f"{prefix}.PreferredMaintenanceWindow",
+                f"{key_prefix}PreferredMaintenanceWindow",
                 str(value["preferred_maintenance_window"]),
             )
         )
@@ -298,45 +305,49 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         import capo_redshift.types.pending_modified_values
 
         capo_redshift.types.pending_modified_values.serialize_query(
-            value["pending_modified_values"], pairs, f"{prefix}.PendingModifiedValues"
+            value["pending_modified_values"],
+            pairs,
+            f"{key_prefix}PendingModifiedValues",
         )
     if "cluster_version" in value:
-        pairs.append((f"{prefix}.ClusterVersion", str(value["cluster_version"])))
+        pairs.append((f"{key_prefix}ClusterVersion", str(value["cluster_version"])))
     if "allow_version_upgrade" in value:
         pairs.append(
             (
-                f"{prefix}.AllowVersionUpgrade",
+                f"{key_prefix}AllowVersionUpgrade",
                 "true" if value["allow_version_upgrade"] else "false",
             )
         )
     if "number_of_nodes" in value:
-        pairs.append((f"{prefix}.NumberOfNodes", str(value["number_of_nodes"])))
+        pairs.append((f"{key_prefix}NumberOfNodes", str(value["number_of_nodes"])))
     if "publicly_accessible" in value:
         pairs.append(
             (
-                f"{prefix}.PubliclyAccessible",
+                f"{key_prefix}PubliclyAccessible",
                 "true" if value["publicly_accessible"] else "false",
             )
         )
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "restore_status" in value:
         import capo_redshift.types.restore_status
 
         capo_redshift.types.restore_status.serialize_query(
-            value["restore_status"], pairs, f"{prefix}.RestoreStatus"
+            value["restore_status"], pairs, f"{key_prefix}RestoreStatus"
         )
     if "data_transfer_progress" in value:
         import capo_redshift.types.data_transfer_progress
 
         capo_redshift.types.data_transfer_progress.serialize_query(
-            value["data_transfer_progress"], pairs, f"{prefix}.DataTransferProgress"
+            value["data_transfer_progress"], pairs, f"{key_prefix}DataTransferProgress"
         )
     if "hsm_status" in value:
         import capo_redshift.types.hsm_status
 
         capo_redshift.types.hsm_status.serialize_query(
-            value["hsm_status"], pairs, f"{prefix}.HsmStatus"
+            value["hsm_status"], pairs, f"{key_prefix}HsmStatus"
         )
     if "cluster_snapshot_copy_status" in value:
         import capo_redshift.types.cluster_snapshot_copy_status
@@ -344,38 +355,43 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         capo_redshift.types.cluster_snapshot_copy_status.serialize_query(
             value["cluster_snapshot_copy_status"],
             pairs,
-            f"{prefix}.ClusterSnapshotCopyStatus",
+            f"{key_prefix}ClusterSnapshotCopyStatus",
         )
     if "cluster_public_key" in value:
-        pairs.append((f"{prefix}.ClusterPublicKey", str(value["cluster_public_key"])))
+        pairs.append(
+            (f"{key_prefix}ClusterPublicKey", str(value["cluster_public_key"]))
+        )
     if "cluster_nodes" in value:
         import capo_redshift.types.cluster_nodes_list
 
         capo_redshift.types.cluster_nodes_list.serialize_query(
-            value["cluster_nodes"], pairs, f"{prefix}.ClusterNodes"
+            value["cluster_nodes"], pairs, f"{key_prefix}ClusterNodes"
         )
     if "elastic_ip_status" in value:
         import capo_redshift.types.elastic_ip_status
 
         capo_redshift.types.elastic_ip_status.serialize_query(
-            value["elastic_ip_status"], pairs, f"{prefix}.ElasticIpStatus"
+            value["elastic_ip_status"], pairs, f"{key_prefix}ElasticIpStatus"
         )
     if "cluster_revision_number" in value:
         pairs.append(
-            (f"{prefix}.ClusterRevisionNumber", str(value["cluster_revision_number"]))
+            (
+                f"{key_prefix}ClusterRevisionNumber",
+                str(value["cluster_revision_number"]),
+            )
         )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "enhanced_vpc_routing" in value:
         pairs.append(
             (
-                f"{prefix}.EnhancedVpcRouting",
+                f"{key_prefix}EnhancedVpcRouting",
                 "true" if value["enhanced_vpc_routing"] else "false",
             )
         )
@@ -383,22 +399,22 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         import capo_redshift.types.cluster_iam_role_list
 
         capo_redshift.types.cluster_iam_role_list.serialize_query(
-            value["iam_roles"], pairs, f"{prefix}.IamRoles"
+            value["iam_roles"], pairs, f"{key_prefix}IamRoles"
         )
     if "pending_actions" in value:
         import capo_redshift.types.pending_actions_list
 
         capo_redshift.types.pending_actions_list.serialize_query(
-            value["pending_actions"], pairs, f"{prefix}.PendingActions"
+            value["pending_actions"], pairs, f"{key_prefix}PendingActions"
         )
     if "maintenance_track_name" in value:
         pairs.append(
-            (f"{prefix}.MaintenanceTrackName", str(value["maintenance_track_name"]))
+            (f"{key_prefix}MaintenanceTrackName", str(value["maintenance_track_name"]))
         )
     if "elastic_resize_number_of_node_options" in value:
         pairs.append(
             (
-                f"{prefix}.ElasticResizeNumberOfNodeOptions",
+                f"{key_prefix}ElasticResizeNumberOfNodeOptions",
                 str(value["elastic_resize_number_of_node_options"]),
             )
         )
@@ -408,12 +424,12 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         capo_redshift.types.deferred_maintenance_windows_list.serialize_query(
             value["deferred_maintenance_windows"],
             pairs,
-            f"{prefix}.DeferredMaintenanceWindows",
+            f"{key_prefix}DeferredMaintenanceWindows",
         )
     if "snapshot_schedule_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SnapshotScheduleIdentifier",
+                f"{key_prefix}SnapshotScheduleIdentifier",
                 str(value["snapshot_schedule_identifier"]),
             )
         )
@@ -421,7 +437,9 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         import capo_redshift.types.schedule_state
 
         capo_redshift.types.schedule_state.serialize_query(
-            value["snapshot_schedule_state"], pairs, f"{prefix}.SnapshotScheduleState"
+            value["snapshot_schedule_state"],
+            pairs,
+            f"{key_prefix}SnapshotScheduleState",
         )
     if "expected_next_snapshot_schedule_time" in value:
         import capo_redshift.types.t_stamp
@@ -429,12 +447,12 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         capo_redshift.types.t_stamp.serialize_query(
             value["expected_next_snapshot_schedule_time"],
             pairs,
-            f"{prefix}.ExpectedNextSnapshotScheduleTime",
+            f"{key_prefix}ExpectedNextSnapshotScheduleTime",
         )
     if "expected_next_snapshot_schedule_time_status" in value:
         pairs.append(
             (
-                f"{prefix}.ExpectedNextSnapshotScheduleTimeStatus",
+                f"{key_prefix}ExpectedNextSnapshotScheduleTimeStatus",
                 str(value["expected_next_snapshot_schedule_time_status"]),
             )
         )
@@ -444,29 +462,29 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         capo_redshift.types.t_stamp.serialize_query(
             value["next_maintenance_window_start_time"],
             pairs,
-            f"{prefix}.NextMaintenanceWindowStartTime",
+            f"{key_prefix}NextMaintenanceWindowStartTime",
         )
     if "resize_info" in value:
         import capo_redshift.types.resize_info
 
         capo_redshift.types.resize_info.serialize_query(
-            value["resize_info"], pairs, f"{prefix}.ResizeInfo"
+            value["resize_info"], pairs, f"{key_prefix}ResizeInfo"
         )
     if "availability_zone_relocation_status" in value:
         pairs.append(
             (
-                f"{prefix}.AvailabilityZoneRelocationStatus",
+                f"{key_prefix}AvailabilityZoneRelocationStatus",
                 str(value["availability_zone_relocation_status"]),
             )
         )
     if "cluster_namespace_arn" in value:
         pairs.append(
-            (f"{prefix}.ClusterNamespaceArn", str(value["cluster_namespace_arn"]))
+            (f"{key_prefix}ClusterNamespaceArn", str(value["cluster_namespace_arn"]))
         )
     if "total_storage_capacity_in_mega_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.TotalStorageCapacityInMegaBytes",
+                f"{key_prefix}TotalStorageCapacityInMegaBytes",
                 str(value["total_storage_capacity_in_mega_bytes"]),
             )
         )
@@ -474,11 +492,11 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         import capo_redshift.types.aqua_configuration
 
         capo_redshift.types.aqua_configuration.serialize_query(
-            value["aqua_configuration"], pairs, f"{prefix}.AquaConfiguration"
+            value["aqua_configuration"], pairs, f"{key_prefix}AquaConfiguration"
         )
     if "default_iam_role_arn" in value:
         pairs.append(
-            (f"{prefix}.DefaultIamRoleArn", str(value["default_iam_role_arn"]))
+            (f"{key_prefix}DefaultIamRoleArn", str(value["default_iam_role_arn"]))
         )
     if "reserved_node_exchange_status" in value:
         import capo_redshift.types.reserved_node_exchange_status
@@ -486,14 +504,16 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         capo_redshift.types.reserved_node_exchange_status.serialize_query(
             value["reserved_node_exchange_status"],
             pairs,
-            f"{prefix}.ReservedNodeExchangeStatus",
+            f"{key_prefix}ReservedNodeExchangeStatus",
         )
     if "custom_domain_name" in value:
-        pairs.append((f"{prefix}.CustomDomainName", str(value["custom_domain_name"])))
+        pairs.append(
+            (f"{key_prefix}CustomDomainName", str(value["custom_domain_name"]))
+        )
     if "custom_domain_certificate_arn" in value:
         pairs.append(
             (
-                f"{prefix}.CustomDomainCertificateArn",
+                f"{key_prefix}CustomDomainCertificateArn",
                 str(value["custom_domain_certificate_arn"]),
             )
         )
@@ -503,45 +523,45 @@ def serialize_query(value: Cluster, pairs: list[tuple[str, str]], prefix: str) -
         capo_redshift.types.t_stamp.serialize_query(
             value["custom_domain_certificate_expiry_date"],
             pairs,
-            f"{prefix}.CustomDomainCertificateExpiryDate",
+            f"{key_prefix}CustomDomainCertificateExpiryDate",
         )
     if "master_password_secret_arn" in value:
         pairs.append(
             (
-                f"{prefix}.MasterPasswordSecretArn",
+                f"{key_prefix}MasterPasswordSecretArn",
                 str(value["master_password_secret_arn"]),
             )
         )
     if "master_password_secret_kms_key_id" in value:
         pairs.append(
             (
-                f"{prefix}.MasterPasswordSecretKmsKeyId",
+                f"{key_prefix}MasterPasswordSecretKmsKeyId",
                 str(value["master_password_secret_kms_key_id"]),
             )
         )
     if "ip_address_type" in value:
-        pairs.append((f"{prefix}.IpAddressType", str(value["ip_address_type"])))
+        pairs.append((f"{key_prefix}IpAddressType", str(value["ip_address_type"])))
     if "multi_az" in value:
-        pairs.append((f"{prefix}.MultiAZ", str(value["multi_az"])))
+        pairs.append((f"{key_prefix}MultiAZ", str(value["multi_az"])))
     if "multi_az_secondary" in value:
         import capo_redshift.types.secondary_cluster_info
 
         capo_redshift.types.secondary_cluster_info.serialize_query(
-            value["multi_az_secondary"], pairs, f"{prefix}.MultiAZSecondary"
+            value["multi_az_secondary"], pairs, f"{key_prefix}MultiAZSecondary"
         )
     if "lakehouse_registration_status" in value:
         pairs.append(
             (
-                f"{prefix}.LakehouseRegistrationStatus",
+                f"{key_prefix}LakehouseRegistrationStatus",
                 str(value["lakehouse_registration_status"]),
             )
         )
     if "catalog_arn" in value:
-        pairs.append((f"{prefix}.CatalogArn", str(value["catalog_arn"])))
+        pairs.append((f"{key_prefix}CatalogArn", str(value["catalog_arn"])))
     if "extra_compute_for_automatic_optimization" in value:
         pairs.append(
             (
-                f"{prefix}.ExtraComputeForAutomaticOptimization",
+                f"{key_prefix}ExtraComputeForAutomaticOptimization",
                 str(value["extra_compute_for_automatic_optimization"]),
             )
         )

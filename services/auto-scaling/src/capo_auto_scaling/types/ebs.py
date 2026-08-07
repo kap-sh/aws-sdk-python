@@ -49,25 +49,28 @@ class Ebs(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Ebs, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_id" in value:
-        pairs.append((f"{prefix}.SnapshotId", str(value["snapshot_id"])))
+        pairs.append((f"{key_prefix}SnapshotId", str(value["snapshot_id"])))
     if "volume_size" in value:
-        pairs.append((f"{prefix}.VolumeSize", str(value["volume_size"])))
+        pairs.append((f"{key_prefix}VolumeSize", str(value["volume_size"])))
     if "volume_type" in value:
-        pairs.append((f"{prefix}.VolumeType", str(value["volume_type"])))
+        pairs.append((f"{key_prefix}VolumeType", str(value["volume_type"])))
     if "delete_on_termination" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteOnTermination",
+                f"{key_prefix}DeleteOnTermination",
                 "true" if value["delete_on_termination"] else "false",
             )
         )
     if "iops" in value:
-        pairs.append((f"{prefix}.Iops", str(value["iops"])))
+        pairs.append((f"{key_prefix}Iops", str(value["iops"])))
     if "encrypted" in value:
-        pairs.append((f"{prefix}.Encrypted", "true" if value["encrypted"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")
+        )
     if "throughput" in value:
-        pairs.append((f"{prefix}.Throughput", str(value["throughput"])))
+        pairs.append((f"{key_prefix}Throughput", str(value["throughput"])))
 
 
 def deserialize_query(el: Element) -> Ebs:

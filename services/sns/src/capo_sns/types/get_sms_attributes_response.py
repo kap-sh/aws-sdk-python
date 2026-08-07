@@ -19,11 +19,12 @@ class GetSMSAttributesResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetSMSAttributesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attributes" in value:
         import capo_sns.types.map_string_to_string
 
         capo_sns.types.map_string_to_string.serialize_query(
-            value["attributes"], pairs, f"{prefix}.attributes"
+            value["attributes"], pairs, f"{key_prefix}attributes"
         )
 
 

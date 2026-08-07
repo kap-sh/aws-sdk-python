@@ -23,8 +23,9 @@ class RemovePermissionInput(TypedDict, closed=True):
 def serialize_query(
     value: RemovePermissionInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.Label", str(value["label"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}Label", str(value["label"])))
 
 
 def deserialize_query(el: Element) -> RemovePermissionInput:

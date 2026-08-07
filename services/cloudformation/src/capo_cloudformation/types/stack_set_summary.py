@@ -53,35 +53,36 @@ class StackSetSummary(TypedDict, closed=True):
 def serialize_query(
     value: StackSetSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "stack_set_id" in value:
-        pairs.append((f"{prefix}.StackSetId", str(value["stack_set_id"])))
+        pairs.append((f"{key_prefix}StackSetId", str(value["stack_set_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "status" in value:
         import capo_cloudformation.types.stack_set_status
 
         capo_cloudformation.types.stack_set_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "auto_deployment" in value:
         import capo_cloudformation.types.auto_deployment
 
         capo_cloudformation.types.auto_deployment.serialize_query(
-            value["auto_deployment"], pairs, f"{prefix}.AutoDeployment"
+            value["auto_deployment"], pairs, f"{key_prefix}AutoDeployment"
         )
     if "permission_model" in value:
         import capo_cloudformation.types.permission_models
 
         capo_cloudformation.types.permission_models.serialize_query(
-            value["permission_model"], pairs, f"{prefix}.PermissionModel"
+            value["permission_model"], pairs, f"{key_prefix}PermissionModel"
         )
     if "drift_status" in value:
         import capo_cloudformation.types.stack_drift_status
 
         capo_cloudformation.types.stack_drift_status.serialize_query(
-            value["drift_status"], pairs, f"{prefix}.DriftStatus"
+            value["drift_status"], pairs, f"{key_prefix}DriftStatus"
         )
     if "last_drift_check_timestamp" in value:
         import capo_cloudformation.types.timestamp
@@ -89,13 +90,13 @@ def serialize_query(
         capo_cloudformation.types.timestamp.serialize_query(
             value["last_drift_check_timestamp"],
             pairs,
-            f"{prefix}.LastDriftCheckTimestamp",
+            f"{key_prefix}LastDriftCheckTimestamp",
         )
     if "managed_execution" in value:
         import capo_cloudformation.types.managed_execution
 
         capo_cloudformation.types.managed_execution.serialize_query(
-            value["managed_execution"], pairs, f"{prefix}.ManagedExecution"
+            value["managed_execution"], pairs, f"{key_prefix}ManagedExecution"
         )
 
 

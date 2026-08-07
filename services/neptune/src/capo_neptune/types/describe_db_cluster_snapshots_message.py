@@ -36,36 +36,43 @@ class DescribeDBClusterSnapshotsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeDBClusterSnapshotsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "db_cluster_snapshot_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterSnapshotIdentifier",
+                f"{key_prefix}DBClusterSnapshotIdentifier",
                 str(value["db_cluster_snapshot_identifier"]),
             )
         )
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "filters" in value:
         import capo_neptune.types.filter_list
 
         capo_neptune.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "include_shared" in value:
         pairs.append(
-            (f"{prefix}.IncludeShared", "true" if value["include_shared"] else "false")
+            (
+                f"{key_prefix}IncludeShared",
+                "true" if value["include_shared"] else "false",
+            )
         )
     if "include_public" in value:
         pairs.append(
-            (f"{prefix}.IncludePublic", "true" if value["include_public"] else "false")
+            (
+                f"{key_prefix}IncludePublic",
+                "true" if value["include_public"] else "false",
+            )
         )
 
 

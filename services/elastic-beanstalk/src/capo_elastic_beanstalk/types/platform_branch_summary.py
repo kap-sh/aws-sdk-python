@@ -37,18 +37,19 @@ class PlatformBranchSummary(TypedDict, closed=True):
 def serialize_query(
     value: PlatformBranchSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_name" in value:
-        pairs.append((f"{prefix}.PlatformName", str(value["platform_name"])))
+        pairs.append((f"{key_prefix}PlatformName", str(value["platform_name"])))
     if "branch_name" in value:
-        pairs.append((f"{prefix}.BranchName", str(value["branch_name"])))
+        pairs.append((f"{key_prefix}BranchName", str(value["branch_name"])))
     if "lifecycle_state" in value:
-        pairs.append((f"{prefix}.LifecycleState", str(value["lifecycle_state"])))
-    pairs.append((f"{prefix}.BranchOrder", str(value.get("branch_order", 0))))
+        pairs.append((f"{key_prefix}LifecycleState", str(value["lifecycle_state"])))
+    pairs.append((f"{key_prefix}BranchOrder", str(value.get("branch_order", 0))))
     if "supported_tier_list" in value:
         import capo_elastic_beanstalk.types.supported_tier_list
 
         capo_elastic_beanstalk.types.supported_tier_list.serialize_query(
-            value["supported_tier_list"], pairs, f"{prefix}.SupportedTierList"
+            value["supported_tier_list"], pairs, f"{key_prefix}SupportedTierList"
         )
 
 

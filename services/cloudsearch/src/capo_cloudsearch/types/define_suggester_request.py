@@ -21,11 +21,12 @@ class DefineSuggesterRequest(TypedDict, closed=True):
 def serialize_query(
     value: DefineSuggesterRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     import capo_cloudsearch.types.suggester
 
     capo_cloudsearch.types.suggester.serialize_query(
-        value["suggester"], pairs, f"{prefix}.Suggester"
+        value["suggester"], pairs, f"{key_prefix}Suggester"
     )
 
 

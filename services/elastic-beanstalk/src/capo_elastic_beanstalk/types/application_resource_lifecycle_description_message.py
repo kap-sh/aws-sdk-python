@@ -28,15 +28,16 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "resource_lifecycle_config" in value:
         import capo_elastic_beanstalk.types.application_resource_lifecycle_config
 
         capo_elastic_beanstalk.types.application_resource_lifecycle_config.serialize_query(
             value["resource_lifecycle_config"],
             pairs,
-            f"{prefix}.ResourceLifecycleConfig",
+            f"{key_prefix}ResourceLifecycleConfig",
         )
 
 

@@ -21,11 +21,12 @@ class QueryStringConditionConfig(TypedDict, closed=True):
 def serialize_query(
     value: QueryStringConditionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "values" in value:
         import capo_elastic_load_balancing_v2.types.query_string_key_value_pair_list
 
         capo_elastic_load_balancing_v2.types.query_string_key_value_pair_list.serialize_query(
-            value["values"], pairs, f"{prefix}.Values"
+            value["values"], pairs, f"{key_prefix}Values"
         )
 
 

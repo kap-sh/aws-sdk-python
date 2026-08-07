@@ -45,32 +45,38 @@ class InstancesDistribution(TypedDict, closed=True):
 def serialize_query(
     value: InstancesDistribution, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "on_demand_allocation_strategy" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandAllocationStrategy",
+                f"{key_prefix}OnDemandAllocationStrategy",
                 str(value["on_demand_allocation_strategy"]),
             )
         )
     if "on_demand_base_capacity" in value:
         pairs.append(
-            (f"{prefix}.OnDemandBaseCapacity", str(value["on_demand_base_capacity"]))
+            (f"{key_prefix}OnDemandBaseCapacity", str(value["on_demand_base_capacity"]))
         )
     if "on_demand_percentage_above_base_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandPercentageAboveBaseCapacity",
+                f"{key_prefix}OnDemandPercentageAboveBaseCapacity",
                 str(value["on_demand_percentage_above_base_capacity"]),
             )
         )
     if "spot_allocation_strategy" in value:
         pairs.append(
-            (f"{prefix}.SpotAllocationStrategy", str(value["spot_allocation_strategy"]))
+            (
+                f"{key_prefix}SpotAllocationStrategy",
+                str(value["spot_allocation_strategy"]),
+            )
         )
     if "spot_instance_pools" in value:
-        pairs.append((f"{prefix}.SpotInstancePools", str(value["spot_instance_pools"])))
+        pairs.append(
+            (f"{key_prefix}SpotInstancePools", str(value["spot_instance_pools"]))
+        )
     if "spot_max_price" in value:
-        pairs.append((f"{prefix}.SpotMaxPrice", str(value["spot_max_price"])))
+        pairs.append((f"{key_prefix}SpotMaxPrice", str(value["spot_max_price"])))
 
 
 def deserialize_query(el: Element) -> InstancesDistribution:

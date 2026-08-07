@@ -22,14 +22,15 @@ class TrackListMessage(TypedDict, closed=True):
 def serialize_query(
     value: TrackListMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "maintenance_tracks" in value:
         import capo_redshift.types.track_list
 
         capo_redshift.types.track_list.serialize_query(
-            value["maintenance_tracks"], pairs, f"{prefix}.MaintenanceTracks"
+            value["maintenance_tracks"], pairs, f"{key_prefix}MaintenanceTracks"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> TrackListMessage:

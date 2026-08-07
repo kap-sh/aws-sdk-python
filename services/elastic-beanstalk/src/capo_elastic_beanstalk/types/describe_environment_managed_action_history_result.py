@@ -26,16 +26,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "managed_action_history_items" in value:
         import capo_elastic_beanstalk.types.managed_action_history_items
 
         capo_elastic_beanstalk.types.managed_action_history_items.serialize_query(
             value["managed_action_history_items"],
             pairs,
-            f"{prefix}.ManagedActionHistoryItems",
+            f"{key_prefix}ManagedActionHistoryItems",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeEnvironmentManagedActionHistoryResult:

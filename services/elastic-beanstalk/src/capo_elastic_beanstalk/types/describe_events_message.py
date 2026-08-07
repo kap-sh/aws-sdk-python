@@ -64,42 +64,43 @@ class DescribeEventsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEventsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "version_label" in value:
-        pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+        pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "template_name" in value:
-        pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+        pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "environment_id" in value:
-        pairs.append((f"{prefix}.EnvironmentId", str(value["environment_id"])))
+        pairs.append((f"{key_prefix}EnvironmentId", str(value["environment_id"])))
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
     if "platform_arn" in value:
-        pairs.append((f"{prefix}.PlatformArn", str(value["platform_arn"])))
+        pairs.append((f"{key_prefix}PlatformArn", str(value["platform_arn"])))
     if "request_id" in value:
-        pairs.append((f"{prefix}.RequestId", str(value["request_id"])))
+        pairs.append((f"{key_prefix}RequestId", str(value["request_id"])))
     if "severity" in value:
         import capo_elastic_beanstalk.types.event_severity
 
         capo_elastic_beanstalk.types.event_severity.serialize_query(
-            value["severity"], pairs, f"{prefix}.Severity"
+            value["severity"], pairs, f"{key_prefix}Severity"
         )
     if "start_time" in value:
         import capo_elastic_beanstalk.types.time_filter_start
 
         capo_elastic_beanstalk.types.time_filter_start.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_elastic_beanstalk.types.time_filter_end
 
         capo_elastic_beanstalk.types.time_filter_end.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeEventsMessage:

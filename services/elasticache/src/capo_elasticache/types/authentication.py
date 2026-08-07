@@ -24,14 +24,15 @@ class Authentication(TypedDict, closed=True):
 def serialize_query(
     value: Authentication, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_elasticache.types.authentication_type
 
         capo_elasticache.types.authentication_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "password_count" in value:
-        pairs.append((f"{prefix}.PasswordCount", str(value["password_count"])))
+        pairs.append((f"{key_prefix}PasswordCount", str(value["password_count"])))
 
 
 def deserialize_query(el: Element) -> Authentication:

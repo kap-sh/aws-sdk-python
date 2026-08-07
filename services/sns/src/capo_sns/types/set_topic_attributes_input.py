@@ -26,10 +26,11 @@ class SetTopicAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: SetTopicAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.AttributeName", str(value["attribute_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}AttributeName", str(value["attribute_name"])))
     if "attribute_value" in value:
-        pairs.append((f"{prefix}.AttributeValue", str(value["attribute_value"])))
+        pairs.append((f"{key_prefix}AttributeValue", str(value["attribute_value"])))
 
 
 def deserialize_query(el: Element) -> SetTopicAttributesInput:

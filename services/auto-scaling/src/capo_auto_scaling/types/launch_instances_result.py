@@ -34,23 +34,24 @@ class LaunchInstancesResult(TypedDict, closed=True):
 def serialize_query(
     value: LaunchInstancesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "client_token" in value:
-        pairs.append((f"{prefix}.ClientToken", str(value["client_token"])))
+        pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
     if "instances" in value:
         import capo_auto_scaling.types.instance_collections
 
         capo_auto_scaling.types.instance_collections.serialize_query(
-            value["instances"], pairs, f"{prefix}.Instances"
+            value["instances"], pairs, f"{key_prefix}Instances"
         )
     if "errors" in value:
         import capo_auto_scaling.types.launch_instances_errors
 
         capo_auto_scaling.types.launch_instances_errors.serialize_query(
-            value["errors"], pairs, f"{prefix}.Errors"
+            value["errors"], pairs, f"{key_prefix}Errors"
         )
 
 

@@ -22,9 +22,10 @@ class WorkmailAction(TypedDict, closed=True):
 def serialize_query(
     value: WorkmailAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.OrganizationArn", str(value["organization_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}OrganizationArn", str(value["organization_arn"])))
 
 
 def deserialize_query(el: Element) -> WorkmailAction:

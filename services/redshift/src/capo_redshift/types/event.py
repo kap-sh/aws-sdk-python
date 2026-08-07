@@ -34,32 +34,33 @@ class Event(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Event, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_identifier" in value:
-        pairs.append((f"{prefix}.SourceIdentifier", str(value["source_identifier"])))
+        pairs.append((f"{key_prefix}SourceIdentifier", str(value["source_identifier"])))
     if "source_type" in value:
         import capo_redshift.types.source_type
 
         capo_redshift.types.source_type.serialize_query(
-            value["source_type"], pairs, f"{prefix}.SourceType"
+            value["source_type"], pairs, f"{key_prefix}SourceType"
         )
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "event_categories" in value:
         import capo_redshift.types.event_categories_list
 
         capo_redshift.types.event_categories_list.serialize_query(
-            value["event_categories"], pairs, f"{prefix}.EventCategories"
+            value["event_categories"], pairs, f"{key_prefix}EventCategories"
         )
     if "severity" in value:
-        pairs.append((f"{prefix}.Severity", str(value["severity"])))
+        pairs.append((f"{key_prefix}Severity", str(value["severity"])))
     if "date" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["date"], pairs, f"{prefix}.Date"
+            value["date"], pairs, f"{key_prefix}Date"
         )
     if "event_id" in value:
-        pairs.append((f"{prefix}.EventId", str(value["event_id"])))
+        pairs.append((f"{key_prefix}EventId", str(value["event_id"])))
 
 
 def deserialize_query(el: Element) -> Event:

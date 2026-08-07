@@ -24,17 +24,18 @@ class DescribeReceiptRuleSetResponse(TypedDict, closed=True):
 def serialize_query(
     value: DescribeReceiptRuleSetResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metadata" in value:
         import capo_ses.types.receipt_rule_set_metadata
 
         capo_ses.types.receipt_rule_set_metadata.serialize_query(
-            value["metadata"], pairs, f"{prefix}.Metadata"
+            value["metadata"], pairs, f"{key_prefix}Metadata"
         )
     if "rules" in value:
         import capo_ses.types.receipt_rules_list
 
         capo_ses.types.receipt_rules_list.serialize_query(
-            value["rules"], pairs, f"{prefix}.Rules"
+            value["rules"], pairs, f"{key_prefix}Rules"
         )
 
 

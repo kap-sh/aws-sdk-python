@@ -135,10 +135,14 @@ class AsyncSagemakerEdgeClient:
 
     async def get_deployments(
         self,
-        device_name: "capo_sagemaker_edge.types.device_name.DeviceName",
-        device_fleet_name: "capo_sagemaker_edge.types.device_fleet_name.DeviceFleetName",
         *,
         config_overrides: Optional[AsyncSagemakerEdgeClientConfig] = None,
+        device_name: Optional[
+            "capo_sagemaker_edge.types.device_name.DeviceName"
+        ] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker_edge.types.device_fleet_name.DeviceFleetName"
+        ] = None,
     ) -> "capo_sagemaker_edge.types.get_deployments_result.GetDeploymentsResult":
         """<p>Use to get the active deployments from a device.</p>
 
@@ -168,8 +172,10 @@ class AsyncSagemakerEdgeClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_edge.types.get_deployments_request.GetDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["device_name"] = device_name
-        input_["device_fleet_name"] = device_fleet_name
+        if device_name is not None:
+            input_["device_name"] = device_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -180,10 +186,14 @@ class AsyncSagemakerEdgeClient:
 
     async def get_device_registration(
         self,
-        device_name: "capo_sagemaker_edge.types.device_name.DeviceName",
-        device_fleet_name: "capo_sagemaker_edge.types.device_fleet_name.DeviceFleetName",
         *,
         config_overrides: Optional[AsyncSagemakerEdgeClientConfig] = None,
+        device_name: Optional[
+            "capo_sagemaker_edge.types.device_name.DeviceName"
+        ] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker_edge.types.device_fleet_name.DeviceFleetName"
+        ] = None,
     ) -> "capo_sagemaker_edge.types.get_device_registration_result.GetDeviceRegistrationResult":
         """<p>Use to check if a device is registered with SageMaker Edge Manager.</p>
 
@@ -213,8 +223,10 @@ class AsyncSagemakerEdgeClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_edge.types.get_device_registration_request.GetDeviceRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input_["device_name"] = device_name
-        input_["device_fleet_name"] = device_fleet_name
+        if device_name is not None:
+            input_["device_name"] = device_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -225,15 +237,19 @@ class AsyncSagemakerEdgeClient:
 
     async def send_heartbeat(
         self,
-        agent_version: "capo_sagemaker_edge.types.version.Version",
-        device_name: "capo_sagemaker_edge.types.device_name.DeviceName",
-        device_fleet_name: "capo_sagemaker_edge.types.device_fleet_name.DeviceFleetName",
         *,
         config_overrides: Optional[AsyncSagemakerEdgeClientConfig] = None,
         agent_metrics: Optional[
             "capo_sagemaker_edge.types.edge_metrics.EdgeMetrics"
         ] = None,
         models: Optional["capo_sagemaker_edge.types.models.Models"] = None,
+        agent_version: Optional["capo_sagemaker_edge.types.version.Version"] = None,
+        device_name: Optional[
+            "capo_sagemaker_edge.types.device_name.DeviceName"
+        ] = None,
+        device_fleet_name: Optional[
+            "capo_sagemaker_edge.types.device_fleet_name.DeviceFleetName"
+        ] = None,
         deployment_result: Optional[
             "capo_sagemaker_edge.types.deployment_result.DeploymentResult"
         ] = None,
@@ -272,9 +288,12 @@ class AsyncSagemakerEdgeClient:
             input_["agent_metrics"] = agent_metrics
         if models is not None:
             input_["models"] = models
-        input_["agent_version"] = agent_version
-        input_["device_name"] = device_name
-        input_["device_fleet_name"] = device_fleet_name
+        if agent_version is not None:
+            input_["agent_version"] = agent_version
+        if device_name is not None:
+            input_["device_name"] = device_name
+        if device_fleet_name is not None:
+            input_["device_fleet_name"] = device_fleet_name
         if deployment_result is not None:
             input_["deployment_result"] = deployment_result
 

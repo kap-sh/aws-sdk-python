@@ -27,23 +27,24 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterSecurityGroupName",
+                f"{key_prefix}ClusterSecurityGroupName",
                 str(value["cluster_security_group_name"]),
             )
         )
     if "cidrip" in value:
-        pairs.append((f"{prefix}.CIDRIP", str(value["cidrip"])))
+        pairs.append((f"{key_prefix}CIDRIP", str(value["cidrip"])))
     if "ec2_security_group_name" in value:
         pairs.append(
-            (f"{prefix}.EC2SecurityGroupName", str(value["ec2_security_group_name"]))
+            (f"{key_prefix}EC2SecurityGroupName", str(value["ec2_security_group_name"]))
         )
     if "ec2_security_group_owner_id" in value:
         pairs.append(
             (
-                f"{prefix}.EC2SecurityGroupOwnerId",
+                f"{key_prefix}EC2SecurityGroupOwnerId",
                 str(value["ec2_security_group_owner_id"]),
             )
         )

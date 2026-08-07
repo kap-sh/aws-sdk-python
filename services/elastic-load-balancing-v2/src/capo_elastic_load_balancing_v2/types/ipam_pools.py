@@ -21,8 +21,9 @@ class IpamPools(TypedDict, closed=True):
 def serialize_query(
     value: IpamPools, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ipv4_ipam_pool_id" in value:
-        pairs.append((f"{prefix}.Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
+        pairs.append((f"{key_prefix}Ipv4IpamPoolId", str(value["ipv4_ipam_pool_id"])))
 
 
 def deserialize_query(el: Element) -> IpamPools:

@@ -20,7 +20,8 @@ class GetSubscriptionAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: GetSubscriptionAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.SubscriptionArn", str(value["subscription_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}SubscriptionArn", str(value["subscription_arn"])))
 
 
 def deserialize_query(el: Element) -> GetSubscriptionAttributesInput:

@@ -48,45 +48,46 @@ class UpdateStackInstancesInput(TypedDict, closed=True):
 def serialize_query(
     value: UpdateStackInstancesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "accounts" in value:
         import capo_cloudformation.types.account_list
 
         capo_cloudformation.types.account_list.serialize_query(
-            value["accounts"], pairs, f"{prefix}.Accounts"
+            value["accounts"], pairs, f"{key_prefix}Accounts"
         )
     if "deployment_targets" in value:
         import capo_cloudformation.types.deployment_targets
 
         capo_cloudformation.types.deployment_targets.serialize_query(
-            value["deployment_targets"], pairs, f"{prefix}.DeploymentTargets"
+            value["deployment_targets"], pairs, f"{key_prefix}DeploymentTargets"
         )
     if "regions" in value:
         import capo_cloudformation.types.region_list
 
         capo_cloudformation.types.region_list.serialize_query(
-            value["regions"], pairs, f"{prefix}.Regions"
+            value["regions"], pairs, f"{key_prefix}Regions"
         )
     if "parameter_overrides" in value:
         import capo_cloudformation.types.parameters
 
         capo_cloudformation.types.parameters.serialize_query(
-            value["parameter_overrides"], pairs, f"{prefix}.ParameterOverrides"
+            value["parameter_overrides"], pairs, f"{key_prefix}ParameterOverrides"
         )
     if "operation_preferences" in value:
         import capo_cloudformation.types.stack_set_operation_preferences
 
         capo_cloudformation.types.stack_set_operation_preferences.serialize_query(
-            value["operation_preferences"], pairs, f"{prefix}.OperationPreferences"
+            value["operation_preferences"], pairs, f"{key_prefix}OperationPreferences"
         )
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
 
 

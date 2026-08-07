@@ -22,10 +22,11 @@ class CustomerNodeEndpoint(TypedDict, closed=True):
 def serialize_query(
     value: CustomerNodeEndpoint, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
 
 
 def deserialize_query(el: Element) -> CustomerNodeEndpoint:

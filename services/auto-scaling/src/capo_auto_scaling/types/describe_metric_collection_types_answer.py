@@ -28,17 +28,18 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metrics" in value:
         import capo_auto_scaling.types.metric_collection_types
 
         capo_auto_scaling.types.metric_collection_types.serialize_query(
-            value["metrics"], pairs, f"{prefix}.Metrics"
+            value["metrics"], pairs, f"{key_prefix}Metrics"
         )
     if "granularities" in value:
         import capo_auto_scaling.types.metric_granularity_types
 
         capo_auto_scaling.types.metric_granularity_types.serialize_query(
-            value["granularities"], pairs, f"{prefix}.Granularities"
+            value["granularities"], pairs, f"{key_prefix}Granularities"
         )
 
 

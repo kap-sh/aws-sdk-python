@@ -28,12 +28,13 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "should_decrement_desired_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.ShouldDecrementDesiredCapacity",
+                f"{key_prefix}ShouldDecrementDesiredCapacity",
                 "true" if value["should_decrement_desired_capacity"] else "false",
             )
         )

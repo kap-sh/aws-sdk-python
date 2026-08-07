@@ -21,8 +21,11 @@ class CancelInstanceRefreshAnswer(TypedDict, closed=True):
 def serialize_query(
     value: CancelInstanceRefreshAnswer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_refresh_id" in value:
-        pairs.append((f"{prefix}.InstanceRefreshId", str(value["instance_refresh_id"])))
+        pairs.append(
+            (f"{key_prefix}InstanceRefreshId", str(value["instance_refresh_id"]))
+        )
 
 
 def deserialize_query(el: Element) -> CancelInstanceRefreshAnswer:

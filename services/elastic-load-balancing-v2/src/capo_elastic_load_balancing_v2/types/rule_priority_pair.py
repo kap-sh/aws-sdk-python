@@ -24,10 +24,11 @@ class RulePriorityPair(TypedDict, closed=True):
 def serialize_query(
     value: RulePriorityPair, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rule_arn" in value:
-        pairs.append((f"{prefix}.RuleArn", str(value["rule_arn"])))
+        pairs.append((f"{key_prefix}RuleArn", str(value["rule_arn"])))
     if "priority" in value:
-        pairs.append((f"{prefix}.Priority", str(value["priority"])))
+        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
 
 
 def deserialize_query(el: Element) -> RulePriorityPair:

@@ -21,10 +21,13 @@ class ModifyClusterDbRevisionMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterDbRevisionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "revision_target" in value:
-        pairs.append((f"{prefix}.RevisionTarget", str(value["revision_target"])))
+        pairs.append((f"{key_prefix}RevisionTarget", str(value["revision_target"])))
 
 
 def deserialize_query(el: Element) -> ModifyClusterDbRevisionMessage:

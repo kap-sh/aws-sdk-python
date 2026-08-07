@@ -22,13 +22,14 @@ class DeleteTagsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteTagsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_name" in value:
-        pairs.append((f"{prefix}.ResourceName", str(value["resource_name"])))
+        pairs.append((f"{key_prefix}ResourceName", str(value["resource_name"])))
     if "tag_keys" in value:
         import capo_redshift.types.tag_key_list
 
         capo_redshift.types.tag_key_list.serialize_query(
-            value["tag_keys"], pairs, f"{prefix}.TagKeys"
+            value["tag_keys"], pairs, f"{key_prefix}TagKeys"
         )
 
 

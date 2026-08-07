@@ -28,19 +28,20 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_node_id" in value:
-        pairs.append((f"{prefix}.ReservedNodeId", str(value["reserved_node_id"])))
+        pairs.append((f"{key_prefix}ReservedNodeId", str(value["reserved_node_id"])))
     if "reserved_node_exchange_request_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedNodeExchangeRequestId",
+                f"{key_prefix}ReservedNodeExchangeRequestId",
                 str(value["reserved_node_exchange_request_id"]),
             )
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeReservedNodeExchangeStatusInputMessage:

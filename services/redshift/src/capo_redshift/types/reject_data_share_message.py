@@ -19,8 +19,9 @@ class RejectDataShareMessage(TypedDict, closed=True):
 def serialize_query(
     value: RejectDataShareMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "data_share_arn" in value:
-        pairs.append((f"{prefix}.DataShareArn", str(value["data_share_arn"])))
+        pairs.append((f"{key_prefix}DataShareArn", str(value["data_share_arn"])))
 
 
 def deserialize_query(el: Element) -> RejectDataShareMessage:

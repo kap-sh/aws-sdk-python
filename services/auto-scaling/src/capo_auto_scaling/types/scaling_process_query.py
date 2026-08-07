@@ -24,15 +24,16 @@ class ScalingProcessQuery(TypedDict, closed=True):
 def serialize_query(
     value: ScalingProcessQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "scaling_processes" in value:
         import capo_auto_scaling.types.process_names
 
         capo_auto_scaling.types.process_names.serialize_query(
-            value["scaling_processes"], pairs, f"{prefix}.ScalingProcesses"
+            value["scaling_processes"], pairs, f"{key_prefix}ScalingProcesses"
         )
 
 

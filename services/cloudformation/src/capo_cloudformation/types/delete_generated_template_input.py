@@ -21,9 +21,13 @@ class DeleteGeneratedTemplateInput(TypedDict, closed=True):
 def serialize_query(
     value: DeleteGeneratedTemplateInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "generated_template_name" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateName", str(value["generated_template_name"]))
+            (
+                f"{key_prefix}GeneratedTemplateName",
+                str(value["generated_template_name"]),
+            )
         )
 
 

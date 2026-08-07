@@ -20,10 +20,11 @@ class CreateReceiptFilterRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateReceiptFilterRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.receipt_filter
 
     capo_ses.types.receipt_filter.serialize_query(
-        value["filter"], pairs, f"{prefix}.Filter"
+        value["filter"], pairs, f"{key_prefix}Filter"
     )
 
 

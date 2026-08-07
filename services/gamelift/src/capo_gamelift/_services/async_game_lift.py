@@ -527,11 +527,17 @@ class AsyncGameLiftClient:
 
     async def accept_match(
         self,
-        ticket_id: "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel",
-        player_ids: "capo_gamelift.types.player_ids_for_accept_match.PlayerIdsForAcceptMatch",
-        acceptance_type: "capo_gamelift.types.acceptance_type.AcceptanceType",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        ticket_id: Optional[
+            "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
+        ] = None,
+        player_ids: Optional[
+            "capo_gamelift.types.player_ids_for_accept_match.PlayerIdsForAcceptMatch"
+        ] = None,
+        acceptance_type: Optional[
+            "capo_gamelift.types.acceptance_type.AcceptanceType"
+        ] = None,
     ) -> "capo_gamelift.types.accept_match_output.AcceptMatchOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A matchmaking configuration may require player acceptance; if so, then matches built with that configuration cannot be completed unless all players accept the proposed match within a specified time limit. </p> <p>When FlexMatch builds a match, all the matchmaking tickets involved in the proposed match are placed into status <code>REQUIRES_ACCEPTANCE</code>. This is a trigger for your game to get acceptance from all players in each ticket. Calls to this action are only valid for tickets that are in this status; calls for tickets not in this status result in an error.</p> <p>To register acceptance, specify the ticket ID, one or more players, and an acceptance response. When all players have accepted, Amazon GameLift Servers advances the matchmaking tickets to status <code>PLACING</code>, and attempts to create a new game session for the match. </p> <p>If any player rejects the match, or if acceptances are not received before a specified timeout, the proposed match is dropped. Each matchmaking ticket in the failed match is handled as follows: </p> <ul> <li> <p>If the ticket has one or more players who rejected the match or failed to respond, the ticket status is set <code>CANCELLED</code> and processing is terminated.</p> </li> <li> <p>If all players in the ticket accepted the match, the ticket status is returned to <code>SEARCHING</code> to find a new match. </p> </li> </ul> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html\"> Add FlexMatch to a game client</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html\"> FlexMatch events</a> (reference)</p>
 
@@ -565,9 +571,12 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.accept_match_input.AcceptMatchInput = {}  # type: ignore[typeddict-item]
-        input_["ticket_id"] = ticket_id
-        input_["player_ids"] = player_ids
-        input_["acceptance_type"] = acceptance_type
+        if ticket_id is not None:
+            input_["ticket_id"] = ticket_id
+        if player_ids is not None:
+            input_["player_ids"] = player_ids
+        if acceptance_type is not None:
+            input_["acceptance_type"] = acceptance_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -578,9 +587,11 @@ class AsyncGameLiftClient:
 
     async def claim_game_server(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         game_server_id: Optional[
             "capo_gamelift.types.game_server_id.GameServerId"
         ] = None,
@@ -626,7 +637,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.claim_game_server_input.ClaimGameServerInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
         if game_server_id is not None:
             input_["game_server_id"] = game_server_id
         if game_server_data is not None:
@@ -643,12 +655,16 @@ class AsyncGameLiftClient:
 
     async def create_alias(
         self,
-        name: "capo_gamelift.types.non_blank_and_length_constraint_string.NonBlankAndLengthConstraintString",
-        routing_strategy: "capo_gamelift.types.routing_strategy.RoutingStrategy",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.non_blank_and_length_constraint_string.NonBlankAndLengthConstraintString"
+        ] = None,
         description: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
+        routing_strategy: Optional[
+            "capo_gamelift.types.routing_strategy.RoutingStrategy"
         ] = None,
         tags: Optional["capo_gamelift.types.tag_list.TagList"] = None,
     ) -> "capo_gamelift.types.create_alias_output.CreateAliasOutput":
@@ -687,10 +703,12 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_alias_input.CreateAliasInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
-        input_["routing_strategy"] = routing_strategy
+        if routing_strategy is not None:
+            input_["routing_strategy"] = routing_strategy
         if tags is not None:
             input_["tags"] = tags
 
@@ -778,9 +796,9 @@ class AsyncGameLiftClient:
 
     async def create_container_fleet(
         self,
-        fleet_role_arn: "capo_gamelift.types.iam_role_arn.IamRoleArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_role_arn: Optional["capo_gamelift.types.iam_role_arn.IamRoleArn"] = None,
         description: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -873,7 +891,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_container_fleet_input.CreateContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_role_arn"] = fleet_role_arn
+        if fleet_role_arn is not None:
+            input_["fleet_role_arn"] = fleet_role_arn
         if description is not None:
             input_["description"] = description
         if game_server_container_group_definition_name is not None:
@@ -924,20 +943,28 @@ class AsyncGameLiftClient:
 
     async def create_container_group_definition(
         self,
-        name: "capo_gamelift.types.container_group_definition_name.ContainerGroupDefinitionName",
-        total_memory_limit_mebibytes: "capo_gamelift.types.container_total_memory_limit.ContainerTotalMemoryLimit",
-        total_vcpu_limit: "capo_gamelift.types.container_total_vcpu_limit.ContainerTotalVcpuLimit",
-        operating_system: "capo_gamelift.types.container_operating_system.ContainerOperatingSystem",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.container_group_definition_name.ContainerGroupDefinitionName"
+        ] = None,
         container_group_type: Optional[
             "capo_gamelift.types.container_group_type.ContainerGroupType"
+        ] = None,
+        total_memory_limit_mebibytes: Optional[
+            "capo_gamelift.types.container_total_memory_limit.ContainerTotalMemoryLimit"
+        ] = None,
+        total_vcpu_limit: Optional[
+            "capo_gamelift.types.container_total_vcpu_limit.ContainerTotalVcpuLimit"
         ] = None,
         game_server_container_definition: Optional[
             "capo_gamelift.types.game_server_container_definition_input.GameServerContainerDefinitionInput"
         ] = None,
         support_container_definitions: Optional[
             "capo_gamelift.types.support_container_definition_input_list.SupportContainerDefinitionInputList"
+        ] = None,
+        operating_system: Optional[
+            "capo_gamelift.types.container_operating_system.ContainerOperatingSystem"
         ] = None,
         version_description: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
@@ -985,18 +1012,22 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_container_group_definition_input.CreateContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if container_group_type is not None:
             input_["container_group_type"] = container_group_type
-        input_["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
-        input_["total_vcpu_limit"] = total_vcpu_limit
+        if total_memory_limit_mebibytes is not None:
+            input_["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
+        if total_vcpu_limit is not None:
+            input_["total_vcpu_limit"] = total_vcpu_limit
         if game_server_container_definition is not None:
             input_["game_server_container_definition"] = (
                 game_server_container_definition
             )
         if support_container_definitions is not None:
             input_["support_container_definitions"] = support_container_definitions
-        input_["operating_system"] = operating_system
+        if operating_system is not None:
+            input_["operating_system"] = operating_system
         if version_description is not None:
             input_["version_description"] = version_description
         if tags is not None:
@@ -1011,9 +1042,11 @@ class AsyncGameLiftClient:
 
     async def create_fleet(
         self,
-        name: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
         description: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -1136,7 +1169,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_fleet_input.CreateFleetInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if build_id is not None:
@@ -1199,10 +1233,12 @@ class AsyncGameLiftClient:
 
     async def create_fleet_locations(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        locations: "capo_gamelift.types.location_configuration_list.LocationConfigurationList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        locations: Optional[
+            "capo_gamelift.types.location_configuration_list.LocationConfigurationList"
+        ] = None,
     ) -> "capo_gamelift.types.create_fleet_locations_output.CreateFleetLocationsOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Container</p> <p>Adds remote locations to an EC2 and begins populating the new locations with instances. The new instances conform to the fleet's instance type, auto-scaling, and other configuration settings.</p> <note> <p>You can't add remote locations to a fleet that resides in an Amazon Web Services Region that doesn't support multiple locations. Fleets created prior to March 2021 can't support multiple locations.</p> </note> <p>To add fleet locations, specify the fleet to be updated and provide a list of one or more locations. </p> <p>If successful, this operation returns the list of added locations with their status set to <code>NEW</code>. Amazon GameLift Servers initiates the process of starting an instance in each added location. You can track the status of each new location by monitoring location creation events using <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html\">DescribeFleetEvents</a>.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up fleets</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-editing.html#fleets-update-locations\">Update fleet locations</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html\"> Amazon GameLift Servers service locations</a> for managed hosting.</p>
 
@@ -1240,8 +1276,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_fleet_locations_input.CreateFleetLocationsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["locations"] = locations
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if locations is not None:
+            input_["locations"] = locations
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1252,14 +1290,22 @@ class AsyncGameLiftClient:
 
     async def create_game_server_group(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name.GameServerGroupName",
-        role_arn: "capo_gamelift.types.iam_role_arn.IamRoleArn",
-        min_size: "capo_gamelift.types.whole_number.WholeNumber",
-        max_size: "capo_gamelift.types.positive_integer.PositiveInteger",
-        launch_template: "capo_gamelift.types.launch_template_specification.LaunchTemplateSpecification",
-        instance_definitions: "capo_gamelift.types.instance_definitions.InstanceDefinitions",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name.GameServerGroupName"
+        ] = None,
+        role_arn: Optional["capo_gamelift.types.iam_role_arn.IamRoleArn"] = None,
+        min_size: Optional["capo_gamelift.types.whole_number.WholeNumber"] = None,
+        max_size: Optional[
+            "capo_gamelift.types.positive_integer.PositiveInteger"
+        ] = None,
+        launch_template: Optional[
+            "capo_gamelift.types.launch_template_specification.LaunchTemplateSpecification"
+        ] = None,
+        instance_definitions: Optional[
+            "capo_gamelift.types.instance_definitions.InstanceDefinitions"
+        ] = None,
         auto_scaling_policy: Optional[
             "capo_gamelift.types.game_server_group_auto_scaling_policy.GameServerGroupAutoScalingPolicy"
         ] = None,
@@ -1313,12 +1359,18 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_game_server_group_input.CreateGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["role_arn"] = role_arn
-        input_["min_size"] = min_size
-        input_["max_size"] = max_size
-        input_["launch_template"] = launch_template
-        input_["instance_definitions"] = instance_definitions
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if role_arn is not None:
+            input_["role_arn"] = role_arn
+        if min_size is not None:
+            input_["min_size"] = min_size
+        if max_size is not None:
+            input_["max_size"] = max_size
+        if launch_template is not None:
+            input_["launch_template"] = launch_template
+        if instance_definitions is not None:
+            input_["instance_definitions"] = instance_definitions
         if auto_scaling_policy is not None:
             input_["auto_scaling_policy"] = auto_scaling_policy
         if balancing_strategy is not None:
@@ -1339,11 +1391,13 @@ class AsyncGameLiftClient:
 
     async def create_game_session(
         self,
-        maximum_player_session_count: "capo_gamelift.types.whole_number.WholeNumber",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
         fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         alias_id: Optional["capo_gamelift.types.alias_id_or_arn.AliasIdOrArn"] = None,
+        maximum_player_session_count: Optional[
+            "capo_gamelift.types.whole_number.WholeNumber"
+        ] = None,
         name: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -1416,7 +1470,8 @@ class AsyncGameLiftClient:
             input_["fleet_id"] = fleet_id
         if alias_id is not None:
             input_["alias_id"] = alias_id
-        input_["maximum_player_session_count"] = maximum_player_session_count
+        if maximum_player_session_count is not None:
+            input_["maximum_player_session_count"] = maximum_player_session_count
         if name is not None:
             input_["name"] = name
         if game_properties is not None:
@@ -1441,9 +1496,11 @@ class AsyncGameLiftClient:
 
     async def create_game_session_queue(
         self,
-        name: "capo_gamelift.types.game_session_queue_name.GameSessionQueueName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.game_session_queue_name.GameSessionQueueName"
+        ] = None,
         timeout_in_seconds: Optional[
             "capo_gamelift.types.whole_number.WholeNumber"
         ] = None,
@@ -1507,7 +1564,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_game_session_queue_input.CreateGameSessionQueueInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if timeout_in_seconds is not None:
             input_["timeout_in_seconds"] = timeout_in_seconds
         if player_latency_policies is not None:
@@ -1534,9 +1592,11 @@ class AsyncGameLiftClient:
 
     async def create_location(
         self,
-        location_name: "capo_gamelift.types.custom_input_location_string_model.CustomInputLocationStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        location_name: Optional[
+            "capo_gamelift.types.custom_input_location_string_model.CustomInputLocationStringModel"
+        ] = None,
         tags: Optional["capo_gamelift.types.tag_list.TagList"] = None,
     ) -> "capo_gamelift.types.create_location_output.CreateLocationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> Anywhere</p> <p>Creates a custom location for use in an Anywhere fleet.</p>
@@ -1572,7 +1632,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_location_input.CreateLocationInput = {}  # type: ignore[typeddict-item]
-        input_["location_name"] = location_name
+        if location_name is not None:
+            input_["location_name"] = location_name
         if tags is not None:
             input_["tags"] = tags
 
@@ -1585,20 +1646,28 @@ class AsyncGameLiftClient:
 
     async def create_matchmaking_configuration(
         self,
-        name: "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel",
-        request_timeout_seconds: "capo_gamelift.types.matchmaking_request_timeout_integer.MatchmakingRequestTimeoutInteger",
-        acceptance_required: "capo_gamelift.types.boolean_model.BooleanModel",
-        rule_set_name: "capo_gamelift.types.matchmaking_rule_set_name.MatchmakingRuleSetName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
+        ] = None,
         description: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
         game_session_queue_arns: Optional[
             "capo_gamelift.types.queue_arns_list.QueueArnsList"
         ] = None,
+        request_timeout_seconds: Optional[
+            "capo_gamelift.types.matchmaking_request_timeout_integer.MatchmakingRequestTimeoutInteger"
+        ] = None,
         acceptance_timeout_seconds: Optional[
             "capo_gamelift.types.matchmaking_acceptance_timeout_integer.MatchmakingAcceptanceTimeoutInteger"
+        ] = None,
+        acceptance_required: Optional[
+            "capo_gamelift.types.boolean_model.BooleanModel"
+        ] = None,
+        rule_set_name: Optional[
+            "capo_gamelift.types.matchmaking_rule_set_name.MatchmakingRuleSetName"
         ] = None,
         notification_target: Optional[
             "capo_gamelift.types.sns_arn_string_model.SnsArnStringModel"
@@ -1669,16 +1738,20 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_matchmaking_configuration_input.CreateMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if game_session_queue_arns is not None:
             input_["game_session_queue_arns"] = game_session_queue_arns
-        input_["request_timeout_seconds"] = request_timeout_seconds
+        if request_timeout_seconds is not None:
+            input_["request_timeout_seconds"] = request_timeout_seconds
         if acceptance_timeout_seconds is not None:
             input_["acceptance_timeout_seconds"] = acceptance_timeout_seconds
-        input_["acceptance_required"] = acceptance_required
-        input_["rule_set_name"] = rule_set_name
+        if acceptance_required is not None:
+            input_["acceptance_required"] = acceptance_required
+        if rule_set_name is not None:
+            input_["rule_set_name"] = rule_set_name
         if notification_target is not None:
             input_["notification_target"] = notification_target
         if additional_player_count is not None:
@@ -1705,10 +1778,12 @@ class AsyncGameLiftClient:
 
     async def create_matchmaking_rule_set(
         self,
-        name: "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel",
-        rule_set_body: "capo_gamelift.types.rule_set_body.RuleSetBody",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
+        ] = None,
+        rule_set_body: Optional["capo_gamelift.types.rule_set_body.RuleSetBody"] = None,
         tags: Optional["capo_gamelift.types.tag_list.TagList"] = None,
     ) -> "capo_gamelift.types.create_matchmaking_rule_set_output.CreateMatchmakingRuleSetOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match to create, such as the number and size of teams. It also sets the parameters for acceptable player matches, such as minimum skill level or character type.</p> <p>To create a matchmaking rule set, provide unique rule set name and the rule set body in JSON format. Rule sets must be defined in the same Region as the matchmaking configuration they are used with.</p> <p>Since matchmaking rule sets cannot be edited, it is a good idea to check the rule set syntax using <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.html\">ValidateMatchmakingRuleSet</a> before creating a new rule set.</p> <p> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html\">Build a rule set</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html\">Design a matchmaker</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html\">Matchmaking with FlexMatch</a> </p> </li> </ul>
@@ -1744,8 +1819,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_matchmaking_rule_set_input.CreateMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["rule_set_body"] = rule_set_body
+        if name is not None:
+            input_["name"] = name
+        if rule_set_body is not None:
+            input_["rule_set_body"] = rule_set_body
         if tags is not None:
             input_["tags"] = tags
 
@@ -1758,10 +1835,12 @@ class AsyncGameLiftClient:
 
     async def create_player_session(
         self,
-        game_session_id: "capo_gamelift.types.arn_string_model.ArnStringModel",
-        player_id: "capo_gamelift.types.player_id.PlayerId",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_session_id: Optional[
+            "capo_gamelift.types.arn_string_model.ArnStringModel"
+        ] = None,
+        player_id: Optional["capo_gamelift.types.player_id.PlayerId"] = None,
         player_data: Optional["capo_gamelift.types.player_data.PlayerData"] = None,
     ) -> "capo_gamelift.types.create_player_session_output.CreatePlayerSessionOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Reserves an open player slot in a game session for a player. New player sessions can be created in any game session with an open slot that is in <code>ACTIVE</code> status and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of players to a game session with <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSessions.html\">CreatePlayerSessions</a> . </p> <p>To create a player session, specify a game session ID, player ID, and optionally a set of player data. </p> <p>If successful, a slot is reserved in the game session for the player and a new <code>PlayerSessions</code> object is returned with a player session ID. The player references the player session ID when sending a connection request to the game session, and the game server can use it to validate the player reservation with the Amazon GameLift Servers service. Player sessions cannot be updated. </p> <p>The maximum number of players per game session is 200. It is not adjustable. </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
@@ -1799,8 +1878,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_player_session_input.CreatePlayerSessionInput = {}  # type: ignore[typeddict-item]
-        input_["game_session_id"] = game_session_id
-        input_["player_id"] = player_id
+        if game_session_id is not None:
+            input_["game_session_id"] = game_session_id
+        if player_id is not None:
+            input_["player_id"] = player_id
         if player_data is not None:
             input_["player_data"] = player_data
 
@@ -1813,10 +1894,12 @@ class AsyncGameLiftClient:
 
     async def create_player_sessions(
         self,
-        game_session_id: "capo_gamelift.types.arn_string_model.ArnStringModel",
-        player_ids: "capo_gamelift.types.player_id_list.PlayerIdList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_session_id: Optional[
+            "capo_gamelift.types.arn_string_model.ArnStringModel"
+        ] = None,
+        player_ids: Optional["capo_gamelift.types.player_id_list.PlayerIdList"] = None,
         player_data_map: Optional[
             "capo_gamelift.types.player_data_map.PlayerDataMap"
         ] = None,
@@ -1856,8 +1939,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_player_sessions_input.CreatePlayerSessionsInput = {}  # type: ignore[typeddict-item]
-        input_["game_session_id"] = game_session_id
-        input_["player_ids"] = player_ids
+        if game_session_id is not None:
+            input_["game_session_id"] = game_session_id
+        if player_ids is not None:
+            input_["player_ids"] = player_ids
         if player_data_map is not None:
             input_["player_data_map"] = player_data_map
 
@@ -1943,10 +2028,14 @@ class AsyncGameLiftClient:
 
     async def create_vpc_peering_authorization(
         self,
-        game_lift_aws_account_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
-        peer_vpc_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_lift_aws_account_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
+        peer_vpc_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
     ) -> "capo_gamelift.types.create_vpc_peering_authorization_output.CreateVpcPeeringAuthorizationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Requests authorization to create or delete a peer connection between the VPC for your Amazon GameLift Servers fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on your fleet to communicate directly with other Amazon Web Services resources. After you've received authorization, use <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html\">CreateVpcPeeringConnection</a> to establish the peering connection. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html\">VPC Peering with Amazon GameLift Servers Fleets</a>.</p> <p>You can peer with VPCs that are owned by any Amazon Web Services account you have access to, including the account that you use to manage your Amazon GameLift Servers fleets. You cannot peer with VPCs that are in different Regions.</p> <p>To request authorization to create a connection, call this operation from the Amazon Web Services account with the VPC that you want to peer to your Amazon GameLift Servers fleet. For example, to enable your game servers to retrieve data from a DynamoDB table, use the account that manages that DynamoDB resource. Identify the following values: (1) The ID of the VPC that you want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage Amazon GameLift Servers. If successful, VPC peering is authorized for the specified VPC. </p> <p>To request authorization to delete a connection, call this operation from the Amazon Web Services account with the VPC that is peered with your Amazon GameLift Servers fleet. Identify the following values: (1) VPC ID that you want to delete the peering connection for, and (2) ID of the Amazon Web Services account that you use to manage Amazon GameLift Servers. </p> <p>The authorization remains valid for 24 hours unless it is canceled. You must create or delete the peering connection while the authorization is valid. </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -1979,8 +2068,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_vpc_peering_authorization_input.CreateVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
-        input_["game_lift_aws_account_id"] = game_lift_aws_account_id
-        input_["peer_vpc_id"] = peer_vpc_id
+        if game_lift_aws_account_id is not None:
+            input_["game_lift_aws_account_id"] = game_lift_aws_account_id
+        if peer_vpc_id is not None:
+            input_["peer_vpc_id"] = peer_vpc_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1991,11 +2082,15 @@ class AsyncGameLiftClient:
 
     async def create_vpc_peering_connection(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id.FleetId",
-        peer_vpc_aws_account_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
-        peer_vpc_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id.FleetId"] = None,
+        peer_vpc_aws_account_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
+        peer_vpc_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
     ) -> "capo_gamelift.types.create_vpc_peering_connection_output.CreateVpcPeeringConnectionOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC for your Amazon GameLift Servers fleet. VPC peering enables the game servers on your fleet to communicate directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account that you have access to, including the account that you use to manage your Amazon GameLift Servers fleets. You cannot peer with VPCs that are in different Regions. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html\">VPC Peering with Amazon GameLift Servers Fleets</a>.</p> <p>Before calling this operation to establish the peering connection, you first need to use <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html\">CreateVpcPeeringAuthorization</a> and identify the VPC you want to peer with. Once the authorization for the specified VPC is issued, you have 24 hours to establish the connection. These two operations handle all tasks necessary to peer the two VPCs, including acceptance, updating routing tables, etc. </p> <p>To establish the connection, call this operation from the Amazon Web Services account that is used to manage the Amazon GameLift Servers fleets. Identify the following values: (1) The ID of the fleet you want to be enable a VPC peering connection for; (2) The Amazon Web Services account with the VPC that you want to peer with; and (3) The ID of the VPC you want to peer with. This operation is asynchronous. If successful, a connection request is created. You can use continuous polling to track the request's status using <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeVpcPeeringConnections.html\">DescribeVpcPeeringConnections</a> , or by monitoring fleet events for success or failure using <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html\">DescribeFleetEvents</a> . </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2029,9 +2124,12 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.create_vpc_peering_connection_input.CreateVpcPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
-        input_["peer_vpc_id"] = peer_vpc_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if peer_vpc_aws_account_id is not None:
+            input_["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
+        if peer_vpc_id is not None:
+            input_["peer_vpc_id"] = peer_vpc_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2042,9 +2140,9 @@ class AsyncGameLiftClient:
 
     async def delete_alias(
         self,
-        alias_id: "capo_gamelift.types.alias_id_or_arn.AliasIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        alias_id: Optional["capo_gamelift.types.alias_id_or_arn.AliasIdOrArn"] = None,
     ) -> None:
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Deletes an alias. This operation removes all record of the alias. Game clients attempting to access a server process using the deleted alias receive an error. To delete an alias, specify the alias ID to be deleted.</p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2075,7 +2173,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_alias_input.DeleteAliasInput = {}  # type: ignore[typeddict-item]
-        input_["alias_id"] = alias_id
+        if alias_id is not None:
+            input_["alias_id"] = alias_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2086,9 +2185,9 @@ class AsyncGameLiftClient:
 
     async def delete_build(
         self,
-        build_id: "capo_gamelift.types.build_id_or_arn.BuildIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        build_id: Optional["capo_gamelift.types.build_id_or_arn.BuildIdOrArn"] = None,
     ) -> None:
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Deletes a build. This operation permanently deletes the build resource and any uploaded build files. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.</p> <p>To delete a build, specify the build ID. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html\"> Upload a Custom Server Build</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2119,7 +2218,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_build_input.DeleteBuildInput = {}  # type: ignore[typeddict-item]
-        input_["build_id"] = build_id
+        if build_id is not None:
+            input_["build_id"] = build_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2130,9 +2230,9 @@ class AsyncGameLiftClient:
 
     async def delete_container_fleet(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
     ) -> "capo_gamelift.types.delete_container_fleet_output.DeleteContainerFleetOutput":
         r"""<p> <b>This API works with the following fleet types:</b> Container</p> <p>Deletes all resources and information related to a container fleet and shuts down currently running fleet instances, including those in remote locations. The container fleet must be in <code>ACTIVE</code> status to be deleted.</p> <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process, the fleet status is changed to <code>DELETING</code>. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers Fleets</a> </p>
 
@@ -2166,7 +2266,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_container_fleet_input.DeleteContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2177,9 +2278,11 @@ class AsyncGameLiftClient:
 
     async def delete_container_group_definition(
         self,
-        name: "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
+        ] = None,
         version_number: Optional[
             "capo_gamelift.types.positive_integer.PositiveInteger"
         ] = None,
@@ -2221,7 +2324,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_container_group_definition_input.DeleteContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if version_number is not None:
             input_["version_number"] = version_number
         if version_count_to_retain is not None:
@@ -2236,9 +2340,9 @@ class AsyncGameLiftClient:
 
     async def delete_fleet(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
     ) -> None:
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Deletes all resources and information related to a fleet and shuts down any currently running fleet instances, including those in remote locations.</p> <note> <p>If the fleet being deleted has a VPC peering connection, you first need to get a valid authorization (good for 24 hours) by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html\">CreateVpcPeeringAuthorization</a>. You don't need to explicitly delete the VPC peering connection.</p> </note> <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process, the fleet status is changed to <code>DELETING</code>. When completed, the status switches to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is emitted.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers Fleets</a> </p>
 
@@ -2270,7 +2374,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_fleet_input.DeleteFleetInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2281,10 +2386,10 @@ class AsyncGameLiftClient:
 
     async def delete_fleet_locations(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        locations: "capo_gamelift.types.location_list.LocationList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        locations: Optional["capo_gamelift.types.location_list.LocationList"] = None,
     ) -> "capo_gamelift.types.delete_fleet_locations_output.DeleteFleetLocationsOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Container</p> <p>Removes locations from a multi-location fleet. When deleting a location, all game server process and all instances that are still active in the location are shut down. </p> <p>To delete fleet locations, identify the fleet ID and provide a list of the locations to be deleted. </p> <p>If successful, GameLift sets the location status to <code>DELETING</code>, and begins to shut down existing server processes and terminate instances in each location being deleted. When completed, the location status changes to <code>TERMINATED</code>.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers fleets</a> </p>
 
@@ -2318,8 +2423,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_fleet_locations_input.DeleteFleetLocationsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["locations"] = locations
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if locations is not None:
+            input_["locations"] = locations
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2330,9 +2437,11 @@ class AsyncGameLiftClient:
 
     async def delete_game_server_group(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         delete_option: Optional[
             "capo_gamelift.types.game_server_group_delete_option.GameServerGroupDeleteOption"
         ] = None,
@@ -2368,7 +2477,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_game_server_group_input.DeleteGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
         if delete_option is not None:
             input_["delete_option"] = delete_option
 
@@ -2381,9 +2491,11 @@ class AsyncGameLiftClient:
 
     async def delete_game_session_queue(
         self,
-        name: "capo_gamelift.types.game_session_queue_name_or_arn.GameSessionQueueNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.game_session_queue_name_or_arn.GameSessionQueueNameOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.delete_game_session_queue_output.DeleteGameSessionQueueOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html\">StartGameSessionPlacement</a> requests that reference the queue will fail. To delete a queue, specify the queue name.</p>
 
@@ -2416,7 +2528,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_game_session_queue_input.DeleteGameSessionQueueInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2427,9 +2540,11 @@ class AsyncGameLiftClient:
 
     async def delete_location(
         self,
-        location_name: "capo_gamelift.types.custom_location_name_or_arn_model.CustomLocationNameOrArnModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        location_name: Optional[
+            "capo_gamelift.types.custom_location_name_or_arn_model.CustomLocationNameOrArnModel"
+        ] = None,
     ) -> "capo_gamelift.types.delete_location_output.DeleteLocationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> Anywhere</p> <p>Deletes a custom location.</p> <p>Before deleting a custom location, review any fleets currently using the custom location and deregister the location if it is in use. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html\">DeregisterCompute</a>.</p>
 
@@ -2461,7 +2576,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_location_input.DeleteLocationInput = {}  # type: ignore[typeddict-item]
-        input_["location_name"] = location_name
+        if location_name is not None:
+            input_["location_name"] = location_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2472,9 +2588,11 @@ class AsyncGameLiftClient:
 
     async def delete_matchmaking_configuration(
         self,
-        name: "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName"
+        ] = None,
     ) -> "capo_gamelift.types.delete_matchmaking_configuration_output.DeleteMatchmakingConfigurationOutput":
         """<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the configuration name. A matchmaking configuration cannot be deleted if it is being used in any active matchmaking tickets.</p>
 
@@ -2507,7 +2625,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_matchmaking_configuration_input.DeleteMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2518,9 +2637,11 @@ class AsyncGameLiftClient:
 
     async def delete_matchmaking_rule_set(
         self,
-        name: "capo_gamelift.types.matchmaking_rule_set_name.MatchmakingRuleSetName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.matchmaking_rule_set_name.MatchmakingRuleSetName"
+        ] = None,
     ) -> "capo_gamelift.types.delete_matchmaking_rule_set_output.DeleteMatchmakingRuleSetOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set name. Rule sets cannot be deleted if they are currently being used by a matchmaking configuration. </p> <p> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html\">Build a rule set</a> </p> </li> </ul>
 
@@ -2553,7 +2674,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_matchmaking_rule_set_input.DeleteMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2564,10 +2686,12 @@ class AsyncGameLiftClient:
 
     async def delete_scaling_policy(
         self,
-        name: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
     ) -> None:
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and Amazon GameLift Servers removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.</p> <p>To temporarily suspend scaling policies, use <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html\">StopFleetActions</a>. This operation suspends all policies for the fleet.</p>
 
@@ -2599,8 +2723,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_scaling_policy_input.DeleteScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["fleet_id"] = fleet_id
+        if name is not None:
+            input_["name"] = name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2611,9 +2737,11 @@ class AsyncGameLiftClient:
 
     async def delete_script(
         self,
-        script_id: "capo_gamelift.types.script_id_or_arn.ScriptIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        script_id: Optional[
+            "capo_gamelift.types.script_id_or_arn.ScriptIdOrArn"
+        ] = None,
     ) -> None:
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Deletes a Realtime script. This operation permanently deletes the script record. If script files were uploaded, they are also deleted (files stored in an S3 bucket are not deleted). </p> <p>To delete a script, specify the script ID. Before deleting a script, be sure to terminate all fleets that are deployed with the script being deleted. Fleet instances periodically check for script updates, and if the script record no longer exists, the instance will go into an error state and be unable to host game sessions.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html\">Amazon GameLift Servers Amazon GameLift Servers Realtime</a> </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2644,7 +2772,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_script_input.DeleteScriptInput = {}  # type: ignore[typeddict-item]
-        input_["script_id"] = script_id
+        if script_id is not None:
+            input_["script_id"] = script_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2655,10 +2784,14 @@ class AsyncGameLiftClient:
 
     async def delete_vpc_peering_authorization(
         self,
-        game_lift_aws_account_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
-        peer_vpc_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_lift_aws_account_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
+        peer_vpc_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
     ) -> "capo_gamelift.types.delete_vpc_peering_authorization_output.DeleteVpcPeeringAuthorizationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to delete an existing VPC peering connection, use <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html\">DeleteVpcPeeringConnection</a>.</p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2691,8 +2824,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_vpc_peering_authorization_input.DeleteVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
-        input_["game_lift_aws_account_id"] = game_lift_aws_account_id
-        input_["peer_vpc_id"] = peer_vpc_id
+        if game_lift_aws_account_id is not None:
+            input_["game_lift_aws_account_id"] = game_lift_aws_account_id
+        if peer_vpc_id is not None:
+            input_["peer_vpc_id"] = peer_vpc_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2703,10 +2838,12 @@ class AsyncGameLiftClient:
 
     async def delete_vpc_peering_connection(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id.FleetId",
-        vpc_peering_connection_id: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id.FleetId"] = None,
+        vpc_peering_connection_id: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
     ) -> "capo_gamelift.types.delete_vpc_peering_connection_output.DeleteVpcPeeringConnectionOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Removes a VPC peering connection. To delete the connection, you must have a valid authorization for the VPC peering connection that you want to delete.. </p> <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is used to manage the Amazon GameLift Servers fleets. Identify the connection to delete by the connection ID and fleet ID. If successful, the connection is removed. </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2739,8 +2876,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.delete_vpc_peering_connection_input.DeleteVpcPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["vpc_peering_connection_id"] = vpc_peering_connection_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if vpc_peering_connection_id is not None:
+            input_["vpc_peering_connection_id"] = vpc_peering_connection_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2751,10 +2890,12 @@ class AsyncGameLiftClient:
 
     async def deregister_compute(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        compute_name: "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        compute_name: Optional[
+            "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.deregister_compute_output.DeregisterComputeOutput":
         """<p> <b>This API works with the following fleet types:</b> Anywhere</p> <p>Removes a compute resource from an Anywhere fleet. Deregistered computes can no longer host game sessions through Amazon GameLift Servers. Use this operation with an Anywhere fleet that doesn't use the Amazon GameLift Servers Agent For Anywhere fleets with the Agent, the Agent handles all compute registry tasks for you. </p> <p>To deregister a compute, call this operation from the compute that's being deregistered and specify the compute name and the fleet ID. </p>
 
@@ -2787,8 +2928,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.deregister_compute_input.DeregisterComputeInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["compute_name"] = compute_name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if compute_name is not None:
+            input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2799,10 +2942,14 @@ class AsyncGameLiftClient:
 
     async def deregister_game_server(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
-        game_server_id: "capo_gamelift.types.game_server_id.GameServerId",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
+        game_server_id: Optional[
+            "capo_gamelift.types.game_server_id.GameServerId"
+        ] = None,
     ) -> None:
         r"""<p> <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p> <p>Removes the game server from a game server group. As a result of this operation, the deregistered game server can no longer be claimed and will not be returned in a list of active game servers. </p> <p>To deregister a game server, specify the game server group and game server ID. If successful, this operation emits a CloudWatch event with termination timestamp and reason.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html\">Amazon GameLift Servers FleetIQ Guide</a> </p>
 
@@ -2833,8 +2980,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.deregister_game_server_input.DeregisterGameServerInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["game_server_id"] = game_server_id
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if game_server_id is not None:
+            input_["game_server_id"] = game_server_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2845,9 +2994,9 @@ class AsyncGameLiftClient:
 
     async def describe_alias(
         self,
-        alias_id: "capo_gamelift.types.alias_id_or_arn.AliasIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        alias_id: Optional["capo_gamelift.types.alias_id_or_arn.AliasIdOrArn"] = None,
     ) -> "capo_gamelift.types.describe_alias_output.DescribeAliasOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Retrieves properties for an alias. This operation returns all alias metadata and settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p> <p>To get alias properties, specify the alias ID. If successful, the requested alias record is returned.</p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2879,7 +3028,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_alias_input.DescribeAliasInput = {}  # type: ignore[typeddict-item]
-        input_["alias_id"] = alias_id
+        if alias_id is not None:
+            input_["alias_id"] = alias_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2890,9 +3040,9 @@ class AsyncGameLiftClient:
 
     async def describe_build(
         self,
-        build_id: "capo_gamelift.types.build_id_or_arn.BuildIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        build_id: Optional["capo_gamelift.types.build_id_or_arn.BuildIdOrArn"] = None,
     ) -> "capo_gamelift.types.describe_build_output.DescribeBuildOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Retrieves properties for a custom game build. To request a build resource, specify a build ID. If successful, an object containing the build properties is returned.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html\"> Upload a Custom Server Build</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -2924,7 +3074,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_build_input.DescribeBuildInput = {}  # type: ignore[typeddict-item]
-        input_["build_id"] = build_id
+        if build_id is not None:
+            input_["build_id"] = build_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2935,10 +3086,12 @@ class AsyncGameLiftClient:
 
     async def describe_compute(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        compute_name: "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        compute_name: Optional[
+            "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.describe_compute_output.DescribeComputeOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Retrieves properties for a specific compute resource in an Amazon GameLift Servers fleet. You can list all computes in a fleet by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html\">ListCompute</a>. </p> <p> <b>Request options</b> </p> <p>Provide the fleet ID and compute name. The compute name varies depending on the type of fleet.</p> <ul> <li> <p>For a compute in a managed EC2 fleet, provide an instance ID. Each instance in the fleet is a compute.</p> </li> <li> <p>For a compute in a managed container fleet, provide a compute name. In a container fleet, each game server container group on a fleet instance is assigned a compute name.</p> </li> <li> <p>For a compute in an Anywhere fleet, provide a registered compute name. Anywhere fleet computes are created when you register a hosting resource with the fleet.</p> </li> </ul> <p> <b>Results</b> </p> <p>If successful, this operation returns details for the requested compute resource. Depending on the fleet's compute type, the result includes the following information: </p> <ul> <li> <p>For a managed EC2 fleet, this operation returns information about the EC2 instance.</p> </li> <li> <p>For an Anywhere fleet, this operation returns information about the registered compute.</p> </li> </ul>
 
@@ -2972,8 +3125,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_compute_input.DescribeComputeInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["compute_name"] = compute_name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if compute_name is not None:
+            input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2984,9 +3139,9 @@ class AsyncGameLiftClient:
 
     async def describe_container_fleet(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
     ) -> "capo_gamelift.types.describe_container_fleet_output.DescribeContainerFleetOutput":
         """<p> <b>This API works with the following fleet types:</b> Container</p> <p>Retrieves the properties for a container fleet. When requesting attributes for multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. </p> <p> <b>Request options</b> </p> <ul> <li> <p>Get container fleet properties for a single fleet. Provide either the fleet ID or ARN value. </p> </li> </ul> <p> <b>Results</b> </p> <p>If successful, a <code>ContainerFleet</code> object is returned. This object includes the fleet properties, including information about the most recent deployment.</p> <note> <p>Some API operations limit the number of fleet IDs that allowed in one request. If a request exceeds this limit, the request fails and the error message contains the maximum allowed number.</p> </note>
 
@@ -3019,7 +3174,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_container_fleet_input.DescribeContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3030,9 +3186,11 @@ class AsyncGameLiftClient:
 
     async def describe_container_group_definition(
         self,
-        name: "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
+        ] = None,
         version_number: Optional[
             "capo_gamelift.types.positive_integer.PositiveInteger"
         ] = None,
@@ -3069,7 +3227,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_container_group_definition_input.DescribeContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if version_number is not None:
             input_["version_number"] = version_number
 
@@ -3082,10 +3241,12 @@ class AsyncGameLiftClient:
 
     async def describe_container_group_port_mappings(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        container_group_type: "capo_gamelift.types.container_group_type.ContainerGroupType",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        container_group_type: Optional[
+            "capo_gamelift.types.container_group_type.ContainerGroupType"
+        ] = None,
         compute_name: Optional[
             "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn"
         ] = None,
@@ -3130,8 +3291,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_container_group_port_mappings_input.DescribeContainerGroupPortMappingsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["container_group_type"] = container_group_type
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if container_group_type is not None:
+            input_["container_group_type"] = container_group_type
         if compute_name is not None:
             input_["compute_name"] = compute_name
         if instance_id is not None:
@@ -3375,9 +3538,9 @@ class AsyncGameLiftClient:
 
     async def describe_fleet_deployment(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         deployment_id: Optional[
             "capo_gamelift.types.deployment_id.DeploymentId"
         ] = None,
@@ -3414,7 +3577,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_fleet_deployment_input.DescribeFleetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if deployment_id is not None:
             input_["deployment_id"] = deployment_id
 
@@ -3427,9 +3591,9 @@ class AsyncGameLiftClient:
 
     async def describe_fleet_events(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         start_time: Optional["capo_gamelift.types.timestamp.Timestamp"] = None,
         end_time: Optional["capo_gamelift.types.timestamp.Timestamp"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
@@ -3472,7 +3636,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_fleet_events_input.DescribeFleetEventsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if start_time is not None:
             input_["start_time"] = start_time
         if end_time is not None:
@@ -3491,9 +3656,9 @@ class AsyncGameLiftClient:
 
     async def iter_describe_fleet_events(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         start_time: Optional["capo_gamelift.types.timestamp.Timestamp"] = None,
         end_time: Optional["capo_gamelift.types.timestamp.Timestamp"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
@@ -3504,8 +3669,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.describe_fleet_events(
-                fleet_id,
                 config_overrides=config_overrides,
+                fleet_id=fleet_id,
                 start_time=start_time,
                 end_time=end_time,
                 limit=limit,
@@ -3520,9 +3685,9 @@ class AsyncGameLiftClient:
 
     async def describe_fleet_location_attributes(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         locations: Optional["capo_gamelift.types.location_list.LocationList"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
         next_token: Optional[
@@ -3563,7 +3728,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_fleet_location_attributes_input.DescribeFleetLocationAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if locations is not None:
             input_["locations"] = locations
         if limit is not None:
@@ -3580,10 +3746,12 @@ class AsyncGameLiftClient:
 
     async def describe_fleet_location_capacity(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        location: "capo_gamelift.types.location_string_model.LocationStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        location: Optional[
+            "capo_gamelift.types.location_string_model.LocationStringModel"
+        ] = None,
     ) -> "capo_gamelift.types.describe_fleet_location_capacity_output.DescribeFleetLocationCapacityOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Container</p> <p>Retrieves the resource capacity settings for a fleet location. The data returned includes the current capacity (number of EC2 instances) and some scaling settings for the requested fleet location. For a managed container fleet, this operation also returns counts for game server container groups.</p> <p>Use this operation to retrieve capacity information for a fleet's remote location or home Region (you can also retrieve home Region capacity by calling <code>DescribeFleetCapacity</code>).</p> <p>To retrieve capacity data, identify a fleet and location. </p> <p>If successful, a <code>FleetCapacity</code> object is returned for the requested fleet location. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers fleets</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html\"> Amazon GameLift Servers service locations</a> for managed hosting</p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet\">GameLift metrics for fleets</a> </p>
 
@@ -3617,8 +3785,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_fleet_location_capacity_input.DescribeFleetLocationCapacityInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["location"] = location
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if location is not None:
+            input_["location"] = location
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3629,10 +3799,12 @@ class AsyncGameLiftClient:
 
     async def describe_fleet_location_utilization(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        location: "capo_gamelift.types.location_string_model.LocationStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        location: Optional[
+            "capo_gamelift.types.location_string_model.LocationStringModel"
+        ] = None,
     ) -> "capo_gamelift.types.describe_fleet_location_utilization_output.DescribeFleetLocationUtilizationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Retrieves current usage data for a fleet location. Utilization data provides a snapshot of current game hosting activity at the requested location. Use this operation to retrieve utilization information for a fleet's remote location or home Region (you can also retrieve home Region utilization by calling <code>DescribeFleetUtilization</code>).</p> <p>To retrieve utilization data, identify a fleet and location. </p> <p>If successful, a <code>FleetUtilization</code> object is returned for the requested fleet location. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers fleets</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html\"> Amazon GameLift Servers service locations</a> for managed hosting</p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet\">GameLift metrics for fleets</a> </p>
 
@@ -3666,8 +3838,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_fleet_location_utilization_input.DescribeFleetLocationUtilizationInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["location"] = location
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if location is not None:
+            input_["location"] = location
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3678,9 +3852,9 @@ class AsyncGameLiftClient:
 
     async def describe_fleet_port_settings(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         location: Optional[
             "capo_gamelift.types.location_string_model.LocationStringModel"
         ] = None,
@@ -3717,7 +3891,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_fleet_port_settings_input.DescribeFleetPortSettingsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if location is not None:
             input_["location"] = location
 
@@ -3815,10 +3990,14 @@ class AsyncGameLiftClient:
 
     async def describe_game_server(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
-        game_server_id: "capo_gamelift.types.game_server_id.GameServerId",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
+        game_server_id: Optional[
+            "capo_gamelift.types.game_server_id.GameServerId"
+        ] = None,
     ) -> "capo_gamelift.types.describe_game_server_output.DescribeGameServerOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p> <p>Retrieves information for a registered game server. Information includes game server status, health check info, and the instance that the game server is running on. </p> <p>To retrieve game server information, specify the game server ID. If successful, the requested game server object is returned. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html\">Amazon GameLift Servers FleetIQ Guide</a> </p>
 
@@ -3851,8 +4030,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_game_server_input.DescribeGameServerInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["game_server_id"] = game_server_id
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if game_server_id is not None:
+            input_["game_server_id"] = game_server_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3863,9 +4044,11 @@ class AsyncGameLiftClient:
 
     async def describe_game_server_group(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.describe_game_server_group_output.DescribeGameServerGroupOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p> <p>Retrieves information on a game server group. This operation returns only properties related to Amazon GameLift Servers FleetIQ. To view or update properties for the corresponding Auto Scaling group, such as launch template, auto scaling policies, and maximum/minimum group size, access the Auto Scaling group directly.</p> <p>To get attributes for a game server group, provide a group name or ARN value. If successful, a <code>GameServerGroup</code> object is returned.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html\">Amazon GameLift Servers FleetIQ Guide</a> </p>
 
@@ -3897,7 +4080,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_game_server_group_input.DescribeGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3908,9 +4092,11 @@ class AsyncGameLiftClient:
 
     async def describe_game_server_instances(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         instance_ids: Optional[
             "capo_gamelift.types.game_server_instance_ids.GameServerInstanceIds"
         ] = None,
@@ -3952,7 +4138,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_game_server_instances_input.DescribeGameServerInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if limit is not None:
@@ -3969,9 +4156,11 @@ class AsyncGameLiftClient:
 
     async def iter_describe_game_server_instances(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         instance_ids: Optional[
             "capo_gamelift.types.game_server_instance_ids.GameServerInstanceIds"
         ] = None,
@@ -3983,8 +4172,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.describe_game_server_instances(
-                game_server_group_name,
                 config_overrides=config_overrides,
+                game_server_group_name=game_server_group_name,
                 instance_ids=instance_ids,
                 limit=limit,
                 next_token=_token,
@@ -4117,9 +4306,11 @@ class AsyncGameLiftClient:
 
     async def describe_game_session_placement(
         self,
-        placement_id: "capo_gamelift.types.id_string_model.IdStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        placement_id: Optional[
+            "capo_gamelift.types.id_string_model.IdStringModel"
+        ] = None,
     ) -> "capo_gamelift.types.describe_game_session_placement_output.DescribeGameSessionPlacementOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Retrieves information, including current status, about a game session placement request. </p> <p>To get game session placement details, specify the placement ID.</p> <p>This operation is not designed to be continually called to track game session status. This practice can cause you to exceed your API limit, which results in errors. Instead, you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling with <code>DescribeGameSessionPlacement</code> should only be used for games in development with low game session usage. For a reference implementation of event-based game session placement tracking, see <a href=\"https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement\"> Event-based game session placement guidance</a> in the Amazon GameLift Toolkit.</p>
 
@@ -4151,7 +4342,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_game_session_placement_input.DescribeGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
-        input_["placement_id"] = placement_id
+        if placement_id is not None:
+            input_["placement_id"] = placement_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4366,9 +4558,9 @@ class AsyncGameLiftClient:
 
     async def describe_instances(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         instance_id: Optional["capo_gamelift.types.instance_id.InstanceId"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
         next_token: Optional[
@@ -4413,7 +4605,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_instances_input.DescribeInstancesInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if limit is not None:
@@ -4432,9 +4625,9 @@ class AsyncGameLiftClient:
 
     async def iter_describe_instances(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         instance_id: Optional["capo_gamelift.types.instance_id.InstanceId"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
         next_token: Optional[
@@ -4447,8 +4640,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.describe_instances(
-                fleet_id,
                 config_overrides=config_overrides,
+                fleet_id=fleet_id,
                 instance_id=instance_id,
                 limit=limit,
                 next_token=_token,
@@ -4463,9 +4656,11 @@ class AsyncGameLiftClient:
 
     async def describe_matchmaking(
         self,
-        ticket_ids: "capo_gamelift.types.matchmaking_id_list.MatchmakingIdList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        ticket_ids: Optional[
+            "capo_gamelift.types.matchmaking_id_list.MatchmakingIdList"
+        ] = None,
     ) -> "capo_gamelift.types.describe_matchmaking_output.DescribeMatchmakingOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket information, including--after a successful match is made--connection information for the resulting new game session. </p> <p>To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request is successful, a ticket object is returned for each requested ID that currently exists.</p> <p>This operation is not designed to be continually called to track matchmaking ticket status. This practice can cause you to exceed your API limit, which results in errors. Instead, as a best practice, set up an Amazon Simple Notification Service to receive notifications, and provide the topic ARN in the matchmaking configuration.</p> <p></p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html\"> Add FlexMatch to a game client</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html\"> Set Up FlexMatch event notification</a> </p>
 
@@ -4496,7 +4691,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_matchmaking_input.DescribeMatchmakingInput = {}  # type: ignore[typeddict-item]
-        input_["ticket_ids"] = ticket_ids
+        if ticket_ids is not None:
+            input_["ticket_ids"] = ticket_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4797,9 +4993,9 @@ class AsyncGameLiftClient:
 
     async def describe_runtime_configuration(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
     ) -> "capo_gamelift.types.describe_runtime_configuration_output.DescribeRuntimeConfigurationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Retrieves a fleet's runtime configuration settings. The runtime configuration determines which server processes run, and how, on computes in the fleet. For managed EC2 fleets, the runtime configuration describes server processes that run on each fleet instance. You can update a fleet's runtime configuration at any time using <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html\">UpdateRuntimeConfiguration</a>.</p> <p>To get the current runtime configuration for a fleet, provide the fleet ID. </p> <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the requested fleet. If the requested fleet has been deleted, the result set is empty.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers fleets</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html\">Running multiple processes on a fleet</a> </p>
 
@@ -4831,7 +5027,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_runtime_configuration_input.DescribeRuntimeConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4842,9 +5039,9 @@ class AsyncGameLiftClient:
 
     async def describe_scaling_policies(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         status_filter: Optional[
             "capo_gamelift.types.scaling_status_type.ScalingStatusType"
         ] = None,
@@ -4891,7 +5088,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_scaling_policies_input.DescribeScalingPoliciesInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if status_filter is not None:
             input_["status_filter"] = status_filter
         if limit is not None:
@@ -4910,9 +5108,9 @@ class AsyncGameLiftClient:
 
     async def iter_describe_scaling_policies(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         status_filter: Optional[
             "capo_gamelift.types.scaling_status_type.ScalingStatusType"
         ] = None,
@@ -4927,8 +5125,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.describe_scaling_policies(
-                fleet_id,
                 config_overrides=config_overrides,
+                fleet_id=fleet_id,
                 status_filter=status_filter,
                 limit=limit,
                 next_token=_token,
@@ -4943,9 +5141,11 @@ class AsyncGameLiftClient:
 
     async def describe_script(
         self,
-        script_id: "capo_gamelift.types.script_id_or_arn.ScriptIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        script_id: Optional[
+            "capo_gamelift.types.script_id_or_arn.ScriptIdOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.describe_script_output.DescribeScriptOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Retrieves properties for a Realtime script. </p> <p>To request a script record, specify the script ID. If successful, an object containing the script properties is returned.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html\">Amazon GameLift Servers Amazon GameLift Servers Realtime</a> </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -4977,7 +5177,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.describe_script_input.DescribeScriptInput = {}  # type: ignore[typeddict-item]
-        input_["script_id"] = script_id
+        if script_id is not None:
+            input_["script_id"] = script_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5071,10 +5272,12 @@ class AsyncGameLiftClient:
 
     async def get_compute_access(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        compute_name: "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        compute_name: Optional[
+            "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.get_compute_access_output.GetComputeAccessOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Container</p> <p>Requests authorization to remotely connect to a hosting resource in a Amazon GameLift Servers managed fleet. This operation is not used with Amazon GameLift Servers Anywhere fleets.</p> <p> <b>Request options</b> </p> <p>Provide the fleet ID and compute name. The compute name varies depending on the type of fleet.</p> <ul> <li> <p>For a compute in a managed EC2 fleet, provide an instance ID. Each instance in the fleet is a compute.</p> </li> <li> <p>For a compute in a managed container fleet, provide a compute name. In a container fleet, each game server container group on a fleet instance is assigned a compute name. </p> </li> </ul> <p> <b>Results</b> </p> <p>If successful, this operation returns a set of temporary Amazon Web Services credentials, including a two-part access key and a session token.</p> <ul> <li> <p>With a managed EC2 fleet (where compute type is <code>EC2</code>), use these credentials with Amazon EC2 Systems Manager (SSM) to start a session with the compute. For more details, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli\"> Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.</p> </li> </ul>
 
@@ -5108,8 +5311,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.get_compute_access_input.GetComputeAccessInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["compute_name"] = compute_name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if compute_name is not None:
+            input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5120,10 +5325,12 @@ class AsyncGameLiftClient:
 
     async def get_compute_auth_token(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        compute_name: "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        compute_name: Optional[
+            "capo_gamelift.types.compute_name_or_arn.ComputeNameOrArn"
+        ] = None,
     ) -> "capo_gamelift.types.get_compute_auth_token_output.GetComputeAuthTokenOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Requests an authentication token from Amazon GameLift Servers for a compute resource in an Amazon GameLift Servers fleet. Game servers that are running on the compute use this token to communicate with the Amazon GameLift Servers service, such as when calling the Amazon GameLift Servers server SDK action <code>InitSDK()</code>. Authentication tokens are valid for a limited time span, so you need to request a fresh token before the current token expires.</p> <p> <b>Request options</b> </p> <ul> <li> <p>For managed EC2 fleets (compute type <code>EC2</code>), auth token retrieval and refresh is handled automatically. All game servers that are running on all fleet instances have access to a valid auth token.</p> </li> <li> <p>For Anywhere fleets (compute type <code>ANYWHERE</code>), if you're using the Amazon GameLift Servers Agent, auth token retrieval and refresh is handled automatically for any compute where the Agent is running. If you're not using the Agent, create a mechanism to retrieve and refresh auth tokens for computes that are running game server processes.</p> </li> </ul> <p> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html\">Create an Anywhere fleet</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html\">Test your integration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html\">Server SDK reference guides</a> (for version 5.x)</p> </li> </ul>
 
@@ -5157,8 +5364,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.get_compute_auth_token_input.GetComputeAuthTokenInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["compute_name"] = compute_name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if compute_name is not None:
+            input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5169,9 +5378,11 @@ class AsyncGameLiftClient:
 
     async def get_game_session_log_url(
         self,
-        game_session_id: "capo_gamelift.types.arn_string_model.ArnStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_session_id: Optional[
+            "capo_gamelift.types.arn_string_model.ArnStringModel"
+        ] = None,
     ) -> (
         "capo_gamelift.types.get_game_session_log_url_output.GetGameSessionLogUrlOutput"
     ):
@@ -5205,7 +5416,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.get_game_session_log_url_input.GetGameSessionLogUrlInput = {}  # type: ignore[typeddict-item]
-        input_["game_session_id"] = game_session_id
+        if game_session_id is not None:
+            input_["game_session_id"] = game_session_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5216,10 +5428,10 @@ class AsyncGameLiftClient:
 
     async def get_instance_access(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        instance_id: "capo_gamelift.types.instance_id.InstanceId",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        instance_id: Optional["capo_gamelift.types.instance_id.InstanceId"] = None,
     ) -> "capo_gamelift.types.get_instance_access_output.GetInstanceAccessOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Requests authorization to remotely connect to an instance in an Amazon GameLift Servers managed fleet. Use this operation to connect to instances with game servers that use Amazon GameLift Servers server SDK 4.x or earlier. To connect to instances with game servers that use server SDK 5.x or later, call <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess\">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.</p> <p>To request access to an instance, specify IDs for the instance and the fleet it belongs to. You can retrieve instance IDs for a fleet by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html\">DescribeInstances</a> with the fleet ID. </p> <p>If successful, this operation returns an IP address and credentials. The returned credentials match the operating system of the instance, as follows: </p> <ul> <li> <p>For a Windows instance: returns a user name and secret (password) for use with a Windows Remote Desktop client. </p> </li> <li> <p>For a Linux instance: returns a user name and secret (RSA private key) for use with an SSH client. You must save the secret to a <code>.pem</code> file. If you're using the CLI, see the example <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetInstanceAccess.html#API_GetInstanceAccess_Examples\"> Get credentials for a Linux instance</a> for tips on automatically saving the secret to a <code>.pem</code> file. </p> </li> </ul> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html\">Remotely connect to fleet instances</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html\">Debug fleet issues</a> </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -5252,8 +5464,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.get_instance_access_input.GetInstanceAccessInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["instance_id"] = instance_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5264,10 +5478,12 @@ class AsyncGameLiftClient:
 
     async def get_player_connection_details(
         self,
-        game_session_id: "capo_gamelift.types.arn_string_model.ArnStringModel",
-        player_ids: "capo_gamelift.types.player_id_list.PlayerIdList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_session_id: Optional[
+            "capo_gamelift.types.arn_string_model.ArnStringModel"
+        ] = None,
+        player_ids: Optional["capo_gamelift.types.player_id_list.PlayerIdList"] = None,
     ) -> "capo_gamelift.types.get_player_connection_details_output.GetPlayerConnectionDetailsOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2 (server SDK 5.x or later), Container</p> <p>Retrieves connection details for game clients to connect to game sessions. </p> <p> <b>Player gateway benefits:</b> DDoS protection with negligible impact to latency. </p> <p>To enable player gateway on your fleet, set <code>PlayerGatewayMode</code> to <code>ENABLED</code> or <code>REQUIRED</code> when calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html\">CreateFleet</a> or <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html\">CreateContainerFleet</a>.</p> <p> <b>How to use:</b> After creating a game session and adding players, call this operation with the game session ID and player IDs. When player gateway is enabled, the response includes connection endpoints and player gateway tokens that your game clients can use to connect to the game session through player gateway. To learn more about player gateway integration, see <a href=\"https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html\">DDoS protection with Amazon GameLift Servers player gateway</a>.</p> <p>When player gateway is disabled or in locations where player gateway is not supported, this operation returns game server connection information without player gateway tokens, so that your game clients directly connect to the game server endpoint.</p>
 
@@ -5303,8 +5519,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.get_player_connection_details_input.GetPlayerConnectionDetailsInput = {}  # type: ignore[typeddict-item]
-        input_["game_session_id"] = game_session_id
-        input_["player_ids"] = player_ids
+        if game_session_id is not None:
+            input_["game_session_id"] = game_session_id
+        if player_ids is not None:
+            input_["player_ids"] = player_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5485,9 +5703,9 @@ class AsyncGameLiftClient:
 
     async def list_compute(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         location: Optional[
             "capo_gamelift.types.location_string_model.LocationStringModel"
         ] = None,
@@ -5537,7 +5755,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.list_compute_input.ListComputeInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if location is not None:
             input_["location"] = location
         if container_group_definition_name is not None:
@@ -5558,9 +5777,9 @@ class AsyncGameLiftClient:
 
     async def iter_list_compute(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         location: Optional[
             "capo_gamelift.types.location_string_model.LocationStringModel"
         ] = None,
@@ -5578,8 +5797,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.list_compute(
-                fleet_id,
                 config_overrides=config_overrides,
+                fleet_id=fleet_id,
                 location=location,
                 container_group_definition_name=container_group_definition_name,
                 compute_status=compute_status,
@@ -5769,9 +5988,11 @@ class AsyncGameLiftClient:
 
     async def list_container_group_definition_versions(
         self,
-        name: "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
+        ] = None,
         limit: Optional[
             "capo_gamelift.types.list_container_group_definition_versions_limit.ListContainerGroupDefinitionVersionsLimit"
         ] = None,
@@ -5812,7 +6033,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.list_container_group_definition_versions_input.ListContainerGroupDefinitionVersionsInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if limit is not None:
             input_["limit"] = limit
         if next_token is not None:
@@ -5827,9 +6049,11 @@ class AsyncGameLiftClient:
 
     async def iter_list_container_group_definition_versions(
         self,
-        name: "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
+        ] = None,
         limit: Optional[
             "capo_gamelift.types.list_container_group_definition_versions_limit.ListContainerGroupDefinitionVersionsLimit"
         ] = None,
@@ -5840,8 +6064,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.list_container_group_definition_versions(
-                name,
                 config_overrides=config_overrides,
+                name=name,
                 limit=limit,
                 next_token=_token,
             )
@@ -6103,9 +6327,11 @@ class AsyncGameLiftClient:
 
     async def list_game_servers(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         sort_order: Optional["capo_gamelift.types.sort_order.SortOrder"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
         next_token: Optional[
@@ -6144,7 +6370,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.list_game_servers_input.ListGameServersInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
         if sort_order is not None:
             input_["sort_order"] = sort_order
         if limit is not None:
@@ -6161,9 +6388,11 @@ class AsyncGameLiftClient:
 
     async def iter_list_game_servers(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         sort_order: Optional["capo_gamelift.types.sort_order.SortOrder"] = None,
         limit: Optional["capo_gamelift.types.positive_integer.PositiveInteger"] = None,
         next_token: Optional[
@@ -6173,8 +6402,8 @@ class AsyncGameLiftClient:
         _token = next_token
         while True:
             _response = await self.list_game_servers(
-                game_server_group_name,
                 config_overrides=config_overrides,
+                game_server_group_name=game_server_group_name,
                 sort_order=sort_order,
                 limit=limit,
                 next_token=_token,
@@ -6350,9 +6579,11 @@ class AsyncGameLiftClient:
 
     async def list_tags_for_resource(
         self,
-        resource_arn: "capo_gamelift.types.amazon_resource_name.AmazonResourceName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        resource_arn: Optional[
+            "capo_gamelift.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
     ) -> "capo_gamelift.types.list_tags_for_resource_response.ListTagsForResourceResponse":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Retrieves all tags assigned to a Amazon GameLift Servers resource. Use resource tags to organize Amazon Web Services resources for a range of purposes. This operation handles the permissions necessary to manage tags for Amazon GameLift Servers resources that support tagging.</p> <p>To list tags for a resource, specify the unique ARN value for the resource.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i> </p> <p> <a href=\"http://aws.amazon.com/answers/account-management/aws-tagging-strategies/\"> Amazon Web Services Tagging Strategies</a> </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -6385,7 +6616,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6396,11 +6628,12 @@ class AsyncGameLiftClient:
 
     async def put_scaling_policy(
         self,
-        name: "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString",
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        metric_name: "capo_gamelift.types.metric_name.MetricName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
+        ] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         scaling_adjustment: Optional["capo_gamelift.types.integer.Integer"] = None,
         scaling_adjustment_type: Optional[
             "capo_gamelift.types.scaling_adjustment_type.ScalingAdjustmentType"
@@ -6412,6 +6645,7 @@ class AsyncGameLiftClient:
         evaluation_periods: Optional[
             "capo_gamelift.types.positive_integer.PositiveInteger"
         ] = None,
+        metric_name: Optional["capo_gamelift.types.metric_name.MetricName"] = None,
         policy_type: Optional["capo_gamelift.types.policy_type.PolicyType"] = None,
         target_configuration: Optional[
             "capo_gamelift.types.target_configuration.TargetConfiguration"
@@ -6457,8 +6691,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.put_scaling_policy_input.PutScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["fleet_id"] = fleet_id
+        if name is not None:
+            input_["name"] = name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if scaling_adjustment is not None:
             input_["scaling_adjustment"] = scaling_adjustment
         if scaling_adjustment_type is not None:
@@ -6469,7 +6705,8 @@ class AsyncGameLiftClient:
             input_["comparison_operator"] = comparison_operator
         if evaluation_periods is not None:
             input_["evaluation_periods"] = evaluation_periods
-        input_["metric_name"] = metric_name
+        if metric_name is not None:
+            input_["metric_name"] = metric_name
         if policy_type is not None:
             input_["policy_type"] = policy_type
         if target_configuration is not None:
@@ -6484,10 +6721,10 @@ class AsyncGameLiftClient:
 
     async def register_compute(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        compute_name: "capo_gamelift.types.compute_name.ComputeName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        compute_name: Optional["capo_gamelift.types.compute_name.ComputeName"] = None,
         certificate_path: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -6534,8 +6771,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.register_compute_input.RegisterComputeInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["compute_name"] = compute_name
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if compute_name is not None:
+            input_["compute_name"] = compute_name
         if certificate_path is not None:
             input_["certificate_path"] = certificate_path
         if dns_name is not None:
@@ -6554,11 +6793,17 @@ class AsyncGameLiftClient:
 
     async def register_game_server(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
-        game_server_id: "capo_gamelift.types.game_server_id.GameServerId",
-        instance_id: "capo_gamelift.types.game_server_instance_id.GameServerInstanceId",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
+        game_server_id: Optional[
+            "capo_gamelift.types.game_server_id.GameServerId"
+        ] = None,
+        instance_id: Optional[
+            "capo_gamelift.types.game_server_instance_id.GameServerInstanceId"
+        ] = None,
         connection_info: Optional[
             "capo_gamelift.types.game_server_connection_info.GameServerConnectionInfo"
         ] = None,
@@ -6601,9 +6846,12 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.register_game_server_input.RegisterGameServerInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["game_server_id"] = game_server_id
-        input_["instance_id"] = instance_id
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if game_server_id is not None:
+            input_["game_server_id"] = game_server_id
+        if instance_id is not None:
+            input_["instance_id"] = instance_id
         if connection_info is not None:
             input_["connection_info"] = connection_info
         if game_server_data is not None:
@@ -6618,9 +6866,9 @@ class AsyncGameLiftClient:
 
     async def request_upload_credentials(
         self,
-        build_id: "capo_gamelift.types.build_id_or_arn.BuildIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        build_id: Optional["capo_gamelift.types.build_id_or_arn.BuildIdOrArn"] = None,
     ) -> "capo_gamelift.types.request_upload_credentials_output.RequestUploadCredentialsOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Retrieves a fresh set of credentials for use when uploading a new set of game build files to Amazon GameLift Servers's Amazon S3. This is done as part of the build creation process; see <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html\">CreateBuild</a>.</p> <p>To request new credentials, specify the build ID as returned with an initial <code>CreateBuild</code> request. If successful, a new set of credentials are returned, along with the S3 storage location associated with the build ID.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build\"> Create a Build with Files in S3</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -6652,7 +6900,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.request_upload_credentials_input.RequestUploadCredentialsInput = {}  # type: ignore[typeddict-item]
-        input_["build_id"] = build_id
+        if build_id is not None:
+            input_["build_id"] = build_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6663,9 +6912,9 @@ class AsyncGameLiftClient:
 
     async def resolve_alias(
         self,
-        alias_id: "capo_gamelift.types.alias_id_or_arn.AliasIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        alias_id: Optional["capo_gamelift.types.alias_id_or_arn.AliasIdOrArn"] = None,
     ) -> "capo_gamelift.types.resolve_alias_output.ResolveAliasOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique alias identifier.</p> <p>If the alias has a <code>SIMPLE</code> routing strategy, Amazon GameLift Servers returns a fleet ID. If the alias has a <code>TERMINAL</code> routing strategy, the result is a <code>TerminalRoutingStrategyException</code>.</p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -6698,7 +6947,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.resolve_alias_input.ResolveAliasInput = {}  # type: ignore[typeddict-item]
-        input_["alias_id"] = alias_id
+        if alias_id is not None:
+            input_["alias_id"] = alias_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6709,10 +6959,14 @@ class AsyncGameLiftClient:
 
     async def resume_game_server_group(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
-        resume_actions: "capo_gamelift.types.game_server_group_actions.GameServerGroupActions",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
+        resume_actions: Optional[
+            "capo_gamelift.types.game_server_group_actions.GameServerGroupActions"
+        ] = None,
     ) -> "capo_gamelift.types.resume_game_server_group_output.ResumeGameServerGroupOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p> <p>Reinstates activity on a game server group after it has been suspended. A game server group might be suspended by the <a href=\"gamelift/latest/apireference/API_SuspendGameServerGroup.html\">SuspendGameServerGroup</a> operation, or it might be suspended involuntarily due to a configuration problem. In the second case, you can manually resume activity on the group once the configuration problem has been resolved. Refer to the game server group status and status reason for more information on why group activity is suspended.</p> <p>To resume activity, specify a game server group ARN and the type of activity to be resumed. If successful, a <code>GameServerGroup</code> object is returned showing that the resumed activity is no longer listed in <code>SuspendedActions</code>. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html\">Amazon GameLift Servers FleetIQ Guide</a> </p>
 
@@ -6745,8 +6999,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.resume_game_server_group_input.ResumeGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["resume_actions"] = resume_actions
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if resume_actions is not None:
+            input_["resume_actions"] = resume_actions
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6876,10 +7132,12 @@ class AsyncGameLiftClient:
 
     async def start_fleet_actions(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        actions: "capo_gamelift.types.fleet_action_list.FleetActionList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        actions: Optional[
+            "capo_gamelift.types.fleet_action_list.FleetActionList"
+        ] = None,
         location: Optional[
             "capo_gamelift.types.location_string_model.LocationStringModel"
         ] = None,
@@ -6917,8 +7175,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.start_fleet_actions_input.StartFleetActionsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["actions"] = actions
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if actions is not None:
+            input_["actions"] = actions
         if location is not None:
             input_["location"] = location
 
@@ -6931,13 +7191,19 @@ class AsyncGameLiftClient:
 
     async def start_game_session_placement(
         self,
-        placement_id: "capo_gamelift.types.id_string_model.IdStringModel",
-        game_session_queue_name: "capo_gamelift.types.game_session_queue_name_or_arn.GameSessionQueueNameOrArn",
-        maximum_player_session_count: "capo_gamelift.types.whole_number.WholeNumber",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        placement_id: Optional[
+            "capo_gamelift.types.id_string_model.IdStringModel"
+        ] = None,
+        game_session_queue_name: Optional[
+            "capo_gamelift.types.game_session_queue_name_or_arn.GameSessionQueueNameOrArn"
+        ] = None,
         game_properties: Optional[
             "capo_gamelift.types.game_property_list.GamePropertyList"
+        ] = None,
+        maximum_player_session_count: Optional[
+            "capo_gamelift.types.whole_number.WholeNumber"
         ] = None,
         game_session_name: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
@@ -6994,11 +7260,14 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.start_game_session_placement_input.StartGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
-        input_["placement_id"] = placement_id
-        input_["game_session_queue_name"] = game_session_queue_name
+        if placement_id is not None:
+            input_["placement_id"] = placement_id
+        if game_session_queue_name is not None:
+            input_["game_session_queue_name"] = game_session_queue_name
         if game_properties is not None:
             input_["game_properties"] = game_properties
-        input_["maximum_player_session_count"] = maximum_player_session_count
+        if maximum_player_session_count is not None:
+            input_["maximum_player_session_count"] = maximum_player_session_count
         if game_session_name is not None:
             input_["game_session_name"] = game_session_name
         if player_latencies is not None:
@@ -7019,16 +7288,18 @@ class AsyncGameLiftClient:
 
     async def start_match_backfill(
         self,
-        configuration_name: "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName",
-        players: "capo_gamelift.types.player_list.PlayerList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
         ticket_id: Optional[
             "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
         ] = None,
+        configuration_name: Optional[
+            "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName"
+        ] = None,
         game_session_arn: Optional[
             "capo_gamelift.types.arn_string_model.ArnStringModel"
         ] = None,
+        players: Optional["capo_gamelift.types.player_list.PlayerList"] = None,
     ) -> "capo_gamelift.types.start_match_backfill_output.StartMatchBackfillOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Finds new players to fill open slots in currently running game sessions. The backfill match process is essentially identical to the process of forming new matches. Backfill requests use the same matchmaker that was used to make the original match, and they provide matchmaking data for all players currently in the game session. FlexMatch uses this information to select new players so that backfilled match continues to meet the original match requirements. </p> <p>When using FlexMatch with Amazon GameLift Servers managed hosting, you can request a backfill match from a client service by calling this operation with a <code>GameSessions</code> ID. You also have the option of making backfill requests directly from your game server. In response to a request, FlexMatch creates player sessions for the new players, updates the <code>GameSession</code> resource, and sends updated matchmaking data to the game server. You can request a backfill match at any point after a game session is started. Each game session can have only one active backfill request at a time; a subsequent request automatically replaces the earlier request.</p> <p>When using FlexMatch as a standalone component, request a backfill match by calling this operation without a game session identifier. As with newly formed matches, matchmaking results are returned in a matchmaking event so that your game can update the game session that is being backfilled.</p> <p>To request a backfill match, specify a unique ticket ID, the original matchmaking configuration, and matchmaking data for all current players in the game session being backfilled. Optionally, specify the <code>GameSession</code> ARN. If successful, a match backfill ticket is created and returned with status set to QUEUED. Track the status of backfill tickets using the same method for tracking tickets for new matches.</p> <p>Only game sessions created by FlexMatch are supported for match backfill.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html\"> Backfill existing games with FlexMatch</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html\"> Matchmaking events</a> (reference)</p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html\"> How Amazon GameLift Servers FlexMatch works</a> </p>
 
@@ -7065,10 +7336,12 @@ class AsyncGameLiftClient:
         input_: capo_gamelift.types.start_match_backfill_input.StartMatchBackfillInput = {}  # type: ignore[typeddict-item]
         if ticket_id is not None:
             input_["ticket_id"] = ticket_id
-        input_["configuration_name"] = configuration_name
+        if configuration_name is not None:
+            input_["configuration_name"] = configuration_name
         if game_session_arn is not None:
             input_["game_session_arn"] = game_session_arn
-        input_["players"] = players
+        if players is not None:
+            input_["players"] = players
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7079,13 +7352,15 @@ class AsyncGameLiftClient:
 
     async def start_matchmaking(
         self,
-        configuration_name: "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName",
-        players: "capo_gamelift.types.player_list.PlayerList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
         ticket_id: Optional[
             "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
         ] = None,
+        configuration_name: Optional[
+            "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName"
+        ] = None,
+        players: Optional["capo_gamelift.types.player_list.PlayerList"] = None,
     ) -> "capo_gamelift.types.start_matchmaking_output.StartMatchmakingOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking rules. With games that use Amazon GameLift Servers managed hosting, this operation also triggers Amazon GameLift Servers to find hosting resources and start a new game session for the new match. Each matchmaking request includes information on one or more players and specifies the FlexMatch matchmaker to use. When a request is for multiple players, FlexMatch attempts to build a match that includes all players in the request, placing them in the same team and finding additional players as needed to fill the match. </p> <p>To start matchmaking, provide a unique ticket ID, specify a matchmaking configuration, and include the players to be matched. You must also include any player attributes that are required by the matchmaking configuration's rule set. If successful, a matchmaking ticket is returned with status set to <code>QUEUED</code>. </p> <p>Track matchmaking events to respond as needed and acquire game session connection information for successfully completed matches. Ticket status updates are tracked using event notification through Amazon Simple Notification Service, which is defined in the matchmaking configuration.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html\"> Add FlexMatch to a game client</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html\"> Set Up FlexMatch event notification</a> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html\"> How Amazon GameLift Servers FlexMatch works</a> </p>
 
@@ -7121,8 +7396,10 @@ class AsyncGameLiftClient:
         input_: capo_gamelift.types.start_matchmaking_input.StartMatchmakingInput = {}  # type: ignore[typeddict-item]
         if ticket_id is not None:
             input_["ticket_id"] = ticket_id
-        input_["configuration_name"] = configuration_name
-        input_["players"] = players
+        if configuration_name is not None:
+            input_["configuration_name"] = configuration_name
+        if players is not None:
+            input_["players"] = players
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7133,10 +7410,12 @@ class AsyncGameLiftClient:
 
     async def stop_fleet_actions(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        actions: "capo_gamelift.types.fleet_action_list.FleetActionList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        actions: Optional[
+            "capo_gamelift.types.fleet_action_list.FleetActionList"
+        ] = None,
         location: Optional[
             "capo_gamelift.types.location_string_model.LocationStringModel"
         ] = None,
@@ -7174,8 +7453,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.stop_fleet_actions_input.StopFleetActionsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["actions"] = actions
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if actions is not None:
+            input_["actions"] = actions
         if location is not None:
             input_["location"] = location
 
@@ -7188,9 +7469,11 @@ class AsyncGameLiftClient:
 
     async def stop_game_session_placement(
         self,
-        placement_id: "capo_gamelift.types.id_string_model.IdStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        placement_id: Optional[
+            "capo_gamelift.types.id_string_model.IdStringModel"
+        ] = None,
     ) -> "capo_gamelift.types.stop_game_session_placement_output.StopGameSessionPlacementOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Cancels a game session placement that's in <code>PENDING</code> status. To stop a placement, provide the placement ID value. </p> <p>Results</p> <p>If successful, this operation removes the placement request from the queue and moves the <code>GameSessionPlacement</code> to <code>CANCELLED</code> status.</p> <p>This operation results in an <code>InvalidRequestExecption</code> (400) error if a game session has already been created for this placement. You can clean up an unneeded game session by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_TerminateGameSession\">TerminateGameSession</a>.</p>
 
@@ -7222,7 +7505,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.stop_game_session_placement_input.StopGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
-        input_["placement_id"] = placement_id
+        if placement_id is not None:
+            input_["placement_id"] = placement_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7233,9 +7517,11 @@ class AsyncGameLiftClient:
 
     async def stop_matchmaking(
         self,
-        ticket_id: "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        ticket_id: Optional[
+            "capo_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
+        ] = None,
     ) -> "capo_gamelift.types.stop_matchmaking_output.StopMatchmakingOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Cancels a matchmaking ticket or match backfill ticket that is currently being processed. To stop the matchmaking operation, specify the ticket ID. If successful, work on the ticket is stopped, and the ticket status is changed to <code>CANCELLED</code>.</p> <p>This call is also used to turn off automatic backfill for an individual game session. This is for game sessions that are created with a matchmaking configuration that has automatic backfill enabled. The ticket ID is included in the <code>MatchmakerData</code> of an updated game session object, which is provided to the game server.</p> <note> <p>If the operation is successful, the service sends back an empty JSON struct with the HTTP 200 response (not an empty HTTP body).</p> </note> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html\"> Add FlexMatch to a game client</a> </p>
 
@@ -7267,7 +7553,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.stop_matchmaking_input.StopMatchmakingInput = {}  # type: ignore[typeddict-item]
-        input_["ticket_id"] = ticket_id
+        if ticket_id is not None:
+            input_["ticket_id"] = ticket_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7278,10 +7565,14 @@ class AsyncGameLiftClient:
 
     async def suspend_game_server_group(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
-        suspend_actions: "capo_gamelift.types.game_server_group_actions.GameServerGroupActions",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
+        suspend_actions: Optional[
+            "capo_gamelift.types.game_server_group_actions.GameServerGroupActions"
+        ] = None,
     ) -> "capo_gamelift.types.suspend_game_server_group_output.SuspendGameServerGroupOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p> <p>Temporarily stops activity on a game server group without terminating instances or the game server group. You can restart activity by calling <a href=\"gamelift/latest/apireference/API_ResumeGameServerGroup.html\">ResumeGameServerGroup</a>. You can suspend the following activity:</p> <ul> <li> <p> <b>Instance type replacement</b> - This activity evaluates the current game hosting viability of all Spot instance types that are defined for the game server group. It updates the Auto Scaling group to remove nonviable Spot Instance types, which have a higher chance of game server interruptions. It then balances capacity across the remaining viable Spot Instance types. When this activity is suspended, the Auto Scaling group continues with its current balance, regardless of viability. Instance protection, utilization metrics, and capacity scaling activities continue to be active. </p> </li> </ul> <p>To suspend activity, specify a game server group ARN and the type of activity to be suspended. If successful, a <code>GameServerGroup</code> object is returned showing that the activity is listed in <code>SuspendedActions</code>.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html\">Amazon GameLift Servers FleetIQ Guide</a> </p>
 
@@ -7314,8 +7605,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.suspend_game_server_group_input.SuspendGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["suspend_actions"] = suspend_actions
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if suspend_actions is not None:
+            input_["suspend_actions"] = suspend_actions
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7326,10 +7619,12 @@ class AsyncGameLiftClient:
 
     async def tag_resource(
         self,
-        resource_arn: "capo_gamelift.types.amazon_resource_name.AmazonResourceName",
-        tags: "capo_gamelift.types.tag_list.TagList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        resource_arn: Optional[
+            "capo_gamelift.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        tags: Optional["capo_gamelift.types.tag_list.TagList"] = None,
     ) -> "capo_gamelift.types.tag_resource_response.TagResourceResponse":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Assigns a tag to an Amazon GameLift Servers resource. You can use tags to organize resources, create IAM permissions policies to manage access to groups of resources, customize Amazon Web Services cost breakdowns, and more. This operation handles the permissions necessary to manage tags for Amazon GameLift Servers resources that support tagging.</p> <p>To add a tag to a resource, specify the unique ARN value for the resource and provide a tag list containing one or more tags. The operation succeeds even if the list includes tags that are already assigned to the resource. </p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i> </p> <p> <a href=\"http://aws.amazon.com/answers/account-management/aws-tagging-strategies/\"> Amazon Web Services Tagging Strategies</a> </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -7363,8 +7658,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7375,10 +7672,14 @@ class AsyncGameLiftClient:
 
     async def terminate_game_session(
         self,
-        game_session_id: "capo_gamelift.types.arn_string_model.ArnStringModel",
-        termination_mode: "capo_gamelift.types.termination_mode.TerminationMode",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_session_id: Optional[
+            "capo_gamelift.types.arn_string_model.ArnStringModel"
+        ] = None,
+        termination_mode: Optional[
+            "capo_gamelift.types.termination_mode.TerminationMode"
+        ] = None,
     ) -> "capo_gamelift.types.terminate_game_session_output.TerminateGameSessionOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Ends a game session that's currently in progress. Use this action to terminate any game session that isn't in <code>ERROR</code> status. Terminating a game session is the most efficient way to free up a server process when it's hosting a game session that's in a bad state or not ending properly. You can use this action to terminate a game session that's being hosted on any type of Amazon GameLift Servers fleet compute, including computes for managed EC2, managed container, and Anywhere fleets. The game server must be integrated with Amazon GameLift Servers server SDK 5.x or greater.</p> <p> <b>Request options</b> </p> <p>Request termination for a single game session. Provide the game session ID and the termination mode. There are two potential methods for terminating a game session:</p> <ul> <li> <p>Initiate a graceful termination using the normal game session shutdown sequence. With this mode, the Amazon GameLift Servers service prompts the server process that's hosting the game session by calling the server SDK callback method <code>OnProcessTerminate()</code>. The callback implementation is part of the custom game server code. It might involve a variety of actions to gracefully end a game session, such as notifying players, before stopping the server process.</p> </li> <li> <p>Force an immediate game session termination. With this mode, the Amazon GameLift Servers service takes action to stop the server process, which ends the game session without the normal game session shutdown sequence. </p> </li> </ul> <p> <b>Results</b> </p> <p>If successful, game session termination is initiated. During this activity, the game session status is changed to <code>TERMINATING</code>. When completed, the server process that was hosting the game session has been stopped and replaced with a new server process that's ready to host a new game session. The old game session's status is changed to <code>TERMINATED</code> with a status reason that indicates the termination method used.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html\">Add Amazon GameLift Servers to your game server</a> </p> <p>Amazon GameLift Servers server SDK 5 reference guide for <code>OnProcessTerminate()</code> (<a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-cpp-initsdk.html\">C++</a>) (<a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-csharp-initsdk.html\">C#</a>) (<a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-unreal-initsdk.html\">Unreal</a>) (<a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk-go-initsdk.html\">Go</a>) </p>
 
@@ -7413,8 +7714,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.terminate_game_session_input.TerminateGameSessionInput = {}  # type: ignore[typeddict-item]
-        input_["game_session_id"] = game_session_id
-        input_["termination_mode"] = termination_mode
+        if game_session_id is not None:
+            input_["game_session_id"] = game_session_id
+        if termination_mode is not None:
+            input_["termination_mode"] = termination_mode
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7425,10 +7728,12 @@ class AsyncGameLiftClient:
 
     async def untag_resource(
         self,
-        resource_arn: "capo_gamelift.types.amazon_resource_name.AmazonResourceName",
-        tag_keys: "capo_gamelift.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        resource_arn: Optional[
+            "capo_gamelift.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        tag_keys: Optional["capo_gamelift.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_gamelift.types.untag_resource_response.UntagResourceResponse":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Removes a tag assigned to a Amazon GameLift Servers resource. You can use resource tags to organize Amazon Web Services resources for a range of purposes. This operation handles the permissions necessary to manage tags for Amazon GameLift Servers resources that support tagging.</p> <p>To remove a tag from a resource, specify the unique ARN value for the resource and provide a string list containing one or more tags to remove. This operation succeeds even if the list includes tags that aren't assigned to the resource.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i> </p> <p> <a href=\"http://aws.amazon.com/answers/account-management/aws-tagging-strategies/\"> Amazon Web Services Tagging Strategies</a> </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
 
@@ -7462,8 +7767,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7474,9 +7781,9 @@ class AsyncGameLiftClient:
 
     async def update_alias(
         self,
-        alias_id: "capo_gamelift.types.alias_id_or_arn.AliasIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        alias_id: Optional["capo_gamelift.types.alias_id_or_arn.AliasIdOrArn"] = None,
         name: Optional[
             "capo_gamelift.types.non_blank_and_length_constraint_string.NonBlankAndLengthConstraintString"
         ] = None,
@@ -7520,7 +7827,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_alias_input.UpdateAliasInput = {}  # type: ignore[typeddict-item]
-        input_["alias_id"] = alias_id
+        if alias_id is not None:
+            input_["alias_id"] = alias_id
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -7537,9 +7845,9 @@ class AsyncGameLiftClient:
 
     async def update_build(
         self,
-        build_id: "capo_gamelift.types.build_id_or_arn.BuildIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        build_id: Optional["capo_gamelift.types.build_id_or_arn.BuildIdOrArn"] = None,
         name: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -7579,7 +7887,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_build_input.UpdateBuildInput = {}  # type: ignore[typeddict-item]
-        input_["build_id"] = build_id
+        if build_id is not None:
+            input_["build_id"] = build_id
         if name is not None:
             input_["name"] = name
         if version is not None:
@@ -7594,9 +7903,9 @@ class AsyncGameLiftClient:
 
     async def update_container_fleet(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         game_server_container_group_definition_name: Optional[
             "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
         ] = None,
@@ -7683,7 +7992,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_container_fleet_input.UpdateContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if game_server_container_group_definition_name is not None:
             input_["game_server_container_group_definition_name"] = (
                 game_server_container_group_definition_name
@@ -7734,9 +8044,11 @@ class AsyncGameLiftClient:
 
     async def update_container_group_definition(
         self,
-        name: "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
+        ] = None,
         game_server_container_definition: Optional[
             "capo_gamelift.types.game_server_container_definition_input.GameServerContainerDefinitionInput"
         ] = None,
@@ -7798,7 +8110,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_container_group_definition_input.UpdateContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if game_server_container_definition is not None:
             input_["game_server_container_definition"] = (
                 game_server_container_definition
@@ -7825,9 +8138,9 @@ class AsyncGameLiftClient:
 
     async def update_fleet_attributes(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         name: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -7888,7 +8201,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_fleet_attributes_input.UpdateFleetAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -7913,9 +8227,9 @@ class AsyncGameLiftClient:
 
     async def update_fleet_capacity(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         desired_instances: Optional[
             "capo_gamelift.types.whole_number.WholeNumber"
         ] = None,
@@ -7967,7 +8281,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_fleet_capacity_input.UpdateFleetCapacityInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if desired_instances is not None:
             input_["desired_instances"] = desired_instances
         if min_size is not None:
@@ -7988,9 +8303,9 @@ class AsyncGameLiftClient:
 
     async def update_fleet_port_settings(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
         inbound_permission_authorizations: Optional[
             "capo_gamelift.types.ip_permissions_list.IpPermissionsList"
         ] = None,
@@ -8033,7 +8348,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_fleet_port_settings_input.UpdateFleetPortSettingsInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
         if inbound_permission_authorizations is not None:
             input_["inbound_permission_authorizations"] = (
                 inbound_permission_authorizations
@@ -8050,10 +8366,14 @@ class AsyncGameLiftClient:
 
     async def update_game_server(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
-        game_server_id: "capo_gamelift.types.game_server_id.GameServerId",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
+        game_server_id: Optional[
+            "capo_gamelift.types.game_server_id.GameServerId"
+        ] = None,
         game_server_data: Optional[
             "capo_gamelift.types.game_server_data.GameServerData"
         ] = None,
@@ -8098,8 +8418,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_game_server_input.UpdateGameServerInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
-        input_["game_server_id"] = game_server_id
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
+        if game_server_id is not None:
+            input_["game_server_id"] = game_server_id
         if game_server_data is not None:
             input_["game_server_data"] = game_server_data
         if utilization_status is not None:
@@ -8116,9 +8438,11 @@ class AsyncGameLiftClient:
 
     async def update_game_server_group(
         self,
-        game_server_group_name: "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_server_group_name: Optional[
+            "capo_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
+        ] = None,
         role_arn: Optional["capo_gamelift.types.iam_role_arn.IamRoleArn"] = None,
         instance_definitions: Optional[
             "capo_gamelift.types.instance_definitions.InstanceDefinitions"
@@ -8164,7 +8488,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_game_server_group_input.UpdateGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input_["game_server_group_name"] = game_server_group_name
+        if game_server_group_name is not None:
+            input_["game_server_group_name"] = game_server_group_name
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if instance_definitions is not None:
@@ -8183,9 +8508,11 @@ class AsyncGameLiftClient:
 
     async def update_game_session(
         self,
-        game_session_id: "capo_gamelift.types.arn_string_model.ArnStringModel",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        game_session_id: Optional[
+            "capo_gamelift.types.arn_string_model.ArnStringModel"
+        ] = None,
         maximum_player_session_count: Optional[
             "capo_gamelift.types.whole_number.WholeNumber"
         ] = None,
@@ -8240,7 +8567,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_game_session_input.UpdateGameSessionInput = {}  # type: ignore[typeddict-item]
-        input_["game_session_id"] = game_session_id
+        if game_session_id is not None:
+            input_["game_session_id"] = game_session_id
         if maximum_player_session_count is not None:
             input_["maximum_player_session_count"] = maximum_player_session_count
         if name is not None:
@@ -8261,9 +8589,11 @@ class AsyncGameLiftClient:
 
     async def update_game_session_queue(
         self,
-        name: "capo_gamelift.types.game_session_queue_name_or_arn.GameSessionQueueNameOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.game_session_queue_name_or_arn.GameSessionQueueNameOrArn"
+        ] = None,
         timeout_in_seconds: Optional[
             "capo_gamelift.types.whole_number.WholeNumber"
         ] = None,
@@ -8323,7 +8653,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_game_session_queue_input.UpdateGameSessionQueueInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if timeout_in_seconds is not None:
             input_["timeout_in_seconds"] = timeout_in_seconds
         if player_latency_policies is not None:
@@ -8348,9 +8679,11 @@ class AsyncGameLiftClient:
 
     async def update_matchmaking_configuration(
         self,
-        name: "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        name: Optional[
+            "capo_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName"
+        ] = None,
         description: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -8434,7 +8767,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_matchmaking_configuration_input.UpdateMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
         if game_session_queue_arns is not None:
@@ -8471,10 +8805,12 @@ class AsyncGameLiftClient:
 
     async def update_runtime_configuration(
         self,
-        fleet_id: "capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn",
-        runtime_configuration: "capo_gamelift.types.runtime_configuration.RuntimeConfiguration",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        fleet_id: Optional["capo_gamelift.types.fleet_id_or_arn.FleetIdOrArn"] = None,
+        runtime_configuration: Optional[
+            "capo_gamelift.types.runtime_configuration.RuntimeConfiguration"
+        ] = None,
     ) -> "capo_gamelift.types.update_runtime_configuration_output.UpdateRuntimeConfigurationOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Updates the runtime configuration for the specified fleet. The runtime configuration tells Amazon GameLift Servers how to launch server processes on computes in managed EC2 and Anywhere fleets. You can update a fleet's runtime configuration at any time after the fleet is created; it does not need to be in <code>ACTIVE</code> status.</p> <p>To update runtime configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code> with an updated set of server process configurations.</p> <p>If successful, the fleet's runtime configuration settings are updated. Fleet computes that run game server processes regularly check for and receive updated runtime configurations. The computes immediately take action to comply with the new configuration by launching new server processes or by not replacing existing processes when they shut down. Updating a fleet's runtime configuration never affects existing server processes.</p> <p> <b>Learn more</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html\">Setting up Amazon GameLift Servers fleets</a> </p>
 
@@ -8509,8 +8845,10 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_runtime_configuration_input.UpdateRuntimeConfigurationInput = {}  # type: ignore[typeddict-item]
-        input_["fleet_id"] = fleet_id
-        input_["runtime_configuration"] = runtime_configuration
+        if fleet_id is not None:
+            input_["fleet_id"] = fleet_id
+        if runtime_configuration is not None:
+            input_["runtime_configuration"] = runtime_configuration
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8521,9 +8859,11 @@ class AsyncGameLiftClient:
 
     async def update_script(
         self,
-        script_id: "capo_gamelift.types.script_id_or_arn.ScriptIdOrArn",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        script_id: Optional[
+            "capo_gamelift.types.script_id_or_arn.ScriptIdOrArn"
+        ] = None,
         name: Optional[
             "capo_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
         ] = None,
@@ -8567,7 +8907,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.update_script_input.UpdateScriptInput = {}  # type: ignore[typeddict-item]
-        input_["script_id"] = script_id
+        if script_id is not None:
+            input_["script_id"] = script_id
         if name is not None:
             input_["name"] = name
         if version is not None:
@@ -8586,9 +8927,9 @@ class AsyncGameLiftClient:
 
     async def validate_matchmaking_rule_set(
         self,
-        rule_set_body: "capo_gamelift.types.rule_set_body.RuleSetBody",
         *,
         config_overrides: Optional[AsyncGameLiftClientConfig] = None,
+        rule_set_body: Optional["capo_gamelift.types.rule_set_body.RuleSetBody"] = None,
     ) -> "capo_gamelift.types.validate_matchmaking_rule_set_output.ValidateMatchmakingRuleSetOutput":
         r"""<p> <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p> <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the rule set is using syntactically correct JSON and that it conforms to allowed property expressions. To validate syntax, provide a rule set JSON string.</p> <p> <b>Learn more</b> </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html\">Build a rule set</a> </p> </li> </ul>
 
@@ -8619,7 +8960,8 @@ class AsyncGameLiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_gamelift.types.validate_matchmaking_rule_set_input.ValidateMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
-        input_["rule_set_body"] = rule_set_body
+        if rule_set_body is not None:
+            input_["rule_set_body"] = rule_set_body
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

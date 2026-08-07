@@ -21,10 +21,11 @@ class EnvironmentLink(TypedDict, closed=True):
 def serialize_query(
     value: EnvironmentLink, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "link_name" in value:
-        pairs.append((f"{prefix}.LinkName", str(value["link_name"])))
+        pairs.append((f"{key_prefix}LinkName", str(value["link_name"])))
     if "environment_name" in value:
-        pairs.append((f"{prefix}.EnvironmentName", str(value["environment_name"])))
+        pairs.append((f"{key_prefix}EnvironmentName", str(value["environment_name"])))
 
 
 def deserialize_query(el: Element) -> EnvironmentLink:

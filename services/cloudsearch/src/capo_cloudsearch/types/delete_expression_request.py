@@ -22,8 +22,9 @@ class DeleteExpressionRequest(TypedDict, closed=True):
 def serialize_query(
     value: DeleteExpressionRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
-    pairs.append((f"{prefix}.ExpressionName", str(value["expression_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
+    pairs.append((f"{key_prefix}ExpressionName", str(value["expression_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteExpressionRequest:

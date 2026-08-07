@@ -29,25 +29,29 @@ class CacheEngineVersion(TypedDict, closed=True):
 def serialize_query(
     value: CacheEngineVersion, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "cache_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupFamily",
+                f"{key_prefix}CacheParameterGroupFamily",
                 str(value["cache_parameter_group_family"]),
             )
         )
     if "cache_engine_description" in value:
         pairs.append(
-            (f"{prefix}.CacheEngineDescription", str(value["cache_engine_description"]))
+            (
+                f"{key_prefix}CacheEngineDescription",
+                str(value["cache_engine_description"]),
+            )
         )
     if "cache_engine_version_description" in value:
         pairs.append(
             (
-                f"{prefix}.CacheEngineVersionDescription",
+                f"{key_prefix}CacheEngineVersionDescription",
                 str(value["cache_engine_version_description"]),
             )
         )

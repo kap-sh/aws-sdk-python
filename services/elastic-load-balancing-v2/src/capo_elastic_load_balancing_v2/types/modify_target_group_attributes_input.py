@@ -26,13 +26,14 @@ class ModifyTargetGroupAttributesInput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyTargetGroupAttributesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "target_group_arn" in value:
-        pairs.append((f"{prefix}.TargetGroupArn", str(value["target_group_arn"])))
+        pairs.append((f"{key_prefix}TargetGroupArn", str(value["target_group_arn"])))
     if "attributes" in value:
         import capo_elastic_load_balancing_v2.types.target_group_attributes
 
         capo_elastic_load_balancing_v2.types.target_group_attributes.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

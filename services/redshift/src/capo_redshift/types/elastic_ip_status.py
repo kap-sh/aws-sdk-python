@@ -21,10 +21,11 @@ class ElasticIpStatus(TypedDict, closed=True):
 def serialize_query(
     value: ElasticIpStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "elastic_ip" in value:
-        pairs.append((f"{prefix}.ElasticIp", str(value["elastic_ip"])))
+        pairs.append((f"{key_prefix}ElasticIp", str(value["elastic_ip"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> ElasticIpStatus:

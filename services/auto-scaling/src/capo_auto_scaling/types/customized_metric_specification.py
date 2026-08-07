@@ -43,31 +43,32 @@ class CustomizedMetricSpecification(TypedDict, closed=True):
 def serialize_query(
     value: CustomizedMetricSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_name" in value:
-        pairs.append((f"{prefix}.MetricName", str(value["metric_name"])))
+        pairs.append((f"{key_prefix}MetricName", str(value["metric_name"])))
     if "namespace" in value:
-        pairs.append((f"{prefix}.Namespace", str(value["namespace"])))
+        pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "dimensions" in value:
         import capo_auto_scaling.types.metric_dimensions
 
         capo_auto_scaling.types.metric_dimensions.serialize_query(
-            value["dimensions"], pairs, f"{prefix}.Dimensions"
+            value["dimensions"], pairs, f"{key_prefix}Dimensions"
         )
     if "statistic" in value:
         import capo_auto_scaling.types.metric_statistic
 
         capo_auto_scaling.types.metric_statistic.serialize_query(
-            value["statistic"], pairs, f"{prefix}.Statistic"
+            value["statistic"], pairs, f"{key_prefix}Statistic"
         )
     if "unit" in value:
-        pairs.append((f"{prefix}.Unit", str(value["unit"])))
+        pairs.append((f"{key_prefix}Unit", str(value["unit"])))
     if "period" in value:
-        pairs.append((f"{prefix}.Period", str(value["period"])))
+        pairs.append((f"{key_prefix}Period", str(value["period"])))
     if "metrics" in value:
         import capo_auto_scaling.types.target_tracking_metric_data_queries
 
         capo_auto_scaling.types.target_tracking_metric_data_queries.serialize_query(
-            value["metrics"], pairs, f"{prefix}.Metrics"
+            value["metrics"], pairs, f"{key_prefix}Metrics"
         )
 
 

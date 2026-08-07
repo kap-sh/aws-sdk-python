@@ -22,14 +22,15 @@ class CertificateMessage(TypedDict, closed=True):
 def serialize_query(
     value: CertificateMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificates" in value:
         import capo_docdb.types.certificate_list
 
         capo_docdb.types.certificate_list.serialize_query(
-            value["certificates"], pairs, f"{prefix}.Certificates"
+            value["certificates"], pairs, f"{key_prefix}Certificates"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> CertificateMessage:

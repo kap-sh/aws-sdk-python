@@ -33,22 +33,25 @@ class ResizeClusterMessage(TypedDict, closed=True):
 def serialize_query(
     value: ResizeClusterMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "cluster_type" in value:
-        pairs.append((f"{prefix}.ClusterType", str(value["cluster_type"])))
+        pairs.append((f"{key_prefix}ClusterType", str(value["cluster_type"])))
     if "node_type" in value:
-        pairs.append((f"{prefix}.NodeType", str(value["node_type"])))
+        pairs.append((f"{key_prefix}NodeType", str(value["node_type"])))
     if "number_of_nodes" in value:
-        pairs.append((f"{prefix}.NumberOfNodes", str(value["number_of_nodes"])))
+        pairs.append((f"{key_prefix}NumberOfNodes", str(value["number_of_nodes"])))
     if "classic" in value:
-        pairs.append((f"{prefix}.Classic", "true" if value["classic"] else "false"))
+        pairs.append((f"{key_prefix}Classic", "true" if value["classic"] else "false"))
     if "reserved_node_id" in value:
-        pairs.append((f"{prefix}.ReservedNodeId", str(value["reserved_node_id"])))
+        pairs.append((f"{key_prefix}ReservedNodeId", str(value["reserved_node_id"])))
     if "target_reserved_node_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.TargetReservedNodeOfferingId",
+                f"{key_prefix}TargetReservedNodeOfferingId",
                 str(value["target_reserved_node_offering_id"]),
             )
         )

@@ -21,10 +21,11 @@ class LaunchConfigurationNameType(TypedDict, closed=True):
 def serialize_query(
     value: LaunchConfigurationNameType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_configuration_name" in value:
         pairs.append(
             (
-                f"{prefix}.LaunchConfigurationName",
+                f"{key_prefix}LaunchConfigurationName",
                 str(value["launch_configuration_name"]),
             )
         )

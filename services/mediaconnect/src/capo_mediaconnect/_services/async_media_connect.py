@@ -358,9 +358,9 @@ class AsyncMediaConnectClient:
     async def tag_global_resource(
         self,
         resource_arn: str,
-        tags: "capo_mediaconnect.types.__map_of_string.__mapOfString",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        tags: Optional["capo_mediaconnect.types.__map_of_string.__mapOfString"] = None,
     ) -> None:
         """<p>Adds tags to a global resource in AWS Elemental MediaConnect. The API supports the following global resources: router inputs, router outputs and router network interfaces. </p>
 
@@ -391,7 +391,8 @@ class AsyncMediaConnectClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconnect.types.tag_global_resource_request.TagGlobalResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -403,9 +404,9 @@ class AsyncMediaConnectClient:
     async def tag_resource(
         self,
         resource_arn: str,
-        tags: "capo_mediaconnect.types.__map_of_string.__mapOfString",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        tags: Optional["capo_mediaconnect.types.__map_of_string.__mapOfString"] = None,
     ) -> None:
         """<p> Associates the specified tags to a resource with the specified <code>resourceArn</code> in the current region. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are deleted as well.</p>
 
@@ -436,7 +437,8 @@ class AsyncMediaConnectClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconnect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -448,9 +450,11 @@ class AsyncMediaConnectClient:
     async def untag_global_resource(
         self,
         resource_arn: str,
-        tag_keys: "capo_mediaconnect.types.__list_of_string.__listOfString",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        tag_keys: Optional[
+            "capo_mediaconnect.types.__list_of_string.__listOfString"
+        ] = None,
     ) -> None:
         """<p>Removes tags from a global resource in AWS Elemental MediaConnect. The API supports the following global resources: router inputs, router outputs and router network interfaces. </p>
 
@@ -481,7 +485,8 @@ class AsyncMediaConnectClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconnect.types.untag_global_resource_request.UntagGlobalResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -493,9 +498,11 @@ class AsyncMediaConnectClient:
     async def untag_resource(
         self,
         resource_arn: str,
-        tag_keys: "capo_mediaconnect.types.__list_of_string.__listOfString",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        tag_keys: Optional[
+            "capo_mediaconnect.types.__list_of_string.__listOfString"
+        ] = None,
     ) -> None:
         """<p> Deletes specified tags from a resource in the current region.</p>
 
@@ -526,7 +533,8 @@ class AsyncMediaConnectClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediaconnect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

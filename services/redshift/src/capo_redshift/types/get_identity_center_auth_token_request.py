@@ -21,11 +21,12 @@ class GetIdentityCenterAuthTokenRequest(TypedDict, closed=True):
 def serialize_query(
     value: GetIdentityCenterAuthTokenRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_ids" in value:
         import capo_redshift.types.cluster_identifier_list
 
         capo_redshift.types.cluster_identifier_list.serialize_query(
-            value["cluster_ids"], pairs, f"{prefix}.ClusterIds"
+            value["cluster_ids"], pairs, f"{key_prefix}ClusterIds"
         )
 
 

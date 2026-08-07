@@ -36,16 +36,17 @@ class DescribeCapacityReservationOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeCapacityReservationOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "last_modified_time" in value:
         import capo_elastic_load_balancing_v2.types.last_modified_time
 
         capo_elastic_load_balancing_v2.types.last_modified_time.serialize_query(
-            value["last_modified_time"], pairs, f"{prefix}.LastModifiedTime"
+            value["last_modified_time"], pairs, f"{key_prefix}LastModifiedTime"
         )
     if "decrease_requests_remaining" in value:
         pairs.append(
             (
-                f"{prefix}.DecreaseRequestsRemaining",
+                f"{key_prefix}DecreaseRequestsRemaining",
                 str(value["decrease_requests_remaining"]),
             )
         )
@@ -55,7 +56,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.minimum_load_balancer_capacity.serialize_query(
             value["minimum_load_balancer_capacity"],
             pairs,
-            f"{prefix}.MinimumLoadBalancerCapacity",
+            f"{key_prefix}MinimumLoadBalancerCapacity",
         )
     if "capacity_reservation_state" in value:
         import capo_elastic_load_balancing_v2.types.zonal_capacity_reservation_states
@@ -63,7 +64,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.zonal_capacity_reservation_states.serialize_query(
             value["capacity_reservation_state"],
             pairs,
-            f"{prefix}.CapacityReservationState",
+            f"{key_prefix}CapacityReservationState",
         )
 
 

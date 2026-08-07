@@ -22,13 +22,14 @@ class AvailabilityOptionsStatus(TypedDict, closed=True):
 def serialize_query(
     value: AvailabilityOptionsStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.Options", "true" if value.get("options", False) else "false")
+        (f"{key_prefix}Options", "true" if value.get("options", False) else "false")
     )
     import capo_cloudsearch.types.option_status
 
     capo_cloudsearch.types.option_status.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
 
 

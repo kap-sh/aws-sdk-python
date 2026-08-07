@@ -19,8 +19,9 @@ class TestTypeOutput(TypedDict, closed=True):
 def serialize_query(
     value: TestTypeOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type_version_arn" in value:
-        pairs.append((f"{prefix}.TypeVersionArn", str(value["type_version_arn"])))
+        pairs.append((f"{key_prefix}TypeVersionArn", str(value["type_version_arn"])))
 
 
 def deserialize_query(el: Element) -> TestTypeOutput:

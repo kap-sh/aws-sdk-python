@@ -30,24 +30,28 @@ class GlobalReplicationGroupMember(TypedDict, closed=True):
 def serialize_query(
     value: GlobalReplicationGroupMember, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "replication_group_region" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupRegion", str(value["replication_group_region"]))
+            (
+                f"{key_prefix}ReplicationGroupRegion",
+                str(value["replication_group_region"]),
+            )
         )
     if "role" in value:
-        pairs.append((f"{prefix}.Role", str(value["role"])))
+        pairs.append((f"{key_prefix}Role", str(value["role"])))
     if "automatic_failover" in value:
         import capo_elasticache.types.automatic_failover_status
 
         capo_elasticache.types.automatic_failover_status.serialize_query(
-            value["automatic_failover"], pairs, f"{prefix}.AutomaticFailover"
+            value["automatic_failover"], pairs, f"{key_prefix}AutomaticFailover"
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> GlobalReplicationGroupMember:

@@ -31,15 +31,16 @@ class JwtValidationActionConfig(TypedDict, closed=True):
 def serialize_query(
     value: JwtValidationActionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "jwks_endpoint" in value:
-        pairs.append((f"{prefix}.JwksEndpoint", str(value["jwks_endpoint"])))
+        pairs.append((f"{key_prefix}JwksEndpoint", str(value["jwks_endpoint"])))
     if "issuer" in value:
-        pairs.append((f"{prefix}.Issuer", str(value["issuer"])))
+        pairs.append((f"{key_prefix}Issuer", str(value["issuer"])))
     if "additional_claims" in value:
         import capo_elastic_load_balancing_v2.types.jwt_validation_action_additional_claims
 
         capo_elastic_load_balancing_v2.types.jwt_validation_action_additional_claims.serialize_query(
-            value["additional_claims"], pairs, f"{prefix}.AdditionalClaims"
+            value["additional_claims"], pairs, f"{key_prefix}AdditionalClaims"
         )
 
 

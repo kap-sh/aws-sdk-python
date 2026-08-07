@@ -34,17 +34,20 @@ class SignalResourceInput(TypedDict, closed=True):
 def serialize_query(
     value: SignalResourceInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "unique_id" in value:
-        pairs.append((f"{prefix}.UniqueId", str(value["unique_id"])))
+        pairs.append((f"{key_prefix}UniqueId", str(value["unique_id"])))
     if "status" in value:
         import capo_cloudformation.types.resource_signal_status
 
         capo_cloudformation.types.resource_signal_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

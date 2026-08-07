@@ -33,20 +33,23 @@ class BuildConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: BuildConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "artifact_name" in value:
-        pairs.append((f"{prefix}.ArtifactName", str(value["artifact_name"])))
+        pairs.append((f"{key_prefix}ArtifactName", str(value["artifact_name"])))
     pairs.append(
-        (f"{prefix}.CodeBuildServiceRole", str(value["code_build_service_role"]))
+        (f"{key_prefix}CodeBuildServiceRole", str(value["code_build_service_role"]))
     )
     if "compute_type" in value:
         import capo_elastic_beanstalk.types.compute_type
 
         capo_elastic_beanstalk.types.compute_type.serialize_query(
-            value["compute_type"], pairs, f"{prefix}.ComputeType"
+            value["compute_type"], pairs, f"{key_prefix}ComputeType"
         )
-    pairs.append((f"{prefix}.Image", str(value["image"])))
+    pairs.append((f"{key_prefix}Image", str(value["image"])))
     if "timeout_in_minutes" in value:
-        pairs.append((f"{prefix}.TimeoutInMinutes", str(value["timeout_in_minutes"])))
+        pairs.append(
+            (f"{key_prefix}TimeoutInMinutes", str(value["timeout_in_minutes"]))
+        )
 
 
 def deserialize_query(el: Element) -> BuildConfiguration:

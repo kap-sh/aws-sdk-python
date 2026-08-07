@@ -40,53 +40,54 @@ class ReceiptAction(TypedDict, closed=True):
 def serialize_query(
     value: ReceiptAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3_action" in value:
         import capo_ses.types.s3_action
 
         capo_ses.types.s3_action.serialize_query(
-            value["s3_action"], pairs, f"{prefix}.S3Action"
+            value["s3_action"], pairs, f"{key_prefix}S3Action"
         )
     if "bounce_action" in value:
         import capo_ses.types.bounce_action
 
         capo_ses.types.bounce_action.serialize_query(
-            value["bounce_action"], pairs, f"{prefix}.BounceAction"
+            value["bounce_action"], pairs, f"{key_prefix}BounceAction"
         )
     if "workmail_action" in value:
         import capo_ses.types.workmail_action
 
         capo_ses.types.workmail_action.serialize_query(
-            value["workmail_action"], pairs, f"{prefix}.WorkmailAction"
+            value["workmail_action"], pairs, f"{key_prefix}WorkmailAction"
         )
     if "lambda_action" in value:
         import capo_ses.types.lambda_action
 
         capo_ses.types.lambda_action.serialize_query(
-            value["lambda_action"], pairs, f"{prefix}.LambdaAction"
+            value["lambda_action"], pairs, f"{key_prefix}LambdaAction"
         )
     if "stop_action" in value:
         import capo_ses.types.stop_action
 
         capo_ses.types.stop_action.serialize_query(
-            value["stop_action"], pairs, f"{prefix}.StopAction"
+            value["stop_action"], pairs, f"{key_prefix}StopAction"
         )
     if "add_header_action" in value:
         import capo_ses.types.add_header_action
 
         capo_ses.types.add_header_action.serialize_query(
-            value["add_header_action"], pairs, f"{prefix}.AddHeaderAction"
+            value["add_header_action"], pairs, f"{key_prefix}AddHeaderAction"
         )
     if "sns_action" in value:
         import capo_ses.types.sns_action
 
         capo_ses.types.sns_action.serialize_query(
-            value["sns_action"], pairs, f"{prefix}.SNSAction"
+            value["sns_action"], pairs, f"{key_prefix}SNSAction"
         )
     if "connect_action" in value:
         import capo_ses.types.connect_action
 
         capo_ses.types.connect_action.serialize_query(
-            value["connect_action"], pairs, f"{prefix}.ConnectAction"
+            value["connect_action"], pairs, f"{key_prefix}ConnectAction"
         )
 
 

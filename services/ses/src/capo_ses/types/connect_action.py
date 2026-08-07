@@ -23,8 +23,9 @@ class ConnectAction(TypedDict, closed=True):
 def serialize_query(
     value: ConnectAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.InstanceARN", str(value["instance_arn"])))
-    pairs.append((f"{prefix}.IAMRoleARN", str(value["iam_role_arn"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}InstanceARN", str(value["instance_arn"])))
+    pairs.append((f"{key_prefix}IAMRoleARN", str(value["iam_role_arn"])))
 
 
 def deserialize_query(el: Element) -> ConnectAction:

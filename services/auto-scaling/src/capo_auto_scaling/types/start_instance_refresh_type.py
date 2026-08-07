@@ -34,27 +34,28 @@ class StartInstanceRefreshType(TypedDict, closed=True):
 def serialize_query(
     value: StartInstanceRefreshType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "strategy" in value:
         import capo_auto_scaling.types.refresh_strategy
 
         capo_auto_scaling.types.refresh_strategy.serialize_query(
-            value["strategy"], pairs, f"{prefix}.Strategy"
+            value["strategy"], pairs, f"{key_prefix}Strategy"
         )
     if "desired_configuration" in value:
         import capo_auto_scaling.types.desired_configuration
 
         capo_auto_scaling.types.desired_configuration.serialize_query(
-            value["desired_configuration"], pairs, f"{prefix}.DesiredConfiguration"
+            value["desired_configuration"], pairs, f"{key_prefix}DesiredConfiguration"
         )
     if "preferences" in value:
         import capo_auto_scaling.types.refresh_preferences
 
         capo_auto_scaling.types.refresh_preferences.serialize_query(
-            value["preferences"], pairs, f"{prefix}.Preferences"
+            value["preferences"], pairs, f"{key_prefix}Preferences"
         )
 
 

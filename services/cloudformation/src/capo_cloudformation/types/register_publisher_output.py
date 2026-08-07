@@ -19,8 +19,9 @@ class RegisterPublisherOutput(TypedDict, closed=True):
 def serialize_query(
     value: RegisterPublisherOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "publisher_id" in value:
-        pairs.append((f"{prefix}.PublisherId", str(value["publisher_id"])))
+        pairs.append((f"{key_prefix}PublisherId", str(value["publisher_id"])))
 
 
 def deserialize_query(el: Element) -> RegisterPublisherOutput:

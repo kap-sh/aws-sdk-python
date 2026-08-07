@@ -42,30 +42,33 @@ class EndpointAuthorization(TypedDict, closed=True):
 def serialize_query(
     value: EndpointAuthorization, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "grantor" in value:
-        pairs.append((f"{prefix}.Grantor", str(value["grantor"])))
+        pairs.append((f"{key_prefix}Grantor", str(value["grantor"])))
     if "grantee" in value:
-        pairs.append((f"{prefix}.Grantee", str(value["grantee"])))
+        pairs.append((f"{key_prefix}Grantee", str(value["grantee"])))
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "authorize_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["authorize_time"], pairs, f"{prefix}.AuthorizeTime"
+            value["authorize_time"], pairs, f"{key_prefix}AuthorizeTime"
         )
     if "cluster_status" in value:
-        pairs.append((f"{prefix}.ClusterStatus", str(value["cluster_status"])))
+        pairs.append((f"{key_prefix}ClusterStatus", str(value["cluster_status"])))
     if "status" in value:
         import capo_redshift.types.authorization_status
 
         capo_redshift.types.authorization_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "allowed_all_vp_cs" in value:
         pairs.append(
             (
-                f"{prefix}.AllowedAllVPCs",
+                f"{key_prefix}AllowedAllVPCs",
                 "true" if value["allowed_all_vp_cs"] else "false",
             )
         )
@@ -73,10 +76,10 @@ def serialize_query(
         import capo_redshift.types.vpc_identifier_list
 
         capo_redshift.types.vpc_identifier_list.serialize_query(
-            value["allowed_vp_cs"], pairs, f"{prefix}.AllowedVPCs"
+            value["allowed_vp_cs"], pairs, f"{key_prefix}AllowedVPCs"
         )
     if "endpoint_count" in value:
-        pairs.append((f"{prefix}.EndpointCount", str(value["endpoint_count"])))
+        pairs.append((f"{key_prefix}EndpointCount", str(value["endpoint_count"])))
 
 
 def deserialize_query(el: Element) -> EndpointAuthorization:

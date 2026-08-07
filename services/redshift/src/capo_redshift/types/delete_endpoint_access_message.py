@@ -19,8 +19,9 @@ class DeleteEndpointAccessMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteEndpointAccessMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "endpoint_name" in value:
-        pairs.append((f"{prefix}.EndpointName", str(value["endpoint_name"])))
+        pairs.append((f"{key_prefix}EndpointName", str(value["endpoint_name"])))
 
 
 def deserialize_query(el: Element) -> DeleteEndpointAccessMessage:

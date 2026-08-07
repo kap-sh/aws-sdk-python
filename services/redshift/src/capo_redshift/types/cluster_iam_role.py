@@ -21,10 +21,11 @@ class ClusterIamRole(TypedDict, closed=True):
 def serialize_query(
     value: ClusterIamRole, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "iam_role_arn" in value:
-        pairs.append((f"{prefix}.IamRoleArn", str(value["iam_role_arn"])))
+        pairs.append((f"{key_prefix}IamRoleArn", str(value["iam_role_arn"])))
     if "apply_status" in value:
-        pairs.append((f"{prefix}.ApplyStatus", str(value["apply_status"])))
+        pairs.append((f"{key_prefix}ApplyStatus", str(value["apply_status"])))
 
 
 def deserialize_query(el: Element) -> ClusterIamRole:

@@ -35,24 +35,25 @@ class DescribeSnapshotsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeSnapshotsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "snapshot_name" in value:
-        pairs.append((f"{prefix}.SnapshotName", str(value["snapshot_name"])))
+        pairs.append((f"{key_prefix}SnapshotName", str(value["snapshot_name"])))
     if "snapshot_source" in value:
-        pairs.append((f"{prefix}.SnapshotSource", str(value["snapshot_source"])))
+        pairs.append((f"{key_prefix}SnapshotSource", str(value["snapshot_source"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "show_node_group_config" in value:
         pairs.append(
             (
-                f"{prefix}.ShowNodeGroupConfig",
+                f"{key_prefix}ShowNodeGroupConfig",
                 "true" if value["show_node_group_config"] else "false",
             )
         )

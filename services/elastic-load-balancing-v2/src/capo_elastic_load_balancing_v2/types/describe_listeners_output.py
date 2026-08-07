@@ -22,14 +22,15 @@ class DescribeListenersOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeListenersOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listeners" in value:
         import capo_elastic_load_balancing_v2.types.listeners
 
         capo_elastic_load_balancing_v2.types.listeners.serialize_query(
-            value["listeners"], pairs, f"{prefix}.Listeners"
+            value["listeners"], pairs, f"{key_prefix}Listeners"
         )
     if "next_marker" in value:
-        pairs.append((f"{prefix}.NextMarker", str(value["next_marker"])))
+        pairs.append((f"{key_prefix}NextMarker", str(value["next_marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeListenersOutput:

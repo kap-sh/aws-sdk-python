@@ -26,16 +26,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "custom_verification_email_templates" in value:
         import capo_ses.types.custom_verification_email_templates
 
         capo_ses.types.custom_verification_email_templates.serialize_query(
             value["custom_verification_email_templates"],
             pairs,
-            f"{prefix}.CustomVerificationEmailTemplates",
+            f"{key_prefix}CustomVerificationEmailTemplates",
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListCustomVerificationEmailTemplatesResponse:

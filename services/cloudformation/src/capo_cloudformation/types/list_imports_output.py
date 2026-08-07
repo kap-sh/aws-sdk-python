@@ -22,14 +22,15 @@ class ListImportsOutput(TypedDict, closed=True):
 def serialize_query(
     value: ListImportsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "imports" in value:
         import capo_cloudformation.types.imports
 
         capo_cloudformation.types.imports.serialize_query(
-            value["imports"], pairs, f"{prefix}.Imports"
+            value["imports"], pairs, f"{key_prefix}Imports"
         )
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> ListImportsOutput:

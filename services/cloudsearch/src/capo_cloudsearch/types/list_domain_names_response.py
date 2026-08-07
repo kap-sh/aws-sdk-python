@@ -19,11 +19,12 @@ class ListDomainNamesResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListDomainNamesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "domain_names" in value:
         import capo_cloudsearch.types.domain_name_map
 
         capo_cloudsearch.types.domain_name_map.serialize_query(
-            value["domain_names"], pairs, f"{prefix}.DomainNames"
+            value["domain_names"], pairs, f"{key_prefix}DomainNames"
         )
 
 

@@ -25,21 +25,22 @@ class SnapshotErrorMessage(TypedDict, closed=True):
 def serialize_query(
     value: SnapshotErrorMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "snapshot_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SnapshotClusterIdentifier",
+                f"{key_prefix}SnapshotClusterIdentifier",
                 str(value["snapshot_cluster_identifier"]),
             )
         )
     if "failure_code" in value:
-        pairs.append((f"{prefix}.FailureCode", str(value["failure_code"])))
+        pairs.append((f"{key_prefix}FailureCode", str(value["failure_code"])))
     if "failure_reason" in value:
-        pairs.append((f"{prefix}.FailureReason", str(value["failure_reason"])))
+        pairs.append((f"{key_prefix}FailureReason", str(value["failure_reason"])))
 
 
 def deserialize_query(el: Element) -> SnapshotErrorMessage:

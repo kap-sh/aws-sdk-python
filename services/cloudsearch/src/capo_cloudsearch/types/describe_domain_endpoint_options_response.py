@@ -23,11 +23,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "domain_endpoint_options" in value:
         import capo_cloudsearch.types.domain_endpoint_options_status
 
         capo_cloudsearch.types.domain_endpoint_options_status.serialize_query(
-            value["domain_endpoint_options"], pairs, f"{prefix}.DomainEndpointOptions"
+            value["domain_endpoint_options"],
+            pairs,
+            f"{key_prefix}DomainEndpointOptions",
         )
 
 

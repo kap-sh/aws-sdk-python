@@ -34,27 +34,28 @@ class SslPolicy(TypedDict, closed=True):
 def serialize_query(
     value: SslPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "ssl_protocols" in value:
         import capo_elastic_load_balancing_v2.types.ssl_protocols
 
         capo_elastic_load_balancing_v2.types.ssl_protocols.serialize_query(
-            value["ssl_protocols"], pairs, f"{prefix}.SslProtocols"
+            value["ssl_protocols"], pairs, f"{key_prefix}SslProtocols"
         )
     if "ciphers" in value:
         import capo_elastic_load_balancing_v2.types.ciphers
 
         capo_elastic_load_balancing_v2.types.ciphers.serialize_query(
-            value["ciphers"], pairs, f"{prefix}.Ciphers"
+            value["ciphers"], pairs, f"{key_prefix}Ciphers"
         )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "supported_load_balancer_types" in value:
         import capo_elastic_load_balancing_v2.types.list_of_string
 
         capo_elastic_load_balancing_v2.types.list_of_string.serialize_query(
             value["supported_load_balancer_types"],
             pairs,
-            f"{prefix}.SupportedLoadBalancerTypes",
+            f"{key_prefix}SupportedLoadBalancerTypes",
         )
 
 

@@ -40,27 +40,28 @@ class StackSetOperationResultSummary(TypedDict, closed=True):
 def serialize_query(
     value: StackSetOperationResultSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "account" in value:
-        pairs.append((f"{prefix}.Account", str(value["account"])))
+        pairs.append((f"{key_prefix}Account", str(value["account"])))
     if "region" in value:
-        pairs.append((f"{prefix}.Region", str(value["region"])))
+        pairs.append((f"{key_prefix}Region", str(value["region"])))
     if "status" in value:
         import capo_cloudformation.types.stack_set_operation_result_status
 
         capo_cloudformation.types.stack_set_operation_result_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "account_gate_result" in value:
         import capo_cloudformation.types.account_gate_result
 
         capo_cloudformation.types.account_gate_result.serialize_query(
-            value["account_gate_result"], pairs, f"{prefix}.AccountGateResult"
+            value["account_gate_result"], pairs, f"{key_prefix}AccountGateResult"
         )
     if "organizational_unit_id" in value:
         pairs.append(
-            (f"{prefix}.OrganizationalUnitId", str(value["organizational_unit_id"]))
+            (f"{key_prefix}OrganizationalUnitId", str(value["organizational_unit_id"]))
         )
 
 

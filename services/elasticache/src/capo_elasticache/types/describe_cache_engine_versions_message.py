@@ -31,24 +31,25 @@ class DescribeCacheEngineVersionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeCacheEngineVersionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "engine_version" in value:
-        pairs.append((f"{prefix}.EngineVersion", str(value["engine_version"])))
+        pairs.append((f"{key_prefix}EngineVersion", str(value["engine_version"])))
     if "cache_parameter_group_family" in value:
         pairs.append(
             (
-                f"{prefix}.CacheParameterGroupFamily",
+                f"{key_prefix}CacheParameterGroupFamily",
                 str(value["cache_parameter_group_family"]),
             )
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "default_only" in value:
         pairs.append(
-            (f"{prefix}.DefaultOnly", "true" if value["default_only"] else "false")
+            (f"{key_prefix}DefaultOnly", "true" if value["default_only"] else "false")
         )
 
 

@@ -51,45 +51,46 @@ class StackSetOperationSummary(TypedDict, closed=True):
 def serialize_query(
     value: StackSetOperationSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "operation_id" in value:
-        pairs.append((f"{prefix}.OperationId", str(value["operation_id"])))
+        pairs.append((f"{key_prefix}OperationId", str(value["operation_id"])))
     if "action" in value:
         import capo_cloudformation.types.stack_set_operation_action
 
         capo_cloudformation.types.stack_set_operation_action.serialize_query(
-            value["action"], pairs, f"{prefix}.Action"
+            value["action"], pairs, f"{key_prefix}Action"
         )
     if "status" in value:
         import capo_cloudformation.types.stack_set_operation_status
 
         capo_cloudformation.types.stack_set_operation_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "creation_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["creation_timestamp"], pairs, f"{prefix}.CreationTimestamp"
+            value["creation_timestamp"], pairs, f"{key_prefix}CreationTimestamp"
         )
     if "end_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["end_timestamp"], pairs, f"{prefix}.EndTimestamp"
+            value["end_timestamp"], pairs, f"{key_prefix}EndTimestamp"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "status_details" in value:
         import capo_cloudformation.types.stack_set_operation_status_details
 
         capo_cloudformation.types.stack_set_operation_status_details.serialize_query(
-            value["status_details"], pairs, f"{prefix}.StatusDetails"
+            value["status_details"], pairs, f"{key_prefix}StatusDetails"
         )
     if "operation_preferences" in value:
         import capo_cloudformation.types.stack_set_operation_preferences
 
         capo_cloudformation.types.stack_set_operation_preferences.serialize_query(
-            value["operation_preferences"], pairs, f"{prefix}.OperationPreferences"
+            value["operation_preferences"], pairs, f"{key_prefix}OperationPreferences"
         )
 
 

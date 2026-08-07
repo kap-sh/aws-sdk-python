@@ -25,11 +25,12 @@ class ScaleConfig(TypedDict, closed=True):
 def serialize_query(
     value: ScaleConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "scale_percentage" in value:
-        pairs.append((f"{prefix}.ScalePercentage", str(value["scale_percentage"])))
+        pairs.append((f"{key_prefix}ScalePercentage", str(value["scale_percentage"])))
     if "scale_interval_minutes" in value:
         pairs.append(
-            (f"{prefix}.ScaleIntervalMinutes", str(value["scale_interval_minutes"]))
+            (f"{key_prefix}ScaleIntervalMinutes", str(value["scale_interval_minutes"]))
         )
 
 

@@ -26,15 +26,16 @@ class BatchDeleteScheduledActionType(TypedDict, closed=True):
 def serialize_query(
     value: BatchDeleteScheduledActionType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "scheduled_action_names" in value:
         import capo_auto_scaling.types.scheduled_action_names
 
         capo_auto_scaling.types.scheduled_action_names.serialize_query(
-            value["scheduled_action_names"], pairs, f"{prefix}.ScheduledActionNames"
+            value["scheduled_action_names"], pairs, f"{key_prefix}ScheduledActionNames"
         )
 
 

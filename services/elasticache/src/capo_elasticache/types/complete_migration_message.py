@@ -22,12 +22,13 @@ class CompleteMigrationMessage(TypedDict, closed=True):
 def serialize_query(
     value: CompleteMigrationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "replication_group_id" in value:
         pairs.append(
-            (f"{prefix}.ReplicationGroupId", str(value["replication_group_id"]))
+            (f"{key_prefix}ReplicationGroupId", str(value["replication_group_id"]))
         )
     if "force" in value:
-        pairs.append((f"{prefix}.Force", "true" if value["force"] else "false"))
+        pairs.append((f"{key_prefix}Force", "true" if value["force"] else "false"))
 
 
 def deserialize_query(el: Element) -> CompleteMigrationMessage:

@@ -30,28 +30,29 @@ class Certificate(TypedDict, closed=True):
 def serialize_query(
     value: Certificate, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "certificate_identifier" in value:
         pairs.append(
-            (f"{prefix}.CertificateIdentifier", str(value["certificate_identifier"]))
+            (f"{key_prefix}CertificateIdentifier", str(value["certificate_identifier"]))
         )
     if "certificate_type" in value:
-        pairs.append((f"{prefix}.CertificateType", str(value["certificate_type"])))
+        pairs.append((f"{key_prefix}CertificateType", str(value["certificate_type"])))
     if "thumbprint" in value:
-        pairs.append((f"{prefix}.Thumbprint", str(value["thumbprint"])))
+        pairs.append((f"{key_prefix}Thumbprint", str(value["thumbprint"])))
     if "valid_from" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["valid_from"], pairs, f"{prefix}.ValidFrom"
+            value["valid_from"], pairs, f"{key_prefix}ValidFrom"
         )
     if "valid_till" in value:
         import capo_docdb.types.t_stamp
 
         capo_docdb.types.t_stamp.serialize_query(
-            value["valid_till"], pairs, f"{prefix}.ValidTill"
+            value["valid_till"], pairs, f"{key_prefix}ValidTill"
         )
     if "certificate_arn" in value:
-        pairs.append((f"{prefix}.CertificateArn", str(value["certificate_arn"])))
+        pairs.append((f"{key_prefix}CertificateArn", str(value["certificate_arn"])))
 
 
 def deserialize_query(el: Element) -> Certificate:

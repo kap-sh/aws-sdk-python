@@ -24,16 +24,19 @@ class Subnet(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Subnet, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet_identifier" in value:
-        pairs.append((f"{prefix}.SubnetIdentifier", str(value["subnet_identifier"])))
+        pairs.append((f"{key_prefix}SubnetIdentifier", str(value["subnet_identifier"])))
     if "subnet_availability_zone" in value:
         import capo_docdb.types.availability_zone
 
         capo_docdb.types.availability_zone.serialize_query(
-            value["subnet_availability_zone"], pairs, f"{prefix}.SubnetAvailabilityZone"
+            value["subnet_availability_zone"],
+            pairs,
+            f"{key_prefix}SubnetAvailabilityZone",
         )
     if "subnet_status" in value:
-        pairs.append((f"{prefix}.SubnetStatus", str(value["subnet_status"])))
+        pairs.append((f"{key_prefix}SubnetStatus", str(value["subnet_status"])))
 
 
 def deserialize_query(el: Element) -> Subnet:

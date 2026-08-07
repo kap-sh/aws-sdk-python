@@ -30,27 +30,28 @@ class CopyServerlessCacheSnapshotRequest(TypedDict, closed=True):
 def serialize_query(
     value: CopyServerlessCacheSnapshotRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_serverless_cache_snapshot_name" in value:
         pairs.append(
             (
-                f"{prefix}.SourceServerlessCacheSnapshotName",
+                f"{key_prefix}SourceServerlessCacheSnapshotName",
                 str(value["source_serverless_cache_snapshot_name"]),
             )
         )
     if "target_serverless_cache_snapshot_name" in value:
         pairs.append(
             (
-                f"{prefix}.TargetServerlessCacheSnapshotName",
+                f"{key_prefix}TargetServerlessCacheSnapshotName",
                 str(value["target_serverless_cache_snapshot_name"]),
             )
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

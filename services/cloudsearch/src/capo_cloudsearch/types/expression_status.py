@@ -22,15 +22,16 @@ class ExpressionStatus(TypedDict, closed=True):
 def serialize_query(
     value: ExpressionStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.expression
 
     capo_cloudsearch.types.expression.serialize_query(
-        value["options"], pairs, f"{prefix}.Options"
+        value["options"], pairs, f"{key_prefix}Options"
     )
     import capo_cloudsearch.types.option_status
 
     capo_cloudsearch.types.option_status.serialize_query(
-        value["status"], pairs, f"{prefix}.Status"
+        value["status"], pairs, f"{key_prefix}Status"
     )
 
 

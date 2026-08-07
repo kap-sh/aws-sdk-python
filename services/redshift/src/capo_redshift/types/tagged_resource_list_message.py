@@ -24,14 +24,15 @@ class TaggedResourceListMessage(TypedDict, closed=True):
 def serialize_query(
     value: TaggedResourceListMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "tagged_resources" in value:
         import capo_redshift.types.tagged_resource_list
 
         capo_redshift.types.tagged_resource_list.serialize_query(
-            value["tagged_resources"], pairs, f"{prefix}.TaggedResources"
+            value["tagged_resources"], pairs, f"{key_prefix}TaggedResources"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> TaggedResourceListMessage:

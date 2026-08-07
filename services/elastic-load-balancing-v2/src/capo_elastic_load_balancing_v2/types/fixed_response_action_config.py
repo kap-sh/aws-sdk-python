@@ -31,12 +31,13 @@ class FixedResponseActionConfig(TypedDict, closed=True):
 def serialize_query(
     value: FixedResponseActionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "message_body" in value:
-        pairs.append((f"{prefix}.MessageBody", str(value["message_body"])))
+        pairs.append((f"{key_prefix}MessageBody", str(value["message_body"])))
     if "status_code" in value:
-        pairs.append((f"{prefix}.StatusCode", str(value["status_code"])))
+        pairs.append((f"{key_prefix}StatusCode", str(value["status_code"])))
     if "content_type" in value:
-        pairs.append((f"{prefix}.ContentType", str(value["content_type"])))
+        pairs.append((f"{key_prefix}ContentType", str(value["content_type"])))
 
 
 def deserialize_query(el: Element) -> FixedResponseActionConfig:

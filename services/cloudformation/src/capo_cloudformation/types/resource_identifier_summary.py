@@ -29,19 +29,20 @@ class ResourceIdentifierSummary(TypedDict, closed=True):
 def serialize_query(
     value: ResourceIdentifierSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "logical_resource_ids" in value:
         import capo_cloudformation.types.logical_resource_ids
 
         capo_cloudformation.types.logical_resource_ids.serialize_query(
-            value["logical_resource_ids"], pairs, f"{prefix}.LogicalResourceIds"
+            value["logical_resource_ids"], pairs, f"{key_prefix}LogicalResourceIds"
         )
     if "resource_identifiers" in value:
         import capo_cloudformation.types.resource_identifiers
 
         capo_cloudformation.types.resource_identifiers.serialize_query(
-            value["resource_identifiers"], pairs, f"{prefix}.ResourceIdentifiers"
+            value["resource_identifiers"], pairs, f"{key_prefix}ResourceIdentifiers"
         )
 
 

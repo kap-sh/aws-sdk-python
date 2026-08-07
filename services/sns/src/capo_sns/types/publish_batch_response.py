@@ -26,17 +26,18 @@ class PublishBatchResponse(TypedDict, closed=True):
 def serialize_query(
     value: PublishBatchResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "successful" in value:
         import capo_sns.types.publish_batch_result_entry_list
 
         capo_sns.types.publish_batch_result_entry_list.serialize_query(
-            value["successful"], pairs, f"{prefix}.Successful"
+            value["successful"], pairs, f"{key_prefix}Successful"
         )
     if "failed" in value:
         import capo_sns.types.batch_result_error_entry_list
 
         capo_sns.types.batch_result_error_entry_list.serialize_query(
-            value["failed"], pairs, f"{prefix}.Failed"
+            value["failed"], pairs, f"{key_prefix}Failed"
         )
 
 

@@ -32,13 +32,14 @@ class BounceAction(TypedDict, closed=True):
 def serialize_query(
     value: BounceAction, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.SmtpReplyCode", str(value["smtp_reply_code"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}SmtpReplyCode", str(value["smtp_reply_code"])))
     if "status_code" in value:
-        pairs.append((f"{prefix}.StatusCode", str(value["status_code"])))
-    pairs.append((f"{prefix}.Message", str(value["message"])))
-    pairs.append((f"{prefix}.Sender", str(value["sender"])))
+        pairs.append((f"{key_prefix}StatusCode", str(value["status_code"])))
+    pairs.append((f"{key_prefix}Message", str(value["message"])))
+    pairs.append((f"{key_prefix}Sender", str(value["sender"])))
 
 
 def deserialize_query(el: Element) -> BounceAction:

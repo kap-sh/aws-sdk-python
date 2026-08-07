@@ -73,16 +73,17 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "db_cluster_identifier" in value:
         pairs.append(
-            (f"{prefix}.DBClusterIdentifier", str(value["db_cluster_identifier"]))
+            (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "restore_type" in value:
-        pairs.append((f"{prefix}.RestoreType", str(value["restore_type"])))
+        pairs.append((f"{key_prefix}RestoreType", str(value["restore_type"])))
     if "source_db_cluster_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.SourceDBClusterIdentifier",
+                f"{key_prefix}SourceDBClusterIdentifier",
                 str(value["source_db_cluster_identifier"]),
             )
         )
@@ -90,41 +91,41 @@ def serialize_query(
         import capo_neptune.types.t_stamp
 
         capo_neptune.types.t_stamp.serialize_query(
-            value["restore_to_time"], pairs, f"{prefix}.RestoreToTime"
+            value["restore_to_time"], pairs, f"{key_prefix}RestoreToTime"
         )
     if "use_latest_restorable_time" in value:
         pairs.append(
             (
-                f"{prefix}.UseLatestRestorableTime",
+                f"{key_prefix}UseLatestRestorableTime",
                 "true" if value["use_latest_restorable_time"] else "false",
             )
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "db_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.DBSubnetGroupName", str(value["db_subnet_group_name"]))
+            (f"{key_prefix}DBSubnetGroupName", str(value["db_subnet_group_name"]))
         )
     if "option_group_name" in value:
-        pairs.append((f"{prefix}.OptionGroupName", str(value["option_group_name"])))
+        pairs.append((f"{key_prefix}OptionGroupName", str(value["option_group_name"])))
     if "vpc_security_group_ids" in value:
         import capo_neptune.types.vpc_security_group_id_list
 
         capo_neptune.types.vpc_security_group_id_list.serialize_query(
-            value["vpc_security_group_ids"], pairs, f"{prefix}.VpcSecurityGroupIds"
+            value["vpc_security_group_ids"], pairs, f"{key_prefix}VpcSecurityGroupIds"
         )
     if "tags" in value:
         import capo_neptune.types.tag_list
 
         capo_neptune.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "enable_iam_database_authentication" in value:
         pairs.append(
             (
-                f"{prefix}.EnableIAMDatabaseAuthentication",
+                f"{key_prefix}EnableIAMDatabaseAuthentication",
                 "true" if value["enable_iam_database_authentication"] else "false",
             )
         )
@@ -134,19 +135,19 @@ def serialize_query(
         capo_neptune.types.log_type_list.serialize_query(
             value["enable_cloudwatch_logs_exports"],
             pairs,
-            f"{prefix}.EnableCloudwatchLogsExports",
+            f"{key_prefix}EnableCloudwatchLogsExports",
         )
     if "db_cluster_parameter_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.DBClusterParameterGroupName",
+                f"{key_prefix}DBClusterParameterGroupName",
                 str(value["db_cluster_parameter_group_name"]),
             )
         )
     if "deletion_protection" in value:
         pairs.append(
             (
-                f"{prefix}.DeletionProtection",
+                f"{key_prefix}DeletionProtection",
                 "true" if value["deletion_protection"] else "false",
             )
         )
@@ -156,12 +157,12 @@ def serialize_query(
         capo_neptune.types.serverless_v2_scaling_configuration.serialize_query(
             value["serverless_v2_scaling_configuration"],
             pairs,
-            f"{prefix}.ServerlessV2ScalingConfiguration",
+            f"{key_prefix}ServerlessV2ScalingConfiguration",
         )
     if "storage_type" in value:
-        pairs.append((f"{prefix}.StorageType", str(value["storage_type"])))
+        pairs.append((f"{key_prefix}StorageType", str(value["storage_type"])))
     if "network_type" in value:
-        pairs.append((f"{prefix}.NetworkType", str(value["network_type"])))
+        pairs.append((f"{key_prefix}NetworkType", str(value["network_type"])))
 
 
 def deserialize_query(el: Element) -> RestoreDBClusterToPointInTimeMessage:

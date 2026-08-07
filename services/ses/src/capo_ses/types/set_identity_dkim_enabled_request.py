@@ -23,10 +23,11 @@ class SetIdentityDkimEnabledRequest(TypedDict, closed=True):
 def serialize_query(
     value: SetIdentityDkimEnabledRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Identity", str(value["identity"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Identity", str(value["identity"])))
     pairs.append(
         (
-            f"{prefix}.DkimEnabled",
+            f"{key_prefix}DkimEnabled",
             "true" if value.get("dkim_enabled", False) else "false",
         )
     )

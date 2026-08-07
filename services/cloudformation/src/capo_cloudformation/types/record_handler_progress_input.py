@@ -48,33 +48,36 @@ class RecordHandlerProgressInput(TypedDict, closed=True):
 def serialize_query(
     value: RecordHandlerProgressInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "bearer_token" in value:
-        pairs.append((f"{prefix}.BearerToken", str(value["bearer_token"])))
+        pairs.append((f"{key_prefix}BearerToken", str(value["bearer_token"])))
     if "operation_status" in value:
         import capo_cloudformation.types.operation_status
 
         capo_cloudformation.types.operation_status.serialize_query(
-            value["operation_status"], pairs, f"{prefix}.OperationStatus"
+            value["operation_status"], pairs, f"{key_prefix}OperationStatus"
         )
     if "current_operation_status" in value:
         import capo_cloudformation.types.operation_status
 
         capo_cloudformation.types.operation_status.serialize_query(
-            value["current_operation_status"], pairs, f"{prefix}.CurrentOperationStatus"
+            value["current_operation_status"],
+            pairs,
+            f"{key_prefix}CurrentOperationStatus",
         )
     if "status_message" in value:
-        pairs.append((f"{prefix}.StatusMessage", str(value["status_message"])))
+        pairs.append((f"{key_prefix}StatusMessage", str(value["status_message"])))
     if "error_code" in value:
         import capo_cloudformation.types.handler_error_code
 
         capo_cloudformation.types.handler_error_code.serialize_query(
-            value["error_code"], pairs, f"{prefix}.ErrorCode"
+            value["error_code"], pairs, f"{key_prefix}ErrorCode"
         )
     if "resource_model" in value:
-        pairs.append((f"{prefix}.ResourceModel", str(value["resource_model"])))
+        pairs.append((f"{key_prefix}ResourceModel", str(value["resource_model"])))
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
 
 

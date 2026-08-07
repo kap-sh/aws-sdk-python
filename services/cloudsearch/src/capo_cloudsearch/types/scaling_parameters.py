@@ -26,21 +26,22 @@ class ScalingParameters(TypedDict, closed=True):
 def serialize_query(
     value: ScalingParameters, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "desired_instance_type" in value:
         import capo_cloudsearch.types.partition_instance_type
 
         capo_cloudsearch.types.partition_instance_type.serialize_query(
-            value["desired_instance_type"], pairs, f"{prefix}.DesiredInstanceType"
+            value["desired_instance_type"], pairs, f"{key_prefix}DesiredInstanceType"
         )
     pairs.append(
         (
-            f"{prefix}.DesiredReplicationCount",
+            f"{key_prefix}DesiredReplicationCount",
             str(value.get("desired_replication_count", 0)),
         )
     )
     pairs.append(
         (
-            f"{prefix}.DesiredPartitionCount",
+            f"{key_prefix}DesiredPartitionCount",
             str(value.get("desired_partition_count", 0)),
         )
     )

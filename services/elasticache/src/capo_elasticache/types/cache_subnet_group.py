@@ -33,32 +33,35 @@ class CacheSubnetGroup(TypedDict, closed=True):
 def serialize_query(
     value: CacheSubnetGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_subnet_group_name" in value:
         pairs.append(
-            (f"{prefix}.CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
+            (f"{key_prefix}CacheSubnetGroupName", str(value["cache_subnet_group_name"]))
         )
     if "cache_subnet_group_description" in value:
         pairs.append(
             (
-                f"{prefix}.CacheSubnetGroupDescription",
+                f"{key_prefix}CacheSubnetGroupDescription",
                 str(value["cache_subnet_group_description"]),
             )
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnets" in value:
         import capo_elasticache.types.subnet_list
 
         capo_elasticache.types.subnet_list.serialize_query(
-            value["subnets"], pairs, f"{prefix}.Subnets"
+            value["subnets"], pairs, f"{key_prefix}Subnets"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
     if "supported_network_types" in value:
         import capo_elasticache.types.network_type_list
 
         capo_elasticache.types.network_type_list.serialize_query(
-            value["supported_network_types"], pairs, f"{prefix}.SupportedNetworkTypes"
+            value["supported_network_types"],
+            pairs,
+            f"{key_prefix}SupportedNetworkTypes",
         )
 
 

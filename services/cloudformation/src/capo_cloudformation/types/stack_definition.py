@@ -25,12 +25,13 @@ class StackDefinition(TypedDict, closed=True):
 def serialize_query(
     value: StackDefinition, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "template_url" in value:
-        pairs.append((f"{prefix}.TemplateURL", str(value["template_url"])))
+        pairs.append((f"{key_prefix}TemplateURL", str(value["template_url"])))
 
 
 def deserialize_query(el: Element) -> StackDefinition:

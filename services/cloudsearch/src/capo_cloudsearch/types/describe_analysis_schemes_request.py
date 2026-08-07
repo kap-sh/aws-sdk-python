@@ -28,15 +28,18 @@ class DescribeAnalysisSchemesRequest(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAnalysisSchemesRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     if "analysis_scheme_names" in value:
         import capo_cloudsearch.types.standard_name_list
 
         capo_cloudsearch.types.standard_name_list.serialize_query(
-            value["analysis_scheme_names"], pairs, f"{prefix}.AnalysisSchemeNames"
+            value["analysis_scheme_names"], pairs, f"{key_prefix}AnalysisSchemeNames"
         )
     if "deployed" in value:
-        pairs.append((f"{prefix}.Deployed", "true" if value["deployed"] else "false"))
+        pairs.append(
+            (f"{key_prefix}Deployed", "true" if value["deployed"] else "false")
+        )
 
 
 def deserialize_query(el: Element) -> DescribeAnalysisSchemesRequest:

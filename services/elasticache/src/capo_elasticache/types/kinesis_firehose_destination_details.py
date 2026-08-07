@@ -19,8 +19,9 @@ class KinesisFirehoseDestinationDetails(TypedDict, closed=True):
 def serialize_query(
     value: KinesisFirehoseDestinationDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "delivery_stream" in value:
-        pairs.append((f"{prefix}.DeliveryStream", str(value["delivery_stream"])))
+        pairs.append((f"{key_prefix}DeliveryStream", str(value["delivery_stream"])))
 
 
 def deserialize_query(el: Element) -> KinesisFirehoseDestinationDetails:

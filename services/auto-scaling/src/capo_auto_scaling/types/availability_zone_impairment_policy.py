@@ -26,10 +26,11 @@ class AvailabilityZoneImpairmentPolicy(TypedDict, closed=True):
 def serialize_query(
     value: AvailabilityZoneImpairmentPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "zonal_shift_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.ZonalShiftEnabled",
+                f"{key_prefix}ZonalShiftEnabled",
                 "true" if value["zonal_shift_enabled"] else "false",
             )
         )
@@ -39,7 +40,7 @@ def serialize_query(
         capo_auto_scaling.types.impaired_zone_health_check_behavior.serialize_query(
             value["impaired_zone_health_check_behavior"],
             pairs,
-            f"{prefix}.ImpairedZoneHealthCheckBehavior",
+            f"{key_prefix}ImpairedZoneHealthCheckBehavior",
         )
 
 

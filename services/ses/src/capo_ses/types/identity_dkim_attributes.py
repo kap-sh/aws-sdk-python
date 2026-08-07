@@ -28,22 +28,23 @@ class IdentityDkimAttributes(TypedDict, closed=True):
 def serialize_query(
     value: IdentityDkimAttributes, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.DkimEnabled",
+            f"{key_prefix}DkimEnabled",
             "true" if value.get("dkim_enabled", False) else "false",
         )
     )
     import capo_ses.types.verification_status
 
     capo_ses.types.verification_status.serialize_query(
-        value["dkim_verification_status"], pairs, f"{prefix}.DkimVerificationStatus"
+        value["dkim_verification_status"], pairs, f"{key_prefix}DkimVerificationStatus"
     )
     if "dkim_tokens" in value:
         import capo_ses.types.verification_token_list
 
         capo_ses.types.verification_token_list.serialize_query(
-            value["dkim_tokens"], pairs, f"{prefix}.DkimTokens"
+            value["dkim_tokens"], pairs, f"{key_prefix}DkimTokens"
         )
 
 

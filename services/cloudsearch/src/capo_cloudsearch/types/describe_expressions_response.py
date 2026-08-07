@@ -20,10 +20,11 @@ class DescribeExpressionsResponse(TypedDict, closed=True):
 def serialize_query(
     value: DescribeExpressionsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.expression_status_list
 
     capo_cloudsearch.types.expression_status_list.serialize_query(
-        value["expressions"], pairs, f"{prefix}.Expressions"
+        value["expressions"], pairs, f"{key_prefix}Expressions"
     )
 
 

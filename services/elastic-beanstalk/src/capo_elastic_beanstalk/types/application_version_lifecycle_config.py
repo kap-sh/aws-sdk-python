@@ -24,17 +24,18 @@ class ApplicationVersionLifecycleConfig(TypedDict, closed=True):
 def serialize_query(
     value: ApplicationVersionLifecycleConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "max_count_rule" in value:
         import capo_elastic_beanstalk.types.max_count_rule
 
         capo_elastic_beanstalk.types.max_count_rule.serialize_query(
-            value["max_count_rule"], pairs, f"{prefix}.MaxCountRule"
+            value["max_count_rule"], pairs, f"{key_prefix}MaxCountRule"
         )
     if "max_age_rule" in value:
         import capo_elastic_beanstalk.types.max_age_rule
 
         capo_elastic_beanstalk.types.max_age_rule.serialize_query(
-            value["max_age_rule"], pairs, f"{prefix}.MaxAgeRule"
+            value["max_age_rule"], pairs, f"{key_prefix}MaxAgeRule"
         )
 
 

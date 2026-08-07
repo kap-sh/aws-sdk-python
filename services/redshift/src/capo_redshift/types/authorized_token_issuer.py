@@ -24,9 +24,13 @@ class AuthorizedTokenIssuer(TypedDict, closed=True):
 def serialize_query(
     value: AuthorizedTokenIssuer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trusted_token_issuer_arn" in value:
         pairs.append(
-            (f"{prefix}.TrustedTokenIssuerArn", str(value["trusted_token_issuer_arn"]))
+            (
+                f"{key_prefix}TrustedTokenIssuerArn",
+                str(value["trusted_token_issuer_arn"]),
+            )
         )
     if "authorized_audiences_list" in value:
         import capo_redshift.types.authorized_audience_list
@@ -34,7 +38,7 @@ def serialize_query(
         capo_redshift.types.authorized_audience_list.serialize_query(
             value["authorized_audiences_list"],
             pairs,
-            f"{prefix}.AuthorizedAudiencesList",
+            f"{key_prefix}AuthorizedAudiencesList",
         )
 
 

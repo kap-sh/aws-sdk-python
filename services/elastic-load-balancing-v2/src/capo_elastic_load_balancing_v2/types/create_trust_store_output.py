@@ -21,11 +21,12 @@ class CreateTrustStoreOutput(TypedDict, closed=True):
 def serialize_query(
     value: CreateTrustStoreOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_stores" in value:
         import capo_elastic_load_balancing_v2.types.trust_stores
 
         capo_elastic_load_balancing_v2.types.trust_stores.serialize_query(
-            value["trust_stores"], pairs, f"{prefix}.TrustStores"
+            value["trust_stores"], pairs, f"{key_prefix}TrustStores"
         )
 
 

@@ -26,13 +26,14 @@ class CapacityReservationSpecification(TypedDict, closed=True):
 def serialize_query(
     value: CapacityReservationSpecification, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "capacity_reservation_preference" in value:
         import capo_auto_scaling.types.capacity_reservation_preference
 
         capo_auto_scaling.types.capacity_reservation_preference.serialize_query(
             value["capacity_reservation_preference"],
             pairs,
-            f"{prefix}.CapacityReservationPreference",
+            f"{key_prefix}CapacityReservationPreference",
         )
     if "capacity_reservation_target" in value:
         import capo_auto_scaling.types.capacity_reservation_target
@@ -40,7 +41,7 @@ def serialize_query(
         capo_auto_scaling.types.capacity_reservation_target.serialize_query(
             value["capacity_reservation_target"],
             pairs,
-            f"{prefix}.CapacityReservationTarget",
+            f"{key_prefix}CapacityReservationTarget",
         )
 
 

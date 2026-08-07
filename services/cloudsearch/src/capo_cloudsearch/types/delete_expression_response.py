@@ -20,10 +20,11 @@ class DeleteExpressionResponse(TypedDict, closed=True):
 def serialize_query(
     value: DeleteExpressionResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_cloudsearch.types.expression_status
 
     capo_cloudsearch.types.expression_status.serialize_query(
-        value["expression"], pairs, f"{prefix}.Expression"
+        value["expression"], pairs, f"{key_prefix}Expression"
     )
 
 

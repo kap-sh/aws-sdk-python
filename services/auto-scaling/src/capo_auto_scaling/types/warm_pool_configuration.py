@@ -35,32 +35,33 @@ class WarmPoolConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: WarmPoolConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "max_group_prepared_capacity" in value:
         pairs.append(
             (
-                f"{prefix}.MaxGroupPreparedCapacity",
+                f"{key_prefix}MaxGroupPreparedCapacity",
                 str(value["max_group_prepared_capacity"]),
             )
         )
     if "min_size" in value:
-        pairs.append((f"{prefix}.MinSize", str(value["min_size"])))
+        pairs.append((f"{key_prefix}MinSize", str(value["min_size"])))
     if "pool_state" in value:
         import capo_auto_scaling.types.warm_pool_state
 
         capo_auto_scaling.types.warm_pool_state.serialize_query(
-            value["pool_state"], pairs, f"{prefix}.PoolState"
+            value["pool_state"], pairs, f"{key_prefix}PoolState"
         )
     if "status" in value:
         import capo_auto_scaling.types.warm_pool_status
 
         capo_auto_scaling.types.warm_pool_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "instance_reuse_policy" in value:
         import capo_auto_scaling.types.instance_reuse_policy
 
         capo_auto_scaling.types.instance_reuse_policy.serialize_query(
-            value["instance_reuse_policy"], pairs, f"{prefix}.InstanceReusePolicy"
+            value["instance_reuse_policy"], pairs, f"{key_prefix}InstanceReusePolicy"
         )
 
 

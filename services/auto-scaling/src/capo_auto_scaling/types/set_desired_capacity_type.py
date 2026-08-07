@@ -29,15 +29,19 @@ class SetDesiredCapacityType(TypedDict, closed=True):
 def serialize_query(
     value: SetDesiredCapacityType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "desired_capacity" in value:
-        pairs.append((f"{prefix}.DesiredCapacity", str(value["desired_capacity"])))
+        pairs.append((f"{key_prefix}DesiredCapacity", str(value["desired_capacity"])))
     if "honor_cooldown" in value:
         pairs.append(
-            (f"{prefix}.HonorCooldown", "true" if value["honor_cooldown"] else "false")
+            (
+                f"{key_prefix}HonorCooldown",
+                "true" if value["honor_cooldown"] else "false",
+            )
         )
 
 

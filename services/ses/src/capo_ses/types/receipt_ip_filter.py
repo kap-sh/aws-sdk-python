@@ -23,12 +23,13 @@ class ReceiptIpFilter(TypedDict, closed=True):
 def serialize_query(
     value: ReceiptIpFilter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.receipt_filter_policy
 
     capo_ses.types.receipt_filter_policy.serialize_query(
-        value["policy"], pairs, f"{prefix}.Policy"
+        value["policy"], pairs, f"{key_prefix}Policy"
     )
-    pairs.append((f"{prefix}.Cidr", str(value["cidr"])))
+    pairs.append((f"{key_prefix}Cidr", str(value["cidr"])))
 
 
 def deserialize_query(el: Element) -> ReceiptIpFilter:

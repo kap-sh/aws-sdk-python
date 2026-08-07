@@ -36,29 +36,30 @@ class PhoneNumberInformation(TypedDict, closed=True):
 def serialize_query(
     value: PhoneNumberInformation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "created_at" in value:
         import capo_sns.types.timestamp
 
         capo_sns.types.timestamp.serialize_query(
-            value["created_at"], pairs, f"{prefix}.CreatedAt"
+            value["created_at"], pairs, f"{key_prefix}CreatedAt"
         )
     if "phone_number" in value:
-        pairs.append((f"{prefix}.PhoneNumber", str(value["phone_number"])))
+        pairs.append((f"{key_prefix}PhoneNumber", str(value["phone_number"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "iso2_country_code" in value:
-        pairs.append((f"{prefix}.Iso2CountryCode", str(value["iso2_country_code"])))
+        pairs.append((f"{key_prefix}Iso2CountryCode", str(value["iso2_country_code"])))
     if "route_type" in value:
         import capo_sns.types.route_type
 
         capo_sns.types.route_type.serialize_query(
-            value["route_type"], pairs, f"{prefix}.RouteType"
+            value["route_type"], pairs, f"{key_prefix}RouteType"
         )
     if "number_capabilities" in value:
         import capo_sns.types.number_capability_list
 
         capo_sns.types.number_capability_list.serialize_query(
-            value["number_capabilities"], pairs, f"{prefix}.NumberCapabilities"
+            value["number_capabilities"], pairs, f"{key_prefix}NumberCapabilities"
         )
 
 

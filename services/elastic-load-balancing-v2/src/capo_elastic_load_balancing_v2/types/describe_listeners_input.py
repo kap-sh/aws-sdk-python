@@ -32,18 +32,19 @@ class DescribeListenersInput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeListenersInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "listener_arns" in value:
         import capo_elastic_load_balancing_v2.types.listener_arns
 
         capo_elastic_load_balancing_v2.types.listener_arns.serialize_query(
-            value["listener_arns"], pairs, f"{prefix}.ListenerArns"
+            value["listener_arns"], pairs, f"{key_prefix}ListenerArns"
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "page_size" in value:
-        pairs.append((f"{prefix}.PageSize", str(value["page_size"])))
+        pairs.append((f"{key_prefix}PageSize", str(value["page_size"])))
 
 
 def deserialize_query(el: Element) -> DescribeListenersInput:

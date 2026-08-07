@@ -52,26 +52,27 @@ class DescribeEnvironmentsMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEnvironmentsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_name" in value:
-        pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+        pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "version_label" in value:
-        pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+        pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "environment_ids" in value:
         import capo_elastic_beanstalk.types.environment_id_list
 
         capo_elastic_beanstalk.types.environment_id_list.serialize_query(
-            value["environment_ids"], pairs, f"{prefix}.EnvironmentIds"
+            value["environment_ids"], pairs, f"{key_prefix}EnvironmentIds"
         )
     if "environment_names" in value:
         import capo_elastic_beanstalk.types.environment_names_list
 
         capo_elastic_beanstalk.types.environment_names_list.serialize_query(
-            value["environment_names"], pairs, f"{prefix}.EnvironmentNames"
+            value["environment_names"], pairs, f"{key_prefix}EnvironmentNames"
         )
     if "include_deleted" in value:
         pairs.append(
             (
-                f"{prefix}.IncludeDeleted",
+                f"{key_prefix}IncludeDeleted",
                 "true" if value["include_deleted"] else "false",
             )
         )
@@ -79,12 +80,14 @@ def serialize_query(
         import capo_elastic_beanstalk.types.include_deleted_back_to
 
         capo_elastic_beanstalk.types.include_deleted_back_to.serialize_query(
-            value["included_deleted_back_to"], pairs, f"{prefix}.IncludedDeletedBackTo"
+            value["included_deleted_back_to"],
+            pairs,
+            f"{key_prefix}IncludedDeletedBackTo",
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "next_token" in value:
-        pairs.append((f"{prefix}.NextToken", str(value["next_token"])))
+        pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
 
 def deserialize_query(el: Element) -> DescribeEnvironmentsMessage:

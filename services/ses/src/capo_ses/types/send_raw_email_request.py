@@ -43,34 +43,35 @@ class SendRawEmailRequest(TypedDict, closed=True):
 def serialize_query(
     value: SendRawEmailRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source" in value:
-        pairs.append((f"{prefix}.Source", str(value["source"])))
+        pairs.append((f"{key_prefix}Source", str(value["source"])))
     if "destinations" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["destinations"], pairs, f"{prefix}.Destinations"
+            value["destinations"], pairs, f"{key_prefix}Destinations"
         )
     import capo_ses.types.raw_message
 
     capo_ses.types.raw_message.serialize_query(
-        value["raw_message"], pairs, f"{prefix}.RawMessage"
+        value["raw_message"], pairs, f"{key_prefix}RawMessage"
     )
     if "from_arn" in value:
-        pairs.append((f"{prefix}.FromArn", str(value["from_arn"])))
+        pairs.append((f"{key_prefix}FromArn", str(value["from_arn"])))
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "return_path_arn" in value:
-        pairs.append((f"{prefix}.ReturnPathArn", str(value["return_path_arn"])))
+        pairs.append((f"{key_prefix}ReturnPathArn", str(value["return_path_arn"])))
     if "tags" in value:
         import capo_ses.types.message_tag_list
 
         capo_ses.types.message_tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "configuration_set_name" in value:
         pairs.append(
-            (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+            (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
         )
 
 

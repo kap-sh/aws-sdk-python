@@ -36,19 +36,22 @@ class ModifyClusterMaintenanceMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyClusterMaintenanceMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "defer_maintenance" in value:
         pairs.append(
             (
-                f"{prefix}.DeferMaintenance",
+                f"{key_prefix}DeferMaintenance",
                 "true" if value["defer_maintenance"] else "false",
             )
         )
     if "defer_maintenance_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.DeferMaintenanceIdentifier",
+                f"{key_prefix}DeferMaintenanceIdentifier",
                 str(value["defer_maintenance_identifier"]),
             )
         )
@@ -58,7 +61,7 @@ def serialize_query(
         capo_redshift.types.t_stamp.serialize_query(
             value["defer_maintenance_start_time"],
             pairs,
-            f"{prefix}.DeferMaintenanceStartTime",
+            f"{key_prefix}DeferMaintenanceStartTime",
         )
     if "defer_maintenance_end_time" in value:
         import capo_redshift.types.t_stamp
@@ -66,12 +69,12 @@ def serialize_query(
         capo_redshift.types.t_stamp.serialize_query(
             value["defer_maintenance_end_time"],
             pairs,
-            f"{prefix}.DeferMaintenanceEndTime",
+            f"{key_prefix}DeferMaintenanceEndTime",
         )
     if "defer_maintenance_duration" in value:
         pairs.append(
             (
-                f"{prefix}.DeferMaintenanceDuration",
+                f"{key_prefix}DeferMaintenanceDuration",
                 str(value["defer_maintenance_duration"]),
             )
         )

@@ -32,17 +32,18 @@ class RevocationContent(TypedDict, closed=True):
 def serialize_query(
     value: RevocationContent, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "s3_bucket" in value:
-        pairs.append((f"{prefix}.S3Bucket", str(value["s3_bucket"])))
+        pairs.append((f"{key_prefix}S3Bucket", str(value["s3_bucket"])))
     if "s3_key" in value:
-        pairs.append((f"{prefix}.S3Key", str(value["s3_key"])))
+        pairs.append((f"{key_prefix}S3Key", str(value["s3_key"])))
     if "s3_object_version" in value:
-        pairs.append((f"{prefix}.S3ObjectVersion", str(value["s3_object_version"])))
+        pairs.append((f"{key_prefix}S3ObjectVersion", str(value["s3_object_version"])))
     if "revocation_type" in value:
         import capo_elastic_load_balancing_v2.types.revocation_type
 
         capo_elastic_load_balancing_v2.types.revocation_type.serialize_query(
-            value["revocation_type"], pairs, f"{prefix}.RevocationType"
+            value["revocation_type"], pairs, f"{key_prefix}RevocationType"
         )
 
 

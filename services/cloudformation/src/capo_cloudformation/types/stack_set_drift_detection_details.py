@@ -56,17 +56,18 @@ class StackSetDriftDetectionDetails(TypedDict, closed=True):
 def serialize_query(
     value: StackSetDriftDetectionDetails, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "drift_status" in value:
         import capo_cloudformation.types.stack_set_drift_status
 
         capo_cloudformation.types.stack_set_drift_status.serialize_query(
-            value["drift_status"], pairs, f"{prefix}.DriftStatus"
+            value["drift_status"], pairs, f"{key_prefix}DriftStatus"
         )
     if "drift_detection_status" in value:
         import capo_cloudformation.types.stack_set_drift_detection_status
 
         capo_cloudformation.types.stack_set_drift_detection_status.serialize_query(
-            value["drift_detection_status"], pairs, f"{prefix}.DriftDetectionStatus"
+            value["drift_detection_status"], pairs, f"{key_prefix}DriftDetectionStatus"
         )
     if "last_drift_check_timestamp" in value:
         import capo_cloudformation.types.timestamp
@@ -74,40 +75,40 @@ def serialize_query(
         capo_cloudformation.types.timestamp.serialize_query(
             value["last_drift_check_timestamp"],
             pairs,
-            f"{prefix}.LastDriftCheckTimestamp",
+            f"{key_prefix}LastDriftCheckTimestamp",
         )
     if "total_stack_instances_count" in value:
         pairs.append(
             (
-                f"{prefix}.TotalStackInstancesCount",
+                f"{key_prefix}TotalStackInstancesCount",
                 str(value["total_stack_instances_count"]),
             )
         )
     if "drifted_stack_instances_count" in value:
         pairs.append(
             (
-                f"{prefix}.DriftedStackInstancesCount",
+                f"{key_prefix}DriftedStackInstancesCount",
                 str(value["drifted_stack_instances_count"]),
             )
         )
     if "in_sync_stack_instances_count" in value:
         pairs.append(
             (
-                f"{prefix}.InSyncStackInstancesCount",
+                f"{key_prefix}InSyncStackInstancesCount",
                 str(value["in_sync_stack_instances_count"]),
             )
         )
     if "in_progress_stack_instances_count" in value:
         pairs.append(
             (
-                f"{prefix}.InProgressStackInstancesCount",
+                f"{key_prefix}InProgressStackInstancesCount",
                 str(value["in_progress_stack_instances_count"]),
             )
         )
     if "failed_stack_instances_count" in value:
         pairs.append(
             (
-                f"{prefix}.FailedStackInstancesCount",
+                f"{key_prefix}FailedStackInstancesCount",
                 str(value["failed_stack_instances_count"]),
             )
         )

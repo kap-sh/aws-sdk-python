@@ -21,12 +21,13 @@ class GlobalNodeGroup(TypedDict, closed=True):
 def serialize_query(
     value: GlobalNodeGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_node_group_id" in value:
         pairs.append(
-            (f"{prefix}.GlobalNodeGroupId", str(value["global_node_group_id"]))
+            (f"{key_prefix}GlobalNodeGroupId", str(value["global_node_group_id"]))
         )
     if "slots" in value:
-        pairs.append((f"{prefix}.Slots", str(value["slots"])))
+        pairs.append((f"{key_prefix}Slots", str(value["slots"])))
 
 
 def deserialize_query(el: Element) -> GlobalNodeGroup:

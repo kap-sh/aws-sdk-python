@@ -52,33 +52,36 @@ class CreateConfigurationTemplateMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateConfigurationTemplateMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
-    pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
+    pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "solution_stack_name" in value:
-        pairs.append((f"{prefix}.SolutionStackName", str(value["solution_stack_name"])))
+        pairs.append(
+            (f"{key_prefix}SolutionStackName", str(value["solution_stack_name"]))
+        )
     if "platform_arn" in value:
-        pairs.append((f"{prefix}.PlatformArn", str(value["platform_arn"])))
+        pairs.append((f"{key_prefix}PlatformArn", str(value["platform_arn"])))
     if "source_configuration" in value:
         import capo_elastic_beanstalk.types.source_configuration
 
         capo_elastic_beanstalk.types.source_configuration.serialize_query(
-            value["source_configuration"], pairs, f"{prefix}.SourceConfiguration"
+            value["source_configuration"], pairs, f"{key_prefix}SourceConfiguration"
         )
     if "environment_id" in value:
-        pairs.append((f"{prefix}.EnvironmentId", str(value["environment_id"])))
+        pairs.append((f"{key_prefix}EnvironmentId", str(value["environment_id"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "option_settings" in value:
         import capo_elastic_beanstalk.types.configuration_option_settings_list
 
         capo_elastic_beanstalk.types.configuration_option_settings_list.serialize_query(
-            value["option_settings"], pairs, f"{prefix}.OptionSettings"
+            value["option_settings"], pairs, f"{key_prefix}OptionSettings"
         )
     if "tags" in value:
         import capo_elastic_beanstalk.types.tags
 
         capo_elastic_beanstalk.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

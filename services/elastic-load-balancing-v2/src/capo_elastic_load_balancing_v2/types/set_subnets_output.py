@@ -31,17 +31,18 @@ class SetSubnetsOutput(TypedDict, closed=True):
 def serialize_query(
     value: SetSubnetsOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "availability_zones" in value:
         import capo_elastic_load_balancing_v2.types.availability_zones
 
         capo_elastic_load_balancing_v2.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "ip_address_type" in value:
         import capo_elastic_load_balancing_v2.types.ip_address_type
 
         capo_elastic_load_balancing_v2.types.ip_address_type.serialize_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "enable_prefix_for_ipv6_source_nat" in value:
         import capo_elastic_load_balancing_v2.types.enable_prefix_for_ipv6_source_nat_enum
@@ -49,7 +50,7 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.enable_prefix_for_ipv6_source_nat_enum.serialize_query(
             value["enable_prefix_for_ipv6_source_nat"],
             pairs,
-            f"{prefix}.EnablePrefixForIpv6SourceNat",
+            f"{key_prefix}EnablePrefixForIpv6SourceNat",
         )
 
 

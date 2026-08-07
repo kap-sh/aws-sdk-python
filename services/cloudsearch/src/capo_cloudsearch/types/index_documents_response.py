@@ -19,11 +19,12 @@ class IndexDocumentsResponse(TypedDict, closed=True):
 def serialize_query(
     value: IndexDocumentsResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "field_names" in value:
         import capo_cloudsearch.types.field_name_list
 
         capo_cloudsearch.types.field_name_list.serialize_query(
-            value["field_names"], pairs, f"{prefix}.FieldNames"
+            value["field_names"], pairs, f"{key_prefix}FieldNames"
         )
 
 

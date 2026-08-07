@@ -19,11 +19,12 @@ class ModifyRuleOutput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyRuleOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rules" in value:
         import capo_elastic_load_balancing_v2.types.rules
 
         capo_elastic_load_balancing_v2.types.rules.serialize_query(
-            value["rules"], pairs, f"{prefix}.Rules"
+            value["rules"], pairs, f"{key_prefix}Rules"
         )
 
 

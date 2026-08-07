@@ -31,14 +31,15 @@ class SetInstanceHealthQuery(TypedDict, closed=True):
 def serialize_query(
     value: SetInstanceHealthQuery, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "health_status" in value:
-        pairs.append((f"{prefix}.HealthStatus", str(value["health_status"])))
+        pairs.append((f"{key_prefix}HealthStatus", str(value["health_status"])))
     if "should_respect_grace_period" in value:
         pairs.append(
             (
-                f"{prefix}.ShouldRespectGracePeriod",
+                f"{key_prefix}ShouldRespectGracePeriod",
                 "true" if value["should_respect_grace_period"] else "false",
             )
         )

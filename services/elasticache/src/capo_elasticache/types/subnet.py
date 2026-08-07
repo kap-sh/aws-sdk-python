@@ -30,25 +30,30 @@ class Subnet(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Subnet, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "subnet_identifier" in value:
-        pairs.append((f"{prefix}.SubnetIdentifier", str(value["subnet_identifier"])))
+        pairs.append((f"{key_prefix}SubnetIdentifier", str(value["subnet_identifier"])))
     if "subnet_availability_zone" in value:
         import capo_elasticache.types.availability_zone
 
         capo_elasticache.types.availability_zone.serialize_query(
-            value["subnet_availability_zone"], pairs, f"{prefix}.SubnetAvailabilityZone"
+            value["subnet_availability_zone"],
+            pairs,
+            f"{key_prefix}SubnetAvailabilityZone",
         )
     if "subnet_outpost" in value:
         import capo_elasticache.types.subnet_outpost
 
         capo_elasticache.types.subnet_outpost.serialize_query(
-            value["subnet_outpost"], pairs, f"{prefix}.SubnetOutpost"
+            value["subnet_outpost"], pairs, f"{key_prefix}SubnetOutpost"
         )
     if "supported_network_types" in value:
         import capo_elasticache.types.network_type_list
 
         capo_elasticache.types.network_type_list.serialize_query(
-            value["supported_network_types"], pairs, f"{prefix}.SupportedNetworkTypes"
+            value["supported_network_types"],
+            pairs,
+            f"{key_prefix}SupportedNetworkTypes",
         )
 
 

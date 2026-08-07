@@ -42,37 +42,40 @@ class EndpointAccess(TypedDict, closed=True):
 def serialize_query(
     value: EndpointAccess, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "resource_owner" in value:
-        pairs.append((f"{prefix}.ResourceOwner", str(value["resource_owner"])))
+        pairs.append((f"{key_prefix}ResourceOwner", str(value["resource_owner"])))
     if "subnet_group_name" in value:
-        pairs.append((f"{prefix}.SubnetGroupName", str(value["subnet_group_name"])))
+        pairs.append((f"{key_prefix}SubnetGroupName", str(value["subnet_group_name"])))
     if "endpoint_status" in value:
-        pairs.append((f"{prefix}.EndpointStatus", str(value["endpoint_status"])))
+        pairs.append((f"{key_prefix}EndpointStatus", str(value["endpoint_status"])))
     if "endpoint_name" in value:
-        pairs.append((f"{prefix}.EndpointName", str(value["endpoint_name"])))
+        pairs.append((f"{key_prefix}EndpointName", str(value["endpoint_name"])))
     if "endpoint_create_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["endpoint_create_time"], pairs, f"{prefix}.EndpointCreateTime"
+            value["endpoint_create_time"], pairs, f"{key_prefix}EndpointCreateTime"
         )
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "address" in value:
-        pairs.append((f"{prefix}.Address", str(value["address"])))
+        pairs.append((f"{key_prefix}Address", str(value["address"])))
     if "vpc_security_groups" in value:
         import capo_redshift.types.vpc_security_group_membership_list
 
         capo_redshift.types.vpc_security_group_membership_list.serialize_query(
-            value["vpc_security_groups"], pairs, f"{prefix}.VpcSecurityGroups"
+            value["vpc_security_groups"], pairs, f"{key_prefix}VpcSecurityGroups"
         )
     if "vpc_endpoint" in value:
         import capo_redshift.types.vpc_endpoint
 
         capo_redshift.types.vpc_endpoint.serialize_query(
-            value["vpc_endpoint"], pairs, f"{prefix}.VpcEndpoint"
+            value["vpc_endpoint"], pairs, f"{key_prefix}VpcEndpoint"
         )
 
 

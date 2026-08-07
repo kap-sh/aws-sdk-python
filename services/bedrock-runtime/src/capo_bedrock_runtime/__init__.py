@@ -12,6 +12,12 @@ from ._auth._identity import (
     Identity as Identity,
 )
 from ._auth._providers import (
+    AssumeRoleCredentialsProvider as AssumeRoleCredentialsProvider,
+)
+from ._auth._providers import (
+    AssumeRoleError as AssumeRoleError,
+)
+from ._auth._providers import (
     BearerTokenProvider as BearerTokenProvider,
 )
 from ._auth._providers import (
@@ -33,7 +39,16 @@ from ._auth._providers import (
     IdentityProvider as IdentityProvider,
 )
 from ._auth._providers import (
+    MissingDependencyError as MissingDependencyError,
+)
+from ._auth._providers import (
     ProfileCredentialsProvider as ProfileCredentialsProvider,
+)
+from ._auth._providers import (
+    SsoCredentialsProvider as SsoCredentialsProvider,
+)
+from ._auth._providers import (
+    SSOError as SSOError,
 )
 from ._auth._providers import (
     SsoTokenCacheProvider as SsoTokenCacheProvider,
@@ -43,6 +58,9 @@ from ._auth._providers import (
 )
 from ._auth._providers import (
     StaticBearerTokenProvider as StaticBearerTokenProvider,
+)
+from ._auth._providers import (
+    WebIdentityCredentialsProvider as WebIdentityCredentialsProvider,
 )
 from ._auth._signers import (
     HttpBearerSigner as HttpBearerSigner,

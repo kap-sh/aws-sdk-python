@@ -28,24 +28,27 @@ class HsmConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: HsmConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_configuration_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.HsmConfigurationIdentifier",
+                f"{key_prefix}HsmConfigurationIdentifier",
                 str(value["hsm_configuration_identifier"]),
             )
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "hsm_ip_address" in value:
-        pairs.append((f"{prefix}.HsmIpAddress", str(value["hsm_ip_address"])))
+        pairs.append((f"{key_prefix}HsmIpAddress", str(value["hsm_ip_address"])))
     if "hsm_partition_name" in value:
-        pairs.append((f"{prefix}.HsmPartitionName", str(value["hsm_partition_name"])))
+        pairs.append(
+            (f"{key_prefix}HsmPartitionName", str(value["hsm_partition_name"]))
+        )
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

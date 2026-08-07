@@ -26,15 +26,18 @@ class LoadBalancerDescription(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancerDescription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_name" in value:
-        pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
+        pairs.append(
+            (f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"]))
+        )
     if "domain" in value:
-        pairs.append((f"{prefix}.Domain", str(value["domain"])))
+        pairs.append((f"{key_prefix}Domain", str(value["domain"])))
     if "listeners" in value:
         import capo_elastic_beanstalk.types.load_balancer_listeners_description
 
         capo_elastic_beanstalk.types.load_balancer_listeners_description.serialize_query(
-            value["listeners"], pairs, f"{prefix}.Listeners"
+            value["listeners"], pairs, f"{key_prefix}Listeners"
         )
 
 

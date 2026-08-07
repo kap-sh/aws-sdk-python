@@ -135,60 +135,63 @@ class InstanceRequirements(TypedDict, closed=True):
 def serialize_query(
     value: InstanceRequirements, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "v_cpu_count" in value:
         import capo_auto_scaling.types.v_cpu_count_request
 
         capo_auto_scaling.types.v_cpu_count_request.serialize_query(
-            value["v_cpu_count"], pairs, f"{prefix}.VCpuCount"
+            value["v_cpu_count"], pairs, f"{key_prefix}VCpuCount"
         )
     if "memory_mi_b" in value:
         import capo_auto_scaling.types.memory_mi_b_request
 
         capo_auto_scaling.types.memory_mi_b_request.serialize_query(
-            value["memory_mi_b"], pairs, f"{prefix}.MemoryMiB"
+            value["memory_mi_b"], pairs, f"{key_prefix}MemoryMiB"
         )
     if "cpu_manufacturers" in value:
         import capo_auto_scaling.types.cpu_manufacturers
 
         capo_auto_scaling.types.cpu_manufacturers.serialize_query(
-            value["cpu_manufacturers"], pairs, f"{prefix}.CpuManufacturers"
+            value["cpu_manufacturers"], pairs, f"{key_prefix}CpuManufacturers"
         )
     if "memory_gi_b_per_v_cpu" in value:
         import capo_auto_scaling.types.memory_gi_b_per_v_cpu_request
 
         capo_auto_scaling.types.memory_gi_b_per_v_cpu_request.serialize_query(
-            value["memory_gi_b_per_v_cpu"], pairs, f"{prefix}.MemoryGiBPerVCpu"
+            value["memory_gi_b_per_v_cpu"], pairs, f"{key_prefix}MemoryGiBPerVCpu"
         )
     if "excluded_instance_types" in value:
         import capo_auto_scaling.types.excluded_instance_types
 
         capo_auto_scaling.types.excluded_instance_types.serialize_query(
-            value["excluded_instance_types"], pairs, f"{prefix}.ExcludedInstanceTypes"
+            value["excluded_instance_types"],
+            pairs,
+            f"{key_prefix}ExcludedInstanceTypes",
         )
     if "instance_generations" in value:
         import capo_auto_scaling.types.instance_generations
 
         capo_auto_scaling.types.instance_generations.serialize_query(
-            value["instance_generations"], pairs, f"{prefix}.InstanceGenerations"
+            value["instance_generations"], pairs, f"{key_prefix}InstanceGenerations"
         )
     if "spot_max_price_percentage_over_lowest_price" in value:
         pairs.append(
             (
-                f"{prefix}.SpotMaxPricePercentageOverLowestPrice",
+                f"{key_prefix}SpotMaxPricePercentageOverLowestPrice",
                 str(value["spot_max_price_percentage_over_lowest_price"]),
             )
         )
     if "max_spot_price_as_percentage_of_optimal_on_demand_price" in value:
         pairs.append(
             (
-                f"{prefix}.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice",
+                f"{key_prefix}MaxSpotPriceAsPercentageOfOptimalOnDemandPrice",
                 str(value["max_spot_price_as_percentage_of_optimal_on_demand_price"]),
             )
         )
     if "on_demand_max_price_percentage_over_lowest_price" in value:
         pairs.append(
             (
-                f"{prefix}.OnDemandMaxPricePercentageOverLowestPrice",
+                f"{key_prefix}OnDemandMaxPricePercentageOverLowestPrice",
                 str(value["on_demand_max_price_percentage_over_lowest_price"]),
             )
         )
@@ -196,18 +199,18 @@ def serialize_query(
         import capo_auto_scaling.types.bare_metal
 
         capo_auto_scaling.types.bare_metal.serialize_query(
-            value["bare_metal"], pairs, f"{prefix}.BareMetal"
+            value["bare_metal"], pairs, f"{key_prefix}BareMetal"
         )
     if "burstable_performance" in value:
         import capo_auto_scaling.types.burstable_performance
 
         capo_auto_scaling.types.burstable_performance.serialize_query(
-            value["burstable_performance"], pairs, f"{prefix}.BurstablePerformance"
+            value["burstable_performance"], pairs, f"{key_prefix}BurstablePerformance"
         )
     if "require_hibernate_support" in value:
         pairs.append(
             (
-                f"{prefix}.RequireHibernateSupport",
+                f"{key_prefix}RequireHibernateSupport",
                 "true" if value["require_hibernate_support"] else "false",
             )
         )
@@ -215,25 +218,27 @@ def serialize_query(
         import capo_auto_scaling.types.network_interface_count_request
 
         capo_auto_scaling.types.network_interface_count_request.serialize_query(
-            value["network_interface_count"], pairs, f"{prefix}.NetworkInterfaceCount"
+            value["network_interface_count"],
+            pairs,
+            f"{key_prefix}NetworkInterfaceCount",
         )
     if "local_storage" in value:
         import capo_auto_scaling.types.local_storage
 
         capo_auto_scaling.types.local_storage.serialize_query(
-            value["local_storage"], pairs, f"{prefix}.LocalStorage"
+            value["local_storage"], pairs, f"{key_prefix}LocalStorage"
         )
     if "local_storage_types" in value:
         import capo_auto_scaling.types.local_storage_types
 
         capo_auto_scaling.types.local_storage_types.serialize_query(
-            value["local_storage_types"], pairs, f"{prefix}.LocalStorageTypes"
+            value["local_storage_types"], pairs, f"{key_prefix}LocalStorageTypes"
         )
     if "total_local_storage_gb" in value:
         import capo_auto_scaling.types.total_local_storage_gb_request
 
         capo_auto_scaling.types.total_local_storage_gb_request.serialize_query(
-            value["total_local_storage_gb"], pairs, f"{prefix}.TotalLocalStorageGB"
+            value["total_local_storage_gb"], pairs, f"{key_prefix}TotalLocalStorageGB"
         )
     if "baseline_ebs_bandwidth_mbps" in value:
         import capo_auto_scaling.types.baseline_ebs_bandwidth_mbps_request
@@ -241,19 +246,19 @@ def serialize_query(
         capo_auto_scaling.types.baseline_ebs_bandwidth_mbps_request.serialize_query(
             value["baseline_ebs_bandwidth_mbps"],
             pairs,
-            f"{prefix}.BaselineEbsBandwidthMbps",
+            f"{key_prefix}BaselineEbsBandwidthMbps",
         )
     if "accelerator_types" in value:
         import capo_auto_scaling.types.accelerator_types
 
         capo_auto_scaling.types.accelerator_types.serialize_query(
-            value["accelerator_types"], pairs, f"{prefix}.AcceleratorTypes"
+            value["accelerator_types"], pairs, f"{key_prefix}AcceleratorTypes"
         )
     if "accelerator_count" in value:
         import capo_auto_scaling.types.accelerator_count_request
 
         capo_auto_scaling.types.accelerator_count_request.serialize_query(
-            value["accelerator_count"], pairs, f"{prefix}.AcceleratorCount"
+            value["accelerator_count"], pairs, f"{key_prefix}AcceleratorCount"
         )
     if "accelerator_manufacturers" in value:
         import capo_auto_scaling.types.accelerator_manufacturers
@@ -261,13 +266,13 @@ def serialize_query(
         capo_auto_scaling.types.accelerator_manufacturers.serialize_query(
             value["accelerator_manufacturers"],
             pairs,
-            f"{prefix}.AcceleratorManufacturers",
+            f"{key_prefix}AcceleratorManufacturers",
         )
     if "accelerator_names" in value:
         import capo_auto_scaling.types.accelerator_names
 
         capo_auto_scaling.types.accelerator_names.serialize_query(
-            value["accelerator_names"], pairs, f"{prefix}.AcceleratorNames"
+            value["accelerator_names"], pairs, f"{key_prefix}AcceleratorNames"
         )
     if "accelerator_total_memory_mi_b" in value:
         import capo_auto_scaling.types.accelerator_total_memory_mi_b_request
@@ -275,19 +280,19 @@ def serialize_query(
         capo_auto_scaling.types.accelerator_total_memory_mi_b_request.serialize_query(
             value["accelerator_total_memory_mi_b"],
             pairs,
-            f"{prefix}.AcceleratorTotalMemoryMiB",
+            f"{key_prefix}AcceleratorTotalMemoryMiB",
         )
     if "network_bandwidth_gbps" in value:
         import capo_auto_scaling.types.network_bandwidth_gbps_request
 
         capo_auto_scaling.types.network_bandwidth_gbps_request.serialize_query(
-            value["network_bandwidth_gbps"], pairs, f"{prefix}.NetworkBandwidthGbps"
+            value["network_bandwidth_gbps"], pairs, f"{key_prefix}NetworkBandwidthGbps"
         )
     if "allowed_instance_types" in value:
         import capo_auto_scaling.types.allowed_instance_types
 
         capo_auto_scaling.types.allowed_instance_types.serialize_query(
-            value["allowed_instance_types"], pairs, f"{prefix}.AllowedInstanceTypes"
+            value["allowed_instance_types"], pairs, f"{key_prefix}AllowedInstanceTypes"
         )
     if "baseline_performance_factors" in value:
         import capo_auto_scaling.types.baseline_performance_factors_request
@@ -295,7 +300,7 @@ def serialize_query(
         capo_auto_scaling.types.baseline_performance_factors_request.serialize_query(
             value["baseline_performance_factors"],
             pairs,
-            f"{prefix}.BaselinePerformanceFactors",
+            f"{key_prefix}BaselinePerformanceFactors",
         )
 
 

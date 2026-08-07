@@ -31,18 +31,19 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "consumer_arn" in value:
-        pairs.append((f"{prefix}.ConsumerArn", str(value["consumer_arn"])))
+        pairs.append((f"{key_prefix}ConsumerArn", str(value["consumer_arn"])))
     if "status" in value:
         import capo_redshift.types.data_share_status_for_consumer
 
         capo_redshift.types.data_share_status_for_consumer.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeDataSharesForConsumerMessage:

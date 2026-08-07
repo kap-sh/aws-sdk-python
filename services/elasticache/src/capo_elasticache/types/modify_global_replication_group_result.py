@@ -20,11 +20,14 @@ class ModifyGlobalReplicationGroupResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyGlobalReplicationGroupResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_replication_group" in value:
         import capo_elasticache.types.global_replication_group
 
         capo_elasticache.types.global_replication_group.serialize_query(
-            value["global_replication_group"], pairs, f"{prefix}.GlobalReplicationGroup"
+            value["global_replication_group"],
+            pairs,
+            f"{key_prefix}GlobalReplicationGroup",
         )
 
 

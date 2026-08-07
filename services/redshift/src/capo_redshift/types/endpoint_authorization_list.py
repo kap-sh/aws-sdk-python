@@ -24,16 +24,17 @@ class EndpointAuthorizationList(TypedDict, closed=True):
 def serialize_query(
     value: EndpointAuthorizationList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "endpoint_authorization_list" in value:
         import capo_redshift.types.endpoint_authorizations
 
         capo_redshift.types.endpoint_authorizations.serialize_query(
             value["endpoint_authorization_list"],
             pairs,
-            f"{prefix}.EndpointAuthorizationList",
+            f"{key_prefix}EndpointAuthorizationList",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> EndpointAuthorizationList:

@@ -28,11 +28,12 @@ class SendCustomVerificationEmailRequest(TypedDict, closed=True):
 def serialize_query(
     value: SendCustomVerificationEmailRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.EmailAddress", str(value["email_address"])))
-    pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}EmailAddress", str(value["email_address"])))
+    pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "configuration_set_name" in value:
         pairs.append(
-            (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+            (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
         )
 
 

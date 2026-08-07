@@ -52,41 +52,42 @@ class ModifyListenerInput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyListenerInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener_arn" in value:
-        pairs.append((f"{prefix}.ListenerArn", str(value["listener_arn"])))
+        pairs.append((f"{key_prefix}ListenerArn", str(value["listener_arn"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "protocol" in value:
         import capo_elastic_load_balancing_v2.types.protocol_enum
 
         capo_elastic_load_balancing_v2.types.protocol_enum.serialize_query(
-            value["protocol"], pairs, f"{prefix}.Protocol"
+            value["protocol"], pairs, f"{key_prefix}Protocol"
         )
     if "ssl_policy" in value:
-        pairs.append((f"{prefix}.SslPolicy", str(value["ssl_policy"])))
+        pairs.append((f"{key_prefix}SslPolicy", str(value["ssl_policy"])))
     if "certificates" in value:
         import capo_elastic_load_balancing_v2.types.certificate_list
 
         capo_elastic_load_balancing_v2.types.certificate_list.serialize_query(
-            value["certificates"], pairs, f"{prefix}.Certificates"
+            value["certificates"], pairs, f"{key_prefix}Certificates"
         )
     if "default_actions" in value:
         import capo_elastic_load_balancing_v2.types.actions
 
         capo_elastic_load_balancing_v2.types.actions.serialize_query(
-            value["default_actions"], pairs, f"{prefix}.DefaultActions"
+            value["default_actions"], pairs, f"{key_prefix}DefaultActions"
         )
     if "alpn_policy" in value:
         import capo_elastic_load_balancing_v2.types.alpn_policy_name
 
         capo_elastic_load_balancing_v2.types.alpn_policy_name.serialize_query(
-            value["alpn_policy"], pairs, f"{prefix}.AlpnPolicy"
+            value["alpn_policy"], pairs, f"{key_prefix}AlpnPolicy"
         )
     if "mutual_authentication" in value:
         import capo_elastic_load_balancing_v2.types.mutual_authentication_attributes
 
         capo_elastic_load_balancing_v2.types.mutual_authentication_attributes.serialize_query(
-            value["mutual_authentication"], pairs, f"{prefix}.MutualAuthentication"
+            value["mutual_authentication"], pairs, f"{key_prefix}MutualAuthentication"
         )
 
 

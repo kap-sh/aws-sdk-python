@@ -182,14 +182,15 @@ class CreateAutoScalingGroupType(TypedDict, closed=True):
 def serialize_query(
     value: CreateAutoScalingGroupType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "launch_configuration_name" in value:
         pairs.append(
             (
-                f"{prefix}.LaunchConfigurationName",
+                f"{key_prefix}LaunchConfigurationName",
                 str(value["launch_configuration_name"]),
             )
         )
@@ -197,78 +198,80 @@ def serialize_query(
         import capo_auto_scaling.types.launch_template_specification
 
         capo_auto_scaling.types.launch_template_specification.serialize_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "mixed_instances_policy" in value:
         import capo_auto_scaling.types.mixed_instances_policy
 
         capo_auto_scaling.types.mixed_instances_policy.serialize_query(
-            value["mixed_instances_policy"], pairs, f"{prefix}.MixedInstancesPolicy"
+            value["mixed_instances_policy"], pairs, f"{key_prefix}MixedInstancesPolicy"
         )
     if "instance_id" in value:
-        pairs.append((f"{prefix}.InstanceId", str(value["instance_id"])))
+        pairs.append((f"{key_prefix}InstanceId", str(value["instance_id"])))
     if "min_size" in value:
-        pairs.append((f"{prefix}.MinSize", str(value["min_size"])))
+        pairs.append((f"{key_prefix}MinSize", str(value["min_size"])))
     if "max_size" in value:
-        pairs.append((f"{prefix}.MaxSize", str(value["max_size"])))
+        pairs.append((f"{key_prefix}MaxSize", str(value["max_size"])))
     if "desired_capacity" in value:
-        pairs.append((f"{prefix}.DesiredCapacity", str(value["desired_capacity"])))
+        pairs.append((f"{key_prefix}DesiredCapacity", str(value["desired_capacity"])))
     if "default_cooldown" in value:
-        pairs.append((f"{prefix}.DefaultCooldown", str(value["default_cooldown"])))
+        pairs.append((f"{key_prefix}DefaultCooldown", str(value["default_cooldown"])))
     if "availability_zones" in value:
         import capo_auto_scaling.types.availability_zones
 
         capo_auto_scaling.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "availability_zone_ids" in value:
         import capo_auto_scaling.types.availability_zone_ids
 
         capo_auto_scaling.types.availability_zone_ids.serialize_query(
-            value["availability_zone_ids"], pairs, f"{prefix}.AvailabilityZoneIds"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIds"
         )
     if "load_balancer_names" in value:
         import capo_auto_scaling.types.load_balancer_names
 
         capo_auto_scaling.types.load_balancer_names.serialize_query(
-            value["load_balancer_names"], pairs, f"{prefix}.LoadBalancerNames"
+            value["load_balancer_names"], pairs, f"{key_prefix}LoadBalancerNames"
         )
     if "target_group_ar_ns" in value:
         import capo_auto_scaling.types.target_group_ar_ns
 
         capo_auto_scaling.types.target_group_ar_ns.serialize_query(
-            value["target_group_ar_ns"], pairs, f"{prefix}.TargetGroupARNs"
+            value["target_group_ar_ns"], pairs, f"{key_prefix}TargetGroupARNs"
         )
     if "health_check_type" in value:
-        pairs.append((f"{prefix}.HealthCheckType", str(value["health_check_type"])))
+        pairs.append((f"{key_prefix}HealthCheckType", str(value["health_check_type"])))
     if "health_check_grace_period" in value:
         pairs.append(
             (
-                f"{prefix}.HealthCheckGracePeriod",
+                f"{key_prefix}HealthCheckGracePeriod",
                 str(value["health_check_grace_period"]),
             )
         )
     if "placement_group" in value:
-        pairs.append((f"{prefix}.PlacementGroup", str(value["placement_group"])))
+        pairs.append((f"{key_prefix}PlacementGroup", str(value["placement_group"])))
     if "vpc_zone_identifier" in value:
-        pairs.append((f"{prefix}.VPCZoneIdentifier", str(value["vpc_zone_identifier"])))
+        pairs.append(
+            (f"{key_prefix}VPCZoneIdentifier", str(value["vpc_zone_identifier"]))
+        )
     if "termination_policies" in value:
         import capo_auto_scaling.types.termination_policies
 
         capo_auto_scaling.types.termination_policies.serialize_query(
-            value["termination_policies"], pairs, f"{prefix}.TerminationPolicies"
+            value["termination_policies"], pairs, f"{key_prefix}TerminationPolicies"
         )
     if "new_instances_protected_from_scale_in" in value:
         pairs.append(
             (
-                f"{prefix}.NewInstancesProtectedFromScaleIn",
+                f"{key_prefix}NewInstancesProtectedFromScaleIn",
                 "true" if value["new_instances_protected_from_scale_in"] else "false",
             )
         )
     if "capacity_rebalance" in value:
         pairs.append(
             (
-                f"{prefix}.CapacityRebalance",
+                f"{key_prefix}CapacityRebalance",
                 "true" if value["capacity_rebalance"] else "false",
             )
         )
@@ -278,43 +281,46 @@ def serialize_query(
         capo_auto_scaling.types.lifecycle_hook_specifications.serialize_query(
             value["lifecycle_hook_specification_list"],
             pairs,
-            f"{prefix}.LifecycleHookSpecificationList",
+            f"{key_prefix}LifecycleHookSpecificationList",
         )
     if "deletion_protection" in value:
         import capo_auto_scaling.types.deletion_protection
 
         capo_auto_scaling.types.deletion_protection.serialize_query(
-            value["deletion_protection"], pairs, f"{prefix}.DeletionProtection"
+            value["deletion_protection"], pairs, f"{key_prefix}DeletionProtection"
         )
     if "tags" in value:
         import capo_auto_scaling.types.tags
 
         capo_auto_scaling.types.tags.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "service_linked_role_arn" in value:
         pairs.append(
-            (f"{prefix}.ServiceLinkedRoleARN", str(value["service_linked_role_arn"]))
+            (f"{key_prefix}ServiceLinkedRoleARN", str(value["service_linked_role_arn"]))
         )
     if "max_instance_lifetime" in value:
         pairs.append(
-            (f"{prefix}.MaxInstanceLifetime", str(value["max_instance_lifetime"]))
+            (f"{key_prefix}MaxInstanceLifetime", str(value["max_instance_lifetime"]))
         )
     if "context" in value:
-        pairs.append((f"{prefix}.Context", str(value["context"])))
+        pairs.append((f"{key_prefix}Context", str(value["context"])))
     if "desired_capacity_type" in value:
         pairs.append(
-            (f"{prefix}.DesiredCapacityType", str(value["desired_capacity_type"]))
+            (f"{key_prefix}DesiredCapacityType", str(value["desired_capacity_type"]))
         )
     if "default_instance_warmup" in value:
         pairs.append(
-            (f"{prefix}.DefaultInstanceWarmup", str(value["default_instance_warmup"]))
+            (
+                f"{key_prefix}DefaultInstanceWarmup",
+                str(value["default_instance_warmup"]),
+            )
         )
     if "traffic_sources" in value:
         import capo_auto_scaling.types.traffic_sources
 
         capo_auto_scaling.types.traffic_sources.serialize_query(
-            value["traffic_sources"], pairs, f"{prefix}.TrafficSources"
+            value["traffic_sources"], pairs, f"{key_prefix}TrafficSources"
         )
     if "instance_maintenance_policy" in value:
         import capo_auto_scaling.types.instance_maintenance_policy
@@ -322,7 +328,7 @@ def serialize_query(
         capo_auto_scaling.types.instance_maintenance_policy.serialize_query(
             value["instance_maintenance_policy"],
             pairs,
-            f"{prefix}.InstanceMaintenancePolicy",
+            f"{key_prefix}InstanceMaintenancePolicy",
         )
     if "availability_zone_distribution" in value:
         import capo_auto_scaling.types.availability_zone_distribution
@@ -330,7 +336,7 @@ def serialize_query(
         capo_auto_scaling.types.availability_zone_distribution.serialize_query(
             value["availability_zone_distribution"],
             pairs,
-            f"{prefix}.AvailabilityZoneDistribution",
+            f"{key_prefix}AvailabilityZoneDistribution",
         )
     if "availability_zone_impairment_policy" in value:
         import capo_auto_scaling.types.availability_zone_impairment_policy
@@ -338,12 +344,12 @@ def serialize_query(
         capo_auto_scaling.types.availability_zone_impairment_policy.serialize_query(
             value["availability_zone_impairment_policy"],
             pairs,
-            f"{prefix}.AvailabilityZoneImpairmentPolicy",
+            f"{key_prefix}AvailabilityZoneImpairmentPolicy",
         )
     if "skip_zonal_shift_validation" in value:
         pairs.append(
             (
-                f"{prefix}.SkipZonalShiftValidation",
+                f"{key_prefix}SkipZonalShiftValidation",
                 "true" if value["skip_zonal_shift_validation"] else "false",
             )
         )
@@ -353,7 +359,7 @@ def serialize_query(
         capo_auto_scaling.types.capacity_reservation_specification.serialize_query(
             value["capacity_reservation_specification"],
             pairs,
-            f"{prefix}.CapacityReservationSpecification",
+            f"{key_prefix}CapacityReservationSpecification",
         )
     if "instance_lifecycle_policy" in value:
         import capo_auto_scaling.types.instance_lifecycle_policy
@@ -361,7 +367,7 @@ def serialize_query(
         capo_auto_scaling.types.instance_lifecycle_policy.serialize_query(
             value["instance_lifecycle_policy"],
             pairs,
-            f"{prefix}.InstanceLifecyclePolicy",
+            f"{key_prefix}InstanceLifecyclePolicy",
         )
 
 

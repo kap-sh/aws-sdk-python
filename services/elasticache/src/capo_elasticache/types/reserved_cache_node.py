@@ -51,49 +51,50 @@ class ReservedCacheNode(TypedDict, closed=True):
 def serialize_query(
     value: ReservedCacheNode, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "reserved_cache_node_id" in value:
         pairs.append(
-            (f"{prefix}.ReservedCacheNodeId", str(value["reserved_cache_node_id"]))
+            (f"{key_prefix}ReservedCacheNodeId", str(value["reserved_cache_node_id"]))
         )
     if "reserved_cache_nodes_offering_id" in value:
         pairs.append(
             (
-                f"{prefix}.ReservedCacheNodesOfferingId",
+                f"{key_prefix}ReservedCacheNodesOfferingId",
                 str(value["reserved_cache_nodes_offering_id"]),
             )
         )
     if "cache_node_type" in value:
-        pairs.append((f"{prefix}.CacheNodeType", str(value["cache_node_type"])))
+        pairs.append((f"{key_prefix}CacheNodeType", str(value["cache_node_type"])))
     if "start_time" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "fixed_price" in value:
-        pairs.append((f"{prefix}.FixedPrice", str(value["fixed_price"])))
+        pairs.append((f"{key_prefix}FixedPrice", str(value["fixed_price"])))
     if "usage_price" in value:
-        pairs.append((f"{prefix}.UsagePrice", str(value["usage_price"])))
+        pairs.append((f"{key_prefix}UsagePrice", str(value["usage_price"])))
     if "cache_node_count" in value:
-        pairs.append((f"{prefix}.CacheNodeCount", str(value["cache_node_count"])))
+        pairs.append((f"{key_prefix}CacheNodeCount", str(value["cache_node_count"])))
     if "product_description" in value:
         pairs.append(
-            (f"{prefix}.ProductDescription", str(value["product_description"]))
+            (f"{key_prefix}ProductDescription", str(value["product_description"]))
         )
     if "offering_type" in value:
-        pairs.append((f"{prefix}.OfferingType", str(value["offering_type"])))
+        pairs.append((f"{key_prefix}OfferingType", str(value["offering_type"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "recurring_charges" in value:
         import capo_elasticache.types.recurring_charge_list
 
         capo_elasticache.types.recurring_charge_list.serialize_query(
-            value["recurring_charges"], pairs, f"{prefix}.RecurringCharges"
+            value["recurring_charges"], pairs, f"{key_prefix}RecurringCharges"
         )
     if "reservation_arn" in value:
-        pairs.append((f"{prefix}.ReservationARN", str(value["reservation_arn"])))
+        pairs.append((f"{key_prefix}ReservationARN", str(value["reservation_arn"])))
 
 
 def deserialize_query(el: Element) -> ReservedCacheNode:

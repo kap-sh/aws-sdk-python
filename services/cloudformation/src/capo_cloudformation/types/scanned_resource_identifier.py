@@ -24,13 +24,14 @@ class ScannedResourceIdentifier(TypedDict, closed=True):
 def serialize_query(
     value: ScannedResourceIdentifier, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "resource_identifier" in value:
         import capo_cloudformation.types.jazz_resource_identifier_properties
 
         capo_cloudformation.types.jazz_resource_identifier_properties.serialize_query(
-            value["resource_identifier"], pairs, f"{prefix}.ResourceIdentifier"
+            value["resource_identifier"], pairs, f"{key_prefix}ResourceIdentifier"
         )
 
 

@@ -22,10 +22,11 @@ class InvalidSnsTopicException_(TypedDict, closed=True):
 def serialize_query(
     value: InvalidSnsTopicException_, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic" in value:
-        pairs.append((f"{prefix}.Topic", str(value["topic"])))
+        pairs.append((f"{key_prefix}Topic", str(value["topic"])))
     if "message" in value:
-        pairs.append((f"{prefix}.message", str(value["message"])))
+        pairs.append((f"{key_prefix}message", str(value["message"])))
 
 
 def deserialize_query(el: Element) -> InvalidSnsTopicException_:

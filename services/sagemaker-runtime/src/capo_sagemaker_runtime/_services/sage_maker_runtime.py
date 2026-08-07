@@ -150,9 +150,9 @@ class SageMakerRuntimeClient:
     def invoke_endpoint(
         self,
         endpoint_name: "capo_sagemaker_runtime.types.endpoint_name.EndpointName",
-        body: "capo_sagemaker_runtime.types.body_blob.BodyBlob",
         *,
         config_overrides: Optional[SageMakerRuntimeClientConfig] = None,
+        body: Optional["capo_sagemaker_runtime.types.body_blob.BodyBlob"] = None,
         content_type: Optional["capo_sagemaker_runtime.types.header.Header"] = None,
         accept: Optional["capo_sagemaker_runtime.types.header.Header"] = None,
         custom_attributes: Optional[
@@ -223,7 +223,8 @@ class SageMakerRuntimeClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput = {}  # type: ignore[typeddict-item]
         input_["endpoint_name"] = endpoint_name
-        input_["body"] = body
+        if body is not None:
+            input_["body"] = body
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
@@ -255,7 +256,6 @@ class SageMakerRuntimeClient:
     def invoke_endpoint_async(
         self,
         endpoint_name: "capo_sagemaker_runtime.types.endpoint_name.EndpointName",
-        input_location: "capo_sagemaker_runtime.types.input_location_header.InputLocationHeader",
         *,
         config_overrides: Optional[SageMakerRuntimeClientConfig] = None,
         content_type: Optional["capo_sagemaker_runtime.types.header.Header"] = None,
@@ -265,6 +265,9 @@ class SageMakerRuntimeClient:
         ] = None,
         inference_id: Optional[
             "capo_sagemaker_runtime.types.inference_id.InferenceId"
+        ] = None,
+        input_location: Optional[
+            "capo_sagemaker_runtime.types.input_location_header.InputLocationHeader"
         ] = None,
         s3_output_path_extension: Optional[
             "capo_sagemaker_runtime.types.s3_output_path_extension_header.S3OutputPathExtensionHeader"
@@ -325,7 +328,8 @@ class SageMakerRuntimeClient:
             input_["custom_attributes"] = custom_attributes
         if inference_id is not None:
             input_["inference_id"] = inference_id
-        input_["input_location"] = input_location
+        if input_location is not None:
+            input_["input_location"] = input_location
         if s3_output_path_extension is not None:
             input_["s3_output_path_extension"] = s3_output_path_extension
         if filename is not None:
@@ -346,9 +350,9 @@ class SageMakerRuntimeClient:
     def invoke_endpoint_with_response_stream(
         self,
         endpoint_name: "capo_sagemaker_runtime.types.endpoint_name.EndpointName",
-        body: "capo_sagemaker_runtime.types.body_blob.BodyBlob",
         *,
         config_overrides: Optional[SageMakerRuntimeClientConfig] = None,
+        body: Optional["capo_sagemaker_runtime.types.body_blob.BodyBlob"] = None,
         content_type: Optional["capo_sagemaker_runtime.types.header.Header"] = None,
         accept: Optional["capo_sagemaker_runtime.types.header.Header"] = None,
         custom_attributes: Optional[
@@ -411,7 +415,8 @@ class SageMakerRuntimeClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sagemaker_runtime.types.invoke_endpoint_with_response_stream_input.InvokeEndpointWithResponseStreamInput = {}  # type: ignore[typeddict-item]
         input_["endpoint_name"] = endpoint_name
-        input_["body"] = body
+        if body is not None:
+            input_["body"] = body
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:

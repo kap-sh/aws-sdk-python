@@ -90,68 +90,77 @@ class LoadBalancer(TypedDict, closed=True):
 def serialize_query(
     value: LoadBalancer, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "load_balancer_arn" in value:
-        pairs.append((f"{prefix}.LoadBalancerArn", str(value["load_balancer_arn"])))
+        pairs.append((f"{key_prefix}LoadBalancerArn", str(value["load_balancer_arn"])))
     if "dns_name" in value:
-        pairs.append((f"{prefix}.DNSName", str(value["dns_name"])))
+        pairs.append((f"{key_prefix}DNSName", str(value["dns_name"])))
     if "canonical_hosted_zone_id" in value:
         pairs.append(
-            (f"{prefix}.CanonicalHostedZoneId", str(value["canonical_hosted_zone_id"]))
+            (
+                f"{key_prefix}CanonicalHostedZoneId",
+                str(value["canonical_hosted_zone_id"]),
+            )
         )
     if "created_time" in value:
         import capo_elastic_load_balancing_v2.types.created_time
 
         capo_elastic_load_balancing_v2.types.created_time.serialize_query(
-            value["created_time"], pairs, f"{prefix}.CreatedTime"
+            value["created_time"], pairs, f"{key_prefix}CreatedTime"
         )
     if "load_balancer_name" in value:
-        pairs.append((f"{prefix}.LoadBalancerName", str(value["load_balancer_name"])))
+        pairs.append(
+            (f"{key_prefix}LoadBalancerName", str(value["load_balancer_name"]))
+        )
     if "scheme" in value:
         import capo_elastic_load_balancing_v2.types.load_balancer_scheme_enum
 
         capo_elastic_load_balancing_v2.types.load_balancer_scheme_enum.serialize_query(
-            value["scheme"], pairs, f"{prefix}.Scheme"
+            value["scheme"], pairs, f"{key_prefix}Scheme"
         )
     if "vpc_id" in value:
-        pairs.append((f"{prefix}.VpcId", str(value["vpc_id"])))
+        pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "state" in value:
         import capo_elastic_load_balancing_v2.types.load_balancer_state
 
         capo_elastic_load_balancing_v2.types.load_balancer_state.serialize_query(
-            value["state"], pairs, f"{prefix}.State"
+            value["state"], pairs, f"{key_prefix}State"
         )
     if "type" in value:
         import capo_elastic_load_balancing_v2.types.load_balancer_type_enum
 
         capo_elastic_load_balancing_v2.types.load_balancer_type_enum.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "availability_zones" in value:
         import capo_elastic_load_balancing_v2.types.availability_zones
 
         capo_elastic_load_balancing_v2.types.availability_zones.serialize_query(
-            value["availability_zones"], pairs, f"{prefix}.AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
         )
     if "security_groups" in value:
         import capo_elastic_load_balancing_v2.types.security_groups
 
         capo_elastic_load_balancing_v2.types.security_groups.serialize_query(
-            value["security_groups"], pairs, f"{prefix}.SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
         )
     if "ip_address_type" in value:
         import capo_elastic_load_balancing_v2.types.ip_address_type
 
         capo_elastic_load_balancing_v2.types.ip_address_type.serialize_query(
-            value["ip_address_type"], pairs, f"{prefix}.IpAddressType"
+            value["ip_address_type"], pairs, f"{key_prefix}IpAddressType"
         )
     if "customer_owned_ipv4_pool" in value:
         pairs.append(
-            (f"{prefix}.CustomerOwnedIpv4Pool", str(value["customer_owned_ipv4_pool"]))
+            (
+                f"{key_prefix}CustomerOwnedIpv4Pool",
+                str(value["customer_owned_ipv4_pool"]),
+            )
         )
     if "enforce_security_group_inbound_rules_on_private_link_traffic" in value:
         pairs.append(
             (
-                f"{prefix}.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+                f"{key_prefix}EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
                 str(
                     value[
                         "enforce_security_group_inbound_rules_on_private_link_traffic"
@@ -165,13 +174,13 @@ def serialize_query(
         capo_elastic_load_balancing_v2.types.enable_prefix_for_ipv6_source_nat_enum.serialize_query(
             value["enable_prefix_for_ipv6_source_nat"],
             pairs,
-            f"{prefix}.EnablePrefixForIpv6SourceNat",
+            f"{key_prefix}EnablePrefixForIpv6SourceNat",
         )
     if "ipam_pools" in value:
         import capo_elastic_load_balancing_v2.types.ipam_pools
 
         capo_elastic_load_balancing_v2.types.ipam_pools.serialize_query(
-            value["ipam_pools"], pairs, f"{prefix}.IpamPools"
+            value["ipam_pools"], pairs, f"{key_prefix}IpamPools"
         )
 
 

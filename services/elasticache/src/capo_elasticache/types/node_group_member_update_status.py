@@ -44,39 +44,42 @@ class NodeGroupMemberUpdateStatus(TypedDict, closed=True):
 def serialize_query(
     value: NodeGroupMemberUpdateStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "cache_node_id" in value:
-        pairs.append((f"{prefix}.CacheNodeId", str(value["cache_node_id"])))
+        pairs.append((f"{key_prefix}CacheNodeId", str(value["cache_node_id"])))
     if "node_update_status" in value:
         import capo_elasticache.types.node_update_status
 
         capo_elasticache.types.node_update_status.serialize_query(
-            value["node_update_status"], pairs, f"{prefix}.NodeUpdateStatus"
+            value["node_update_status"], pairs, f"{key_prefix}NodeUpdateStatus"
         )
     if "node_deletion_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["node_deletion_date"], pairs, f"{prefix}.NodeDeletionDate"
+            value["node_deletion_date"], pairs, f"{key_prefix}NodeDeletionDate"
         )
     if "node_update_start_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["node_update_start_date"], pairs, f"{prefix}.NodeUpdateStartDate"
+            value["node_update_start_date"], pairs, f"{key_prefix}NodeUpdateStartDate"
         )
     if "node_update_end_date" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["node_update_end_date"], pairs, f"{prefix}.NodeUpdateEndDate"
+            value["node_update_end_date"], pairs, f"{key_prefix}NodeUpdateEndDate"
         )
     if "node_update_initiated_by" in value:
         import capo_elasticache.types.node_update_initiated_by
 
         capo_elasticache.types.node_update_initiated_by.serialize_query(
-            value["node_update_initiated_by"], pairs, f"{prefix}.NodeUpdateInitiatedBy"
+            value["node_update_initiated_by"],
+            pairs,
+            f"{key_prefix}NodeUpdateInitiatedBy",
         )
     if "node_update_initiated_date" in value:
         import capo_elasticache.types.t_stamp
@@ -84,7 +87,7 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["node_update_initiated_date"],
             pairs,
-            f"{prefix}.NodeUpdateInitiatedDate",
+            f"{key_prefix}NodeUpdateInitiatedDate",
         )
     if "node_update_status_modified_date" in value:
         import capo_elasticache.types.t_stamp
@@ -92,7 +95,7 @@ def serialize_query(
         capo_elasticache.types.t_stamp.serialize_query(
             value["node_update_status_modified_date"],
             pairs,
-            f"{prefix}.NodeUpdateStatusModifiedDate",
+            f"{key_prefix}NodeUpdateStatusModifiedDate",
         )
 
 

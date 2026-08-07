@@ -39,25 +39,26 @@ class ExecuteChangeSetInput(TypedDict, closed=True):
 def serialize_query(
     value: ExecuteChangeSetInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "change_set_name" in value:
-        pairs.append((f"{prefix}.ChangeSetName", str(value["change_set_name"])))
+        pairs.append((f"{key_prefix}ChangeSetName", str(value["change_set_name"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
     if "disable_rollback" in value:
         pairs.append(
             (
-                f"{prefix}.DisableRollback",
+                f"{key_prefix}DisableRollback",
                 "true" if value["disable_rollback"] else "false",
             )
         )
     if "retain_except_on_create" in value:
         pairs.append(
             (
-                f"{prefix}.RetainExceptOnCreate",
+                f"{key_prefix}RetainExceptOnCreate",
                 "true" if value["retain_except_on_create"] else "false",
             )
         )

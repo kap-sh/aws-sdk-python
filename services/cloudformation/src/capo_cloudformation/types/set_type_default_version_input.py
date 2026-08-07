@@ -28,18 +28,19 @@ class SetTypeDefaultVersionInput(TypedDict, closed=True):
 def serialize_query(
     value: SetTypeDefaultVersionInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "arn" in value:
-        pairs.append((f"{prefix}.Arn", str(value["arn"])))
+        pairs.append((f"{key_prefix}Arn", str(value["arn"])))
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "version_id" in value:
-        pairs.append((f"{prefix}.VersionId", str(value["version_id"])))
+        pairs.append((f"{key_prefix}VersionId", str(value["version_id"])))
 
 
 def deserialize_query(el: Element) -> SetTypeDefaultVersionInput:

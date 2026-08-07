@@ -22,13 +22,14 @@ class EventCategoriesMap(TypedDict, closed=True):
 def serialize_query(
     value: EventCategoriesMap, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_type" in value:
-        pairs.append((f"{prefix}.SourceType", str(value["source_type"])))
+        pairs.append((f"{key_prefix}SourceType", str(value["source_type"])))
     if "events" in value:
         import capo_redshift.types.event_info_map_list
 
         capo_redshift.types.event_info_map_list.serialize_query(
-            value["events"], pairs, f"{prefix}.Events"
+            value["events"], pairs, f"{key_prefix}Events"
         )
 
 

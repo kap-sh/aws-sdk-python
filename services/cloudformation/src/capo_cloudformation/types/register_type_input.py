@@ -38,29 +38,32 @@ class RegisterTypeInput(TypedDict, closed=True):
 def serialize_query(
     value: RegisterTypeInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.registry_type
 
         capo_cloudformation.types.registry_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "schema_handler_package" in value:
         pairs.append(
-            (f"{prefix}.SchemaHandlerPackage", str(value["schema_handler_package"]))
+            (f"{key_prefix}SchemaHandlerPackage", str(value["schema_handler_package"]))
         )
     if "logging_config" in value:
         import capo_cloudformation.types.logging_config
 
         capo_cloudformation.types.logging_config.serialize_query(
-            value["logging_config"], pairs, f"{prefix}.LoggingConfig"
+            value["logging_config"], pairs, f"{key_prefix}LoggingConfig"
         )
     if "execution_role_arn" in value:
-        pairs.append((f"{prefix}.ExecutionRoleArn", str(value["execution_role_arn"])))
+        pairs.append(
+            (f"{key_prefix}ExecutionRoleArn", str(value["execution_role_arn"]))
+        )
     if "client_request_token" in value:
         pairs.append(
-            (f"{prefix}.ClientRequestToken", str(value["client_request_token"]))
+            (f"{key_prefix}ClientRequestToken", str(value["client_request_token"]))
         )
 
 

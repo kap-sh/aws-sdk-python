@@ -224,13 +224,17 @@ class AsyncMediaPackageVodClient:
 
     async def create_asset(
         self,
-        id: "capo_mediapackage_vod.types.__string.__string",
-        packaging_group_id: "capo_mediapackage_vod.types.__string.__string",
-        source_arn: "capo_mediapackage_vod.types.__string.__string",
-        source_role_arn: "capo_mediapackage_vod.types.__string.__string",
         *,
         config_overrides: Optional[AsyncMediaPackageVodClientConfig] = None,
+        id: Optional["capo_mediapackage_vod.types.__string.__string"] = None,
+        packaging_group_id: Optional[
+            "capo_mediapackage_vod.types.__string.__string"
+        ] = None,
         resource_id: Optional["capo_mediapackage_vod.types.__string.__string"] = None,
+        source_arn: Optional["capo_mediapackage_vod.types.__string.__string"] = None,
+        source_role_arn: Optional[
+            "capo_mediapackage_vod.types.__string.__string"
+        ] = None,
         tags: Optional["capo_mediapackage_vod.types.tags.Tags"] = None,
     ) -> "capo_mediapackage_vod.types.create_asset_response.CreateAssetResponse":
         """Creates a new MediaPackage VOD Asset resource.
@@ -269,12 +273,16 @@ class AsyncMediaPackageVodClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediapackage_vod.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["packaging_group_id"] = packaging_group_id
+        if id is not None:
+            input_["id"] = id
+        if packaging_group_id is not None:
+            input_["packaging_group_id"] = packaging_group_id
         if resource_id is not None:
             input_["resource_id"] = resource_id
-        input_["source_arn"] = source_arn
-        input_["source_role_arn"] = source_role_arn
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
+        if source_role_arn is not None:
+            input_["source_role_arn"] = source_role_arn
         if tags is not None:
             input_["tags"] = tags
 
@@ -287,8 +295,6 @@ class AsyncMediaPackageVodClient:
 
     async def create_packaging_configuration(
         self,
-        id: "capo_mediapackage_vod.types.__string.__string",
-        packaging_group_id: "capo_mediapackage_vod.types.__string.__string",
         *,
         config_overrides: Optional[AsyncMediaPackageVodClientConfig] = None,
         cmaf_package: Optional[
@@ -300,8 +306,12 @@ class AsyncMediaPackageVodClient:
         hls_package: Optional[
             "capo_mediapackage_vod.types.hls_package.HlsPackage"
         ] = None,
+        id: Optional["capo_mediapackage_vod.types.__string.__string"] = None,
         mss_package: Optional[
             "capo_mediapackage_vod.types.mss_package.MssPackage"
+        ] = None,
+        packaging_group_id: Optional[
+            "capo_mediapackage_vod.types.__string.__string"
         ] = None,
         tags: Optional["capo_mediapackage_vod.types.tags.Tags"] = None,
     ) -> "capo_mediapackage_vod.types.create_packaging_configuration_response.CreatePackagingConfigurationResponse":
@@ -344,10 +354,12 @@ class AsyncMediaPackageVodClient:
             input_["dash_package"] = dash_package
         if hls_package is not None:
             input_["hls_package"] = hls_package
-        input_["id"] = id
+        if id is not None:
+            input_["id"] = id
         if mss_package is not None:
             input_["mss_package"] = mss_package
-        input_["packaging_group_id"] = packaging_group_id
+        if packaging_group_id is not None:
+            input_["packaging_group_id"] = packaging_group_id
         if tags is not None:
             input_["tags"] = tags
 
@@ -360,7 +372,6 @@ class AsyncMediaPackageVodClient:
 
     async def create_packaging_group(
         self,
-        id: "capo_mediapackage_vod.types.__string.__string",
         *,
         config_overrides: Optional[AsyncMediaPackageVodClientConfig] = None,
         authorization: Optional[
@@ -369,6 +380,7 @@ class AsyncMediaPackageVodClient:
         egress_access_logs: Optional[
             "capo_mediapackage_vod.types.egress_access_logs.EgressAccessLogs"
         ] = None,
+        id: Optional["capo_mediapackage_vod.types.__string.__string"] = None,
         tags: Optional["capo_mediapackage_vod.types.tags.Tags"] = None,
     ) -> "capo_mediapackage_vod.types.create_packaging_group_response.CreatePackagingGroupResponse":
         """Creates a new MediaPackage VOD PackagingGroup resource.
@@ -407,7 +419,8 @@ class AsyncMediaPackageVodClient:
             input_["authorization"] = authorization
         if egress_access_logs is not None:
             input_["egress_access_logs"] = egress_access_logs
-        input_["id"] = id
+        if id is not None:
+            input_["id"] = id
         if tags is not None:
             input_["tags"] = tags
 
@@ -995,9 +1008,11 @@ class AsyncMediaPackageVodClient:
     async def tag_resource(
         self,
         resource_arn: "capo_mediapackage_vod.types.__string.__string",
-        tags: "capo_mediapackage_vod.types.__map_of__string.__mapOf__string",
         *,
         config_overrides: Optional[AsyncMediaPackageVodClientConfig] = None,
+        tags: Optional[
+            "capo_mediapackage_vod.types.__map_of__string.__mapOf__string"
+        ] = None,
     ) -> None:
         """Adds tags to the specified resource. You can specify one or more tags to add.
 
@@ -1025,7 +1040,8 @@ class AsyncMediaPackageVodClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediapackage_vod.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1037,9 +1053,11 @@ class AsyncMediaPackageVodClient:
     async def untag_resource(
         self,
         resource_arn: "capo_mediapackage_vod.types.__string.__string",
-        tag_keys: "capo_mediapackage_vod.types.__list_of__string.__listOf__string",
         *,
         config_overrides: Optional[AsyncMediaPackageVodClientConfig] = None,
+        tag_keys: Optional[
+            "capo_mediapackage_vod.types.__list_of__string.__listOf__string"
+        ] = None,
     ) -> None:
         """Removes tags from the specified resource. You can specify one or more tags to remove.
 
@@ -1067,7 +1085,8 @@ class AsyncMediaPackageVodClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_mediapackage_vod.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

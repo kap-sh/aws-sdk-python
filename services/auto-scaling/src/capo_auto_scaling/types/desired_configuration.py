@@ -26,17 +26,18 @@ class DesiredConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: DesiredConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template" in value:
         import capo_auto_scaling.types.launch_template_specification
 
         capo_auto_scaling.types.launch_template_specification.serialize_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "mixed_instances_policy" in value:
         import capo_auto_scaling.types.mixed_instances_policy
 
         capo_auto_scaling.types.mixed_instances_policy.serialize_query(
-            value["mixed_instances_policy"], pairs, f"{prefix}.MixedInstancesPolicy"
+            value["mixed_instances_policy"], pairs, f"{key_prefix}MixedInstancesPolicy"
         )
 
 

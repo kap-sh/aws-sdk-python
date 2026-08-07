@@ -40,32 +40,39 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "snapshot_identifier" in value:
         pairs.append(
-            (f"{prefix}.SnapshotIdentifier", str(value["snapshot_identifier"]))
+            (f"{key_prefix}SnapshotIdentifier", str(value["snapshot_identifier"]))
         )
     if "source_database_name" in value:
         pairs.append(
-            (f"{prefix}.SourceDatabaseName", str(value["source_database_name"]))
+            (f"{key_prefix}SourceDatabaseName", str(value["source_database_name"]))
         )
     if "source_schema_name" in value:
-        pairs.append((f"{prefix}.SourceSchemaName", str(value["source_schema_name"])))
+        pairs.append(
+            (f"{key_prefix}SourceSchemaName", str(value["source_schema_name"]))
+        )
     if "source_table_name" in value:
-        pairs.append((f"{prefix}.SourceTableName", str(value["source_table_name"])))
+        pairs.append((f"{key_prefix}SourceTableName", str(value["source_table_name"])))
     if "target_database_name" in value:
         pairs.append(
-            (f"{prefix}.TargetDatabaseName", str(value["target_database_name"]))
+            (f"{key_prefix}TargetDatabaseName", str(value["target_database_name"]))
         )
     if "target_schema_name" in value:
-        pairs.append((f"{prefix}.TargetSchemaName", str(value["target_schema_name"])))
+        pairs.append(
+            (f"{key_prefix}TargetSchemaName", str(value["target_schema_name"]))
+        )
     if "new_table_name" in value:
-        pairs.append((f"{prefix}.NewTableName", str(value["new_table_name"])))
+        pairs.append((f"{key_prefix}NewTableName", str(value["new_table_name"])))
     if "enable_case_sensitive_identifier" in value:
         pairs.append(
             (
-                f"{prefix}.EnableCaseSensitiveIdentifier",
+                f"{key_prefix}EnableCaseSensitiveIdentifier",
                 "true" if value["enable_case_sensitive_identifier"] else "false",
             )
         )

@@ -34,23 +34,24 @@ class ConfigureShard(TypedDict, closed=True):
 def serialize_query(
     value: ConfigureShard, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
     if "new_replica_count" in value:
-        pairs.append((f"{prefix}.NewReplicaCount", str(value["new_replica_count"])))
+        pairs.append((f"{key_prefix}NewReplicaCount", str(value["new_replica_count"])))
     if "preferred_availability_zones" in value:
         import capo_elasticache.types.preferred_availability_zone_list
 
         capo_elasticache.types.preferred_availability_zone_list.serialize_query(
             value["preferred_availability_zones"],
             pairs,
-            f"{prefix}.PreferredAvailabilityZones",
+            f"{key_prefix}PreferredAvailabilityZones",
         )
     if "preferred_outpost_arns" in value:
         import capo_elasticache.types.preferred_outpost_arn_list
 
         capo_elasticache.types.preferred_outpost_arn_list.serialize_query(
-            value["preferred_outpost_arns"], pairs, f"{prefix}.PreferredOutpostArns"
+            value["preferred_outpost_arns"], pairs, f"{key_prefix}PreferredOutpostArns"
         )
 
 

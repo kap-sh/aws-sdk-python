@@ -51,49 +51,52 @@ class Recommendation(TypedDict, closed=True):
 def serialize_query(
     value: Recommendation, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "id" in value:
-        pairs.append((f"{prefix}.Id", str(value["id"])))
+        pairs.append((f"{key_prefix}Id", str(value["id"])))
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "namespace_arn" in value:
-        pairs.append((f"{prefix}.NamespaceArn", str(value["namespace_arn"])))
+        pairs.append((f"{key_prefix}NamespaceArn", str(value["namespace_arn"])))
     if "created_at" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["created_at"], pairs, f"{prefix}.CreatedAt"
+            value["created_at"], pairs, f"{key_prefix}CreatedAt"
         )
     if "recommendation_type" in value:
         pairs.append(
-            (f"{prefix}.RecommendationType", str(value["recommendation_type"]))
+            (f"{key_prefix}RecommendationType", str(value["recommendation_type"]))
         )
     if "title" in value:
-        pairs.append((f"{prefix}.Title", str(value["title"])))
+        pairs.append((f"{key_prefix}Title", str(value["title"])))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "observation" in value:
-        pairs.append((f"{prefix}.Observation", str(value["observation"])))
+        pairs.append((f"{key_prefix}Observation", str(value["observation"])))
     if "impact_ranking" in value:
         import capo_redshift.types.impact_ranking_type
 
         capo_redshift.types.impact_ranking_type.serialize_query(
-            value["impact_ranking"], pairs, f"{prefix}.ImpactRanking"
+            value["impact_ranking"], pairs, f"{key_prefix}ImpactRanking"
         )
     if "recommendation_text" in value:
         pairs.append(
-            (f"{prefix}.RecommendationText", str(value["recommendation_text"]))
+            (f"{key_prefix}RecommendationText", str(value["recommendation_text"]))
         )
     if "recommended_actions" in value:
         import capo_redshift.types.recommended_action_list
 
         capo_redshift.types.recommended_action_list.serialize_query(
-            value["recommended_actions"], pairs, f"{prefix}.RecommendedActions"
+            value["recommended_actions"], pairs, f"{key_prefix}RecommendedActions"
         )
     if "reference_links" in value:
         import capo_redshift.types.reference_link_list
 
         capo_redshift.types.reference_link_list.serialize_query(
-            value["reference_links"], pairs, f"{prefix}.ReferenceLinks"
+            value["reference_links"], pairs, f"{key_prefix}ReferenceLinks"
         )
 
 

@@ -43,11 +43,15 @@ class GatewayResource:
 
     def create(
         self,
-        egress_cidr_blocks: "capo_mediaconnect.types.__list_of_string.__listOfString",
-        name: str,
-        networks: "capo_mediaconnect.types.__list_of_gateway_network.__listOfGatewayNetwork",
         *,
         config_overrides: Optional[MediaConnectClientConfig] = None,
+        egress_cidr_blocks: Optional[
+            "capo_mediaconnect.types.__list_of_string.__listOfString"
+        ] = None,
+        name: Optional[str] = None,
+        networks: Optional[
+            "capo_mediaconnect.types.__list_of_gateway_network.__listOfGatewayNetwork"
+        ] = None,
     ) -> "capo_mediaconnect.types.create_gateway_response.CreateGatewayResponse":
         """<p> Creates a new gateway. The request must include at least one network (up to four).</p>
 
@@ -83,9 +87,12 @@ class GatewayResource:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["egress_cidr_blocks"] = egress_cidr_blocks
-        input_["name"] = name
-        input_["networks"] = networks
+        if egress_cidr_blocks is not None:
+            input_["egress_cidr_blocks"] = egress_cidr_blocks
+        if name is not None:
+            input_["name"] = name
+        if networks is not None:
+            input_["networks"] = networks
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -245,11 +252,15 @@ class AsyncGatewayResource:
 
     async def create(
         self,
-        egress_cidr_blocks: "capo_mediaconnect.types.__list_of_string.__listOfString",
-        name: str,
-        networks: "capo_mediaconnect.types.__list_of_gateway_network.__listOfGatewayNetwork",
         *,
         config_overrides: Optional[AsyncMediaConnectClientConfig] = None,
+        egress_cidr_blocks: Optional[
+            "capo_mediaconnect.types.__list_of_string.__listOfString"
+        ] = None,
+        name: Optional[str] = None,
+        networks: Optional[
+            "capo_mediaconnect.types.__list_of_gateway_network.__listOfGatewayNetwork"
+        ] = None,
     ) -> "capo_mediaconnect.types.create_gateway_response.CreateGatewayResponse":
         """<p> Creates a new gateway. The request must include at least one network (up to four).</p>
 
@@ -286,9 +297,12 @@ class AsyncGatewayResource:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_mediaconnect.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["egress_cidr_blocks"] = egress_cidr_blocks
-        input_["name"] = name
-        input_["networks"] = networks
+        if egress_cidr_blocks is not None:
+            input_["egress_cidr_blocks"] = egress_cidr_blocks
+        if name is not None:
+            input_["name"] = name
+        if networks is not None:
+            input_["networks"] = networks
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

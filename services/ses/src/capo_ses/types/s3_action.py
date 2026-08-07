@@ -29,15 +29,16 @@ class S3Action(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: S3Action, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
-    pairs.append((f"{prefix}.BucketName", str(value["bucket_name"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
+    pairs.append((f"{key_prefix}BucketName", str(value["bucket_name"])))
     if "object_key_prefix" in value:
-        pairs.append((f"{prefix}.ObjectKeyPrefix", str(value["object_key_prefix"])))
+        pairs.append((f"{key_prefix}ObjectKeyPrefix", str(value["object_key_prefix"])))
     if "kms_key_arn" in value:
-        pairs.append((f"{prefix}.KmsKeyArn", str(value["kms_key_arn"])))
+        pairs.append((f"{key_prefix}KmsKeyArn", str(value["kms_key_arn"])))
     if "iam_role_arn" in value:
-        pairs.append((f"{prefix}.IamRoleArn", str(value["iam_role_arn"])))
+        pairs.append((f"{key_prefix}IamRoleArn", str(value["iam_role_arn"])))
 
 
 def deserialize_query(el: Element) -> S3Action:

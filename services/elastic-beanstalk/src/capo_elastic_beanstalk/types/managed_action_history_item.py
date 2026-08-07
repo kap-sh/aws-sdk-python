@@ -39,43 +39,46 @@ class ManagedActionHistoryItem(TypedDict, closed=True):
 def serialize_query(
     value: ManagedActionHistoryItem, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "action_id" in value:
-        pairs.append((f"{prefix}.ActionId", str(value["action_id"])))
+        pairs.append((f"{key_prefix}ActionId", str(value["action_id"])))
     if "action_type" in value:
         import capo_elastic_beanstalk.types.action_type
 
         capo_elastic_beanstalk.types.action_type.serialize_query(
-            value["action_type"], pairs, f"{prefix}.ActionType"
+            value["action_type"], pairs, f"{key_prefix}ActionType"
         )
     if "action_description" in value:
-        pairs.append((f"{prefix}.ActionDescription", str(value["action_description"])))
+        pairs.append(
+            (f"{key_prefix}ActionDescription", str(value["action_description"]))
+        )
     if "failure_type" in value:
         import capo_elastic_beanstalk.types.failure_type
 
         capo_elastic_beanstalk.types.failure_type.serialize_query(
-            value["failure_type"], pairs, f"{prefix}.FailureType"
+            value["failure_type"], pairs, f"{key_prefix}FailureType"
         )
     if "status" in value:
         import capo_elastic_beanstalk.types.action_history_status
 
         capo_elastic_beanstalk.types.action_history_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "failure_description" in value:
         pairs.append(
-            (f"{prefix}.FailureDescription", str(value["failure_description"]))
+            (f"{key_prefix}FailureDescription", str(value["failure_description"]))
         )
     if "executed_time" in value:
         import capo_elastic_beanstalk.types.timestamp
 
         capo_elastic_beanstalk.types.timestamp.serialize_query(
-            value["executed_time"], pairs, f"{prefix}.ExecutedTime"
+            value["executed_time"], pairs, f"{key_prefix}ExecutedTime"
         )
     if "finished_time" in value:
         import capo_elastic_beanstalk.types.timestamp
 
         capo_elastic_beanstalk.types.timestamp.serialize_query(
-            value["finished_time"], pairs, f"{prefix}.FinishedTime"
+            value["finished_time"], pairs, f"{key_prefix}FinishedTime"
         )
 
 

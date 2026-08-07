@@ -21,11 +21,12 @@ class DefineAnalysisSchemeRequest(TypedDict, closed=True):
 def serialize_query(
     value: DefineAnalysisSchemeRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.DomainName", str(value["domain_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}DomainName", str(value["domain_name"])))
     import capo_cloudsearch.types.analysis_scheme
 
     capo_cloudsearch.types.analysis_scheme.serialize_query(
-        value["analysis_scheme"], pairs, f"{prefix}.AnalysisScheme"
+        value["analysis_scheme"], pairs, f"{key_prefix}AnalysisScheme"
     )
 
 

@@ -37,11 +37,12 @@ class ResourceQuotas(TypedDict, closed=True):
 def serialize_query(
     value: ResourceQuotas, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "application_quota" in value:
         import capo_elastic_beanstalk.types.resource_quota
 
         capo_elastic_beanstalk.types.resource_quota.serialize_query(
-            value["application_quota"], pairs, f"{prefix}.ApplicationQuota"
+            value["application_quota"], pairs, f"{key_prefix}ApplicationQuota"
         )
     if "application_version_quota" in value:
         import capo_elastic_beanstalk.types.resource_quota
@@ -49,13 +50,13 @@ def serialize_query(
         capo_elastic_beanstalk.types.resource_quota.serialize_query(
             value["application_version_quota"],
             pairs,
-            f"{prefix}.ApplicationVersionQuota",
+            f"{key_prefix}ApplicationVersionQuota",
         )
     if "environment_quota" in value:
         import capo_elastic_beanstalk.types.resource_quota
 
         capo_elastic_beanstalk.types.resource_quota.serialize_query(
-            value["environment_quota"], pairs, f"{prefix}.EnvironmentQuota"
+            value["environment_quota"], pairs, f"{key_prefix}EnvironmentQuota"
         )
     if "configuration_template_quota" in value:
         import capo_elastic_beanstalk.types.resource_quota
@@ -63,13 +64,13 @@ def serialize_query(
         capo_elastic_beanstalk.types.resource_quota.serialize_query(
             value["configuration_template_quota"],
             pairs,
-            f"{prefix}.ConfigurationTemplateQuota",
+            f"{key_prefix}ConfigurationTemplateQuota",
         )
     if "custom_platform_quota" in value:
         import capo_elastic_beanstalk.types.resource_quota
 
         capo_elastic_beanstalk.types.resource_quota.serialize_query(
-            value["custom_platform_quota"], pairs, f"{prefix}.CustomPlatformQuota"
+            value["custom_platform_quota"], pairs, f"{key_prefix}CustomPlatformQuota"
         )
 
 

@@ -21,8 +21,9 @@ class ExecuteStackRefactorInput(TypedDict, closed=True):
 def serialize_query(
     value: ExecuteStackRefactorInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "stack_refactor_id" in value:
-        pairs.append((f"{prefix}.StackRefactorId", str(value["stack_refactor_id"])))
+        pairs.append((f"{key_prefix}StackRefactorId", str(value["stack_refactor_id"])))
 
 
 def deserialize_query(el: Element) -> ExecuteStackRefactorInput:

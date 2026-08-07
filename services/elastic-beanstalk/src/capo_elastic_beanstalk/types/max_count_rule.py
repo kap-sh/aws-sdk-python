@@ -27,13 +27,14 @@ class MaxCountRule(TypedDict, closed=True):
 def serialize_query(
     value: MaxCountRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "max_count" in value:
-        pairs.append((f"{prefix}.MaxCount", str(value["max_count"])))
+        pairs.append((f"{key_prefix}MaxCount", str(value["max_count"])))
     if "delete_source_from_s3" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteSourceFromS3",
+                f"{key_prefix}DeleteSourceFromS3",
                 "true" if value["delete_source_from_s3"] else "false",
             )
         )

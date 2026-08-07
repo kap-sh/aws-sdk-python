@@ -38,25 +38,28 @@ class GetTemplateSummaryInput(TypedDict, closed=True):
 def serialize_query(
     value: GetTemplateSummaryInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "template_body" in value:
-        pairs.append((f"{prefix}.TemplateBody", str(value["template_body"])))
+        pairs.append((f"{key_prefix}TemplateBody", str(value["template_body"])))
     if "template_url" in value:
-        pairs.append((f"{prefix}.TemplateURL", str(value["template_url"])))
+        pairs.append((f"{key_prefix}TemplateURL", str(value["template_url"])))
     if "stack_name" in value:
-        pairs.append((f"{prefix}.StackName", str(value["stack_name"])))
+        pairs.append((f"{key_prefix}StackName", str(value["stack_name"])))
     if "stack_set_name" in value:
-        pairs.append((f"{prefix}.StackSetName", str(value["stack_set_name"])))
+        pairs.append((f"{key_prefix}StackSetName", str(value["stack_set_name"])))
     if "call_as" in value:
         import capo_cloudformation.types.call_as
 
         capo_cloudformation.types.call_as.serialize_query(
-            value["call_as"], pairs, f"{prefix}.CallAs"
+            value["call_as"], pairs, f"{key_prefix}CallAs"
         )
     if "template_summary_config" in value:
         import capo_cloudformation.types.template_summary_config
 
         capo_cloudformation.types.template_summary_config.serialize_query(
-            value["template_summary_config"], pairs, f"{prefix}.TemplateSummaryConfig"
+            value["template_summary_config"],
+            pairs,
+            f"{key_prefix}TemplateSummaryConfig",
         )
 
 

@@ -22,15 +22,19 @@ class PlatformApplication(TypedDict, closed=True):
 def serialize_query(
     value: PlatformApplication, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_application_arn" in value:
         pairs.append(
-            (f"{prefix}.PlatformApplicationArn", str(value["platform_application_arn"]))
+            (
+                f"{key_prefix}PlatformApplicationArn",
+                str(value["platform_application_arn"]),
+            )
         )
     if "attributes" in value:
         import capo_sns.types.map_string_to_string
 
         capo_sns.types.map_string_to_string.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
 
 

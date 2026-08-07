@@ -24,16 +24,17 @@ class OrderableDBInstanceOptionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: OrderableDBInstanceOptionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "orderable_db_instance_options" in value:
         import capo_neptune.types.orderable_db_instance_options_list
 
         capo_neptune.types.orderable_db_instance_options_list.serialize_query(
             value["orderable_db_instance_options"],
             pairs,
-            f"{prefix}.OrderableDBInstanceOptions",
+            f"{key_prefix}OrderableDBInstanceOptions",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> OrderableDBInstanceOptionsMessage:

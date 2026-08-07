@@ -21,11 +21,12 @@ class DescribeAccountAttributesResult(TypedDict, closed=True):
 def serialize_query(
     value: DescribeAccountAttributesResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_quotas" in value:
         import capo_elastic_beanstalk.types.resource_quotas
 
         capo_elastic_beanstalk.types.resource_quotas.serialize_query(
-            value["resource_quotas"], pairs, f"{prefix}.ResourceQuotas"
+            value["resource_quotas"], pairs, f"{key_prefix}ResourceQuotas"
         )
 
 

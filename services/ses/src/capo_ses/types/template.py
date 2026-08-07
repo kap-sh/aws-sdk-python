@@ -27,13 +27,14 @@ class Template(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Template, pairs: list[tuple[str, str]], prefix: str) -> None:
-    pairs.append((f"{prefix}.TemplateName", str(value["template_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}TemplateName", str(value["template_name"])))
     if "subject_part" in value:
-        pairs.append((f"{prefix}.SubjectPart", str(value["subject_part"])))
+        pairs.append((f"{key_prefix}SubjectPart", str(value["subject_part"])))
     if "text_part" in value:
-        pairs.append((f"{prefix}.TextPart", str(value["text_part"])))
+        pairs.append((f"{key_prefix}TextPart", str(value["text_part"])))
     if "html_part" in value:
-        pairs.append((f"{prefix}.HtmlPart", str(value["html_part"])))
+        pairs.append((f"{key_prefix}HtmlPart", str(value["html_part"])))
 
 
 def deserialize_query(el: Element) -> Template:

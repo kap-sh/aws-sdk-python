@@ -39,36 +39,37 @@ class ServerlessCacheSnapshot(TypedDict, closed=True):
 def serialize_query(
     value: ServerlessCacheSnapshot, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "serverless_cache_snapshot_name" in value:
         pairs.append(
             (
-                f"{prefix}.ServerlessCacheSnapshotName",
+                f"{key_prefix}ServerlessCacheSnapshotName",
                 str(value["serverless_cache_snapshot_name"]),
             )
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
     if "kms_key_id" in value:
-        pairs.append((f"{prefix}.KmsKeyId", str(value["kms_key_id"])))
+        pairs.append((f"{key_prefix}KmsKeyId", str(value["kms_key_id"])))
     if "snapshot_type" in value:
-        pairs.append((f"{prefix}.SnapshotType", str(value["snapshot_type"])))
+        pairs.append((f"{key_prefix}SnapshotType", str(value["snapshot_type"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "create_time" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["create_time"], pairs, f"{prefix}.CreateTime"
+            value["create_time"], pairs, f"{key_prefix}CreateTime"
         )
     if "expiry_time" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["expiry_time"], pairs, f"{prefix}.ExpiryTime"
+            value["expiry_time"], pairs, f"{key_prefix}ExpiryTime"
         )
     if "bytes_used_for_cache" in value:
         pairs.append(
-            (f"{prefix}.BytesUsedForCache", str(value["bytes_used_for_cache"]))
+            (f"{key_prefix}BytesUsedForCache", str(value["bytes_used_for_cache"]))
         )
     if "serverless_cache_configuration" in value:
         import capo_elasticache.types.serverless_cache_configuration
@@ -76,7 +77,7 @@ def serialize_query(
         capo_elasticache.types.serverless_cache_configuration.serialize_query(
             value["serverless_cache_configuration"],
             pairs,
-            f"{prefix}.ServerlessCacheConfiguration",
+            f"{key_prefix}ServerlessCacheConfiguration",
         )
 
 

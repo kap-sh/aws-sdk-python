@@ -27,13 +27,14 @@ class BatchResultErrorEntry(TypedDict, closed=True):
 def serialize_query(
     value: BatchResultErrorEntry, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Id", str(value["id"])))
-    pairs.append((f"{prefix}.Code", str(value["code"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Id", str(value["id"])))
+    pairs.append((f"{key_prefix}Code", str(value["code"])))
     if "message" in value:
-        pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}Message", str(value["message"])))
     pairs.append(
         (
-            f"{prefix}.SenderFault",
+            f"{key_prefix}SenderFault",
             "true" if value.get("sender_fault", False) else "false",
         )
     )

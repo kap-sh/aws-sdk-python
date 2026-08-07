@@ -24,15 +24,18 @@ class AuthorizeEndpointAccessMessage(TypedDict, closed=True):
 def serialize_query(
     value: AuthorizeEndpointAccessMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_identifier" in value:
-        pairs.append((f"{prefix}.ClusterIdentifier", str(value["cluster_identifier"])))
+        pairs.append(
+            (f"{key_prefix}ClusterIdentifier", str(value["cluster_identifier"]))
+        )
     if "account" in value:
-        pairs.append((f"{prefix}.Account", str(value["account"])))
+        pairs.append((f"{key_prefix}Account", str(value["account"])))
     if "vpc_ids" in value:
         import capo_redshift.types.vpc_identifier_list
 
         capo_redshift.types.vpc_identifier_list.serialize_query(
-            value["vpc_ids"], pairs, f"{prefix}.VpcIds"
+            value["vpc_ids"], pairs, f"{key_prefix}VpcIds"
         )
 
 

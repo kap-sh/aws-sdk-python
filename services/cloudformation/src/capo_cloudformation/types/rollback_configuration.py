@@ -26,16 +26,17 @@ class RollbackConfiguration(TypedDict, closed=True):
 def serialize_query(
     value: RollbackConfiguration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "rollback_triggers" in value:
         import capo_cloudformation.types.rollback_triggers
 
         capo_cloudformation.types.rollback_triggers.serialize_query(
-            value["rollback_triggers"], pairs, f"{prefix}.RollbackTriggers"
+            value["rollback_triggers"], pairs, f"{key_prefix}RollbackTriggers"
         )
     if "monitoring_time_in_minutes" in value:
         pairs.append(
             (
-                f"{prefix}.MonitoringTimeInMinutes",
+                f"{key_prefix}MonitoringTimeInMinutes",
                 str(value["monitoring_time_in_minutes"]),
             )
         )

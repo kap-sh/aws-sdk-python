@@ -26,17 +26,18 @@ class UpdateTarget(TypedDict, closed=True):
 def serialize_query(
     value: UpdateTarget, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "maintenance_track_name" in value:
         pairs.append(
-            (f"{prefix}.MaintenanceTrackName", str(value["maintenance_track_name"]))
+            (f"{key_prefix}MaintenanceTrackName", str(value["maintenance_track_name"]))
         )
     if "database_version" in value:
-        pairs.append((f"{prefix}.DatabaseVersion", str(value["database_version"])))
+        pairs.append((f"{key_prefix}DatabaseVersion", str(value["database_version"])))
     if "supported_operations" in value:
         import capo_redshift.types.supported_operation_list
 
         capo_redshift.types.supported_operation_list.serialize_query(
-            value["supported_operations"], pairs, f"{prefix}.SupportedOperations"
+            value["supported_operations"], pairs, f"{key_prefix}SupportedOperations"
         )
 
 

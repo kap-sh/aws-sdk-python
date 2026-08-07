@@ -56,39 +56,40 @@ class GetTemplateSummaryOutput(TypedDict, closed=True):
 def serialize_query(
     value: GetTemplateSummaryOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameters" in value:
         import capo_cloudformation.types.parameter_declarations
 
         capo_cloudformation.types.parameter_declarations.serialize_query(
-            value["parameters"], pairs, f"{prefix}.Parameters"
+            value["parameters"], pairs, f"{key_prefix}Parameters"
         )
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "capabilities" in value:
         import capo_cloudformation.types.capabilities
 
         capo_cloudformation.types.capabilities.serialize_query(
-            value["capabilities"], pairs, f"{prefix}.Capabilities"
+            value["capabilities"], pairs, f"{key_prefix}Capabilities"
         )
     if "capabilities_reason" in value:
         pairs.append(
-            (f"{prefix}.CapabilitiesReason", str(value["capabilities_reason"]))
+            (f"{key_prefix}CapabilitiesReason", str(value["capabilities_reason"]))
         )
     if "resource_types" in value:
         import capo_cloudformation.types.resource_types
 
         capo_cloudformation.types.resource_types.serialize_query(
-            value["resource_types"], pairs, f"{prefix}.ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
         )
     if "version" in value:
-        pairs.append((f"{prefix}.Version", str(value["version"])))
+        pairs.append((f"{key_prefix}Version", str(value["version"])))
     if "metadata" in value:
-        pairs.append((f"{prefix}.Metadata", str(value["metadata"])))
+        pairs.append((f"{key_prefix}Metadata", str(value["metadata"])))
     if "declared_transforms" in value:
         import capo_cloudformation.types.transforms_list
 
         capo_cloudformation.types.transforms_list.serialize_query(
-            value["declared_transforms"], pairs, f"{prefix}.DeclaredTransforms"
+            value["declared_transforms"], pairs, f"{key_prefix}DeclaredTransforms"
         )
     if "resource_identifier_summaries" in value:
         import capo_cloudformation.types.resource_identifier_summaries
@@ -96,13 +97,13 @@ def serialize_query(
         capo_cloudformation.types.resource_identifier_summaries.serialize_query(
             value["resource_identifier_summaries"],
             pairs,
-            f"{prefix}.ResourceIdentifierSummaries",
+            f"{key_prefix}ResourceIdentifierSummaries",
         )
     if "warnings" in value:
         import capo_cloudformation.types.warnings
 
         capo_cloudformation.types.warnings.serialize_query(
-            value["warnings"], pairs, f"{prefix}.Warnings"
+            value["warnings"], pairs, f"{key_prefix}Warnings"
         )
 
 

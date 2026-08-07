@@ -40,21 +40,22 @@ class ParameterDeclaration(TypedDict, closed=True):
 def serialize_query(
     value: ParameterDeclaration, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_key" in value:
-        pairs.append((f"{prefix}.ParameterKey", str(value["parameter_key"])))
+        pairs.append((f"{key_prefix}ParameterKey", str(value["parameter_key"])))
     if "default_value" in value:
-        pairs.append((f"{prefix}.DefaultValue", str(value["default_value"])))
+        pairs.append((f"{key_prefix}DefaultValue", str(value["default_value"])))
     if "parameter_type" in value:
-        pairs.append((f"{prefix}.ParameterType", str(value["parameter_type"])))
+        pairs.append((f"{key_prefix}ParameterType", str(value["parameter_type"])))
     if "no_echo" in value:
-        pairs.append((f"{prefix}.NoEcho", "true" if value["no_echo"] else "false"))
+        pairs.append((f"{key_prefix}NoEcho", "true" if value["no_echo"] else "false"))
     if "description" in value:
-        pairs.append((f"{prefix}.Description", str(value["description"])))
+        pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "parameter_constraints" in value:
         import capo_cloudformation.types.parameter_constraints
 
         capo_cloudformation.types.parameter_constraints.serialize_query(
-            value["parameter_constraints"], pairs, f"{prefix}.ParameterConstraints"
+            value["parameter_constraints"], pairs, f"{key_prefix}ParameterConstraints"
         )
 
 

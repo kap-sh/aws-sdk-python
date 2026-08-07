@@ -22,11 +22,12 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "table_restore_status" in value:
         import capo_redshift.types.table_restore_status
 
         capo_redshift.types.table_restore_status.serialize_query(
-            value["table_restore_status"], pairs, f"{prefix}.TableRestoreStatus"
+            value["table_restore_status"], pairs, f"{key_prefix}TableRestoreStatus"
         )
 
 

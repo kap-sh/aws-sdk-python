@@ -26,17 +26,18 @@ class RegisterNamespaceInputMessage(TypedDict, closed=True):
 def serialize_query(
     value: RegisterNamespaceInputMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "namespace_identifier" in value:
         import capo_redshift.types.namespace_identifier_union
 
         capo_redshift.types.namespace_identifier_union.serialize_query(
-            value["namespace_identifier"], pairs, f"{prefix}.NamespaceIdentifier"
+            value["namespace_identifier"], pairs, f"{key_prefix}NamespaceIdentifier"
         )
     if "consumer_identifiers" in value:
         import capo_redshift.types.consumer_identifier_list
 
         capo_redshift.types.consumer_identifier_list.serialize_query(
-            value["consumer_identifiers"], pairs, f"{prefix}.ConsumerIdentifiers"
+            value["consumer_identifiers"], pairs, f"{key_prefix}ConsumerIdentifiers"
         )
 
 

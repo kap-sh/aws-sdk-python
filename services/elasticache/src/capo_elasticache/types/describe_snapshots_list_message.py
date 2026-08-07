@@ -22,13 +22,14 @@ class DescribeSnapshotsListMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeSnapshotsListMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "snapshots" in value:
         import capo_elasticache.types.snapshot_list
 
         capo_elasticache.types.snapshot_list.serialize_query(
-            value["snapshots"], pairs, f"{prefix}.Snapshots"
+            value["snapshots"], pairs, f"{key_prefix}Snapshots"
         )
 
 

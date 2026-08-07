@@ -36,26 +36,27 @@ class ModifyTrustStoreInput(TypedDict, closed=True):
 def serialize_query(
     value: ModifyTrustStoreInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "trust_store_arn" in value:
-        pairs.append((f"{prefix}.TrustStoreArn", str(value["trust_store_arn"])))
+        pairs.append((f"{key_prefix}TrustStoreArn", str(value["trust_store_arn"])))
     if "ca_certificates_bundle_s3_bucket" in value:
         pairs.append(
             (
-                f"{prefix}.CaCertificatesBundleS3Bucket",
+                f"{key_prefix}CaCertificatesBundleS3Bucket",
                 str(value["ca_certificates_bundle_s3_bucket"]),
             )
         )
     if "ca_certificates_bundle_s3_key" in value:
         pairs.append(
             (
-                f"{prefix}.CaCertificatesBundleS3Key",
+                f"{key_prefix}CaCertificatesBundleS3Key",
                 str(value["ca_certificates_bundle_s3_key"]),
             )
         )
     if "ca_certificates_bundle_s3_object_version" in value:
         pairs.append(
             (
-                f"{prefix}.CaCertificatesBundleS3ObjectVersion",
+                f"{key_prefix}CaCertificatesBundleS3ObjectVersion",
                 str(value["ca_certificates_bundle_s3_object_version"]),
             )
         )

@@ -199,9 +199,11 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        target_environment_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        target_environment_name: Optional[
+            "capo_amplifybackend.types.__string.__string"
+        ] = None,
     ) -> "capo_amplifybackend.types.clone_backend_response.CloneBackendResponse":
         """<p>This operation clones an existing backend.</p>
 
@@ -237,7 +239,8 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.clone_backend_request.CloneBackendRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["target_environment_name"] = target_environment_name
+        if target_environment_name is not None:
+            input_["target_environment_name"] = target_environment_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -248,11 +251,13 @@ class AsyncAmplifyBackendClient:
 
     async def create_backend(
         self,
-        app_id: "capo_amplifybackend.types.__string.__string",
-        app_name: "capo_amplifybackend.types.__string.__string",
-        backend_environment_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        app_id: Optional["capo_amplifybackend.types.__string.__string"] = None,
+        app_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
+        backend_environment_name: Optional[
+            "capo_amplifybackend.types.__string.__string"
+        ] = None,
         resource_config: Optional[
             "capo_amplifybackend.types.resource_config.ResourceConfig"
         ] = None,
@@ -292,9 +297,12 @@ class AsyncAmplifyBackendClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_amplifybackend.types.create_backend_request.CreateBackendRequest = {}  # type: ignore[typeddict-item]
-        input_["app_id"] = app_id
-        input_["app_name"] = app_name
-        input_["backend_environment_name"] = backend_environment_name
+        if app_id is not None:
+            input_["app_id"] = app_id
+        if app_name is not None:
+            input_["app_name"] = app_name
+        if backend_environment_name is not None:
+            input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
             input_["resource_config"] = resource_config
         if resource_name is not None:
@@ -310,11 +318,15 @@ class AsyncAmplifyBackendClient:
     async def create_backend_api(
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
-        backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_config: "capo_amplifybackend.types.backend_api_resource_config.BackendAPIResourceConfig",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        backend_environment_name: Optional[
+            "capo_amplifybackend.types.__string.__string"
+        ] = None,
+        resource_config: Optional[
+            "capo_amplifybackend.types.backend_api_resource_config.BackendAPIResourceConfig"
+        ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> (
         "capo_amplifybackend.types.create_backend_api_response.CreateBackendAPIResponse"
     ):
@@ -352,9 +364,12 @@ class AsyncAmplifyBackendClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_amplifybackend.types.create_backend_api_request.CreateBackendAPIRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
-        input_["backend_environment_name"] = backend_environment_name
-        input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if backend_environment_name is not None:
+            input_["backend_environment_name"] = backend_environment_name
+        if resource_config is not None:
+            input_["resource_config"] = resource_config
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -366,11 +381,15 @@ class AsyncAmplifyBackendClient:
     async def create_backend_auth(
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
-        backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_config: "capo_amplifybackend.types.create_backend_auth_resource_config.CreateBackendAuthResourceConfig",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        backend_environment_name: Optional[
+            "capo_amplifybackend.types.__string.__string"
+        ] = None,
+        resource_config: Optional[
+            "capo_amplifybackend.types.create_backend_auth_resource_config.CreateBackendAuthResourceConfig"
+        ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.create_backend_auth_response.CreateBackendAuthResponse":
         """<p>Creates a new backend authentication resource.</p>
 
@@ -406,9 +425,12 @@ class AsyncAmplifyBackendClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_amplifybackend.types.create_backend_auth_request.CreateBackendAuthRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
-        input_["backend_environment_name"] = backend_environment_name
-        input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if backend_environment_name is not None:
+            input_["backend_environment_name"] = backend_environment_name
+        if resource_config is not None:
+            input_["resource_config"] = resource_config
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -471,11 +493,15 @@ class AsyncAmplifyBackendClient:
     async def create_backend_storage(
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
-        backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_config: "capo_amplifybackend.types.create_backend_storage_resource_config.CreateBackendStorageResourceConfig",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        backend_environment_name: Optional[
+            "capo_amplifybackend.types.__string.__string"
+        ] = None,
+        resource_config: Optional[
+            "capo_amplifybackend.types.create_backend_storage_resource_config.CreateBackendStorageResourceConfig"
+        ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.create_backend_storage_response.CreateBackendStorageResponse":
         """<p>Creates a backend storage resource.</p>
 
@@ -511,9 +537,12 @@ class AsyncAmplifyBackendClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_amplifybackend.types.create_backend_storage_request.CreateBackendStorageRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
-        input_["backend_environment_name"] = backend_environment_name
-        input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if backend_environment_name is not None:
+            input_["backend_environment_name"] = backend_environment_name
+        if resource_config is not None:
+            input_["resource_config"] = resource_config
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -619,12 +648,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
         resource_config: Optional[
             "capo_amplifybackend.types.backend_api_resource_config.BackendAPIResourceConfig"
         ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> (
         "capo_amplifybackend.types.delete_backend_api_response.DeleteBackendAPIResponse"
     ):
@@ -665,7 +694,8 @@ class AsyncAmplifyBackendClient:
         input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
             input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -678,9 +708,9 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.delete_backend_auth_response.DeleteBackendAuthResponse":
         """<p>Deletes an existing backend authentication resource.</p>
 
@@ -716,7 +746,8 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.delete_backend_auth_request.DeleteBackendAuthRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -729,10 +760,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
-        service_name: "capo_amplifybackend.types.service_name.ServiceName",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
+        service_name: Optional[
+            "capo_amplifybackend.types.service_name.ServiceName"
+        ] = None,
     ) -> "capo_amplifybackend.types.delete_backend_storage_response.DeleteBackendStorageResponse":
         """<p>Removes the specified backend storage resource.</p>
 
@@ -769,8 +802,10 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.delete_backend_storage_request.DeleteBackendStorageRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_name"] = resource_name
-        input_["service_name"] = service_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if service_name is not None:
+            input_["service_name"] = service_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -831,9 +866,9 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.generate_backend_api_models_response.GenerateBackendAPIModelsResponse":
         """<p>Generates a model schema for an existing backend API resource.</p>
 
@@ -869,7 +904,8 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.generate_backend_api_models_request.GenerateBackendAPIModelsRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -933,12 +969,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
         resource_config: Optional[
             "capo_amplifybackend.types.backend_api_resource_config.BackendAPIResourceConfig"
         ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.get_backend_api_response.GetBackendAPIResponse":
         """<p>Gets the details for a backend API.</p>
 
@@ -977,7 +1013,8 @@ class AsyncAmplifyBackendClient:
         input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
             input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -990,9 +1027,9 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.get_backend_api_models_response.GetBackendAPIModelsResponse":
         """<p>Gets a model introspection schema for an existing backend API resource.</p>
 
@@ -1028,7 +1065,8 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.get_backend_api_models_request.GetBackendAPIModelsRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1041,9 +1079,9 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.get_backend_auth_response.GetBackendAuthResponse":
         """<p>Gets a backend auth details.</p>
 
@@ -1079,7 +1117,8 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.get_backend_auth_request.GetBackendAuthRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1143,9 +1182,9 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.get_backend_storage_response.GetBackendStorageResponse":
         """<p>Gets details for a backend storage resource.</p>
 
@@ -1181,7 +1220,8 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.get_backend_storage_request.GetBackendStorageRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1242,14 +1282,16 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        native_client_id: "capo_amplifybackend.types.__string.__string",
-        user_pool_id: "capo_amplifybackend.types.__string.__string",
-        web_client_id: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
         identity_pool_id: Optional[
             "capo_amplifybackend.types.__string.__string"
         ] = None,
+        native_client_id: Optional[
+            "capo_amplifybackend.types.__string.__string"
+        ] = None,
+        user_pool_id: Optional["capo_amplifybackend.types.__string.__string"] = None,
+        web_client_id: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.import_backend_auth_response.ImportBackendAuthResponse":
         """<p>Imports an existing backend authentication resource.</p>
 
@@ -1290,9 +1332,12 @@ class AsyncAmplifyBackendClient:
         input_["backend_environment_name"] = backend_environment_name
         if identity_pool_id is not None:
             input_["identity_pool_id"] = identity_pool_id
-        input_["native_client_id"] = native_client_id
-        input_["user_pool_id"] = user_pool_id
-        input_["web_client_id"] = web_client_id
+        if native_client_id is not None:
+            input_["native_client_id"] = native_client_id
+        if user_pool_id is not None:
+            input_["user_pool_id"] = user_pool_id
+        if web_client_id is not None:
+            input_["web_client_id"] = web_client_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1305,10 +1350,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        service_name: "capo_amplifybackend.types.service_name.ServiceName",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
         bucket_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
+        service_name: Optional[
+            "capo_amplifybackend.types.service_name.ServiceName"
+        ] = None,
     ) -> "capo_amplifybackend.types.import_backend_storage_response.ImportBackendStorageResponse":
         """<p>Imports an existing backend storage resource.</p>
 
@@ -1347,7 +1394,8 @@ class AsyncAmplifyBackendClient:
         input_["backend_environment_name"] = backend_environment_name
         if bucket_name is not None:
             input_["bucket_name"] = bucket_name
-        input_["service_name"] = service_name
+        if service_name is not None:
+            input_["service_name"] = service_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1572,12 +1620,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
         resource_config: Optional[
             "capo_amplifybackend.types.backend_api_resource_config.BackendAPIResourceConfig"
         ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> (
         "capo_amplifybackend.types.update_backend_api_response.UpdateBackendAPIResponse"
     ):
@@ -1618,7 +1666,8 @@ class AsyncAmplifyBackendClient:
         input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
             input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1631,10 +1680,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_config: "capo_amplifybackend.types.update_backend_auth_resource_config.UpdateBackendAuthResourceConfig",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_config: Optional[
+            "capo_amplifybackend.types.update_backend_auth_resource_config.UpdateBackendAuthResourceConfig"
+        ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.update_backend_auth_response.UpdateBackendAuthResponse":
         """<p>Updates an existing backend authentication resource.</p>
 
@@ -1671,8 +1722,10 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.update_backend_auth_request.UpdateBackendAuthRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if resource_config is not None:
+            input_["resource_config"] = resource_config
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1797,10 +1850,12 @@ class AsyncAmplifyBackendClient:
         self,
         app_id: "capo_amplifybackend.types.__string.__string",
         backend_environment_name: "capo_amplifybackend.types.__string.__string",
-        resource_config: "capo_amplifybackend.types.update_backend_storage_resource_config.UpdateBackendStorageResourceConfig",
-        resource_name: "capo_amplifybackend.types.__string.__string",
         *,
         config_overrides: Optional[AsyncAmplifyBackendClientConfig] = None,
+        resource_config: Optional[
+            "capo_amplifybackend.types.update_backend_storage_resource_config.UpdateBackendStorageResourceConfig"
+        ] = None,
+        resource_name: Optional["capo_amplifybackend.types.__string.__string"] = None,
     ) -> "capo_amplifybackend.types.update_backend_storage_response.UpdateBackendStorageResponse":
         """<p>Updates an existing backend storage resource.</p>
 
@@ -1837,8 +1892,10 @@ class AsyncAmplifyBackendClient:
         input_: capo_amplifybackend.types.update_backend_storage_request.UpdateBackendStorageRequest = {}  # type: ignore[typeddict-item]
         input_["app_id"] = app_id
         input_["backend_environment_name"] = backend_environment_name
-        input_["resource_config"] = resource_config
-        input_["resource_name"] = resource_name
+        if resource_config is not None:
+            input_["resource_config"] = resource_config
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -44,29 +44,33 @@ class PublishInput(TypedDict, closed=True):
 def serialize_query(
     value: PublishInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "topic_arn" in value:
-        pairs.append((f"{prefix}.TopicArn", str(value["topic_arn"])))
+        pairs.append((f"{key_prefix}TopicArn", str(value["topic_arn"])))
     if "target_arn" in value:
-        pairs.append((f"{prefix}.TargetArn", str(value["target_arn"])))
+        pairs.append((f"{key_prefix}TargetArn", str(value["target_arn"])))
     if "phone_number" in value:
-        pairs.append((f"{prefix}.PhoneNumber", str(value["phone_number"])))
-    pairs.append((f"{prefix}.Message", str(value["message"])))
+        pairs.append((f"{key_prefix}PhoneNumber", str(value["phone_number"])))
+    pairs.append((f"{key_prefix}Message", str(value["message"])))
     if "subject" in value:
-        pairs.append((f"{prefix}.Subject", str(value["subject"])))
+        pairs.append((f"{key_prefix}Subject", str(value["subject"])))
     if "message_structure" in value:
-        pairs.append((f"{prefix}.MessageStructure", str(value["message_structure"])))
+        pairs.append((f"{key_prefix}MessageStructure", str(value["message_structure"])))
     if "message_attributes" in value:
         import capo_sns.types.message_attribute_map
 
         capo_sns.types.message_attribute_map.serialize_query(
-            value["message_attributes"], pairs, f"{prefix}.MessageAttributes"
+            value["message_attributes"], pairs, f"{key_prefix}MessageAttributes"
         )
     if "message_deduplication_id" in value:
         pairs.append(
-            (f"{prefix}.MessageDeduplicationId", str(value["message_deduplication_id"]))
+            (
+                f"{key_prefix}MessageDeduplicationId",
+                str(value["message_deduplication_id"]),
+            )
         )
     if "message_group_id" in value:
-        pairs.append((f"{prefix}.MessageGroupId", str(value["message_group_id"])))
+        pairs.append((f"{key_prefix}MessageGroupId", str(value["message_group_id"])))
 
 
 def deserialize_query(el: Element) -> PublishInput:

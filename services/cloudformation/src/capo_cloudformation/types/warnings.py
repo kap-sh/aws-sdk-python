@@ -19,13 +19,14 @@ class Warnings(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Warnings, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "unrecognized_resource_types" in value:
         import capo_cloudformation.types.resource_types
 
         capo_cloudformation.types.resource_types.serialize_query(
             value["unrecognized_resource_types"],
             pairs,
-            f"{prefix}.UnrecognizedResourceTypes",
+            f"{key_prefix}UnrecognizedResourceTypes",
         )
 
 

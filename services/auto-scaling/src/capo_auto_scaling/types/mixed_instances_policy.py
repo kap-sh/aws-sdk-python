@@ -26,17 +26,18 @@ class MixedInstancesPolicy(TypedDict, closed=True):
 def serialize_query(
     value: MixedInstancesPolicy, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "launch_template" in value:
         import capo_auto_scaling.types.launch_template
 
         capo_auto_scaling.types.launch_template.serialize_query(
-            value["launch_template"], pairs, f"{prefix}.LaunchTemplate"
+            value["launch_template"], pairs, f"{key_prefix}LaunchTemplate"
         )
     if "instances_distribution" in value:
         import capo_auto_scaling.types.instances_distribution
 
         capo_auto_scaling.types.instances_distribution.serialize_query(
-            value["instances_distribution"], pairs, f"{prefix}.InstancesDistribution"
+            value["instances_distribution"], pairs, f"{key_prefix}InstancesDistribution"
         )
 
 

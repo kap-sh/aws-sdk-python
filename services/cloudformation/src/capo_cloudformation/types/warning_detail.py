@@ -24,17 +24,18 @@ class WarningDetail(TypedDict, closed=True):
 def serialize_query(
     value: WarningDetail, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "type" in value:
         import capo_cloudformation.types.warning_type
 
         capo_cloudformation.types.warning_type.serialize_query(
-            value["type"], pairs, f"{prefix}.Type"
+            value["type"], pairs, f"{key_prefix}Type"
         )
     if "properties" in value:
         import capo_cloudformation.types.warning_properties
 
         capo_cloudformation.types.warning_properties.serialize_query(
-            value["properties"], pairs, f"{prefix}.Properties"
+            value["properties"], pairs, f"{key_prefix}Properties"
         )
 
 

@@ -50,41 +50,44 @@ class StackResourceSummary(TypedDict, closed=True):
 def serialize_query(
     value: StackResourceSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "logical_resource_id" in value:
-        pairs.append((f"{prefix}.LogicalResourceId", str(value["logical_resource_id"])))
+        pairs.append(
+            (f"{key_prefix}LogicalResourceId", str(value["logical_resource_id"]))
+        )
     if "physical_resource_id" in value:
         pairs.append(
-            (f"{prefix}.PhysicalResourceId", str(value["physical_resource_id"]))
+            (f"{key_prefix}PhysicalResourceId", str(value["physical_resource_id"]))
         )
     if "resource_type" in value:
-        pairs.append((f"{prefix}.ResourceType", str(value["resource_type"])))
+        pairs.append((f"{key_prefix}ResourceType", str(value["resource_type"])))
     if "last_updated_timestamp" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["last_updated_timestamp"], pairs, f"{prefix}.LastUpdatedTimestamp"
+            value["last_updated_timestamp"], pairs, f"{key_prefix}LastUpdatedTimestamp"
         )
     if "resource_status" in value:
         import capo_cloudformation.types.resource_status
 
         capo_cloudformation.types.resource_status.serialize_query(
-            value["resource_status"], pairs, f"{prefix}.ResourceStatus"
+            value["resource_status"], pairs, f"{key_prefix}ResourceStatus"
         )
     if "resource_status_reason" in value:
         pairs.append(
-            (f"{prefix}.ResourceStatusReason", str(value["resource_status_reason"]))
+            (f"{key_prefix}ResourceStatusReason", str(value["resource_status_reason"]))
         )
     if "drift_information" in value:
         import capo_cloudformation.types.stack_resource_drift_information_summary
 
         capo_cloudformation.types.stack_resource_drift_information_summary.serialize_query(
-            value["drift_information"], pairs, f"{prefix}.DriftInformation"
+            value["drift_information"], pairs, f"{key_prefix}DriftInformation"
         )
     if "module_info" in value:
         import capo_cloudformation.types.module_info
 
         capo_cloudformation.types.module_info.serialize_query(
-            value["module_info"], pairs, f"{prefix}.ModuleInfo"
+            value["module_info"], pairs, f"{key_prefix}ModuleInfo"
         )
 
 

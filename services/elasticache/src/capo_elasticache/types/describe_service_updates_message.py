@@ -29,18 +29,21 @@ class DescribeServiceUpdatesMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeServiceUpdatesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "service_update_name" in value:
-        pairs.append((f"{prefix}.ServiceUpdateName", str(value["service_update_name"])))
+        pairs.append(
+            (f"{key_prefix}ServiceUpdateName", str(value["service_update_name"]))
+        )
     if "service_update_status" in value:
         import capo_elasticache.types.service_update_status_list
 
         capo_elasticache.types.service_update_status_list.serialize_query(
-            value["service_update_status"], pairs, f"{prefix}.ServiceUpdateStatus"
+            value["service_update_status"], pairs, f"{key_prefix}ServiceUpdateStatus"
         )
     if "max_records" in value:
-        pairs.append((f"{prefix}.MaxRecords", str(value["max_records"])))
+        pairs.append((f"{key_prefix}MaxRecords", str(value["max_records"])))
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> DescribeServiceUpdatesMessage:

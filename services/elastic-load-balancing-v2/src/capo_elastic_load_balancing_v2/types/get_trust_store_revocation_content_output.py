@@ -21,8 +21,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "location" in value:
-        pairs.append((f"{prefix}.Location", str(value["location"])))
+        pairs.append((f"{key_prefix}Location", str(value["location"])))
 
 
 def deserialize_query(el: Element) -> GetTrustStoreRevocationContentOutput:

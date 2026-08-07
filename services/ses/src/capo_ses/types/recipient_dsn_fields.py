@@ -40,29 +40,30 @@ class RecipientDsnFields(TypedDict, closed=True):
 def serialize_query(
     value: RecipientDsnFields, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "final_recipient" in value:
-        pairs.append((f"{prefix}.FinalRecipient", str(value["final_recipient"])))
+        pairs.append((f"{key_prefix}FinalRecipient", str(value["final_recipient"])))
     import capo_ses.types.dsn_action
 
     capo_ses.types.dsn_action.serialize_query(
-        value["action"], pairs, f"{prefix}.Action"
+        value["action"], pairs, f"{key_prefix}Action"
     )
     if "remote_mta" in value:
-        pairs.append((f"{prefix}.RemoteMta", str(value["remote_mta"])))
-    pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}RemoteMta", str(value["remote_mta"])))
+    pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "diagnostic_code" in value:
-        pairs.append((f"{prefix}.DiagnosticCode", str(value["diagnostic_code"])))
+        pairs.append((f"{key_prefix}DiagnosticCode", str(value["diagnostic_code"])))
     if "last_attempt_date" in value:
         import capo_ses.types.last_attempt_date
 
         capo_ses.types.last_attempt_date.serialize_query(
-            value["last_attempt_date"], pairs, f"{prefix}.LastAttemptDate"
+            value["last_attempt_date"], pairs, f"{key_prefix}LastAttemptDate"
         )
     if "extension_fields" in value:
         import capo_ses.types.extension_field_list
 
         capo_ses.types.extension_field_list.serialize_query(
-            value["extension_fields"], pairs, f"{prefix}.ExtensionFields"
+            value["extension_fields"], pairs, f"{key_prefix}ExtensionFields"
         )
 
 

@@ -29,20 +29,23 @@ class CreateTopicInput(TypedDict, closed=True):
 def serialize_query(
     value: CreateTopicInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "attributes" in value:
         import capo_sns.types.topic_attributes_map
 
         capo_sns.types.topic_attributes_map.serialize_query(
-            value["attributes"], pairs, f"{prefix}.Attributes"
+            value["attributes"], pairs, f"{key_prefix}Attributes"
         )
     if "tags" in value:
         import capo_sns.types.tag_list
 
-        capo_sns.types.tag_list.serialize_query(value["tags"], pairs, f"{prefix}.Tags")
+        capo_sns.types.tag_list.serialize_query(
+            value["tags"], pairs, f"{key_prefix}Tags"
+        )
     if "data_protection_policy" in value:
         pairs.append(
-            (f"{prefix}.DataProtectionPolicy", str(value["data_protection_policy"]))
+            (f"{key_prefix}DataProtectionPolicy", str(value["data_protection_policy"]))
         )
 
 

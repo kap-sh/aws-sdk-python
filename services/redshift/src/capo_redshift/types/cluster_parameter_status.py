@@ -23,16 +23,17 @@ class ClusterParameterStatus(TypedDict, closed=True):
 def serialize_query(
     value: ClusterParameterStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_name" in value:
-        pairs.append((f"{prefix}.ParameterName", str(value["parameter_name"])))
+        pairs.append((f"{key_prefix}ParameterName", str(value["parameter_name"])))
     if "parameter_apply_status" in value:
         pairs.append(
-            (f"{prefix}.ParameterApplyStatus", str(value["parameter_apply_status"]))
+            (f"{key_prefix}ParameterApplyStatus", str(value["parameter_apply_status"]))
         )
     if "parameter_apply_error_description" in value:
         pairs.append(
             (
-                f"{prefix}.ParameterApplyErrorDescription",
+                f"{key_prefix}ParameterApplyErrorDescription",
                 str(value["parameter_apply_error_description"]),
             )
         )

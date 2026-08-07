@@ -20,10 +20,11 @@ class CloudWatchDestination(TypedDict, closed=True):
 def serialize_query(
     value: CloudWatchDestination, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.cloud_watch_dimension_configurations
 
     capo_ses.types.cloud_watch_dimension_configurations.serialize_query(
-        value["dimension_configurations"], pairs, f"{prefix}.DimensionConfigurations"
+        value["dimension_configurations"], pairs, f"{key_prefix}DimensionConfigurations"
     )
 
 

@@ -24,16 +24,17 @@ class PendingMaintenanceActionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: PendingMaintenanceActionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "pending_maintenance_actions" in value:
         import capo_docdb.types.pending_maintenance_actions
 
         capo_docdb.types.pending_maintenance_actions.serialize_query(
             value["pending_maintenance_actions"],
             pairs,
-            f"{prefix}.PendingMaintenanceActions",
+            f"{key_prefix}PendingMaintenanceActions",
         )
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
 
 
 def deserialize_query(el: Element) -> PendingMaintenanceActionsMessage:

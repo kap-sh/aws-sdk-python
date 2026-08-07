@@ -24,17 +24,18 @@ class CreatePlatformVersionResult(TypedDict, closed=True):
 def serialize_query(
     value: CreatePlatformVersionResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "platform_summary" in value:
         import capo_elastic_beanstalk.types.platform_summary
 
         capo_elastic_beanstalk.types.platform_summary.serialize_query(
-            value["platform_summary"], pairs, f"{prefix}.PlatformSummary"
+            value["platform_summary"], pairs, f"{key_prefix}PlatformSummary"
         )
     if "builder" in value:
         import capo_elastic_beanstalk.types.builder
 
         capo_elastic_beanstalk.types.builder.serialize_query(
-            value["builder"], pairs, f"{prefix}.Builder"
+            value["builder"], pairs, f"{key_prefix}Builder"
         )
 
 

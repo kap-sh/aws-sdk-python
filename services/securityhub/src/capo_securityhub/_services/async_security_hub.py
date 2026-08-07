@@ -439,10 +439,14 @@ class AsyncSecurityHubClient:
 
     async def accept_administrator_invitation(
         self,
-        administrator_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        invitation_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        administrator_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        invitation_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.accept_administrator_invitation_response.AcceptAdministratorInvitationResponse":
         r"""<note> <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html\">Managing Security Hub CSPM administrator and member accounts with Organizations</a> in the <i>Security Hub CSPM User Guide</i>.</p> </note> <p>Accepts the invitation to be a member account and be monitored by the Security Hub CSPM administrator account that the invitation was sent from.</p> <p>This operation is only used by member accounts that are not added through Organizations.</p> <p>When the member account accepts the invitation, permission is granted to the administrator account to view findings generated in the member account.</p>
 
@@ -482,8 +486,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.accept_administrator_invitation_request.AcceptAdministratorInvitationRequest = {}  # type: ignore[typeddict-item]
-        input_["administrator_id"] = administrator_id
-        input_["invitation_id"] = invitation_id
+        if administrator_id is not None:
+            input_["administrator_id"] = administrator_id
+        if invitation_id is not None:
+            input_["invitation_id"] = invitation_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -494,10 +500,14 @@ class AsyncSecurityHubClient:
 
     async def accept_invitation(
         self,
-        master_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        invitation_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        master_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        invitation_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.accept_invitation_response.AcceptInvitationResponse":
         """<p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p> <p>The Security Hub CSPM console continues to use <code>AcceptInvitation</code>. It will eventually change to use <code>AcceptAdministratorInvitation</code>. Any IAM policies that specifically control access to this function must continue to use <code>AcceptInvitation</code>. You should also add <code>AcceptAdministratorInvitation</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>AcceptAdministratorInvitation</code>.</p> <p>Accepts the invitation to be a member account and be monitored by the Security Hub CSPM administrator account that the invitation was sent from.</p> <p>This operation is only used by member accounts that are not added through Organizations.</p> <p>When the member account accepts the invitation, permission is granted to the administrator account to view findings generated in the member account.</p>
 
@@ -531,8 +541,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
-        input_["master_id"] = master_id
-        input_["invitation_id"] = invitation_id
+        if master_id is not None:
+            input_["master_id"] = master_id
+        if invitation_id is not None:
+            input_["invitation_id"] = invitation_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -543,9 +555,11 @@ class AsyncSecurityHubClient:
 
     async def batch_delete_automation_rules(
         self,
-        automation_rules_arns: "capo_securityhub.types.automation_rules_arns_list.AutomationRulesArnsList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        automation_rules_arns: Optional[
+            "capo_securityhub.types.automation_rules_arns_list.AutomationRulesArnsList"
+        ] = None,
     ) -> "capo_securityhub.types.batch_delete_automation_rules_response.BatchDeleteAutomationRulesResponse":
         """<p> Deletes one or more automation rules. </p>
 
@@ -584,7 +598,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_delete_automation_rules_request.BatchDeleteAutomationRulesRequest = {}  # type: ignore[typeddict-item]
-        input_["automation_rules_arns"] = automation_rules_arns
+        if automation_rules_arns is not None:
+            input_["automation_rules_arns"] = automation_rules_arns
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -595,9 +610,11 @@ class AsyncSecurityHubClient:
 
     async def batch_disable_standards(
         self,
-        standards_subscription_arns: "capo_securityhub.types.standards_subscription_arns.StandardsSubscriptionArns",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        standards_subscription_arns: Optional[
+            "capo_securityhub.types.standards_subscription_arns.StandardsSubscriptionArns"
+        ] = None,
     ) -> "capo_securityhub.types.batch_disable_standards_response.BatchDisableStandardsResponse":
         r"""<p>Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Security Standards</a> section of the <i>Security Hub CSPM User Guide</i>.</p>
 
@@ -636,7 +653,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_disable_standards_request.BatchDisableStandardsRequest = {}  # type: ignore[typeddict-item]
-        input_["standards_subscription_arns"] = standards_subscription_arns
+        if standards_subscription_arns is not None:
+            input_["standards_subscription_arns"] = standards_subscription_arns
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -647,9 +665,11 @@ class AsyncSecurityHubClient:
 
     async def batch_enable_standards(
         self,
-        standards_subscription_requests: "capo_securityhub.types.standards_subscription_requests.StandardsSubscriptionRequests",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        standards_subscription_requests: Optional[
+            "capo_securityhub.types.standards_subscription_requests.StandardsSubscriptionRequests"
+        ] = None,
     ) -> "capo_securityhub.types.batch_enable_standards_response.BatchEnableStandardsResponse":
         r"""<p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the ARN for a standard, use the <code>DescribeStandards</code> operation.</p> <p>For more information, see the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Security Standards</a> section of the <i>Security Hub CSPM User Guide</i>.</p>
 
@@ -688,7 +708,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_enable_standards_request.BatchEnableStandardsRequest = {}  # type: ignore[typeddict-item]
-        input_["standards_subscription_requests"] = standards_subscription_requests
+        if standards_subscription_requests is not None:
+            input_["standards_subscription_requests"] = standards_subscription_requests
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -699,9 +720,11 @@ class AsyncSecurityHubClient:
 
     async def batch_get_automation_rules(
         self,
-        automation_rules_arns: "capo_securityhub.types.automation_rules_arns_list.AutomationRulesArnsList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        automation_rules_arns: Optional[
+            "capo_securityhub.types.automation_rules_arns_list.AutomationRulesArnsList"
+        ] = None,
     ) -> "capo_securityhub.types.batch_get_automation_rules_response.BatchGetAutomationRulesResponse":
         """<p> Retrieves a list of details for automation rules based on rule Amazon Resource Names (ARNs). </p>
 
@@ -741,7 +764,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_get_automation_rules_request.BatchGetAutomationRulesRequest = {}  # type: ignore[typeddict-item]
-        input_["automation_rules_arns"] = automation_rules_arns
+        if automation_rules_arns is not None:
+            input_["automation_rules_arns"] = automation_rules_arns
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -752,9 +776,11 @@ class AsyncSecurityHubClient:
 
     async def batch_get_configuration_policy_associations(
         self,
-        configuration_policy_association_identifiers: "capo_securityhub.types.configuration_policy_associations_list.ConfigurationPolicyAssociationsList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        configuration_policy_association_identifiers: Optional[
+            "capo_securityhub.types.configuration_policy_associations_list.ConfigurationPolicyAssociationsList"
+        ] = None,
     ) -> "capo_securityhub.types.batch_get_configuration_policy_associations_response.BatchGetConfigurationPolicyAssociationsResponse":
         """<p> Returns associations between an Security Hub CSPM configuration and a batch of target accounts, organizational units, or the root. Only the Security Hub CSPM delegated administrator can invoke this operation from the home Region. A configuration can refer to a configuration policy or to a self-managed configuration. </p>
 
@@ -794,9 +820,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_get_configuration_policy_associations_request.BatchGetConfigurationPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["configuration_policy_association_identifiers"] = (
-            configuration_policy_association_identifiers
-        )
+        if configuration_policy_association_identifiers is not None:
+            input_["configuration_policy_association_identifiers"] = (
+                configuration_policy_association_identifiers
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -807,9 +834,11 @@ class AsyncSecurityHubClient:
 
     async def batch_get_security_controls(
         self,
-        security_control_ids: "capo_securityhub.types.string_list.StringList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        security_control_ids: Optional[
+            "capo_securityhub.types.string_list.StringList"
+        ] = None,
     ) -> "capo_securityhub.types.batch_get_security_controls_response.BatchGetSecurityControlsResponse":
         """<p> Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region. </p>
 
@@ -847,7 +876,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_get_security_controls_request.BatchGetSecurityControlsRequest = {}  # type: ignore[typeddict-item]
-        input_["security_control_ids"] = security_control_ids
+        if security_control_ids is not None:
+            input_["security_control_ids"] = security_control_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -858,9 +888,11 @@ class AsyncSecurityHubClient:
 
     async def batch_get_standards_control_associations(
         self,
-        standards_control_association_ids: "capo_securityhub.types.standards_control_association_ids.StandardsControlAssociationIds",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        standards_control_association_ids: Optional[
+            "capo_securityhub.types.standards_control_association_ids.StandardsControlAssociationIds"
+        ] = None,
     ) -> "capo_securityhub.types.batch_get_standards_control_associations_response.BatchGetStandardsControlAssociationsResponse":
         """<p> For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard. </p> <p> Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the association has a <code>NOT_READY_FOR_UPDATES</code> value for <code>StandardsControlsUpdatable</code>. </p>
 
@@ -892,7 +924,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_get_standards_control_associations_request.BatchGetStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["standards_control_association_ids"] = standards_control_association_ids
+        if standards_control_association_ids is not None:
+            input_["standards_control_association_ids"] = (
+                standards_control_association_ids
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -903,9 +938,11 @@ class AsyncSecurityHubClient:
 
     async def batch_import_findings(
         self,
-        findings: "capo_securityhub.types.batch_import_findings_request_finding_list.BatchImportFindingsRequestFindingList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        findings: Optional[
+            "capo_securityhub.types.batch_import_findings_request_finding_list.BatchImportFindingsRequestFindingList"
+        ] = None,
     ) -> "capo_securityhub.types.batch_import_findings_response.BatchImportFindingsResponse":
         r"""<p>Imports security findings generated by a finding provider into Security Hub CSPM. This action is requested by the finding provider to import its findings into Security Hub CSPM.</p> <p> <code>BatchImportFindings</code> must be called by one of the following:</p> <ul> <li> <p>The Amazon Web Services account that is associated with a finding if you are using the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs\">default product ARN</a> or are a partner sending findings from within a customer's Amazon Web Services account. In these cases, the identifier of the account that you are calling <code>BatchImportFindings</code> from needs to be the same as the <code>AwsAccountId</code> attribute for the finding.</p> </li> <li> <p>An Amazon Web Services account that Security Hub CSPM has allow-listed for an official partner integration. In this case, you can call <code>BatchImportFindings</code> from the allow-listed account and send findings from different customer accounts in the same batch.</p> </li> </ul> <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding larger than 240 Kb.</p> <p>After a finding is created, <code>BatchImportFindings</code> cannot be used to update the following finding fields and objects, which Security Hub CSPM customers use to manage their investigation workflow.</p> <ul> <li> <p> <code>Note</code> </p> </li> <li> <p> <code>UserDefinedFields</code> </p> </li> <li> <p> <code>VerificationState</code> </p> </li> <li> <p> <code>Workflow</code> </p> </li> </ul> <p>Finding providers also should not use <code>BatchImportFindings</code> to update the following attributes.</p> <ul> <li> <p> <code>Confidence</code> </p> </li> <li> <p> <code>Criticality</code> </p> </li> <li> <p> <code>RelatedFindings</code> </p> </li> <li> <p> <code>Severity</code> </p> </li> <li> <p> <code>Types</code> </p> </li> </ul> <p>Instead, finding providers use <code>FindingProviderFields</code> to provide values for these attributes.</p>
 
@@ -943,7 +980,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_import_findings_request.BatchImportFindingsRequest = {}  # type: ignore[typeddict-item]
-        input_["findings"] = findings
+        if findings is not None:
+            input_["findings"] = findings
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -954,9 +992,11 @@ class AsyncSecurityHubClient:
 
     async def batch_update_automation_rules(
         self,
-        update_automation_rules_request_items: "capo_securityhub.types.update_automation_rules_request_items_list.UpdateAutomationRulesRequestItemsList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        update_automation_rules_request_items: Optional[
+            "capo_securityhub.types.update_automation_rules_request_items_list.UpdateAutomationRulesRequestItemsList"
+        ] = None,
     ) -> "capo_securityhub.types.batch_update_automation_rules_response.BatchUpdateAutomationRulesResponse":
         """<p> Updates one or more automation rules based on rule Amazon Resource Names (ARNs) and input parameters. </p>
 
@@ -995,9 +1035,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_update_automation_rules_request.BatchUpdateAutomationRulesRequest = {}  # type: ignore[typeddict-item]
-        input_["update_automation_rules_request_items"] = (
-            update_automation_rules_request_items
-        )
+        if update_automation_rules_request_items is not None:
+            input_["update_automation_rules_request_items"] = (
+                update_automation_rules_request_items
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1008,9 +1049,11 @@ class AsyncSecurityHubClient:
 
     async def batch_update_findings(
         self,
-        finding_identifiers: "capo_securityhub.types.aws_security_finding_identifier_list.AwsSecurityFindingIdentifierList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        finding_identifiers: Optional[
+            "capo_securityhub.types.aws_security_finding_identifier_list.AwsSecurityFindingIdentifierList"
+        ] = None,
         note: Optional["capo_securityhub.types.note_update.NoteUpdate"] = None,
         severity: Optional[
             "capo_securityhub.types.severity_update.SeverityUpdate"
@@ -1075,7 +1118,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_update_findings_request.BatchUpdateFindingsRequest = {}  # type: ignore[typeddict-item]
-        input_["finding_identifiers"] = finding_identifiers
+        if finding_identifiers is not None:
+            input_["finding_identifiers"] = finding_identifiers
         if note is not None:
             input_["note"] = note
         if severity is not None:
@@ -1173,9 +1217,11 @@ class AsyncSecurityHubClient:
 
     async def batch_update_standards_control_associations(
         self,
-        standards_control_association_updates: "capo_securityhub.types.standards_control_association_updates.StandardsControlAssociationUpdates",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        standards_control_association_updates: Optional[
+            "capo_securityhub.types.standards_control_association_updates.StandardsControlAssociationUpdates"
+        ] = None,
     ) -> "capo_securityhub.types.batch_update_standards_control_associations_response.BatchUpdateStandardsControlAssociationsResponse":
         """<p> For a batch of security controls and standards, this operation updates the enablement status of a control in a standard. </p>
 
@@ -1214,9 +1260,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.batch_update_standards_control_associations_request.BatchUpdateStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["standards_control_association_updates"] = (
-            standards_control_association_updates
-        )
+        if standards_control_association_updates is not None:
+            input_["standards_control_association_updates"] = (
+                standards_control_association_updates
+            )
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1227,11 +1274,13 @@ class AsyncSecurityHubClient:
 
     async def create_action_target(
         self,
-        name: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        description: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        name: Optional["capo_securityhub.types.non_empty_string.NonEmptyString"] = None,
+        description: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        id: Optional["capo_securityhub.types.non_empty_string.NonEmptyString"] = None,
     ) -> "capo_securityhub.types.create_action_target_response.CreateActionTargetResponse":
         """<p>Creates a custom action target in Security Hub CSPM.</p> <p>You can use custom actions on findings and insights in Security Hub CSPM to trigger target actions in Amazon CloudWatch Events.</p>
 
@@ -1272,9 +1321,12 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_action_target_request.CreateActionTargetRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["description"] = description
-        input_["id"] = id
+        if name is not None:
+            input_["name"] = name
+        if description is not None:
+            input_["description"] = description
+        if id is not None:
+            input_["id"] = id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1285,9 +1337,11 @@ class AsyncSecurityHubClient:
 
     async def create_aggregator_v2(
         self,
-        region_linking_mode: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        region_linking_mode: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         linked_regions: Optional[
             "capo_securityhub.types.string_list.StringList"
         ] = None,
@@ -1332,7 +1386,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_aggregator_v2_request.CreateAggregatorV2Request = {}  # type: ignore[typeddict-item]
-        input_["region_linking_mode"] = region_linking_mode
+        if region_linking_mode is not None:
+            input_["region_linking_mode"] = region_linking_mode
         if linked_regions is not None:
             input_["linked_regions"] = linked_regions
         if tags is not None:
@@ -1349,16 +1404,24 @@ class AsyncSecurityHubClient:
 
     async def create_automation_rule(
         self,
-        rule_order: "capo_securityhub.types.rule_order_value.RuleOrderValue",
-        rule_name: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        description: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        criteria: "capo_securityhub.types.automation_rules_finding_filters.AutomationRulesFindingFilters",
-        actions: "capo_securityhub.types.action_list.ActionList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
         tags: Optional["capo_securityhub.types.tag_map.TagMap"] = None,
         rule_status: Optional["capo_securityhub.types.rule_status.RuleStatus"] = None,
+        rule_order: Optional[
+            "capo_securityhub.types.rule_order_value.RuleOrderValue"
+        ] = None,
+        rule_name: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        description: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         is_terminal: Optional["capo_securityhub.types.boolean.Boolean"] = None,
+        criteria: Optional[
+            "capo_securityhub.types.automation_rules_finding_filters.AutomationRulesFindingFilters"
+        ] = None,
+        actions: Optional["capo_securityhub.types.action_list.ActionList"] = None,
     ) -> "capo_securityhub.types.create_automation_rule_response.CreateAutomationRuleResponse":
         r"""<p> Creates an automation rule based on input parameters. </p>
 
@@ -1408,13 +1471,18 @@ class AsyncSecurityHubClient:
             input_["tags"] = tags
         if rule_status is not None:
             input_["rule_status"] = rule_status
-        input_["rule_order"] = rule_order
-        input_["rule_name"] = rule_name
-        input_["description"] = description
+        if rule_order is not None:
+            input_["rule_order"] = rule_order
+        if rule_name is not None:
+            input_["rule_name"] = rule_name
+        if description is not None:
+            input_["description"] = description
         if is_terminal is not None:
             input_["is_terminal"] = is_terminal
-        input_["criteria"] = criteria
-        input_["actions"] = actions
+        if criteria is not None:
+            input_["criteria"] = criteria
+        if actions is not None:
+            input_["actions"] = actions
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1425,15 +1493,23 @@ class AsyncSecurityHubClient:
 
     async def create_automation_rule_v2(
         self,
-        rule_name: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        description: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        rule_order: "capo_securityhub.types.rule_order_value_v2.RuleOrderValueV2",
-        criteria: "capo_securityhub.types.criteria.Criteria",
-        actions: "capo_securityhub.types.automation_rules_action_list_v2.AutomationRulesActionListV2",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        rule_name: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         rule_status: Optional[
             "capo_securityhub.types.rule_status_v2.RuleStatusV2"
+        ] = None,
+        description: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        rule_order: Optional[
+            "capo_securityhub.types.rule_order_value_v2.RuleOrderValueV2"
+        ] = None,
+        criteria: Optional["capo_securityhub.types.criteria.Criteria"] = None,
+        actions: Optional[
+            "capo_securityhub.types.automation_rules_action_list_v2.AutomationRulesActionListV2"
         ] = None,
         tags: Optional["capo_securityhub.types.tag_map.TagMap"] = None,
         client_token: Optional[
@@ -1479,13 +1555,18 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_automation_rule_v2_request.CreateAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
-        input_["rule_name"] = rule_name
+        if rule_name is not None:
+            input_["rule_name"] = rule_name
         if rule_status is not None:
             input_["rule_status"] = rule_status
-        input_["description"] = description
-        input_["rule_order"] = rule_order
-        input_["criteria"] = criteria
-        input_["actions"] = actions
+        if description is not None:
+            input_["description"] = description
+        if rule_order is not None:
+            input_["rule_order"] = rule_order
+        if criteria is not None:
+            input_["criteria"] = criteria
+        if actions is not None:
+            input_["actions"] = actions
         if tags is not None:
             input_["tags"] = tags
         if client_token is not None:
@@ -1500,13 +1581,13 @@ class AsyncSecurityHubClient:
 
     async def create_configuration_policy(
         self,
-        name: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        configuration_policy: "capo_securityhub.types.policy.Policy",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        name: Optional["capo_securityhub.types.non_empty_string.NonEmptyString"] = None,
         description: Optional[
             "capo_securityhub.types.non_empty_string.NonEmptyString"
         ] = None,
+        configuration_policy: Optional["capo_securityhub.types.policy.Policy"] = None,
         tags: Optional["capo_securityhub.types.tag_map.TagMap"] = None,
     ) -> "capo_securityhub.types.create_configuration_policy_response.CreateConfigurationPolicyResponse":
         r"""<p> Creates a configuration policy with the defined configuration. Only the Security Hub CSPM delegated administrator can invoke this operation from the home Region. </p>
@@ -1550,10 +1631,12 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_configuration_policy_request.CreateConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
-        input_["configuration_policy"] = configuration_policy
+        if configuration_policy is not None:
+            input_["configuration_policy"] = configuration_policy
         if tags is not None:
             input_["tags"] = tags
 
@@ -1566,12 +1649,14 @@ class AsyncSecurityHubClient:
 
     async def create_connector_v2(
         self,
-        name: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        provider: "capo_securityhub.types.provider_configuration.ProviderConfiguration",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        name: Optional["capo_securityhub.types.non_empty_string.NonEmptyString"] = None,
         description: Optional[
             "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        provider: Optional[
+            "capo_securityhub.types.provider_configuration.ProviderConfiguration"
         ] = None,
         kms_key_arn: Optional[
             "capo_securityhub.types.non_empty_string.NonEmptyString"
@@ -1621,10 +1706,12 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_connector_v2_request.CreateConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        if name is not None:
+            input_["name"] = name
         if description is not None:
             input_["description"] = description
-        input_["provider"] = provider
+        if provider is not None:
+            input_["provider"] = provider
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
@@ -1641,9 +1728,11 @@ class AsyncSecurityHubClient:
 
     async def create_finding_aggregator(
         self,
-        region_linking_mode: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        region_linking_mode: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         regions: Optional["capo_securityhub.types.string_list.StringList"] = None,
     ) -> "capo_securityhub.types.create_finding_aggregator_response.CreateFindingAggregatorResponse":
         r"""<note> <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p> </note> <p>Used to enable cross-Region aggregation. This operation can be invoked from the home Region only.</p> <p>For information about how cross-Region aggregation works, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html\">Understanding cross-Region aggregation in Security Hub CSPM</a> in the <i>Security Hub CSPM User Guide</i>. </p>
@@ -1684,7 +1773,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_finding_aggregator_request.CreateFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input_["region_linking_mode"] = region_linking_mode
+        if region_linking_mode is not None:
+            input_["region_linking_mode"] = region_linking_mode
         if regions is not None:
             input_["regions"] = regions
 
@@ -1697,11 +1787,15 @@ class AsyncSecurityHubClient:
 
     async def create_insight(
         self,
-        name: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        filters: "capo_securityhub.types.aws_security_finding_filters.AwsSecurityFindingFilters",
-        group_by_attribute: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        name: Optional["capo_securityhub.types.non_empty_string.NonEmptyString"] = None,
+        filters: Optional[
+            "capo_securityhub.types.aws_security_finding_filters.AwsSecurityFindingFilters"
+        ] = None,
+        group_by_attribute: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.create_insight_response.CreateInsightResponse":
         """<p>Creates a custom insight in Security Hub CSPM. An insight is a consolidation of findings that relate to a security issue that requires attention or remediation.</p> <p>To group the related findings in the insight, use the <code>GroupByAttribute</code>.</p>
 
@@ -1742,9 +1836,12 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_insight_request.CreateInsightRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["filters"] = filters
-        input_["group_by_attribute"] = group_by_attribute
+        if name is not None:
+            input_["name"] = name
+        if filters is not None:
+            input_["filters"] = filters
+        if group_by_attribute is not None:
+            input_["group_by_attribute"] = group_by_attribute
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1755,9 +1852,11 @@ class AsyncSecurityHubClient:
 
     async def create_members(
         self,
-        account_details: "capo_securityhub.types.account_details_list.AccountDetailsList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_details: Optional[
+            "capo_securityhub.types.account_details_list.AccountDetailsList"
+        ] = None,
     ) -> "capo_securityhub.types.create_members_response.CreateMembersResponse":
         """<p>Creates a member association in Security Hub CSPM between the specified accounts and the account used to make the request, which is the administrator account. If you are integrated with Organizations, then the administrator account is designated by the organization management account.</p> <p> <code>CreateMembers</code> is always used to add accounts that are not organization members.</p> <p>For accounts that are managed using Organizations, <code>CreateMembers</code> is only used in the following cases:</p> <ul> <li> <p>Security Hub CSPM is not configured to automatically add new organization accounts.</p> </li> <li> <p>The account was disassociated or deleted in Security Hub CSPM.</p> </li> </ul> <p>This action can only be used by an account that has Security Hub CSPM enabled. To enable Security Hub CSPM, you can use the <code>EnableSecurityHub</code> operation.</p> <p>For accounts that are not organization members, you create the account association and then send an invitation to the member account. To send the invitation, you use the <code>InviteMembers</code> operation. If the account owner accepts the invitation, the account becomes a member account in Security Hub CSPM.</p> <p>Accounts that are managed using Organizations don't receive an invitation. They automatically become a member account in Security Hub CSPM.</p> <ul> <li> <p>If the organization account does not have Security Hub CSPM enabled, then Security Hub CSPM and the default standards are automatically enabled. Note that Security Hub CSPM cannot be enabled automatically for the organization management account. The organization management account must enable Security Hub CSPM before the administrator account enables it as a member account.</p> </li> <li> <p>For organization accounts that already have Security Hub CSPM enabled, Security Hub CSPM does not make any other changes to those accounts. It does not change their enabled standards or controls.</p> </li> </ul> <p>A permissions policy is added that permits the administrator account to view the findings generated in the member account.</p> <p>To remove the association between the administrator and member accounts, use the <code>DisassociateFromMasterAccount</code> or <code>DisassociateMembers</code> operation.</p>
 
@@ -1797,7 +1896,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
-        input_["account_details"] = account_details
+        if account_details is not None:
+            input_["account_details"] = account_details
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1808,10 +1908,14 @@ class AsyncSecurityHubClient:
 
     async def create_ticket_v2(
         self,
-        connector_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        finding_metadata_uid: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        connector_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        finding_metadata_uid: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         client_token: Optional[
             "capo_securityhub.types.client_token.ClientToken"
         ] = None,
@@ -1854,8 +1958,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.create_ticket_v2_request.CreateTicketV2Request = {}  # type: ignore[typeddict-item]
-        input_["connector_id"] = connector_id
-        input_["finding_metadata_uid"] = finding_metadata_uid
+        if connector_id is not None:
+            input_["connector_id"] = connector_id
+        if finding_metadata_uid is not None:
+            input_["finding_metadata_uid"] = finding_metadata_uid
         if client_token is not None:
             input_["client_token"] = client_token
         if mode is not None:
@@ -1870,9 +1976,11 @@ class AsyncSecurityHubClient:
 
     async def decline_invitations(
         self,
-        account_ids: "capo_securityhub.types.account_id_list.AccountIdList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_ids: Optional[
+            "capo_securityhub.types.account_id_list.AccountIdList"
+        ] = None,
     ) -> (
         "capo_securityhub.types.decline_invitations_response.DeclineInvitationsResponse"
     ):
@@ -1912,7 +2020,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2276,9 +2385,11 @@ class AsyncSecurityHubClient:
 
     async def delete_invitations(
         self,
-        account_ids: "capo_securityhub.types.account_id_list.AccountIdList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_ids: Optional[
+            "capo_securityhub.types.account_id_list.AccountIdList"
+        ] = None,
     ) -> "capo_securityhub.types.delete_invitations_response.DeleteInvitationsResponse":
         r"""<note> <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html\">Managing Security Hub CSPM administrator and member accounts with Organizations</a> in the <i>Security Hub CSPM User Guide</i>.</p> </note> <p>Deletes invitations to become a Security Hub CSPM member account.</p> <p>A Security Hub CSPM administrator account can use this operation to delete invitations sent to one or more prospective member accounts.</p> <p>This operation is only used to delete invitations that are sent to prospective member accounts that aren't part of an Amazon Web Services organization. Organization accounts don't receive invitations.</p>
 
@@ -2317,7 +2428,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2328,9 +2440,11 @@ class AsyncSecurityHubClient:
 
     async def delete_members(
         self,
-        account_ids: "capo_securityhub.types.account_id_list.AccountIdList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_ids: Optional[
+            "capo_securityhub.types.account_id_list.AccountIdList"
+        ] = None,
     ) -> "capo_securityhub.types.delete_members_response.DeleteMembersResponse":
         """<p>Deletes the specified member accounts from Security Hub CSPM.</p> <p>You can invoke this API only to delete accounts that became members through invitation. You can't invoke this API to delete accounts that belong to an Organizations organization.</p>
 
@@ -2369,7 +2483,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2963,9 +3078,11 @@ class AsyncSecurityHubClient:
 
     async def disable_organization_admin_account(
         self,
-        admin_account_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        admin_account_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         feature: Optional[
             "capo_securityhub.types.security_hub_feature.SecurityHubFeature"
         ] = None,
@@ -3008,7 +3125,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["admin_account_id"] = admin_account_id
+        if admin_account_id is not None:
+            input_["admin_account_id"] = admin_account_id
         if feature is not None:
             input_["feature"] = feature
 
@@ -3188,9 +3306,11 @@ class AsyncSecurityHubClient:
 
     async def disassociate_members(
         self,
-        account_ids: "capo_securityhub.types.account_id_list.AccountIdList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_ids: Optional[
+            "capo_securityhub.types.account_id_list.AccountIdList"
+        ] = None,
     ) -> "capo_securityhub.types.disassociate_members_response.DisassociateMembersResponse":
         """<p>Disassociates the specified member accounts from the associated administrator account.</p> <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that were invited manually.</p>
 
@@ -3230,7 +3350,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.disassociate_members_request.DisassociateMembersRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3241,9 +3362,11 @@ class AsyncSecurityHubClient:
 
     async def enable_import_findings_for_product(
         self,
-        product_arn: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        product_arn: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.enable_import_findings_for_product_response.EnableImportFindingsForProductResponse":
         """<p>Enables the integration of a partner product with Security Hub CSPM. Integrated products send findings to Security Hub CSPM.</p> <p>When you enable a product integration, a permissions policy that grants permission for the product to send findings to Security Hub CSPM is applied.</p>
 
@@ -3282,7 +3405,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.enable_import_findings_for_product_request.EnableImportFindingsForProductRequest = {}  # type: ignore[typeddict-item]
-        input_["product_arn"] = product_arn
+        if product_arn is not None:
+            input_["product_arn"] = product_arn
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3293,9 +3417,11 @@ class AsyncSecurityHubClient:
 
     async def enable_organization_admin_account(
         self,
-        admin_account_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        admin_account_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         feature: Optional[
             "capo_securityhub.types.security_hub_feature.SecurityHubFeature"
         ] = None,
@@ -3338,7 +3464,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input_["admin_account_id"] = admin_account_id
+        if admin_account_id is not None:
+            input_["admin_account_id"] = admin_account_id
         if feature is not None:
             input_["feature"] = feature
 
@@ -3697,9 +3824,9 @@ class AsyncSecurityHubClient:
 
     async def get_configuration_policy_association(
         self,
-        target: "capo_securityhub.types.target.Target",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        target: Optional["capo_securityhub.types.target.Target"] = None,
     ) -> "capo_securityhub.types.get_configuration_policy_association_response.GetConfigurationPolicyAssociationResponse":
         """<p> Returns the association between a configuration and a target account, organizational unit, or the root. The configuration can be a configuration policy or self-managed behavior. Only the Security Hub CSPM delegated administrator can invoke this operation from the home Region. </p>
 
@@ -3739,7 +3866,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.get_configuration_policy_association_request.GetConfigurationPolicyAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["target"] = target
+        if target is not None:
+            input_["target"] = target
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3937,9 +4065,11 @@ class AsyncSecurityHubClient:
 
     async def get_finding_history(
         self,
-        finding_identifier: "capo_securityhub.types.aws_security_finding_identifier.AwsSecurityFindingIdentifier",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        finding_identifier: Optional[
+            "capo_securityhub.types.aws_security_finding_identifier.AwsSecurityFindingIdentifier"
+        ] = None,
         start_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         end_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
@@ -3980,7 +4110,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.get_finding_history_request.GetFindingHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["finding_identifier"] = finding_identifier
+        if finding_identifier is not None:
+            input_["finding_identifier"] = finding_identifier
         if start_time is not None:
             input_["start_time"] = start_time
         if end_time is not None:
@@ -3999,9 +4130,11 @@ class AsyncSecurityHubClient:
 
     async def iter_get_finding_history(
         self,
-        finding_identifier: "capo_securityhub.types.aws_security_finding_identifier.AwsSecurityFindingIdentifier",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        finding_identifier: Optional[
+            "capo_securityhub.types.aws_security_finding_identifier.AwsSecurityFindingIdentifier"
+        ] = None,
         start_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         end_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
@@ -4010,8 +4143,8 @@ class AsyncSecurityHubClient:
         _token = next_token
         while True:
             _response = await self.get_finding_history(
-                finding_identifier,
                 config_overrides=config_overrides,
+                finding_identifier=finding_identifier,
                 start_time=start_time,
                 end_time=end_time,
                 next_token=_token,
@@ -4125,9 +4258,11 @@ class AsyncSecurityHubClient:
 
     async def get_finding_statistics_v2(
         self,
-        group_by_rules: "capo_securityhub.types.group_by_rules.GroupByRules",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        group_by_rules: Optional[
+            "capo_securityhub.types.group_by_rules.GroupByRules"
+        ] = None,
         scopes: Optional["capo_securityhub.types.finding_scopes.FindingScopes"] = None,
         sort_order: Optional["capo_securityhub.types.sort_order.SortOrder"] = None,
         max_statistic_results: Optional[
@@ -4170,7 +4305,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.get_finding_statistics_v2_request.GetFindingStatisticsV2Request = {}  # type: ignore[typeddict-item]
-        input_["group_by_rules"] = group_by_rules
+        if group_by_rules is not None:
+            input_["group_by_rules"] = group_by_rules
         if scopes is not None:
             input_["scopes"] = scopes
         if sort_order is not None:
@@ -4187,13 +4323,13 @@ class AsyncSecurityHubClient:
 
     async def get_findings_trends_v2(
         self,
-        start_time: "capo_securityhub.types.timestamp.Timestamp",
-        end_time: "capo_securityhub.types.timestamp.Timestamp",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
         filters: Optional[
             "capo_securityhub.types.findings_trends_filters.FindingsTrendsFilters"
         ] = None,
+        start_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
         max_results: Optional["capo_securityhub.types.max_results.MaxResults"] = None,
     ) -> "capo_securityhub.types.get_findings_trends_v2_response.GetFindingsTrendsV2Response":
@@ -4233,8 +4369,10 @@ class AsyncSecurityHubClient:
         input_: capo_securityhub.types.get_findings_trends_v2_request.GetFindingsTrendsV2Request = {}  # type: ignore[typeddict-item]
         if filters is not None:
             input_["filters"] = filters
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4249,23 +4387,23 @@ class AsyncSecurityHubClient:
 
     async def iter_get_findings_trends_v2(
         self,
-        start_time: "capo_securityhub.types.timestamp.Timestamp",
-        end_time: "capo_securityhub.types.timestamp.Timestamp",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
         filters: Optional[
             "capo_securityhub.types.findings_trends_filters.FindingsTrendsFilters"
         ] = None,
+        start_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
         max_results: Optional["capo_securityhub.types.max_results.MaxResults"] = None,
     ) -> "AsyncIterator[capo_securityhub.types.trends_metrics_result.TrendsMetricsResult]":
         _token = next_token
         while True:
             _response = await self.get_findings_trends_v2(
-                start_time,
-                end_time,
                 config_overrides=config_overrides,
                 filters=filters,
+                start_time=start_time,
+                end_time=end_time,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -4601,9 +4739,11 @@ class AsyncSecurityHubClient:
 
     async def get_members(
         self,
-        account_ids: "capo_securityhub.types.account_id_list.AccountIdList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_ids: Optional[
+            "capo_securityhub.types.account_id_list.AccountIdList"
+        ] = None,
     ) -> "capo_securityhub.types.get_members_response.GetMembersResponse":
         """<p>Returns the details for the Security Hub CSPM member accounts for the specified account IDs.</p> <p>An administrator account can be either the delegated Security Hub CSPM administrator account for an organization or an administrator account that enabled Security Hub CSPM manually.</p> <p>The results include both member accounts that are managed using Organizations and accounts that were invited manually.</p>
 
@@ -4636,7 +4776,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4725,9 +4866,11 @@ class AsyncSecurityHubClient:
 
     async def get_resources_statistics_v2(
         self,
-        group_by_rules: "capo_securityhub.types.resource_group_by_rules.ResourceGroupByRules",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        group_by_rules: Optional[
+            "capo_securityhub.types.resource_group_by_rules.ResourceGroupByRules"
+        ] = None,
         scopes: Optional[
             "capo_securityhub.types.resource_scopes.ResourceScopes"
         ] = None,
@@ -4773,7 +4916,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.get_resources_statistics_v2_request.GetResourcesStatisticsV2Request = {}  # type: ignore[typeddict-item]
-        input_["group_by_rules"] = group_by_rules
+        if group_by_rules is not None:
+            input_["group_by_rules"] = group_by_rules
         if scopes is not None:
             input_["scopes"] = scopes
         if sort_order is not None:
@@ -4790,13 +4934,13 @@ class AsyncSecurityHubClient:
 
     async def get_resources_trends_v2(
         self,
-        start_time: "capo_securityhub.types.timestamp.Timestamp",
-        end_time: "capo_securityhub.types.timestamp.Timestamp",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
         filters: Optional[
             "capo_securityhub.types.resources_trends_filters.ResourcesTrendsFilters"
         ] = None,
+        start_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
         max_results: Optional["capo_securityhub.types.max_results.MaxResults"] = None,
     ) -> "capo_securityhub.types.get_resources_trends_v2_response.GetResourcesTrendsV2Response":
@@ -4836,8 +4980,10 @@ class AsyncSecurityHubClient:
         input_: capo_securityhub.types.get_resources_trends_v2_request.GetResourcesTrendsV2Request = {}  # type: ignore[typeddict-item]
         if filters is not None:
             input_["filters"] = filters
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -4852,23 +4998,23 @@ class AsyncSecurityHubClient:
 
     async def iter_get_resources_trends_v2(
         self,
-        start_time: "capo_securityhub.types.timestamp.Timestamp",
-        end_time: "capo_securityhub.types.timestamp.Timestamp",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
         filters: Optional[
             "capo_securityhub.types.resources_trends_filters.ResourcesTrendsFilters"
         ] = None,
+        start_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_securityhub.types.timestamp.Timestamp"] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
         max_results: Optional["capo_securityhub.types.max_results.MaxResults"] = None,
     ) -> "AsyncIterator[capo_securityhub.types.resources_trends_metrics_result.ResourcesTrendsMetricsResult]":
         _token = next_token
         while True:
             _response = await self.get_resources_trends_v2(
-                start_time,
-                end_time,
                 config_overrides=config_overrides,
                 filters=filters,
+                start_time=start_time,
+                end_time=end_time,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -4986,9 +5132,11 @@ class AsyncSecurityHubClient:
 
     async def get_security_control_definition(
         self,
-        security_control_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        security_control_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.get_security_control_definition_response.GetSecurityControlDefinitionResponse":
         """<p> Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details. </p>
 
@@ -5027,7 +5175,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.get_security_control_definition_request.GetSecurityControlDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["security_control_id"] = security_control_id
+        if security_control_id is not None:
+            input_["security_control_id"] = security_control_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5038,9 +5187,11 @@ class AsyncSecurityHubClient:
 
     async def invite_members(
         self,
-        account_ids: "capo_securityhub.types.account_id_list.AccountIdList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        account_ids: Optional[
+            "capo_securityhub.types.account_id_list.AccountIdList"
+        ] = None,
     ) -> "capo_securityhub.types.invite_members_response.InviteMembersResponse":
         r"""<note> <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html\">Managing Security Hub CSPM administrator and member accounts with Organizations</a> in the <i>Security Hub CSPM User Guide</i>.</p> </note> <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub CSPM administrator account that the invitation is sent from.</p> <p>This operation is only used to invite accounts that don't belong to an Amazon Web Services organization. Organization accounts don't receive invitations.</p> <p>Before you can use this action to invite a member, you must first use the <code>CreateMembers</code> action to create the member account in Security Hub CSPM.</p> <p>When the account owner enables Security Hub CSPM and accepts the invitation to become a member account, the administrator account can view the findings generated in the member account.</p>
 
@@ -5079,7 +5230,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.invite_members_request.InviteMembersRequest = {}  # type: ignore[typeddict-item]
-        input_["account_ids"] = account_ids
+        if account_ids is not None:
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5993,9 +6145,11 @@ class AsyncSecurityHubClient:
 
     async def list_standards_control_associations(
         self,
-        security_control_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        security_control_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
         max_results: Optional["capo_securityhub.types.max_results.MaxResults"] = None,
     ) -> "capo_securityhub.types.list_standards_control_associations_response.ListStandardsControlAssociationsResponse":
@@ -6031,7 +6185,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.list_standards_control_associations_request.ListStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["security_control_id"] = security_control_id
+        if security_control_id is not None:
+            input_["security_control_id"] = security_control_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -6046,17 +6201,19 @@ class AsyncSecurityHubClient:
 
     async def iter_list_standards_control_associations(
         self,
-        security_control_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        security_control_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         next_token: Optional["capo_securityhub.types.next_token.NextToken"] = None,
         max_results: Optional["capo_securityhub.types.max_results.MaxResults"] = None,
     ) -> "AsyncIterator[capo_securityhub.types.standards_control_association_summary.StandardsControlAssociationSummary]":
         _token = next_token
         while True:
             _response = await self.list_standards_control_associations(
-                security_control_id,
                 config_overrides=config_overrides,
+                security_control_id=security_control_id,
                 next_token=_token,
                 max_results=max_results,
             )
@@ -6121,10 +6278,14 @@ class AsyncSecurityHubClient:
 
     async def register_connector_v2(
         self,
-        auth_code: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        auth_state: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        auth_code: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        auth_state: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.register_connector_v2_response.RegisterConnectorV2Response":
         """<p>Grants permission to complete the authorization based on input parameters.</p>
 
@@ -6159,8 +6320,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.register_connector_v2_request.RegisterConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input_["auth_code"] = auth_code
-        input_["auth_state"] = auth_state
+        if auth_code is not None:
+            input_["auth_code"] = auth_code
+        if auth_state is not None:
+            input_["auth_state"] = auth_state
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6171,10 +6334,12 @@ class AsyncSecurityHubClient:
 
     async def start_configuration_policy_association(
         self,
-        configuration_policy_identifier: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        target: "capo_securityhub.types.target.Target",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        configuration_policy_identifier: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        target: Optional["capo_securityhub.types.target.Target"] = None,
     ) -> "capo_securityhub.types.start_configuration_policy_association_response.StartConfigurationPolicyAssociationResponse":
         """<p> Associates a target account, organizational unit, or the root with a specified configuration. The target can be associated with a configuration policy or self-managed behavior. Only the Security Hub CSPM delegated administrator can invoke this operation from the home Region. </p>
 
@@ -6215,8 +6380,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.start_configuration_policy_association_request.StartConfigurationPolicyAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["configuration_policy_identifier"] = configuration_policy_identifier
-        input_["target"] = target
+        if configuration_policy_identifier is not None:
+            input_["configuration_policy_identifier"] = configuration_policy_identifier
+        if target is not None:
+            input_["target"] = target
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6227,10 +6394,12 @@ class AsyncSecurityHubClient:
 
     async def start_configuration_policy_disassociation(
         self,
-        configuration_policy_identifier: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
         target: Optional["capo_securityhub.types.target.Target"] = None,
+        configuration_policy_identifier: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
     ) -> "capo_securityhub.types.start_configuration_policy_disassociation_response.StartConfigurationPolicyDisassociationResponse":
         """<p> Disassociates a target account, organizational unit, or the root from a specified configuration. When you disassociate a configuration from its target, the target inherits the configuration of the closest parent. If there’s no configuration to inherit, the target retains its settings but becomes a self-managed account. A target can be disassociated from a configuration policy or self-managed behavior. Only the Security Hub CSPM delegated administrator can invoke this operation from the home Region. </p>
 
@@ -6273,7 +6442,8 @@ class AsyncSecurityHubClient:
         input_: capo_securityhub.types.start_configuration_policy_disassociation_request.StartConfigurationPolicyDisassociationRequest = {}  # type: ignore[typeddict-item]
         if target is not None:
             input_["target"] = target
-        input_["configuration_policy_identifier"] = configuration_policy_identifier
+        if configuration_policy_identifier is not None:
+            input_["configuration_policy_identifier"] = configuration_policy_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6285,9 +6455,9 @@ class AsyncSecurityHubClient:
     async def tag_resource(
         self,
         resource_arn: "capo_securityhub.types.resource_arn.ResourceArn",
-        tags: "capo_securityhub.types.tag_map.TagMap",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        tags: Optional["capo_securityhub.types.tag_map.TagMap"] = None,
     ) -> "capo_securityhub.types.tag_resource_response.TagResourceResponse":
         """<p>Adds one or more tags to a resource.</p>
 
@@ -6326,7 +6496,8 @@ class AsyncSecurityHubClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        if tags is not None:
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6338,9 +6509,9 @@ class AsyncSecurityHubClient:
     async def untag_resource(
         self,
         resource_arn: "capo_securityhub.types.resource_arn.ResourceArn",
-        tag_keys: "capo_securityhub.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        tag_keys: Optional["capo_securityhub.types.tag_key_list.TagKeyList"] = None,
     ) -> "capo_securityhub.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes one or more tags from a resource.</p>
 
@@ -6379,7 +6550,8 @@ class AsyncSecurityHubClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6452,9 +6624,11 @@ class AsyncSecurityHubClient:
     async def update_aggregator_v2(
         self,
         aggregator_v2_arn: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        region_linking_mode: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        region_linking_mode: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         linked_regions: Optional[
             "capo_securityhub.types.string_list.StringList"
         ] = None,
@@ -6494,7 +6668,8 @@ class AsyncSecurityHubClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.update_aggregator_v2_request.UpdateAggregatorV2Request = {}  # type: ignore[typeddict-item]
         input_["aggregator_v2_arn"] = aggregator_v2_arn
-        input_["region_linking_mode"] = region_linking_mode
+        if region_linking_mode is not None:
+            input_["region_linking_mode"] = region_linking_mode
         if linked_regions is not None:
             input_["linked_regions"] = linked_regions
 
@@ -6723,10 +6898,14 @@ class AsyncSecurityHubClient:
 
     async def update_finding_aggregator(
         self,
-        finding_aggregator_arn: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        region_linking_mode: "capo_securityhub.types.non_empty_string.NonEmptyString",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        finding_aggregator_arn: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        region_linking_mode: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
         regions: Optional["capo_securityhub.types.string_list.StringList"] = None,
     ) -> "capo_securityhub.types.update_finding_aggregator_response.UpdateFindingAggregatorResponse":
         """<note> <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p> </note> <p>Updates cross-Region aggregation settings. You can use this operation to update the Region linking mode and the list of included or excluded Amazon Web Services Regions. However, you can't use this operation to change the home Region.</p> <p>You can invoke this operation from the current home Region only. </p>
@@ -6769,8 +6948,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.update_finding_aggregator_request.UpdateFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input_["finding_aggregator_arn"] = finding_aggregator_arn
-        input_["region_linking_mode"] = region_linking_mode
+        if finding_aggregator_arn is not None:
+            input_["finding_aggregator_arn"] = finding_aggregator_arn
+        if region_linking_mode is not None:
+            input_["region_linking_mode"] = region_linking_mode
         if regions is not None:
             input_["regions"] = regions
 
@@ -6783,9 +6964,11 @@ class AsyncSecurityHubClient:
 
     async def update_findings(
         self,
-        filters: "capo_securityhub.types.aws_security_finding_filters.AwsSecurityFindingFilters",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        filters: Optional[
+            "capo_securityhub.types.aws_security_finding_filters.AwsSecurityFindingFilters"
+        ] = None,
         note: Optional["capo_securityhub.types.note_update.NoteUpdate"] = None,
         record_state: Optional[
             "capo_securityhub.types.record_state.RecordState"
@@ -6824,7 +7007,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.update_findings_request.UpdateFindingsRequest = {}  # type: ignore[typeddict-item]
-        input_["filters"] = filters
+        if filters is not None:
+            input_["filters"] = filters
         if note is not None:
             input_["note"] = note
         if record_state is not None:
@@ -6907,9 +7091,9 @@ class AsyncSecurityHubClient:
 
     async def update_organization_configuration(
         self,
-        auto_enable: "capo_securityhub.types.boolean.Boolean",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        auto_enable: Optional["capo_securityhub.types.boolean.Boolean"] = None,
         auto_enable_standards: Optional[
             "capo_securityhub.types.auto_enable_standards.AutoEnableStandards"
         ] = None,
@@ -6957,7 +7141,8 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["auto_enable"] = auto_enable
+        if auto_enable is not None:
+            input_["auto_enable"] = auto_enable
         if auto_enable_standards is not None:
             input_["auto_enable_standards"] = auto_enable_standards
         if organization_configuration is not None:
@@ -6972,10 +7157,12 @@ class AsyncSecurityHubClient:
 
     async def update_security_control(
         self,
-        security_control_id: "capo_securityhub.types.non_empty_string.NonEmptyString",
-        parameters: "capo_securityhub.types.parameters.Parameters",
         *,
         config_overrides: Optional[AsyncSecurityHubClientConfig] = None,
+        security_control_id: Optional[
+            "capo_securityhub.types.non_empty_string.NonEmptyString"
+        ] = None,
+        parameters: Optional["capo_securityhub.types.parameters.Parameters"] = None,
         last_update_reason: Optional[
             "capo_securityhub.types.alpha_numeric_non_empty_string.AlphaNumericNonEmptyString"
         ] = None,
@@ -7021,8 +7208,10 @@ class AsyncSecurityHubClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_securityhub.types.update_security_control_request.UpdateSecurityControlRequest = {}  # type: ignore[typeddict-item]
-        input_["security_control_id"] = security_control_id
-        input_["parameters"] = parameters
+        if security_control_id is not None:
+            input_["security_control_id"] = security_control_id
+        if parameters is not None:
+            input_["parameters"] = parameters
         if last_update_reason is not None:
             input_["last_update_reason"] = last_update_reason
 

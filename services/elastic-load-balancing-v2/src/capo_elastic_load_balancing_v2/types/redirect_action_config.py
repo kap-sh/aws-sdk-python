@@ -46,21 +46,22 @@ class RedirectActionConfig(TypedDict, closed=True):
 def serialize_query(
     value: RedirectActionConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
     if "port" in value:
-        pairs.append((f"{prefix}.Port", str(value["port"])))
+        pairs.append((f"{key_prefix}Port", str(value["port"])))
     if "host" in value:
-        pairs.append((f"{prefix}.Host", str(value["host"])))
+        pairs.append((f"{key_prefix}Host", str(value["host"])))
     if "path" in value:
-        pairs.append((f"{prefix}.Path", str(value["path"])))
+        pairs.append((f"{key_prefix}Path", str(value["path"])))
     if "query" in value:
-        pairs.append((f"{prefix}.Query", str(value["query"])))
+        pairs.append((f"{key_prefix}Query", str(value["query"])))
     if "status_code" in value:
         import capo_elastic_load_balancing_v2.types.redirect_action_status_code_enum
 
         capo_elastic_load_balancing_v2.types.redirect_action_status_code_enum.serialize_query(
-            value["status_code"], pairs, f"{prefix}.StatusCode"
+            value["status_code"], pairs, f"{key_prefix}StatusCode"
         )
 
 

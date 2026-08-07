@@ -25,14 +25,15 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_identifier" in value:
         pairs.append(
-            (f"{prefix}.ResourceIdentifier", str(value["resource_identifier"]))
+            (f"{key_prefix}ResourceIdentifier", str(value["resource_identifier"]))
         )
     if "apply_action" in value:
-        pairs.append((f"{prefix}.ApplyAction", str(value["apply_action"])))
+        pairs.append((f"{key_prefix}ApplyAction", str(value["apply_action"])))
     if "opt_in_type" in value:
-        pairs.append((f"{prefix}.OptInType", str(value["opt_in_type"])))
+        pairs.append((f"{key_prefix}OptInType", str(value["opt_in_type"])))
 
 
 def deserialize_query(el: Element) -> ApplyPendingMaintenanceActionMessage:

@@ -68,60 +68,65 @@ class GetHookResultOutput(TypedDict, closed=True):
 def serialize_query(
     value: GetHookResultOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hook_result_id" in value:
-        pairs.append((f"{prefix}.HookResultId", str(value["hook_result_id"])))
+        pairs.append((f"{key_prefix}HookResultId", str(value["hook_result_id"])))
     if "invocation_point" in value:
         import capo_cloudformation.types.hook_invocation_point
 
         capo_cloudformation.types.hook_invocation_point.serialize_query(
-            value["invocation_point"], pairs, f"{prefix}.InvocationPoint"
+            value["invocation_point"], pairs, f"{key_prefix}InvocationPoint"
         )
     if "failure_mode" in value:
         import capo_cloudformation.types.hook_failure_mode
 
         capo_cloudformation.types.hook_failure_mode.serialize_query(
-            value["failure_mode"], pairs, f"{prefix}.FailureMode"
+            value["failure_mode"], pairs, f"{key_prefix}FailureMode"
         )
     if "type_name" in value:
-        pairs.append((f"{prefix}.TypeName", str(value["type_name"])))
+        pairs.append((f"{key_prefix}TypeName", str(value["type_name"])))
     if "original_type_name" in value:
-        pairs.append((f"{prefix}.OriginalTypeName", str(value["original_type_name"])))
+        pairs.append(
+            (f"{key_prefix}OriginalTypeName", str(value["original_type_name"]))
+        )
     if "type_version_id" in value:
-        pairs.append((f"{prefix}.TypeVersionId", str(value["type_version_id"])))
+        pairs.append((f"{key_prefix}TypeVersionId", str(value["type_version_id"])))
     if "type_configuration_version_id" in value:
         pairs.append(
             (
-                f"{prefix}.TypeConfigurationVersionId",
+                f"{key_prefix}TypeConfigurationVersionId",
                 str(value["type_configuration_version_id"]),
             )
         )
     if "type_arn" in value:
-        pairs.append((f"{prefix}.TypeArn", str(value["type_arn"])))
+        pairs.append((f"{key_prefix}TypeArn", str(value["type_arn"])))
     if "status" in value:
         import capo_cloudformation.types.hook_status
 
         capo_cloudformation.types.hook_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "hook_status_reason" in value:
-        pairs.append((f"{prefix}.HookStatusReason", str(value["hook_status_reason"])))
+        pairs.append(
+            (f"{key_prefix}HookStatusReason", str(value["hook_status_reason"]))
+        )
     if "invoked_at" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["invoked_at"], pairs, f"{prefix}.InvokedAt"
+            value["invoked_at"], pairs, f"{key_prefix}InvokedAt"
         )
     if "target" in value:
         import capo_cloudformation.types.hook_target
 
         capo_cloudformation.types.hook_target.serialize_query(
-            value["target"], pairs, f"{prefix}.Target"
+            value["target"], pairs, f"{key_prefix}Target"
         )
     if "annotations" in value:
         import capo_cloudformation.types.annotation_list
 
         capo_cloudformation.types.annotation_list.serialize_query(
-            value["annotations"], pairs, f"{prefix}.Annotations"
+            value["annotations"], pairs, f"{key_prefix}Annotations"
         )
 
 

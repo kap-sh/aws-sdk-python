@@ -25,11 +25,12 @@ class DeleteApplicationMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteApplicationMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
     if "terminate_env_by_force" in value:
         pairs.append(
             (
-                f"{prefix}.TerminateEnvByForce",
+                f"{key_prefix}TerminateEnvByForce",
                 "true" if value["terminate_env_by_force"] else "false",
             )
         )

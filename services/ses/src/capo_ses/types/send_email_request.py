@@ -46,36 +46,39 @@ class SendEmailRequest(TypedDict, closed=True):
 def serialize_query(
     value: SendEmailRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Source", str(value["source"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Source", str(value["source"])))
     import capo_ses.types.destination
 
     capo_ses.types.destination.serialize_query(
-        value["destination"], pairs, f"{prefix}.Destination"
+        value["destination"], pairs, f"{key_prefix}Destination"
     )
     import capo_ses.types.message
 
-    capo_ses.types.message.serialize_query(value["message"], pairs, f"{prefix}.Message")
+    capo_ses.types.message.serialize_query(
+        value["message"], pairs, f"{key_prefix}Message"
+    )
     if "reply_to_addresses" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["reply_to_addresses"], pairs, f"{prefix}.ReplyToAddresses"
+            value["reply_to_addresses"], pairs, f"{key_prefix}ReplyToAddresses"
         )
     if "return_path" in value:
-        pairs.append((f"{prefix}.ReturnPath", str(value["return_path"])))
+        pairs.append((f"{key_prefix}ReturnPath", str(value["return_path"])))
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "return_path_arn" in value:
-        pairs.append((f"{prefix}.ReturnPathArn", str(value["return_path_arn"])))
+        pairs.append((f"{key_prefix}ReturnPathArn", str(value["return_path_arn"])))
     if "tags" in value:
         import capo_ses.types.message_tag_list
 
         capo_ses.types.message_tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "configuration_set_name" in value:
         pairs.append(
-            (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+            (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
         )
 
 

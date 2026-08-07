@@ -21,15 +21,16 @@ class ClusterSecurityGroupMembership(TypedDict, closed=True):
 def serialize_query(
     value: ClusterSecurityGroupMembership, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cluster_security_group_name" in value:
         pairs.append(
             (
-                f"{prefix}.ClusterSecurityGroupName",
+                f"{key_prefix}ClusterSecurityGroupName",
                 str(value["cluster_security_group_name"]),
             )
         )
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
 
 
 def deserialize_query(el: Element) -> ClusterSecurityGroupMembership:

@@ -51,38 +51,39 @@ class SendTemplatedEmailRequest(TypedDict, closed=True):
 def serialize_query(
     value: SendTemplatedEmailRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Source", str(value["source"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Source", str(value["source"])))
     import capo_ses.types.destination
 
     capo_ses.types.destination.serialize_query(
-        value["destination"], pairs, f"{prefix}.Destination"
+        value["destination"], pairs, f"{key_prefix}Destination"
     )
     if "reply_to_addresses" in value:
         import capo_ses.types.address_list
 
         capo_ses.types.address_list.serialize_query(
-            value["reply_to_addresses"], pairs, f"{prefix}.ReplyToAddresses"
+            value["reply_to_addresses"], pairs, f"{key_prefix}ReplyToAddresses"
         )
     if "return_path" in value:
-        pairs.append((f"{prefix}.ReturnPath", str(value["return_path"])))
+        pairs.append((f"{key_prefix}ReturnPath", str(value["return_path"])))
     if "source_arn" in value:
-        pairs.append((f"{prefix}.SourceArn", str(value["source_arn"])))
+        pairs.append((f"{key_prefix}SourceArn", str(value["source_arn"])))
     if "return_path_arn" in value:
-        pairs.append((f"{prefix}.ReturnPathArn", str(value["return_path_arn"])))
+        pairs.append((f"{key_prefix}ReturnPathArn", str(value["return_path_arn"])))
     if "tags" in value:
         import capo_ses.types.message_tag_list
 
         capo_ses.types.message_tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
     if "configuration_set_name" in value:
         pairs.append(
-            (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+            (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
         )
-    pairs.append((f"{prefix}.Template", str(value["template"])))
+    pairs.append((f"{key_prefix}Template", str(value["template"])))
     if "template_arn" in value:
-        pairs.append((f"{prefix}.TemplateArn", str(value["template_arn"])))
-    pairs.append((f"{prefix}.TemplateData", str(value["template_data"])))
+        pairs.append((f"{key_prefix}TemplateArn", str(value["template_arn"])))
+    pairs.append((f"{key_prefix}TemplateData", str(value["template_data"])))
 
 
 def deserialize_query(el: Element) -> SendTemplatedEmailRequest:

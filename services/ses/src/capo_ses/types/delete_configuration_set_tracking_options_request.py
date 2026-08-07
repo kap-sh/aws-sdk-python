@@ -22,8 +22,9 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
-        (f"{prefix}.ConfigurationSetName", str(value["configuration_set_name"]))
+        (f"{key_prefix}ConfigurationSetName", str(value["configuration_set_name"]))
     )
 
 

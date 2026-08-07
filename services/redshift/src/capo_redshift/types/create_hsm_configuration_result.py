@@ -20,11 +20,12 @@ class CreateHsmConfigurationResult(TypedDict, closed=True):
 def serialize_query(
     value: CreateHsmConfigurationResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "hsm_configuration" in value:
         import capo_redshift.types.hsm_configuration
 
         capo_redshift.types.hsm_configuration.serialize_query(
-            value["hsm_configuration"], pairs, f"{prefix}.HsmConfiguration"
+            value["hsm_configuration"], pairs, f"{key_prefix}HsmConfiguration"
         )
 
 

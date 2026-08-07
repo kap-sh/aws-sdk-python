@@ -24,17 +24,18 @@ class SnapshotSortingEntity(TypedDict, closed=True):
 def serialize_query(
     value: SnapshotSortingEntity, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "attribute" in value:
         import capo_redshift.types.snapshot_attribute_to_sort_by
 
         capo_redshift.types.snapshot_attribute_to_sort_by.serialize_query(
-            value["attribute"], pairs, f"{prefix}.Attribute"
+            value["attribute"], pairs, f"{key_prefix}Attribute"
         )
     if "sort_order" in value:
         import capo_redshift.types.sort_by_order
 
         capo_redshift.types.sort_by_order.serialize_query(
-            value["sort_order"], pairs, f"{prefix}.SortOrder"
+            value["sort_order"], pairs, f"{key_prefix}SortOrder"
         )
 
 

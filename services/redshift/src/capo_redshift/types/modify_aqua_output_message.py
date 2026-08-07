@@ -21,11 +21,12 @@ class ModifyAquaOutputMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifyAquaOutputMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "aqua_configuration" in value:
         import capo_redshift.types.aqua_configuration
 
         capo_redshift.types.aqua_configuration.serialize_query(
-            value["aqua_configuration"], pairs, f"{prefix}.AquaConfiguration"
+            value["aqua_configuration"], pairs, f"{key_prefix}AquaConfiguration"
         )
 
 

@@ -20,10 +20,11 @@ class ListIdentityPoliciesResponse(TypedDict, closed=True):
 def serialize_query(
     value: ListIdentityPoliciesResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.policy_name_list
 
     capo_ses.types.policy_name_list.serialize_query(
-        value["policy_names"], pairs, f"{prefix}.PolicyNames"
+        value["policy_names"], pairs, f"{key_prefix}PolicyNames"
     )
 
 

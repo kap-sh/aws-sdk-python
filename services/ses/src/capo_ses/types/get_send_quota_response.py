@@ -25,9 +25,12 @@ class GetSendQuotaResponse(TypedDict, closed=True):
 def serialize_query(
     value: GetSendQuotaResponse, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Max24HourSend", str(value.get("max24_hour_send", 0))))
-    pairs.append((f"{prefix}.MaxSendRate", str(value.get("max_send_rate", 0))))
-    pairs.append((f"{prefix}.SentLast24Hours", str(value.get("sent_last24_hours", 0))))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Max24HourSend", str(value.get("max24_hour_send", 0))))
+    pairs.append((f"{key_prefix}MaxSendRate", str(value.get("max_send_rate", 0))))
+    pairs.append(
+        (f"{key_prefix}SentLast24Hours", str(value.get("sent_last24_hours", 0)))
+    )
 
 
 def deserialize_query(el: Element) -> GetSendQuotaResponse:

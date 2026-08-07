@@ -34,31 +34,32 @@ class ReceiptRule(TypedDict, closed=True):
 def serialize_query(
     value: ReceiptRule, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.Name", str(value["name"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}Name", str(value["name"])))
     pairs.append(
-        (f"{prefix}.Enabled", "true" if value.get("enabled", False) else "false")
+        (f"{key_prefix}Enabled", "true" if value.get("enabled", False) else "false")
     )
     if "tls_policy" in value:
         import capo_ses.types.tls_policy
 
         capo_ses.types.tls_policy.serialize_query(
-            value["tls_policy"], pairs, f"{prefix}.TlsPolicy"
+            value["tls_policy"], pairs, f"{key_prefix}TlsPolicy"
         )
     if "recipients" in value:
         import capo_ses.types.recipients_list
 
         capo_ses.types.recipients_list.serialize_query(
-            value["recipients"], pairs, f"{prefix}.Recipients"
+            value["recipients"], pairs, f"{key_prefix}Recipients"
         )
     if "actions" in value:
         import capo_ses.types.receipt_actions_list
 
         capo_ses.types.receipt_actions_list.serialize_query(
-            value["actions"], pairs, f"{prefix}.Actions"
+            value["actions"], pairs, f"{key_prefix}Actions"
         )
     pairs.append(
         (
-            f"{prefix}.ScanEnabled",
+            f"{key_prefix}ScanEnabled",
             "true" if value.get("scan_enabled", False) else "false",
         )
     )

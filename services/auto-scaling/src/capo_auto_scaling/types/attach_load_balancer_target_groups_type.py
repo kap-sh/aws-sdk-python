@@ -26,15 +26,16 @@ class AttachLoadBalancerTargetGroupsType(TypedDict, closed=True):
 def serialize_query(
     value: AttachLoadBalancerTargetGroupsType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "auto_scaling_group_name" in value:
         pairs.append(
-            (f"{prefix}.AutoScalingGroupName", str(value["auto_scaling_group_name"]))
+            (f"{key_prefix}AutoScalingGroupName", str(value["auto_scaling_group_name"]))
         )
     if "target_group_ar_ns" in value:
         import capo_auto_scaling.types.target_group_ar_ns
 
         capo_auto_scaling.types.target_group_ar_ns.serialize_query(
-            value["target_group_ar_ns"], pairs, f"{prefix}.TargetGroupARNs"
+            value["target_group_ar_ns"], pairs, f"{key_prefix}TargetGroupARNs"
         )
 
 

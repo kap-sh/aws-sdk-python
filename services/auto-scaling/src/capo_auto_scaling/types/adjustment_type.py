@@ -21,8 +21,9 @@ class AdjustmentType(TypedDict, closed=True):
 def serialize_query(
     value: AdjustmentType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "adjustment_type" in value:
-        pairs.append((f"{prefix}.AdjustmentType", str(value["adjustment_type"])))
+        pairs.append((f"{key_prefix}AdjustmentType", str(value["adjustment_type"])))
 
 
 def deserialize_query(el: Element) -> AdjustmentType:

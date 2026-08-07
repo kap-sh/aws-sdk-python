@@ -21,9 +21,10 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.isOptedOut",
+            f"{key_prefix}isOptedOut",
             "true" if value.get("is_opted_out", False) else "false",
         )
     )

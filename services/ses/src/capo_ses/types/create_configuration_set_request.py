@@ -20,10 +20,11 @@ class CreateConfigurationSetRequest(TypedDict, closed=True):
 def serialize_query(
     value: CreateConfigurationSetRequest, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     import capo_ses.types.configuration_set
 
     capo_ses.types.configuration_set.serialize_query(
-        value["configuration_set"], pairs, f"{prefix}.ConfigurationSet"
+        value["configuration_set"], pairs, f"{key_prefix}ConfigurationSet"
     )
 
 

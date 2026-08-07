@@ -24,15 +24,16 @@ class ModifySnapshotScheduleMessage(TypedDict, closed=True):
 def serialize_query(
     value: ModifySnapshotScheduleMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "schedule_identifier" in value:
         pairs.append(
-            (f"{prefix}.ScheduleIdentifier", str(value["schedule_identifier"]))
+            (f"{key_prefix}ScheduleIdentifier", str(value["schedule_identifier"]))
         )
     if "schedule_definitions" in value:
         import capo_redshift.types.schedule_definition_list
 
         capo_redshift.types.schedule_definition_list.serialize_query(
-            value["schedule_definitions"], pairs, f"{prefix}.ScheduleDefinitions"
+            value["schedule_definitions"], pairs, f"{key_prefix}ScheduleDefinitions"
         )
 
 

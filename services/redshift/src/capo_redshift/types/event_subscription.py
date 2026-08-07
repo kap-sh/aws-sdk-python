@@ -46,47 +46,48 @@ class EventSubscription(TypedDict, closed=True):
 def serialize_query(
     value: EventSubscription, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "customer_aws_id" in value:
-        pairs.append((f"{prefix}.CustomerAwsId", str(value["customer_aws_id"])))
+        pairs.append((f"{key_prefix}CustomerAwsId", str(value["customer_aws_id"])))
     if "cust_subscription_id" in value:
         pairs.append(
-            (f"{prefix}.CustSubscriptionId", str(value["cust_subscription_id"]))
+            (f"{key_prefix}CustSubscriptionId", str(value["cust_subscription_id"]))
         )
     if "sns_topic_arn" in value:
-        pairs.append((f"{prefix}.SnsTopicArn", str(value["sns_topic_arn"])))
+        pairs.append((f"{key_prefix}SnsTopicArn", str(value["sns_topic_arn"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "subscription_creation_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
             value["subscription_creation_time"],
             pairs,
-            f"{prefix}.SubscriptionCreationTime",
+            f"{key_prefix}SubscriptionCreationTime",
         )
     if "source_type" in value:
-        pairs.append((f"{prefix}.SourceType", str(value["source_type"])))
+        pairs.append((f"{key_prefix}SourceType", str(value["source_type"])))
     if "source_ids_list" in value:
         import capo_redshift.types.source_ids_list
 
         capo_redshift.types.source_ids_list.serialize_query(
-            value["source_ids_list"], pairs, f"{prefix}.SourceIdsList"
+            value["source_ids_list"], pairs, f"{key_prefix}SourceIdsList"
         )
     if "event_categories_list" in value:
         import capo_redshift.types.event_categories_list
 
         capo_redshift.types.event_categories_list.serialize_query(
-            value["event_categories_list"], pairs, f"{prefix}.EventCategoriesList"
+            value["event_categories_list"], pairs, f"{key_prefix}EventCategoriesList"
         )
     if "severity" in value:
-        pairs.append((f"{prefix}.Severity", str(value["severity"])))
+        pairs.append((f"{key_prefix}Severity", str(value["severity"])))
     if "enabled" in value:
-        pairs.append((f"{prefix}.Enabled", "true" if value["enabled"] else "false"))
+        pairs.append((f"{key_prefix}Enabled", "true" if value["enabled"] else "false"))
     if "tags" in value:
         import capo_redshift.types.tag_list
 
         capo_redshift.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

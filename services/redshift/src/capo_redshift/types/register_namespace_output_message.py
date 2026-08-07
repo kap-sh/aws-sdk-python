@@ -21,11 +21,12 @@ class RegisterNamespaceOutputMessage(TypedDict, closed=True):
 def serialize_query(
     value: RegisterNamespaceOutputMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "status" in value:
         import capo_redshift.types.namespace_registration_status
 
         capo_redshift.types.namespace_registration_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
 
 

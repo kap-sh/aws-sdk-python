@@ -20,11 +20,12 @@ class ModifyEventSubscriptionResult(TypedDict, closed=True):
 def serialize_query(
     value: ModifyEventSubscriptionResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "event_subscription" in value:
         import capo_redshift.types.event_subscription
 
         capo_redshift.types.event_subscription.serialize_query(
-            value["event_subscription"], pairs, f"{prefix}.EventSubscription"
+            value["event_subscription"], pairs, f"{key_prefix}EventSubscription"
         )
 
 

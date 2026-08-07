@@ -20,9 +20,10 @@ class Listener(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Listener, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "protocol" in value:
-        pairs.append((f"{prefix}.Protocol", str(value["protocol"])))
-    pairs.append((f"{prefix}.Port", str(value.get("port", 0))))
+        pairs.append((f"{key_prefix}Protocol", str(value["protocol"])))
+    pairs.append((f"{key_prefix}Port", str(value.get("port", 0))))
 
 
 def deserialize_query(el: Element) -> Listener:

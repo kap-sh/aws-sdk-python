@@ -19,9 +19,10 @@ class GetSMSSandboxAccountStatusResult(TypedDict, closed=True):
 def serialize_query(
     value: GetSMSSandboxAccountStatusResult, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     pairs.append(
         (
-            f"{prefix}.IsInSandbox",
+            f"{key_prefix}IsInSandbox",
             "true" if value.get("is_in_sandbox", False) else "false",
         )
     )

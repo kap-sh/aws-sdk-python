@@ -23,10 +23,11 @@ class RewriteConfig(TypedDict, closed=True):
 def serialize_query(
     value: RewriteConfig, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "regex" in value:
-        pairs.append((f"{prefix}.Regex", str(value["regex"])))
+        pairs.append((f"{key_prefix}Regex", str(value["regex"])))
     if "replace" in value:
-        pairs.append((f"{prefix}.Replace", str(value["replace"])))
+        pairs.append((f"{key_prefix}Replace", str(value["replace"])))
 
 
 def deserialize_query(el: Element) -> RewriteConfig:

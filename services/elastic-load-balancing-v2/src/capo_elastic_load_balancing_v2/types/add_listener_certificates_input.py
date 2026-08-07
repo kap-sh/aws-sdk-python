@@ -26,13 +26,14 @@ class AddListenerCertificatesInput(TypedDict, closed=True):
 def serialize_query(
     value: AddListenerCertificatesInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "listener_arn" in value:
-        pairs.append((f"{prefix}.ListenerArn", str(value["listener_arn"])))
+        pairs.append((f"{key_prefix}ListenerArn", str(value["listener_arn"])))
     if "certificates" in value:
         import capo_elastic_load_balancing_v2.types.certificate_list
 
         capo_elastic_load_balancing_v2.types.certificate_list.serialize_query(
-            value["certificates"], pairs, f"{prefix}.Certificates"
+            value["certificates"], pairs, f"{key_prefix}Certificates"
         )
 
 

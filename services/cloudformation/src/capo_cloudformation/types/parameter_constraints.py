@@ -21,11 +21,12 @@ class ParameterConstraints(TypedDict, closed=True):
 def serialize_query(
     value: ParameterConstraints, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "allowed_values" in value:
         import capo_cloudformation.types.allowed_values
 
         capo_cloudformation.types.allowed_values.serialize_query(
-            value["allowed_values"], pairs, f"{prefix}.AllowedValues"
+            value["allowed_values"], pairs, f"{key_prefix}AllowedValues"
         )
 
 

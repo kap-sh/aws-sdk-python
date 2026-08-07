@@ -44,37 +44,38 @@ class ResourceScanSummary(TypedDict, closed=True):
 def serialize_query(
     value: ResourceScanSummary, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "resource_scan_id" in value:
-        pairs.append((f"{prefix}.ResourceScanId", str(value["resource_scan_id"])))
+        pairs.append((f"{key_prefix}ResourceScanId", str(value["resource_scan_id"])))
     if "status" in value:
         import capo_cloudformation.types.resource_scan_status
 
         capo_cloudformation.types.resource_scan_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "start_time" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["start_time"], pairs, f"{prefix}.StartTime"
+            value["start_time"], pairs, f"{key_prefix}StartTime"
         )
     if "end_time" in value:
         import capo_cloudformation.types.timestamp
 
         capo_cloudformation.types.timestamp.serialize_query(
-            value["end_time"], pairs, f"{prefix}.EndTime"
+            value["end_time"], pairs, f"{key_prefix}EndTime"
         )
     if "percentage_completed" in value:
         pairs.append(
-            (f"{prefix}.PercentageCompleted", str(value["percentage_completed"]))
+            (f"{key_prefix}PercentageCompleted", str(value["percentage_completed"]))
         )
     if "scan_type" in value:
         import capo_cloudformation.types.scan_type
 
         capo_cloudformation.types.scan_type.serialize_query(
-            value["scan_type"], pairs, f"{prefix}.ScanType"
+            value["scan_type"], pairs, f"{key_prefix}ScanType"
         )
 
 

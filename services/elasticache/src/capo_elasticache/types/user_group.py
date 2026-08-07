@@ -46,42 +46,43 @@ class UserGroup(TypedDict, closed=True):
 def serialize_query(
     value: UserGroup, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_group_id" in value:
-        pairs.append((f"{prefix}.UserGroupId", str(value["user_group_id"])))
+        pairs.append((f"{key_prefix}UserGroupId", str(value["user_group_id"])))
     if "status" in value:
-        pairs.append((f"{prefix}.Status", str(value["status"])))
+        pairs.append((f"{key_prefix}Status", str(value["status"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "user_ids" in value:
         import capo_elasticache.types.user_id_list
 
         capo_elasticache.types.user_id_list.serialize_query(
-            value["user_ids"], pairs, f"{prefix}.UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserIds"
         )
     if "minimum_engine_version" in value:
         pairs.append(
-            (f"{prefix}.MinimumEngineVersion", str(value["minimum_engine_version"]))
+            (f"{key_prefix}MinimumEngineVersion", str(value["minimum_engine_version"]))
         )
     if "pending_changes" in value:
         import capo_elasticache.types.user_group_pending_changes
 
         capo_elasticache.types.user_group_pending_changes.serialize_query(
-            value["pending_changes"], pairs, f"{prefix}.PendingChanges"
+            value["pending_changes"], pairs, f"{key_prefix}PendingChanges"
         )
     if "replication_groups" in value:
         import capo_elasticache.types.ug_replication_group_id_list
 
         capo_elasticache.types.ug_replication_group_id_list.serialize_query(
-            value["replication_groups"], pairs, f"{prefix}.ReplicationGroups"
+            value["replication_groups"], pairs, f"{key_prefix}ReplicationGroups"
         )
     if "serverless_caches" in value:
         import capo_elasticache.types.ug_serverless_cache_id_list
 
         capo_elasticache.types.ug_serverless_cache_id_list.serialize_query(
-            value["serverless_caches"], pairs, f"{prefix}.ServerlessCaches"
+            value["serverless_caches"], pairs, f"{key_prefix}ServerlessCaches"
         )
     if "arn" in value:
-        pairs.append((f"{prefix}.ARN", str(value["arn"])))
+        pairs.append((f"{key_prefix}ARN", str(value["arn"])))
 
 
 def deserialize_query(el: Element) -> UserGroup:

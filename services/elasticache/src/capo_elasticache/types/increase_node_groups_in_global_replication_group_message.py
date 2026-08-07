@@ -32,25 +32,28 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "global_replication_group_id" in value:
         pairs.append(
             (
-                f"{prefix}.GlobalReplicationGroupId",
+                f"{key_prefix}GlobalReplicationGroupId",
                 str(value["global_replication_group_id"]),
             )
         )
     if "node_group_count" in value:
-        pairs.append((f"{prefix}.NodeGroupCount", str(value["node_group_count"])))
+        pairs.append((f"{key_prefix}NodeGroupCount", str(value["node_group_count"])))
     if "regional_configurations" in value:
         import capo_elasticache.types.regional_configuration_list
 
         capo_elasticache.types.regional_configuration_list.serialize_query(
-            value["regional_configurations"], pairs, f"{prefix}.RegionalConfigurations"
+            value["regional_configurations"],
+            pairs,
+            f"{key_prefix}RegionalConfigurations",
         )
     if "apply_immediately" in value:
         pairs.append(
             (
-                f"{prefix}.ApplyImmediately",
+                f"{key_prefix}ApplyImmediately",
                 "true" if value["apply_immediately"] else "false",
             )
         )

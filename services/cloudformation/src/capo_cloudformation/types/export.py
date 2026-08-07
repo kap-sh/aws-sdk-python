@@ -23,12 +23,15 @@ class Export(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Export, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "exporting_stack_id" in value:
-        pairs.append((f"{prefix}.ExportingStackId", str(value["exporting_stack_id"])))
+        pairs.append(
+            (f"{key_prefix}ExportingStackId", str(value["exporting_stack_id"]))
+        )
     if "name" in value:
-        pairs.append((f"{prefix}.Name", str(value["name"])))
+        pairs.append((f"{key_prefix}Name", str(value["name"])))
     if "value" in value:
-        pairs.append((f"{prefix}.Value", str(value["value"])))
+        pairs.append((f"{key_prefix}Value", str(value["value"])))
 
 
 def deserialize_query(el: Element) -> Export:

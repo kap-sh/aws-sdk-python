@@ -30,20 +30,21 @@ class ApplicationMetrics(TypedDict, closed=True):
 def serialize_query(
     value: ApplicationMetrics, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "duration" in value:
-        pairs.append((f"{prefix}.Duration", str(value["duration"])))
-    pairs.append((f"{prefix}.RequestCount", str(value.get("request_count", 0))))
+        pairs.append((f"{key_prefix}Duration", str(value["duration"])))
+    pairs.append((f"{key_prefix}RequestCount", str(value.get("request_count", 0))))
     if "status_codes" in value:
         import capo_elastic_beanstalk.types.status_codes
 
         capo_elastic_beanstalk.types.status_codes.serialize_query(
-            value["status_codes"], pairs, f"{prefix}.StatusCodes"
+            value["status_codes"], pairs, f"{key_prefix}StatusCodes"
         )
     if "latency" in value:
         import capo_elastic_beanstalk.types.latency
 
         capo_elastic_beanstalk.types.latency.serialize_query(
-            value["latency"], pairs, f"{prefix}.Latency"
+            value["latency"], pairs, f"{key_prefix}Latency"
         )
 
 

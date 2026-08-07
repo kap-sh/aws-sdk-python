@@ -24,13 +24,14 @@ class ScheduledActionsMessage(TypedDict, closed=True):
 def serialize_query(
     value: ScheduledActionsMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "marker" in value:
-        pairs.append((f"{prefix}.Marker", str(value["marker"])))
+        pairs.append((f"{key_prefix}Marker", str(value["marker"])))
     if "scheduled_actions" in value:
         import capo_redshift.types.scheduled_action_list
 
         capo_redshift.types.scheduled_action_list.serialize_query(
-            value["scheduled_actions"], pairs, f"{prefix}.ScheduledActions"
+            value["scheduled_actions"], pairs, f"{key_prefix}ScheduledActions"
         )
 
 

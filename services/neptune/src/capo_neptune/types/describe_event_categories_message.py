@@ -22,13 +22,14 @@ class DescribeEventCategoriesMessage(TypedDict, closed=True):
 def serialize_query(
     value: DescribeEventCategoriesMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "source_type" in value:
-        pairs.append((f"{prefix}.SourceType", str(value["source_type"])))
+        pairs.append((f"{key_prefix}SourceType", str(value["source_type"])))
     if "filters" in value:
         import capo_neptune.types.filter_list
 
         capo_neptune.types.filter_list.serialize_query(
-            value["filters"], pairs, f"{prefix}.Filters"
+            value["filters"], pairs, f"{key_prefix}Filters"
         )
 
 

@@ -23,11 +23,14 @@ def serialize_query(
     pairs: list[tuple[str, str]],
     prefix: str,
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "authentication_profiles" in value:
         import capo_redshift.types.authentication_profile_list
 
         capo_redshift.types.authentication_profile_list.serialize_query(
-            value["authentication_profiles"], pairs, f"{prefix}.AuthenticationProfiles"
+            value["authentication_profiles"],
+            pairs,
+            f"{key_prefix}AuthenticationProfiles",
         )
 
 

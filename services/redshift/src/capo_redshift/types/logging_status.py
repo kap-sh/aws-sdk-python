@@ -42,46 +42,47 @@ class LoggingStatus(TypedDict, closed=True):
 def serialize_query(
     value: LoggingStatus, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "logging_enabled" in value:
         pairs.append(
             (
-                f"{prefix}.LoggingEnabled",
+                f"{key_prefix}LoggingEnabled",
                 "true" if value["logging_enabled"] else "false",
             )
         )
     if "bucket_name" in value:
-        pairs.append((f"{prefix}.BucketName", str(value["bucket_name"])))
+        pairs.append((f"{key_prefix}BucketName", str(value["bucket_name"])))
     if "s3_key_prefix" in value:
-        pairs.append((f"{prefix}.S3KeyPrefix", str(value["s3_key_prefix"])))
+        pairs.append((f"{key_prefix}S3KeyPrefix", str(value["s3_key_prefix"])))
     if "last_successful_delivery_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
             value["last_successful_delivery_time"],
             pairs,
-            f"{prefix}.LastSuccessfulDeliveryTime",
+            f"{key_prefix}LastSuccessfulDeliveryTime",
         )
     if "last_failure_time" in value:
         import capo_redshift.types.t_stamp
 
         capo_redshift.types.t_stamp.serialize_query(
-            value["last_failure_time"], pairs, f"{prefix}.LastFailureTime"
+            value["last_failure_time"], pairs, f"{key_prefix}LastFailureTime"
         )
     if "last_failure_message" in value:
         pairs.append(
-            (f"{prefix}.LastFailureMessage", str(value["last_failure_message"]))
+            (f"{key_prefix}LastFailureMessage", str(value["last_failure_message"]))
         )
     if "log_destination_type" in value:
         import capo_redshift.types.log_destination_type
 
         capo_redshift.types.log_destination_type.serialize_query(
-            value["log_destination_type"], pairs, f"{prefix}.LogDestinationType"
+            value["log_destination_type"], pairs, f"{key_prefix}LogDestinationType"
         )
     if "log_exports" in value:
         import capo_redshift.types.log_type_list
 
         capo_redshift.types.log_type_list.serialize_query(
-            value["log_exports"], pairs, f"{prefix}.LogExports"
+            value["log_exports"], pairs, f"{key_prefix}LogExports"
         )
 
 

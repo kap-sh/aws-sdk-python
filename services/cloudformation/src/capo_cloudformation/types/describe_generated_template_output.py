@@ -65,56 +65,60 @@ class DescribeGeneratedTemplateOutput(TypedDict, closed=True):
 def serialize_query(
     value: DescribeGeneratedTemplateOutput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "generated_template_id" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateId", str(value["generated_template_id"]))
+            (f"{key_prefix}GeneratedTemplateId", str(value["generated_template_id"]))
         )
     if "generated_template_name" in value:
         pairs.append(
-            (f"{prefix}.GeneratedTemplateName", str(value["generated_template_name"]))
+            (
+                f"{key_prefix}GeneratedTemplateName",
+                str(value["generated_template_name"]),
+            )
         )
     if "resources" in value:
         import capo_cloudformation.types.resource_details
 
         capo_cloudformation.types.resource_details.serialize_query(
-            value["resources"], pairs, f"{prefix}.Resources"
+            value["resources"], pairs, f"{key_prefix}Resources"
         )
     if "status" in value:
         import capo_cloudformation.types.generated_template_status
 
         capo_cloudformation.types.generated_template_status.serialize_query(
-            value["status"], pairs, f"{prefix}.Status"
+            value["status"], pairs, f"{key_prefix}Status"
         )
     if "status_reason" in value:
-        pairs.append((f"{prefix}.StatusReason", str(value["status_reason"])))
+        pairs.append((f"{key_prefix}StatusReason", str(value["status_reason"])))
     if "creation_time" in value:
         import capo_cloudformation.types.creation_time
 
         capo_cloudformation.types.creation_time.serialize_query(
-            value["creation_time"], pairs, f"{prefix}.CreationTime"
+            value["creation_time"], pairs, f"{key_prefix}CreationTime"
         )
     if "last_updated_time" in value:
         import capo_cloudformation.types.last_updated_time
 
         capo_cloudformation.types.last_updated_time.serialize_query(
-            value["last_updated_time"], pairs, f"{prefix}.LastUpdatedTime"
+            value["last_updated_time"], pairs, f"{key_prefix}LastUpdatedTime"
         )
     if "progress" in value:
         import capo_cloudformation.types.template_progress
 
         capo_cloudformation.types.template_progress.serialize_query(
-            value["progress"], pairs, f"{prefix}.Progress"
+            value["progress"], pairs, f"{key_prefix}Progress"
         )
     if "stack_id" in value:
-        pairs.append((f"{prefix}.StackId", str(value["stack_id"])))
+        pairs.append((f"{key_prefix}StackId", str(value["stack_id"])))
     if "template_configuration" in value:
         import capo_cloudformation.types.template_configuration
 
         capo_cloudformation.types.template_configuration.serialize_query(
-            value["template_configuration"], pairs, f"{prefix}.TemplateConfiguration"
+            value["template_configuration"], pairs, f"{key_prefix}TemplateConfiguration"
         )
     if "total_warnings" in value:
-        pairs.append((f"{prefix}.TotalWarnings", str(value["total_warnings"])))
+        pairs.append((f"{key_prefix}TotalWarnings", str(value["total_warnings"])))
 
 
 def deserialize_query(el: Element) -> DescribeGeneratedTemplateOutput:

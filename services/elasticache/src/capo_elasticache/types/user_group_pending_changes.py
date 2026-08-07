@@ -21,17 +21,18 @@ class UserGroupPendingChanges(TypedDict, closed=True):
 def serialize_query(
     value: UserGroupPendingChanges, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_ids_to_remove" in value:
         import capo_elasticache.types.user_id_list
 
         capo_elasticache.types.user_id_list.serialize_query(
-            value["user_ids_to_remove"], pairs, f"{prefix}.UserIdsToRemove"
+            value["user_ids_to_remove"], pairs, f"{key_prefix}UserIdsToRemove"
         )
     if "user_ids_to_add" in value:
         import capo_elasticache.types.user_id_list
 
         capo_elasticache.types.user_id_list.serialize_query(
-            value["user_ids_to_add"], pairs, f"{prefix}.UserIdsToAdd"
+            value["user_ids_to_add"], pairs, f"{key_prefix}UserIdsToAdd"
         )
 
 

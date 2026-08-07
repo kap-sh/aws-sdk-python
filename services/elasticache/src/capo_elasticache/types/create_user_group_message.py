@@ -28,21 +28,22 @@ class CreateUserGroupMessage(TypedDict, closed=True):
 def serialize_query(
     value: CreateUserGroupMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "user_group_id" in value:
-        pairs.append((f"{prefix}.UserGroupId", str(value["user_group_id"])))
+        pairs.append((f"{key_prefix}UserGroupId", str(value["user_group_id"])))
     if "engine" in value:
-        pairs.append((f"{prefix}.Engine", str(value["engine"])))
+        pairs.append((f"{key_prefix}Engine", str(value["engine"])))
     if "user_ids" in value:
         import capo_elasticache.types.user_id_list_input
 
         capo_elasticache.types.user_id_list_input.serialize_query(
-            value["user_ids"], pairs, f"{prefix}.UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserIds"
         )
     if "tags" in value:
         import capo_elasticache.types.tag_list
 
         capo_elasticache.types.tag_list.serialize_query(
-            value["tags"], pairs, f"{prefix}.Tags"
+            value["tags"], pairs, f"{key_prefix}Tags"
         )
 
 

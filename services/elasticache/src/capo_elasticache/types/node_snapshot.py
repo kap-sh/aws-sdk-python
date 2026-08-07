@@ -35,31 +35,34 @@ class NodeSnapshot(TypedDict, closed=True):
 def serialize_query(
     value: NodeSnapshot, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "cache_cluster_id" in value:
-        pairs.append((f"{prefix}.CacheClusterId", str(value["cache_cluster_id"])))
+        pairs.append((f"{key_prefix}CacheClusterId", str(value["cache_cluster_id"])))
     if "node_group_id" in value:
-        pairs.append((f"{prefix}.NodeGroupId", str(value["node_group_id"])))
+        pairs.append((f"{key_prefix}NodeGroupId", str(value["node_group_id"])))
     if "cache_node_id" in value:
-        pairs.append((f"{prefix}.CacheNodeId", str(value["cache_node_id"])))
+        pairs.append((f"{key_prefix}CacheNodeId", str(value["cache_node_id"])))
     if "node_group_configuration" in value:
         import capo_elasticache.types.node_group_configuration
 
         capo_elasticache.types.node_group_configuration.serialize_query(
-            value["node_group_configuration"], pairs, f"{prefix}.NodeGroupConfiguration"
+            value["node_group_configuration"],
+            pairs,
+            f"{key_prefix}NodeGroupConfiguration",
         )
     if "cache_size" in value:
-        pairs.append((f"{prefix}.CacheSize", str(value["cache_size"])))
+        pairs.append((f"{key_prefix}CacheSize", str(value["cache_size"])))
     if "cache_node_create_time" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["cache_node_create_time"], pairs, f"{prefix}.CacheNodeCreateTime"
+            value["cache_node_create_time"], pairs, f"{key_prefix}CacheNodeCreateTime"
         )
     if "snapshot_create_time" in value:
         import capo_elasticache.types.t_stamp
 
         capo_elasticache.types.t_stamp.serialize_query(
-            value["snapshot_create_time"], pairs, f"{prefix}.SnapshotCreateTime"
+            value["snapshot_create_time"], pairs, f"{key_prefix}SnapshotCreateTime"
         )
 
 

@@ -33,19 +33,20 @@ class Parameter(TypedDict, closed=True):
 def serialize_query(
     value: Parameter, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "parameter_key" in value:
-        pairs.append((f"{prefix}.ParameterKey", str(value["parameter_key"])))
+        pairs.append((f"{key_prefix}ParameterKey", str(value["parameter_key"])))
     if "parameter_value" in value:
-        pairs.append((f"{prefix}.ParameterValue", str(value["parameter_value"])))
+        pairs.append((f"{key_prefix}ParameterValue", str(value["parameter_value"])))
     if "use_previous_value" in value:
         pairs.append(
             (
-                f"{prefix}.UsePreviousValue",
+                f"{key_prefix}UsePreviousValue",
                 "true" if value["use_previous_value"] else "false",
             )
         )
     if "resolved_value" in value:
-        pairs.append((f"{prefix}.ResolvedValue", str(value["resolved_value"])))
+        pairs.append((f"{key_prefix}ResolvedValue", str(value["resolved_value"])))
 
 
 def deserialize_query(el: Element) -> Parameter:

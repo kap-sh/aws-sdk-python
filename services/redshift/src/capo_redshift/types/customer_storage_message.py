@@ -23,17 +23,18 @@ class CustomerStorageMessage(TypedDict, closed=True):
 def serialize_query(
     value: CustomerStorageMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "total_backup_size_in_mega_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.TotalBackupSizeInMegaBytes",
+                f"{key_prefix}TotalBackupSizeInMegaBytes",
                 str(value["total_backup_size_in_mega_bytes"]),
             )
         )
     if "total_provisioned_storage_in_mega_bytes" in value:
         pairs.append(
             (
-                f"{prefix}.TotalProvisionedStorageInMegaBytes",
+                f"{key_prefix}TotalProvisionedStorageInMegaBytes",
                 str(value["total_provisioned_storage_in_mega_bytes"]),
             )
         )

@@ -470,10 +470,12 @@ class RedshiftClient:
 
     def accept_reserved_node_exchange(
         self,
-        reserved_node_id: "capo_redshift.types.string.String",
-        target_reserved_node_offering_id: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        reserved_node_id: Optional["capo_redshift.types.string.String"] = None,
+        target_reserved_node_offering_id: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> "capo_redshift.types.accept_reserved_node_exchange_output_message.AcceptReservedNodeExchangeOutputMessage":
         """<p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the configuration (term, payment type, or number of nodes) and no additional costs. </p>
 
@@ -508,8 +510,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.accept_reserved_node_exchange_input_message.AcceptReservedNodeExchangeInputMessage = {}  # type: ignore[typeddict-item]
-        input_["reserved_node_id"] = reserved_node_id
-        input_["target_reserved_node_offering_id"] = target_reserved_node_offering_id
+        if reserved_node_id is not None:
+            input_["reserved_node_id"] = reserved_node_id
+        if target_reserved_node_offering_id is not None:
+            input_["target_reserved_node_offering_id"] = (
+                target_reserved_node_offering_id
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -520,12 +526,20 @@ class RedshiftClient:
 
     def add_partner(
         self,
-        account_id: "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId",
-        cluster_identifier: "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier",
-        database_name: "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName",
-        partner_name: "capo_redshift.types.partner_integration_partner_name.PartnerIntegrationPartnerName",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        account_id: Optional[
+            "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId"
+        ] = None,
+        cluster_identifier: Optional[
+            "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier"
+        ] = None,
+        database_name: Optional[
+            "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName"
+        ] = None,
+        partner_name: Optional[
+            "capo_redshift.types.partner_integration_partner_name.PartnerIntegrationPartnerName"
+        ] = None,
     ) -> "capo_redshift.types.partner_integration_output_message.PartnerIntegrationOutputMessage":
         """<p>Adds a partner integration to a cluster. This operation authorizes a partner to push status updates for the specified database. To complete the integration, you also set up the integration on the partner website.</p>
 
@@ -559,10 +573,14 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.partner_integration_input_message.PartnerIntegrationInputMessage = {}  # type: ignore[typeddict-item]
-        input_["account_id"] = account_id
-        input_["cluster_identifier"] = cluster_identifier
-        input_["database_name"] = database_name
-        input_["partner_name"] = partner_name
+        if account_id is not None:
+            input_["account_id"] = account_id
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if database_name is not None:
+            input_["database_name"] = database_name
+        if partner_name is not None:
+            input_["partner_name"] = partner_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -573,9 +591,9 @@ class RedshiftClient:
 
     def associate_data_share_consumer(
         self,
-        data_share_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        data_share_arn: Optional["capo_redshift.types.string.String"] = None,
         associate_entire_account: Optional[
             "capo_redshift.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -614,7 +632,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.associate_data_share_consumer_message.AssociateDataShareConsumerMessage = {}  # type: ignore[typeddict-item]
-        input_["data_share_arn"] = data_share_arn
+        if data_share_arn is not None:
+            input_["data_share_arn"] = data_share_arn
         if associate_entire_account is not None:
             input_["associate_entire_account"] = associate_entire_account
         if consumer_arn is not None:
@@ -633,9 +652,11 @@ class RedshiftClient:
 
     def authorize_cluster_security_group_ingress(
         self,
-        cluster_security_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_security_group_name: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
         cidrip: Optional["capo_redshift.types.string.String"] = None,
         ec2_security_group_name: Optional["capo_redshift.types.string.String"] = None,
         ec2_security_group_owner_id: Optional[
@@ -674,7 +695,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.authorize_cluster_security_group_ingress_message.AuthorizeClusterSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_security_group_name"] = cluster_security_group_name
+        if cluster_security_group_name is not None:
+            input_["cluster_security_group_name"] = cluster_security_group_name
         if cidrip is not None:
             input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
@@ -691,10 +713,10 @@ class RedshiftClient:
 
     def authorize_data_share(
         self,
-        data_share_arn: "capo_redshift.types.string.String",
-        consumer_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        data_share_arn: Optional["capo_redshift.types.string.String"] = None,
+        consumer_identifier: Optional["capo_redshift.types.string.String"] = None,
         allow_writes: Optional[
             "capo_redshift.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -725,8 +747,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.authorize_data_share_message.AuthorizeDataShareMessage = {}  # type: ignore[typeddict-item]
-        input_["data_share_arn"] = data_share_arn
-        input_["consumer_identifier"] = consumer_identifier
+        if data_share_arn is not None:
+            input_["data_share_arn"] = data_share_arn
+        if consumer_identifier is not None:
+            input_["consumer_identifier"] = consumer_identifier
         if allow_writes is not None:
             input_["allow_writes"] = allow_writes
 
@@ -739,10 +763,10 @@ class RedshiftClient:
 
     def authorize_endpoint_access(
         self,
-        account: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        account: Optional["capo_redshift.types.string.String"] = None,
         vpc_ids: Optional[
             "capo_redshift.types.vpc_identifier_list.VpcIdentifierList"
         ] = None,
@@ -782,7 +806,8 @@ class RedshiftClient:
         input_: capo_redshift.types.authorize_endpoint_access_message.AuthorizeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
             input_["cluster_identifier"] = cluster_identifier
-        input_["account"] = account
+        if account is not None:
+            input_["account"] = account
         if vpc_ids is not None:
             input_["vpc_ids"] = vpc_ids
 
@@ -795,12 +820,14 @@ class RedshiftClient:
 
     def authorize_snapshot_access(
         self,
-        account_with_restore_access: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_arn: Optional["capo_redshift.types.string.String"] = None,
         snapshot_cluster_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
+        account_with_restore_access: Optional[
             "capo_redshift.types.string.String"
         ] = None,
     ) -> "capo_redshift.types.authorize_snapshot_access_result.AuthorizeSnapshotAccessResult":
@@ -845,7 +872,8 @@ class RedshiftClient:
             input_["snapshot_arn"] = snapshot_arn
         if snapshot_cluster_identifier is not None:
             input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-        input_["account_with_restore_access"] = account_with_restore_access
+        if account_with_restore_access is not None:
+            input_["account_with_restore_access"] = account_with_restore_access
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -856,9 +884,11 @@ class RedshiftClient:
 
     def batch_delete_cluster_snapshots(
         self,
-        identifiers: "capo_redshift.types.delete_cluster_snapshot_message_list.DeleteClusterSnapshotMessageList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        identifiers: Optional[
+            "capo_redshift.types.delete_cluster_snapshot_message_list.DeleteClusterSnapshotMessageList"
+        ] = None,
     ) -> "capo_redshift.types.batch_delete_cluster_snapshots_result.BatchDeleteClusterSnapshotsResult":
         """<p>Deletes a set of cluster snapshots.</p>
 
@@ -886,7 +916,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.batch_delete_cluster_snapshots_request.BatchDeleteClusterSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input_["identifiers"] = identifiers
+        if identifiers is not None:
+            input_["identifiers"] = identifiers
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -897,9 +928,11 @@ class RedshiftClient:
 
     def batch_modify_cluster_snapshots(
         self,
-        snapshot_identifier_list: "capo_redshift.types.snapshot_identifier_list.SnapshotIdentifierList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        snapshot_identifier_list: Optional[
+            "capo_redshift.types.snapshot_identifier_list.SnapshotIdentifierList"
+        ] = None,
         manual_snapshot_retention_period: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -934,7 +967,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.batch_modify_cluster_snapshots_message.BatchModifyClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_identifier_list"] = snapshot_identifier_list
+        if snapshot_identifier_list is not None:
+            input_["snapshot_identifier_list"] = snapshot_identifier_list
         if manual_snapshot_retention_period is not None:
             input_["manual_snapshot_retention_period"] = (
                 manual_snapshot_retention_period
@@ -951,9 +985,9 @@ class RedshiftClient:
 
     def cancel_resize(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.resize_progress_message.ResizeProgressMessage":
         """<p>Cancels a resize operation for a cluster.</p>
 
@@ -984,7 +1018,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.cancel_resize_message.CancelResizeMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -995,11 +1030,15 @@ class RedshiftClient:
 
     def copy_cluster_snapshot(
         self,
-        source_snapshot_identifier: "capo_redshift.types.string.String",
-        target_snapshot_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        source_snapshot_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
         source_snapshot_cluster_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
+        target_snapshot_identifier: Optional[
             "capo_redshift.types.string.String"
         ] = None,
         manual_snapshot_retention_period: Optional[
@@ -1040,12 +1079,14 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.copy_cluster_snapshot_message.CopyClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["source_snapshot_identifier"] = source_snapshot_identifier
+        if source_snapshot_identifier is not None:
+            input_["source_snapshot_identifier"] = source_snapshot_identifier
         if source_snapshot_cluster_identifier is not None:
             input_["source_snapshot_cluster_identifier"] = (
                 source_snapshot_cluster_identifier
             )
-        input_["target_snapshot_identifier"] = target_snapshot_identifier
+        if target_snapshot_identifier is not None:
+            input_["target_snapshot_identifier"] = target_snapshot_identifier
         if manual_snapshot_retention_period is not None:
             input_["manual_snapshot_retention_period"] = (
                 manual_snapshot_retention_period
@@ -1060,10 +1101,14 @@ class RedshiftClient:
 
     def create_authentication_profile(
         self,
-        authentication_profile_name: "capo_redshift.types.authentication_profile_name_string.AuthenticationProfileNameString",
-        authentication_profile_content: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        authentication_profile_name: Optional[
+            "capo_redshift.types.authentication_profile_name_string.AuthenticationProfileNameString"
+        ] = None,
+        authentication_profile_content: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> "capo_redshift.types.create_authentication_profile_result.CreateAuthenticationProfileResult":
         """<p>Creates an authentication profile with the specified parameters.</p>
 
@@ -1094,8 +1139,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_authentication_profile_message.CreateAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
-        input_["authentication_profile_name"] = authentication_profile_name
-        input_["authentication_profile_content"] = authentication_profile_content
+        if authentication_profile_name is not None:
+            input_["authentication_profile_name"] = authentication_profile_name
+        if authentication_profile_content is not None:
+            input_["authentication_profile_content"] = authentication_profile_content
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1106,13 +1153,13 @@ class RedshiftClient:
 
     def create_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        node_type: "capo_redshift.types.string.String",
-        master_username: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
         db_name: Optional["capo_redshift.types.string.String"] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         cluster_type: Optional["capo_redshift.types.string.String"] = None,
+        node_type: Optional["capo_redshift.types.string.String"] = None,
+        master_username: Optional["capo_redshift.types.string.String"] = None,
         master_user_password: Optional[
             "capo_redshift.types.sensitive_string.SensitiveString"
         ] = None,
@@ -1292,11 +1339,14 @@ class RedshiftClient:
         input_: capo_redshift.types.create_cluster_message.CreateClusterMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
             input_["db_name"] = db_name
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if cluster_type is not None:
             input_["cluster_type"] = cluster_type
-        input_["node_type"] = node_type
-        input_["master_username"] = master_username
+        if node_type is not None:
+            input_["node_type"] = node_type
+        if master_username is not None:
+            input_["master_username"] = master_username
         if master_user_password is not None:
             input_["master_user_password"] = master_user_password
         if cluster_security_groups is not None:
@@ -1389,11 +1439,11 @@ class RedshiftClient:
 
     def create_cluster_parameter_group(
         self,
-        parameter_group_name: "capo_redshift.types.string.String",
-        parameter_group_family: "capo_redshift.types.string.String",
-        description: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_name: Optional["capo_redshift.types.string.String"] = None,
+        parameter_group_family: Optional["capo_redshift.types.string.String"] = None,
+        description: Optional["capo_redshift.types.string.String"] = None,
         tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> "capo_redshift.types.create_cluster_parameter_group_result.CreateClusterParameterGroupResult":
         r"""<p>Creates an Amazon Redshift parameter group.</p> <p>Creating parameter groups is independent of creating clusters. You can associate a cluster with a parameter group when you create the cluster. You can also associate an existing cluster with a parameter group after the cluster is created by using <a>ModifyCluster</a>. </p> <p>Parameters in the parameter group define specific behavior that applies to the databases you create on the cluster. For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -1428,9 +1478,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_cluster_parameter_group_message.CreateClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["parameter_group_name"] = parameter_group_name
-        input_["parameter_group_family"] = parameter_group_family
-        input_["description"] = description
+        if parameter_group_name is not None:
+            input_["parameter_group_name"] = parameter_group_name
+        if parameter_group_family is not None:
+            input_["parameter_group_family"] = parameter_group_family
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -1443,10 +1496,12 @@ class RedshiftClient:
 
     def create_cluster_security_group(
         self,
-        cluster_security_group_name: "capo_redshift.types.string.String",
-        description: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_security_group_name: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
+        description: Optional["capo_redshift.types.string.String"] = None,
         tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> "capo_redshift.types.create_cluster_security_group_result.CreateClusterSecurityGroupResult":
         r"""<p>Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.</p> <p> For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -1480,8 +1535,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_cluster_security_group_message.CreateClusterSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_security_group_name"] = cluster_security_group_name
-        input_["description"] = description
+        if cluster_security_group_name is not None:
+            input_["cluster_security_group_name"] = cluster_security_group_name
+        if description is not None:
+            input_["description"] = description
         if tags is not None:
             input_["tags"] = tags
 
@@ -1494,10 +1551,10 @@ class RedshiftClient:
 
     def create_cluster_snapshot(
         self,
-        snapshot_identifier: "capo_redshift.types.string.String",
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         manual_snapshot_retention_period: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -1540,8 +1597,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_cluster_snapshot_message.CreateClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_identifier"] = snapshot_identifier
-        input_["cluster_identifier"] = cluster_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if manual_snapshot_retention_period is not None:
             input_["manual_snapshot_retention_period"] = (
                 manual_snapshot_retention_period
@@ -1558,11 +1617,13 @@ class RedshiftClient:
 
     def create_cluster_subnet_group(
         self,
-        cluster_subnet_group_name: "capo_redshift.types.string.String",
-        description: "capo_redshift.types.string.String",
-        subnet_ids: "capo_redshift.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_subnet_group_name: Optional["capo_redshift.types.string.String"] = None,
+        description: Optional["capo_redshift.types.string.String"] = None,
+        subnet_ids: Optional[
+            "capo_redshift.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
         tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> "capo_redshift.types.create_cluster_subnet_group_result.CreateClusterSubnetGroupResult":
         r"""<p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.</p> <p> For information about subnet groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html\">Amazon Redshift Cluster Subnet Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -1601,9 +1662,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_cluster_subnet_group_message.CreateClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_subnet_group_name"] = cluster_subnet_group_name
-        input_["description"] = description
-        input_["subnet_ids"] = subnet_ids
+        if cluster_subnet_group_name is not None:
+            input_["cluster_subnet_group_name"] = cluster_subnet_group_name
+        if description is not None:
+            input_["description"] = description
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
             input_["tags"] = tags
 
@@ -1616,11 +1680,15 @@ class RedshiftClient:
 
     def create_custom_domain_association(
         self,
-        custom_domain_name: "capo_redshift.types.custom_domain_name_string.CustomDomainNameString",
-        custom_domain_certificate_arn: "capo_redshift.types.custom_domain_certificate_arn_string.CustomDomainCertificateArnString",
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        custom_domain_name: Optional[
+            "capo_redshift.types.custom_domain_name_string.CustomDomainNameString"
+        ] = None,
+        custom_domain_certificate_arn: Optional[
+            "capo_redshift.types.custom_domain_certificate_arn_string.CustomDomainCertificateArnString"
+        ] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.create_custom_domain_association_result.CreateCustomDomainAssociationResult":
         """<p>Used to create a custom domain name for a cluster. Properties include the custom domain name, the cluster the custom domain is associated with, and the certificate Amazon Resource Name (ARN).</p>
 
@@ -1652,9 +1720,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_custom_domain_association_message.CreateCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
-        input_["custom_domain_name"] = custom_domain_name
-        input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
-        input_["cluster_identifier"] = cluster_identifier
+        if custom_domain_name is not None:
+            input_["custom_domain_name"] = custom_domain_name
+        if custom_domain_certificate_arn is not None:
+            input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1665,12 +1736,12 @@ class RedshiftClient:
 
     def create_endpoint_access(
         self,
-        endpoint_name: "capo_redshift.types.string.String",
-        subnet_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         resource_owner: Optional["capo_redshift.types.string.String"] = None,
+        endpoint_name: Optional["capo_redshift.types.string.String"] = None,
+        subnet_group_name: Optional["capo_redshift.types.string.String"] = None,
         vpc_security_group_ids: Optional[
             "capo_redshift.types.vpc_security_group_id_list.VpcSecurityGroupIdList"
         ] = None,
@@ -1716,8 +1787,10 @@ class RedshiftClient:
             input_["cluster_identifier"] = cluster_identifier
         if resource_owner is not None:
             input_["resource_owner"] = resource_owner
-        input_["endpoint_name"] = endpoint_name
-        input_["subnet_group_name"] = subnet_group_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
+        if subnet_group_name is not None:
+            input_["subnet_group_name"] = subnet_group_name
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
 
@@ -1730,10 +1803,10 @@ class RedshiftClient:
 
     def create_event_subscription(
         self,
-        subscription_name: "capo_redshift.types.string.String",
-        sns_topic_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        subscription_name: Optional["capo_redshift.types.string.String"] = None,
+        sns_topic_arn: Optional["capo_redshift.types.string.String"] = None,
         source_type: Optional["capo_redshift.types.string.String"] = None,
         source_ids: Optional[
             "capo_redshift.types.source_ids_list.SourceIdsList"
@@ -1790,8 +1863,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
-        input_["sns_topic_arn"] = sns_topic_arn
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
+        if sns_topic_arn is not None:
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
             input_["source_type"] = source_type
         if source_ids is not None:
@@ -1814,9 +1889,11 @@ class RedshiftClient:
 
     def create_hsm_client_certificate(
         self,
-        hsm_client_certificate_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        hsm_client_certificate_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
         tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> "capo_redshift.types.create_hsm_client_certificate_result.CreateHsmClientCertificateResult":
         r"""<p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.</p> <p>The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM\">Hardware Security Modules</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -1849,7 +1926,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_hsm_client_certificate_message.CreateHsmClientCertificateMessage = {}  # type: ignore[typeddict-item]
-        input_["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
+        if hsm_client_certificate_identifier is not None:
+            input_["hsm_client_certificate_identifier"] = (
+                hsm_client_certificate_identifier
+            )
         if tags is not None:
             input_["tags"] = tags
 
@@ -1862,14 +1942,18 @@ class RedshiftClient:
 
     def create_hsm_configuration(
         self,
-        hsm_configuration_identifier: "capo_redshift.types.string.String",
-        description: "capo_redshift.types.string.String",
-        hsm_ip_address: "capo_redshift.types.string.String",
-        hsm_partition_name: "capo_redshift.types.string.String",
-        hsm_partition_password: "capo_redshift.types.string.String",
-        hsm_server_public_certificate: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        hsm_configuration_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
+        description: Optional["capo_redshift.types.string.String"] = None,
+        hsm_ip_address: Optional["capo_redshift.types.string.String"] = None,
+        hsm_partition_name: Optional["capo_redshift.types.string.String"] = None,
+        hsm_partition_password: Optional["capo_redshift.types.string.String"] = None,
+        hsm_server_public_certificate: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
         tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> "capo_redshift.types.create_hsm_configuration_result.CreateHsmConfigurationResult":
         r"""<p>Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.</p> <p>In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html\">Hardware Security Modules</a> in the Amazon Redshift Cluster Management Guide.</p>
@@ -1907,12 +1991,18 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_hsm_configuration_message.CreateHsmConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input_["hsm_configuration_identifier"] = hsm_configuration_identifier
-        input_["description"] = description
-        input_["hsm_ip_address"] = hsm_ip_address
-        input_["hsm_partition_name"] = hsm_partition_name
-        input_["hsm_partition_password"] = hsm_partition_password
-        input_["hsm_server_public_certificate"] = hsm_server_public_certificate
+        if hsm_configuration_identifier is not None:
+            input_["hsm_configuration_identifier"] = hsm_configuration_identifier
+        if description is not None:
+            input_["description"] = description
+        if hsm_ip_address is not None:
+            input_["hsm_ip_address"] = hsm_ip_address
+        if hsm_partition_name is not None:
+            input_["hsm_partition_name"] = hsm_partition_name
+        if hsm_partition_password is not None:
+            input_["hsm_partition_password"] = hsm_partition_password
+        if hsm_server_public_certificate is not None:
+            input_["hsm_server_public_certificate"] = hsm_server_public_certificate
         if tags is not None:
             input_["tags"] = tags
 
@@ -1925,11 +2015,13 @@ class RedshiftClient:
 
     def create_integration(
         self,
-        source_arn: "capo_redshift.types.source_arn.SourceArn",
-        target_arn: "capo_redshift.types.target_arn.TargetArn",
-        integration_name: "capo_redshift.types.integration_name.IntegrationName",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        source_arn: Optional["capo_redshift.types.source_arn.SourceArn"] = None,
+        target_arn: Optional["capo_redshift.types.target_arn.TargetArn"] = None,
+        integration_name: Optional[
+            "capo_redshift.types.integration_name.IntegrationName"
+        ] = None,
         kms_key_id: Optional["capo_redshift.types.string.String"] = None,
         tag_list: Optional["capo_redshift.types.tag_list.TagList"] = None,
         additional_encryption_context: Optional[
@@ -1977,9 +2069,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_integration_message.CreateIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input_["source_arn"] = source_arn
-        input_["target_arn"] = target_arn
-        input_["integration_name"] = integration_name
+        if source_arn is not None:
+            input_["source_arn"] = source_arn
+        if target_arn is not None:
+            input_["target_arn"] = target_arn
+        if integration_name is not None:
+            input_["integration_name"] = integration_name
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tag_list is not None:
@@ -1998,15 +2093,19 @@ class RedshiftClient:
 
     def create_redshift_idc_application(
         self,
-        idc_instance_arn: "capo_redshift.types.string.String",
-        redshift_idc_application_name: "capo_redshift.types.redshift_idc_application_name.RedshiftIdcApplicationName",
-        idc_display_name: "capo_redshift.types.idc_display_name_string.IdcDisplayNameString",
-        iam_role_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        idc_instance_arn: Optional["capo_redshift.types.string.String"] = None,
+        redshift_idc_application_name: Optional[
+            "capo_redshift.types.redshift_idc_application_name.RedshiftIdcApplicationName"
+        ] = None,
         identity_namespace: Optional[
             "capo_redshift.types.identity_namespace_string.IdentityNamespaceString"
         ] = None,
+        idc_display_name: Optional[
+            "capo_redshift.types.idc_display_name_string.IdcDisplayNameString"
+        ] = None,
+        iam_role_arn: Optional["capo_redshift.types.string.String"] = None,
         authorized_token_issuer_list: Optional[
             "capo_redshift.types.authorized_token_issuer_list.AuthorizedTokenIssuerList"
         ] = None,
@@ -2060,12 +2159,16 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_redshift_idc_application_message.CreateRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
-        input_["idc_instance_arn"] = idc_instance_arn
-        input_["redshift_idc_application_name"] = redshift_idc_application_name
+        if idc_instance_arn is not None:
+            input_["idc_instance_arn"] = idc_instance_arn
+        if redshift_idc_application_name is not None:
+            input_["redshift_idc_application_name"] = redshift_idc_application_name
         if identity_namespace is not None:
             input_["identity_namespace"] = identity_namespace
-        input_["idc_display_name"] = idc_display_name
-        input_["iam_role_arn"] = iam_role_arn
+        if idc_display_name is not None:
+            input_["idc_display_name"] = idc_display_name
+        if iam_role_arn is not None:
+            input_["iam_role_arn"] = iam_role_arn
         if authorized_token_issuer_list is not None:
             input_["authorized_token_issuer_list"] = authorized_token_issuer_list
         if service_integrations is not None:
@@ -2086,12 +2189,14 @@ class RedshiftClient:
 
     def create_scheduled_action(
         self,
-        scheduled_action_name: "capo_redshift.types.string.String",
-        target_action: "capo_redshift.types.scheduled_action_type.ScheduledActionType",
-        schedule: "capo_redshift.types.string.String",
-        iam_role: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        scheduled_action_name: Optional["capo_redshift.types.string.String"] = None,
+        target_action: Optional[
+            "capo_redshift.types.scheduled_action_type.ScheduledActionType"
+        ] = None,
+        schedule: Optional["capo_redshift.types.string.String"] = None,
+        iam_role: Optional["capo_redshift.types.string.String"] = None,
         scheduled_action_description: Optional[
             "capo_redshift.types.string.String"
         ] = None,
@@ -2137,10 +2242,14 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_scheduled_action_message.CreateScheduledActionMessage = {}  # type: ignore[typeddict-item]
-        input_["scheduled_action_name"] = scheduled_action_name
-        input_["target_action"] = target_action
-        input_["schedule"] = schedule
-        input_["iam_role"] = iam_role
+        if scheduled_action_name is not None:
+            input_["scheduled_action_name"] = scheduled_action_name
+        if target_action is not None:
+            input_["target_action"] = target_action
+        if schedule is not None:
+            input_["schedule"] = schedule
+        if iam_role is not None:
+            input_["iam_role"] = iam_role
         if scheduled_action_description is not None:
             input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
@@ -2159,9 +2268,9 @@ class RedshiftClient:
 
     def create_snapshot_copy_grant(
         self,
-        snapshot_copy_grant_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        snapshot_copy_grant_name: Optional["capo_redshift.types.string.String"] = None,
         kms_key_id: Optional["capo_redshift.types.string.String"] = None,
         tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> "capo_redshift.types.create_snapshot_copy_grant_result.CreateSnapshotCopyGrantResult":
@@ -2198,7 +2307,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_snapshot_copy_grant_message.CreateSnapshotCopyGrantMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+        if snapshot_copy_grant_name is not None:
+            input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -2286,10 +2396,10 @@ class RedshiftClient:
 
     def create_tags(
         self,
-        resource_name: "capo_redshift.types.string.String",
-        tags: "capo_redshift.types.tag_list.TagList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        resource_name: Optional["capo_redshift.types.string.String"] = None,
+        tags: Optional["capo_redshift.types.tag_list.TagList"] = None,
     ) -> None:
         r"""<p>Adds tags to a cluster.</p> <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, you will receive an error and the attempt will fail.</p> <p>If you specify a key that already exists for the resource, the value for that key will be updated with the new value.</p>
 
@@ -2319,8 +2429,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_tags_message.CreateTagsMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tags"] = tags
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tags is not None:
+            input_["tags"] = tags
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2331,12 +2443,16 @@ class RedshiftClient:
 
     def create_usage_limit(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        feature_type: "capo_redshift.types.usage_limit_feature_type.UsageLimitFeatureType",
-        limit_type: "capo_redshift.types.usage_limit_limit_type.UsageLimitLimitType",
-        amount: "capo_redshift.types.long.Long",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        feature_type: Optional[
+            "capo_redshift.types.usage_limit_feature_type.UsageLimitFeatureType"
+        ] = None,
+        limit_type: Optional[
+            "capo_redshift.types.usage_limit_limit_type.UsageLimitLimitType"
+        ] = None,
+        amount: Optional["capo_redshift.types.long.Long"] = None,
         period: Optional[
             "capo_redshift.types.usage_limit_period.UsageLimitPeriod"
         ] = None,
@@ -2381,10 +2497,14 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.create_usage_limit_message.CreateUsageLimitMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
-        input_["feature_type"] = feature_type
-        input_["limit_type"] = limit_type
-        input_["amount"] = amount
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if feature_type is not None:
+            input_["feature_type"] = feature_type
+        if limit_type is not None:
+            input_["limit_type"] = limit_type
+        if amount is not None:
+            input_["amount"] = amount
         if period is not None:
             input_["period"] = period
         if breach_action is not None:
@@ -2401,10 +2521,10 @@ class RedshiftClient:
 
     def deauthorize_data_share(
         self,
-        data_share_arn: "capo_redshift.types.string.String",
-        consumer_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        data_share_arn: Optional["capo_redshift.types.string.String"] = None,
+        consumer_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.data_share.DataShare":
         """<p>From a datashare producer account, removes authorization from the specified datashare. </p>
 
@@ -2431,8 +2551,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.deauthorize_data_share_message.DeauthorizeDataShareMessage = {}  # type: ignore[typeddict-item]
-        input_["data_share_arn"] = data_share_arn
-        input_["consumer_identifier"] = consumer_identifier
+        if data_share_arn is not None:
+            input_["data_share_arn"] = data_share_arn
+        if consumer_identifier is not None:
+            input_["consumer_identifier"] = consumer_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2443,9 +2565,11 @@ class RedshiftClient:
 
     def delete_authentication_profile(
         self,
-        authentication_profile_name: "capo_redshift.types.authentication_profile_name_string.AuthenticationProfileNameString",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        authentication_profile_name: Optional[
+            "capo_redshift.types.authentication_profile_name_string.AuthenticationProfileNameString"
+        ] = None,
     ) -> "capo_redshift.types.delete_authentication_profile_result.DeleteAuthenticationProfileResult":
         """<p>Deletes an authentication profile.</p>
 
@@ -2474,7 +2598,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_authentication_profile_message.DeleteAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
-        input_["authentication_profile_name"] = authentication_profile_name
+        if authentication_profile_name is not None:
+            input_["authentication_profile_name"] = authentication_profile_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2485,9 +2610,9 @@ class RedshiftClient:
 
     def delete_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         skip_final_cluster_snapshot: Optional[
             "capo_redshift.types.boolean.Boolean"
         ] = None,
@@ -2531,7 +2656,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_cluster_message.DeleteClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if skip_final_cluster_snapshot is not None:
             input_["skip_final_cluster_snapshot"] = skip_final_cluster_snapshot
         if final_cluster_snapshot_identifier is not None:
@@ -2552,9 +2678,9 @@ class RedshiftClient:
 
     def delete_cluster_parameter_group(
         self,
-        parameter_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_name: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a specified Amazon Redshift parameter group.</p> <note> <p>You cannot delete a parameter group if it is associated with a cluster.</p> </note>
 
@@ -2581,7 +2707,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_cluster_parameter_group_message.DeleteClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["parameter_group_name"] = parameter_group_name
+        if parameter_group_name is not None:
+            input_["parameter_group_name"] = parameter_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2592,9 +2719,11 @@ class RedshiftClient:
 
     def delete_cluster_security_group(
         self,
-        cluster_security_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_security_group_name: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> None:
         r"""<p>Deletes an Amazon Redshift security group.</p> <note> <p>You cannot delete a security group that is associated with any clusters. You cannot delete the default security group.</p> </note> <p> For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
 
@@ -2621,7 +2750,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_cluster_security_group_message.DeleteClusterSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_security_group_name"] = cluster_security_group_name
+        if cluster_security_group_name is not None:
+            input_["cluster_security_group_name"] = cluster_security_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2632,9 +2762,9 @@ class RedshiftClient:
 
     def delete_cluster_snapshot(
         self,
-        snapshot_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_cluster_identifier: Optional[
             "capo_redshift.types.string.String"
         ] = None,
@@ -2669,7 +2799,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_cluster_snapshot_message.DeleteClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_identifier"] = snapshot_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_cluster_identifier is not None:
             input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
 
@@ -2682,9 +2813,9 @@ class RedshiftClient:
 
     def delete_cluster_subnet_group(
         self,
-        cluster_subnet_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_subnet_group_name: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes the specified cluster subnet group.</p>
 
@@ -2712,7 +2843,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_cluster_subnet_group_message.DeleteClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_subnet_group_name"] = cluster_subnet_group_name
+        if cluster_subnet_group_name is not None:
+            input_["cluster_subnet_group_name"] = cluster_subnet_group_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2723,10 +2855,12 @@ class RedshiftClient:
 
     def delete_custom_domain_association(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        custom_domain_name: "capo_redshift.types.custom_domain_name_string.CustomDomainNameString",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        custom_domain_name: Optional[
+            "capo_redshift.types.custom_domain_name_string.CustomDomainNameString"
+        ] = None,
     ) -> None:
         """<p>Contains information about deleting a custom domain association for a cluster.</p>
 
@@ -2756,8 +2890,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_custom_domain_association_message.DeleteCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
-        input_["custom_domain_name"] = custom_domain_name
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if custom_domain_name is not None:
+            input_["custom_domain_name"] = custom_domain_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2768,9 +2904,9 @@ class RedshiftClient:
 
     def delete_endpoint_access(
         self,
-        endpoint_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        endpoint_name: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.endpoint_access.EndpointAccess":
         """<p>Deletes a Redshift-managed VPC endpoint.</p>
 
@@ -2800,7 +2936,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_endpoint_access_message.DeleteEndpointAccessMessage = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2811,9 +2948,9 @@ class RedshiftClient:
 
     def delete_event_subscription(
         self,
-        subscription_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        subscription_name: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes an Amazon Redshift event notification subscription.</p>
 
@@ -2840,7 +2977,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2851,9 +2989,11 @@ class RedshiftClient:
 
     def delete_hsm_client_certificate(
         self,
-        hsm_client_certificate_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        hsm_client_certificate_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified HSM client certificate.</p>
 
@@ -2880,7 +3020,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_hsm_client_certificate_message.DeleteHsmClientCertificateMessage = {}  # type: ignore[typeddict-item]
-        input_["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
+        if hsm_client_certificate_identifier is not None:
+            input_["hsm_client_certificate_identifier"] = (
+                hsm_client_certificate_identifier
+            )
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2891,9 +3034,11 @@ class RedshiftClient:
 
     def delete_hsm_configuration(
         self,
-        hsm_configuration_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        hsm_configuration_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes the specified Amazon Redshift HSM configuration.</p>
 
@@ -2920,7 +3065,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_hsm_configuration_message.DeleteHsmConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input_["hsm_configuration_identifier"] = hsm_configuration_identifier
+        if hsm_configuration_identifier is not None:
+            input_["hsm_configuration_identifier"] = hsm_configuration_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2931,9 +3077,11 @@ class RedshiftClient:
 
     def delete_integration(
         self,
-        integration_arn: "capo_redshift.types.integration_arn.IntegrationArn",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        integration_arn: Optional[
+            "capo_redshift.types.integration_arn.IntegrationArn"
+        ] = None,
     ) -> "capo_redshift.types.integration.Integration":
         """<p>Deletes a zero-ETL integration or S3 event integration with Amazon Redshift.</p>
 
@@ -2962,7 +3110,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_integration_message.DeleteIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input_["integration_arn"] = integration_arn
+        if integration_arn is not None:
+            input_["integration_arn"] = integration_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2973,12 +3122,20 @@ class RedshiftClient:
 
     def delete_partner(
         self,
-        account_id: "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId",
-        cluster_identifier: "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier",
-        database_name: "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName",
-        partner_name: "capo_redshift.types.partner_integration_partner_name.PartnerIntegrationPartnerName",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        account_id: Optional[
+            "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId"
+        ] = None,
+        cluster_identifier: Optional[
+            "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier"
+        ] = None,
+        database_name: Optional[
+            "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName"
+        ] = None,
+        partner_name: Optional[
+            "capo_redshift.types.partner_integration_partner_name.PartnerIntegrationPartnerName"
+        ] = None,
     ) -> "capo_redshift.types.partner_integration_output_message.PartnerIntegrationOutputMessage":
         """<p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
 
@@ -3012,10 +3169,14 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.partner_integration_input_message.PartnerIntegrationInputMessage = {}  # type: ignore[typeddict-item]
-        input_["account_id"] = account_id
-        input_["cluster_identifier"] = cluster_identifier
-        input_["database_name"] = database_name
-        input_["partner_name"] = partner_name
+        if account_id is not None:
+            input_["account_id"] = account_id
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if database_name is not None:
+            input_["database_name"] = database_name
+        if partner_name is not None:
+            input_["partner_name"] = partner_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3026,9 +3187,11 @@ class RedshiftClient:
 
     def delete_redshift_idc_application(
         self,
-        redshift_idc_application_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        redshift_idc_application_arn: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> None:
         """<p>Deletes an Amazon Redshift IAM Identity Center application.</p>
 
@@ -3057,7 +3220,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_redshift_idc_application_message.DeleteRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
-        input_["redshift_idc_application_arn"] = redshift_idc_application_arn
+        if redshift_idc_application_arn is not None:
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3068,9 +3232,9 @@ class RedshiftClient:
 
     def delete_resource_policy(
         self,
-        resource_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        resource_arn: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes the resource policy for a specified resource.</p>
 
@@ -3097,7 +3261,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_resource_policy_message.DeleteResourcePolicyMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3108,9 +3273,9 @@ class RedshiftClient:
 
     def delete_scheduled_action(
         self,
-        scheduled_action_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        scheduled_action_name: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a scheduled action. </p>
 
@@ -3137,7 +3302,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_scheduled_action_message.DeleteScheduledActionMessage = {}  # type: ignore[typeddict-item]
-        input_["scheduled_action_name"] = scheduled_action_name
+        if scheduled_action_name is not None:
+            input_["scheduled_action_name"] = scheduled_action_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3148,9 +3314,9 @@ class RedshiftClient:
 
     def delete_snapshot_copy_grant(
         self,
-        snapshot_copy_grant_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        snapshot_copy_grant_name: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes the specified snapshot copy grant.</p>
 
@@ -3177,7 +3343,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_snapshot_copy_grant_message.DeleteSnapshotCopyGrantMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+        if snapshot_copy_grant_name is not None:
+            input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3188,9 +3355,9 @@ class RedshiftClient:
 
     def delete_snapshot_schedule(
         self,
-        schedule_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        schedule_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a snapshot schedule.</p>
 
@@ -3217,7 +3384,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_snapshot_schedule_message.DeleteSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
-        input_["schedule_identifier"] = schedule_identifier
+        if schedule_identifier is not None:
+            input_["schedule_identifier"] = schedule_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3228,10 +3396,10 @@ class RedshiftClient:
 
     def delete_tags(
         self,
-        resource_name: "capo_redshift.types.string.String",
-        tag_keys: "capo_redshift.types.tag_key_list.TagKeyList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        resource_name: Optional["capo_redshift.types.string.String"] = None,
+        tag_keys: Optional["capo_redshift.types.tag_key_list.TagKeyList"] = None,
     ) -> None:
         """<p>Deletes tags from a resource. You must provide the ARN of the resource from which you want to delete the tag or tags.</p>
 
@@ -3259,8 +3427,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_tags_message.DeleteTagsMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_name"] = resource_name
-        input_["tag_keys"] = tag_keys
+        if resource_name is not None:
+            input_["resource_name"] = resource_name
+        if tag_keys is not None:
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3271,9 +3441,9 @@ class RedshiftClient:
 
     def delete_usage_limit(
         self,
-        usage_limit_id: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        usage_limit_id: Optional["capo_redshift.types.string.String"] = None,
     ) -> None:
         """<p>Deletes a usage limit from a cluster.</p>
 
@@ -3300,7 +3470,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.delete_usage_limit_message.DeleteUsageLimitMessage = {}  # type: ignore[typeddict-item]
-        input_["usage_limit_id"] = usage_limit_id
+        if usage_limit_id is not None:
+            input_["usage_limit_id"] = usage_limit_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3311,10 +3482,14 @@ class RedshiftClient:
 
     def deregister_namespace(
         self,
-        namespace_identifier: "capo_redshift.types.namespace_identifier_union.NamespaceIdentifierUnion",
-        consumer_identifiers: "capo_redshift.types.consumer_identifier_list.ConsumerIdentifierList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        namespace_identifier: Optional[
+            "capo_redshift.types.namespace_identifier_union.NamespaceIdentifierUnion"
+        ] = None,
+        consumer_identifiers: Optional[
+            "capo_redshift.types.consumer_identifier_list.ConsumerIdentifierList"
+        ] = None,
     ) -> "capo_redshift.types.deregister_namespace_output_message.DeregisterNamespaceOutputMessage":
         """<p>Deregisters a cluster or serverless namespace from the Amazon Web Services Glue Data Catalog.</p>
 
@@ -3345,8 +3520,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.deregister_namespace_input_message.DeregisterNamespaceInputMessage = {}  # type: ignore[typeddict-item]
-        input_["namespace_identifier"] = namespace_identifier
-        input_["consumer_identifiers"] = consumer_identifiers
+        if namespace_identifier is not None:
+            input_["namespace_identifier"] = namespace_identifier
+        if consumer_identifiers is not None:
+            input_["consumer_identifiers"] = consumer_identifiers
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3613,9 +3790,9 @@ class RedshiftClient:
 
     def describe_cluster_parameters(
         self,
-        parameter_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_name: Optional["capo_redshift.types.string.String"] = None,
         source: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
@@ -3651,7 +3828,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.describe_cluster_parameters_message.DescribeClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["parameter_group_name"] = parameter_group_name
+        if parameter_group_name is not None:
+            input_["parameter_group_name"] = parameter_group_name
         if source is not None:
             input_["source"] = source
         if max_records is not None:
@@ -3668,9 +3846,9 @@ class RedshiftClient:
 
     def iter_describe_cluster_parameters(
         self,
-        parameter_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_name: Optional["capo_redshift.types.string.String"] = None,
         source: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
@@ -3680,8 +3858,8 @@ class RedshiftClient:
         _token = marker
         while True:
             _response = self.describe_cluster_parameters(
-                parameter_group_name,
                 config_overrides=config_overrides,
+                parameter_group_name=parameter_group_name,
                 source=source,
                 max_records=max_records,
                 marker=_token,
@@ -4622,9 +4800,9 @@ class RedshiftClient:
 
     def describe_default_cluster_parameters(
         self,
-        parameter_group_family: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_family: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -4657,7 +4835,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.describe_default_cluster_parameters_message.DescribeDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input_["parameter_group_family"] = parameter_group_family
+        if parameter_group_family is not None:
+            input_["parameter_group_family"] = parameter_group_family
         if max_records is not None:
             input_["max_records"] = max_records
         if marker is not None:
@@ -4672,9 +4851,9 @@ class RedshiftClient:
 
     def iter_describe_default_cluster_parameters(
         self,
-        parameter_group_family: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_family: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -4683,8 +4862,8 @@ class RedshiftClient:
         _token = marker
         while True:
             _response = self.describe_default_cluster_parameters(
-                parameter_group_family,
                 config_overrides=config_overrides,
+                parameter_group_family=parameter_group_family,
                 max_records=max_records,
                 marker=_token,
             )
@@ -5496,9 +5675,9 @@ class RedshiftClient:
 
     def describe_logging_status(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.logging_status.LoggingStatus":
         """<p>Describes whether information, such as queries and connection attempts, is being logged for the specified Amazon Redshift cluster.</p>
 
@@ -5525,7 +5704,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.describe_logging_status_message.DescribeLoggingStatusMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5536,9 +5716,9 @@ class RedshiftClient:
 
     def describe_node_configuration_options(
         self,
-        action_type: "capo_redshift.types.action_type.ActionType",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        action_type: Optional["capo_redshift.types.action_type.ActionType"] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_arn: Optional["capo_redshift.types.string.String"] = None,
@@ -5588,7 +5768,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.describe_node_configuration_options_message.DescribeNodeConfigurationOptionsMessage = {}  # type: ignore[typeddict-item]
-        input_["action_type"] = action_type
+        if action_type is not None:
+            input_["action_type"] = action_type
         if cluster_identifier is not None:
             input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
@@ -5613,9 +5794,9 @@ class RedshiftClient:
 
     def iter_describe_node_configuration_options(
         self,
-        action_type: "capo_redshift.types.action_type.ActionType",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        action_type: Optional["capo_redshift.types.action_type.ActionType"] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_arn: Optional["capo_redshift.types.string.String"] = None,
@@ -5631,8 +5812,8 @@ class RedshiftClient:
         _token = marker
         while True:
             _response = self.describe_node_configuration_options(
-                action_type,
                 config_overrides=config_overrides,
+                action_type=action_type,
                 cluster_identifier=cluster_identifier,
                 snapshot_identifier=snapshot_identifier,
                 snapshot_arn=snapshot_arn,
@@ -5734,10 +5915,14 @@ class RedshiftClient:
 
     def describe_partners(
         self,
-        account_id: "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId",
-        cluster_identifier: "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        account_id: Optional[
+            "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId"
+        ] = None,
+        cluster_identifier: Optional[
+            "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier"
+        ] = None,
         database_name: Optional[
             "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName"
         ] = None,
@@ -5776,8 +5961,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.describe_partners_input_message.DescribePartnersInputMessage = {}  # type: ignore[typeddict-item]
-        input_["account_id"] = account_id
-        input_["cluster_identifier"] = cluster_identifier
+        if account_id is not None:
+            input_["account_id"] = account_id
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if database_name is not None:
             input_["database_name"] = database_name
         if partner_name is not None:
@@ -6126,9 +6313,9 @@ class RedshiftClient:
 
     def describe_resize(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.resize_progress_message.ResizeProgressMessage":
         """<p>Returns information about the last resize operation for the specified cluster. If no resize operation has ever been initiated for the specified cluster, a <code>HTTP 404</code> error is returned. If a resize operation was initiated and completed, the status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p> <p>A resize operation can be requested using <a>ModifyCluster</a> and specifying a different number or type of nodes for the cluster. </p>
 
@@ -6158,7 +6345,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.describe_resize_message.DescribeResizeMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6785,9 +6973,9 @@ class RedshiftClient:
 
     def disable_logging(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.logging_status.LoggingStatus":
         """<p>Stops logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.</p>
 
@@ -6815,7 +7003,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.disable_logging_message.DisableLoggingMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6826,9 +7015,9 @@ class RedshiftClient:
 
     def disable_snapshot_copy(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.disable_snapshot_copy_result.DisableSnapshotCopyResult":
         """<p>Disables the automatic copying of snapshots from one region to another region for a specified cluster.</p> <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that grants Amazon Redshift permission to the key in the destination region. </p>
 
@@ -6860,7 +7049,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.disable_snapshot_copy_message.DisableSnapshotCopyMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6871,9 +7061,9 @@ class RedshiftClient:
 
     def disassociate_data_share_consumer(
         self,
-        data_share_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        data_share_arn: Optional["capo_redshift.types.string.String"] = None,
         disassociate_entire_account: Optional[
             "capo_redshift.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -6908,7 +7098,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.disassociate_data_share_consumer_message.DisassociateDataShareConsumerMessage = {}  # type: ignore[typeddict-item]
-        input_["data_share_arn"] = data_share_arn
+        if data_share_arn is not None:
+            input_["data_share_arn"] = data_share_arn
         if disassociate_entire_account is not None:
             input_["disassociate_entire_account"] = disassociate_entire_account
         if consumer_arn is not None:
@@ -6925,9 +7116,9 @@ class RedshiftClient:
 
     def enable_logging(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         bucket_name: Optional["capo_redshift.types.string.String"] = None,
         s3_key_prefix: Optional[
             "capo_redshift.types.s3_key_prefix_value.S3KeyPrefixValue"
@@ -6971,7 +7162,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.enable_logging_message.EnableLoggingMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if bucket_name is not None:
             input_["bucket_name"] = bucket_name
         if s3_key_prefix is not None:
@@ -6990,10 +7182,10 @@ class RedshiftClient:
 
     def enable_snapshot_copy(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        destination_region: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        destination_region: Optional["capo_redshift.types.string.String"] = None,
         retention_period: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -7042,8 +7234,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.enable_snapshot_copy_message.EnableSnapshotCopyMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
-        input_["destination_region"] = destination_region
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if destination_region is not None:
+            input_["destination_region"] = destination_region
         if retention_period is not None:
             input_["retention_period"] = retention_period
         if snapshot_copy_grant_name is not None:
@@ -7062,9 +7256,9 @@ class RedshiftClient:
 
     def failover_primary_compute(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.failover_primary_compute_result.FailoverPrimaryComputeResult":
         """<p>Fails over the primary compute unit of the specified Multi-AZ cluster to another Availability Zone.</p>
 
@@ -7095,7 +7289,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.failover_primary_compute_input_message.FailoverPrimaryComputeInputMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7106,9 +7301,9 @@ class RedshiftClient:
 
     def get_cluster_credentials(
         self,
-        db_user: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        db_user: Optional["capo_redshift.types.string.String"] = None,
         db_name: Optional["capo_redshift.types.string.String"] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         duration_seconds: Optional[
@@ -7153,7 +7348,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.get_cluster_credentials_message.GetClusterCredentialsMessage = {}  # type: ignore[typeddict-item]
-        input_["db_user"] = db_user
+        if db_user is not None:
+            input_["db_user"] = db_user
         if db_name is not None:
             input_["db_name"] = db_name
         if cluster_identifier is not None:
@@ -7233,9 +7429,11 @@ class RedshiftClient:
 
     def get_identity_center_auth_token(
         self,
-        cluster_ids: "capo_redshift.types.cluster_identifier_list.ClusterIdentifierList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_ids: Optional[
+            "capo_redshift.types.cluster_identifier_list.ClusterIdentifierList"
+        ] = None,
     ) -> "capo_redshift.types.get_identity_center_auth_token_response.GetIdentityCenterAuthTokenResponse":
         """<p>Generates an encrypted authentication token that propagates the caller's Amazon Web Services IAM Identity Center identity to Amazon Redshift clusters. This API extracts the Amazon Web Services IAM Identity Center identity from enhanced credentials and creates a secure token that Amazon Redshift drivers can use for authentication.</p> <p>The token is encrypted using Key Management Service (KMS) and can only be decrypted by the specified Amazon Redshift clusters. The token contains the caller's Amazon Web Services IAM Identity Center identity information and is valid for a limited time period.</p> <p>This API is exclusively for use with Amazon Web Services IAM Identity Center enhanced credentials. If the caller is not using enhanced credentials with embedded Amazon Web Services IAM Identity Center identity, the API will return an error.</p>
 
@@ -7266,7 +7464,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.get_identity_center_auth_token_request.GetIdentityCenterAuthTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster_ids"] = cluster_ids
+        if cluster_ids is not None:
+            input_["cluster_ids"] = cluster_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7277,9 +7476,11 @@ class RedshiftClient:
 
     def get_reserved_node_exchange_configuration_options(
         self,
-        action_type: "capo_redshift.types.reserved_node_exchange_action_type.ReservedNodeExchangeActionType",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        action_type: Optional[
+            "capo_redshift.types.reserved_node_exchange_action_type.ReservedNodeExchangeActionType"
+        ] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
@@ -7324,7 +7525,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.get_reserved_node_exchange_configuration_options_input_message.GetReservedNodeExchangeConfigurationOptionsInputMessage = {}  # type: ignore[typeddict-item]
-        input_["action_type"] = action_type
+        if action_type is not None:
+            input_["action_type"] = action_type
         if cluster_identifier is not None:
             input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
@@ -7343,9 +7545,11 @@ class RedshiftClient:
 
     def iter_get_reserved_node_exchange_configuration_options(
         self,
-        action_type: "capo_redshift.types.reserved_node_exchange_action_type.ReservedNodeExchangeActionType",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        action_type: Optional[
+            "capo_redshift.types.reserved_node_exchange_action_type.ReservedNodeExchangeActionType"
+        ] = None,
         cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
@@ -7356,8 +7560,8 @@ class RedshiftClient:
         _token = marker
         while True:
             _response = self.get_reserved_node_exchange_configuration_options(
-                action_type,
                 config_overrides=config_overrides,
+                action_type=action_type,
                 cluster_identifier=cluster_identifier,
                 snapshot_identifier=snapshot_identifier,
                 max_records=max_records,
@@ -7374,9 +7578,9 @@ class RedshiftClient:
 
     def get_reserved_node_exchange_offerings(
         self,
-        reserved_node_id: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        reserved_node_id: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -7415,7 +7619,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.get_reserved_node_exchange_offerings_input_message.GetReservedNodeExchangeOfferingsInputMessage = {}  # type: ignore[typeddict-item]
-        input_["reserved_node_id"] = reserved_node_id
+        if reserved_node_id is not None:
+            input_["reserved_node_id"] = reserved_node_id
         if max_records is not None:
             input_["max_records"] = max_records
         if marker is not None:
@@ -7430,9 +7635,9 @@ class RedshiftClient:
 
     def iter_get_reserved_node_exchange_offerings(
         self,
-        reserved_node_id: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        reserved_node_id: Optional["capo_redshift.types.string.String"] = None,
         max_records: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -7441,8 +7646,8 @@ class RedshiftClient:
         _token = marker
         while True:
             _response = self.get_reserved_node_exchange_offerings(
-                reserved_node_id,
                 config_overrides=config_overrides,
+                reserved_node_id=reserved_node_id,
                 max_records=max_records,
                 marker=_token,
             )
@@ -7455,9 +7660,9 @@ class RedshiftClient:
 
     def get_resource_policy(
         self,
-        resource_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        resource_arn: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.get_resource_policy_result.GetResourcePolicyResult":
         """<p>Get the resource policy for a specified resource.</p>
 
@@ -7487,7 +7692,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.get_resource_policy_message.GetResourcePolicyMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7582,9 +7788,9 @@ class RedshiftClient:
 
     def modify_aqua_configuration(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         aqua_configuration_status: Optional[
             "capo_redshift.types.aqua_configuration_status.AquaConfigurationStatus"
         ] = None,
@@ -7618,7 +7824,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_aqua_input_message.ModifyAquaInputMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if aqua_configuration_status is not None:
             input_["aqua_configuration_status"] = aqua_configuration_status
 
@@ -7631,10 +7838,14 @@ class RedshiftClient:
 
     def modify_authentication_profile(
         self,
-        authentication_profile_name: "capo_redshift.types.authentication_profile_name_string.AuthenticationProfileNameString",
-        authentication_profile_content: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        authentication_profile_name: Optional[
+            "capo_redshift.types.authentication_profile_name_string.AuthenticationProfileNameString"
+        ] = None,
+        authentication_profile_content: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
     ) -> "capo_redshift.types.modify_authentication_profile_result.ModifyAuthenticationProfileResult":
         """<p>Modifies an authentication profile.</p>
 
@@ -7665,8 +7876,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_authentication_profile_message.ModifyAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
-        input_["authentication_profile_name"] = authentication_profile_name
-        input_["authentication_profile_content"] = authentication_profile_content
+        if authentication_profile_name is not None:
+            input_["authentication_profile_name"] = authentication_profile_name
+        if authentication_profile_content is not None:
+            input_["authentication_profile_content"] = authentication_profile_content
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7677,9 +7890,9 @@ class RedshiftClient:
 
     def modify_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         cluster_type: Optional["capo_redshift.types.string.String"] = None,
         node_type: Optional["capo_redshift.types.string.String"] = None,
         number_of_nodes: Optional[
@@ -7824,7 +8037,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_message.ModifyClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if cluster_type is not None:
             input_["cluster_type"] = cluster_type
         if node_type is not None:
@@ -7903,10 +8117,10 @@ class RedshiftClient:
 
     def modify_cluster_db_revision(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        revision_target: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        revision_target: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.modify_cluster_db_revision_result.ModifyClusterDbRevisionResult":
         """<p>Modifies the database revision of a cluster. The database revision is a unique revision of the database running in a cluster.</p>
 
@@ -7938,8 +8152,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_db_revision_message.ModifyClusterDbRevisionMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
-        input_["revision_target"] = revision_target
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if revision_target is not None:
+            input_["revision_target"] = revision_target
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7950,9 +8166,9 @@ class RedshiftClient:
 
     def modify_cluster_iam_roles(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         add_iam_roles: Optional[
             "capo_redshift.types.iam_role_arn_list.IamRoleArnList"
         ] = None,
@@ -7991,7 +8207,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_iam_roles_message.ModifyClusterIamRolesMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if add_iam_roles is not None:
             input_["add_iam_roles"] = add_iam_roles
         if remove_iam_roles is not None:
@@ -8008,9 +8225,9 @@ class RedshiftClient:
 
     def modify_cluster_maintenance(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         defer_maintenance: Optional[
             "capo_redshift.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -8059,7 +8276,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_maintenance_message.ModifyClusterMaintenanceMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if defer_maintenance is not None:
             input_["defer_maintenance"] = defer_maintenance
         if defer_maintenance_identifier is not None:
@@ -8080,10 +8298,12 @@ class RedshiftClient:
 
     def modify_cluster_parameter_group(
         self,
-        parameter_group_name: "capo_redshift.types.string.String",
-        parameters: "capo_redshift.types.parameters_list.ParametersList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_name: Optional["capo_redshift.types.string.String"] = None,
+        parameters: Optional[
+            "capo_redshift.types.parameters_list.ParametersList"
+        ] = None,
     ) -> "capo_redshift.types.cluster_parameter_group_name_message.ClusterParameterGroupNameMessage":
         r"""<p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
 
@@ -8113,8 +8333,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_parameter_group_message.ModifyClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["parameter_group_name"] = parameter_group_name
-        input_["parameters"] = parameters
+        if parameter_group_name is not None:
+            input_["parameter_group_name"] = parameter_group_name
+        if parameters is not None:
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8125,9 +8347,9 @@ class RedshiftClient:
 
     def modify_cluster_snapshot(
         self,
-        snapshot_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         manual_snapshot_retention_period: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -8165,7 +8387,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_snapshot_message.ModifyClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["snapshot_identifier"] = snapshot_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
         if manual_snapshot_retention_period is not None:
             input_["manual_snapshot_retention_period"] = (
                 manual_snapshot_retention_period
@@ -8182,9 +8405,9 @@ class RedshiftClient:
 
     def modify_cluster_snapshot_schedule(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         schedule_identifier: Optional["capo_redshift.types.string.String"] = None,
         disassociate_schedule: Optional[
             "capo_redshift.types.boolean_optional.BooleanOptional"
@@ -8218,7 +8441,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_snapshot_schedule_message.ModifyClusterSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if schedule_identifier is not None:
             input_["schedule_identifier"] = schedule_identifier
         if disassociate_schedule is not None:
@@ -8233,11 +8457,13 @@ class RedshiftClient:
 
     def modify_cluster_subnet_group(
         self,
-        cluster_subnet_group_name: "capo_redshift.types.string.String",
-        subnet_ids: "capo_redshift.types.subnet_identifier_list.SubnetIdentifierList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_subnet_group_name: Optional["capo_redshift.types.string.String"] = None,
         description: Optional["capo_redshift.types.string.String"] = None,
+        subnet_ids: Optional[
+            "capo_redshift.types.subnet_identifier_list.SubnetIdentifierList"
+        ] = None,
     ) -> "capo_redshift.types.modify_cluster_subnet_group_result.ModifyClusterSubnetGroupResult":
         r"""<p>Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.</p> <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. If a subnet group for a provisioned cluster is in an account with VPC BPA turned on, the following capabilities are blocked:</p> <ul> <li> <p>Creating a public cluster</p> </li> <li> <p>Restoring a public cluster</p> </li> <li> <p>Modifying a private cluster to be public</p> </li> <li> <p>Adding a subnet with VPC BPA turned on to the subnet group when there's at least one public cluster within the group</p> </li> </ul> <p>For more information about VPC BPA, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html\">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -8272,10 +8498,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_cluster_subnet_group_message.ModifyClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_subnet_group_name"] = cluster_subnet_group_name
+        if cluster_subnet_group_name is not None:
+            input_["cluster_subnet_group_name"] = cluster_subnet_group_name
         if description is not None:
             input_["description"] = description
-        input_["subnet_ids"] = subnet_ids
+        if subnet_ids is not None:
+            input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8286,11 +8514,15 @@ class RedshiftClient:
 
     def modify_custom_domain_association(
         self,
-        custom_domain_name: "capo_redshift.types.custom_domain_name_string.CustomDomainNameString",
-        custom_domain_certificate_arn: "capo_redshift.types.custom_domain_certificate_arn_string.CustomDomainCertificateArnString",
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        custom_domain_name: Optional[
+            "capo_redshift.types.custom_domain_name_string.CustomDomainNameString"
+        ] = None,
+        custom_domain_certificate_arn: Optional[
+            "capo_redshift.types.custom_domain_certificate_arn_string.CustomDomainCertificateArnString"
+        ] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.modify_custom_domain_association_result.ModifyCustomDomainAssociationResult":
         """<p>Contains information for changing a custom domain association.</p>
 
@@ -8323,9 +8555,12 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_custom_domain_association_message.ModifyCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
-        input_["custom_domain_name"] = custom_domain_name
-        input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
-        input_["cluster_identifier"] = cluster_identifier
+        if custom_domain_name is not None:
+            input_["custom_domain_name"] = custom_domain_name
+        if custom_domain_certificate_arn is not None:
+            input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8336,9 +8571,9 @@ class RedshiftClient:
 
     def modify_endpoint_access(
         self,
-        endpoint_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        endpoint_name: Optional["capo_redshift.types.string.String"] = None,
         vpc_security_group_ids: Optional[
             "capo_redshift.types.vpc_security_group_id_list.VpcSecurityGroupIdList"
         ] = None,
@@ -8373,7 +8608,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_endpoint_access_message.ModifyEndpointAccessMessage = {}  # type: ignore[typeddict-item]
-        input_["endpoint_name"] = endpoint_name
+        if endpoint_name is not None:
+            input_["endpoint_name"] = endpoint_name
         if vpc_security_group_ids is not None:
             input_["vpc_security_group_ids"] = vpc_security_group_ids
 
@@ -8386,9 +8622,9 @@ class RedshiftClient:
 
     def modify_event_subscription(
         self,
-        subscription_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        subscription_name: Optional["capo_redshift.types.string.String"] = None,
         sns_topic_arn: Optional["capo_redshift.types.string.String"] = None,
         source_type: Optional["capo_redshift.types.string.String"] = None,
         source_ids: Optional[
@@ -8442,7 +8678,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input_["subscription_name"] = subscription_name
+        if subscription_name is not None:
+            input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
             input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
@@ -8465,9 +8702,11 @@ class RedshiftClient:
 
     def modify_integration(
         self,
-        integration_arn: "capo_redshift.types.integration_arn.IntegrationArn",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        integration_arn: Optional[
+            "capo_redshift.types.integration_arn.IntegrationArn"
+        ] = None,
         description: Optional[
             "capo_redshift.types.integration_description.IntegrationDescription"
         ] = None,
@@ -8505,7 +8744,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_integration_message.ModifyIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input_["integration_arn"] = integration_arn
+        if integration_arn is not None:
+            input_["integration_arn"] = integration_arn
         if description is not None:
             input_["description"] = description
         if integration_name is not None:
@@ -8520,9 +8760,9 @@ class RedshiftClient:
 
     def modify_lakehouse_configuration(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         lakehouse_registration: Optional[
             "capo_redshift.types.lakehouse_registration.LakehouseRegistration"
         ] = None,
@@ -8576,7 +8816,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_lakehouse_configuration_message.ModifyLakehouseConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if lakehouse_registration is not None:
             input_["lakehouse_registration"] = lakehouse_registration
         if catalog_name is not None:
@@ -8597,9 +8838,11 @@ class RedshiftClient:
 
     def modify_redshift_idc_application(
         self,
-        redshift_idc_application_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        redshift_idc_application_arn: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
         identity_namespace: Optional[
             "capo_redshift.types.identity_namespace_string.IdentityNamespaceString"
         ] = None,
@@ -8648,7 +8891,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_redshift_idc_application_message.ModifyRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
-        input_["redshift_idc_application_arn"] = redshift_idc_application_arn
+        if redshift_idc_application_arn is not None:
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
         if identity_namespace is not None:
             input_["identity_namespace"] = identity_namespace
         if iam_role_arn is not None:
@@ -8669,9 +8913,9 @@ class RedshiftClient:
 
     def modify_scheduled_action(
         self,
-        scheduled_action_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        scheduled_action_name: Optional["capo_redshift.types.string.String"] = None,
         target_action: Optional[
             "capo_redshift.types.scheduled_action_type.ScheduledActionType"
         ] = None,
@@ -8721,7 +8965,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_scheduled_action_message.ModifyScheduledActionMessage = {}  # type: ignore[typeddict-item]
-        input_["scheduled_action_name"] = scheduled_action_name
+        if scheduled_action_name is not None:
+            input_["scheduled_action_name"] = scheduled_action_name
         if target_action is not None:
             input_["target_action"] = target_action
         if schedule is not None:
@@ -8746,10 +8991,10 @@ class RedshiftClient:
 
     def modify_snapshot_copy_retention_period(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        retention_period: "capo_redshift.types.integer.Integer",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        retention_period: Optional["capo_redshift.types.integer.Integer"] = None,
         manual: Optional["capo_redshift.types.boolean.Boolean"] = None,
     ) -> "capo_redshift.types.modify_snapshot_copy_retention_period_result.ModifySnapshotCopyRetentionPeriodResult":
         """<p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after they are copied from the source Amazon Web Services Region. By default, this operation only changes the retention period of copied automated snapshots. The retention periods for both new and existing copied automated snapshots are updated with the new retention period. You can set the manual option to change only the retention periods of copied manual snapshots. If you set this option, only newly copied manual snapshots have the new retention period. </p>
@@ -8784,8 +9029,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_snapshot_copy_retention_period_message.ModifySnapshotCopyRetentionPeriodMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
-        input_["retention_period"] = retention_period
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if retention_period is not None:
+            input_["retention_period"] = retention_period
         if manual is not None:
             input_["manual"] = manual
 
@@ -8798,10 +9045,12 @@ class RedshiftClient:
 
     def modify_snapshot_schedule(
         self,
-        schedule_identifier: "capo_redshift.types.string.String",
-        schedule_definitions: "capo_redshift.types.schedule_definition_list.ScheduleDefinitionList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        schedule_identifier: Optional["capo_redshift.types.string.String"] = None,
+        schedule_definitions: Optional[
+            "capo_redshift.types.schedule_definition_list.ScheduleDefinitionList"
+        ] = None,
     ) -> "capo_redshift.types.snapshot_schedule.SnapshotSchedule":
         r"""<p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified asynchronously.</p>
 
@@ -8832,8 +9081,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_snapshot_schedule_message.ModifySnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
-        input_["schedule_identifier"] = schedule_identifier
-        input_["schedule_definitions"] = schedule_definitions
+        if schedule_identifier is not None:
+            input_["schedule_identifier"] = schedule_identifier
+        if schedule_definitions is not None:
+            input_["schedule_definitions"] = schedule_definitions
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8844,9 +9095,9 @@ class RedshiftClient:
 
     def modify_usage_limit(
         self,
-        usage_limit_id: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        usage_limit_id: Optional["capo_redshift.types.string.String"] = None,
         amount: Optional["capo_redshift.types.long_optional.LongOptional"] = None,
         breach_action: Optional[
             "capo_redshift.types.usage_limit_breach_action.UsageLimitBreachAction"
@@ -8880,7 +9131,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.modify_usage_limit_message.ModifyUsageLimitMessage = {}  # type: ignore[typeddict-item]
-        input_["usage_limit_id"] = usage_limit_id
+        if usage_limit_id is not None:
+            input_["usage_limit_id"] = usage_limit_id
         if amount is not None:
             input_["amount"] = amount
         if breach_action is not None:
@@ -8895,9 +9147,9 @@ class RedshiftClient:
 
     def pause_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.pause_cluster_result.PauseClusterResult":
         """<p>Pauses a cluster.</p>
 
@@ -8927,7 +9179,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.pause_cluster_message.PauseClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8938,9 +9191,9 @@ class RedshiftClient:
 
     def purchase_reserved_node_offering(
         self,
-        reserved_node_offering_id: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        reserved_node_offering_id: Optional["capo_redshift.types.string.String"] = None,
         node_count: Optional[
             "capo_redshift.types.integer_optional.IntegerOptional"
         ] = None,
@@ -8975,7 +9228,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.purchase_reserved_node_offering_message.PurchaseReservedNodeOfferingMessage = {}  # type: ignore[typeddict-item]
-        input_["reserved_node_offering_id"] = reserved_node_offering_id
+        if reserved_node_offering_id is not None:
+            input_["reserved_node_offering_id"] = reserved_node_offering_id
         if node_count is not None:
             input_["node_count"] = node_count
 
@@ -8988,10 +9242,10 @@ class RedshiftClient:
 
     def put_resource_policy(
         self,
-        resource_arn: "capo_redshift.types.string.String",
-        policy: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        resource_arn: Optional["capo_redshift.types.string.String"] = None,
+        policy: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.put_resource_policy_result.PutResourcePolicyResult":
         """<p>Updates the resource policy for a specified resource.</p>
 
@@ -9023,8 +9277,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.put_resource_policy_message.PutResourcePolicyMessage = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["policy"] = policy
+        if resource_arn is not None:
+            input_["resource_arn"] = resource_arn
+        if policy is not None:
+            input_["policy"] = policy
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9035,9 +9291,9 @@ class RedshiftClient:
 
     def reboot_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.reboot_cluster_result.RebootClusterResult":
         r"""<p>Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to <code>rebooting</code>. A cluster event is created when the reboot is completed. Any pending cluster modifications (see <a>ModifyCluster</a>) are applied at this reboot. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
 
@@ -9066,7 +9322,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.reboot_cluster_message.RebootClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9077,10 +9334,14 @@ class RedshiftClient:
 
     def register_namespace(
         self,
-        namespace_identifier: "capo_redshift.types.namespace_identifier_union.NamespaceIdentifierUnion",
-        consumer_identifiers: "capo_redshift.types.consumer_identifier_list.ConsumerIdentifierList",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        namespace_identifier: Optional[
+            "capo_redshift.types.namespace_identifier_union.NamespaceIdentifierUnion"
+        ] = None,
+        consumer_identifiers: Optional[
+            "capo_redshift.types.consumer_identifier_list.ConsumerIdentifierList"
+        ] = None,
     ) -> "capo_redshift.types.register_namespace_output_message.RegisterNamespaceOutputMessage":
         """<p>Registers a cluster or serverless namespace to the Amazon Web Services Glue Data Catalog.</p>
 
@@ -9111,8 +9372,10 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.register_namespace_input_message.RegisterNamespaceInputMessage = {}  # type: ignore[typeddict-item]
-        input_["namespace_identifier"] = namespace_identifier
-        input_["consumer_identifiers"] = consumer_identifiers
+        if namespace_identifier is not None:
+            input_["namespace_identifier"] = namespace_identifier
+        if consumer_identifiers is not None:
+            input_["consumer_identifiers"] = consumer_identifiers
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9123,9 +9386,9 @@ class RedshiftClient:
 
     def reject_data_share(
         self,
-        data_share_arn: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        data_share_arn: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.data_share.DataShare":
         """<p>From a datashare consumer account, rejects the specified datashare.</p>
 
@@ -9151,7 +9414,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.reject_data_share_message.RejectDataShareMessage = {}  # type: ignore[typeddict-item]
-        input_["data_share_arn"] = data_share_arn
+        if data_share_arn is not None:
+            input_["data_share_arn"] = data_share_arn
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9162,9 +9426,9 @@ class RedshiftClient:
 
     def reset_cluster_parameter_group(
         self,
-        parameter_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        parameter_group_name: Optional["capo_redshift.types.string.String"] = None,
         reset_all_parameters: Optional["capo_redshift.types.boolean.Boolean"] = None,
         parameters: Optional[
             "capo_redshift.types.parameters_list.ParametersList"
@@ -9199,7 +9463,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.reset_cluster_parameter_group_message.ResetClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input_["parameter_group_name"] = parameter_group_name
+        if parameter_group_name is not None:
+            input_["parameter_group_name"] = parameter_group_name
         if reset_all_parameters is not None:
             input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
@@ -9214,9 +9479,9 @@ class RedshiftClient:
 
     def resize_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         cluster_type: Optional["capo_redshift.types.string.String"] = None,
         node_type: Optional["capo_redshift.types.string.String"] = None,
         number_of_nodes: Optional[
@@ -9276,7 +9541,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.resize_cluster_message.ResizeClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if cluster_type is not None:
             input_["cluster_type"] = cluster_type
         if node_type is not None:
@@ -9301,9 +9567,9 @@ class RedshiftClient:
 
     def restore_from_cluster_snapshot(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_arn: Optional["capo_redshift.types.string.String"] = None,
         snapshot_cluster_identifier: Optional[
@@ -9489,7 +9755,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.restore_from_cluster_snapshot_message.RestoreFromClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
             input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_arn is not None:
@@ -9586,16 +9853,16 @@ class RedshiftClient:
 
     def restore_table_from_cluster_snapshot(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
-        snapshot_identifier: "capo_redshift.types.string.String",
-        source_database_name: "capo_redshift.types.string.String",
-        source_table_name: "capo_redshift.types.string.String",
-        new_table_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
+        snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
+        source_database_name: Optional["capo_redshift.types.string.String"] = None,
         source_schema_name: Optional["capo_redshift.types.string.String"] = None,
+        source_table_name: Optional["capo_redshift.types.string.String"] = None,
         target_database_name: Optional["capo_redshift.types.string.String"] = None,
         target_schema_name: Optional["capo_redshift.types.string.String"] = None,
+        new_table_name: Optional["capo_redshift.types.string.String"] = None,
         enable_case_sensitive_identifier: Optional[
             "capo_redshift.types.boolean_optional.BooleanOptional"
         ] = None,
@@ -9640,17 +9907,22 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.restore_table_from_cluster_snapshot_message.RestoreTableFromClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
-        input_["snapshot_identifier"] = snapshot_identifier
-        input_["source_database_name"] = source_database_name
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if snapshot_identifier is not None:
+            input_["snapshot_identifier"] = snapshot_identifier
+        if source_database_name is not None:
+            input_["source_database_name"] = source_database_name
         if source_schema_name is not None:
             input_["source_schema_name"] = source_schema_name
-        input_["source_table_name"] = source_table_name
+        if source_table_name is not None:
+            input_["source_table_name"] = source_table_name
         if target_database_name is not None:
             input_["target_database_name"] = target_database_name
         if target_schema_name is not None:
             input_["target_schema_name"] = target_schema_name
-        input_["new_table_name"] = new_table_name
+        if new_table_name is not None:
+            input_["new_table_name"] = new_table_name
         if enable_case_sensitive_identifier is not None:
             input_["enable_case_sensitive_identifier"] = (
                 enable_case_sensitive_identifier
@@ -9665,9 +9937,9 @@ class RedshiftClient:
 
     def resume_cluster(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.resume_cluster_result.ResumeClusterResult":
         """<p>Resumes a paused cluster.</p>
 
@@ -9698,7 +9970,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.resume_cluster_message.ResumeClusterMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9709,9 +9982,11 @@ class RedshiftClient:
 
     def revoke_cluster_security_group_ingress(
         self,
-        cluster_security_group_name: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_security_group_name: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
         cidrip: Optional["capo_redshift.types.string.String"] = None,
         ec2_security_group_name: Optional["capo_redshift.types.string.String"] = None,
         ec2_security_group_owner_id: Optional[
@@ -9749,7 +10024,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.revoke_cluster_security_group_ingress_message.RevokeClusterSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_security_group_name"] = cluster_security_group_name
+        if cluster_security_group_name is not None:
+            input_["cluster_security_group_name"] = cluster_security_group_name
         if cidrip is not None:
             input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
@@ -9828,12 +10104,14 @@ class RedshiftClient:
 
     def revoke_snapshot_access(
         self,
-        account_with_restore_access: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
         snapshot_identifier: Optional["capo_redshift.types.string.String"] = None,
         snapshot_arn: Optional["capo_redshift.types.string.String"] = None,
         snapshot_cluster_identifier: Optional[
+            "capo_redshift.types.string.String"
+        ] = None,
+        account_with_restore_access: Optional[
             "capo_redshift.types.string.String"
         ] = None,
     ) -> "capo_redshift.types.revoke_snapshot_access_result.RevokeSnapshotAccessResult":
@@ -9875,7 +10153,8 @@ class RedshiftClient:
             input_["snapshot_arn"] = snapshot_arn
         if snapshot_cluster_identifier is not None:
             input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-        input_["account_with_restore_access"] = account_with_restore_access
+        if account_with_restore_access is not None:
+            input_["account_with_restore_access"] = account_with_restore_access
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9886,9 +10165,9 @@ class RedshiftClient:
 
     def rotate_encryption_key(
         self,
-        cluster_identifier: "capo_redshift.types.string.String",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        cluster_identifier: Optional["capo_redshift.types.string.String"] = None,
     ) -> "capo_redshift.types.rotate_encryption_key_result.RotateEncryptionKeyResult":
         """<p>Rotates the encryption keys for a cluster.</p>
 
@@ -9919,7 +10198,8 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.rotate_encryption_key_message.RotateEncryptionKeyMessage = {}  # type: ignore[typeddict-item]
-        input_["cluster_identifier"] = cluster_identifier
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9930,13 +10210,23 @@ class RedshiftClient:
 
     def update_partner_status(
         self,
-        account_id: "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId",
-        cluster_identifier: "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier",
-        database_name: "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName",
-        partner_name: "capo_redshift.types.partner_integration_partner_name.PartnerIntegrationPartnerName",
-        status: "capo_redshift.types.partner_integration_status.PartnerIntegrationStatus",
         *,
         config_overrides: Optional[RedshiftClientConfig] = None,
+        account_id: Optional[
+            "capo_redshift.types.partner_integration_account_id.PartnerIntegrationAccountId"
+        ] = None,
+        cluster_identifier: Optional[
+            "capo_redshift.types.partner_integration_cluster_identifier.PartnerIntegrationClusterIdentifier"
+        ] = None,
+        database_name: Optional[
+            "capo_redshift.types.partner_integration_database_name.PartnerIntegrationDatabaseName"
+        ] = None,
+        partner_name: Optional[
+            "capo_redshift.types.partner_integration_partner_name.PartnerIntegrationPartnerName"
+        ] = None,
+        status: Optional[
+            "capo_redshift.types.partner_integration_status.PartnerIntegrationStatus"
+        ] = None,
         status_message: Optional[
             "capo_redshift.types.partner_integration_status_message.PartnerIntegrationStatusMessage"
         ] = None,
@@ -9975,11 +10265,16 @@ class RedshiftClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_redshift.types.update_partner_status_input_message.UpdatePartnerStatusInputMessage = {}  # type: ignore[typeddict-item]
-        input_["account_id"] = account_id
-        input_["cluster_identifier"] = cluster_identifier
-        input_["database_name"] = database_name
-        input_["partner_name"] = partner_name
-        input_["status"] = status
+        if account_id is not None:
+            input_["account_id"] = account_id
+        if cluster_identifier is not None:
+            input_["cluster_identifier"] = cluster_identifier
+        if database_name is not None:
+            input_["database_name"] = database_name
+        if partner_name is not None:
+            input_["partner_name"] = partner_name
+        if status is not None:
+            input_["status"] = status
         if status_message is not None:
             input_["status_message"] = status_message
 

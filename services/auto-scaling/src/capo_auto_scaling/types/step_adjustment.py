@@ -30,22 +30,25 @@ class StepAdjustment(TypedDict, closed=True):
 def serialize_query(
     value: StepAdjustment, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "metric_interval_lower_bound" in value:
         pairs.append(
             (
-                f"{prefix}.MetricIntervalLowerBound",
+                f"{key_prefix}MetricIntervalLowerBound",
                 str(value["metric_interval_lower_bound"]),
             )
         )
     if "metric_interval_upper_bound" in value:
         pairs.append(
             (
-                f"{prefix}.MetricIntervalUpperBound",
+                f"{key_prefix}MetricIntervalUpperBound",
                 str(value["metric_interval_upper_bound"]),
             )
         )
     if "scaling_adjustment" in value:
-        pairs.append((f"{prefix}.ScalingAdjustment", str(value["scaling_adjustment"])))
+        pairs.append(
+            (f"{key_prefix}ScalingAdjustment", str(value["scaling_adjustment"]))
+        )
 
 
 def deserialize_query(el: Element) -> StepAdjustment:

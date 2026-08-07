@@ -34,14 +34,15 @@ class TrafficSourceState(TypedDict, closed=True):
 def serialize_query(
     value: TrafficSourceState, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "traffic_source" in value:
-        pairs.append((f"{prefix}.TrafficSource", str(value["traffic_source"])))
+        pairs.append((f"{key_prefix}TrafficSource", str(value["traffic_source"])))
     if "state" in value:
-        pairs.append((f"{prefix}.State", str(value["state"])))
+        pairs.append((f"{key_prefix}State", str(value["state"])))
     if "identifier" in value:
-        pairs.append((f"{prefix}.Identifier", str(value["identifier"])))
+        pairs.append((f"{key_prefix}Identifier", str(value["identifier"])))
     if "type" in value:
-        pairs.append((f"{prefix}.Type", str(value["type"])))
+        pairs.append((f"{key_prefix}Type", str(value["type"])))
 
 
 def deserialize_query(el: Element) -> TrafficSourceState:

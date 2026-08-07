@@ -28,12 +28,13 @@ class DeleteApplicationVersionMessage(TypedDict, closed=True):
 def serialize_query(
     value: DeleteApplicationVersionMessage, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
-    pairs.append((f"{prefix}.ApplicationName", str(value["application_name"])))
-    pairs.append((f"{prefix}.VersionLabel", str(value["version_label"])))
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}ApplicationName", str(value["application_name"])))
+    pairs.append((f"{key_prefix}VersionLabel", str(value["version_label"])))
     if "delete_source_bundle" in value:
         pairs.append(
             (
-                f"{prefix}.DeleteSourceBundle",
+                f"{key_prefix}DeleteSourceBundle",
                 "true" if value["delete_source_bundle"] else "false",
             )
         )

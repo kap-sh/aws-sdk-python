@@ -31,22 +31,23 @@ class Latency(TypedDict, closed=True):
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Latency, pairs: list[tuple[str, str]], prefix: str) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
     if "p999" in value:
-        pairs.append((f"{prefix}.P999", str(value["p999"])))
+        pairs.append((f"{key_prefix}P999", str(value["p999"])))
     if "p99" in value:
-        pairs.append((f"{prefix}.P99", str(value["p99"])))
+        pairs.append((f"{key_prefix}P99", str(value["p99"])))
     if "p95" in value:
-        pairs.append((f"{prefix}.P95", str(value["p95"])))
+        pairs.append((f"{key_prefix}P95", str(value["p95"])))
     if "p90" in value:
-        pairs.append((f"{prefix}.P90", str(value["p90"])))
+        pairs.append((f"{key_prefix}P90", str(value["p90"])))
     if "p85" in value:
-        pairs.append((f"{prefix}.P85", str(value["p85"])))
+        pairs.append((f"{key_prefix}P85", str(value["p85"])))
     if "p75" in value:
-        pairs.append((f"{prefix}.P75", str(value["p75"])))
+        pairs.append((f"{key_prefix}P75", str(value["p75"])))
     if "p50" in value:
-        pairs.append((f"{prefix}.P50", str(value["p50"])))
+        pairs.append((f"{key_prefix}P50", str(value["p50"])))
     if "p10" in value:
-        pairs.append((f"{prefix}.P10", str(value["p10"])))
+        pairs.append((f"{key_prefix}P10", str(value["p10"])))
 
 
 def deserialize_query(el: Element) -> Latency:
