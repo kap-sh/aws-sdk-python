@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.8.0
+
+### Minor Changes
+
+- df62190: fix ec2 serde
+
 ## 0.7.0
 
 ### Minor Changes
