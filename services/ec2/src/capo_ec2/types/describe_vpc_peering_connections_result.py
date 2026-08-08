@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcPeeringConnectionsResult:
     out: DescribeVpcPeeringConnectionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("VpcPeeringConnectionSet") is not None:
+    if el.find("vpcPeeringConnectionSet") is not None:
         import capo_ec2.types.vpc_peering_connection_list
 
         out["vpc_peering_connections"] = (
             capo_ec2.types.vpc_peering_connection_list.deserialize_ec2_query(
-                el, "VpcPeeringConnectionSet"
+                el, "vpcPeeringConnectionSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

@@ -113,36 +113,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPrefixListResolver:
     out: IpamPrefixListResolver = {}  # type: ignore[typeddict-item]
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_ipam_prefix_list_resolver_id = el.find("IpamPrefixListResolverId")
+    child_ipam_prefix_list_resolver_id = el.find("ipamPrefixListResolverId")
     if child_ipam_prefix_list_resolver_id is not None:
         out["ipam_prefix_list_resolver_id"] = str(
             child_ipam_prefix_list_resolver_id.text or ""
         )
-    child_ipam_prefix_list_resolver_arn = el.find("IpamPrefixListResolverArn")
+    child_ipam_prefix_list_resolver_arn = el.find("ipamPrefixListResolverArn")
     if child_ipam_prefix_list_resolver_arn is not None:
         out["ipam_prefix_list_resolver_arn"] = str(
             child_ipam_prefix_list_resolver_arn.text or ""
         )
-    child_ipam_arn = el.find("IpamArn")
+    child_ipam_arn = el.find("ipamArn")
     if child_ipam_arn is not None:
         out["ipam_arn"] = str(child_ipam_arn.text or "")
-    child_ipam_region = el.find("IpamRegion")
+    child_ipam_region = el.find("ipamRegion")
     if child_ipam_region is not None:
         out["ipam_region"] = str(child_ipam_region.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_address_family = el.find("AddressFamily")
+    child_address_family = el.find("addressFamily")
     if child_address_family is not None:
         import capo_ec2.types.address_family
 
         out["address_family"] = capo_ec2.types.address_family.deserialize_ec2_query(
             child_address_family
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_state
 
@@ -151,11 +151,11 @@ def deserialize_ec2_query(el: Element) -> IpamPrefixListResolver:
                 child_state
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_last_version_creation_status = el.find("LastVersionCreationStatus")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_last_version_creation_status = el.find("lastVersionCreationStatus")
     if child_last_version_creation_status is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_version_creation_status
 
@@ -165,7 +165,7 @@ def deserialize_ec2_query(el: Element) -> IpamPrefixListResolver:
             )
         )
     child_last_version_creation_status_message = el.find(
-        "LastVersionCreationStatusMessage"
+        "lastVersionCreationStatusMessage"
     )
     if child_last_version_creation_status_message is not None:
         out["last_version_creation_status_message"] = str(

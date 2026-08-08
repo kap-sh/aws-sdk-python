@@ -69,7 +69,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointRdsOptions:
     out: VerifiedAccessEndpointRdsOptions = {}  # type: ignore[typeddict-item]
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.verified_access_endpoint_protocol
 
@@ -78,27 +78,27 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointRdsOptions:
                 child_protocol
             )
         )
-    child_port = el.find("Port")
+    child_port = el.find("port")
     if child_port is not None:
         out["port"] = int(child_port.text or "")
-    child_rds_db_instance_arn = el.find("RdsDbInstanceArn")
+    child_rds_db_instance_arn = el.find("rdsDbInstanceArn")
     if child_rds_db_instance_arn is not None:
         out["rds_db_instance_arn"] = str(child_rds_db_instance_arn.text or "")
-    child_rds_db_cluster_arn = el.find("RdsDbClusterArn")
+    child_rds_db_cluster_arn = el.find("rdsDbClusterArn")
     if child_rds_db_cluster_arn is not None:
         out["rds_db_cluster_arn"] = str(child_rds_db_cluster_arn.text or "")
-    child_rds_db_proxy_arn = el.find("RdsDbProxyArn")
+    child_rds_db_proxy_arn = el.find("rdsDbProxyArn")
     if child_rds_db_proxy_arn is not None:
         out["rds_db_proxy_arn"] = str(child_rds_db_proxy_arn.text or "")
-    child_rds_endpoint = el.find("RdsEndpoint")
+    child_rds_endpoint = el.find("rdsEndpoint")
     if child_rds_endpoint is not None:
         out["rds_endpoint"] = str(child_rds_endpoint.text or "")
-    if el.find("SubnetIdSet") is not None:
+    if el.find("subnetIdSet") is not None:
         import capo_ec2.types.verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetIdSet"
+                el, "subnetIdSet"
             )
         )
     return out

@@ -57,19 +57,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayAttachmentBgpConfiguration:
     out: TransitGatewayAttachmentBgpConfiguration = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_asn = el.find("TransitGatewayAsn")
+    child_transit_gateway_asn = el.find("transitGatewayAsn")
     if child_transit_gateway_asn is not None:
         out["transit_gateway_asn"] = int(child_transit_gateway_asn.text or "")
-    child_peer_asn = el.find("PeerAsn")
+    child_peer_asn = el.find("peerAsn")
     if child_peer_asn is not None:
         out["peer_asn"] = int(child_peer_asn.text or "")
-    child_transit_gateway_address = el.find("TransitGatewayAddress")
+    child_transit_gateway_address = el.find("transitGatewayAddress")
     if child_transit_gateway_address is not None:
         out["transit_gateway_address"] = str(child_transit_gateway_address.text or "")
-    child_peer_address = el.find("PeerAddress")
+    child_peer_address = el.find("peerAddress")
     if child_peer_address is not None:
         out["peer_address"] = str(child_peer_address.text or "")
-    child_bgp_status = el.find("BgpStatus")
+    child_bgp_status = el.find("bgpStatus")
     if child_bgp_status is not None:
         import capo_ec2.types.bgp_status
 

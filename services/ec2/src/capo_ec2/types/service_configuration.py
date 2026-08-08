@@ -194,89 +194,89 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
     out: ServiceConfiguration = {}  # type: ignore[typeddict-item]
-    if el.find("ServiceType") is not None:
+    if el.find("serviceType") is not None:
         import capo_ec2.types.service_type_detail_set
 
         out["service_type"] = (
             capo_ec2.types.service_type_detail_set.deserialize_ec2_query(
-                el, "ServiceType"
+                el, "serviceType"
             )
         )
-    child_service_id = el.find("ServiceId")
+    child_service_id = el.find("serviceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    child_service_name = el.find("ServiceName")
+    child_service_name = el.find("serviceName")
     if child_service_name is not None:
         out["service_name"] = str(child_service_name.text or "")
-    child_service_state = el.find("ServiceState")
+    child_service_state = el.find("serviceState")
     if child_service_state is not None:
         import capo_ec2.types.service_state
 
         out["service_state"] = capo_ec2.types.service_state.deserialize_ec2_query(
             child_service_state
         )
-    if el.find("AvailabilityZoneIdSet") is not None:
+    if el.find("availabilityZoneIdSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zone_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AvailabilityZoneIdSet"
+                el, "availabilityZoneIdSet"
             )
         )
-    if el.find("AvailabilityZoneSet") is not None:
+    if el.find("availabilityZoneSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zones"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AvailabilityZoneSet"
+                el, "availabilityZoneSet"
             )
         )
-    child_acceptance_required = el.find("AcceptanceRequired")
+    child_acceptance_required = el.find("acceptanceRequired")
     if child_acceptance_required is not None:
         out["acceptance_required"] = (
             child_acceptance_required.text or ""
         ).lower() == "true"
-    child_manages_vpc_endpoints = el.find("ManagesVpcEndpoints")
+    child_manages_vpc_endpoints = el.find("managesVpcEndpoints")
     if child_manages_vpc_endpoints is not None:
         out["manages_vpc_endpoints"] = (
             child_manages_vpc_endpoints.text or ""
         ).lower() == "true"
-    if el.find("NetworkLoadBalancerArnSet") is not None:
+    if el.find("networkLoadBalancerArnSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "NetworkLoadBalancerArnSet"
+                el, "networkLoadBalancerArnSet"
             )
         )
-    if el.find("GatewayLoadBalancerArnSet") is not None:
+    if el.find("gatewayLoadBalancerArnSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "GatewayLoadBalancerArnSet"
+                el, "gatewayLoadBalancerArnSet"
             )
         )
-    if el.find("SupportedIpAddressTypeSet") is not None:
+    if el.find("supportedIpAddressTypeSet") is not None:
         import capo_ec2.types.supported_ip_address_types
 
         out["supported_ip_address_types"] = (
             capo_ec2.types.supported_ip_address_types.deserialize_ec2_query(
-                el, "SupportedIpAddressTypeSet"
+                el, "supportedIpAddressTypeSet"
             )
         )
-    if el.find("BaseEndpointDnsNameSet") is not None:
+    if el.find("baseEndpointDnsNameSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["base_endpoint_dns_names"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "BaseEndpointDnsNameSet"
+                el, "baseEndpointDnsNameSet"
             )
         )
-    child_private_dns_name = el.find("PrivateDnsName")
+    child_private_dns_name = el.find("privateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    child_private_dns_name_configuration = el.find("PrivateDnsNameConfiguration")
+    child_private_dns_name_configuration = el.find("privateDnsNameConfiguration")
     if child_private_dns_name_configuration is not None:
         import capo_ec2.types.private_dns_name_configuration
 
@@ -285,7 +285,7 @@ def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
                 child_private_dns_name_configuration
             )
         )
-    child_payer_responsibility = el.find("PayerResponsibility")
+    child_payer_responsibility = el.find("payerResponsibility")
     if child_payer_responsibility is not None:
         import capo_ec2.types.payer_responsibility
 
@@ -294,19 +294,19 @@ def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
                 child_payer_responsibility
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    if el.find("SupportedRegionSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    if el.find("supportedRegionSet") is not None:
         import capo_ec2.types.supported_region_set
 
         out["supported_regions"] = (
             capo_ec2.types.supported_region_set.deserialize_ec2_query(
-                el, "SupportedRegionSet"
+                el, "supportedRegionSet"
             )
         )
-    child_remote_access_enabled = el.find("RemoteAccessEnabled")
+    child_remote_access_enabled = el.find("remoteAccessEnabled")
     if child_remote_access_enabled is not None:
         out["remote_access_enabled"] = (
             child_remote_access_enabled.text or ""

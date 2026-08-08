@@ -50,16 +50,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteLaunchTemplateVersionsResponseErrorItem:
     out: DeleteLaunchTemplateVersionsResponseErrorItem = {}  # type: ignore[typeddict-item]
-    child_launch_template_id = el.find("LaunchTemplateId")
+    child_launch_template_id = el.find("launchTemplateId")
     if child_launch_template_id is not None:
         out["launch_template_id"] = str(child_launch_template_id.text or "")
-    child_launch_template_name = el.find("LaunchTemplateName")
+    child_launch_template_name = el.find("launchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    child_version_number = el.find("VersionNumber")
+    child_version_number = el.find("versionNumber")
     if child_version_number is not None:
         out["version_number"] = int(child_version_number.text or "")
-    child_response_error = el.find("ResponseError")
+    child_response_error = el.find("responseError")
     if child_response_error is not None:
         import capo_ec2.types.response_error
 

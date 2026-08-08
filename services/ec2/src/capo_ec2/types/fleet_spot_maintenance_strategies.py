@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FleetSpotMaintenanceStrategies:
     out: FleetSpotMaintenanceStrategies = {}  # type: ignore[typeddict-item]
-    child_capacity_rebalance = el.find("CapacityRebalance")
+    child_capacity_rebalance = el.find("capacityRebalance")
     if child_capacity_rebalance is not None:
         import capo_ec2.types.fleet_spot_capacity_rebalance
 

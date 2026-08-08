@@ -85,36 +85,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessInstance:
     out: VerifiedAccessInstance = {}  # type: ignore[typeddict-item]
-    child_verified_access_instance_id = el.find("VerifiedAccessInstanceId")
+    child_verified_access_instance_id = el.find("verifiedAccessInstanceId")
     if child_verified_access_instance_id is not None:
         out["verified_access_instance_id"] = str(
             child_verified_access_instance_id.text or ""
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("VerifiedAccessTrustProviderSet") is not None:
+    if el.find("verifiedAccessTrustProviderSet") is not None:
         import capo_ec2.types.verified_access_trust_provider_condensed_list
 
         out["verified_access_trust_providers"] = (
             capo_ec2.types.verified_access_trust_provider_condensed_list.deserialize_ec2_query(
-                el, "VerifiedAccessTrustProviderSet"
+                el, "verifiedAccessTrustProviderSet"
             )
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         out["creation_time"] = str(child_creation_time.text or "")
-    child_last_updated_time = el.find("LastUpdatedTime")
+    child_last_updated_time = el.find("lastUpdatedTime")
     if child_last_updated_time is not None:
         out["last_updated_time"] = str(child_last_updated_time.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_fips_enabled = el.find("FipsEnabled")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_fips_enabled = el.find("fipsEnabled")
     if child_fips_enabled is not None:
         out["fips_enabled"] = (child_fips_enabled.text or "").lower() == "true"
-    child_cidr_endpoints_custom_sub_domain = el.find("CidrEndpointsCustomSubDomain")
+    child_cidr_endpoints_custom_sub_domain = el.find("cidrEndpointsCustomSubDomain")
     if child_cidr_endpoints_custom_sub_domain is not None:
         import capo_ec2.types.verified_access_instance_custom_sub_domain
 

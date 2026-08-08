@@ -43,15 +43,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeTransitGatewayRouteTableAnnouncementsResult:
     out: DescribeTransitGatewayRouteTableAnnouncementsResult = {}  # type: ignore[typeddict-item]
-    if el.find("TransitGatewayRouteTableAnnouncements") is not None:
+    if el.find("transitGatewayRouteTableAnnouncements") is not None:
         import capo_ec2.types.transit_gateway_route_table_announcement_list
 
         out["transit_gateway_route_table_announcements"] = (
             capo_ec2.types.transit_gateway_route_table_announcement_list.deserialize_ec2_query(
-                el, "TransitGatewayRouteTableAnnouncements"
+                el, "transitGatewayRouteTableAnnouncements"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

@@ -107,53 +107,53 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEndpointAssociation:
     out: VpcEndpointAssociation = {}  # type: ignore[typeddict-item]
-    child_id = el.find("Id")
+    child_id = el.find("id")
     if child_id is not None:
         out["id"] = str(child_id.text or "")
-    child_vpc_endpoint_id = el.find("VpcEndpointId")
+    child_vpc_endpoint_id = el.find("vpcEndpointId")
     if child_vpc_endpoint_id is not None:
         out["vpc_endpoint_id"] = str(child_vpc_endpoint_id.text or "")
-    child_service_network_arn = el.find("ServiceNetworkArn")
+    child_service_network_arn = el.find("serviceNetworkArn")
     if child_service_network_arn is not None:
         out["service_network_arn"] = str(child_service_network_arn.text or "")
-    child_service_network_name = el.find("ServiceNetworkName")
+    child_service_network_name = el.find("serviceNetworkName")
     if child_service_network_name is not None:
         out["service_network_name"] = str(child_service_network_name.text or "")
-    child_associated_resource_accessibility = el.find("AssociatedResourceAccessibility")
+    child_associated_resource_accessibility = el.find("associatedResourceAccessibility")
     if child_associated_resource_accessibility is not None:
         out["associated_resource_accessibility"] = str(
             child_associated_resource_accessibility.text or ""
         )
-    child_failure_reason = el.find("FailureReason")
+    child_failure_reason = el.find("failureReason")
     if child_failure_reason is not None:
         out["failure_reason"] = str(child_failure_reason.text or "")
-    child_failure_code = el.find("FailureCode")
+    child_failure_code = el.find("failureCode")
     if child_failure_code is not None:
         out["failure_code"] = str(child_failure_code.text or "")
-    child_dns_entry = el.find("DnsEntry")
+    child_dns_entry = el.find("dnsEntry")
     if child_dns_entry is not None:
         import capo_ec2.types.dns_entry
 
         out["dns_entry"] = capo_ec2.types.dns_entry.deserialize_ec2_query(
             child_dns_entry
         )
-    child_private_dns_entry = el.find("PrivateDnsEntry")
+    child_private_dns_entry = el.find("privateDnsEntry")
     if child_private_dns_entry is not None:
         import capo_ec2.types.dns_entry
 
         out["private_dns_entry"] = capo_ec2.types.dns_entry.deserialize_ec2_query(
             child_private_dns_entry
         )
-    child_associated_resource_arn = el.find("AssociatedResourceArn")
+    child_associated_resource_arn = el.find("associatedResourceArn")
     if child_associated_resource_arn is not None:
         out["associated_resource_arn"] = str(child_associated_resource_arn.text or "")
-    child_resource_configuration_group_arn = el.find("ResourceConfigurationGroupArn")
+    child_resource_configuration_group_arn = el.find("resourceConfigurationGroupArn")
     if child_resource_configuration_group_arn is not None:
         out["resource_configuration_group_arn"] = str(
             child_resource_configuration_group_arn.text or ""
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

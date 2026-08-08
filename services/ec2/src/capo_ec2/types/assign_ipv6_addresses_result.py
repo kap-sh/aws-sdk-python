@@ -50,23 +50,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssignIpv6AddressesResult:
     out: AssignIpv6AddressesResult = {}  # type: ignore[typeddict-item]
-    if el.find("AssignedIpv6Addresses") is not None:
+    if el.find("assignedIpv6Addresses") is not None:
         import capo_ec2.types.ipv6_address_list
 
         out["assigned_ipv6_addresses"] = (
             capo_ec2.types.ipv6_address_list.deserialize_ec2_query(
-                el, "AssignedIpv6Addresses"
+                el, "assignedIpv6Addresses"
             )
         )
-    if el.find("AssignedIpv6PrefixSet") is not None:
+    if el.find("assignedIpv6PrefixSet") is not None:
         import capo_ec2.types.ip_prefix_list
 
         out["assigned_ipv6_prefixes"] = (
             capo_ec2.types.ip_prefix_list.deserialize_ec2_query(
-                el, "AssignedIpv6PrefixSet"
+                el, "assignedIpv6PrefixSet"
             )
         )
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
     return out

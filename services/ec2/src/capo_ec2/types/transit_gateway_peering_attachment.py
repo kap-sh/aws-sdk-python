@@ -108,19 +108,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPeeringAttachment:
     out: TransitGatewayPeeringAttachment = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
     child_accepter_transit_gateway_attachment_id = el.find(
-        "AccepterTransitGatewayAttachmentId"
+        "accepterTransitGatewayAttachmentId"
     )
     if child_accepter_transit_gateway_attachment_id is not None:
         out["accepter_transit_gateway_attachment_id"] = str(
             child_accepter_transit_gateway_attachment_id.text or ""
         )
-    child_requester_tgw_info = el.find("RequesterTgwInfo")
+    child_requester_tgw_info = el.find("requesterTgwInfo")
     if child_requester_tgw_info is not None:
         import capo_ec2.types.peering_tgw_info
 
@@ -129,7 +129,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPeeringAttachment:
                 child_requester_tgw_info
             )
         )
-    child_accepter_tgw_info = el.find("AccepterTgwInfo")
+    child_accepter_tgw_info = el.find("accepterTgwInfo")
     if child_accepter_tgw_info is not None:
         import capo_ec2.types.peering_tgw_info
 
@@ -138,7 +138,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPeeringAttachment:
                 child_accepter_tgw_info
             )
         )
-    child_options = el.find("Options")
+    child_options = el.find("options")
     if child_options is not None:
         import capo_ec2.types.transit_gateway_peering_attachment_options
 
@@ -147,14 +147,14 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPeeringAttachment:
                 child_options
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.peering_attachment_status
 
         out["status"] = capo_ec2.types.peering_attachment_status.deserialize_ec2_query(
             child_status
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_attachment_state
 
@@ -163,15 +163,15 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPeeringAttachment:
                 child_state
             )
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.date_time
 
         out["creation_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_creation_time
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

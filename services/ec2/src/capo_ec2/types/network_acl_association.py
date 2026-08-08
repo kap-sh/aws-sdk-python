@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkAclAssociation:
     out: NetworkAclAssociation = {}  # type: ignore[typeddict-item]
-    child_network_acl_association_id = el.find("NetworkAclAssociationId")
+    child_network_acl_association_id = el.find("networkAclAssociationId")
     if child_network_acl_association_id is not None:
         out["network_acl_association_id"] = str(
             child_network_acl_association_id.text or ""
         )
-    child_network_acl_id = el.find("NetworkAclId")
+    child_network_acl_id = el.find("networkAclId")
     if child_network_acl_id is not None:
         out["network_acl_id"] = str(child_network_acl_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
     return out

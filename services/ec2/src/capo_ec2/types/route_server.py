@@ -85,24 +85,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteServer:
     out: RouteServer = {}  # type: ignore[typeddict-item]
-    child_route_server_id = el.find("RouteServerId")
+    child_route_server_id = el.find("routeServerId")
     if child_route_server_id is not None:
         out["route_server_id"] = str(child_route_server_id.text or "")
-    child_amazon_side_asn = el.find("AmazonSideAsn")
+    child_amazon_side_asn = el.find("amazonSideAsn")
     if child_amazon_side_asn is not None:
         out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.route_server_state
 
         out["state"] = capo_ec2.types.route_server_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_persist_routes_state = el.find("PersistRoutesState")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_persist_routes_state = el.find("persistRoutesState")
     if child_persist_routes_state is not None:
         import capo_ec2.types.route_server_persist_routes_state
 
@@ -111,15 +111,15 @@ def deserialize_ec2_query(el: Element) -> RouteServer:
                 child_persist_routes_state
             )
         )
-    child_persist_routes_duration = el.find("PersistRoutesDuration")
+    child_persist_routes_duration = el.find("persistRoutesDuration")
     if child_persist_routes_duration is not None:
         out["persist_routes_duration"] = int(child_persist_routes_duration.text or "")
-    child_sns_notifications_enabled = el.find("SnsNotificationsEnabled")
+    child_sns_notifications_enabled = el.find("snsNotificationsEnabled")
     if child_sns_notifications_enabled is not None:
         out["sns_notifications_enabled"] = (
             child_sns_notifications_enabled.text or ""
         ).lower() == "true"
-    child_sns_topic_arn = el.find("SnsTopicArn")
+    child_sns_topic_arn = el.find("snsTopicArn")
     if child_sns_topic_arn is not None:
         out["sns_topic_arn"] = str(child_sns_topic_arn.text or "")
     return out

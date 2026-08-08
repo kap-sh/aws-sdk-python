@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisableRouteServerPropagationResult:
     out: DisableRouteServerPropagationResult = {}  # type: ignore[typeddict-item]
-    child_route_server_propagation = el.find("RouteServerPropagation")
+    child_route_server_propagation = el.find("routeServerPropagation")
     if child_route_server_propagation is not None:
         import capo_ec2.types.route_server_propagation
 

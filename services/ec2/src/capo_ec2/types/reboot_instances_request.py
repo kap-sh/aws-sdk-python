@@ -29,7 +29,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_id_string_list
 
         capo_ec2.types.instance_id_string_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RebootInstancesRequest:
     out: RebootInstancesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceIds") is not None:
+    if el.find("InstanceId") is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instance_ids"] = (
             capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-                el, "InstanceIds"
+                el, "InstanceId"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

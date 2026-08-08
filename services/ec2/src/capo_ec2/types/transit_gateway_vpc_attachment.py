@@ -94,21 +94,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachment:
     out: TransitGatewayVpcAttachment = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_vpc_owner_id = el.find("VpcOwnerId")
+    child_vpc_owner_id = el.find("vpcOwnerId")
     if child_vpc_owner_id is not None:
         out["vpc_owner_id"] = str(child_vpc_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_attachment_state
 
@@ -117,20 +117,20 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachment:
                 child_state
             )
         )
-    if el.find("SubnetIds") is not None:
+    if el.find("subnetIds") is not None:
         import capo_ec2.types.value_string_list
 
         out["subnet_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SubnetIds"
+            el, "subnetIds"
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.date_time
 
         out["creation_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_creation_time
         )
-    child_options = el.find("Options")
+    child_options = el.find("options")
     if child_options is not None:
         import capo_ec2.types.transit_gateway_vpc_attachment_options
 
@@ -139,8 +139,8 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachment:
                 child_options
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

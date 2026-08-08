@@ -62,13 +62,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InterruptibleCapacityAllocation:
     out: InterruptibleCapacityAllocation = {}  # type: ignore[typeddict-item]
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    child_target_instance_count = el.find("TargetInstanceCount")
+    child_target_instance_count = el.find("targetInstanceCount")
     if child_target_instance_count is not None:
         out["target_instance_count"] = int(child_target_instance_count.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.interruptible_capacity_reservation_allocation_status
 
@@ -78,13 +78,13 @@ def deserialize_ec2_query(el: Element) -> InterruptibleCapacityAllocation:
             )
         )
     child_interruptible_capacity_reservation_id = el.find(
-        "InterruptibleCapacityReservationId"
+        "interruptibleCapacityReservationId"
     )
     if child_interruptible_capacity_reservation_id is not None:
         out["interruptible_capacity_reservation_id"] = str(
             child_interruptible_capacity_reservation_id.text or ""
         )
-    child_interruption_type = el.find("InterruptionType")
+    child_interruption_type = el.find("interruptionType")
     if child_interruption_type is not None:
         import capo_ec2.types.interruption_type
 

@@ -35,7 +35,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteNetworkInsightsAccessScopeResult:
     out: DeleteNetworkInsightsAccessScopeResult = {}  # type: ignore[typeddict-item]
-    child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
+    child_network_insights_access_scope_id = el.find("networkInsightsAccessScopeId")
     if child_network_insights_access_scope_id is not None:
         out["network_insights_access_scope_id"] = str(
             child_network_insights_access_scope_id.text or ""

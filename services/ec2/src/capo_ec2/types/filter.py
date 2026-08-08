@@ -29,7 +29,7 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["values"], pairs, f"{key_prefix}Values"
+            value["values"], pairs, f"{key_prefix}Value"
         )
 
 
@@ -38,10 +38,10 @@ def deserialize_ec2_query(el: Element) -> Filter:
     child_name = el.find("Name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    if el.find("Values") is not None:
+    if el.find("Value") is not None:
         import capo_ec2.types.value_string_list
 
         out["values"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "Values"
+            el, "Value"
         )
     return out

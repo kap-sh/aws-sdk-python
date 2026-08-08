@@ -63,27 +63,27 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteTableAssociation:
     out: RouteTableAssociation = {}  # type: ignore[typeddict-item]
-    child_main = el.find("Main")
+    child_main = el.find("main")
     if child_main is not None:
         out["main"] = (child_main.text or "").lower() == "true"
-    child_route_table_association_id = el.find("RouteTableAssociationId")
+    child_route_table_association_id = el.find("routeTableAssociationId")
     if child_route_table_association_id is not None:
         out["route_table_association_id"] = str(
             child_route_table_association_id.text or ""
         )
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_gateway_id = el.find("GatewayId")
+    child_gateway_id = el.find("gatewayId")
     if child_gateway_id is not None:
         out["gateway_id"] = str(child_gateway_id.text or "")
-    child_public_ipv4_pool = el.find("PublicIpv4Pool")
+    child_public_ipv4_pool = el.find("publicIpv4Pool")
     if child_public_ipv4_pool is not None:
         out["public_ipv4_pool"] = str(child_public_ipv4_pool.text or "")
-    child_association_state = el.find("AssociationState")
+    child_association_state = el.find("associationState")
     if child_association_state is not None:
         import capo_ec2.types.route_table_association_state
 

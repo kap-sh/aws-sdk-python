@@ -35,14 +35,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UnsuccessfulItem:
     out: UnsuccessfulItem = {}  # type: ignore[typeddict-item]
-    child_error = el.find("Error")
+    child_error = el.find("error")
     if child_error is not None:
         import capo_ec2.types.unsuccessful_item_error
 
         out["error"] = capo_ec2.types.unsuccessful_item_error.deserialize_ec2_query(
             child_error
         )
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
     return out

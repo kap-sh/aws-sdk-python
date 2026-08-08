@@ -37,10 +37,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ProductCode:
     out: ProductCode = {}  # type: ignore[typeddict-item]
-    child_product_code_id = el.find("ProductCode")
+    child_product_code_id = el.find("productCode")
     if child_product_code_id is not None:
         out["product_code_id"] = str(child_product_code_id.text or "")
-    child_product_code_type = el.find("Type")
+    child_product_code_type = el.find("type")
     if child_product_code_type is not None:
         import capo_ec2.types.product_code_values
 

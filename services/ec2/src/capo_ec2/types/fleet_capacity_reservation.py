@@ -106,20 +106,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FleetCapacityReservation:
     out: FleetCapacityReservation = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_instance_platform = el.find("InstancePlatform")
+    child_instance_platform = el.find("instancePlatform")
     if child_instance_platform is not None:
         import capo_ec2.types.capacity_reservation_instance_platform
 
@@ -128,29 +128,29 @@ def deserialize_ec2_query(el: Element) -> FleetCapacityReservation:
                 child_instance_platform
             )
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_total_instance_count = el.find("TotalInstanceCount")
+    child_total_instance_count = el.find("totalInstanceCount")
     if child_total_instance_count is not None:
         out["total_instance_count"] = int(child_total_instance_count.text or "")
-    child_fulfilled_capacity = el.find("FulfilledCapacity")
+    child_fulfilled_capacity = el.find("fulfilledCapacity")
     if child_fulfilled_capacity is not None:
         out["fulfilled_capacity"] = float(child_fulfilled_capacity.text or "")
-    child_ebs_optimized = el.find("EbsOptimized")
+    child_ebs_optimized = el.find("ebsOptimized")
     if child_ebs_optimized is not None:
         out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
-    child_create_date = el.find("CreateDate")
+    child_create_date = el.find("createDate")
     if child_create_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["create_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_create_date
         )
-    child_weight = el.find("Weight")
+    child_weight = el.find("weight")
     if child_weight is not None:
         out["weight"] = float(child_weight.text or "")
-    child_priority = el.find("Priority")
+    child_priority = el.find("priority")
     if child_priority is not None:
         out["priority"] = int(child_priority.text or "")
     return out

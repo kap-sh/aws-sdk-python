@@ -34,7 +34,7 @@ def deserialize_ec2_query(el: Element) -> CancelBundleTaskRequest:
     child_bundle_id = el.find("BundleId")
     if child_bundle_id is not None:
         out["bundle_id"] = str(child_bundle_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

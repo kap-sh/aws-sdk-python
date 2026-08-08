@@ -51,26 +51,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AnalysisSecurityGroupRule:
     out: AnalysisSecurityGroupRule = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_direction = el.find("Direction")
+    child_direction = el.find("direction")
     if child_direction is not None:
         out["direction"] = str(child_direction.text or "")
-    child_security_group_id = el.find("SecurityGroupId")
+    child_security_group_id = el.find("securityGroupId")
     if child_security_group_id is not None:
         out["security_group_id"] = str(child_security_group_id.text or "")
-    child_port_range = el.find("PortRange")
+    child_port_range = el.find("portRange")
     if child_port_range is not None:
         import capo_ec2.types.port_range
 
         out["port_range"] = capo_ec2.types.port_range.deserialize_ec2_query(
             child_port_range
         )
-    child_prefix_list_id = el.find("PrefixListId")
+    child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:
         out["prefix_list_id"] = str(child_prefix_list_id.text or "")
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         out["protocol"] = str(child_protocol.text or "")
     return out

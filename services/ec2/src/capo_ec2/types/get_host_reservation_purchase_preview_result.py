@@ -54,7 +54,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetHostReservationPurchasePreviewResult:
     out: GetHostReservationPurchasePreviewResult = {}  # type: ignore[typeddict-item]
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         import capo_ec2.types.currency_code_values
 
@@ -63,16 +63,16 @@ def deserialize_ec2_query(el: Element) -> GetHostReservationPurchasePreviewResul
                 child_currency_code
             )
         )
-    if el.find("Purchase") is not None:
+    if el.find("purchase") is not None:
         import capo_ec2.types.purchase_set
 
         out["purchase"] = capo_ec2.types.purchase_set.deserialize_ec2_query(
-            el, "Purchase"
+            el, "purchase"
         )
-    child_total_hourly_price = el.find("TotalHourlyPrice")
+    child_total_hourly_price = el.find("totalHourlyPrice")
     if child_total_hourly_price is not None:
         out["total_hourly_price"] = str(child_total_hourly_price.text or "")
-    child_total_upfront_price = el.find("TotalUpfrontPrice")
+    child_total_upfront_price = el.find("totalUpfrontPrice")
     if child_total_upfront_price is not None:
         out["total_upfront_price"] = str(child_total_upfront_price.text or "")
     return out

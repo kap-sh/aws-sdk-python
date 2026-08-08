@@ -34,7 +34,7 @@ def serialize_ec2_query(
         import capo_ec2.types.reserved_instances_id_string_list
 
         capo_ec2.types.reserved_instances_id_string_list.serialize_ec2_query(
-            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesIds"
+            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesId"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -42,29 +42,31 @@ def serialize_ec2_query(
         import capo_ec2.types.reserved_instances_configuration_list
 
         capo_ec2.types.reserved_instances_configuration_list.serialize_ec2_query(
-            value["target_configurations"], pairs, f"{key_prefix}TargetConfigurations"
+            value["target_configurations"],
+            pairs,
+            f"{key_prefix}ReservedInstancesConfigurationSetItemType",
         )
 
 
 def deserialize_ec2_query(el: Element) -> ModifyReservedInstancesRequest:
     out: ModifyReservedInstancesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ReservedInstancesIds") is not None:
+    if el.find("ReservedInstancesId") is not None:
         import capo_ec2.types.reserved_instances_id_string_list
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.reserved_instances_id_string_list.deserialize_ec2_query(
-                el, "ReservedInstancesIds"
+                el, "ReservedInstancesId"
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TargetConfigurations") is not None:
+    if el.find("ReservedInstancesConfigurationSetItemType") is not None:
         import capo_ec2.types.reserved_instances_configuration_list
 
         out["target_configurations"] = (
             capo_ec2.types.reserved_instances_configuration_list.deserialize_ec2_query(
-                el, "TargetConfigurations"
+                el, "ReservedInstancesConfigurationSetItemType"
             )
         )
     return out

@@ -73,40 +73,40 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FirewallStatefulRule:
     out: FirewallStatefulRule = {}  # type: ignore[typeddict-item]
-    child_rule_group_arn = el.find("RuleGroupArn")
+    child_rule_group_arn = el.find("ruleGroupArn")
     if child_rule_group_arn is not None:
         out["rule_group_arn"] = str(child_rule_group_arn.text or "")
-    if el.find("SourceSet") is not None:
+    if el.find("sourceSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["sources"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SourceSet"
+            el, "sourceSet"
         )
-    if el.find("DestinationSet") is not None:
+    if el.find("destinationSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["destinations"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "DestinationSet"
+            el, "destinationSet"
         )
-    if el.find("SourcePortSet") is not None:
+    if el.find("sourcePortSet") is not None:
         import capo_ec2.types.port_range_list
 
         out["source_ports"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "SourcePortSet"
+            el, "sourcePortSet"
         )
-    if el.find("DestinationPortSet") is not None:
+    if el.find("destinationPortSet") is not None:
         import capo_ec2.types.port_range_list
 
         out["destination_ports"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "DestinationPortSet"
+            el, "destinationPortSet"
         )
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         out["protocol"] = str(child_protocol.text or "")
-    child_rule_action = el.find("RuleAction")
+    child_rule_action = el.find("ruleAction")
     if child_rule_action is not None:
         out["rule_action"] = str(child_rule_action.text or "")
-    child_direction = el.find("Direction")
+    child_direction = el.find("direction")
     if child_direction is not None:
         out["direction"] = str(child_direction.text or "")
     return out

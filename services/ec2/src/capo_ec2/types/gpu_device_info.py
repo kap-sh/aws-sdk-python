@@ -72,28 +72,28 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GpuDeviceInfo:
     out: GpuDeviceInfo = {}  # type: ignore[typeddict-item]
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_manufacturer = el.find("Manufacturer")
+    child_manufacturer = el.find("manufacturer")
     if child_manufacturer is not None:
         out["manufacturer"] = str(child_manufacturer.text or "")
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_logical_gpu_count = el.find("LogicalGpuCount")
+    child_logical_gpu_count = el.find("logicalGpuCount")
     if child_logical_gpu_count is not None:
         out["logical_gpu_count"] = int(child_logical_gpu_count.text or "")
-    child_gpu_partition_size = el.find("GpuPartitionSize")
+    child_gpu_partition_size = el.find("gpuPartitionSize")
     if child_gpu_partition_size is not None:
         out["gpu_partition_size"] = float(child_gpu_partition_size.text or "")
-    if el.find("WorkloadSet") is not None:
+    if el.find("workloadSet") is not None:
         import capo_ec2.types.workloads_list
 
         out["workloads"] = capo_ec2.types.workloads_list.deserialize_ec2_query(
-            el, "WorkloadSet"
+            el, "workloadSet"
         )
-    child_memory_info = el.find("MemoryInfo")
+    child_memory_info = el.find("memoryInfo")
     if child_memory_info is not None:
         import capo_ec2.types.gpu_device_memory_info
 

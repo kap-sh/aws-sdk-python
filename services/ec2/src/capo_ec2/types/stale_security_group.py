@@ -61,32 +61,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> StaleSecurityGroup:
     out: StaleSecurityGroup = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("StaleIpPermissions") is not None:
+    if el.find("staleIpPermissions") is not None:
         import capo_ec2.types.stale_ip_permission_set
 
         out["stale_ip_permissions"] = (
             capo_ec2.types.stale_ip_permission_set.deserialize_ec2_query(
-                el, "StaleIpPermissions"
+                el, "staleIpPermissions"
             )
         )
-    if el.find("StaleIpPermissionsEgress") is not None:
+    if el.find("staleIpPermissionsEgress") is not None:
         import capo_ec2.types.stale_ip_permission_set
 
         out["stale_ip_permissions_egress"] = (
             capo_ec2.types.stale_ip_permission_set.deserialize_ec2_query(
-                el, "StaleIpPermissionsEgress"
+                el, "staleIpPermissionsEgress"
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
     return out

@@ -148,24 +148,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnConnection:
     out: VpnConnection = {}  # type: ignore[typeddict-item]
-    child_category = el.find("Category")
+    child_category = el.find("category")
     if child_category is not None:
         out["category"] = str(child_category.text or "")
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_vpn_concentrator_id = el.find("VpnConcentratorId")
+    child_vpn_concentrator_id = el.find("vpnConcentratorId")
     if child_vpn_concentrator_id is not None:
         out["vpn_concentrator_id"] = str(child_vpn_concentrator_id.text or "")
-    child_core_network_arn = el.find("CoreNetworkArn")
+    child_core_network_arn = el.find("coreNetworkArn")
     if child_core_network_arn is not None:
         out["core_network_arn"] = str(child_core_network_arn.text or "")
-    child_core_network_attachment_arn = el.find("CoreNetworkAttachmentArn")
+    child_core_network_attachment_arn = el.find("coreNetworkAttachmentArn")
     if child_core_network_attachment_arn is not None:
         out["core_network_attachment_arn"] = str(
             child_core_network_attachment_arn.text or ""
         )
-    child_gateway_association_state = el.find("GatewayAssociationState")
+    child_gateway_association_state = el.find("gatewayAssociationState")
     if child_gateway_association_state is not None:
         import capo_ec2.types.gateway_association_state
 
@@ -174,54 +174,54 @@ def deserialize_ec2_query(el: Element) -> VpnConnection:
                 child_gateway_association_state
             )
         )
-    child_options = el.find("Options")
+    child_options = el.find("options")
     if child_options is not None:
         import capo_ec2.types.vpn_connection_options
 
         out["options"] = capo_ec2.types.vpn_connection_options.deserialize_ec2_query(
             child_options
         )
-    if el.find("Routes") is not None:
+    if el.find("routes") is not None:
         import capo_ec2.types.vpn_static_route_list
 
         out["routes"] = capo_ec2.types.vpn_static_route_list.deserialize_ec2_query(
-            el, "Routes"
+            el, "routes"
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    if el.find("VgwTelemetry") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    if el.find("vgwTelemetry") is not None:
         import capo_ec2.types.vgw_telemetry_list
 
         out["vgw_telemetry"] = capo_ec2.types.vgw_telemetry_list.deserialize_ec2_query(
-            el, "VgwTelemetry"
+            el, "vgwTelemetry"
         )
-    child_pre_shared_key_arn = el.find("PreSharedKeyArn")
+    child_pre_shared_key_arn = el.find("preSharedKeyArn")
     if child_pre_shared_key_arn is not None:
         out["pre_shared_key_arn"] = str(child_pre_shared_key_arn.text or "")
-    child_vpn_connection_id = el.find("VpnConnectionId")
+    child_vpn_connection_id = el.find("vpnConnectionId")
     if child_vpn_connection_id is not None:
         out["vpn_connection_id"] = str(child_vpn_connection_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpn_state
 
         out["state"] = capo_ec2.types.vpn_state.deserialize_ec2_query(child_state)
-    child_customer_gateway_configuration = el.find("CustomerGatewayConfiguration")
+    child_customer_gateway_configuration = el.find("customerGatewayConfiguration")
     if child_customer_gateway_configuration is not None:
         out["customer_gateway_configuration"] = str(
             child_customer_gateway_configuration.text or ""
         )
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.gateway_type
 
         out["type"] = capo_ec2.types.gateway_type.deserialize_ec2_query(child_type)
-    child_customer_gateway_id = el.find("CustomerGatewayId")
+    child_customer_gateway_id = el.find("customerGatewayId")
     if child_customer_gateway_id is not None:
         out["customer_gateway_id"] = str(child_customer_gateway_id.text or "")
-    child_vpn_gateway_id = el.find("VpnGatewayId")
+    child_vpn_gateway_id = el.find("vpnGatewayId")
     if child_vpn_gateway_id is not None:
         out["vpn_gateway_id"] = str(child_vpn_gateway_id.text or "")
     return out

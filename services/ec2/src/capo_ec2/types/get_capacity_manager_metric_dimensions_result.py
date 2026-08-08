@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDimensionsResult:
     out: GetCapacityManagerMetricDimensionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("MetricDimensionResultSet") is not None:
+    if el.find("metricDimensionResultSet") is not None:
         import capo_ec2.types.metric_dimension_result_set
 
         out["metric_dimension_results"] = (
             capo_ec2.types.metric_dimension_result_set.deserialize_ec2_query(
-                el, "MetricDimensionResultSet"
+                el, "metricDimensionResultSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

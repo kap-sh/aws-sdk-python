@@ -53,7 +53,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsSuccessItem:
     out: CancelSpotFleetRequestsSuccessItem = {}  # type: ignore[typeddict-item]
-    child_current_spot_fleet_request_state = el.find("CurrentSpotFleetRequestState")
+    child_current_spot_fleet_request_state = el.find("currentSpotFleetRequestState")
     if child_current_spot_fleet_request_state is not None:
         import capo_ec2.types.batch_state
 
@@ -62,7 +62,7 @@ def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsSuccessItem:
                 child_current_spot_fleet_request_state
             )
         )
-    child_previous_spot_fleet_request_state = el.find("PreviousSpotFleetRequestState")
+    child_previous_spot_fleet_request_state = el.find("previousSpotFleetRequestState")
     if child_previous_spot_fleet_request_state is not None:
         import capo_ec2.types.batch_state
 
@@ -71,7 +71,7 @@ def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsSuccessItem:
                 child_previous_spot_fleet_request_state
             )
         )
-    child_spot_fleet_request_id = el.find("SpotFleetRequestId")
+    child_spot_fleet_request_id = el.find("spotFleetRequestId")
     if child_spot_fleet_request_id is not None:
         out["spot_fleet_request_id"] = str(child_spot_fleet_request_id.text or "")
     return out

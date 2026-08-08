@@ -48,7 +48,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> UpdateCapacityManagerOrganizationsAccessResult:
     out: UpdateCapacityManagerOrganizationsAccessResult = {}  # type: ignore[typeddict-item]
-    child_capacity_manager_status = el.find("CapacityManagerStatus")
+    child_capacity_manager_status = el.find("capacityManagerStatus")
     if child_capacity_manager_status is not None:
         import capo_ec2.types.capacity_manager_status
 
@@ -57,7 +57,7 @@ def deserialize_ec2_query(
                 child_capacity_manager_status
             )
         )
-    child_organizations_access = el.find("OrganizationsAccess")
+    child_organizations_access = el.find("organizationsAccess")
     if child_organizations_access is not None:
         out["organizations_access"] = (
             child_organizations_access.text or ""

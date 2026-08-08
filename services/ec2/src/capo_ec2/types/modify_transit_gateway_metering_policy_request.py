@@ -49,7 +49,7 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_id_string_list.serialize_ec2_query(
             value["add_middlebox_attachment_ids"],
             pairs,
-            f"{key_prefix}AddMiddleboxAttachmentIds",
+            f"{key_prefix}AddMiddleboxAttachmentId",
         )
     if "remove_middlebox_attachment_ids" in value:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
@@ -57,7 +57,7 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_id_string_list.serialize_ec2_query(
             value["remove_middlebox_attachment_ids"],
             pairs,
-            f"{key_prefix}RemoveMiddleboxAttachmentIds",
+            f"{key_prefix}RemoveMiddleboxAttachmentId",
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -70,20 +70,20 @@ def deserialize_ec2_query(el: Element) -> ModifyTransitGatewayMeteringPolicyRequ
         out["transit_gateway_metering_policy_id"] = str(
             child_transit_gateway_metering_policy_id.text or ""
         )
-    if el.find("AddMiddleboxAttachmentIds") is not None:
+    if el.find("AddMiddleboxAttachmentId") is not None:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
 
         out["add_middlebox_attachment_ids"] = (
             capo_ec2.types.transit_gateway_attachment_id_string_list.deserialize_ec2_query(
-                el, "AddMiddleboxAttachmentIds"
+                el, "AddMiddleboxAttachmentId"
             )
         )
-    if el.find("RemoveMiddleboxAttachmentIds") is not None:
+    if el.find("RemoveMiddleboxAttachmentId") is not None:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
 
         out["remove_middlebox_attachment_ids"] = (
             capo_ec2.types.transit_gateway_attachment_id_string_list.deserialize_ec2_query(
-                el, "RemoveMiddleboxAttachmentIds"
+                el, "RemoveMiddleboxAttachmentId"
             )
         )
     child_dry_run = el.find("DryRun")

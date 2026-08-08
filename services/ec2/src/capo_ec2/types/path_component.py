@@ -209,31 +209,31 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PathComponent:
     out: PathComponent = {}  # type: ignore[typeddict-item]
-    child_sequence_number = el.find("SequenceNumber")
+    child_sequence_number = el.find("sequenceNumber")
     if child_sequence_number is not None:
         out["sequence_number"] = int(child_sequence_number.text or "")
-    child_acl_rule = el.find("AclRule")
+    child_acl_rule = el.find("aclRule")
     if child_acl_rule is not None:
         import capo_ec2.types.analysis_acl_rule
 
         out["acl_rule"] = capo_ec2.types.analysis_acl_rule.deserialize_ec2_query(
             child_acl_rule
         )
-    child_attached_to = el.find("AttachedTo")
+    child_attached_to = el.find("attachedTo")
     if child_attached_to is not None:
         import capo_ec2.types.analysis_component
 
         out["attached_to"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_attached_to
         )
-    child_component = el.find("Component")
+    child_component = el.find("component")
     if child_component is not None:
         import capo_ec2.types.analysis_component
 
         out["component"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_component
         )
-    child_destination_vpc = el.find("DestinationVpc")
+    child_destination_vpc = el.find("destinationVpc")
     if child_destination_vpc is not None:
         import capo_ec2.types.analysis_component
 
@@ -242,7 +242,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_destination_vpc
             )
         )
-    child_outbound_header = el.find("OutboundHeader")
+    child_outbound_header = el.find("outboundHeader")
     if child_outbound_header is not None:
         import capo_ec2.types.analysis_packet_header
 
@@ -251,7 +251,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_outbound_header
             )
         )
-    child_inbound_header = el.find("InboundHeader")
+    child_inbound_header = el.find("inboundHeader")
     if child_inbound_header is not None:
         import capo_ec2.types.analysis_packet_header
 
@@ -260,7 +260,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_inbound_header
             )
         )
-    child_route_table_route = el.find("RouteTableRoute")
+    child_route_table_route = el.find("routeTableRoute")
     if child_route_table_route is not None:
         import capo_ec2.types.analysis_route_table_route
 
@@ -269,7 +269,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_route_table_route
             )
         )
-    child_security_group_rule = el.find("SecurityGroupRule")
+    child_security_group_rule = el.find("securityGroupRule")
     if child_security_group_rule is not None:
         import capo_ec2.types.analysis_security_group_rule
 
@@ -278,34 +278,34 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_security_group_rule
             )
         )
-    child_source_vpc = el.find("SourceVpc")
+    child_source_vpc = el.find("sourceVpc")
     if child_source_vpc is not None:
         import capo_ec2.types.analysis_component
 
         out["source_vpc"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_source_vpc
         )
-    child_subnet = el.find("Subnet")
+    child_subnet = el.find("subnet")
     if child_subnet is not None:
         import capo_ec2.types.analysis_component
 
         out["subnet"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_subnet
         )
-    child_vpc = el.find("Vpc")
+    child_vpc = el.find("vpc")
     if child_vpc is not None:
         import capo_ec2.types.analysis_component
 
         out["vpc"] = capo_ec2.types.analysis_component.deserialize_ec2_query(child_vpc)
-    if el.find("AdditionalDetailSet") is not None:
+    if el.find("additionalDetailSet") is not None:
         import capo_ec2.types.additional_detail_list
 
         out["additional_details"] = (
             capo_ec2.types.additional_detail_list.deserialize_ec2_query(
-                el, "AdditionalDetailSet"
+                el, "additionalDetailSet"
             )
         )
-    child_transit_gateway = el.find("TransitGateway")
+    child_transit_gateway = el.find("transitGateway")
     if child_transit_gateway is not None:
         import capo_ec2.types.analysis_component
 
@@ -314,7 +314,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_transit_gateway
             )
         )
-    child_transit_gateway_route_table_route = el.find("TransitGatewayRouteTableRoute")
+    child_transit_gateway_route_table_route = el.find("transitGatewayRouteTableRoute")
     if child_transit_gateway_route_table_route is not None:
         import capo_ec2.types.transit_gateway_route_table_route
 
@@ -323,13 +323,13 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_transit_gateway_route_table_route
             )
         )
-    if el.find("ExplanationSet") is not None:
+    if el.find("explanationSet") is not None:
         import capo_ec2.types.explanation_list
 
         out["explanations"] = capo_ec2.types.explanation_list.deserialize_ec2_query(
-            el, "ExplanationSet"
+            el, "explanationSet"
         )
-    child_elastic_load_balancer_listener = el.find("ElasticLoadBalancerListener")
+    child_elastic_load_balancer_listener = el.find("elasticLoadBalancerListener")
     if child_elastic_load_balancer_listener is not None:
         import capo_ec2.types.analysis_component
 
@@ -338,7 +338,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_elastic_load_balancer_listener
             )
         )
-    child_firewall_stateless_rule = el.find("FirewallStatelessRule")
+    child_firewall_stateless_rule = el.find("firewallStatelessRule")
     if child_firewall_stateless_rule is not None:
         import capo_ec2.types.firewall_stateless_rule
 
@@ -347,7 +347,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_firewall_stateless_rule
             )
         )
-    child_firewall_stateful_rule = el.find("FirewallStatefulRule")
+    child_firewall_stateful_rule = el.find("firewallStatefulRule")
     if child_firewall_stateful_rule is not None:
         import capo_ec2.types.firewall_stateful_rule
 
@@ -356,7 +356,7 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_firewall_stateful_rule
             )
         )
-    child_service_name = el.find("ServiceName")
+    child_service_name = el.find("serviceName")
     if child_service_name is not None:
         out["service_name"] = str(child_service_name.text or "")
     return out

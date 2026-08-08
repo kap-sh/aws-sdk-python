@@ -49,16 +49,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InferenceDeviceInfo:
     out: InferenceDeviceInfo = {}  # type: ignore[typeddict-item]
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_manufacturer = el.find("Manufacturer")
+    child_manufacturer = el.find("manufacturer")
     if child_manufacturer is not None:
         out["manufacturer"] = str(child_manufacturer.text or "")
-    child_memory_info = el.find("MemoryInfo")
+    child_memory_info = el.find("memoryInfo")
     if child_memory_info is not None:
         import capo_ec2.types.inference_device_memory_info
 

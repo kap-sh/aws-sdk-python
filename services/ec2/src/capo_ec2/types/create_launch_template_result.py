@@ -39,14 +39,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateLaunchTemplateResult:
     out: CreateLaunchTemplateResult = {}  # type: ignore[typeddict-item]
-    child_launch_template = el.find("LaunchTemplate")
+    child_launch_template = el.find("launchTemplate")
     if child_launch_template is not None:
         import capo_ec2.types.launch_template
 
         out["launch_template"] = capo_ec2.types.launch_template.deserialize_ec2_query(
             child_launch_template
         )
-    child_warning = el.find("Warning")
+    child_warning = el.find("warning")
     if child_warning is not None:
         import capo_ec2.types.validation_warning
 

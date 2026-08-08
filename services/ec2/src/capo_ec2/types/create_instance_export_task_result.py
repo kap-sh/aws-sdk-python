@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateInstanceExportTaskResult:
     out: CreateInstanceExportTaskResult = {}  # type: ignore[typeddict-item]
-    child_export_task = el.find("ExportTask")
+    child_export_task = el.find("exportTask")
     if child_export_task is not None:
         import capo_ec2.types.export_task
 

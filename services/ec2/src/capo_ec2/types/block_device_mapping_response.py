@@ -43,20 +43,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> BlockDeviceMappingResponse:
     out: BlockDeviceMappingResponse = {}  # type: ignore[typeddict-item]
-    child_device_name = el.find("DeviceName")
+    child_device_name = el.find("deviceName")
     if child_device_name is not None:
         out["device_name"] = str(child_device_name.text or "")
-    child_virtual_name = el.find("VirtualName")
+    child_virtual_name = el.find("virtualName")
     if child_virtual_name is not None:
         out["virtual_name"] = str(child_virtual_name.text or "")
-    child_ebs = el.find("Ebs")
+    child_ebs = el.find("ebs")
     if child_ebs is not None:
         import capo_ec2.types.ebs_block_device_response
 
         out["ebs"] = capo_ec2.types.ebs_block_device_response.deserialize_ec2_query(
             child_ebs
         )
-    child_no_device = el.find("NoDevice")
+    child_no_device = el.find("noDevice")
     if child_no_device is not None:
         out["no_device"] = str(child_no_device.text or "")
     return out

@@ -81,16 +81,16 @@ def deserialize_ec2_query(el: Element) -> AttachNetworkInterfaceRequest:
     child_ena_queue_count = el.find("EnaQueueCount")
     if child_ena_queue_count is not None:
         out["ena_queue_count"] = int(child_ena_queue_count.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_device_index = el.find("DeviceIndex")
+    child_device_index = el.find("deviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
     return out

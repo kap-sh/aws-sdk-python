@@ -47,24 +47,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MetricPoint:
     out: MetricPoint = {}  # type: ignore[typeddict-item]
-    child_start_date = el.find("StartDate")
+    child_start_date = el.find("startDate")
     if child_start_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_date
         )
-    child_end_date = el.find("EndDate")
+    child_end_date = el.find("endDate")
     if child_end_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["end_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_date
         )
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = float(child_value.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
     return out

@@ -115,16 +115,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteResult:
     out: GetReservedInstancesExchangeQuoteResult = {}  # type: ignore[typeddict-item]
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         out["currency_code"] = str(child_currency_code.text or "")
-    child_is_valid_exchange = el.find("IsValidExchange")
+    child_is_valid_exchange = el.find("isValidExchange")
     if child_is_valid_exchange is not None:
         out["is_valid_exchange"] = (
             child_is_valid_exchange.text or ""
         ).lower() == "true"
     child_output_reserved_instances_will_expire_at = el.find(
-        "OutputReservedInstancesWillExpireAt"
+        "outputReservedInstancesWillExpireAt"
     )
     if child_output_reserved_instances_will_expire_at is not None:
         import capo_ec2.types.date_time
@@ -134,10 +134,10 @@ def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteResul
                 child_output_reserved_instances_will_expire_at
             )
         )
-    child_payment_due = el.find("PaymentDue")
+    child_payment_due = el.find("paymentDue")
     if child_payment_due is not None:
         out["payment_due"] = str(child_payment_due.text or "")
-    child_reserved_instance_value_rollup = el.find("ReservedInstanceValueRollup")
+    child_reserved_instance_value_rollup = el.find("reservedInstanceValueRollup")
     if child_reserved_instance_value_rollup is not None:
         import capo_ec2.types.reservation_value
 
@@ -146,15 +146,15 @@ def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteResul
                 child_reserved_instance_value_rollup
             )
         )
-    if el.find("ReservedInstanceValueSet") is not None:
+    if el.find("reservedInstanceValueSet") is not None:
         import capo_ec2.types.reserved_instance_reservation_value_set
 
         out["reserved_instance_value_set"] = (
             capo_ec2.types.reserved_instance_reservation_value_set.deserialize_ec2_query(
-                el, "ReservedInstanceValueSet"
+                el, "reservedInstanceValueSet"
             )
         )
-    child_target_configuration_value_rollup = el.find("TargetConfigurationValueRollup")
+    child_target_configuration_value_rollup = el.find("targetConfigurationValueRollup")
     if child_target_configuration_value_rollup is not None:
         import capo_ec2.types.reservation_value
 
@@ -163,15 +163,15 @@ def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteResul
                 child_target_configuration_value_rollup
             )
         )
-    if el.find("TargetConfigurationValueSet") is not None:
+    if el.find("targetConfigurationValueSet") is not None:
         import capo_ec2.types.target_reservation_value_set
 
         out["target_configuration_value_set"] = (
             capo_ec2.types.target_reservation_value_set.deserialize_ec2_query(
-                el, "TargetConfigurationValueSet"
+                el, "targetConfigurationValueSet"
             )
         )
-    child_validation_failure_reason = el.find("ValidationFailureReason")
+    child_validation_failure_reason = el.find("validationFailureReason")
     if child_validation_failure_reason is not None:
         out["validation_failure_reason"] = str(
             child_validation_failure_reason.text or ""

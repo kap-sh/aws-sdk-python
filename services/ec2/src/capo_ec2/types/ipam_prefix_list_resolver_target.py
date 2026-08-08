@@ -121,48 +121,48 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverTarget:
     out: IpamPrefixListResolverTarget = {}  # type: ignore[typeddict-item]
     child_ipam_prefix_list_resolver_target_id = el.find(
-        "IpamPrefixListResolverTargetId"
+        "ipamPrefixListResolverTargetId"
     )
     if child_ipam_prefix_list_resolver_target_id is not None:
         out["ipam_prefix_list_resolver_target_id"] = str(
             child_ipam_prefix_list_resolver_target_id.text or ""
         )
     child_ipam_prefix_list_resolver_target_arn = el.find(
-        "IpamPrefixListResolverTargetArn"
+        "ipamPrefixListResolverTargetArn"
     )
     if child_ipam_prefix_list_resolver_target_arn is not None:
         out["ipam_prefix_list_resolver_target_arn"] = str(
             child_ipam_prefix_list_resolver_target_arn.text or ""
         )
-    child_ipam_prefix_list_resolver_id = el.find("IpamPrefixListResolverId")
+    child_ipam_prefix_list_resolver_id = el.find("ipamPrefixListResolverId")
     if child_ipam_prefix_list_resolver_id is not None:
         out["ipam_prefix_list_resolver_id"] = str(
             child_ipam_prefix_list_resolver_id.text or ""
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_prefix_list_id = el.find("PrefixListId")
+    child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:
         out["prefix_list_id"] = str(child_prefix_list_id.text or "")
-    child_prefix_list_region = el.find("PrefixListRegion")
+    child_prefix_list_region = el.find("prefixListRegion")
     if child_prefix_list_region is not None:
         out["prefix_list_region"] = str(child_prefix_list_region.text or "")
-    child_desired_version = el.find("DesiredVersion")
+    child_desired_version = el.find("desiredVersion")
     if child_desired_version is not None:
         out["desired_version"] = int(child_desired_version.text or "")
-    child_last_synced_version = el.find("LastSyncedVersion")
+    child_last_synced_version = el.find("lastSyncedVersion")
     if child_last_synced_version is not None:
         out["last_synced_version"] = int(child_last_synced_version.text or "")
-    child_track_latest_version = el.find("TrackLatestVersion")
+    child_track_latest_version = el.find("trackLatestVersion")
     if child_track_latest_version is not None:
         out["track_latest_version"] = (
             child_track_latest_version.text or ""
         ).lower() == "true"
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_target_state
 
@@ -171,8 +171,8 @@ def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverTarget:
                 child_state
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

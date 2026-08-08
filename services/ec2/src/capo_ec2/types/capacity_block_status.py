@@ -73,10 +73,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityBlockStatus:
     out: CapacityBlockStatus = {}  # type: ignore[typeddict-item]
-    child_capacity_block_id = el.find("CapacityBlockId")
+    child_capacity_block_id = el.find("capacityBlockId")
     if child_capacity_block_id is not None:
         out["capacity_block_id"] = str(child_capacity_block_id.text or "")
-    child_interconnect_status = el.find("InterconnectStatus")
+    child_interconnect_status = el.find("interconnectStatus")
     if child_interconnect_status is not None:
         import capo_ec2.types.capacity_block_interconnect_status
 
@@ -85,23 +85,23 @@ def deserialize_ec2_query(el: Element) -> CapacityBlockStatus:
                 child_interconnect_status
             )
         )
-    child_total_capacity = el.find("TotalCapacity")
+    child_total_capacity = el.find("totalCapacity")
     if child_total_capacity is not None:
         out["total_capacity"] = int(child_total_capacity.text or "")
-    child_total_available_capacity = el.find("TotalAvailableCapacity")
+    child_total_available_capacity = el.find("totalAvailableCapacity")
     if child_total_available_capacity is not None:
         out["total_available_capacity"] = int(child_total_available_capacity.text or "")
-    child_total_unavailable_capacity = el.find("TotalUnavailableCapacity")
+    child_total_unavailable_capacity = el.find("totalUnavailableCapacity")
     if child_total_unavailable_capacity is not None:
         out["total_unavailable_capacity"] = int(
             child_total_unavailable_capacity.text or ""
         )
-    if el.find("CapacityReservationStatusSet") is not None:
+    if el.find("capacityReservationStatusSet") is not None:
         import capo_ec2.types.capacity_reservation_status_set
 
         out["capacity_reservation_statuses"] = (
             capo_ec2.types.capacity_reservation_status_set.deserialize_ec2_query(
-                el, "CapacityReservationStatusSet"
+                el, "capacityReservationStatusSet"
             )
         )
     return out

@@ -117,16 +117,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoreSuccessItem:
     out: EnableFastSnapshotRestoreSuccessItem = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.fast_snapshot_restore_state_code
 
@@ -135,16 +135,16 @@ def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoreSuccessItem:
                 child_state
             )
         )
-    child_state_transition_reason = el.find("StateTransitionReason")
+    child_state_transition_reason = el.find("stateTransitionReason")
     if child_state_transition_reason is not None:
         out["state_transition_reason"] = str(child_state_transition_reason.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_owner_alias = el.find("OwnerAlias")
+    child_owner_alias = el.find("ownerAlias")
     if child_owner_alias is not None:
         out["owner_alias"] = str(child_owner_alias.text or "")
-    child_enabling_time = el.find("EnablingTime")
+    child_enabling_time = el.find("enablingTime")
     if child_enabling_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -153,7 +153,7 @@ def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoreSuccessItem:
                 child_enabling_time
             )
         )
-    child_optimizing_time = el.find("OptimizingTime")
+    child_optimizing_time = el.find("optimizingTime")
     if child_optimizing_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -162,7 +162,7 @@ def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoreSuccessItem:
                 child_optimizing_time
             )
         )
-    child_enabled_time = el.find("EnabledTime")
+    child_enabled_time = el.find("enabledTime")
     if child_enabled_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -171,7 +171,7 @@ def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoreSuccessItem:
                 child_enabled_time
             )
         )
-    child_disabling_time = el.find("DisablingTime")
+    child_disabling_time = el.find("disablingTime")
     if child_disabling_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -180,7 +180,7 @@ def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoreSuccessItem:
                 child_disabling_time
             )
         )
-    child_disabled_time = el.find("DisabledTime")
+    child_disabled_time = el.find("disabledTime")
     if child_disabled_time is not None:
         import capo_ec2.types.millisecond_date_time
 

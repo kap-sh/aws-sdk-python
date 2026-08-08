@@ -50,16 +50,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ActiveInstance:
     out: ActiveInstance = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_spot_instance_request_id = el.find("SpotInstanceRequestId")
+    child_spot_instance_request_id = el.find("spotInstanceRequestId")
     if child_spot_instance_request_id is not None:
         out["spot_instance_request_id"] = str(child_spot_instance_request_id.text or "")
-    child_instance_health = el.find("InstanceHealth")
+    child_instance_health = el.find("instanceHealth")
     if child_instance_health is not None:
         import capo_ec2.types.instance_health_status
 

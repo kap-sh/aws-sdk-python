@@ -38,10 +38,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsInstanceBlockDeviceSpecification:
     out: EbsInstanceBlockDeviceSpecification = {}  # type: ignore[typeddict-item]
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""

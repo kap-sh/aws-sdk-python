@@ -41,10 +41,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstancesModificationResult:
     out: ReservedInstancesModificationResult = {}  # type: ignore[typeddict-item]
-    child_reserved_instances_id = el.find("ReservedInstancesId")
+    child_reserved_instances_id = el.find("reservedInstancesId")
     if child_reserved_instances_id is not None:
         out["reserved_instances_id"] = str(child_reserved_instances_id.text or "")
-    child_target_configuration = el.find("TargetConfiguration")
+    child_target_configuration = el.find("targetConfiguration")
     if child_target_configuration is not None:
         import capo_ec2.types.reserved_instances_configuration
 

@@ -37,7 +37,7 @@ def serialize_ec2_query(
         import capo_ec2.types.resource_list
 
         capo_ec2.types.resource_list.serialize_ec2_query(
-            value["resources"], pairs, f"{key_prefix}Resources"
+            value["resources"], pairs, f"{key_prefix}Resource"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -50,11 +50,11 @@ def deserialize_ec2_query(el: Element) -> DescribePrincipalIdFormatRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Resources") is not None:
+    if el.find("Resource") is not None:
         import capo_ec2.types.resource_list
 
         out["resources"] = capo_ec2.types.resource_list.deserialize_ec2_query(
-            el, "Resources"
+            el, "Resource"
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:

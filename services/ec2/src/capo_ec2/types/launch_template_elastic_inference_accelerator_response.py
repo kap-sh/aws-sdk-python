@@ -35,10 +35,10 @@ def deserialize_ec2_query(
     el: Element,
 ) -> LaunchTemplateElasticInferenceAcceleratorResponse:
     out: LaunchTemplateElasticInferenceAcceleratorResponse = {}  # type: ignore[typeddict-item]
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
     return out

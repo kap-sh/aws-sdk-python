@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PlacementResponse:
     out: PlacementResponse = {}  # type: ignore[typeddict-item]
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
     return out

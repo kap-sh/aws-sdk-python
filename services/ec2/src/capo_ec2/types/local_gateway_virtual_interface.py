@@ -118,57 +118,57 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LocalGatewayVirtualInterface:
     out: LocalGatewayVirtualInterface = {}  # type: ignore[typeddict-item]
-    child_local_gateway_virtual_interface_id = el.find("LocalGatewayVirtualInterfaceId")
+    child_local_gateway_virtual_interface_id = el.find("localGatewayVirtualInterfaceId")
     if child_local_gateway_virtual_interface_id is not None:
         out["local_gateway_virtual_interface_id"] = str(
             child_local_gateway_virtual_interface_id.text or ""
         )
-    child_local_gateway_id = el.find("LocalGatewayId")
+    child_local_gateway_id = el.find("localGatewayId")
     if child_local_gateway_id is not None:
         out["local_gateway_id"] = str(child_local_gateway_id.text or "")
     child_local_gateway_virtual_interface_group_id = el.find(
-        "LocalGatewayVirtualInterfaceGroupId"
+        "localGatewayVirtualInterfaceGroupId"
     )
     if child_local_gateway_virtual_interface_group_id is not None:
         out["local_gateway_virtual_interface_group_id"] = str(
             child_local_gateway_virtual_interface_group_id.text or ""
         )
     child_local_gateway_virtual_interface_arn = el.find(
-        "LocalGatewayVirtualInterfaceArn"
+        "localGatewayVirtualInterfaceArn"
     )
     if child_local_gateway_virtual_interface_arn is not None:
         out["local_gateway_virtual_interface_arn"] = str(
             child_local_gateway_virtual_interface_arn.text or ""
         )
-    child_outpost_lag_id = el.find("OutpostLagId")
+    child_outpost_lag_id = el.find("outpostLagId")
     if child_outpost_lag_id is not None:
         out["outpost_lag_id"] = str(child_outpost_lag_id.text or "")
-    child_vlan = el.find("Vlan")
+    child_vlan = el.find("vlan")
     if child_vlan is not None:
         out["vlan"] = int(child_vlan.text or "")
-    child_local_address = el.find("LocalAddress")
+    child_local_address = el.find("localAddress")
     if child_local_address is not None:
         out["local_address"] = str(child_local_address.text or "")
-    child_peer_address = el.find("PeerAddress")
+    child_peer_address = el.find("peerAddress")
     if child_peer_address is not None:
         out["peer_address"] = str(child_peer_address.text or "")
-    child_local_bgp_asn = el.find("LocalBgpAsn")
+    child_local_bgp_asn = el.find("localBgpAsn")
     if child_local_bgp_asn is not None:
         out["local_bgp_asn"] = int(child_local_bgp_asn.text or "")
-    child_peer_bgp_asn = el.find("PeerBgpAsn")
+    child_peer_bgp_asn = el.find("peerBgpAsn")
     if child_peer_bgp_asn is not None:
         out["peer_bgp_asn"] = int(child_peer_bgp_asn.text or "")
-    child_peer_bgp_asn_extended = el.find("PeerBgpAsnExtended")
+    child_peer_bgp_asn_extended = el.find("peerBgpAsnExtended")
     if child_peer_bgp_asn_extended is not None:
         out["peer_bgp_asn_extended"] = int(child_peer_bgp_asn_extended.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_configuration_state = el.find("ConfigurationState")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_configuration_state = el.find("configurationState")
     if child_configuration_state is not None:
         import capo_ec2.types.local_gateway_virtual_interface_configuration_state
 

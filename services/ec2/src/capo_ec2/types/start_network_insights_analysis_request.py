@@ -54,19 +54,19 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["additional_accounts"], pairs, f"{key_prefix}AdditionalAccounts"
+            value["additional_accounts"], pairs, f"{key_prefix}AdditionalAccount"
         )
     if "filter_in_arns" in value:
         import capo_ec2.types.arn_list
 
         capo_ec2.types.arn_list.serialize_ec2_query(
-            value["filter_in_arns"], pairs, f"{key_prefix}FilterInArns"
+            value["filter_in_arns"], pairs, f"{key_prefix}FilterInArn"
         )
     if "filter_out_arns" in value:
         import capo_ec2.types.arn_list
 
         capo_ec2.types.arn_list.serialize_ec2_query(
-            value["filter_out_arns"], pairs, f"{key_prefix}FilterOutArns"
+            value["filter_out_arns"], pairs, f"{key_prefix}FilterOutArn"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -74,7 +74,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -85,35 +85,35 @@ def deserialize_ec2_query(el: Element) -> StartNetworkInsightsAnalysisRequest:
     child_network_insights_path_id = el.find("NetworkInsightsPathId")
     if child_network_insights_path_id is not None:
         out["network_insights_path_id"] = str(child_network_insights_path_id.text or "")
-    if el.find("AdditionalAccounts") is not None:
+    if el.find("AdditionalAccount") is not None:
         import capo_ec2.types.value_string_list
 
         out["additional_accounts"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AdditionalAccounts"
+                el, "AdditionalAccount"
             )
         )
-    if el.find("FilterInArns") is not None:
+    if el.find("FilterInArn") is not None:
         import capo_ec2.types.arn_list
 
         out["filter_in_arns"] = capo_ec2.types.arn_list.deserialize_ec2_query(
-            el, "FilterInArns"
+            el, "FilterInArn"
         )
-    if el.find("FilterOutArns") is not None:
+    if el.find("FilterOutArn") is not None:
         import capo_ec2.types.arn_list
 
         out["filter_out_arns"] = capo_ec2.types.arn_list.deserialize_ec2_query(
-            el, "FilterOutArns"
+            el, "FilterOutArn"
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_client_token = el.find("ClientToken")

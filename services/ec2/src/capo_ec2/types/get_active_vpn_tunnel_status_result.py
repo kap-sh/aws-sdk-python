@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetActiveVpnTunnelStatusResult:
     out: GetActiveVpnTunnelStatusResult = {}  # type: ignore[typeddict-item]
-    child_active_vpn_tunnel_status = el.find("ActiveVpnTunnelStatus")
+    child_active_vpn_tunnel_status = el.find("activeVpnTunnelStatus")
     if child_active_vpn_tunnel_status is not None:
         import capo_ec2.types.active_vpn_tunnel_status
 

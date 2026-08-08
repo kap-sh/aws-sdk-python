@@ -56,13 +56,13 @@ def serialize_ec2_query(
         import capo_ec2.types.create_verified_access_endpoint_subnet_id_list
 
         capo_ec2.types.create_verified_access_endpoint_subnet_id_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetId"
         )
     if "port_ranges" in value:
         import capo_ec2.types.create_verified_access_endpoint_port_range_list
 
         capo_ec2.types.create_verified_access_endpoint_port_range_list.serialize_ec2_query(
-            value["port_ranges"], pairs, f"{key_prefix}PortRanges"
+            value["port_ranges"], pairs, f"{key_prefix}PortRange"
         )
 
 
@@ -85,20 +85,20 @@ def deserialize_ec2_query(
     child_load_balancer_arn = el.find("LoadBalancerArn")
     if child_load_balancer_arn is not None:
         out["load_balancer_arn"] = str(child_load_balancer_arn.text or "")
-    if el.find("SubnetIds") is not None:
+    if el.find("SubnetId") is not None:
         import capo_ec2.types.create_verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.create_verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetIds"
+                el, "SubnetId"
             )
         )
-    if el.find("PortRanges") is not None:
+    if el.find("PortRange") is not None:
         import capo_ec2.types.create_verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.create_verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRanges"
+                el, "PortRange"
             )
         )
     return out

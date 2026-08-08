@@ -33,7 +33,7 @@ def serialize_ec2_query(
         import capo_ec2.types.public_ip_string_list
 
         capo_ec2.types.public_ip_string_list.serialize_ec2_query(
-            value["public_ips"], pairs, f"{key_prefix}PublicIps"
+            value["public_ips"], pairs, f"{key_prefix}PublicIp"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -41,35 +41,35 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "allocation_ids" in value:
         import capo_ec2.types.allocation_id_list
 
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
-            value["allocation_ids"], pairs, f"{key_prefix}AllocationIds"
+            value["allocation_ids"], pairs, f"{key_prefix}AllocationId"
         )
 
 
 def deserialize_ec2_query(el: Element) -> DescribeAddressesRequest:
     out: DescribeAddressesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("PublicIps") is not None:
+    if el.find("PublicIp") is not None:
         import capo_ec2.types.public_ip_string_list
 
         out["public_ips"] = capo_ec2.types.public_ip_string_list.deserialize_ec2_query(
-            el, "PublicIps"
+            el, "PublicIp"
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("AllocationIds") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("AllocationId") is not None:
         import capo_ec2.types.allocation_id_list
 
         out["allocation_ids"] = capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-            el, "AllocationIds"
+            el, "AllocationId"
         )
     return out

@@ -36,7 +36,7 @@ def serialize_ec2_query(
         import capo_ec2.types.allocation_ids
 
         capo_ec2.types.allocation_ids.serialize_ec2_query(
-            value["allocation_ids"], pairs, f"{key_prefix}AllocationIds"
+            value["allocation_ids"], pairs, f"{key_prefix}AllocationId"
         )
     if "attribute" in value:
         import capo_ec2.types.address_attribute_name
@@ -54,11 +54,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAddressesAttributeRequest:
     out: DescribeAddressesAttributeRequest = {}  # type: ignore[typeddict-item]
-    if el.find("AllocationIds") is not None:
+    if el.find("AllocationId") is not None:
         import capo_ec2.types.allocation_ids
 
         out["allocation_ids"] = capo_ec2.types.allocation_ids.deserialize_ec2_query(
-            el, "AllocationIds"
+            el, "AllocationId"
         )
     child_attribute = el.find("Attribute")
     if child_attribute is not None:

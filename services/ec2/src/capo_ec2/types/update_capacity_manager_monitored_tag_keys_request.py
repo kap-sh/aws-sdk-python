@@ -34,13 +34,13 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["activate_tag_keys"], pairs, f"{key_prefix}ActivateTagKeys"
+            value["activate_tag_keys"], pairs, f"{key_prefix}ActivateTagKey"
         )
     if "deactivate_tag_keys" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["deactivate_tag_keys"], pairs, f"{key_prefix}DeactivateTagKeys"
+            value["deactivate_tag_keys"], pairs, f"{key_prefix}DeactivateTagKey"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -50,20 +50,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UpdateCapacityManagerMonitoredTagKeysRequest:
     out: UpdateCapacityManagerMonitoredTagKeysRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ActivateTagKeys") is not None:
+    if el.find("ActivateTagKey") is not None:
         import capo_ec2.types.value_string_list
 
         out["activate_tag_keys"] = (
-            capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "ActivateTagKeys"
-            )
+            capo_ec2.types.value_string_list.deserialize_ec2_query(el, "ActivateTagKey")
         )
-    if el.find("DeactivateTagKeys") is not None:
+    if el.find("DeactivateTagKey") is not None:
         import capo_ec2.types.value_string_list
 
         out["deactivate_tag_keys"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DeactivateTagKeys"
+                el, "DeactivateTagKey"
             )
         )
     child_dry_run = el.find("DryRun")

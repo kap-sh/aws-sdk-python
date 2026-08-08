@@ -74,37 +74,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteTable:
     out: RouteTable = {}  # type: ignore[typeddict-item]
-    if el.find("AssociationSet") is not None:
+    if el.find("associationSet") is not None:
         import capo_ec2.types.route_table_association_list
 
         out["associations"] = (
             capo_ec2.types.route_table_association_list.deserialize_ec2_query(
-                el, "AssociationSet"
+                el, "associationSet"
             )
         )
-    if el.find("PropagatingVgwSet") is not None:
+    if el.find("propagatingVgwSet") is not None:
         import capo_ec2.types.propagating_vgw_list
 
         out["propagating_vgws"] = (
             capo_ec2.types.propagating_vgw_list.deserialize_ec2_query(
-                el, "PropagatingVgwSet"
+                el, "propagatingVgwSet"
             )
         )
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    if el.find("RouteSet") is not None:
+    if el.find("routeSet") is not None:
         import capo_ec2.types.route_list
 
-        out["routes"] = capo_ec2.types.route_list.deserialize_ec2_query(el, "RouteSet")
-    if el.find("TagSet") is not None:
+        out["routes"] = capo_ec2.types.route_list.deserialize_ec2_query(el, "routeSet")
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpc_id = el.find("VpcId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
     return out

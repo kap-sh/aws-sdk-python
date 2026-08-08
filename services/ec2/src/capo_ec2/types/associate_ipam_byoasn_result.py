@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssociateIpamByoasnResult:
     out: AssociateIpamByoasnResult = {}  # type: ignore[typeddict-item]
-    child_asn_association = el.find("AsnAssociation")
+    child_asn_association = el.find("asnAssociation")
     if child_asn_association is not None:
         import capo_ec2.types.asn_association
 

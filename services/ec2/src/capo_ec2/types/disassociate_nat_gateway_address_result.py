@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisassociateNatGatewayAddressResult:
     out: DisassociateNatGatewayAddressResult = {}  # type: ignore[typeddict-item]
-    child_nat_gateway_id = el.find("NatGatewayId")
+    child_nat_gateway_id = el.find("natGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("NatGatewayAddressSet") is not None:
+    if el.find("natGatewayAddressSet") is not None:
         import capo_ec2.types.nat_gateway_address_list
 
         out["nat_gateway_addresses"] = (
             capo_ec2.types.nat_gateway_address_list.deserialize_ec2_query(
-                el, "NatGatewayAddressSet"
+                el, "natGatewayAddressSet"
             )
         )
     return out

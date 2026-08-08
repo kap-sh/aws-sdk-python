@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DirectoryServiceAuthentication:
     out: DirectoryServiceAuthentication = {}  # type: ignore[typeddict-item]
-    child_directory_id = el.find("DirectoryId")
+    child_directory_id = el.find("directoryId")
     if child_directory_id is not None:
         out["directory_id"] = str(child_directory_id.text or "")
     return out

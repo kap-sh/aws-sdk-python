@@ -35,7 +35,7 @@ def serialize_ec2_query(
         capo_ec2.types.connection_notification_ids_list.serialize_ec2_query(
             value["connection_notification_ids"],
             pairs,
-            f"{key_prefix}ConnectionNotificationIds",
+            f"{key_prefix}ConnectionNotificationId",
         )
 
 
@@ -46,12 +46,12 @@ def deserialize_ec2_query(
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ConnectionNotificationIds") is not None:
+    if el.find("ConnectionNotificationId") is not None:
         import capo_ec2.types.connection_notification_ids_list
 
         out["connection_notification_ids"] = (
             capo_ec2.types.connection_notification_ids_list.deserialize_ec2_query(
-                el, "ConnectionNotificationIds"
+                el, "ConnectionNotificationId"
             )
         )
     return out

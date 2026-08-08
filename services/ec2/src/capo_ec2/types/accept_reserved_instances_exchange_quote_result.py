@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AcceptReservedInstancesExchangeQuoteResult:
     out: AcceptReservedInstancesExchangeQuoteResult = {}  # type: ignore[typeddict-item]
-    child_exchange_id = el.find("ExchangeId")
+    child_exchange_id = el.find("exchangeId")
     if child_exchange_id is not None:
         out["exchange_id"] = str(child_exchange_id.text or "")
     return out

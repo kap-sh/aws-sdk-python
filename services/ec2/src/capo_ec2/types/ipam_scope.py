@@ -100,49 +100,49 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamScope:
     out: IpamScope = {}  # type: ignore[typeddict-item]
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_ipam_scope_id = el.find("IpamScopeId")
+    child_ipam_scope_id = el.find("ipamScopeId")
     if child_ipam_scope_id is not None:
         out["ipam_scope_id"] = str(child_ipam_scope_id.text or "")
-    child_ipam_scope_arn = el.find("IpamScopeArn")
+    child_ipam_scope_arn = el.find("ipamScopeArn")
     if child_ipam_scope_arn is not None:
         out["ipam_scope_arn"] = str(child_ipam_scope_arn.text or "")
-    child_ipam_arn = el.find("IpamArn")
+    child_ipam_arn = el.find("ipamArn")
     if child_ipam_arn is not None:
         out["ipam_arn"] = str(child_ipam_arn.text or "")
-    child_ipam_region = el.find("IpamRegion")
+    child_ipam_region = el.find("ipamRegion")
     if child_ipam_region is not None:
         out["ipam_region"] = str(child_ipam_region.text or "")
-    child_ipam_scope_type = el.find("IpamScopeType")
+    child_ipam_scope_type = el.find("ipamScopeType")
     if child_ipam_scope_type is not None:
         import capo_ec2.types.ipam_scope_type
 
         out["ipam_scope_type"] = capo_ec2.types.ipam_scope_type.deserialize_ec2_query(
             child_ipam_scope_type
         )
-    child_is_default = el.find("IsDefault")
+    child_is_default = el.find("isDefault")
     if child_is_default is not None:
         out["is_default"] = (child_is_default.text or "").lower() == "true"
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_pool_count = el.find("PoolCount")
+    child_pool_count = el.find("poolCount")
     if child_pool_count is not None:
         out["pool_count"] = int(child_pool_count.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_scope_state
 
         out["state"] = capo_ec2.types.ipam_scope_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_external_authority_configuration = el.find("ExternalAuthorityConfiguration")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_external_authority_configuration = el.find("externalAuthorityConfiguration")
     if child_external_authority_configuration is not None:
         import capo_ec2.types.ipam_scope_external_authority_configuration
 

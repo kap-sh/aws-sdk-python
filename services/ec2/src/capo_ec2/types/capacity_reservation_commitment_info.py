@@ -42,10 +42,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationCommitmentInfo:
     out: CapacityReservationCommitmentInfo = {}  # type: ignore[typeddict-item]
-    child_committed_instance_count = el.find("CommittedInstanceCount")
+    child_committed_instance_count = el.find("committedInstanceCount")
     if child_committed_instance_count is not None:
         out["committed_instance_count"] = int(child_committed_instance_count.text or "")
-    child_commitment_end_date = el.find("CommitmentEndDate")
+    child_commitment_end_date = el.find("commitmentEndDate")
     if child_commitment_end_date is not None:
         import capo_ec2.types.millisecond_date_time
 

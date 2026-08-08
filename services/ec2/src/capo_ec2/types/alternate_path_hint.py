@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AlternatePathHint:
     out: AlternatePathHint = {}  # type: ignore[typeddict-item]
-    child_component_id = el.find("ComponentId")
+    child_component_id = el.find("componentId")
     if child_component_id is not None:
         out["component_id"] = str(child_component_id.text or "")
-    child_component_arn = el.find("ComponentArn")
+    child_component_arn = el.find("componentArn")
     if child_component_arn is not None:
         out["component_arn"] = str(child_component_arn.text or "")
     return out

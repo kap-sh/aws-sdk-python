@@ -32,13 +32,13 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "vpn_gateway_ids" in value:
         import capo_ec2.types.vpn_gateway_id_string_list
 
         capo_ec2.types.vpn_gateway_id_string_list.serialize_ec2_query(
-            value["vpn_gateway_ids"], pairs, f"{key_prefix}VpnGatewayIds"
+            value["vpn_gateway_ids"], pairs, f"{key_prefix}VpnGatewayId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -46,19 +46,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpnGatewaysRequest:
     out: DescribeVpnGatewaysRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("VpnGatewayIds") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("VpnGatewayId") is not None:
         import capo_ec2.types.vpn_gateway_id_string_list
 
         out["vpn_gateway_ids"] = (
             capo_ec2.types.vpn_gateway_id_string_list.deserialize_ec2_query(
-                el, "VpnGatewayIds"
+                el, "VpnGatewayId"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

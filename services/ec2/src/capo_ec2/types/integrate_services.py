@@ -26,18 +26,18 @@ def serialize_ec2_query(
         import capo_ec2.types.athena_integrations_set
 
         capo_ec2.types.athena_integrations_set.serialize_ec2_query(
-            value["athena_integrations"], pairs, f"{key_prefix}AthenaIntegrations"
+            value["athena_integrations"], pairs, f"{key_prefix}AthenaIntegration"
         )
 
 
 def deserialize_ec2_query(el: Element) -> IntegrateServices:
     out: IntegrateServices = {}  # type: ignore[typeddict-item]
-    if el.find("AthenaIntegrations") is not None:
+    if el.find("AthenaIntegration") is not None:
         import capo_ec2.types.athena_integrations_set
 
         out["athena_integrations"] = (
             capo_ec2.types.athena_integrations_set.deserialize_ec2_query(
-                el, "AthenaIntegrations"
+                el, "AthenaIntegration"
             )
         )
     return out

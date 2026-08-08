@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AllocateIpamPoolCidrResult:
     out: AllocateIpamPoolCidrResult = {}  # type: ignore[typeddict-item]
-    child_ipam_pool_allocation = el.find("IpamPoolAllocation")
+    child_ipam_pool_allocation = el.find("ipamPoolAllocation")
     if child_ipam_pool_allocation is not None:
         import capo_ec2.types.ipam_pool_allocation
 

@@ -78,29 +78,29 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageCriterion:
     out: ImageCriterion = {}  # type: ignore[typeddict-item]
-    if el.find("ImageProviderSet") is not None:
+    if el.find("imageProviderSet") is not None:
         import capo_ec2.types.image_provider_list
 
         out["image_providers"] = (
             capo_ec2.types.image_provider_list.deserialize_ec2_query(
-                el, "ImageProviderSet"
+                el, "imageProviderSet"
             )
         )
-    if el.find("MarketplaceProductCodeSet") is not None:
+    if el.find("marketplaceProductCodeSet") is not None:
         import capo_ec2.types.marketplace_product_code_list
 
         out["marketplace_product_codes"] = (
             capo_ec2.types.marketplace_product_code_list.deserialize_ec2_query(
-                el, "MarketplaceProductCodeSet"
+                el, "marketplaceProductCodeSet"
             )
         )
-    if el.find("ImageNameSet") is not None:
+    if el.find("imageNameSet") is not None:
         import capo_ec2.types.image_name_list
 
         out["image_names"] = capo_ec2.types.image_name_list.deserialize_ec2_query(
-            el, "ImageNameSet"
+            el, "imageNameSet"
         )
-    child_deprecation_time_condition = el.find("DeprecationTimeCondition")
+    child_deprecation_time_condition = el.find("deprecationTimeCondition")
     if child_deprecation_time_condition is not None:
         import capo_ec2.types.deprecation_time_condition
 
@@ -109,7 +109,7 @@ def deserialize_ec2_query(el: Element) -> ImageCriterion:
                 child_deprecation_time_condition
             )
         )
-    child_creation_date_condition = el.find("CreationDateCondition")
+    child_creation_date_condition = el.find("creationDateCondition")
     if child_creation_date_condition is not None:
         import capo_ec2.types.creation_date_condition
 

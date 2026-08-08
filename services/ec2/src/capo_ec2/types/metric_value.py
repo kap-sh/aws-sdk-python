@@ -35,12 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MetricValue:
     out: MetricValue = {}  # type: ignore[typeddict-item]
-    child_metric = el.find("Metric")
+    child_metric = el.find("metric")
     if child_metric is not None:
         import capo_ec2.types.metric
 
         out["metric"] = capo_ec2.types.metric.deserialize_ec2_query(child_metric)
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = float(child_value.text or "")
     return out

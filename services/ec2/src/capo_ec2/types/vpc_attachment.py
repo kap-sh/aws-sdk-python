@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcAttachment:
     out: VpcAttachment = {}  # type: ignore[typeddict-item]
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.attachment_status
 

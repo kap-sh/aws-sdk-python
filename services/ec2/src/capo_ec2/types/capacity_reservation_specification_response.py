@@ -49,7 +49,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationSpecificationResponse:
     out: CapacityReservationSpecificationResponse = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_preference = el.find("CapacityReservationPreference")
+    child_capacity_reservation_preference = el.find("capacityReservationPreference")
     if child_capacity_reservation_preference is not None:
         import capo_ec2.types.capacity_reservation_preference
 
@@ -58,7 +58,7 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationSpecificationRespon
                 child_capacity_reservation_preference
             )
         )
-    child_capacity_reservation_target = el.find("CapacityReservationTarget")
+    child_capacity_reservation_target = el.find("capacityReservationTarget")
     if child_capacity_reservation_target is not None:
         import capo_ec2.types.capacity_reservation_target_response
 

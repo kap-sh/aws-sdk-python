@@ -64,7 +64,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRuleCondition:
     out: IpamPrefixListResolverRuleCondition = {}  # type: ignore[typeddict-item]
-    child_operation = el.find("Operation")
+    child_operation = el.find("operation")
     if child_operation is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_condition_operation
 
@@ -73,26 +73,26 @@ def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRuleCondition:
                 child_operation
             )
         )
-    child_ipam_pool_id = el.find("IpamPoolId")
+    child_ipam_pool_id = el.find("ipamPoolId")
     if child_ipam_pool_id is not None:
         out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_owner = el.find("ResourceOwner")
+    child_resource_owner = el.find("resourceOwner")
     if child_resource_owner is not None:
         out["resource_owner"] = str(child_resource_owner.text or "")
-    child_resource_region = el.find("ResourceRegion")
+    child_resource_region = el.find("resourceRegion")
     if child_resource_region is not None:
         out["resource_region"] = str(child_resource_region.text or "")
-    child_resource_tag = el.find("ResourceTag")
+    child_resource_tag = el.find("resourceTag")
     if child_resource_tag is not None:
         import capo_ec2.types.ipam_resource_tag
 
         out["resource_tag"] = capo_ec2.types.ipam_resource_tag.deserialize_ec2_query(
             child_resource_tag
         )
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
     return out

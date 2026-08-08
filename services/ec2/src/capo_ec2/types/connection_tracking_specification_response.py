@@ -43,13 +43,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ConnectionTrackingSpecificationResponse:
     out: ConnectionTrackingSpecificationResponse = {}  # type: ignore[typeddict-item]
-    child_tcp_established_timeout = el.find("TcpEstablishedTimeout")
+    child_tcp_established_timeout = el.find("tcpEstablishedTimeout")
     if child_tcp_established_timeout is not None:
         out["tcp_established_timeout"] = int(child_tcp_established_timeout.text or "")
-    child_udp_stream_timeout = el.find("UdpStreamTimeout")
+    child_udp_stream_timeout = el.find("udpStreamTimeout")
     if child_udp_stream_timeout is not None:
         out["udp_stream_timeout"] = int(child_udp_stream_timeout.text or "")
-    child_udp_timeout = el.find("UdpTimeout")
+    child_udp_timeout = el.find("udpTimeout")
     if child_udp_timeout is not None:
         out["udp_timeout"] = int(child_udp_timeout.text or "")
     return out

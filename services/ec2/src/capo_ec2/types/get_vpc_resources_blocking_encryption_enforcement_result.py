@@ -43,15 +43,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> GetVpcResourcesBlockingEncryptionEnforcementResult:
     out: GetVpcResourcesBlockingEncryptionEnforcementResult = {}  # type: ignore[typeddict-item]
-    if el.find("NonCompliantResourceSet") is not None:
+    if el.find("nonCompliantResourceSet") is not None:
         import capo_ec2.types.vpc_encryption_non_compliant_resource_list
 
         out["non_compliant_resources"] = (
             capo_ec2.types.vpc_encryption_non_compliant_resource_list.deserialize_ec2_query(
-                el, "NonCompliantResourceSet"
+                el, "nonCompliantResourceSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

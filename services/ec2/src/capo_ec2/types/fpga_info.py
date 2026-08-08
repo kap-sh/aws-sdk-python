@@ -42,13 +42,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FpgaInfo:
     out: FpgaInfo = {}  # type: ignore[typeddict-item]
-    if el.find("Fpgas") is not None:
+    if el.find("fpgas") is not None:
         import capo_ec2.types.fpga_device_info_list
 
         out["fpgas"] = capo_ec2.types.fpga_device_info_list.deserialize_ec2_query(
-            el, "Fpgas"
+            el, "fpgas"
         )
-    child_total_fpga_memory_in_mi_b = el.find("TotalFpgaMemoryInMiB")
+    child_total_fpga_memory_in_mi_b = el.find("totalFpgaMemoryInMiB")
     if child_total_fpga_memory_in_mi_b is not None:
         out["total_fpga_memory_in_mi_b"] = int(
             child_total_fpga_memory_in_mi_b.text or ""

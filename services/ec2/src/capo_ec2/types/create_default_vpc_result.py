@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateDefaultVpcResult:
     out: CreateDefaultVpcResult = {}  # type: ignore[typeddict-item]
-    child_vpc = el.find("Vpc")
+    child_vpc = el.find("vpc")
     if child_vpc is not None:
         import capo_ec2.types.vpc
 

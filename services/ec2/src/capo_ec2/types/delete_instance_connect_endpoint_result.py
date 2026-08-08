@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteInstanceConnectEndpointResult:
     out: DeleteInstanceConnectEndpointResult = {}  # type: ignore[typeddict-item]
-    child_instance_connect_endpoint = el.find("InstanceConnectEndpoint")
+    child_instance_connect_endpoint = el.find("instanceConnectEndpoint")
     if child_instance_connect_endpoint is not None:
         import capo_ec2.types.ec2_instance_connect_endpoint
 

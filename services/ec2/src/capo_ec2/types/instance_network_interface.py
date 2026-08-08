@@ -180,7 +180,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceNetworkInterface:
     out: InstanceNetworkInterface = {}  # type: ignore[typeddict-item]
-    child_association = el.find("Association")
+    child_association = el.find("association")
     if child_association is not None:
         import capo_ec2.types.instance_network_interface_association
 
@@ -189,7 +189,7 @@ def deserialize_ec2_query(el: Element) -> InstanceNetworkInterface:
                 child_association
             )
         )
-    child_attachment = el.find("Attachment")
+    child_attachment = el.find("attachment")
     if child_attachment is not None:
         import capo_ec2.types.instance_network_interface_attachment
 
@@ -198,84 +198,84 @@ def deserialize_ec2_query(el: Element) -> InstanceNetworkInterface:
                 child_attachment
             )
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "GroupSet"
+            el, "groupSet"
         )
-    if el.find("Ipv6AddressesSet") is not None:
+    if el.find("ipv6AddressesSet") is not None:
         import capo_ec2.types.instance_ipv6_address_list
 
         out["ipv6_addresses"] = (
             capo_ec2.types.instance_ipv6_address_list.deserialize_ec2_query(
-                el, "Ipv6AddressesSet"
+                el, "ipv6AddressesSet"
             )
         )
-    child_mac_address = el.find("MacAddress")
+    child_mac_address = el.find("macAddress")
     if child_mac_address is not None:
         out["mac_address"] = str(child_mac_address.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_private_dns_name = el.find("PrivateDnsName")
+    child_private_dns_name = el.find("privateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("PrivateIpAddressesSet") is not None:
+    if el.find("privateIpAddressesSet") is not None:
         import capo_ec2.types.instance_private_ip_address_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.instance_private_ip_address_list.deserialize_ec2_query(
-                el, "PrivateIpAddressesSet"
+                el, "privateIpAddressesSet"
             )
         )
-    child_source_dest_check = el.find("SourceDestCheck")
+    child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
         out["source_dest_check"] = (
             child_source_dest_check.text or ""
         ).lower() == "true"
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.network_interface_status
 
         out["status"] = capo_ec2.types.network_interface_status.deserialize_ec2_query(
             child_status
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_interface_type = el.find("InterfaceType")
+    child_interface_type = el.find("interfaceType")
     if child_interface_type is not None:
         out["interface_type"] = str(child_interface_type.text or "")
-    if el.find("Ipv4PrefixSet") is not None:
+    if el.find("ipv4PrefixSet") is not None:
         import capo_ec2.types.instance_ipv4_prefix_list
 
         out["ipv4_prefixes"] = (
             capo_ec2.types.instance_ipv4_prefix_list.deserialize_ec2_query(
-                el, "Ipv4PrefixSet"
+                el, "ipv4PrefixSet"
             )
         )
-    if el.find("Ipv6PrefixSet") is not None:
+    if el.find("ipv6PrefixSet") is not None:
         import capo_ec2.types.instance_ipv6_prefix_list
 
         out["ipv6_prefixes"] = (
             capo_ec2.types.instance_ipv6_prefix_list.deserialize_ec2_query(
-                el, "Ipv6PrefixSet"
+                el, "ipv6PrefixSet"
             )
         )
-    child_connection_tracking_configuration = el.find("ConnectionTrackingConfiguration")
+    child_connection_tracking_configuration = el.find("connectionTrackingConfiguration")
     if child_connection_tracking_configuration is not None:
         import capo_ec2.types.connection_tracking_specification_response
 
@@ -284,7 +284,7 @@ def deserialize_ec2_query(el: Element) -> InstanceNetworkInterface:
                 child_connection_tracking_configuration
             )
         )
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

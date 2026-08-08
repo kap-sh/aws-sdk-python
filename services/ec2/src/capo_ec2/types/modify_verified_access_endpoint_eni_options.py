@@ -46,7 +46,7 @@ def serialize_ec2_query(
         import capo_ec2.types.modify_verified_access_endpoint_port_range_list
 
         capo_ec2.types.modify_verified_access_endpoint_port_range_list.serialize_ec2_query(
-            value["port_ranges"], pairs, f"{key_prefix}PortRanges"
+            value["port_ranges"], pairs, f"{key_prefix}PortRange"
         )
 
 
@@ -64,12 +64,12 @@ def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessEndpointEniOptions
     child_port = el.find("Port")
     if child_port is not None:
         out["port"] = int(child_port.text or "")
-    if el.find("PortRanges") is not None:
+    if el.find("PortRange") is not None:
         import capo_ec2.types.modify_verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.modify_verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRanges"
+                el, "PortRange"
             )
         )
     return out

@@ -46,7 +46,7 @@ def serialize_ec2_query(
         import capo_ec2.types.import_snapshot_task_id_list
 
         capo_ec2.types.import_snapshot_task_id_list.serialize_ec2_query(
-            value["import_task_ids"], pairs, f"{key_prefix}ImportTaskIds"
+            value["import_task_ids"], pairs, f"{key_prefix}ImportTaskId"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -63,12 +63,12 @@ def deserialize_ec2_query(el: Element) -> DescribeImportSnapshotTasksRequest:
         import capo_ec2.types.filter_list
 
         out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("ImportTaskIds") is not None:
+    if el.find("ImportTaskId") is not None:
         import capo_ec2.types.import_snapshot_task_id_list
 
         out["import_task_ids"] = (
             capo_ec2.types.import_snapshot_task_id_list.deserialize_ec2_query(
-                el, "ImportTaskIds"
+                el, "ImportTaskId"
             )
         )
     child_max_results = el.find("MaxResults")

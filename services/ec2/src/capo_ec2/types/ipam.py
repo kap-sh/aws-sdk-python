@@ -159,80 +159,80 @@ def serialize_ec2_query(value: Ipam, pairs: list[tuple[str, str]], prefix: str) 
 
 def deserialize_ec2_query(el: Element) -> Ipam:
     out: Ipam = {}  # type: ignore[typeddict-item]
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_ipam_id = el.find("IpamId")
+    child_ipam_id = el.find("ipamId")
     if child_ipam_id is not None:
         out["ipam_id"] = str(child_ipam_id.text or "")
-    child_ipam_arn = el.find("IpamArn")
+    child_ipam_arn = el.find("ipamArn")
     if child_ipam_arn is not None:
         out["ipam_arn"] = str(child_ipam_arn.text or "")
-    child_ipam_region = el.find("IpamRegion")
+    child_ipam_region = el.find("ipamRegion")
     if child_ipam_region is not None:
         out["ipam_region"] = str(child_ipam_region.text or "")
-    child_public_default_scope_id = el.find("PublicDefaultScopeId")
+    child_public_default_scope_id = el.find("publicDefaultScopeId")
     if child_public_default_scope_id is not None:
         out["public_default_scope_id"] = str(child_public_default_scope_id.text or "")
-    child_private_default_scope_id = el.find("PrivateDefaultScopeId")
+    child_private_default_scope_id = el.find("privateDefaultScopeId")
     if child_private_default_scope_id is not None:
         out["private_default_scope_id"] = str(child_private_default_scope_id.text or "")
-    child_scope_count = el.find("ScopeCount")
+    child_scope_count = el.find("scopeCount")
     if child_scope_count is not None:
         out["scope_count"] = int(child_scope_count.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("OperatingRegionSet") is not None:
+    if el.find("operatingRegionSet") is not None:
         import capo_ec2.types.ipam_operating_region_set
 
         out["operating_regions"] = (
             capo_ec2.types.ipam_operating_region_set.deserialize_ec2_query(
-                el, "OperatingRegionSet"
+                el, "operatingRegionSet"
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_state
 
         out["state"] = capo_ec2.types.ipam_state.deserialize_ec2_query(child_state)
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_default_resource_discovery_id = el.find("DefaultResourceDiscoveryId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_default_resource_discovery_id = el.find("defaultResourceDiscoveryId")
     if child_default_resource_discovery_id is not None:
         out["default_resource_discovery_id"] = str(
             child_default_resource_discovery_id.text or ""
         )
     child_default_resource_discovery_association_id = el.find(
-        "DefaultResourceDiscoveryAssociationId"
+        "defaultResourceDiscoveryAssociationId"
     )
     if child_default_resource_discovery_association_id is not None:
         out["default_resource_discovery_association_id"] = str(
             child_default_resource_discovery_association_id.text or ""
         )
     child_resource_discovery_association_count = el.find(
-        "ResourceDiscoveryAssociationCount"
+        "resourceDiscoveryAssociationCount"
     )
     if child_resource_discovery_association_count is not None:
         out["resource_discovery_association_count"] = int(
             child_resource_discovery_association_count.text or ""
         )
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
-    child_tier = el.find("Tier")
+    child_tier = el.find("tier")
     if child_tier is not None:
         import capo_ec2.types.ipam_tier
 
         out["tier"] = capo_ec2.types.ipam_tier.deserialize_ec2_query(child_tier)
-    child_enable_private_gua = el.find("EnablePrivateGua")
+    child_enable_private_gua = el.find("enablePrivateGua")
     if child_enable_private_gua is not None:
         out["enable_private_gua"] = (
             child_enable_private_gua.text or ""
         ).lower() == "true"
-    child_metered_account = el.find("MeteredAccount")
+    child_metered_account = el.find("meteredAccount")
     if child_metered_account is not None:
         import capo_ec2.types.ipam_metered_account
 

@@ -43,7 +43,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
 
 
@@ -58,12 +58,12 @@ def deserialize_ec2_query(el: Element) -> CreateEgressOnlyInternetGatewayRequest
     child_vpc_id = el.find("VpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     return out

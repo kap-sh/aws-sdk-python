@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceCount:
     out: InstanceCount = {}  # type: ignore[typeddict-item]
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.listing_state
 

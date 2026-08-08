@@ -144,36 +144,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityBlockExtension:
     out: CapacityBlockExtension = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
     child_capacity_block_extension_offering_id = el.find(
-        "CapacityBlockExtensionOfferingId"
+        "capacityBlockExtensionOfferingId"
     )
     if child_capacity_block_extension_offering_id is not None:
         out["capacity_block_extension_offering_id"] = str(
             child_capacity_block_extension_offering_id.text or ""
         )
     child_capacity_block_extension_duration_hours = el.find(
-        "CapacityBlockExtensionDurationHours"
+        "capacityBlockExtensionDurationHours"
     )
     if child_capacity_block_extension_duration_hours is not None:
         out["capacity_block_extension_duration_hours"] = int(
             child_capacity_block_extension_duration_hours.text or ""
         )
-    child_capacity_block_extension_status = el.find("CapacityBlockExtensionStatus")
+    child_capacity_block_extension_status = el.find("capacityBlockExtensionStatus")
     if child_capacity_block_extension_status is not None:
         import capo_ec2.types.capacity_block_extension_status
 
@@ -183,7 +183,7 @@ def deserialize_ec2_query(el: Element) -> CapacityBlockExtension:
             )
         )
     child_capacity_block_extension_purchase_date = el.find(
-        "CapacityBlockExtensionPurchaseDate"
+        "capacityBlockExtensionPurchaseDate"
     )
     if child_capacity_block_extension_purchase_date is not None:
         import capo_ec2.types.millisecond_date_time
@@ -194,7 +194,7 @@ def deserialize_ec2_query(el: Element) -> CapacityBlockExtension:
             )
         )
     child_capacity_block_extension_start_date = el.find(
-        "CapacityBlockExtensionStartDate"
+        "capacityBlockExtensionStartDate"
     )
     if child_capacity_block_extension_start_date is not None:
         import capo_ec2.types.millisecond_date_time
@@ -204,7 +204,7 @@ def deserialize_ec2_query(el: Element) -> CapacityBlockExtension:
                 child_capacity_block_extension_start_date
             )
         )
-    child_capacity_block_extension_end_date = el.find("CapacityBlockExtensionEndDate")
+    child_capacity_block_extension_end_date = el.find("capacityBlockExtensionEndDate")
     if child_capacity_block_extension_end_date is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -213,13 +213,13 @@ def deserialize_ec2_query(el: Element) -> CapacityBlockExtension:
                 child_capacity_block_extension_end_date
             )
         )
-    child_upfront_fee = el.find("UpfrontFee")
+    child_upfront_fee = el.find("upfrontFee")
     if child_upfront_fee is not None:
         out["upfront_fee"] = str(child_upfront_fee.text or "")
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         out["currency_code"] = str(child_currency_code.text or "")
-    child_zone_type = el.find("ZoneType")
+    child_zone_type = el.find("zoneType")
     if child_zone_type is not None:
         out["zone_type"] = str(child_zone_type.text or "")
     return out

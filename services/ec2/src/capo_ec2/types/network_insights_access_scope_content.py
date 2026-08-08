@@ -54,25 +54,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInsightsAccessScopeContent:
     out: NetworkInsightsAccessScopeContent = {}  # type: ignore[typeddict-item]
-    child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
+    child_network_insights_access_scope_id = el.find("networkInsightsAccessScopeId")
     if child_network_insights_access_scope_id is not None:
         out["network_insights_access_scope_id"] = str(
             child_network_insights_access_scope_id.text or ""
         )
-    if el.find("MatchPathSet") is not None:
+    if el.find("matchPathSet") is not None:
         import capo_ec2.types.access_scope_path_list
 
         out["match_paths"] = (
             capo_ec2.types.access_scope_path_list.deserialize_ec2_query(
-                el, "MatchPathSet"
+                el, "matchPathSet"
             )
         )
-    if el.find("ExcludePathSet") is not None:
+    if el.find("excludePathSet") is not None:
         import capo_ec2.types.access_scope_path_list
 
         out["exclude_paths"] = (
             capo_ec2.types.access_scope_path_list.deserialize_ec2_query(
-                el, "ExcludePathSet"
+                el, "excludePathSet"
             )
         )
     return out

@@ -37,7 +37,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EncryptionSupport:
     out: EncryptionSupport = {}  # type: ignore[typeddict-item]
-    child_encryption_state = el.find("EncryptionState")
+    child_encryption_state = el.find("encryptionState")
     if child_encryption_state is not None:
         import capo_ec2.types.encryption_state_value
 
@@ -46,7 +46,7 @@ def deserialize_ec2_query(el: Element) -> EncryptionSupport:
                 child_encryption_state
             )
         )
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
     return out

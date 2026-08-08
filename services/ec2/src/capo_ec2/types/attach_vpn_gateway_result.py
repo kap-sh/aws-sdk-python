@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AttachVpnGatewayResult:
     out: AttachVpnGatewayResult = {}  # type: ignore[typeddict-item]
-    child_vpc_attachment = el.find("Attachment")
+    child_vpc_attachment = el.find("attachment")
     if child_vpc_attachment is not None:
         import capo_ec2.types.vpc_attachment
 

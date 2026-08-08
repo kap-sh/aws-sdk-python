@@ -63,7 +63,7 @@ def serialize_ec2_query(
         import capo_ec2.types.add_ipam_operating_region_set
 
         capo_ec2.types.add_ipam_operating_region_set.serialize_ec2_query(
-            value["add_operating_regions"], pairs, f"{key_prefix}AddOperatingRegions"
+            value["add_operating_regions"], pairs, f"{key_prefix}AddOperatingRegion"
         )
     if "remove_operating_regions" in value:
         import capo_ec2.types.remove_ipam_operating_region_set
@@ -71,7 +71,7 @@ def serialize_ec2_query(
         capo_ec2.types.remove_ipam_operating_region_set.serialize_ec2_query(
             value["remove_operating_regions"],
             pairs,
-            f"{key_prefix}RemoveOperatingRegions",
+            f"{key_prefix}RemoveOperatingRegion",
         )
     if "add_organizational_unit_exclusions" in value:
         import capo_ec2.types.add_ipam_organizational_unit_exclusion_set
@@ -79,7 +79,7 @@ def serialize_ec2_query(
         capo_ec2.types.add_ipam_organizational_unit_exclusion_set.serialize_ec2_query(
             value["add_organizational_unit_exclusions"],
             pairs,
-            f"{key_prefix}AddOrganizationalUnitExclusions",
+            f"{key_prefix}AddOrganizationalUnitExclusion",
         )
     if "remove_organizational_unit_exclusions" in value:
         import capo_ec2.types.remove_ipam_organizational_unit_exclusion_set
@@ -87,7 +87,7 @@ def serialize_ec2_query(
         capo_ec2.types.remove_ipam_organizational_unit_exclusion_set.serialize_ec2_query(
             value["remove_organizational_unit_exclusions"],
             pairs,
-            f"{key_prefix}RemoveOrganizationalUnitExclusions",
+            f"{key_prefix}RemoveOrganizationalUnitExclusion",
         )
 
 
@@ -104,36 +104,36 @@ def deserialize_ec2_query(el: Element) -> ModifyIpamResourceDiscoveryRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("AddOperatingRegions") is not None:
+    if el.find("AddOperatingRegion") is not None:
         import capo_ec2.types.add_ipam_operating_region_set
 
         out["add_operating_regions"] = (
             capo_ec2.types.add_ipam_operating_region_set.deserialize_ec2_query(
-                el, "AddOperatingRegions"
+                el, "AddOperatingRegion"
             )
         )
-    if el.find("RemoveOperatingRegions") is not None:
+    if el.find("RemoveOperatingRegion") is not None:
         import capo_ec2.types.remove_ipam_operating_region_set
 
         out["remove_operating_regions"] = (
             capo_ec2.types.remove_ipam_operating_region_set.deserialize_ec2_query(
-                el, "RemoveOperatingRegions"
+                el, "RemoveOperatingRegion"
             )
         )
-    if el.find("AddOrganizationalUnitExclusions") is not None:
+    if el.find("AddOrganizationalUnitExclusion") is not None:
         import capo_ec2.types.add_ipam_organizational_unit_exclusion_set
 
         out["add_organizational_unit_exclusions"] = (
             capo_ec2.types.add_ipam_organizational_unit_exclusion_set.deserialize_ec2_query(
-                el, "AddOrganizationalUnitExclusions"
+                el, "AddOrganizationalUnitExclusion"
             )
         )
-    if el.find("RemoveOrganizationalUnitExclusions") is not None:
+    if el.find("RemoveOrganizationalUnitExclusion") is not None:
         import capo_ec2.types.remove_ipam_organizational_unit_exclusion_set
 
         out["remove_organizational_unit_exclusions"] = (
             capo_ec2.types.remove_ipam_organizational_unit_exclusion_set.deserialize_ec2_query(
-                el, "RemoveOrganizationalUnitExclusions"
+                el, "RemoveOrganizationalUnitExclusion"
             )
         )
     return out

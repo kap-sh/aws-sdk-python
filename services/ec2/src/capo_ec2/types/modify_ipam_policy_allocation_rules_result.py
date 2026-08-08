@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyIpamPolicyAllocationRulesResult:
     out: ModifyIpamPolicyAllocationRulesResult = {}  # type: ignore[typeddict-item]
-    child_ipam_policy_document = el.find("IpamPolicyDocument")
+    child_ipam_policy_document = el.find("ipamPolicyDocument")
     if child_ipam_policy_document is not None:
         import capo_ec2.types.ipam_policy_document
 

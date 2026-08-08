@@ -84,33 +84,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsCardInfo:
     out: EbsCardInfo = {}  # type: ignore[typeddict-item]
-    child_ebs_card_index = el.find("EbsCardIndex")
+    child_ebs_card_index = el.find("ebsCardIndex")
     if child_ebs_card_index is not None:
         out["ebs_card_index"] = int(child_ebs_card_index.text or "")
-    child_baseline_bandwidth_in_mbps = el.find("BaselineBandwidthInMbps")
+    child_baseline_bandwidth_in_mbps = el.find("baselineBandwidthInMbps")
     if child_baseline_bandwidth_in_mbps is not None:
         out["baseline_bandwidth_in_mbps"] = int(
             child_baseline_bandwidth_in_mbps.text or ""
         )
-    child_baseline_throughput_in_m_bps = el.find("BaselineThroughputInMBps")
+    child_baseline_throughput_in_m_bps = el.find("baselineThroughputInMBps")
     if child_baseline_throughput_in_m_bps is not None:
         out["baseline_throughput_in_m_bps"] = float(
             child_baseline_throughput_in_m_bps.text or ""
         )
-    child_baseline_iops = el.find("BaselineIops")
+    child_baseline_iops = el.find("baselineIops")
     if child_baseline_iops is not None:
         out["baseline_iops"] = int(child_baseline_iops.text or "")
-    child_maximum_bandwidth_in_mbps = el.find("MaximumBandwidthInMbps")
+    child_maximum_bandwidth_in_mbps = el.find("maximumBandwidthInMbps")
     if child_maximum_bandwidth_in_mbps is not None:
         out["maximum_bandwidth_in_mbps"] = int(
             child_maximum_bandwidth_in_mbps.text or ""
         )
-    child_maximum_throughput_in_m_bps = el.find("MaximumThroughputInMBps")
+    child_maximum_throughput_in_m_bps = el.find("maximumThroughputInMBps")
     if child_maximum_throughput_in_m_bps is not None:
         out["maximum_throughput_in_m_bps"] = float(
             child_maximum_throughput_in_m_bps.text or ""
         )
-    child_maximum_iops = el.find("MaximumIops")
+    child_maximum_iops = el.find("maximumIops")
     if child_maximum_iops is not None:
         out["maximum_iops"] = int(child_maximum_iops.text or "")
     return out

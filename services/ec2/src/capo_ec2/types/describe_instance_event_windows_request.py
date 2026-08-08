@@ -44,13 +44,13 @@ def serialize_ec2_query(
         capo_ec2.types.instance_event_window_id_set.serialize_ec2_query(
             value["instance_event_window_ids"],
             pairs,
-            f"{key_prefix}InstanceEventWindowIds",
+            f"{key_prefix}InstanceEventWindowId",
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -63,18 +63,18 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceEventWindowsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("InstanceEventWindowIds") is not None:
+    if el.find("InstanceEventWindowId") is not None:
         import capo_ec2.types.instance_event_window_id_set
 
         out["instance_event_window_ids"] = (
             capo_ec2.types.instance_event_window_id_set.deserialize_ec2_query(
-                el, "InstanceEventWindowIds"
+                el, "InstanceEventWindowId"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

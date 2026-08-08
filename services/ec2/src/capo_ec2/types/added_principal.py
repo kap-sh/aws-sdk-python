@@ -45,20 +45,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AddedPrincipal:
     out: AddedPrincipal = {}  # type: ignore[typeddict-item]
-    child_principal_type = el.find("PrincipalType")
+    child_principal_type = el.find("principalType")
     if child_principal_type is not None:
         import capo_ec2.types.principal_type
 
         out["principal_type"] = capo_ec2.types.principal_type.deserialize_ec2_query(
             child_principal_type
         )
-    child_principal = el.find("Principal")
+    child_principal = el.find("principal")
     if child_principal is not None:
         out["principal"] = str(child_principal.text or "")
-    child_service_permission_id = el.find("ServicePermissionId")
+    child_service_permission_id = el.find("servicePermissionId")
     if child_service_permission_id is not None:
         out["service_permission_id"] = str(child_service_permission_id.text or "")
-    child_service_id = el.find("ServiceId")
+    child_service_id = el.find("serviceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
     return out

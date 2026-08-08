@@ -50,13 +50,13 @@ def deserialize_ec2_query(
     el: Element,
 ) -> FailedCapacityReservationFleetCancellationResult:
     out: FailedCapacityReservationFleetCancellationResult = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_fleet_id = el.find("CapacityReservationFleetId")
+    child_capacity_reservation_fleet_id = el.find("capacityReservationFleetId")
     if child_capacity_reservation_fleet_id is not None:
         out["capacity_reservation_fleet_id"] = str(
             child_capacity_reservation_fleet_id.text or ""
         )
     child_cancel_capacity_reservation_fleet_error = el.find(
-        "CancelCapacityReservationFleetError"
+        "cancelCapacityReservationFleetError"
     )
     if child_cancel_capacity_reservation_fleet_error is not None:
         import capo_ec2.types.cancel_capacity_reservation_fleet_error

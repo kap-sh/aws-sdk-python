@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamPoolAllocationsResult:
     out: GetIpamPoolAllocationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("IpamPoolAllocationSet") is not None:
+    if el.find("ipamPoolAllocationSet") is not None:
         import capo_ec2.types.ipam_pool_allocation_set
 
         out["ipam_pool_allocations"] = (
             capo_ec2.types.ipam_pool_allocation_set.deserialize_ec2_query(
-                el, "IpamPoolAllocationSet"
+                el, "ipamPoolAllocationSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

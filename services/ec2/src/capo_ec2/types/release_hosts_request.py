@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReleaseHostsRequest:
     out: ReleaseHostsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("HostId") is not None:
+    if el.find("hostId") is not None:
         import capo_ec2.types.request_host_id_list
 
         out["host_ids"] = capo_ec2.types.request_host_id_list.deserialize_ec2_query(
-            el, "HostId"
+            el, "hostId"
         )
     return out

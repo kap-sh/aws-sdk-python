@@ -35,7 +35,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelReservedInstancesListingRequest:
     out: CancelReservedInstancesListingRequest = {}  # type: ignore[typeddict-item]
-    child_reserved_instances_listing_id = el.find("ReservedInstancesListingId")
+    child_reserved_instances_listing_id = el.find("reservedInstancesListingId")
     if child_reserved_instances_listing_id is not None:
         out["reserved_instances_listing_id"] = str(
             child_reserved_instances_listing_id.text or ""

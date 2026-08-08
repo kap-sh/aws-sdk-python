@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetInstanceUefiDataResult:
     out: GetInstanceUefiDataResult = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_uefi_data = el.find("UefiData")
+    child_uefi_data = el.find("uefiData")
     if child_uefi_data is not None:
         out["uefi_data"] = str(child_uefi_data.text or "")
     return out

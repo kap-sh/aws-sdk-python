@@ -83,13 +83,13 @@ def serialize_ec2_query(
         import capo_ec2.types.request_spot_launch_specification_security_group_id_list
 
         capo_ec2.types.request_spot_launch_specification_security_group_id_list.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "security_groups" in value:
         import capo_ec2.types.request_spot_launch_specification_security_group_list
 
         capo_ec2.types.request_spot_launch_specification_security_group_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroup"
         )
     if "addressing_type" in value:
         pairs.append((f"{key_prefix}AddressingType", str(value["addressing_type"])))
@@ -131,7 +131,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_network_interface_specification_list
 
         capo_ec2.types.instance_network_interface_specification_list.serialize_ec2_query(
-            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterfaces"
+            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterface"
         )
     if "placement" in value:
         import capo_ec2.types.spot_placement
@@ -149,37 +149,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RequestSpotLaunchSpecification:
     out: RequestSpotLaunchSpecification = {}  # type: ignore[typeddict-item]
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.request_spot_launch_specification_security_group_id_list
 
         out["security_group_ids"] = (
             capo_ec2.types.request_spot_launch_specification_security_group_id_list.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
-    if el.find("SecurityGroups") is not None:
+    if el.find("SecurityGroup") is not None:
         import capo_ec2.types.request_spot_launch_specification_security_group_list
 
         out["security_groups"] = (
             capo_ec2.types.request_spot_launch_specification_security_group_list.deserialize_ec2_query(
-                el, "SecurityGroups"
+                el, "SecurityGroup"
             )
         )
-    child_addressing_type = el.find("AddressingType")
+    child_addressing_type = el.find("addressingType")
     if child_addressing_type is not None:
         out["addressing_type"] = str(child_addressing_type.text or "")
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
-    child_ebs_optimized = el.find("EbsOptimized")
+    child_ebs_optimized = el.find("ebsOptimized")
     if child_ebs_optimized is not None:
         out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
-    child_iam_instance_profile = el.find("IamInstanceProfile")
+    child_iam_instance_profile = el.find("iamInstanceProfile")
     if child_iam_instance_profile is not None:
         import capo_ec2.types.iam_instance_profile_specification
 
@@ -188,23 +188,23 @@ def deserialize_ec2_query(el: Element) -> RequestSpotLaunchSpecification:
                 child_iam_instance_profile
             )
         )
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_kernel_id = el.find("KernelId")
+    child_kernel_id = el.find("kernelId")
     if child_kernel_id is not None:
         out["kernel_id"] = str(child_kernel_id.text or "")
-    child_key_name = el.find("KeyName")
+    child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    child_monitoring = el.find("Monitoring")
+    child_monitoring = el.find("monitoring")
     if child_monitoring is not None:
         import capo_ec2.types.run_instances_monitoring_enabled
 
@@ -213,28 +213,28 @@ def deserialize_ec2_query(el: Element) -> RequestSpotLaunchSpecification:
                 child_monitoring
             )
         )
-    if el.find("NetworkInterfaces") is not None:
+    if el.find("NetworkInterface") is not None:
         import capo_ec2.types.instance_network_interface_specification_list
 
         out["network_interfaces"] = (
             capo_ec2.types.instance_network_interface_specification_list.deserialize_ec2_query(
-                el, "NetworkInterfaces"
+                el, "NetworkInterface"
             )
         )
-    child_placement = el.find("Placement")
+    child_placement = el.find("placement")
     if child_placement is not None:
         import capo_ec2.types.spot_placement
 
         out["placement"] = capo_ec2.types.spot_placement.deserialize_ec2_query(
             child_placement
         )
-    child_ramdisk_id = el.find("RamdiskId")
+    child_ramdisk_id = el.find("ramdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_user_data = el.find("UserData")
+    child_user_data = el.find("userData")
     if child_user_data is not None:
         out["user_data"] = str(child_user_data.text or "")
     return out

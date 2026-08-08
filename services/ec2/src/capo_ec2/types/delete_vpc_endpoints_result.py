@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteVpcEndpointsResult:
     out: DeleteVpcEndpointsResult = {}  # type: ignore[typeddict-item]
-    if el.find("Unsuccessful") is not None:
+    if el.find("unsuccessful") is not None:
         import capo_ec2.types.unsuccessful_item_set
 
         out["unsuccessful"] = (
             capo_ec2.types.unsuccessful_item_set.deserialize_ec2_query(
-                el, "Unsuccessful"
+                el, "unsuccessful"
             )
         )
     return out

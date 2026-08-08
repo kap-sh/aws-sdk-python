@@ -46,16 +46,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceCpuOptionsResult:
     out: ModifyInstanceCpuOptionsResult = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_core_count = el.find("CoreCount")
+    child_core_count = el.find("coreCount")
     if child_core_count is not None:
         out["core_count"] = int(child_core_count.text or "")
-    child_threads_per_core = el.find("ThreadsPerCore")
+    child_threads_per_core = el.find("threadsPerCore")
     if child_threads_per_core is not None:
         out["threads_per_core"] = int(child_threads_per_core.text or "")
-    child_nested_virtualization = el.find("NestedVirtualization")
+    child_nested_virtualization = el.find("nestedVirtualization")
     if child_nested_virtualization is not None:
         import capo_ec2.types.nested_virtualization_specification
 

@@ -88,7 +88,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateInstanceMetadataOptions:
     out: LaunchTemplateInstanceMetadataOptions = {}  # type: ignore[typeddict-item]
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.launch_template_instance_metadata_options_state
 
@@ -97,7 +97,7 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateInstanceMetadataOptions:
                 child_state
             )
         )
-    child_http_tokens = el.find("HttpTokens")
+    child_http_tokens = el.find("httpTokens")
     if child_http_tokens is not None:
         import capo_ec2.types.launch_template_http_tokens_state
 
@@ -106,12 +106,12 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateInstanceMetadataOptions:
                 child_http_tokens
             )
         )
-    child_http_put_response_hop_limit = el.find("HttpPutResponseHopLimit")
+    child_http_put_response_hop_limit = el.find("httpPutResponseHopLimit")
     if child_http_put_response_hop_limit is not None:
         out["http_put_response_hop_limit"] = int(
             child_http_put_response_hop_limit.text or ""
         )
-    child_http_endpoint = el.find("HttpEndpoint")
+    child_http_endpoint = el.find("httpEndpoint")
     if child_http_endpoint is not None:
         import capo_ec2.types.launch_template_instance_metadata_endpoint_state
 
@@ -120,7 +120,7 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateInstanceMetadataOptions:
                 child_http_endpoint
             )
         )
-    child_http_protocol_ipv6 = el.find("HttpProtocolIpv6")
+    child_http_protocol_ipv6 = el.find("httpProtocolIpv6")
     if child_http_protocol_ipv6 is not None:
         import capo_ec2.types.launch_template_instance_metadata_protocol_ipv6
 
@@ -129,7 +129,7 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateInstanceMetadataOptions:
                 child_http_protocol_ipv6
             )
         )
-    child_instance_metadata_tags = el.find("InstanceMetadataTags")
+    child_instance_metadata_tags = el.find("instanceMetadataTags")
     if child_instance_metadata_tags is not None:
         import capo_ec2.types.launch_template_instance_metadata_tags_state
 

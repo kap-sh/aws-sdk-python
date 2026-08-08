@@ -44,7 +44,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceConnectEndpointPublicDnsNames:
     out: InstanceConnectEndpointPublicDnsNames = {}  # type: ignore[typeddict-item]
-    child_ipv4 = el.find("Ipv4")
+    child_ipv4 = el.find("ipv4")
     if child_ipv4 is not None:
         import capo_ec2.types.instance_connect_endpoint_dns_names
 
@@ -53,7 +53,7 @@ def deserialize_ec2_query(el: Element) -> InstanceConnectEndpointPublicDnsNames:
                 child_ipv4
             )
         )
-    child_dualstack = el.find("Dualstack")
+    child_dualstack = el.find("dualstack")
     if child_dualstack is not None:
         import capo_ec2.types.instance_connect_endpoint_dns_names
 

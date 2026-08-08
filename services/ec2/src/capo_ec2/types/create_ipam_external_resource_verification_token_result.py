@@ -39,7 +39,7 @@ def deserialize_ec2_query(
 ) -> CreateIpamExternalResourceVerificationTokenResult:
     out: CreateIpamExternalResourceVerificationTokenResult = {}  # type: ignore[typeddict-item]
     child_ipam_external_resource_verification_token = el.find(
-        "IpamExternalResourceVerificationToken"
+        "ipamExternalResourceVerificationToken"
     )
     if child_ipam_external_resource_verification_token is not None:
         import capo_ec2.types.ipam_external_resource_verification_token

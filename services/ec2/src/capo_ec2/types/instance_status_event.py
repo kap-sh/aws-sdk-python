@@ -65,32 +65,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceStatusEvent:
     out: InstanceStatusEvent = {}  # type: ignore[typeddict-item]
-    child_instance_event_id = el.find("InstanceEventId")
+    child_instance_event_id = el.find("instanceEventId")
     if child_instance_event_id is not None:
         out["instance_event_id"] = str(child_instance_event_id.text or "")
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         import capo_ec2.types.event_code
 
         out["code"] = capo_ec2.types.event_code.deserialize_ec2_query(child_code)
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_not_after = el.find("NotAfter")
+    child_not_after = el.find("notAfter")
     if child_not_after is not None:
         import capo_ec2.types.date_time
 
         out["not_after"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_not_after
         )
-    child_not_before = el.find("NotBefore")
+    child_not_before = el.find("notBefore")
     if child_not_before is not None:
         import capo_ec2.types.date_time
 
         out["not_before"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_not_before
         )
-    child_not_before_deadline = el.find("NotBeforeDeadline")
+    child_not_before_deadline = el.find("notBeforeDeadline")
     if child_not_before_deadline is not None:
         import capo_ec2.types.date_time
 

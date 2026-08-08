@@ -44,7 +44,7 @@ def serialize_ec2_query(
         import capo_ec2.types.flow_log_id_list
 
         capo_ec2.types.flow_log_id_list.serialize_ec2_query(
-            value["flow_log_ids"], pairs, f"{key_prefix}FlowLogIds"
+            value["flow_log_ids"], pairs, f"{key_prefix}FlowLogId"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -61,11 +61,11 @@ def deserialize_ec2_query(el: Element) -> DescribeFlowLogsRequest:
         import capo_ec2.types.filter_list
 
         out["filter"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("FlowLogIds") is not None:
+    if el.find("FlowLogId") is not None:
         import capo_ec2.types.flow_log_id_list
 
         out["flow_log_ids"] = capo_ec2.types.flow_log_id_list.deserialize_ec2_query(
-            el, "FlowLogIds"
+            el, "FlowLogId"
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:

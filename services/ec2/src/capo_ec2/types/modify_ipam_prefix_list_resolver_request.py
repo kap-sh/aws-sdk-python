@@ -50,7 +50,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.serialize_ec2_query(
-            value["rules"], pairs, f"{key_prefix}Rules"
+            value["rules"], pairs, f"{key_prefix}Rule"
         )
 
 
@@ -67,12 +67,12 @@ def deserialize_ec2_query(el: Element) -> ModifyIpamPrefixListResolverRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("Rules") is not None:
+    if el.find("Rule") is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 
         out["rules"] = (
             capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.deserialize_ec2_query(
-                el, "Rules"
+                el, "Rule"
             )
         )
     return out

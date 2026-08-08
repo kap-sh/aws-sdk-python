@@ -98,55 +98,55 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstancesListing:
     out: ReservedInstancesListing = {}  # type: ignore[typeddict-item]
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    child_create_date = el.find("CreateDate")
+    child_create_date = el.find("createDate")
     if child_create_date is not None:
         import capo_ec2.types.date_time
 
         out["create_date"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_date
         )
-    if el.find("InstanceCounts") is not None:
+    if el.find("instanceCounts") is not None:
         import capo_ec2.types.instance_count_list
 
         out["instance_counts"] = (
             capo_ec2.types.instance_count_list.deserialize_ec2_query(
-                el, "InstanceCounts"
+                el, "instanceCounts"
             )
         )
-    if el.find("PriceSchedules") is not None:
+    if el.find("priceSchedules") is not None:
         import capo_ec2.types.price_schedule_list
 
         out["price_schedules"] = (
             capo_ec2.types.price_schedule_list.deserialize_ec2_query(
-                el, "PriceSchedules"
+                el, "priceSchedules"
             )
         )
-    child_reserved_instances_id = el.find("ReservedInstancesId")
+    child_reserved_instances_id = el.find("reservedInstancesId")
     if child_reserved_instances_id is not None:
         out["reserved_instances_id"] = str(child_reserved_instances_id.text or "")
-    child_reserved_instances_listing_id = el.find("ReservedInstancesListingId")
+    child_reserved_instances_listing_id = el.find("reservedInstancesListingId")
     if child_reserved_instances_listing_id is not None:
         out["reserved_instances_listing_id"] = str(
             child_reserved_instances_listing_id.text or ""
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.listing_status
 
         out["status"] = capo_ec2.types.listing_status.deserialize_ec2_query(
             child_status
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_update_date = el.find("UpdateDate")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_update_date = el.find("updateDate")
     if child_update_date is not None:
         import capo_ec2.types.date_time
 

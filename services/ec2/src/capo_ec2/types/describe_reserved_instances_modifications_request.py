@@ -36,7 +36,7 @@ def serialize_ec2_query(
         capo_ec2.types.reserved_instances_modification_id_string_list.serialize_ec2_query(
             value["reserved_instances_modification_ids"],
             pairs,
-            f"{key_prefix}ReservedInstancesModificationIds",
+            f"{key_prefix}ReservedInstancesModificationId",
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -44,25 +44,25 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
 def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesModificationsRequest:
     out: DescribeReservedInstancesModificationsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ReservedInstancesModificationIds") is not None:
+    if el.find("ReservedInstancesModificationId") is not None:
         import capo_ec2.types.reserved_instances_modification_id_string_list
 
         out["reserved_instances_modification_ids"] = (
             capo_ec2.types.reserved_instances_modification_id_string_list.deserialize_ec2_query(
-                el, "ReservedInstancesModificationIds"
+                el, "ReservedInstancesModificationId"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

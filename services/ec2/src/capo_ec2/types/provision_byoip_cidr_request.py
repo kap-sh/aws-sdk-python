@@ -66,9 +66,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["pool_tag_specifications"],
-            pairs,
-            f"{key_prefix}PoolTagSpecifications",
+            value["pool_tag_specifications"], pairs, f"{key_prefix}PoolTagSpecification"
         )
     if "multi_region" in value:
         pairs.append(
@@ -105,12 +103,12 @@ def deserialize_ec2_query(el: Element) -> ProvisionByoipCidrRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("PoolTagSpecifications") is not None:
+    if el.find("PoolTagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["pool_tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "PoolTagSpecifications"
+                el, "PoolTagSpecification"
             )
         )
     child_multi_region = el.find("MultiRegion")

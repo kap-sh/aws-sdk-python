@@ -31,7 +31,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CertificateAuthentication:
     out: CertificateAuthentication = {}  # type: ignore[typeddict-item]
-    child_client_root_certificate_chain = el.find("ClientRootCertificateChain")
+    child_client_root_certificate_chain = el.find("clientRootCertificateChain")
     if child_client_root_certificate_chain is not None:
         out["client_root_certificate_chain"] = str(
             child_client_root_certificate_chain.text or ""

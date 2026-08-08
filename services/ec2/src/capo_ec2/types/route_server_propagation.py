@@ -42,13 +42,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteServerPropagation:
     out: RouteServerPropagation = {}  # type: ignore[typeddict-item]
-    child_route_server_id = el.find("RouteServerId")
+    child_route_server_id = el.find("routeServerId")
     if child_route_server_id is not None:
         out["route_server_id"] = str(child_route_server_id.text or "")
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.route_server_propagation_state
 

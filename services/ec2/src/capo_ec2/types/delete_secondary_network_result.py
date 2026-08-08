@@ -35,7 +35,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteSecondaryNetworkResult:
     out: DeleteSecondaryNetworkResult = {}  # type: ignore[typeddict-item]
-    child_secondary_network = el.find("SecondaryNetwork")
+    child_secondary_network = el.find("secondaryNetwork")
     if child_secondary_network is not None:
         import capo_ec2.types.secondary_network
 
@@ -44,7 +44,7 @@ def deserialize_ec2_query(el: Element) -> DeleteSecondaryNetworkResult:
                 child_secondary_network
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeIdentityIdFormatRequest:
     out: DescribeIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
-    child_resource = el.find("Resource")
+    child_resource = el.find("resource")
     if child_resource is not None:
         out["resource"] = str(child_resource.text or "")
-    child_principal_arn = el.find("PrincipalArn")
+    child_principal_arn = el.find("principalArn")
     if child_principal_arn is not None:
         out["principal_arn"] = str(child_principal_arn.text or "")
     return out

@@ -59,7 +59,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "device_name" in value:
         pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
@@ -87,12 +87,12 @@ def deserialize_ec2_query(el: Element) -> CreateCustomerGatewayRequest:
         import capo_ec2.types.gateway_type
 
         out["type"] = capo_ec2.types.gateway_type.deserialize_ec2_query(child_type)
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_device_name = el.find("DeviceName")
@@ -104,7 +104,7 @@ def deserialize_ec2_query(el: Element) -> CreateCustomerGatewayRequest:
     child_bgp_asn_extended = el.find("BgpAsnExtended")
     if child_bgp_asn_extended is not None:
         out["bgp_asn_extended"] = int(child_bgp_asn_extended.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

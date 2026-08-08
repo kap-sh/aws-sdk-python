@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateStoreImageTaskResult:
     out: CreateStoreImageTaskResult = {}  # type: ignore[typeddict-item]
-    child_object_key = el.find("ObjectKey")
+    child_object_key = el.find("objectKey")
     if child_object_key is not None:
         out["object_key"] = str(child_object_key.text or "")
     return out

@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeImageUsageReportEntriesResult:
     out: DescribeImageUsageReportEntriesResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ImageUsageReportEntrySet") is not None:
+    if el.find("imageUsageReportEntrySet") is not None:
         import capo_ec2.types.image_usage_report_entry_list
 
         out["image_usage_report_entries"] = (
             capo_ec2.types.image_usage_report_entry_list.deserialize_ec2_query(
-                el, "ImageUsageReportEntrySet"
+                el, "imageUsageReportEntrySet"
             )
         )
     return out

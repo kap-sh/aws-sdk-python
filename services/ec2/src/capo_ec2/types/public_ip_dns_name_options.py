@@ -47,16 +47,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PublicIpDnsNameOptions:
     out: PublicIpDnsNameOptions = {}  # type: ignore[typeddict-item]
-    child_dns_hostname_type = el.find("DnsHostnameType")
+    child_dns_hostname_type = el.find("dnsHostnameType")
     if child_dns_hostname_type is not None:
         out["dns_hostname_type"] = str(child_dns_hostname_type.text or "")
-    child_public_ipv4_dns_name = el.find("PublicIpv4DnsName")
+    child_public_ipv4_dns_name = el.find("publicIpv4DnsName")
     if child_public_ipv4_dns_name is not None:
         out["public_ipv4_dns_name"] = str(child_public_ipv4_dns_name.text or "")
-    child_public_ipv6_dns_name = el.find("PublicIpv6DnsName")
+    child_public_ipv6_dns_name = el.find("publicIpv6DnsName")
     if child_public_ipv6_dns_name is not None:
         out["public_ipv6_dns_name"] = str(child_public_ipv6_dns_name.text or "")
-    child_public_dual_stack_dns_name = el.find("PublicDualStackDnsName")
+    child_public_dual_stack_dns_name = el.find("publicDualStackDnsName")
     if child_public_dual_stack_dns_name is not None:
         out["public_dual_stack_dns_name"] = str(
             child_public_dual_stack_dns_name.text or ""

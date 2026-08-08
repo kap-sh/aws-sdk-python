@@ -29,7 +29,7 @@ def serialize_ec2_query(
         import capo_ec2.types.flow_log_id_list
 
         capo_ec2.types.flow_log_id_list.serialize_ec2_query(
-            value["flow_log_ids"], pairs, f"{key_prefix}FlowLogIds"
+            value["flow_log_ids"], pairs, f"{key_prefix}FlowLogId"
         )
 
 
@@ -38,10 +38,10 @@ def deserialize_ec2_query(el: Element) -> DeleteFlowLogsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("FlowLogIds") is not None:
+    if el.find("FlowLogId") is not None:
         import capo_ec2.types.flow_log_id_list
 
         out["flow_log_ids"] = capo_ec2.types.flow_log_id_list.deserialize_ec2_query(
-            el, "FlowLogIds"
+            el, "FlowLogId"
         )
     return out

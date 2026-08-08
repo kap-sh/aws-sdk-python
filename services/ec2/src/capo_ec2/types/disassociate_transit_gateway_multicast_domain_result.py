@@ -36,7 +36,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DisassociateTransitGatewayMulticastDomainResult:
     out: DisassociateTransitGatewayMulticastDomainResult = {}  # type: ignore[typeddict-item]
-    child_associations = el.find("Associations")
+    child_associations = el.find("associations")
     if child_associations is not None:
         import capo_ec2.types.transit_gateway_multicast_domain_associations
 

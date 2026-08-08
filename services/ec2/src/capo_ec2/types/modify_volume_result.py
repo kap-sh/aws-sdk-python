@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVolumeResult:
     out: ModifyVolumeResult = {}  # type: ignore[typeddict-item]
-    child_volume_modification = el.find("VolumeModification")
+    child_volume_modification = el.find("volumeModification")
     if child_volume_modification is not None:
         import capo_ec2.types.volume_modification
 

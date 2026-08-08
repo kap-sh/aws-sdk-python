@@ -39,7 +39,7 @@ def deserialize_ec2_query(
 ) -> CreateTransitGatewayRouteTableAnnouncementResult:
     out: CreateTransitGatewayRouteTableAnnouncementResult = {}  # type: ignore[typeddict-item]
     child_transit_gateway_route_table_announcement = el.find(
-        "TransitGatewayRouteTableAnnouncement"
+        "transitGatewayRouteTableAnnouncement"
     )
     if child_transit_gateway_route_table_announcement is not None:
         import capo_ec2.types.transit_gateway_route_table_announcement

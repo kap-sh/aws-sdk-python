@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityManagerTagDimension:
     out: CapacityManagerTagDimension = {}  # type: ignore[typeddict-item]
-    child_key = el.find("Key")
+    child_key = el.find("key")
     if child_key is not None:
         out["key"] = str(child_key.text or "")
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = str(child_value.text or "")
     return out

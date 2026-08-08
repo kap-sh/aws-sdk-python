@@ -36,12 +36,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupReferencesResult:
     out: DescribeSecurityGroupReferencesResult = {}  # type: ignore[typeddict-item]
-    if el.find("SecurityGroupReferenceSet") is not None:
+    if el.find("securityGroupReferenceSet") is not None:
         import capo_ec2.types.security_group_references
 
         out["security_group_reference_set"] = (
             capo_ec2.types.security_group_references.deserialize_ec2_query(
-                el, "SecurityGroupReferenceSet"
+                el, "securityGroupReferenceSet"
             )
         )
     return out

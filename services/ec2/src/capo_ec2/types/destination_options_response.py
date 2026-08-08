@@ -51,7 +51,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DestinationOptionsResponse:
     out: DestinationOptionsResponse = {}  # type: ignore[typeddict-item]
-    child_file_format = el.find("FileFormat")
+    child_file_format = el.find("fileFormat")
     if child_file_format is not None:
         import capo_ec2.types.destination_file_format
 
@@ -60,12 +60,12 @@ def deserialize_ec2_query(el: Element) -> DestinationOptionsResponse:
                 child_file_format
             )
         )
-    child_hive_compatible_partitions = el.find("HiveCompatiblePartitions")
+    child_hive_compatible_partitions = el.find("hiveCompatiblePartitions")
     if child_hive_compatible_partitions is not None:
         out["hive_compatible_partitions"] = (
             child_hive_compatible_partitions.text or ""
         ).lower() == "true"
-    child_per_hour_partition = el.find("PerHourPartition")
+    child_per_hour_partition = el.find("perHourPartition")
     if child_per_hour_partition is not None:
         out["per_hour_partition"] = (
             child_per_hour_partition.text or ""

@@ -41,7 +41,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TargetReservationValue:
     out: TargetReservationValue = {}  # type: ignore[typeddict-item]
-    child_reservation_value = el.find("ReservationValue")
+    child_reservation_value = el.find("reservationValue")
     if child_reservation_value is not None:
         import capo_ec2.types.reservation_value
 
@@ -50,7 +50,7 @@ def deserialize_ec2_query(el: Element) -> TargetReservationValue:
                 child_reservation_value
             )
         )
-    child_target_configuration = el.find("TargetConfiguration")
+    child_target_configuration = el.find("targetConfiguration")
     if child_target_configuration is not None:
         import capo_ec2.types.target_configuration
 

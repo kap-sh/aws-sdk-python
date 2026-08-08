@@ -44,10 +44,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AttachmentEnaSrdSpecification:
     out: AttachmentEnaSrdSpecification = {}  # type: ignore[typeddict-item]
-    child_ena_srd_enabled = el.find("EnaSrdEnabled")
+    child_ena_srd_enabled = el.find("enaSrdEnabled")
     if child_ena_srd_enabled is not None:
         out["ena_srd_enabled"] = (child_ena_srd_enabled.text or "").lower() == "true"
-    child_ena_srd_udp_specification = el.find("EnaSrdUdpSpecification")
+    child_ena_srd_udp_specification = el.find("enaSrdUdpSpecification")
     if child_ena_srd_udp_specification is not None:
         import capo_ec2.types.attachment_ena_srd_udp_specification
 

@@ -62,7 +62,7 @@ def serialize_ec2_query(
         import capo_ec2.types.group_name_string_list
 
         capo_ec2.types.group_name_string_list.serialize_ec2_query(
-            value["group_names"], pairs, f"{key_prefix}GroupNames"
+            value["group_names"], pairs, f"{key_prefix}UserGroup"
         )
     if "operation_type" in value:
         import capo_ec2.types.operation_type
@@ -76,7 +76,7 @@ def serialize_ec2_query(
         import capo_ec2.types.user_id_string_list
 
         capo_ec2.types.user_id_string_list.serialize_ec2_query(
-            value["user_ids"], pairs, f"{key_prefix}UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -100,13 +100,11 @@ def deserialize_ec2_query(el: Element) -> ModifySnapshotAttributeRequest:
                 child_create_volume_permission
             )
         )
-    if el.find("GroupNames") is not None:
+    if el.find("UserGroup") is not None:
         import capo_ec2.types.group_name_string_list
 
         out["group_names"] = (
-            capo_ec2.types.group_name_string_list.deserialize_ec2_query(
-                el, "GroupNames"
-            )
+            capo_ec2.types.group_name_string_list.deserialize_ec2_query(el, "UserGroup")
         )
     child_operation_type = el.find("OperationType")
     if child_operation_type is not None:
@@ -118,13 +116,13 @@ def deserialize_ec2_query(el: Element) -> ModifySnapshotAttributeRequest:
     child_snapshot_id = el.find("SnapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    if el.find("UserIds") is not None:
+    if el.find("UserId") is not None:
         import capo_ec2.types.user_id_string_list
 
         out["user_ids"] = capo_ec2.types.user_id_string_list.deserialize_ec2_query(
-            el, "UserIds"
+            el, "UserId"
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

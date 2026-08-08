@@ -51,27 +51,27 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ProvisionedBandwidth:
     out: ProvisionedBandwidth = {}  # type: ignore[typeddict-item]
-    child_provision_time = el.find("ProvisionTime")
+    child_provision_time = el.find("provisionTime")
     if child_provision_time is not None:
         import capo_ec2.types.date_time
 
         out["provision_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_provision_time
         )
-    child_provisioned = el.find("Provisioned")
+    child_provisioned = el.find("provisioned")
     if child_provisioned is not None:
         out["provisioned"] = str(child_provisioned.text or "")
-    child_request_time = el.find("RequestTime")
+    child_request_time = el.find("requestTime")
     if child_request_time is not None:
         import capo_ec2.types.date_time
 
         out["request_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_request_time
         )
-    child_requested = el.find("Requested")
+    child_requested = el.find("requested")
     if child_requested is not None:
         out["requested"] = str(child_requested.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
     return out

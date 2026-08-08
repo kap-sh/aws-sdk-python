@@ -80,10 +80,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicyEntry:
     out: TransitGatewayMeteringPolicyEntry = {}  # type: ignore[typeddict-item]
-    child_policy_rule_number = el.find("PolicyRuleNumber")
+    child_policy_rule_number = el.find("policyRuleNumber")
     if child_policy_rule_number is not None:
         out["policy_rule_number"] = str(child_policy_rule_number.text or "")
-    child_metered_account = el.find("MeteredAccount")
+    child_metered_account = el.find("meteredAccount")
     if child_metered_account is not None:
         import capo_ec2.types.transit_gateway_metering_payer_type
 
@@ -92,7 +92,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicyEntry:
                 child_metered_account
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_metering_policy_entry_state
 
@@ -101,14 +101,14 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicyEntry:
                 child_state
             )
         )
-    child_updated_at = el.find("UpdatedAt")
+    child_updated_at = el.find("updatedAt")
     if child_updated_at is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["updated_at"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_updated_at
         )
-    child_update_effective_at = el.find("UpdateEffectiveAt")
+    child_update_effective_at = el.find("updateEffectiveAt")
     if child_update_effective_at is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -117,7 +117,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicyEntry:
                 child_update_effective_at
             )
         )
-    child_metering_policy_rule = el.find("MeteringPolicyRule")
+    child_metering_policy_rule = el.find("meteringPolicyRule")
     if child_metering_policy_rule is not None:
         import capo_ec2.types.transit_gateway_metering_policy_rule
 

@@ -64,16 +64,16 @@ def deserialize_ec2_query(el: Element) -> DeleteRouteRequest:
         out["destination_prefix_list_id"] = str(
             child_destination_prefix_list_id.text or ""
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
-    child_destination_ipv6_cidr_block = el.find("DestinationIpv6CidrBlock")
+    child_destination_ipv6_cidr_block = el.find("destinationIpv6CidrBlock")
     if child_destination_ipv6_cidr_block is not None:
         out["destination_ipv6_cidr_block"] = str(
             child_destination_ipv6_cidr_block.text or ""

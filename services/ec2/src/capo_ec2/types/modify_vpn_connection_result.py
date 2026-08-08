@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVpnConnectionResult:
     out: ModifyVpnConnectionResult = {}  # type: ignore[typeddict-item]
-    child_vpn_connection = el.find("VpnConnection")
+    child_vpn_connection = el.find("vpnConnection")
     if child_vpn_connection is not None:
         import capo_ec2.types.vpn_connection
 

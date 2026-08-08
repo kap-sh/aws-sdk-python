@@ -58,7 +58,7 @@ def serialize_ec2_query(
         capo_ec2.types.network_insights_access_scope_analysis_id_list.serialize_ec2_query(
             value["network_insights_access_scope_analysis_ids"],
             pairs,
-            f"{key_prefix}NetworkInsightsAccessScopeAnalysisIds",
+            f"{key_prefix}NetworkInsightsAccessScopeAnalysisId",
         )
     if "network_insights_access_scope_id" in value:
         pairs.append(
@@ -85,7 +85,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -99,12 +99,12 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeNetworkInsightsAccessScopeAnalysesRequest:
     out: DescribeNetworkInsightsAccessScopeAnalysesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("NetworkInsightsAccessScopeAnalysisIds") is not None:
+    if el.find("NetworkInsightsAccessScopeAnalysisId") is not None:
         import capo_ec2.types.network_insights_access_scope_analysis_id_list
 
         out["network_insights_access_scope_analysis_ids"] = (
             capo_ec2.types.network_insights_access_scope_analysis_id_list.deserialize_ec2_query(
-                el, "NetworkInsightsAccessScopeAnalysisIds"
+                el, "NetworkInsightsAccessScopeAnalysisId"
             )
         )
     child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
@@ -130,10 +130,10 @@ def deserialize_ec2_query(
                 child_analysis_start_time_end
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationGroup:
     out: CapacityReservationGroup = {}  # type: ignore[typeddict-item]
-    child_group_arn = el.find("GroupArn")
+    child_group_arn = el.find("groupArn")
     if child_group_arn is not None:
         out["group_arn"] = str(child_group_arn.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
     return out

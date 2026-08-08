@@ -76,13 +76,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ConversionTask:
     out: ConversionTask = {}  # type: ignore[typeddict-item]
-    child_conversion_task_id = el.find("ConversionTaskId")
+    child_conversion_task_id = el.find("conversionTaskId")
     if child_conversion_task_id is not None:
         out["conversion_task_id"] = str(child_conversion_task_id.text or "")
-    child_expiration_time = el.find("ExpirationTime")
+    child_expiration_time = el.find("expirationTime")
     if child_expiration_time is not None:
         out["expiration_time"] = str(child_expiration_time.text or "")
-    child_import_instance = el.find("ImportInstance")
+    child_import_instance = el.find("importInstance")
     if child_import_instance is not None:
         import capo_ec2.types.import_instance_task_details
 
@@ -91,7 +91,7 @@ def deserialize_ec2_query(el: Element) -> ConversionTask:
                 child_import_instance
             )
         )
-    child_import_volume = el.find("ImportVolume")
+    child_import_volume = el.find("importVolume")
     if child_import_volume is not None:
         import capo_ec2.types.import_volume_task_details
 
@@ -100,18 +100,18 @@ def deserialize_ec2_query(el: Element) -> ConversionTask:
                 child_import_volume
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.conversion_task_state
 
         out["state"] = capo_ec2.types.conversion_task_state.deserialize_ec2_query(
             child_state
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

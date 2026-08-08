@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrefixListEntry:
     out: PrefixListEntry = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
     return out

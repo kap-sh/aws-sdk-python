@@ -45,13 +45,13 @@ def serialize_ec2_query(
         import capo_ec2.types.request_instance_type_list
 
         capo_ec2.types.request_instance_type_list.serialize_ec2_query(
-            value["instance_types"], pairs, f"{key_prefix}InstanceTypes"
+            value["instance_types"], pairs, f"{key_prefix}InstanceType"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -71,18 +71,18 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceTypesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("InstanceTypes") is not None:
+    if el.find("InstanceType") is not None:
         import capo_ec2.types.request_instance_type_list
 
         out["instance_types"] = (
             capo_ec2.types.request_instance_type_list.deserialize_ec2_query(
-                el, "InstanceTypes"
+                el, "InstanceType"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

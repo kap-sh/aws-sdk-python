@@ -100,7 +100,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsInfo:
     out: EbsInfo = {}  # type: ignore[typeddict-item]
-    child_ebs_optimized_support = el.find("EbsOptimizedSupport")
+    child_ebs_optimized_support = el.find("ebsOptimizedSupport")
     if child_ebs_optimized_support is not None:
         import capo_ec2.types.ebs_optimized_support
 
@@ -109,7 +109,7 @@ def deserialize_ec2_query(el: Element) -> EbsInfo:
                 child_ebs_optimized_support
             )
         )
-    child_encryption_support = el.find("EncryptionSupport")
+    child_encryption_support = el.find("encryptionSupport")
     if child_encryption_support is not None:
         import capo_ec2.types.ebs_encryption_support
 
@@ -118,7 +118,7 @@ def deserialize_ec2_query(el: Element) -> EbsInfo:
                 child_encryption_support
             )
         )
-    child_ebs_optimized_info = el.find("EbsOptimizedInfo")
+    child_ebs_optimized_info = el.find("ebsOptimizedInfo")
     if child_ebs_optimized_info is not None:
         import capo_ec2.types.ebs_optimized_info
 
@@ -127,17 +127,17 @@ def deserialize_ec2_query(el: Element) -> EbsInfo:
                 child_ebs_optimized_info
             )
         )
-    child_nvme_support = el.find("NvmeSupport")
+    child_nvme_support = el.find("nvmeSupport")
     if child_nvme_support is not None:
         import capo_ec2.types.ebs_nvme_support
 
         out["nvme_support"] = capo_ec2.types.ebs_nvme_support.deserialize_ec2_query(
             child_nvme_support
         )
-    child_maximum_ebs_attachments = el.find("MaximumEbsAttachments")
+    child_maximum_ebs_attachments = el.find("maximumEbsAttachments")
     if child_maximum_ebs_attachments is not None:
         out["maximum_ebs_attachments"] = int(child_maximum_ebs_attachments.text or "")
-    child_attachment_limit_type = el.find("AttachmentLimitType")
+    child_attachment_limit_type = el.find("attachmentLimitType")
     if child_attachment_limit_type is not None:
         import capo_ec2.types.attachment_limit_type
 
@@ -146,13 +146,13 @@ def deserialize_ec2_query(el: Element) -> EbsInfo:
                 child_attachment_limit_type
             )
         )
-    child_maximum_ebs_cards = el.find("MaximumEbsCards")
+    child_maximum_ebs_cards = el.find("maximumEbsCards")
     if child_maximum_ebs_cards is not None:
         out["maximum_ebs_cards"] = int(child_maximum_ebs_cards.text or "")
-    if el.find("EbsCardSet") is not None:
+    if el.find("ebsCardSet") is not None:
         import capo_ec2.types.ebs_card_info_list
 
         out["ebs_cards"] = capo_ec2.types.ebs_card_info_list.deserialize_ec2_query(
-            el, "EbsCardSet"
+            el, "ebsCardSet"
         )
     return out

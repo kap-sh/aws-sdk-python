@@ -72,13 +72,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ExportTask:
     out: ExportTask = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_export_task_id = el.find("ExportTaskId")
+    child_export_task_id = el.find("exportTaskId")
     if child_export_task_id is not None:
         out["export_task_id"] = str(child_export_task_id.text or "")
-    child_export_to_s3_task = el.find("ExportToS3")
+    child_export_to_s3_task = el.find("exportToS3")
     if child_export_to_s3_task is not None:
         import capo_ec2.types.export_to_s3_task
 
@@ -87,7 +87,7 @@ def deserialize_ec2_query(el: Element) -> ExportTask:
                 child_export_to_s3_task
             )
         )
-    child_instance_export_details = el.find("InstanceExport")
+    child_instance_export_details = el.find("instanceExport")
     if child_instance_export_details is not None:
         import capo_ec2.types.instance_export_details
 
@@ -96,18 +96,18 @@ def deserialize_ec2_query(el: Element) -> ExportTask:
                 child_instance_export_details
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.export_task_state
 
         out["state"] = capo_ec2.types.export_task_state.deserialize_ec2_query(
             child_state
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

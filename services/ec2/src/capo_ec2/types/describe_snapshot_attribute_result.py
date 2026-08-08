@@ -48,21 +48,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSnapshotAttributeResult:
     out: DescribeSnapshotAttributeResult = {}  # type: ignore[typeddict-item]
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    if el.find("CreateVolumePermission") is not None:
+    if el.find("createVolumePermission") is not None:
         import capo_ec2.types.create_volume_permission_list
 
         out["create_volume_permissions"] = (
             capo_ec2.types.create_volume_permission_list.deserialize_ec2_query(
-                el, "CreateVolumePermission"
+                el, "createVolumePermission"
             )
         )
     return out

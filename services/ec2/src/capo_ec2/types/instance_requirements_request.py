@@ -150,7 +150,7 @@ def serialize_ec2_query(
         import capo_ec2.types.cpu_manufacturer_set
 
         capo_ec2.types.cpu_manufacturer_set.serialize_ec2_query(
-            value["cpu_manufacturers"], pairs, f"{key_prefix}CpuManufacturers"
+            value["cpu_manufacturers"], pairs, f"{key_prefix}CpuManufacturer"
         )
     if "memory_gi_b_per_v_cpu" in value:
         import capo_ec2.types.memory_gi_b_per_v_cpu_request
@@ -162,15 +162,13 @@ def serialize_ec2_query(
         import capo_ec2.types.excluded_instance_type_set
 
         capo_ec2.types.excluded_instance_type_set.serialize_ec2_query(
-            value["excluded_instance_types"],
-            pairs,
-            f"{key_prefix}ExcludedInstanceTypes",
+            value["excluded_instance_types"], pairs, f"{key_prefix}ExcludedInstanceType"
         )
     if "instance_generations" in value:
         import capo_ec2.types.instance_generation_set
 
         capo_ec2.types.instance_generation_set.serialize_ec2_query(
-            value["instance_generations"], pairs, f"{key_prefix}InstanceGenerations"
+            value["instance_generations"], pairs, f"{key_prefix}InstanceGeneration"
         )
     if "spot_max_price_percentage_over_lowest_price" in value:
         pairs.append(
@@ -223,7 +221,7 @@ def serialize_ec2_query(
         import capo_ec2.types.local_storage_type_set
 
         capo_ec2.types.local_storage_type_set.serialize_ec2_query(
-            value["local_storage_types"], pairs, f"{key_prefix}LocalStorageTypes"
+            value["local_storage_types"], pairs, f"{key_prefix}LocalStorageType"
         )
     if "total_local_storage_gb" in value:
         import capo_ec2.types.total_local_storage_gb_request
@@ -243,7 +241,7 @@ def serialize_ec2_query(
         import capo_ec2.types.accelerator_type_set
 
         capo_ec2.types.accelerator_type_set.serialize_ec2_query(
-            value["accelerator_types"], pairs, f"{key_prefix}AcceleratorTypes"
+            value["accelerator_types"], pairs, f"{key_prefix}AcceleratorType"
         )
     if "accelerator_count" in value:
         import capo_ec2.types.accelerator_count_request
@@ -257,13 +255,13 @@ def serialize_ec2_query(
         capo_ec2.types.accelerator_manufacturer_set.serialize_ec2_query(
             value["accelerator_manufacturers"],
             pairs,
-            f"{key_prefix}AcceleratorManufacturers",
+            f"{key_prefix}AcceleratorManufacturer",
         )
     if "accelerator_names" in value:
         import capo_ec2.types.accelerator_name_set
 
         capo_ec2.types.accelerator_name_set.serialize_ec2_query(
-            value["accelerator_names"], pairs, f"{key_prefix}AcceleratorNames"
+            value["accelerator_names"], pairs, f"{key_prefix}AcceleratorName"
         )
     if "accelerator_total_memory_mi_b" in value:
         import capo_ec2.types.accelerator_total_memory_mi_b_request
@@ -283,7 +281,7 @@ def serialize_ec2_query(
         import capo_ec2.types.allowed_instance_type_set
 
         capo_ec2.types.allowed_instance_type_set.serialize_ec2_query(
-            value["allowed_instance_types"], pairs, f"{key_prefix}AllowedInstanceTypes"
+            value["allowed_instance_types"], pairs, f"{key_prefix}AllowedInstanceType"
         )
     if "max_spot_price_as_percentage_of_optimal_on_demand_price" in value:
         pairs.append(
@@ -327,12 +325,12 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
         out["memory_mi_b"] = capo_ec2.types.memory_mi_b_request.deserialize_ec2_query(
             child_memory_mi_b
         )
-    if el.find("CpuManufacturers") is not None:
+    if el.find("CpuManufacturer") is not None:
         import capo_ec2.types.cpu_manufacturer_set
 
         out["cpu_manufacturers"] = (
             capo_ec2.types.cpu_manufacturer_set.deserialize_ec2_query(
-                el, "CpuManufacturers"
+                el, "CpuManufacturer"
             )
         )
     child_memory_gi_b_per_v_cpu = el.find("MemoryGiBPerVCpu")
@@ -344,20 +342,20 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
                 child_memory_gi_b_per_v_cpu
             )
         )
-    if el.find("ExcludedInstanceTypes") is not None:
+    if el.find("ExcludedInstanceType") is not None:
         import capo_ec2.types.excluded_instance_type_set
 
         out["excluded_instance_types"] = (
             capo_ec2.types.excluded_instance_type_set.deserialize_ec2_query(
-                el, "ExcludedInstanceTypes"
+                el, "ExcludedInstanceType"
             )
         )
-    if el.find("InstanceGenerations") is not None:
+    if el.find("InstanceGeneration") is not None:
         import capo_ec2.types.instance_generation_set
 
         out["instance_generations"] = (
             capo_ec2.types.instance_generation_set.deserialize_ec2_query(
-                el, "InstanceGenerations"
+                el, "InstanceGeneration"
             )
         )
     child_spot_max_price_percentage_over_lowest_price = el.find(
@@ -411,12 +409,12 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
         out["local_storage"] = capo_ec2.types.local_storage.deserialize_ec2_query(
             child_local_storage
         )
-    if el.find("LocalStorageTypes") is not None:
+    if el.find("LocalStorageType") is not None:
         import capo_ec2.types.local_storage_type_set
 
         out["local_storage_types"] = (
             capo_ec2.types.local_storage_type_set.deserialize_ec2_query(
-                el, "LocalStorageTypes"
+                el, "LocalStorageType"
             )
         )
     child_total_local_storage_gb = el.find("TotalLocalStorageGB")
@@ -437,12 +435,12 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
                 child_baseline_ebs_bandwidth_mbps
             )
         )
-    if el.find("AcceleratorTypes") is not None:
+    if el.find("AcceleratorType") is not None:
         import capo_ec2.types.accelerator_type_set
 
         out["accelerator_types"] = (
             capo_ec2.types.accelerator_type_set.deserialize_ec2_query(
-                el, "AcceleratorTypes"
+                el, "AcceleratorType"
             )
         )
     child_accelerator_count = el.find("AcceleratorCount")
@@ -454,20 +452,20 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
                 child_accelerator_count
             )
         )
-    if el.find("AcceleratorManufacturers") is not None:
+    if el.find("AcceleratorManufacturer") is not None:
         import capo_ec2.types.accelerator_manufacturer_set
 
         out["accelerator_manufacturers"] = (
             capo_ec2.types.accelerator_manufacturer_set.deserialize_ec2_query(
-                el, "AcceleratorManufacturers"
+                el, "AcceleratorManufacturer"
             )
         )
-    if el.find("AcceleratorNames") is not None:
+    if el.find("AcceleratorName") is not None:
         import capo_ec2.types.accelerator_name_set
 
         out["accelerator_names"] = (
             capo_ec2.types.accelerator_name_set.deserialize_ec2_query(
-                el, "AcceleratorNames"
+                el, "AcceleratorName"
             )
         )
     child_accelerator_total_memory_mi_b = el.find("AcceleratorTotalMemoryMiB")
@@ -488,12 +486,12 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirementsRequest:
                 child_network_bandwidth_gbps
             )
         )
-    if el.find("AllowedInstanceTypes") is not None:
+    if el.find("AllowedInstanceType") is not None:
         import capo_ec2.types.allowed_instance_type_set
 
         out["allowed_instance_types"] = (
             capo_ec2.types.allowed_instance_type_set.deserialize_ec2_query(
-                el, "AllowedInstanceTypes"
+                el, "AllowedInstanceType"
             )
         )
     child_max_spot_price_as_percentage_of_optimal_on_demand_price = el.find(

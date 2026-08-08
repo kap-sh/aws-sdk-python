@@ -49,7 +49,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInsightsAccessScopeResult:
     out: CreateNetworkInsightsAccessScopeResult = {}  # type: ignore[typeddict-item]
-    child_network_insights_access_scope = el.find("NetworkInsightsAccessScope")
+    child_network_insights_access_scope = el.find("networkInsightsAccessScope")
     if child_network_insights_access_scope is not None:
         import capo_ec2.types.network_insights_access_scope
 
@@ -59,7 +59,7 @@ def deserialize_ec2_query(el: Element) -> CreateNetworkInsightsAccessScopeResult
             )
         )
     child_network_insights_access_scope_content = el.find(
-        "NetworkInsightsAccessScopeContent"
+        "networkInsightsAccessScopeContent"
     )
     if child_network_insights_access_scope_content is not None:
         import capo_ec2.types.network_insights_access_scope_content

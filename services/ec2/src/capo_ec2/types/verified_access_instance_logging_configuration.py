@@ -42,12 +42,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessInstanceLoggingConfiguration:
     out: VerifiedAccessInstanceLoggingConfiguration = {}  # type: ignore[typeddict-item]
-    child_verified_access_instance_id = el.find("VerifiedAccessInstanceId")
+    child_verified_access_instance_id = el.find("verifiedAccessInstanceId")
     if child_verified_access_instance_id is not None:
         out["verified_access_instance_id"] = str(
             child_verified_access_instance_id.text or ""
         )
-    child_access_logs = el.find("AccessLogs")
+    child_access_logs = el.find("accessLogs")
     if child_access_logs is not None:
         import capo_ec2.types.verified_access_logs
 

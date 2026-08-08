@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointResult:
     out: CreateVerifiedAccessEndpointResult = {}  # type: ignore[typeddict-item]
-    child_verified_access_endpoint = el.find("VerifiedAccessEndpoint")
+    child_verified_access_endpoint = el.find("verifiedAccessEndpoint")
     if child_verified_access_endpoint is not None:
         import capo_ec2.types.verified_access_endpoint
 

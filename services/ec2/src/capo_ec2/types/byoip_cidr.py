@@ -66,34 +66,34 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ByoipCidr:
     out: ByoipCidr = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("AsnAssociationSet") is not None:
+    if el.find("asnAssociationSet") is not None:
         import capo_ec2.types.asn_association_set
 
         out["asn_associations"] = (
             capo_ec2.types.asn_association_set.deserialize_ec2_query(
-                el, "AsnAssociationSet"
+                el, "asnAssociationSet"
             )
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.byoip_cidr_state
 
         out["state"] = capo_ec2.types.byoip_cidr_state.deserialize_ec2_query(
             child_state
         )
-    child_network_border_group = el.find("NetworkBorderGroup")
+    child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    child_advertisement_type = el.find("AdvertisementType")
+    child_advertisement_type = el.find("advertisementType")
     if child_advertisement_type is not None:
         out["advertisement_type"] = str(child_advertisement_type.text or "")
     return out

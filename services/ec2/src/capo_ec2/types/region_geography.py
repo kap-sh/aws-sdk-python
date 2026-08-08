@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RegionGeography:
     out: RegionGeography = {}  # type: ignore[typeddict-item]
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
     return out

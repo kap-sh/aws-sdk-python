@@ -56,22 +56,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CloudWatchLogOptions:
     out: CloudWatchLogOptions = {}  # type: ignore[typeddict-item]
-    child_log_enabled = el.find("LogEnabled")
+    child_log_enabled = el.find("logEnabled")
     if child_log_enabled is not None:
         out["log_enabled"] = (child_log_enabled.text or "").lower() == "true"
-    child_log_group_arn = el.find("LogGroupArn")
+    child_log_group_arn = el.find("logGroupArn")
     if child_log_group_arn is not None:
         out["log_group_arn"] = str(child_log_group_arn.text or "")
-    child_log_output_format = el.find("LogOutputFormat")
+    child_log_output_format = el.find("logOutputFormat")
     if child_log_output_format is not None:
         out["log_output_format"] = str(child_log_output_format.text or "")
-    child_bgp_log_enabled = el.find("BgpLogEnabled")
+    child_bgp_log_enabled = el.find("bgpLogEnabled")
     if child_bgp_log_enabled is not None:
         out["bgp_log_enabled"] = (child_bgp_log_enabled.text or "").lower() == "true"
-    child_bgp_log_group_arn = el.find("BgpLogGroupArn")
+    child_bgp_log_group_arn = el.find("bgpLogGroupArn")
     if child_bgp_log_group_arn is not None:
         out["bgp_log_group_arn"] = str(child_bgp_log_group_arn.text or "")
-    child_bgp_log_output_format = el.find("BgpLogOutputFormat")
+    child_bgp_log_output_format = el.find("bgpLogOutputFormat")
     if child_bgp_log_output_format is not None:
         out["bgp_log_output_format"] = str(child_bgp_log_output_format.text or "")
     return out

@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInsightsPathResult:
     out: CreateNetworkInsightsPathResult = {}  # type: ignore[typeddict-item]
-    child_network_insights_path = el.find("NetworkInsightsPath")
+    child_network_insights_path = el.find("networkInsightsPath")
     if child_network_insights_path is not None:
         import capo_ec2.types.network_insights_path
 

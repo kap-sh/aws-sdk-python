@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableAllowedImagesSettingsResult:
     out: EnableAllowedImagesSettingsResult = {}  # type: ignore[typeddict-item]
-    child_allowed_images_settings_state = el.find("AllowedImagesSettingsState")
+    child_allowed_images_settings_state = el.find("allowedImagesSettingsState")
     if child_allowed_images_settings_state is not None:
         import capo_ec2.types.allowed_images_settings_enabled_state
 

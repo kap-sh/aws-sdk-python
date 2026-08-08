@@ -43,13 +43,13 @@ def serialize_ec2_query(
         import capo_ec2.types.access_scope_path_list_request
 
         capo_ec2.types.access_scope_path_list_request.serialize_ec2_query(
-            value["match_paths"], pairs, f"{key_prefix}MatchPaths"
+            value["match_paths"], pairs, f"{key_prefix}MatchPath"
         )
     if "exclude_paths" in value:
         import capo_ec2.types.access_scope_path_list_request
 
         capo_ec2.types.access_scope_path_list_request.serialize_ec2_query(
-            value["exclude_paths"], pairs, f"{key_prefix}ExcludePaths"
+            value["exclude_paths"], pairs, f"{key_prefix}ExcludePath"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -57,7 +57,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -65,31 +65,31 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInsightsAccessScopeRequest:
     out: CreateNetworkInsightsAccessScopeRequest = {}  # type: ignore[typeddict-item]
-    if el.find("MatchPaths") is not None:
+    if el.find("MatchPath") is not None:
         import capo_ec2.types.access_scope_path_list_request
 
         out["match_paths"] = (
             capo_ec2.types.access_scope_path_list_request.deserialize_ec2_query(
-                el, "MatchPaths"
+                el, "MatchPath"
             )
         )
-    if el.find("ExcludePaths") is not None:
+    if el.find("ExcludePath") is not None:
         import capo_ec2.types.access_scope_path_list_request
 
         out["exclude_paths"] = (
             capo_ec2.types.access_scope_path_list_request.deserialize_ec2_query(
-                el, "ExcludePaths"
+                el, "ExcludePath"
             )
         )
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_dry_run = el.find("DryRun")

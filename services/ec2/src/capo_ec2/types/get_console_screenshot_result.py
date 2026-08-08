@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetConsoleScreenshotResult:
     out: GetConsoleScreenshotResult = {}  # type: ignore[typeddict-item]
-    child_image_data = el.find("ImageData")
+    child_image_data = el.find("imageData")
     if child_image_data is not None:
         out["image_data"] = str(child_image_data.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
     return out

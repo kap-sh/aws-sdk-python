@@ -44,21 +44,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceTypeOffering:
     out: InstanceTypeOffering = {}  # type: ignore[typeddict-item]
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_location_type = el.find("LocationType")
+    child_location_type = el.find("locationType")
     if child_location_type is not None:
         import capo_ec2.types.location_type
 
         out["location_type"] = capo_ec2.types.location_type.deserialize_ec2_query(
             child_location_type
         )
-    child_location = el.find("Location")
+    child_location = el.find("location")
     if child_location is not None:
         out["location"] = str(child_location.text or "")
     return out

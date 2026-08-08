@@ -43,17 +43,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateClientVpnEndpointResult:
     out: CreateClientVpnEndpointResult = {}  # type: ignore[typeddict-item]
-    child_client_vpn_endpoint_id = el.find("ClientVpnEndpointId")
+    child_client_vpn_endpoint_id = el.find("clientVpnEndpointId")
     if child_client_vpn_endpoint_id is not None:
         out["client_vpn_endpoint_id"] = str(child_client_vpn_endpoint_id.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_vpn_endpoint_status
 
         out["status"] = capo_ec2.types.client_vpn_endpoint_status.deserialize_ec2_query(
             child_status
         )
-    child_dns_name = el.find("DnsName")
+    child_dns_name = el.find("dnsName")
     if child_dns_name is not None:
         out["dns_name"] = str(child_dns_name.text or "")
     return out

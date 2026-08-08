@@ -181,13 +181,13 @@ def serialize_ec2_query(
         import capo_ec2.types.launch_template_block_device_mapping_request_list
 
         capo_ec2.types.launch_template_block_device_mapping_request_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
     if "network_interfaces" in value:
         import capo_ec2.types.launch_template_instance_network_interface_specification_request_list
 
         capo_ec2.types.launch_template_instance_network_interface_specification_request_list.serialize_ec2_query(
-            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterfaces"
+            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterface"
         )
     if "image_id" in value:
         pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
@@ -234,7 +234,7 @@ def serialize_ec2_query(
         import capo_ec2.types.launch_template_tag_specification_request_list
 
         capo_ec2.types.launch_template_tag_specification_request_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "elastic_gpu_specifications" in value:
         import capo_ec2.types.elastic_gpu_specification_list
@@ -242,7 +242,7 @@ def serialize_ec2_query(
         capo_ec2.types.elastic_gpu_specification_list.serialize_ec2_query(
             value["elastic_gpu_specifications"],
             pairs,
-            f"{key_prefix}ElasticGpuSpecifications",
+            f"{key_prefix}ElasticGpuSpecification",
         )
     if "elastic_inference_accelerators" in value:
         import capo_ec2.types.launch_template_elastic_inference_accelerator_list
@@ -250,19 +250,19 @@ def serialize_ec2_query(
         capo_ec2.types.launch_template_elastic_inference_accelerator_list.serialize_ec2_query(
             value["elastic_inference_accelerators"],
             pairs,
-            f"{key_prefix}ElasticInferenceAccelerators",
+            f"{key_prefix}ElasticInferenceAccelerator",
         )
     if "security_group_ids" in value:
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "security_groups" in value:
         import capo_ec2.types.security_group_string_list
 
         capo_ec2.types.security_group_string_list.serialize_ec2_query(
-            value["security_groups"], pairs, f"{key_prefix}SecurityGroups"
+            value["security_groups"], pairs, f"{key_prefix}SecurityGroup"
         )
     if "instance_market_options" in value:
         import capo_ec2.types.launch_template_instance_market_options_request
@@ -296,7 +296,7 @@ def serialize_ec2_query(
         import capo_ec2.types.launch_template_license_specification_list_request
 
         capo_ec2.types.launch_template_license_specification_list_request.serialize_ec2_query(
-            value["license_specifications"], pairs, f"{key_prefix}LicenseSpecifications"
+            value["license_specifications"], pairs, f"{key_prefix}LicenseSpecification"
         )
     if "hibernation_options" in value:
         import capo_ec2.types.launch_template_hibernation_options_request
@@ -361,7 +361,7 @@ def serialize_ec2_query(
         import capo_ec2.types.launch_template_instance_secondary_interface_specification_request_list
 
         capo_ec2.types.launch_template_instance_secondary_interface_specification_request_list.serialize_ec2_query(
-            value["secondary_interfaces"], pairs, f"{key_prefix}SecondaryInterfaces"
+            value["secondary_interfaces"], pairs, f"{key_prefix}SecondaryInterface"
         )
 
 
@@ -382,20 +382,20 @@ def deserialize_ec2_query(el: Element) -> RequestLaunchTemplateData:
                 child_iam_instance_profile
             )
         )
-    if el.find("BlockDeviceMappings") is not None:
+    if el.find("BlockDeviceMapping") is not None:
         import capo_ec2.types.launch_template_block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.launch_template_block_device_mapping_request_list.deserialize_ec2_query(
-                el, "BlockDeviceMappings"
+                el, "BlockDeviceMapping"
             )
         )
-    if el.find("NetworkInterfaces") is not None:
+    if el.find("NetworkInterface") is not None:
         import capo_ec2.types.launch_template_instance_network_interface_specification_request_list
 
         out["network_interfaces"] = (
             capo_ec2.types.launch_template_instance_network_interface_specification_request_list.deserialize_ec2_query(
-                el, "NetworkInterfaces"
+                el, "NetworkInterface"
             )
         )
     child_image_id = el.find("ImageId")
@@ -451,44 +451,44 @@ def deserialize_ec2_query(el: Element) -> RequestLaunchTemplateData:
     child_user_data = el.find("UserData")
     if child_user_data is not None:
         out["user_data"] = str(child_user_data.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.launch_template_tag_specification_request_list
 
         out["tag_specifications"] = (
             capo_ec2.types.launch_template_tag_specification_request_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
-    if el.find("ElasticGpuSpecifications") is not None:
+    if el.find("ElasticGpuSpecification") is not None:
         import capo_ec2.types.elastic_gpu_specification_list
 
         out["elastic_gpu_specifications"] = (
             capo_ec2.types.elastic_gpu_specification_list.deserialize_ec2_query(
-                el, "ElasticGpuSpecifications"
+                el, "ElasticGpuSpecification"
             )
         )
-    if el.find("ElasticInferenceAccelerators") is not None:
+    if el.find("ElasticInferenceAccelerator") is not None:
         import capo_ec2.types.launch_template_elastic_inference_accelerator_list
 
         out["elastic_inference_accelerators"] = (
             capo_ec2.types.launch_template_elastic_inference_accelerator_list.deserialize_ec2_query(
-                el, "ElasticInferenceAccelerators"
+                el, "ElasticInferenceAccelerator"
             )
         )
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
-    if el.find("SecurityGroups") is not None:
+    if el.find("SecurityGroup") is not None:
         import capo_ec2.types.security_group_string_list
 
         out["security_groups"] = (
             capo_ec2.types.security_group_string_list.deserialize_ec2_query(
-                el, "SecurityGroups"
+                el, "SecurityGroup"
             )
         )
     child_instance_market_options = el.find("InstanceMarketOptions")
@@ -529,12 +529,12 @@ def deserialize_ec2_query(el: Element) -> RequestLaunchTemplateData:
                 child_capacity_reservation_specification
             )
         )
-    if el.find("LicenseSpecifications") is not None:
+    if el.find("LicenseSpecification") is not None:
         import capo_ec2.types.launch_template_license_specification_list_request
 
         out["license_specifications"] = (
             capo_ec2.types.launch_template_license_specification_list_request.deserialize_ec2_query(
-                el, "LicenseSpecifications"
+                el, "LicenseSpecification"
             )
         )
     child_hibernation_options = el.find("HibernationOptions")
@@ -610,12 +610,12 @@ def deserialize_ec2_query(el: Element) -> RequestLaunchTemplateData:
                 child_network_performance_options
             )
         )
-    if el.find("SecondaryInterfaces") is not None:
+    if el.find("SecondaryInterface") is not None:
         import capo_ec2.types.launch_template_instance_secondary_interface_specification_request_list
 
         out["secondary_interfaces"] = (
             capo_ec2.types.launch_template_instance_secondary_interface_specification_request_list.deserialize_ec2_query(
-                el, "SecondaryInterfaces"
+                el, "SecondaryInterface"
             )
         )
     return out

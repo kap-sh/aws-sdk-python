@@ -73,39 +73,39 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeclarativePoliciesReport:
     out: DeclarativePoliciesReport = {}  # type: ignore[typeddict-item]
-    child_report_id = el.find("ReportId")
+    child_report_id = el.find("reportId")
     if child_report_id is not None:
         out["report_id"] = str(child_report_id.text or "")
-    child_s3_bucket = el.find("S3Bucket")
+    child_s3_bucket = el.find("s3Bucket")
     if child_s3_bucket is not None:
         out["s3_bucket"] = str(child_s3_bucket.text or "")
-    child_s3_prefix = el.find("S3Prefix")
+    child_s3_prefix = el.find("s3Prefix")
     if child_s3_prefix is not None:
         out["s3_prefix"] = str(child_s3_prefix.text or "")
-    child_target_id = el.find("TargetId")
+    child_target_id = el.find("targetId")
     if child_target_id is not None:
         out["target_id"] = str(child_target_id.text or "")
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_end_time = el.find("EndTime")
+    child_end_time = el.find("endTime")
     if child_end_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["end_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_time
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.report_state
 
         out["status"] = capo_ec2.types.report_state.deserialize_ec2_query(child_status)
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

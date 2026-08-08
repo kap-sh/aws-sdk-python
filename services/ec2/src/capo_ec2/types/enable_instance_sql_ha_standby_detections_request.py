@@ -34,7 +34,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_id_update_string_list
 
         capo_ec2.types.instance_id_update_string_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceId"
         )
     if "sql_server_credentials" in value:
         pairs.append(
@@ -46,12 +46,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableInstanceSqlHaStandbyDetectionsRequest:
     out: EnableInstanceSqlHaStandbyDetectionsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceIds") is not None:
+    if el.find("InstanceId") is not None:
         import capo_ec2.types.instance_id_update_string_list
 
         out["instance_ids"] = (
             capo_ec2.types.instance_id_update_string_list.deserialize_ec2_query(
-                el, "InstanceIds"
+                el, "InstanceId"
             )
         )
     child_sql_server_credentials = el.find("SqlServerCredentials")

@@ -34,42 +34,42 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_id_list
 
         capo_ec2.types.instance_id_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceId"
         )
     if "instance_tags" in value:
         import capo_ec2.types.tag_list
 
         capo_ec2.types.tag_list.serialize_ec2_query(
-            value["instance_tags"], pairs, f"{key_prefix}InstanceTags"
+            value["instance_tags"], pairs, f"{key_prefix}InstanceTag"
         )
     if "dedicated_host_ids" in value:
         import capo_ec2.types.dedicated_host_id_list
 
         capo_ec2.types.dedicated_host_id_list.serialize_ec2_query(
-            value["dedicated_host_ids"], pairs, f"{key_prefix}DedicatedHostIds"
+            value["dedicated_host_ids"], pairs, f"{key_prefix}DedicatedHostId"
         )
 
 
 def deserialize_ec2_query(el: Element) -> InstanceEventWindowDisassociationRequest:
     out: InstanceEventWindowDisassociationRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceIds") is not None:
+    if el.find("InstanceId") is not None:
         import capo_ec2.types.instance_id_list
 
         out["instance_ids"] = capo_ec2.types.instance_id_list.deserialize_ec2_query(
-            el, "InstanceIds"
+            el, "InstanceId"
         )
-    if el.find("InstanceTags") is not None:
+    if el.find("InstanceTag") is not None:
         import capo_ec2.types.tag_list
 
         out["instance_tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(
-            el, "InstanceTags"
+            el, "InstanceTag"
         )
-    if el.find("DedicatedHostIds") is not None:
+    if el.find("DedicatedHostId") is not None:
         import capo_ec2.types.dedicated_host_id_list
 
         out["dedicated_host_ids"] = (
             capo_ec2.types.dedicated_host_id_list.deserialize_ec2_query(
-                el, "DedicatedHostIds"
+                el, "DedicatedHostId"
             )
         )
     return out

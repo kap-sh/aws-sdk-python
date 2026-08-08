@@ -50,7 +50,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsStatusDetails:
     out: EbsStatusDetails = {}  # type: ignore[typeddict-item]
-    child_impaired_since = el.find("ImpairedSince")
+    child_impaired_since = el.find("impairedSince")
     if child_impaired_since is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -59,12 +59,12 @@ def deserialize_ec2_query(el: Element) -> EbsStatusDetails:
                 child_impaired_since
             )
         )
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         import capo_ec2.types.status_name
 
         out["name"] = capo_ec2.types.status_name.deserialize_ec2_query(child_name)
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.status_type
 

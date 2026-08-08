@@ -46,10 +46,10 @@ def deserialize_ec2_query(
     el: Element,
 ) -> VerifiedAccessLogKinesisDataFirehoseDestination:
     out: VerifiedAccessLogKinesisDataFirehoseDestination = {}  # type: ignore[typeddict-item]
-    child_enabled = el.find("Enabled")
+    child_enabled = el.find("enabled")
     if child_enabled is not None:
         out["enabled"] = (child_enabled.text or "").lower() == "true"
-    child_delivery_status = el.find("DeliveryStatus")
+    child_delivery_status = el.find("deliveryStatus")
     if child_delivery_status is not None:
         import capo_ec2.types.verified_access_log_delivery_status
 
@@ -58,7 +58,7 @@ def deserialize_ec2_query(
                 child_delivery_status
             )
         )
-    child_delivery_stream = el.find("DeliveryStream")
+    child_delivery_stream = el.find("deliveryStream")
     if child_delivery_stream is not None:
         out["delivery_stream"] = str(child_delivery_stream.text or "")
     return out

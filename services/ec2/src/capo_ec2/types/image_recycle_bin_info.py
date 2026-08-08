@@ -55,16 +55,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageRecycleBinInfo:
     out: ImageRecycleBinInfo = {}  # type: ignore[typeddict-item]
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_recycle_bin_enter_time = el.find("RecycleBinEnterTime")
+    child_recycle_bin_enter_time = el.find("recycleBinEnterTime")
     if child_recycle_bin_enter_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -73,7 +73,7 @@ def deserialize_ec2_query(el: Element) -> ImageRecycleBinInfo:
                 child_recycle_bin_enter_time
             )
         )
-    child_recycle_bin_exit_time = el.find("RecycleBinExitTime")
+    child_recycle_bin_exit_time = el.find("recycleBinExitTime")
     if child_recycle_bin_exit_time is not None:
         import capo_ec2.types.millisecond_date_time
 

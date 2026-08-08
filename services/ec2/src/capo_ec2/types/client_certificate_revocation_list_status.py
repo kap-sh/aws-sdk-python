@@ -39,7 +39,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientCertificateRevocationListStatus:
     out: ClientCertificateRevocationListStatus = {}  # type: ignore[typeddict-item]
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         import capo_ec2.types.client_certificate_revocation_list_status_code
 
@@ -48,7 +48,7 @@ def deserialize_ec2_query(el: Element) -> ClientCertificateRevocationListStatus:
                 child_code
             )
         )
-    child_message = el.find("Message")
+    child_message = el.find("message")
     if child_message is not None:
         out["message"] = str(child_message.text or "")
     return out

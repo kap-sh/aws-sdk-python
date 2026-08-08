@@ -44,13 +44,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientConnectResponseOptions:
     out: ClientConnectResponseOptions = {}  # type: ignore[typeddict-item]
-    child_enabled = el.find("Enabled")
+    child_enabled = el.find("enabled")
     if child_enabled is not None:
         out["enabled"] = (child_enabled.text or "").lower() == "true"
-    child_lambda_function_arn = el.find("LambdaFunctionArn")
+    child_lambda_function_arn = el.find("lambdaFunctionArn")
     if child_lambda_function_arn is not None:
         out["lambda_function_arn"] = str(child_lambda_function_arn.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_vpn_endpoint_attribute_status
 

@@ -41,15 +41,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> GetTransitGatewayPolicyTableAssociationsResult:
     out: GetTransitGatewayPolicyTableAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("Associations") is not None:
+    if el.find("associations") is not None:
         import capo_ec2.types.transit_gateway_policy_table_association_list
 
         out["associations"] = (
             capo_ec2.types.transit_gateway_policy_table_association_list.deserialize_ec2_query(
-                el, "Associations"
+                el, "associations"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

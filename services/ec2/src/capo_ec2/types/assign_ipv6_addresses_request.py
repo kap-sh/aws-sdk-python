@@ -39,7 +39,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ip_prefix_list
 
         capo_ec2.types.ip_prefix_list.serialize_ec2_query(
-            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefixes"
+            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefix"
         )
     if "network_interface_id" in value:
         pairs.append(
@@ -62,22 +62,22 @@ def deserialize_ec2_query(el: Element) -> AssignIpv6AddressesRequest:
     child_ipv6_prefix_count = el.find("Ipv6PrefixCount")
     if child_ipv6_prefix_count is not None:
         out["ipv6_prefix_count"] = int(child_ipv6_prefix_count.text or "")
-    if el.find("Ipv6Prefixes") is not None:
+    if el.find("Ipv6Prefix") is not None:
         import capo_ec2.types.ip_prefix_list
 
         out["ipv6_prefixes"] = capo_ec2.types.ip_prefix_list.deserialize_ec2_query(
-            el, "Ipv6Prefixes"
+            el, "Ipv6Prefix"
         )
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    if el.find("Ipv6Addresses") is not None:
+    if el.find("ipv6Addresses") is not None:
         import capo_ec2.types.ipv6_address_list
 
         out["ipv6_addresses"] = capo_ec2.types.ipv6_address_list.deserialize_ec2_query(
-            el, "Ipv6Addresses"
+            el, "ipv6Addresses"
         )
-    child_ipv6_address_count = el.find("Ipv6AddressCount")
+    child_ipv6_address_count = el.find("ipv6AddressCount")
     if child_ipv6_address_count is not None:
         out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
     return out

@@ -37,7 +37,7 @@ def serialize_ec2_query(
         import capo_ec2.types.resource_type_option_list
 
         capo_ec2.types.resource_type_option_list.serialize_ec2_query(
-            value["resource_type_options"], pairs, f"{key_prefix}ResourceTypeOptions"
+            value["resource_type_options"], pairs, f"{key_prefix}ResourceTypeOption"
         )
 
 
@@ -52,12 +52,12 @@ def deserialize_ec2_query(el: Element) -> ResourceTypeRequest:
                 child_resource_type
             )
         )
-    if el.find("ResourceTypeOptions") is not None:
+    if el.find("ResourceTypeOption") is not None:
         import capo_ec2.types.resource_type_option_list
 
         out["resource_type_options"] = (
             capo_ec2.types.resource_type_option_list.deserialize_ec2_query(
-                el, "ResourceTypeOptions"
+                el, "ResourceTypeOption"
             )
         )
     return out

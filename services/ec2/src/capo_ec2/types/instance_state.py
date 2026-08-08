@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceState:
     out: InstanceState = {}  # type: ignore[typeddict-item]
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         out["code"] = int(child_code.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         import capo_ec2.types.instance_state_name
 

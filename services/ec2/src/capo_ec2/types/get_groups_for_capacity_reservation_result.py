@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetGroupsForCapacityReservationResult:
     out: GetGroupsForCapacityReservationResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("CapacityReservationGroupSet") is not None:
+    if el.find("capacityReservationGroupSet") is not None:
         import capo_ec2.types.capacity_reservation_group_set
 
         out["capacity_reservation_groups"] = (
             capo_ec2.types.capacity_reservation_group_set.deserialize_ec2_query(
-                el, "CapacityReservationGroupSet"
+                el, "capacityReservationGroupSet"
             )
         )
     return out

@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> BlockPublicAccessStates:
     out: BlockPublicAccessStates = {}  # type: ignore[typeddict-item]
-    child_internet_gateway_block_mode = el.find("InternetGatewayBlockMode")
+    child_internet_gateway_block_mode = el.find("internetGatewayBlockMode")
     if child_internet_gateway_block_mode is not None:
         import capo_ec2.types.block_public_access_mode
 

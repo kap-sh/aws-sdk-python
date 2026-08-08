@@ -37,7 +37,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceFamilyCreditSpecification:
     out: InstanceFamilyCreditSpecification = {}  # type: ignore[typeddict-item]
-    child_instance_family = el.find("InstanceFamily")
+    child_instance_family = el.find("instanceFamily")
     if child_instance_family is not None:
         import capo_ec2.types.unlimited_supported_instance_family
 
@@ -46,7 +46,7 @@ def deserialize_ec2_query(el: Element) -> InstanceFamilyCreditSpecification:
                 child_instance_family
             )
         )
-    child_cpu_credits = el.find("CpuCredits")
+    child_cpu_credits = el.find("cpuCredits")
     if child_cpu_credits is not None:
         out["cpu_credits"] = str(child_cpu_credits.text or "")
     return out

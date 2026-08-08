@@ -137,15 +137,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProvider:
     out: VerifiedAccessTrustProvider = {}  # type: ignore[typeddict-item]
-    child_verified_access_trust_provider_id = el.find("VerifiedAccessTrustProviderId")
+    child_verified_access_trust_provider_id = el.find("verifiedAccessTrustProviderId")
     if child_verified_access_trust_provider_id is not None:
         out["verified_access_trust_provider_id"] = str(
             child_verified_access_trust_provider_id.text or ""
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_trust_provider_type = el.find("TrustProviderType")
+    child_trust_provider_type = el.find("trustProviderType")
     if child_trust_provider_type is not None:
         import capo_ec2.types.trust_provider_type
 
@@ -154,7 +154,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProvider:
                 child_trust_provider_type
             )
         )
-    child_user_trust_provider_type = el.find("UserTrustProviderType")
+    child_user_trust_provider_type = el.find("userTrustProviderType")
     if child_user_trust_provider_type is not None:
         import capo_ec2.types.user_trust_provider_type
 
@@ -163,7 +163,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProvider:
                 child_user_trust_provider_type
             )
         )
-    child_device_trust_provider_type = el.find("DeviceTrustProviderType")
+    child_device_trust_provider_type = el.find("deviceTrustProviderType")
     if child_device_trust_provider_type is not None:
         import capo_ec2.types.device_trust_provider_type
 
@@ -172,34 +172,34 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProvider:
                 child_device_trust_provider_type
             )
         )
-    child_oidc_options = el.find("OidcOptions")
+    child_oidc_options = el.find("oidcOptions")
     if child_oidc_options is not None:
         import capo_ec2.types.oidc_options
 
         out["oidc_options"] = capo_ec2.types.oidc_options.deserialize_ec2_query(
             child_oidc_options
         )
-    child_device_options = el.find("DeviceOptions")
+    child_device_options = el.find("deviceOptions")
     if child_device_options is not None:
         import capo_ec2.types.device_options
 
         out["device_options"] = capo_ec2.types.device_options.deserialize_ec2_query(
             child_device_options
         )
-    child_policy_reference_name = el.find("PolicyReferenceName")
+    child_policy_reference_name = el.find("policyReferenceName")
     if child_policy_reference_name is not None:
         out["policy_reference_name"] = str(child_policy_reference_name.text or "")
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         out["creation_time"] = str(child_creation_time.text or "")
-    child_last_updated_time = el.find("LastUpdatedTime")
+    child_last_updated_time = el.find("lastUpdatedTime")
     if child_last_updated_time is not None:
         out["last_updated_time"] = str(child_last_updated_time.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_sse_specification = el.find("SseSpecification")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_sse_specification = el.find("sseSpecification")
     if child_sse_specification is not None:
         import capo_ec2.types.verified_access_sse_specification_response
 
@@ -208,7 +208,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProvider:
                 child_sse_specification
             )
         )
-    child_native_application_oidc_options = el.find("NativeApplicationOidcOptions")
+    child_native_application_oidc_options = el.find("nativeApplicationOidcOptions")
     if child_native_application_oidc_options is not None:
         import capo_ec2.types.native_application_oidc_options
 

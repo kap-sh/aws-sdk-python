@@ -109,45 +109,45 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientVpnConnection:
     out: ClientVpnConnection = {}  # type: ignore[typeddict-item]
-    child_client_vpn_endpoint_id = el.find("ClientVpnEndpointId")
+    child_client_vpn_endpoint_id = el.find("clientVpnEndpointId")
     if child_client_vpn_endpoint_id is not None:
         out["client_vpn_endpoint_id"] = str(child_client_vpn_endpoint_id.text or "")
-    child_timestamp = el.find("Timestamp")
+    child_timestamp = el.find("timestamp")
     if child_timestamp is not None:
         out["timestamp"] = str(child_timestamp.text or "")
-    child_connection_id = el.find("ConnectionId")
+    child_connection_id = el.find("connectionId")
     if child_connection_id is not None:
         out["connection_id"] = str(child_connection_id.text or "")
-    child_username = el.find("Username")
+    child_username = el.find("username")
     if child_username is not None:
         out["username"] = str(child_username.text or "")
-    child_connection_established_time = el.find("ConnectionEstablishedTime")
+    child_connection_established_time = el.find("connectionEstablishedTime")
     if child_connection_established_time is not None:
         out["connection_established_time"] = str(
             child_connection_established_time.text or ""
         )
-    child_ingress_bytes = el.find("IngressBytes")
+    child_ingress_bytes = el.find("ingressBytes")
     if child_ingress_bytes is not None:
         out["ingress_bytes"] = str(child_ingress_bytes.text or "")
-    child_egress_bytes = el.find("EgressBytes")
+    child_egress_bytes = el.find("egressBytes")
     if child_egress_bytes is not None:
         out["egress_bytes"] = str(child_egress_bytes.text or "")
-    child_ingress_packets = el.find("IngressPackets")
+    child_ingress_packets = el.find("ingressPackets")
     if child_ingress_packets is not None:
         out["ingress_packets"] = str(child_ingress_packets.text or "")
-    child_egress_packets = el.find("EgressPackets")
+    child_egress_packets = el.find("egressPackets")
     if child_egress_packets is not None:
         out["egress_packets"] = str(child_egress_packets.text or "")
-    child_client_ip = el.find("ClientIp")
+    child_client_ip = el.find("clientIp")
     if child_client_ip is not None:
         out["client_ip"] = str(child_client_ip.text or "")
-    child_client_ipv6_address = el.find("ClientIpv6Address")
+    child_client_ipv6_address = el.find("clientIpv6Address")
     if child_client_ipv6_address is not None:
         out["client_ipv6_address"] = str(child_client_ipv6_address.text or "")
-    child_common_name = el.find("CommonName")
+    child_common_name = el.find("commonName")
     if child_common_name is not None:
         out["common_name"] = str(child_common_name.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_vpn_connection_status
 
@@ -156,15 +156,15 @@ def deserialize_ec2_query(el: Element) -> ClientVpnConnection:
                 child_status
             )
         )
-    child_connection_end_time = el.find("ConnectionEndTime")
+    child_connection_end_time = el.find("connectionEndTime")
     if child_connection_end_time is not None:
         out["connection_end_time"] = str(child_connection_end_time.text or "")
-    if el.find("PostureComplianceStatusSet") is not None:
+    if el.find("postureComplianceStatusSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["posture_compliance_statuses"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "PostureComplianceStatusSet"
+                el, "postureComplianceStatusSet"
             )
         )
     return out

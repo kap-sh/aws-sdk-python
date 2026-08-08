@@ -47,16 +47,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSpotFleetInstancesRequest:
     out: DescribeSpotFleetInstancesRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_spot_fleet_request_id = el.find("SpotFleetRequestId")
+    child_spot_fleet_request_id = el.find("spotFleetRequestId")
     if child_spot_fleet_request_id is not None:
         out["spot_fleet_request_id"] = str(child_spot_fleet_request_id.text or "")
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    child_max_results = el.find("MaxResults")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     return out

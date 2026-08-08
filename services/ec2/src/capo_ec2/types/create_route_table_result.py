@@ -35,14 +35,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateRouteTableResult:
     out: CreateRouteTableResult = {}  # type: ignore[typeddict-item]
-    child_route_table = el.find("RouteTable")
+    child_route_table = el.find("routeTable")
     if child_route_table is not None:
         import capo_ec2.types.route_table
 
         out["route_table"] = capo_ec2.types.route_table.deserialize_ec2_query(
             child_route_table
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

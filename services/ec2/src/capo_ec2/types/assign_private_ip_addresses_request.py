@@ -42,7 +42,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ip_prefix_list
 
         capo_ec2.types.ip_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefix"
         )
     if "ipv4_prefix_count" in value:
         pairs.append((f"{key_prefix}Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
@@ -74,32 +74,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssignPrivateIpAddressesRequest:
     out: AssignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Ipv4Prefixes") is not None:
+    if el.find("Ipv4Prefix") is not None:
         import capo_ec2.types.ip_prefix_list
 
         out["ipv4_prefixes"] = capo_ec2.types.ip_prefix_list.deserialize_ec2_query(
-            el, "Ipv4Prefixes"
+            el, "Ipv4Prefix"
         )
     child_ipv4_prefix_count = el.find("Ipv4PrefixCount")
     if child_ipv4_prefix_count is not None:
         out["ipv4_prefix_count"] = int(child_ipv4_prefix_count.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    if el.find("PrivateIpAddress") is not None:
+    if el.find("privateIpAddress") is not None:
         import capo_ec2.types.private_ip_address_string_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.private_ip_address_string_list.deserialize_ec2_query(
-                el, "PrivateIpAddress"
+                el, "privateIpAddress"
             )
         )
-    child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")
+    child_secondary_private_ip_address_count = el.find("secondaryPrivateIpAddressCount")
     if child_secondary_private_ip_address_count is not None:
         out["secondary_private_ip_address_count"] = int(
             child_secondary_private_ip_address_count.text or ""
         )
-    child_allow_reassignment = el.find("AllowReassignment")
+    child_allow_reassignment = el.find("allowReassignment")
     if child_allow_reassignment is not None:
         out["allow_reassignment"] = (
             child_allow_reassignment.text or ""

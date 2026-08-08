@@ -31,7 +31,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteTrafficMirrorSessionResult:
     out: DeleteTrafficMirrorSessionResult = {}  # type: ignore[typeddict-item]
-    child_traffic_mirror_session_id = el.find("TrafficMirrorSessionId")
+    child_traffic_mirror_session_id = el.find("trafficMirrorSessionId")
     if child_traffic_mirror_session_id is not None:
         out["traffic_mirror_session_id"] = str(
             child_traffic_mirror_session_id.text or ""

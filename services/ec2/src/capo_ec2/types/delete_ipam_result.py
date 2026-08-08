@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteIpamResult:
     out: DeleteIpamResult = {}  # type: ignore[typeddict-item]
-    child_ipam = el.find("Ipam")
+    child_ipam = el.find("ipam")
     if child_ipam is not None:
         import capo_ec2.types.ipam
 

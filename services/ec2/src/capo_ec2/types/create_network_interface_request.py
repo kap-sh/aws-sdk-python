@@ -84,7 +84,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ipv4_prefix_list
 
         capo_ec2.types.ipv4_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefix"
         )
     if "ipv4_prefix_count" in value:
         pairs.append((f"{key_prefix}Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
@@ -92,7 +92,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ipv6_prefix_list
 
         capo_ec2.types.ipv6_prefix_list.serialize_ec2_query(
-            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefixes"
+            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefix"
         )
     if "ipv6_prefix_count" in value:
         pairs.append((f"{key_prefix}Ipv6PrefixCount", str(value["ipv6_prefix_count"])))
@@ -106,7 +106,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -143,7 +143,7 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["groups"], pairs, f"{key_prefix}Groups"
+            value["groups"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "private_ip_addresses" in value:
         import capo_ec2.types.private_ip_address_specification_list
@@ -174,20 +174,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInterfaceRequest:
     out: CreateNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Ipv4Prefixes") is not None:
+    if el.find("Ipv4Prefix") is not None:
         import capo_ec2.types.ipv4_prefix_list
 
         out["ipv4_prefixes"] = capo_ec2.types.ipv4_prefix_list.deserialize_ec2_query(
-            el, "Ipv4Prefixes"
+            el, "Ipv4Prefix"
         )
     child_ipv4_prefix_count = el.find("Ipv4PrefixCount")
     if child_ipv4_prefix_count is not None:
         out["ipv4_prefix_count"] = int(child_ipv4_prefix_count.text or "")
-    if el.find("Ipv6Prefixes") is not None:
+    if el.find("Ipv6Prefix") is not None:
         import capo_ec2.types.ipv6_prefix_list
 
         out["ipv6_prefixes"] = capo_ec2.types.ipv6_prefix_list.deserialize_ec2_query(
-            el, "Ipv6Prefixes"
+            el, "Ipv6Prefix"
         )
     child_ipv6_prefix_count = el.find("Ipv6PrefixCount")
     if child_ipv6_prefix_count is not None:
@@ -201,12 +201,12 @@ def deserialize_ec2_query(el: Element) -> CreateNetworkInterfaceRequest:
                 child_interface_type
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_client_token = el.find("ClientToken")
@@ -233,48 +233,48 @@ def deserialize_ec2_query(el: Element) -> CreateNetworkInterfaceRequest:
         out["operator"] = capo_ec2.types.operator_request.deserialize_ec2_query(
             child_operator
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("Groups") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["groups"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "Groups"
+                el, "SecurityGroupId"
             )
         )
-    if el.find("PrivateIpAddresses") is not None:
+    if el.find("privateIpAddresses") is not None:
         import capo_ec2.types.private_ip_address_specification_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.private_ip_address_specification_list.deserialize_ec2_query(
-                el, "PrivateIpAddresses"
+                el, "privateIpAddresses"
             )
         )
-    child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")
+    child_secondary_private_ip_address_count = el.find("secondaryPrivateIpAddressCount")
     if child_secondary_private_ip_address_count is not None:
         out["secondary_private_ip_address_count"] = int(
             child_secondary_private_ip_address_count.text or ""
         )
-    if el.find("Ipv6Addresses") is not None:
+    if el.find("ipv6Addresses") is not None:
         import capo_ec2.types.instance_ipv6_address_list
 
         out["ipv6_addresses"] = (
             capo_ec2.types.instance_ipv6_address_list.deserialize_ec2_query(
-                el, "Ipv6Addresses"
+                el, "ipv6Addresses"
             )
         )
-    child_ipv6_address_count = el.find("Ipv6AddressCount")
+    child_ipv6_address_count = el.find("ipv6AddressCount")
     if child_ipv6_address_count is not None:
         out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

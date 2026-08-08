@@ -117,44 +117,44 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkCardInfo:
     out: NetworkCardInfo = {}  # type: ignore[typeddict-item]
-    child_network_card_index = el.find("NetworkCardIndex")
+    child_network_card_index = el.find("networkCardIndex")
     if child_network_card_index is not None:
         out["network_card_index"] = int(child_network_card_index.text or "")
-    child_network_performance = el.find("NetworkPerformance")
+    child_network_performance = el.find("networkPerformance")
     if child_network_performance is not None:
         out["network_performance"] = str(child_network_performance.text or "")
-    child_maximum_network_interfaces = el.find("MaximumNetworkInterfaces")
+    child_maximum_network_interfaces = el.find("maximumNetworkInterfaces")
     if child_maximum_network_interfaces is not None:
         out["maximum_network_interfaces"] = int(
             child_maximum_network_interfaces.text or ""
         )
     child_additional_flexible_network_interfaces = el.find(
-        "AdditionalFlexibleNetworkInterfaces"
+        "additionalFlexibleNetworkInterfaces"
     )
     if child_additional_flexible_network_interfaces is not None:
         out["additional_flexible_network_interfaces"] = int(
             child_additional_flexible_network_interfaces.text or ""
         )
-    child_baseline_bandwidth_in_gbps = el.find("BaselineBandwidthInGbps")
+    child_baseline_bandwidth_in_gbps = el.find("baselineBandwidthInGbps")
     if child_baseline_bandwidth_in_gbps is not None:
         out["baseline_bandwidth_in_gbps"] = float(
             child_baseline_bandwidth_in_gbps.text or ""
         )
-    child_peak_bandwidth_in_gbps = el.find("PeakBandwidthInGbps")
+    child_peak_bandwidth_in_gbps = el.find("peakBandwidthInGbps")
     if child_peak_bandwidth_in_gbps is not None:
         out["peak_bandwidth_in_gbps"] = float(child_peak_bandwidth_in_gbps.text or "")
     child_default_ena_queue_count_per_interface = el.find(
-        "DefaultEnaQueueCountPerInterface"
+        "defaultEnaQueueCountPerInterface"
     )
     if child_default_ena_queue_count_per_interface is not None:
         out["default_ena_queue_count_per_interface"] = int(
             child_default_ena_queue_count_per_interface.text or ""
         )
-    child_maximum_ena_queue_count = el.find("MaximumEnaQueueCount")
+    child_maximum_ena_queue_count = el.find("maximumEnaQueueCount")
     if child_maximum_ena_queue_count is not None:
         out["maximum_ena_queue_count"] = int(child_maximum_ena_queue_count.text or "")
     child_maximum_ena_queue_count_per_interface = el.find(
-        "MaximumEnaQueueCountPerInterface"
+        "maximumEnaQueueCountPerInterface"
     )
     if child_maximum_ena_queue_count_per_interface is not None:
         out["maximum_ena_queue_count_per_interface"] = int(

@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteLocalGatewayRouteTableResult:
     out: DeleteLocalGatewayRouteTableResult = {}  # type: ignore[typeddict-item]
-    child_local_gateway_route_table = el.find("LocalGatewayRouteTable")
+    child_local_gateway_route_table = el.find("localGatewayRouteTable")
     if child_local_gateway_route_table is not None:
         import capo_ec2.types.local_gateway_route_table
 

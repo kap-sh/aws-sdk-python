@@ -73,21 +73,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayClientVpnAttachment:
     out: TransitGatewayClientVpnAttachment = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_client_vpn_endpoint_id = el.find("ClientVpnEndpointId")
+    child_client_vpn_endpoint_id = el.find("clientVpnEndpointId")
     if child_client_vpn_endpoint_id is not None:
         out["client_vpn_endpoint_id"] = str(child_client_vpn_endpoint_id.text or "")
-    child_client_vpn_owner_id = el.find("ClientVpnOwnerId")
+    child_client_vpn_owner_id = el.find("clientVpnOwnerId")
     if child_client_vpn_owner_id is not None:
         out["client_vpn_owner_id"] = str(child_client_vpn_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_attachment_status_type
 
@@ -96,7 +96,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayClientVpnAttachment:
                 child_state
             )
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         out["creation_time"] = str(child_creation_time.text or "")
     return out

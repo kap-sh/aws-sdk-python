@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CopyImageResult:
     out: CopyImageResult = {}  # type: ignore[typeddict-item]
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
     return out

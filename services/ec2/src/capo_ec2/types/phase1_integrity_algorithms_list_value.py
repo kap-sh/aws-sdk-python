@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Phase1IntegrityAlgorithmsListValue:
     out: Phase1IntegrityAlgorithmsListValue = {}  # type: ignore[typeddict-item]
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = str(child_value.text or "")
     return out

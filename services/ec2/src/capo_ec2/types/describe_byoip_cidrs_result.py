@@ -35,13 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeByoipCidrsResult:
     out: DescribeByoipCidrsResult = {}  # type: ignore[typeddict-item]
-    if el.find("ByoipCidrSet") is not None:
+    if el.find("byoipCidrSet") is not None:
         import capo_ec2.types.byoip_cidr_set
 
         out["byoip_cidrs"] = capo_ec2.types.byoip_cidr_set.deserialize_ec2_query(
-            el, "ByoipCidrSet"
+            el, "byoipCidrSet"
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

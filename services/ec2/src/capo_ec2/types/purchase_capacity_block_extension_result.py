@@ -36,12 +36,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PurchaseCapacityBlockExtensionResult:
     out: PurchaseCapacityBlockExtensionResult = {}  # type: ignore[typeddict-item]
-    if el.find("CapacityBlockExtensionSet") is not None:
+    if el.find("capacityBlockExtensionSet") is not None:
         import capo_ec2.types.capacity_block_extension_set
 
         out["capacity_block_extensions"] = (
             capo_ec2.types.capacity_block_extension_set.deserialize_ec2_query(
-                el, "CapacityBlockExtensionSet"
+                el, "capacityBlockExtensionSet"
             )
         )
     return out

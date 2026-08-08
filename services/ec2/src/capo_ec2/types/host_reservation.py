@@ -119,10 +119,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> HostReservation:
     out: HostReservation = {}  # type: ignore[typeddict-item]
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         import capo_ec2.types.currency_code_values
 
@@ -131,56 +131,56 @@ def deserialize_ec2_query(el: Element) -> HostReservation:
                 child_currency_code
             )
         )
-    child_duration = el.find("Duration")
+    child_duration = el.find("duration")
     if child_duration is not None:
         out["duration"] = int(child_duration.text or "")
-    child_end = el.find("End")
+    child_end = el.find("end")
     if child_end is not None:
         import capo_ec2.types.date_time
 
         out["end"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end)
-    if el.find("HostIdSet") is not None:
+    if el.find("hostIdSet") is not None:
         import capo_ec2.types.response_host_id_set
 
         out["host_id_set"] = capo_ec2.types.response_host_id_set.deserialize_ec2_query(
-            el, "HostIdSet"
+            el, "hostIdSet"
         )
-    child_host_reservation_id = el.find("HostReservationId")
+    child_host_reservation_id = el.find("hostReservationId")
     if child_host_reservation_id is not None:
         out["host_reservation_id"] = str(child_host_reservation_id.text or "")
-    child_hourly_price = el.find("HourlyPrice")
+    child_hourly_price = el.find("hourlyPrice")
     if child_hourly_price is not None:
         out["hourly_price"] = str(child_hourly_price.text or "")
-    child_instance_family = el.find("InstanceFamily")
+    child_instance_family = el.find("instanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
-    child_offering_id = el.find("OfferingId")
+    child_offering_id = el.find("offeringId")
     if child_offering_id is not None:
         out["offering_id"] = str(child_offering_id.text or "")
-    child_payment_option = el.find("PaymentOption")
+    child_payment_option = el.find("paymentOption")
     if child_payment_option is not None:
         import capo_ec2.types.payment_option
 
         out["payment_option"] = capo_ec2.types.payment_option.deserialize_ec2_query(
             child_payment_option
         )
-    child_start = el.find("Start")
+    child_start = el.find("start")
     if child_start is not None:
         import capo_ec2.types.date_time
 
         out["start"] = capo_ec2.types.date_time.deserialize_ec2_query(child_start)
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.reservation_state
 
         out["state"] = capo_ec2.types.reservation_state.deserialize_ec2_query(
             child_state
         )
-    child_upfront_price = el.find("UpfrontPrice")
+    child_upfront_price = el.find("upfrontPrice")
     if child_upfront_price is not None:
         out["upfront_price"] = str(child_upfront_price.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

@@ -33,10 +33,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeletePlacementGroupRequest:
     out: DeletePlacementGroupRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
     return out

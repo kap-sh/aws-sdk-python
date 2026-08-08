@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteSubnetCidrReservationResult:
     out: DeleteSubnetCidrReservationResult = {}  # type: ignore[typeddict-item]
-    child_deleted_subnet_cidr_reservation = el.find("DeletedSubnetCidrReservation")
+    child_deleted_subnet_cidr_reservation = el.find("deletedSubnetCidrReservation")
     if child_deleted_subnet_cidr_reservation is not None:
         import capo_ec2.types.subnet_cidr_reservation
 

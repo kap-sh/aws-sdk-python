@@ -123,34 +123,34 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SnapshotTierStatus:
     out: SnapshotTierStatus = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.snapshot_state
 
         out["status"] = capo_ec2.types.snapshot_state.deserialize_ec2_query(
             child_status
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_storage_tier = el.find("StorageTier")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_storage_tier = el.find("storageTier")
     if child_storage_tier is not None:
         import capo_ec2.types.storage_tier
 
         out["storage_tier"] = capo_ec2.types.storage_tier.deserialize_ec2_query(
             child_storage_tier
         )
-    child_last_tiering_start_time = el.find("LastTieringStartTime")
+    child_last_tiering_start_time = el.find("lastTieringStartTime")
     if child_last_tiering_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -159,10 +159,10 @@ def deserialize_ec2_query(el: Element) -> SnapshotTierStatus:
                 child_last_tiering_start_time
             )
         )
-    child_last_tiering_progress = el.find("LastTieringProgress")
+    child_last_tiering_progress = el.find("lastTieringProgress")
     if child_last_tiering_progress is not None:
         out["last_tiering_progress"] = int(child_last_tiering_progress.text or "")
-    child_last_tiering_operation_status = el.find("LastTieringOperationStatus")
+    child_last_tiering_operation_status = el.find("lastTieringOperationStatus")
     if child_last_tiering_operation_status is not None:
         import capo_ec2.types.tiering_operation_status
 
@@ -172,13 +172,13 @@ def deserialize_ec2_query(el: Element) -> SnapshotTierStatus:
             )
         )
     child_last_tiering_operation_status_detail = el.find(
-        "LastTieringOperationStatusDetail"
+        "lastTieringOperationStatusDetail"
     )
     if child_last_tiering_operation_status_detail is not None:
         out["last_tiering_operation_status_detail"] = str(
             child_last_tiering_operation_status_detail.text or ""
         )
-    child_archival_complete_time = el.find("ArchivalCompleteTime")
+    child_archival_complete_time = el.find("archivalCompleteTime")
     if child_archival_complete_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -187,7 +187,7 @@ def deserialize_ec2_query(el: Element) -> SnapshotTierStatus:
                 child_archival_complete_time
             )
         )
-    child_restore_expiry_time = el.find("RestoreExpiryTime")
+    child_restore_expiry_time = el.find("restoreExpiryTime")
     if child_restore_expiry_time is not None:
         import capo_ec2.types.millisecond_date_time
 

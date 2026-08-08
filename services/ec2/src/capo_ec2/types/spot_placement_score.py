@@ -37,13 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotPlacementScore:
     out: SpotPlacementScore = {}  # type: ignore[typeddict-item]
-    child_region = el.find("Region")
+    child_region = el.find("region")
     if child_region is not None:
         out["region"] = str(child_region.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_score = el.find("Score")
+    child_score = el.find("score")
     if child_score is not None:
         out["score"] = int(child_score.text or "")
     return out

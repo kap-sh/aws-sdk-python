@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AccountAttributeValue:
     out: AccountAttributeValue = {}  # type: ignore[typeddict-item]
-    child_attribute_value = el.find("AttributeValue")
+    child_attribute_value = el.find("attributeValue")
     if child_attribute_value is not None:
         out["attribute_value"] = str(child_attribute_value.text or "")
     return out

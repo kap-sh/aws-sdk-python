@@ -35,14 +35,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkAclResult:
     out: CreateNetworkAclResult = {}  # type: ignore[typeddict-item]
-    child_network_acl = el.find("NetworkAcl")
+    child_network_acl = el.find("networkAcl")
     if child_network_acl is not None:
         import capo_ec2.types.network_acl
 
         out["network_acl"] = capo_ec2.types.network_acl.deserialize_ec2_query(
             child_network_acl
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

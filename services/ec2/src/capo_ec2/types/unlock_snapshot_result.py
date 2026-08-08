@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UnlockSnapshotResult:
     out: UnlockSnapshotResult = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
     return out

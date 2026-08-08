@@ -54,7 +54,7 @@ def serialize_ec2_query(
         capo_ec2.types.verified_access_endpoint_id_list.serialize_ec2_query(
             value["verified_access_endpoint_ids"],
             pairs,
-            f"{key_prefix}VerifiedAccessEndpointIds",
+            f"{key_prefix}VerifiedAccessEndpointId",
         )
     if "verified_access_instance_id" in value:
         pairs.append(
@@ -78,7 +78,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -86,12 +86,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVerifiedAccessEndpointsRequest:
     out: DescribeVerifiedAccessEndpointsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("VerifiedAccessEndpointIds") is not None:
+    if el.find("VerifiedAccessEndpointId") is not None:
         import capo_ec2.types.verified_access_endpoint_id_list
 
         out["verified_access_endpoint_ids"] = (
             capo_ec2.types.verified_access_endpoint_id_list.deserialize_ec2_query(
-                el, "VerifiedAccessEndpointIds"
+                el, "VerifiedAccessEndpointId"
             )
         )
     child_verified_access_instance_id = el.find("VerifiedAccessInstanceId")
@@ -108,10 +108,10 @@ def deserialize_ec2_query(el: Element) -> DescribeVerifiedAccessEndpointsRequest
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"

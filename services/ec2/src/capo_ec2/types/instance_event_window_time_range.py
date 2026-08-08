@@ -47,24 +47,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceEventWindowTimeRange:
     out: InstanceEventWindowTimeRange = {}  # type: ignore[typeddict-item]
-    child_start_week_day = el.find("StartWeekDay")
+    child_start_week_day = el.find("startWeekDay")
     if child_start_week_day is not None:
         import capo_ec2.types.week_day
 
         out["start_week_day"] = capo_ec2.types.week_day.deserialize_ec2_query(
             child_start_week_day
         )
-    child_start_hour = el.find("StartHour")
+    child_start_hour = el.find("startHour")
     if child_start_hour is not None:
         out["start_hour"] = int(child_start_hour.text or "")
-    child_end_week_day = el.find("EndWeekDay")
+    child_end_week_day = el.find("endWeekDay")
     if child_end_week_day is not None:
         import capo_ec2.types.week_day
 
         out["end_week_day"] = capo_ec2.types.week_day.deserialize_ec2_query(
             child_end_week_day
         )
-    child_end_hour = el.find("EndHour")
+    child_end_hour = el.find("endHour")
     if child_end_hour is not None:
         out["end_hour"] = int(child_end_hour.text or "")
     return out

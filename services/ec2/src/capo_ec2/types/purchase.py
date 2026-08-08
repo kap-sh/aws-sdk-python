@@ -75,7 +75,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Purchase:
     out: Purchase = {}  # type: ignore[typeddict-item]
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         import capo_ec2.types.currency_code_values
 
@@ -84,32 +84,32 @@ def deserialize_ec2_query(el: Element) -> Purchase:
                 child_currency_code
             )
         )
-    child_duration = el.find("Duration")
+    child_duration = el.find("duration")
     if child_duration is not None:
         out["duration"] = int(child_duration.text or "")
-    if el.find("HostIdSet") is not None:
+    if el.find("hostIdSet") is not None:
         import capo_ec2.types.response_host_id_set
 
         out["host_id_set"] = capo_ec2.types.response_host_id_set.deserialize_ec2_query(
-            el, "HostIdSet"
+            el, "hostIdSet"
         )
-    child_host_reservation_id = el.find("HostReservationId")
+    child_host_reservation_id = el.find("hostReservationId")
     if child_host_reservation_id is not None:
         out["host_reservation_id"] = str(child_host_reservation_id.text or "")
-    child_hourly_price = el.find("HourlyPrice")
+    child_hourly_price = el.find("hourlyPrice")
     if child_hourly_price is not None:
         out["hourly_price"] = str(child_hourly_price.text or "")
-    child_instance_family = el.find("InstanceFamily")
+    child_instance_family = el.find("instanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
-    child_payment_option = el.find("PaymentOption")
+    child_payment_option = el.find("paymentOption")
     if child_payment_option is not None:
         import capo_ec2.types.payment_option
 
         out["payment_option"] = capo_ec2.types.payment_option.deserialize_ec2_query(
             child_payment_option
         )
-    child_upfront_price = el.find("UpfrontPrice")
+    child_upfront_price = el.find("upfrontPrice")
     if child_upfront_price is not None:
         out["upfront_price"] = str(child_upfront_price.text or "")
     return out

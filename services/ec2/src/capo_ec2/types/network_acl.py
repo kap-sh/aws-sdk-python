@@ -70,34 +70,34 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkAcl:
     out: NetworkAcl = {}  # type: ignore[typeddict-item]
-    if el.find("AssociationSet") is not None:
+    if el.find("associationSet") is not None:
         import capo_ec2.types.network_acl_association_list
 
         out["associations"] = (
             capo_ec2.types.network_acl_association_list.deserialize_ec2_query(
-                el, "AssociationSet"
+                el, "associationSet"
             )
         )
-    if el.find("EntrySet") is not None:
+    if el.find("entrySet") is not None:
         import capo_ec2.types.network_acl_entry_list
 
         out["entries"] = capo_ec2.types.network_acl_entry_list.deserialize_ec2_query(
-            el, "EntrySet"
+            el, "entrySet"
         )
-    child_is_default = el.find("Default")
+    child_is_default = el.find("default")
     if child_is_default is not None:
         out["is_default"] = (child_is_default.text or "").lower() == "true"
-    child_network_acl_id = el.find("NetworkAclId")
+    child_network_acl_id = el.find("networkAclId")
     if child_network_acl_id is not None:
         out["network_acl_id"] = str(child_network_acl_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpc_id = el.find("VpcId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
     return out

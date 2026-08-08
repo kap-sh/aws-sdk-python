@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MoveByoipCidrToIpamResult:
     out: MoveByoipCidrToIpamResult = {}  # type: ignore[typeddict-item]
-    child_byoip_cidr = el.find("ByoipCidr")
+    child_byoip_cidr = el.find("byoipCidr")
     if child_byoip_cidr is not None:
         import capo_ec2.types.byoip_cidr
 

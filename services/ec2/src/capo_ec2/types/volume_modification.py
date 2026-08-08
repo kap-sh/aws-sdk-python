@@ -134,10 +134,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeModification:
     out: VolumeModification = {}  # type: ignore[typeddict-item]
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_modification_state = el.find("ModificationState")
+    child_modification_state = el.find("modificationState")
     if child_modification_state is not None:
         import capo_ec2.types.volume_modification_state
 
@@ -146,67 +146,67 @@ def deserialize_ec2_query(el: Element) -> VolumeModification:
                 child_modification_state
             )
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_target_size = el.find("TargetSize")
+    child_target_size = el.find("targetSize")
     if child_target_size is not None:
         out["target_size"] = int(child_target_size.text or "")
-    child_target_iops = el.find("TargetIops")
+    child_target_iops = el.find("targetIops")
     if child_target_iops is not None:
         out["target_iops"] = int(child_target_iops.text or "")
-    child_target_volume_type = el.find("TargetVolumeType")
+    child_target_volume_type = el.find("targetVolumeType")
     if child_target_volume_type is not None:
         import capo_ec2.types.volume_type
 
         out["target_volume_type"] = capo_ec2.types.volume_type.deserialize_ec2_query(
             child_target_volume_type
         )
-    child_target_throughput = el.find("TargetThroughput")
+    child_target_throughput = el.find("targetThroughput")
     if child_target_throughput is not None:
         out["target_throughput"] = int(child_target_throughput.text or "")
-    child_target_multi_attach_enabled = el.find("TargetMultiAttachEnabled")
+    child_target_multi_attach_enabled = el.find("targetMultiAttachEnabled")
     if child_target_multi_attach_enabled is not None:
         out["target_multi_attach_enabled"] = (
             child_target_multi_attach_enabled.text or ""
         ).lower() == "true"
-    child_original_size = el.find("OriginalSize")
+    child_original_size = el.find("originalSize")
     if child_original_size is not None:
         out["original_size"] = int(child_original_size.text or "")
-    child_original_iops = el.find("OriginalIops")
+    child_original_iops = el.find("originalIops")
     if child_original_iops is not None:
         out["original_iops"] = int(child_original_iops.text or "")
-    child_original_volume_type = el.find("OriginalVolumeType")
+    child_original_volume_type = el.find("originalVolumeType")
     if child_original_volume_type is not None:
         import capo_ec2.types.volume_type
 
         out["original_volume_type"] = capo_ec2.types.volume_type.deserialize_ec2_query(
             child_original_volume_type
         )
-    child_original_throughput = el.find("OriginalThroughput")
+    child_original_throughput = el.find("originalThroughput")
     if child_original_throughput is not None:
         out["original_throughput"] = int(child_original_throughput.text or "")
-    child_original_multi_attach_enabled = el.find("OriginalMultiAttachEnabled")
+    child_original_multi_attach_enabled = el.find("originalMultiAttachEnabled")
     if child_original_multi_attach_enabled is not None:
         out["original_multi_attach_enabled"] = (
             child_original_multi_attach_enabled.text or ""
         ).lower() == "true"
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = int(child_progress.text or "")
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.date_time
 
         out["start_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_end_time = el.find("EndTime")
+    child_end_time = el.find("endTime")
     if child_end_time is not None:
         import capo_ec2.types.date_time
 
         out["end_time"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end_time)
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

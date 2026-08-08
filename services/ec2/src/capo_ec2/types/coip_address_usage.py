@@ -38,16 +38,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CoipAddressUsage:
     out: CoipAddressUsage = {}  # type: ignore[typeddict-item]
-    child_allocation_id = el.find("AllocationId")
+    child_allocation_id = el.find("allocationId")
     if child_allocation_id is not None:
         out["allocation_id"] = str(child_allocation_id.text or "")
-    child_aws_account_id = el.find("AwsAccountId")
+    child_aws_account_id = el.find("awsAccountId")
     if child_aws_account_id is not None:
         out["aws_account_id"] = str(child_aws_account_id.text or "")
-    child_aws_service = el.find("AwsService")
+    child_aws_service = el.find("awsService")
     if child_aws_service is not None:
         out["aws_service"] = str(child_aws_service.text or "")
-    child_co_ip = el.find("CoIp")
+    child_co_ip = el.find("coIp")
     if child_co_ip is not None:
         out["co_ip"] = str(child_co_ip.text or "")
     return out

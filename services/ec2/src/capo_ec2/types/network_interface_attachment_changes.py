@@ -60,10 +60,10 @@ def deserialize_ec2_query(el: Element) -> NetworkInterfaceAttachmentChanges:
     child_ena_queue_count = el.find("EnaQueueCount")
     if child_ena_queue_count is not None:
         out["ena_queue_count"] = int(child_ena_queue_count.text or "")
-    child_attachment_id = el.find("AttachmentId")
+    child_attachment_id = el.find("attachmentId")
     if child_attachment_id is not None:
         out["attachment_id"] = str(child_attachment_id.text or "")
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""

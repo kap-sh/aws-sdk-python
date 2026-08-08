@@ -34,12 +34,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetRouteServerAssociationsResult:
     out: GetRouteServerAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("RouteServerAssociationSet") is not None:
+    if el.find("routeServerAssociationSet") is not None:
         import capo_ec2.types.route_server_associations_list
 
         out["route_server_associations"] = (
             capo_ec2.types.route_server_associations_list.deserialize_ec2_query(
-                el, "RouteServerAssociationSet"
+                el, "routeServerAssociationSet"
             )
         )
     return out

@@ -33,10 +33,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceUsage:
     out: InstanceUsage = {}  # type: ignore[typeddict-item]
-    child_account_id = el.find("AccountId")
+    child_account_id = el.find("accountId")
     if child_account_id is not None:
         out["account_id"] = str(child_account_id.text or "")
-    child_used_instance_count = el.find("UsedInstanceCount")
+    child_used_instance_count = el.find("usedInstanceCount")
     if child_used_instance_count is not None:
         out["used_instance_count"] = int(child_used_instance_count.text or "")
     return out

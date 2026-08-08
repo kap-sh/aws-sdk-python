@@ -26,18 +26,18 @@ def serialize_ec2_query(
         import capo_ec2.types.performance_factor_reference_set_request
 
         capo_ec2.types.performance_factor_reference_set_request.serialize_ec2_query(
-            value["references"], pairs, f"{key_prefix}References"
+            value["references"], pairs, f"{key_prefix}Reference"
         )
 
 
 def deserialize_ec2_query(el: Element) -> CpuPerformanceFactorRequest:
     out: CpuPerformanceFactorRequest = {}  # type: ignore[typeddict-item]
-    if el.find("References") is not None:
+    if el.find("Reference") is not None:
         import capo_ec2.types.performance_factor_reference_set_request
 
         out["references"] = (
             capo_ec2.types.performance_factor_reference_set_request.deserialize_ec2_query(
-                el, "References"
+                el, "Reference"
             )
         )
     return out

@@ -65,23 +65,23 @@ def deserialize_ec2_query(el: Element) -> ImportVolumeRequest:
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_image = el.find("Image")
+    child_image = el.find("image")
     if child_image is not None:
         import capo_ec2.types.disk_image_detail
 
         out["image"] = capo_ec2.types.disk_image_detail.deserialize_ec2_query(
             child_image
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_volume = el.find("Volume")
+    child_volume = el.find("volume")
     if child_volume is not None:
         import capo_ec2.types.volume_detail
 

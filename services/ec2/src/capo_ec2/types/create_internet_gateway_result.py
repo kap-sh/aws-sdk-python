@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateInternetGatewayResult:
     out: CreateInternetGatewayResult = {}  # type: ignore[typeddict-item]
-    child_internet_gateway = el.find("InternetGateway")
+    child_internet_gateway = el.find("internetGateway")
     if child_internet_gateway is not None:
         import capo_ec2.types.internet_gateway
 

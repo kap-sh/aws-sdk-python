@@ -64,28 +64,28 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ProcessorInfo:
     out: ProcessorInfo = {}  # type: ignore[typeddict-item]
-    if el.find("SupportedArchitectures") is not None:
+    if el.find("supportedArchitectures") is not None:
         import capo_ec2.types.architecture_type_list
 
         out["supported_architectures"] = (
             capo_ec2.types.architecture_type_list.deserialize_ec2_query(
-                el, "SupportedArchitectures"
+                el, "supportedArchitectures"
             )
         )
-    child_sustained_clock_speed_in_ghz = el.find("SustainedClockSpeedInGhz")
+    child_sustained_clock_speed_in_ghz = el.find("sustainedClockSpeedInGhz")
     if child_sustained_clock_speed_in_ghz is not None:
         out["sustained_clock_speed_in_ghz"] = float(
             child_sustained_clock_speed_in_ghz.text or ""
         )
-    if el.find("SupportedFeatures") is not None:
+    if el.find("supportedFeatures") is not None:
         import capo_ec2.types.supported_additional_processor_feature_list
 
         out["supported_features"] = (
             capo_ec2.types.supported_additional_processor_feature_list.deserialize_ec2_query(
-                el, "SupportedFeatures"
+                el, "supportedFeatures"
             )
         )
-    child_manufacturer = el.find("Manufacturer")
+    child_manufacturer = el.find("manufacturer")
     if child_manufacturer is not None:
         out["manufacturer"] = str(child_manufacturer.text or "")
     return out

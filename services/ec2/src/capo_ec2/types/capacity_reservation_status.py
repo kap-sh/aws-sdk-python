@@ -56,16 +56,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationStatus:
     out: CapacityReservationStatus = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
-    child_total_capacity = el.find("TotalCapacity")
+    child_total_capacity = el.find("totalCapacity")
     if child_total_capacity is not None:
         out["total_capacity"] = int(child_total_capacity.text or "")
-    child_total_available_capacity = el.find("TotalAvailableCapacity")
+    child_total_available_capacity = el.find("totalAvailableCapacity")
     if child_total_available_capacity is not None:
         out["total_available_capacity"] = int(child_total_available_capacity.text or "")
-    child_total_unavailable_capacity = el.find("TotalUnavailableCapacity")
+    child_total_unavailable_capacity = el.find("totalUnavailableCapacity")
     if child_total_unavailable_capacity is not None:
         out["total_unavailable_capacity"] = int(
             child_total_unavailable_capacity.text or ""

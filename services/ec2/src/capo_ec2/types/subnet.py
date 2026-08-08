@@ -195,55 +195,55 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Subnet:
     out: Subnet = {}  # type: ignore[typeddict-item]
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_enable_lni_at_device_index = el.find("EnableLniAtDeviceIndex")
+    child_enable_lni_at_device_index = el.find("enableLniAtDeviceIndex")
     if child_enable_lni_at_device_index is not None:
         out["enable_lni_at_device_index"] = int(
             child_enable_lni_at_device_index.text or ""
         )
-    child_map_customer_owned_ip_on_launch = el.find("MapCustomerOwnedIpOnLaunch")
+    child_map_customer_owned_ip_on_launch = el.find("mapCustomerOwnedIpOnLaunch")
     if child_map_customer_owned_ip_on_launch is not None:
         out["map_customer_owned_ip_on_launch"] = (
             child_map_customer_owned_ip_on_launch.text or ""
         ).lower() == "true"
-    child_customer_owned_ipv4_pool = el.find("CustomerOwnedIpv4Pool")
+    child_customer_owned_ipv4_pool = el.find("customerOwnedIpv4Pool")
     if child_customer_owned_ipv4_pool is not None:
         out["customer_owned_ipv4_pool"] = str(child_customer_owned_ipv4_pool.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_assign_ipv6_address_on_creation = el.find("AssignIpv6AddressOnCreation")
+    child_assign_ipv6_address_on_creation = el.find("assignIpv6AddressOnCreation")
     if child_assign_ipv6_address_on_creation is not None:
         out["assign_ipv6_address_on_creation"] = (
             child_assign_ipv6_address_on_creation.text or ""
         ).lower() == "true"
-    if el.find("Ipv6CidrBlockAssociationSet") is not None:
+    if el.find("ipv6CidrBlockAssociationSet") is not None:
         import capo_ec2.types.subnet_ipv6_cidr_block_association_set
 
         out["ipv6_cidr_block_association_set"] = (
             capo_ec2.types.subnet_ipv6_cidr_block_association_set.deserialize_ec2_query(
-                el, "Ipv6CidrBlockAssociationSet"
+                el, "ipv6CidrBlockAssociationSet"
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_subnet_arn = el.find("SubnetArn")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_subnet_arn = el.find("subnetArn")
     if child_subnet_arn is not None:
         out["subnet_arn"] = str(child_subnet_arn.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_enable_dns64 = el.find("EnableDns64")
+    child_enable_dns64 = el.find("enableDns64")
     if child_enable_dns64 is not None:
         out["enable_dns64"] = (child_enable_dns64.text or "").lower() == "true"
-    child_ipv6_native = el.find("Ipv6Native")
+    child_ipv6_native = el.find("ipv6Native")
     if child_ipv6_native is not None:
         out["ipv6_native"] = (child_ipv6_native.text or "").lower() == "true"
-    child_private_dns_name_options_on_launch = el.find("PrivateDnsNameOptionsOnLaunch")
+    child_private_dns_name_options_on_launch = el.find("privateDnsNameOptionsOnLaunch")
     if child_private_dns_name_options_on_launch is not None:
         import capo_ec2.types.private_dns_name_options_on_launch
 
@@ -252,7 +252,7 @@ def deserialize_ec2_query(el: Element) -> Subnet:
                 child_private_dns_name_options_on_launch
             )
         )
-    child_block_public_access_states = el.find("BlockPublicAccessStates")
+    child_block_public_access_states = el.find("blockPublicAccessStates")
     if child_block_public_access_states is not None:
         import capo_ec2.types.block_public_access_states
 
@@ -261,35 +261,35 @@ def deserialize_ec2_query(el: Element) -> Subnet:
                 child_block_public_access_states
             )
         )
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.subnet_state
 
         out["state"] = capo_ec2.types.subnet_state.deserialize_ec2_query(child_state)
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_cidr_block = el.find("CidrBlock")
+    child_cidr_block = el.find("cidrBlock")
     if child_cidr_block is not None:
         out["cidr_block"] = str(child_cidr_block.text or "")
-    child_available_ip_address_count = el.find("AvailableIpAddressCount")
+    child_available_ip_address_count = el.find("availableIpAddressCount")
     if child_available_ip_address_count is not None:
         out["available_ip_address_count"] = int(
             child_available_ip_address_count.text or ""
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_default_for_az = el.find("DefaultForAz")
+    child_default_for_az = el.find("defaultForAz")
     if child_default_for_az is not None:
         out["default_for_az"] = (child_default_for_az.text or "").lower() == "true"
-    child_map_public_ip_on_launch = el.find("MapPublicIpOnLaunch")
+    child_map_public_ip_on_launch = el.find("mapPublicIpOnLaunch")
     if child_map_public_ip_on_launch is not None:
         out["map_public_ip_on_launch"] = (
             child_map_public_ip_on_launch.text or ""

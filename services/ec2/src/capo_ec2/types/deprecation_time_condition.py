@@ -33,7 +33,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeprecationTimeCondition:
     out: DeprecationTimeCondition = {}  # type: ignore[typeddict-item]
-    child_maximum_days_since_deprecated = el.find("MaximumDaysSinceDeprecated")
+    child_maximum_days_since_deprecated = el.find("maximumDaysSinceDeprecated")
     if child_maximum_days_since_deprecated is not None:
         out["maximum_days_since_deprecated"] = int(
             child_maximum_days_since_deprecated.text or ""

@@ -98,52 +98,52 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SnapshotInfo:
     out: SnapshotInfo = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_encrypted = el.find("Encrypted")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.snapshot_state
 
         out["state"] = capo_ec2.types.snapshot_state.deserialize_ec2_query(child_state)
-    child_volume_size = el.find("VolumeSize")
+    child_volume_size = el.find("volumeSize")
     if child_volume_size is not None:
         out["volume_size"] = int(child_volume_size.text or "")
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = str(child_progress.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_sse_type = el.find("SseType")
+    child_sse_type = el.find("sseType")
     if child_sse_type is not None:
         import capo_ec2.types.sse_type
 
         out["sse_type"] = capo_ec2.types.sse_type.deserialize_ec2_query(child_sse_type)
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
     return out

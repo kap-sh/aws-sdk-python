@@ -177,40 +177,40 @@ def deserialize_ec2_query(el: Element) -> ReplaceRouteRequest:
     child_odb_network_arn = el.find("OdbNetworkArn")
     if child_odb_network_arn is not None:
         out["odb_network_arn"] = str(child_odb_network_arn.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
-    child_gateway_id = el.find("GatewayId")
+    child_gateway_id = el.find("gatewayId")
     if child_gateway_id is not None:
         out["gateway_id"] = str(child_gateway_id.text or "")
-    child_destination_ipv6_cidr_block = el.find("DestinationIpv6CidrBlock")
+    child_destination_ipv6_cidr_block = el.find("destinationIpv6CidrBlock")
     if child_destination_ipv6_cidr_block is not None:
         out["destination_ipv6_cidr_block"] = str(
             child_destination_ipv6_cidr_block.text or ""
         )
-    child_egress_only_internet_gateway_id = el.find("EgressOnlyInternetGatewayId")
+    child_egress_only_internet_gateway_id = el.find("egressOnlyInternetGatewayId")
     if child_egress_only_internet_gateway_id is not None:
         out["egress_only_internet_gateway_id"] = str(
             child_egress_only_internet_gateway_id.text or ""
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_vpc_peering_connection_id = el.find("VpcPeeringConnectionId")
+    child_vpc_peering_connection_id = el.find("vpcPeeringConnectionId")
     if child_vpc_peering_connection_id is not None:
         out["vpc_peering_connection_id"] = str(
             child_vpc_peering_connection_id.text or ""
         )
-    child_nat_gateway_id = el.find("NatGatewayId")
+    child_nat_gateway_id = el.find("natGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
     return out

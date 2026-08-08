@@ -119,39 +119,39 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnConnectionOptions:
     out: VpnConnectionOptions = {}  # type: ignore[typeddict-item]
-    child_enable_acceleration = el.find("EnableAcceleration")
+    child_enable_acceleration = el.find("enableAcceleration")
     if child_enable_acceleration is not None:
         out["enable_acceleration"] = (
             child_enable_acceleration.text or ""
         ).lower() == "true"
-    child_static_routes_only = el.find("StaticRoutesOnly")
+    child_static_routes_only = el.find("staticRoutesOnly")
     if child_static_routes_only is not None:
         out["static_routes_only"] = (
             child_static_routes_only.text or ""
         ).lower() == "true"
-    child_local_ipv4_network_cidr = el.find("LocalIpv4NetworkCidr")
+    child_local_ipv4_network_cidr = el.find("localIpv4NetworkCidr")
     if child_local_ipv4_network_cidr is not None:
         out["local_ipv4_network_cidr"] = str(child_local_ipv4_network_cidr.text or "")
-    child_remote_ipv4_network_cidr = el.find("RemoteIpv4NetworkCidr")
+    child_remote_ipv4_network_cidr = el.find("remoteIpv4NetworkCidr")
     if child_remote_ipv4_network_cidr is not None:
         out["remote_ipv4_network_cidr"] = str(child_remote_ipv4_network_cidr.text or "")
-    child_local_ipv6_network_cidr = el.find("LocalIpv6NetworkCidr")
+    child_local_ipv6_network_cidr = el.find("localIpv6NetworkCidr")
     if child_local_ipv6_network_cidr is not None:
         out["local_ipv6_network_cidr"] = str(child_local_ipv6_network_cidr.text or "")
-    child_remote_ipv6_network_cidr = el.find("RemoteIpv6NetworkCidr")
+    child_remote_ipv6_network_cidr = el.find("remoteIpv6NetworkCidr")
     if child_remote_ipv6_network_cidr is not None:
         out["remote_ipv6_network_cidr"] = str(child_remote_ipv6_network_cidr.text or "")
-    child_outside_ip_address_type = el.find("OutsideIpAddressType")
+    child_outside_ip_address_type = el.find("outsideIpAddressType")
     if child_outside_ip_address_type is not None:
         out["outside_ip_address_type"] = str(child_outside_ip_address_type.text or "")
     child_transport_transit_gateway_attachment_id = el.find(
-        "TransportTransitGatewayAttachmentId"
+        "transportTransitGatewayAttachmentId"
     )
     if child_transport_transit_gateway_attachment_id is not None:
         out["transport_transit_gateway_attachment_id"] = str(
             child_transport_transit_gateway_attachment_id.text or ""
         )
-    child_tunnel_inside_ip_version = el.find("TunnelInsideIpVersion")
+    child_tunnel_inside_ip_version = el.find("tunnelInsideIpVersion")
     if child_tunnel_inside_ip_version is not None:
         import capo_ec2.types.tunnel_inside_ip_version
 
@@ -160,15 +160,15 @@ def deserialize_ec2_query(el: Element) -> VpnConnectionOptions:
                 child_tunnel_inside_ip_version
             )
         )
-    if el.find("TunnelOptionSet") is not None:
+    if el.find("tunnelOptionSet") is not None:
         import capo_ec2.types.tunnel_options_list
 
         out["tunnel_options"] = (
             capo_ec2.types.tunnel_options_list.deserialize_ec2_query(
-                el, "TunnelOptionSet"
+                el, "tunnelOptionSet"
             )
         )
-    child_tunnel_bandwidth = el.find("TunnelBandwidth")
+    child_tunnel_bandwidth = el.find("tunnelBandwidth")
     if child_tunnel_bandwidth is not None:
         import capo_ec2.types.vpn_tunnel_bandwidth
 

@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayConnectOptions:
     out: TransitGatewayConnectOptions = {}  # type: ignore[typeddict-item]
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.protocol_value
 

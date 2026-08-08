@@ -55,9 +55,7 @@ def serialize_ec2_query(
         import capo_ec2.types.fleet_launch_template_config_list_request
 
         capo_ec2.types.fleet_launch_template_config_list_request.serialize_ec2_query(
-            value["launch_template_configs"],
-            pairs,
-            f"{key_prefix}LaunchTemplateConfigs",
+            value["launch_template_configs"], pairs, f"{key_prefix}LaunchTemplateConfig"
         )
     if "fleet_id" in value:
         pairs.append((f"{key_prefix}FleetId", str(value["fleet_id"])))
@@ -89,12 +87,12 @@ def deserialize_ec2_query(el: Element) -> ModifyFleetRequest:
                 child_excess_capacity_termination_policy
             )
         )
-    if el.find("LaunchTemplateConfigs") is not None:
+    if el.find("LaunchTemplateConfig") is not None:
         import capo_ec2.types.fleet_launch_template_config_list_request
 
         out["launch_template_configs"] = (
             capo_ec2.types.fleet_launch_template_config_list_request.deserialize_ec2_query(
-                el, "LaunchTemplateConfigs"
+                el, "LaunchTemplateConfig"
             )
         )
     child_fleet_id = el.find("FleetId")

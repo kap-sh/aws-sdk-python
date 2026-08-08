@@ -100,36 +100,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverrides:
     out: FleetLaunchTemplateOverrides = {}  # type: ignore[typeddict-item]
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_max_price = el.find("MaxPrice")
+    child_max_price = el.find("maxPrice")
     if child_max_price is not None:
         out["max_price"] = str(child_max_price.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_weighted_capacity = el.find("WeightedCapacity")
+    child_weighted_capacity = el.find("weightedCapacity")
     if child_weighted_capacity is not None:
         out["weighted_capacity"] = float(child_weighted_capacity.text or "")
-    child_priority = el.find("Priority")
+    child_priority = el.find("priority")
     if child_priority is not None:
         out["priority"] = float(child_priority.text or "")
-    child_placement = el.find("Placement")
+    child_placement = el.find("placement")
     if child_placement is not None:
         import capo_ec2.types.placement_response
 
         out["placement"] = capo_ec2.types.placement_response.deserialize_ec2_query(
             child_placement
         )
-    child_instance_requirements = el.find("InstanceRequirements")
+    child_instance_requirements = el.find("instanceRequirements")
     if child_instance_requirements is not None:
         import capo_ec2.types.instance_requirements
 
@@ -138,18 +138,18 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverrides:
                 child_instance_requirements
             )
         )
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    if el.find("BlockDeviceMappingSet") is not None:
+    if el.find("blockDeviceMappingSet") is not None:
         import capo_ec2.types.block_device_mapping_response_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_response_list.deserialize_ec2_query(
-                el, "BlockDeviceMappingSet"
+                el, "blockDeviceMappingSet"
             )
         )
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
     return out

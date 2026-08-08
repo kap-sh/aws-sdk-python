@@ -49,20 +49,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteQueuedReservedInstancesResult:
     out: DeleteQueuedReservedInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("SuccessfulQueuedPurchaseDeletionSet") is not None:
+    if el.find("successfulQueuedPurchaseDeletionSet") is not None:
         import capo_ec2.types.successful_queued_purchase_deletion_set
 
         out["successful_queued_purchase_deletions"] = (
             capo_ec2.types.successful_queued_purchase_deletion_set.deserialize_ec2_query(
-                el, "SuccessfulQueuedPurchaseDeletionSet"
+                el, "successfulQueuedPurchaseDeletionSet"
             )
         )
-    if el.find("FailedQueuedPurchaseDeletionSet") is not None:
+    if el.find("failedQueuedPurchaseDeletionSet") is not None:
         import capo_ec2.types.failed_queued_purchase_deletion_set
 
         out["failed_queued_purchase_deletions"] = (
             capo_ec2.types.failed_queued_purchase_deletion_set.deserialize_ec2_query(
-                el, "FailedQueuedPurchaseDeletionSet"
+                el, "failedQueuedPurchaseDeletionSet"
             )
         )
     return out

@@ -43,19 +43,19 @@ def serialize_ec2_query(
         import capo_ec2.types.fpga_image_id_list
 
         capo_ec2.types.fpga_image_id_list.serialize_ec2_query(
-            value["fpga_image_ids"], pairs, f"{key_prefix}FpgaImageIds"
+            value["fpga_image_ids"], pairs, f"{key_prefix}FpgaImageId"
         )
     if "owners" in value:
         import capo_ec2.types.owner_string_list
 
         capo_ec2.types.owner_string_list.serialize_ec2_query(
-            value["owners"], pairs, f"{key_prefix}Owners"
+            value["owners"], pairs, f"{key_prefix}Owner"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -68,22 +68,22 @@ def deserialize_ec2_query(el: Element) -> DescribeFpgaImagesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("FpgaImageIds") is not None:
+    if el.find("FpgaImageId") is not None:
         import capo_ec2.types.fpga_image_id_list
 
         out["fpga_image_ids"] = capo_ec2.types.fpga_image_id_list.deserialize_ec2_query(
-            el, "FpgaImageIds"
+            el, "FpgaImageId"
         )
-    if el.find("Owners") is not None:
+    if el.find("Owner") is not None:
         import capo_ec2.types.owner_string_list
 
         out["owners"] = capo_ec2.types.owner_string_list.deserialize_ec2_query(
-            el, "Owners"
+            el, "Owner"
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

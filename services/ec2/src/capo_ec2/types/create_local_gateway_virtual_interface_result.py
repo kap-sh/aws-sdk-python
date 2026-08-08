@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateLocalGatewayVirtualInterfaceResult:
     out: CreateLocalGatewayVirtualInterfaceResult = {}  # type: ignore[typeddict-item]
-    child_local_gateway_virtual_interface = el.find("LocalGatewayVirtualInterface")
+    child_local_gateway_virtual_interface = el.find("localGatewayVirtualInterface")
     if child_local_gateway_virtual_interface is not None:
         import capo_ec2.types.local_gateway_virtual_interface
 

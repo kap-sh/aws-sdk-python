@@ -49,20 +49,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DiskImageDescription:
     out: DiskImageDescription = {}  # type: ignore[typeddict-item]
-    child_checksum = el.find("Checksum")
+    child_checksum = el.find("checksum")
     if child_checksum is not None:
         out["checksum"] = str(child_checksum.text or "")
-    child_format = el.find("Format")
+    child_format = el.find("format")
     if child_format is not None:
         import capo_ec2.types.disk_image_format
 
         out["format"] = capo_ec2.types.disk_image_format.deserialize_ec2_query(
             child_format
         )
-    child_import_manifest_url = el.find("ImportManifestUrl")
+    child_import_manifest_url = el.find("importManifestUrl")
     if child_import_manifest_url is not None:
         out["import_manifest_url"] = str(child_import_manifest_url.text or "")
-    child_size = el.find("Size")
+    child_size = el.find("size")
     if child_size is not None:
         out["size"] = int(child_size.text or "")
     return out

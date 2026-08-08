@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrefixListAssociation:
     out: PrefixListAssociation = {}  # type: ignore[typeddict-item]
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_owner = el.find("ResourceOwner")
+    child_resource_owner = el.find("resourceOwner")
     if child_resource_owner is not None:
         out["resource_owner"] = str(child_resource_owner.text or "")
     return out

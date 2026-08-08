@@ -37,10 +37,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ProvisionPublicIpv4PoolCidrResult:
     out: ProvisionPublicIpv4PoolCidrResult = {}  # type: ignore[typeddict-item]
-    child_pool_id = el.find("PoolId")
+    child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
-    child_pool_address_range = el.find("PoolAddressRange")
+    child_pool_address_range = el.find("poolAddressRange")
     if child_pool_address_range is not None:
         import capo_ec2.types.public_ipv4_pool_range
 

@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecondaryInterfaceIpv4Address:
     out: SecondaryInterfaceIpv4Address = {}  # type: ignore[typeddict-item]
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
     return out

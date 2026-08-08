@@ -309,29 +309,29 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceRequirements:
     out: InstanceRequirements = {}  # type: ignore[typeddict-item]
-    child_v_cpu_count = el.find("VCpuCount")
+    child_v_cpu_count = el.find("vCpuCount")
     if child_v_cpu_count is not None:
         import capo_ec2.types.v_cpu_count_range
 
         out["v_cpu_count"] = capo_ec2.types.v_cpu_count_range.deserialize_ec2_query(
             child_v_cpu_count
         )
-    child_memory_mi_b = el.find("MemoryMiB")
+    child_memory_mi_b = el.find("memoryMiB")
     if child_memory_mi_b is not None:
         import capo_ec2.types.memory_mi_b
 
         out["memory_mi_b"] = capo_ec2.types.memory_mi_b.deserialize_ec2_query(
             child_memory_mi_b
         )
-    if el.find("CpuManufacturerSet") is not None:
+    if el.find("cpuManufacturerSet") is not None:
         import capo_ec2.types.cpu_manufacturer_set
 
         out["cpu_manufacturers"] = (
             capo_ec2.types.cpu_manufacturer_set.deserialize_ec2_query(
-                el, "CpuManufacturerSet"
+                el, "cpuManufacturerSet"
             )
         )
-    child_memory_gi_b_per_v_cpu = el.find("MemoryGiBPerVCpu")
+    child_memory_gi_b_per_v_cpu = el.find("memoryGiBPerVCpu")
     if child_memory_gi_b_per_v_cpu is not None:
         import capo_ec2.types.memory_gi_b_per_v_cpu
 
@@ -340,44 +340,44 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_memory_gi_b_per_v_cpu
             )
         )
-    if el.find("ExcludedInstanceTypeSet") is not None:
+    if el.find("excludedInstanceTypeSet") is not None:
         import capo_ec2.types.excluded_instance_type_set
 
         out["excluded_instance_types"] = (
             capo_ec2.types.excluded_instance_type_set.deserialize_ec2_query(
-                el, "ExcludedInstanceTypeSet"
+                el, "excludedInstanceTypeSet"
             )
         )
-    if el.find("InstanceGenerationSet") is not None:
+    if el.find("instanceGenerationSet") is not None:
         import capo_ec2.types.instance_generation_set
 
         out["instance_generations"] = (
             capo_ec2.types.instance_generation_set.deserialize_ec2_query(
-                el, "InstanceGenerationSet"
+                el, "instanceGenerationSet"
             )
         )
     child_spot_max_price_percentage_over_lowest_price = el.find(
-        "SpotMaxPricePercentageOverLowestPrice"
+        "spotMaxPricePercentageOverLowestPrice"
     )
     if child_spot_max_price_percentage_over_lowest_price is not None:
         out["spot_max_price_percentage_over_lowest_price"] = int(
             child_spot_max_price_percentage_over_lowest_price.text or ""
         )
     child_on_demand_max_price_percentage_over_lowest_price = el.find(
-        "OnDemandMaxPricePercentageOverLowestPrice"
+        "onDemandMaxPricePercentageOverLowestPrice"
     )
     if child_on_demand_max_price_percentage_over_lowest_price is not None:
         out["on_demand_max_price_percentage_over_lowest_price"] = int(
             child_on_demand_max_price_percentage_over_lowest_price.text or ""
         )
-    child_bare_metal = el.find("BareMetal")
+    child_bare_metal = el.find("bareMetal")
     if child_bare_metal is not None:
         import capo_ec2.types.bare_metal
 
         out["bare_metal"] = capo_ec2.types.bare_metal.deserialize_ec2_query(
             child_bare_metal
         )
-    child_burstable_performance = el.find("BurstablePerformance")
+    child_burstable_performance = el.find("burstablePerformance")
     if child_burstable_performance is not None:
         import capo_ec2.types.burstable_performance
 
@@ -386,12 +386,12 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_burstable_performance
             )
         )
-    child_require_hibernate_support = el.find("RequireHibernateSupport")
+    child_require_hibernate_support = el.find("requireHibernateSupport")
     if child_require_hibernate_support is not None:
         out["require_hibernate_support"] = (
             child_require_hibernate_support.text or ""
         ).lower() == "true"
-    child_network_interface_count = el.find("NetworkInterfaceCount")
+    child_network_interface_count = el.find("networkInterfaceCount")
     if child_network_interface_count is not None:
         import capo_ec2.types.network_interface_count
 
@@ -400,22 +400,22 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_network_interface_count
             )
         )
-    child_local_storage = el.find("LocalStorage")
+    child_local_storage = el.find("localStorage")
     if child_local_storage is not None:
         import capo_ec2.types.local_storage
 
         out["local_storage"] = capo_ec2.types.local_storage.deserialize_ec2_query(
             child_local_storage
         )
-    if el.find("LocalStorageTypeSet") is not None:
+    if el.find("localStorageTypeSet") is not None:
         import capo_ec2.types.local_storage_type_set
 
         out["local_storage_types"] = (
             capo_ec2.types.local_storage_type_set.deserialize_ec2_query(
-                el, "LocalStorageTypeSet"
+                el, "localStorageTypeSet"
             )
         )
-    child_total_local_storage_gb = el.find("TotalLocalStorageGB")
+    child_total_local_storage_gb = el.find("totalLocalStorageGB")
     if child_total_local_storage_gb is not None:
         import capo_ec2.types.total_local_storage_gb
 
@@ -424,7 +424,7 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_total_local_storage_gb
             )
         )
-    child_baseline_ebs_bandwidth_mbps = el.find("BaselineEbsBandwidthMbps")
+    child_baseline_ebs_bandwidth_mbps = el.find("baselineEbsBandwidthMbps")
     if child_baseline_ebs_bandwidth_mbps is not None:
         import capo_ec2.types.baseline_ebs_bandwidth_mbps
 
@@ -433,15 +433,15 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_baseline_ebs_bandwidth_mbps
             )
         )
-    if el.find("AcceleratorTypeSet") is not None:
+    if el.find("acceleratorTypeSet") is not None:
         import capo_ec2.types.accelerator_type_set
 
         out["accelerator_types"] = (
             capo_ec2.types.accelerator_type_set.deserialize_ec2_query(
-                el, "AcceleratorTypeSet"
+                el, "acceleratorTypeSet"
             )
         )
-    child_accelerator_count = el.find("AcceleratorCount")
+    child_accelerator_count = el.find("acceleratorCount")
     if child_accelerator_count is not None:
         import capo_ec2.types.accelerator_count
 
@@ -450,23 +450,23 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_accelerator_count
             )
         )
-    if el.find("AcceleratorManufacturerSet") is not None:
+    if el.find("acceleratorManufacturerSet") is not None:
         import capo_ec2.types.accelerator_manufacturer_set
 
         out["accelerator_manufacturers"] = (
             capo_ec2.types.accelerator_manufacturer_set.deserialize_ec2_query(
-                el, "AcceleratorManufacturerSet"
+                el, "acceleratorManufacturerSet"
             )
         )
-    if el.find("AcceleratorNameSet") is not None:
+    if el.find("acceleratorNameSet") is not None:
         import capo_ec2.types.accelerator_name_set
 
         out["accelerator_names"] = (
             capo_ec2.types.accelerator_name_set.deserialize_ec2_query(
-                el, "AcceleratorNameSet"
+                el, "acceleratorNameSet"
             )
         )
-    child_accelerator_total_memory_mi_b = el.find("AcceleratorTotalMemoryMiB")
+    child_accelerator_total_memory_mi_b = el.find("acceleratorTotalMemoryMiB")
     if child_accelerator_total_memory_mi_b is not None:
         import capo_ec2.types.accelerator_total_memory_mi_b
 
@@ -475,7 +475,7 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_accelerator_total_memory_mi_b
             )
         )
-    child_network_bandwidth_gbps = el.find("NetworkBandwidthGbps")
+    child_network_bandwidth_gbps = el.find("networkBandwidthGbps")
     if child_network_bandwidth_gbps is not None:
         import capo_ec2.types.network_bandwidth_gbps
 
@@ -484,22 +484,22 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_network_bandwidth_gbps
             )
         )
-    if el.find("AllowedInstanceTypeSet") is not None:
+    if el.find("allowedInstanceTypeSet") is not None:
         import capo_ec2.types.allowed_instance_type_set
 
         out["allowed_instance_types"] = (
             capo_ec2.types.allowed_instance_type_set.deserialize_ec2_query(
-                el, "AllowedInstanceTypeSet"
+                el, "allowedInstanceTypeSet"
             )
         )
     child_max_spot_price_as_percentage_of_optimal_on_demand_price = el.find(
-        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice"
+        "maxSpotPriceAsPercentageOfOptimalOnDemandPrice"
     )
     if child_max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
         out["max_spot_price_as_percentage_of_optimal_on_demand_price"] = int(
             child_max_spot_price_as_percentage_of_optimal_on_demand_price.text or ""
         )
-    child_baseline_performance_factors = el.find("BaselinePerformanceFactors")
+    child_baseline_performance_factors = el.find("baselinePerformanceFactors")
     if child_baseline_performance_factors is not None:
         import capo_ec2.types.baseline_performance_factors
 
@@ -508,7 +508,7 @@ def deserialize_ec2_query(el: Element) -> InstanceRequirements:
                 child_baseline_performance_factors
             )
         )
-    child_require_encryption_in_transit = el.find("RequireEncryptionInTransit")
+    child_require_encryption_in_transit = el.find("requireEncryptionInTransit")
     if child_require_encryption_in_transit is not None:
         out["require_encryption_in_transit"] = (
             child_require_encryption_in_transit.text or ""

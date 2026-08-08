@@ -94,21 +94,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastGroup:
     out: TransitGatewayMulticastGroup = {}  # type: ignore[typeddict-item]
-    child_group_ip_address = el.find("GroupIpAddress")
+    child_group_ip_address = el.find("groupIpAddress")
     if child_group_ip_address is not None:
         out["group_ip_address"] = str(child_group_ip_address.text or "")
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.transit_gateway_attachment_resource_type
 
@@ -117,26 +117,26 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastGroup:
                 child_resource_type
             )
         )
-    child_resource_owner_id = el.find("ResourceOwnerId")
+    child_resource_owner_id = el.find("resourceOwnerId")
     if child_resource_owner_id is not None:
         out["resource_owner_id"] = str(child_resource_owner_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_group_member = el.find("GroupMember")
+    child_group_member = el.find("groupMember")
     if child_group_member is not None:
         out["group_member"] = (child_group_member.text or "").lower() == "true"
-    child_group_source = el.find("GroupSource")
+    child_group_source = el.find("groupSource")
     if child_group_source is not None:
         out["group_source"] = (child_group_source.text or "").lower() == "true"
-    child_member_type = el.find("MemberType")
+    child_member_type = el.find("memberType")
     if child_member_type is not None:
         import capo_ec2.types.membership_type
 
         out["member_type"] = capo_ec2.types.membership_type.deserialize_ec2_query(
             child_member_type
         )
-    child_source_type = el.find("SourceType")
+    child_source_type = el.find("sourceType")
     if child_source_type is not None:
         import capo_ec2.types.membership_type
 

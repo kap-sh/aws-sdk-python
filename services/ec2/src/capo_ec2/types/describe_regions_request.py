@@ -34,7 +34,7 @@ def serialize_ec2_query(
         import capo_ec2.types.region_name_string_list
 
         capo_ec2.types.region_name_string_list.serialize_ec2_query(
-            value["region_names"], pairs, f"{key_prefix}RegionNames"
+            value["region_names"], pairs, f"{key_prefix}RegionName"
         )
     if "all_regions" in value:
         pairs.append(
@@ -46,28 +46,28 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
 def deserialize_ec2_query(el: Element) -> DescribeRegionsRequest:
     out: DescribeRegionsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("RegionNames") is not None:
+    if el.find("RegionName") is not None:
         import capo_ec2.types.region_name_string_list
 
         out["region_names"] = (
             capo_ec2.types.region_name_string_list.deserialize_ec2_query(
-                el, "RegionNames"
+                el, "RegionName"
             )
         )
     child_all_regions = el.find("AllRegions")
     if child_all_regions is not None:
         out["all_regions"] = (child_all_regions.text or "").lower() == "true"
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

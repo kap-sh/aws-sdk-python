@@ -194,38 +194,38 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotInstanceRequest:
     out: SpotInstanceRequest = {}  # type: ignore[typeddict-item]
-    child_actual_block_hourly_price = el.find("ActualBlockHourlyPrice")
+    child_actual_block_hourly_price = el.find("actualBlockHourlyPrice")
     if child_actual_block_hourly_price is not None:
         out["actual_block_hourly_price"] = str(
             child_actual_block_hourly_price.text or ""
         )
-    child_availability_zone_group = el.find("AvailabilityZoneGroup")
+    child_availability_zone_group = el.find("availabilityZoneGroup")
     if child_availability_zone_group is not None:
         out["availability_zone_group"] = str(child_availability_zone_group.text or "")
-    child_block_duration_minutes = el.find("BlockDurationMinutes")
+    child_block_duration_minutes = el.find("blockDurationMinutes")
     if child_block_duration_minutes is not None:
         out["block_duration_minutes"] = int(child_block_duration_minutes.text or "")
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_fault = el.find("Fault")
+    child_fault = el.find("fault")
     if child_fault is not None:
         import capo_ec2.types.spot_instance_state_fault
 
         out["fault"] = capo_ec2.types.spot_instance_state_fault.deserialize_ec2_query(
             child_fault
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_launch_group = el.find("LaunchGroup")
+    child_launch_group = el.find("launchGroup")
     if child_launch_group is not None:
         out["launch_group"] = str(child_launch_group.text or "")
-    child_launch_specification = el.find("LaunchSpecification")
+    child_launch_specification = el.find("launchSpecification")
     if child_launch_specification is not None:
         import capo_ec2.types.launch_specification
 
@@ -234,17 +234,17 @@ def deserialize_ec2_query(el: Element) -> SpotInstanceRequest:
                 child_launch_specification
             )
         )
-    child_launched_availability_zone = el.find("LaunchedAvailabilityZone")
+    child_launched_availability_zone = el.find("launchedAvailabilityZone")
     if child_launched_availability_zone is not None:
         out["launched_availability_zone"] = str(
             child_launched_availability_zone.text or ""
         )
-    child_launched_availability_zone_id = el.find("LaunchedAvailabilityZoneId")
+    child_launched_availability_zone_id = el.find("launchedAvailabilityZoneId")
     if child_launched_availability_zone_id is not None:
         out["launched_availability_zone_id"] = str(
             child_launched_availability_zone_id.text or ""
         )
-    child_product_description = el.find("ProductDescription")
+    child_product_description = el.find("productDescription")
     if child_product_description is not None:
         import capo_ec2.types.ri_product_description
 
@@ -253,52 +253,52 @@ def deserialize_ec2_query(el: Element) -> SpotInstanceRequest:
                 child_product_description
             )
         )
-    child_spot_instance_request_id = el.find("SpotInstanceRequestId")
+    child_spot_instance_request_id = el.find("spotInstanceRequestId")
     if child_spot_instance_request_id is not None:
         out["spot_instance_request_id"] = str(child_spot_instance_request_id.text or "")
-    child_spot_price = el.find("SpotPrice")
+    child_spot_price = el.find("spotPrice")
     if child_spot_price is not None:
         out["spot_price"] = str(child_spot_price.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.spot_instance_state
 
         out["state"] = capo_ec2.types.spot_instance_state.deserialize_ec2_query(
             child_state
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.spot_instance_status
 
         out["status"] = capo_ec2.types.spot_instance_status.deserialize_ec2_query(
             child_status
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_type = el.find("Type")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.spot_instance_type
 
         out["type"] = capo_ec2.types.spot_instance_type.deserialize_ec2_query(
             child_type
         )
-    child_valid_from = el.find("ValidFrom")
+    child_valid_from = el.find("validFrom")
     if child_valid_from is not None:
         import capo_ec2.types.date_time
 
         out["valid_from"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_valid_from
         )
-    child_valid_until = el.find("ValidUntil")
+    child_valid_until = el.find("validUntil")
     if child_valid_until is not None:
         import capo_ec2.types.date_time
 
         out["valid_until"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_valid_until
         )
-    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    child_instance_interruption_behavior = el.find("instanceInterruptionBehavior")
     if child_instance_interruption_behavior is not None:
         import capo_ec2.types.instance_interruption_behavior
 

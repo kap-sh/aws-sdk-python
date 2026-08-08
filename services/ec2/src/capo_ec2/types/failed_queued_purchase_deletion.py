@@ -39,7 +39,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FailedQueuedPurchaseDeletion:
     out: FailedQueuedPurchaseDeletion = {}  # type: ignore[typeddict-item]
-    child_error = el.find("Error")
+    child_error = el.find("error")
     if child_error is not None:
         import capo_ec2.types.delete_queued_reserved_instances_error
 
@@ -48,7 +48,7 @@ def deserialize_ec2_query(el: Element) -> FailedQueuedPurchaseDeletion:
                 child_error
             )
         )
-    child_reserved_instances_id = el.find("ReservedInstancesId")
+    child_reserved_instances_id = el.find("reservedInstancesId")
     if child_reserved_instances_id is not None:
         out["reserved_instances_id"] = str(child_reserved_instances_id.text or "")
     return out

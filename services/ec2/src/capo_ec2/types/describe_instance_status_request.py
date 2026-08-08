@@ -42,7 +42,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_id_string_list
 
         capo_ec2.types.instance_id_string_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceId"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -61,7 +61,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "include_all_instances" in value:
         pairs.append(
@@ -74,12 +74,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceStatusRequest:
     out: DescribeInstanceStatusRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceIds") is not None:
+    if el.find("InstanceId") is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instance_ids"] = (
             capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-                el, "InstanceIds"
+                el, "InstanceId"
             )
         )
     child_max_results = el.find("MaxResults")
@@ -93,14 +93,14 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceStatusRequest:
         out["include_managed_resources"] = (
             child_include_managed_resources.text or ""
         ).lower() == "true"
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    child_include_all_instances = el.find("IncludeAllInstances")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    child_include_all_instances = el.find("includeAllInstances")
     if child_include_all_instances is not None:
         out["include_all_instances"] = (
             child_include_all_instances.text or ""

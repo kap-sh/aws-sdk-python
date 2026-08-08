@@ -34,7 +34,7 @@ def deserialize_ec2_query(el: Element) -> DeleteDhcpOptionsRequest:
     child_dhcp_options_id = el.find("DhcpOptionsId")
     if child_dhcp_options_id is not None:
         out["dhcp_options_id"] = str(child_dhcp_options_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

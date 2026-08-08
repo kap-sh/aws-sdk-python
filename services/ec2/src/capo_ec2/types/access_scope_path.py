@@ -49,26 +49,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AccessScopePath:
     out: AccessScopePath = {}  # type: ignore[typeddict-item]
-    child_source = el.find("Source")
+    child_source = el.find("source")
     if child_source is not None:
         import capo_ec2.types.path_statement
 
         out["source"] = capo_ec2.types.path_statement.deserialize_ec2_query(
             child_source
         )
-    child_destination = el.find("Destination")
+    child_destination = el.find("destination")
     if child_destination is not None:
         import capo_ec2.types.path_statement
 
         out["destination"] = capo_ec2.types.path_statement.deserialize_ec2_query(
             child_destination
         )
-    if el.find("ThroughResourceSet") is not None:
+    if el.find("throughResourceSet") is not None:
         import capo_ec2.types.through_resources_statement_list
 
         out["through_resources"] = (
             capo_ec2.types.through_resources_statement_list.deserialize_ec2_query(
-                el, "ThroughResourceSet"
+                el, "throughResourceSet"
             )
         )
     return out

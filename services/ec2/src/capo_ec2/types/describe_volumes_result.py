@@ -35,13 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVolumesResult:
     out: DescribeVolumesResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("VolumeSet") is not None:
+    if el.find("volumeSet") is not None:
         import capo_ec2.types.volume_list
 
         out["volumes"] = capo_ec2.types.volume_list.deserialize_ec2_query(
-            el, "VolumeSet"
+            el, "volumeSet"
         )
     return out

@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceConnectEndpointDnsNames:
     out: InstanceConnectEndpointDnsNames = {}  # type: ignore[typeddict-item]
-    child_dns_name = el.find("DnsName")
+    child_dns_name = el.find("dnsName")
     if child_dns_name is not None:
         out["dns_name"] = str(child_dns_name.text or "")
-    child_fips_dns_name = el.find("FipsDnsName")
+    child_fips_dns_name = el.find("fipsDnsName")
     if child_fips_dns_name is not None:
         out["fips_dns_name"] = str(child_fips_dns_name.text or "")
     return out

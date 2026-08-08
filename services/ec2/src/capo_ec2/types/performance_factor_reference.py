@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PerformanceFactorReference:
     out: PerformanceFactorReference = {}  # type: ignore[typeddict-item]
-    child_instance_family = el.find("InstanceFamily")
+    child_instance_family = el.find("instanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
     return out

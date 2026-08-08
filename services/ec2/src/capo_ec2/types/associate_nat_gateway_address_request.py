@@ -45,13 +45,13 @@ def serialize_ec2_query(
         import capo_ec2.types.allocation_id_list
 
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
-            value["allocation_ids"], pairs, f"{key_prefix}AllocationIds"
+            value["allocation_ids"], pairs, f"{key_prefix}AllocationId"
         )
     if "private_ip_addresses" in value:
         import capo_ec2.types.ip_list
 
         capo_ec2.types.ip_list.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddresses"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddress"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -68,17 +68,17 @@ def deserialize_ec2_query(el: Element) -> AssociateNatGatewayAddressRequest:
     child_nat_gateway_id = el.find("NatGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("AllocationIds") is not None:
+    if el.find("AllocationId") is not None:
         import capo_ec2.types.allocation_id_list
 
         out["allocation_ids"] = capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-            el, "AllocationIds"
+            el, "AllocationId"
         )
-    if el.find("PrivateIpAddresses") is not None:
+    if el.find("PrivateIpAddress") is not None:
         import capo_ec2.types.ip_list
 
         out["private_ip_addresses"] = capo_ec2.types.ip_list.deserialize_ec2_query(
-            el, "PrivateIpAddresses"
+            el, "PrivateIpAddress"
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:

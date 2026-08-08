@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ResetEbsDefaultKmsKeyIdResult:
     out: ResetEbsDefaultKmsKeyIdResult = {}  # type: ignore[typeddict-item]
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
     return out

@@ -49,24 +49,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetInstanceTpmEkPubResult:
     out: GetInstanceTpmEkPubResult = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_key_type = el.find("KeyType")
+    child_key_type = el.find("keyType")
     if child_key_type is not None:
         import capo_ec2.types.ek_pub_key_type
 
         out["key_type"] = capo_ec2.types.ek_pub_key_type.deserialize_ec2_query(
             child_key_type
         )
-    child_key_format = el.find("KeyFormat")
+    child_key_format = el.find("keyFormat")
     if child_key_format is not None:
         import capo_ec2.types.ek_pub_key_format
 
         out["key_format"] = capo_ec2.types.ek_pub_key_format.deserialize_ec2_query(
             child_key_format
         )
-    child_key_value = el.find("KeyValue")
+    child_key_value = el.find("keyValue")
     if child_key_value is not None:
         out["key_value"] = str(child_key_value.text or "")
     return out

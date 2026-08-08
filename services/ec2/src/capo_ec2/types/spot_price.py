@@ -65,20 +65,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotPrice:
     out: SpotPrice = {}  # type: ignore[typeddict-item]
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_product_description = el.find("ProductDescription")
+    child_product_description = el.find("productDescription")
     if child_product_description is not None:
         import capo_ec2.types.ri_product_description
 
@@ -87,10 +87,10 @@ def deserialize_ec2_query(el: Element) -> SpotPrice:
                 child_product_description
             )
         )
-    child_spot_price = el.find("SpotPrice")
+    child_spot_price = el.find("spotPrice")
     if child_spot_price is not None:
         out["spot_price"] = str(child_spot_price.text or "")
-    child_timestamp = el.find("Timestamp")
+    child_timestamp = el.find("timestamp")
     if child_timestamp is not None:
         import capo_ec2.types.date_time
 

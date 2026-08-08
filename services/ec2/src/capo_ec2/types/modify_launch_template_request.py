@@ -48,7 +48,7 @@ def serialize_ec2_query(
             (f"{key_prefix}LaunchTemplateName", str(value["launch_template_name"]))
         )
     if "default_version" in value:
-        pairs.append((f"{key_prefix}DefaultVersion", str(value["default_version"])))
+        pairs.append((f"{key_prefix}SetDefaultVersion", str(value["default_version"])))
 
 
 def deserialize_ec2_query(el: Element) -> ModifyLaunchTemplateRequest:
@@ -65,7 +65,7 @@ def deserialize_ec2_query(el: Element) -> ModifyLaunchTemplateRequest:
     child_launch_template_name = el.find("LaunchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    child_default_version = el.find("DefaultVersion")
+    child_default_version = el.find("SetDefaultVersion")
     if child_default_version is not None:
         out["default_version"] = str(child_default_version.text or "")
     return out

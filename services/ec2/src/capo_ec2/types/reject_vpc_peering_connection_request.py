@@ -38,10 +38,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RejectVpcPeeringConnectionRequest:
     out: RejectVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_vpc_peering_connection_id = el.find("VpcPeeringConnectionId")
+    child_vpc_peering_connection_id = el.find("vpcPeeringConnectionId")
     if child_vpc_peering_connection_id is not None:
         out["vpc_peering_connection_id"] = str(
             child_vpc_peering_connection_id.text or ""

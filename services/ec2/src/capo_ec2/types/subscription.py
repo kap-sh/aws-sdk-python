@@ -57,25 +57,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Subscription:
     out: Subscription = {}  # type: ignore[typeddict-item]
-    child_source = el.find("Source")
+    child_source = el.find("source")
     if child_source is not None:
         out["source"] = str(child_source.text or "")
-    child_destination = el.find("Destination")
+    child_destination = el.find("destination")
     if child_destination is not None:
         out["destination"] = str(child_destination.text or "")
-    child_metric = el.find("Metric")
+    child_metric = el.find("metric")
     if child_metric is not None:
         import capo_ec2.types.metric_type
 
         out["metric"] = capo_ec2.types.metric_type.deserialize_ec2_query(child_metric)
-    child_statistic = el.find("Statistic")
+    child_statistic = el.find("statistic")
     if child_statistic is not None:
         import capo_ec2.types.statistic_type
 
         out["statistic"] = capo_ec2.types.statistic_type.deserialize_ec2_query(
             child_statistic
         )
-    child_period = el.find("Period")
+    child_period = el.find("period")
     if child_period is not None:
         import capo_ec2.types.period_type
 

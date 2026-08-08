@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MacHost:
     out: MacHost = {}  # type: ignore[typeddict-item]
-    child_host_id = el.find("HostId")
+    child_host_id = el.find("hostId")
     if child_host_id is not None:
         out["host_id"] = str(child_host_id.text or "")
-    if el.find("MacOSLatestSupportedVersionSet") is not None:
+    if el.find("macOSLatestSupportedVersionSet") is not None:
         import capo_ec2.types.mac_os_version_string_list
 
         out["mac_os_latest_supported_versions"] = (
             capo_ec2.types.mac_os_version_string_list.deserialize_ec2_query(
-                el, "MacOSLatestSupportedVersionSet"
+                el, "macOSLatestSupportedVersionSet"
             )
         )
     return out

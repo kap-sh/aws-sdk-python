@@ -43,19 +43,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> HostProperties:
     out: HostProperties = {}  # type: ignore[typeddict-item]
-    child_cores = el.find("Cores")
+    child_cores = el.find("cores")
     if child_cores is not None:
         out["cores"] = int(child_cores.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_instance_family = el.find("InstanceFamily")
+    child_instance_family = el.find("instanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
-    child_sockets = el.find("Sockets")
+    child_sockets = el.find("sockets")
     if child_sockets is not None:
         out["sockets"] = int(child_sockets.text or "")
-    child_total_v_cpus = el.find("TotalVCpus")
+    child_total_v_cpus = el.find("totalVCpus")
     if child_total_v_cpus is not None:
         out["total_v_cpus"] = int(child_total_v_cpus.text or "")
     return out

@@ -55,10 +55,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SnapshotRecycleBinInfo:
     out: SnapshotRecycleBinInfo = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_recycle_bin_enter_time = el.find("RecycleBinEnterTime")
+    child_recycle_bin_enter_time = el.find("recycleBinEnterTime")
     if child_recycle_bin_enter_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -67,7 +67,7 @@ def deserialize_ec2_query(el: Element) -> SnapshotRecycleBinInfo:
                 child_recycle_bin_enter_time
             )
         )
-    child_recycle_bin_exit_time = el.find("RecycleBinExitTime")
+    child_recycle_bin_exit_time = el.find("recycleBinExitTime")
     if child_recycle_bin_exit_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -76,10 +76,10 @@ def deserialize_ec2_query(el: Element) -> SnapshotRecycleBinInfo:
                 child_recycle_bin_exit_time
             )
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
     return out

@@ -46,7 +46,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InitializationStatusDetails:
     out: InitializationStatusDetails = {}  # type: ignore[typeddict-item]
-    child_initialization_type = el.find("InitializationType")
+    child_initialization_type = el.find("initializationType")
     if child_initialization_type is not None:
         import capo_ec2.types.initialization_type
 
@@ -55,11 +55,11 @@ def deserialize_ec2_query(el: Element) -> InitializationStatusDetails:
                 child_initialization_type
             )
         )
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = int(child_progress.text or "")
     child_estimated_time_to_complete_in_seconds = el.find(
-        "EstimatedTimeToCompleteInSeconds"
+        "estimatedTimeToCompleteInSeconds"
     )
     if child_estimated_time_to_complete_in_seconds is not None:
         out["estimated_time_to_complete_in_seconds"] = int(

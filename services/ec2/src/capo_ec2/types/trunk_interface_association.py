@@ -70,16 +70,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TrunkInterfaceAssociation:
     out: TrunkInterfaceAssociation = {}  # type: ignore[typeddict-item]
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_branch_interface_id = el.find("BranchInterfaceId")
+    child_branch_interface_id = el.find("branchInterfaceId")
     if child_branch_interface_id is not None:
         out["branch_interface_id"] = str(child_branch_interface_id.text or "")
-    child_trunk_interface_id = el.find("TrunkInterfaceId")
+    child_trunk_interface_id = el.find("trunkInterfaceId")
     if child_trunk_interface_id is not None:
         out["trunk_interface_id"] = str(child_trunk_interface_id.text or "")
-    child_interface_protocol = el.find("InterfaceProtocol")
+    child_interface_protocol = el.find("interfaceProtocol")
     if child_interface_protocol is not None:
         import capo_ec2.types.interface_protocol_type
 
@@ -88,14 +88,14 @@ def deserialize_ec2_query(el: Element) -> TrunkInterfaceAssociation:
                 child_interface_protocol
             )
         )
-    child_vlan_id = el.find("VlanId")
+    child_vlan_id = el.find("vlanId")
     if child_vlan_id is not None:
         out["vlan_id"] = int(child_vlan_id.text or "")
-    child_gre_key = el.find("GreKey")
+    child_gre_key = el.find("greKey")
     if child_gre_key is not None:
         out["gre_key"] = int(child_gre_key.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

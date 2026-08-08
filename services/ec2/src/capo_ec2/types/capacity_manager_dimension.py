@@ -166,41 +166,41 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
     out: CapacityManagerDimension = {}  # type: ignore[typeddict-item]
-    child_resource_region = el.find("ResourceRegion")
+    child_resource_region = el.find("resourceRegion")
     if child_resource_region is not None:
         out["resource_region"] = str(child_resource_region.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_account_id = el.find("AccountId")
+    child_account_id = el.find("accountId")
     if child_account_id is not None:
         out["account_id"] = str(child_account_id.text or "")
-    child_account_name = el.find("AccountName")
+    child_account_name = el.find("accountName")
     if child_account_name is not None:
         out["account_name"] = str(child_account_name.text or "")
-    child_instance_family = el.find("InstanceFamily")
+    child_instance_family = el.find("instanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_instance_platform = el.find("InstancePlatform")
+    child_instance_platform = el.find("instancePlatform")
     if child_instance_platform is not None:
         out["instance_platform"] = str(child_instance_platform.text or "")
-    child_reservation_arn = el.find("ReservationArn")
+    child_reservation_arn = el.find("reservationArn")
     if child_reservation_arn is not None:
         out["reservation_arn"] = str(child_reservation_arn.text or "")
-    child_reservation_id = el.find("ReservationId")
+    child_reservation_id = el.find("reservationId")
     if child_reservation_id is not None:
         out["reservation_id"] = str(child_reservation_id.text or "")
-    child_reservation_type = el.find("ReservationType")
+    child_reservation_type = el.find("reservationType")
     if child_reservation_type is not None:
         import capo_ec2.types.reservation_type
 
         out["reservation_type"] = capo_ec2.types.reservation_type.deserialize_ec2_query(
             child_reservation_type
         )
-    child_reservation_create_timestamp = el.find("ReservationCreateTimestamp")
+    child_reservation_create_timestamp = el.find("reservationCreateTimestamp")
     if child_reservation_create_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -209,7 +209,7 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
                 child_reservation_create_timestamp
             )
         )
-    child_reservation_start_timestamp = el.find("ReservationStartTimestamp")
+    child_reservation_start_timestamp = el.find("reservationStartTimestamp")
     if child_reservation_start_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -218,7 +218,7 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
                 child_reservation_start_timestamp
             )
         )
-    child_reservation_end_timestamp = el.find("ReservationEndTimestamp")
+    child_reservation_end_timestamp = el.find("reservationEndTimestamp")
     if child_reservation_end_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -227,7 +227,7 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
                 child_reservation_end_timestamp
             )
         )
-    child_reservation_end_date_type = el.find("ReservationEndDateType")
+    child_reservation_end_date_type = el.find("reservationEndDateType")
     if child_reservation_end_date_type is not None:
         import capo_ec2.types.reservation_end_date_type
 
@@ -236,14 +236,14 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
                 child_reservation_end_date_type
             )
         )
-    child_tenancy = el.find("Tenancy")
+    child_tenancy = el.find("tenancy")
     if child_tenancy is not None:
         import capo_ec2.types.capacity_tenancy
 
         out["tenancy"] = capo_ec2.types.capacity_tenancy.deserialize_ec2_query(
             child_tenancy
         )
-    child_reservation_state = el.find("ReservationState")
+    child_reservation_state = el.find("reservationState")
     if child_reservation_state is not None:
         import capo_ec2.types.reservation_state
 
@@ -253,25 +253,25 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
             )
         )
     child_reservation_instance_match_criteria = el.find(
-        "ReservationInstanceMatchCriteria"
+        "reservationInstanceMatchCriteria"
     )
     if child_reservation_instance_match_criteria is not None:
         out["reservation_instance_match_criteria"] = str(
             child_reservation_instance_match_criteria.text or ""
         )
     child_reservation_unused_financial_owner = el.find(
-        "ReservationUnusedFinancialOwner"
+        "reservationUnusedFinancialOwner"
     )
     if child_reservation_unused_financial_owner is not None:
         out["reservation_unused_financial_owner"] = str(
             child_reservation_unused_financial_owner.text or ""
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.capacity_manager_tag_dimension_set
 
         out["tags"] = (
             capo_ec2.types.capacity_manager_tag_dimension_set.deserialize_ec2_query(
-                el, "TagSet"
+                el, "tagSet"
             )
         )
     return out

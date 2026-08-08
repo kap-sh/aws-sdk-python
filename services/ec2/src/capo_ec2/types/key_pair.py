@@ -48,20 +48,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> KeyPair:
     out: KeyPair = {}  # type: ignore[typeddict-item]
-    child_key_pair_id = el.find("KeyPairId")
+    child_key_pair_id = el.find("keyPairId")
     if child_key_pair_id is not None:
         out["key_pair_id"] = str(child_key_pair_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_key_name = el.find("KeyName")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    child_key_fingerprint = el.find("KeyFingerprint")
+    child_key_fingerprint = el.find("keyFingerprint")
     if child_key_fingerprint is not None:
         out["key_fingerprint"] = str(child_key_fingerprint.text or "")
-    child_key_material = el.find("KeyMaterial")
+    child_key_material = el.find("keyMaterial")
     if child_key_material is not None:
         out["key_material"] = str(child_key_material.text or "")
     return out

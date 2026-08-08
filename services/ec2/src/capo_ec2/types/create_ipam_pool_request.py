@@ -132,13 +132,13 @@ def serialize_ec2_query(
         capo_ec2.types.request_ipam_resource_tag_list.serialize_ec2_query(
             value["allocation_resource_tags"],
             pairs,
-            f"{key_prefix}AllocationResourceTags",
+            f"{key_prefix}AllocationResourceTag",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -209,20 +209,20 @@ def deserialize_ec2_query(el: Element) -> CreateIpamPoolRequest:
         out["allocation_default_netmask_length"] = int(
             child_allocation_default_netmask_length.text or ""
         )
-    if el.find("AllocationResourceTags") is not None:
+    if el.find("AllocationResourceTag") is not None:
         import capo_ec2.types.request_ipam_resource_tag_list
 
         out["allocation_resource_tags"] = (
             capo_ec2.types.request_ipam_resource_tag_list.deserialize_ec2_query(
-                el, "AllocationResourceTags"
+                el, "AllocationResourceTag"
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_client_token = el.find("ClientToken")

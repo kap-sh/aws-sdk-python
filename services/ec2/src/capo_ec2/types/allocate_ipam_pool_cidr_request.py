@@ -73,19 +73,19 @@ def serialize_ec2_query(
         import capo_ec2.types.ipam_pool_allocation_allowed_cidrs
 
         capo_ec2.types.ipam_pool_allocation_allowed_cidrs.serialize_ec2_query(
-            value["allowed_cidrs"], pairs, f"{key_prefix}AllowedCidrs"
+            value["allowed_cidrs"], pairs, f"{key_prefix}AllowedCidr"
         )
     if "disallowed_cidrs" in value:
         import capo_ec2.types.ipam_pool_allocation_disallowed_cidrs
 
         capo_ec2.types.ipam_pool_allocation_disallowed_cidrs.serialize_ec2_query(
-            value["disallowed_cidrs"], pairs, f"{key_prefix}DisallowedCidrs"
+            value["disallowed_cidrs"], pairs, f"{key_prefix}DisallowedCidr"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
 
 
@@ -114,28 +114,28 @@ def deserialize_ec2_query(el: Element) -> AllocateIpamPoolCidrRequest:
         out["preview_next_cidr"] = (
             child_preview_next_cidr.text or ""
         ).lower() == "true"
-    if el.find("AllowedCidrs") is not None:
+    if el.find("AllowedCidr") is not None:
         import capo_ec2.types.ipam_pool_allocation_allowed_cidrs
 
         out["allowed_cidrs"] = (
             capo_ec2.types.ipam_pool_allocation_allowed_cidrs.deserialize_ec2_query(
-                el, "AllowedCidrs"
+                el, "AllowedCidr"
             )
         )
-    if el.find("DisallowedCidrs") is not None:
+    if el.find("DisallowedCidr") is not None:
         import capo_ec2.types.ipam_pool_allocation_disallowed_cidrs
 
         out["disallowed_cidrs"] = (
             capo_ec2.types.ipam_pool_allocation_disallowed_cidrs.deserialize_ec2_query(
-                el, "DisallowedCidrs"
+                el, "DisallowedCidr"
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     return out

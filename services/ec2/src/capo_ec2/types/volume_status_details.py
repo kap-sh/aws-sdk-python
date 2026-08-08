@@ -35,14 +35,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeStatusDetails:
     out: VolumeStatusDetails = {}  # type: ignore[typeddict-item]
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         import capo_ec2.types.volume_status_name
 
         out["name"] = capo_ec2.types.volume_status_name.deserialize_ec2_query(
             child_name
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
     return out

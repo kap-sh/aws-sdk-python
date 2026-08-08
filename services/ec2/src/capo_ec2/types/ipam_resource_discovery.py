@@ -111,39 +111,39 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamResourceDiscovery:
     out: IpamResourceDiscovery = {}  # type: ignore[typeddict-item]
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_ipam_resource_discovery_id = el.find("IpamResourceDiscoveryId")
+    child_ipam_resource_discovery_id = el.find("ipamResourceDiscoveryId")
     if child_ipam_resource_discovery_id is not None:
         out["ipam_resource_discovery_id"] = str(
             child_ipam_resource_discovery_id.text or ""
         )
-    child_ipam_resource_discovery_arn = el.find("IpamResourceDiscoveryArn")
+    child_ipam_resource_discovery_arn = el.find("ipamResourceDiscoveryArn")
     if child_ipam_resource_discovery_arn is not None:
         out["ipam_resource_discovery_arn"] = str(
             child_ipam_resource_discovery_arn.text or ""
         )
-    child_ipam_resource_discovery_region = el.find("IpamResourceDiscoveryRegion")
+    child_ipam_resource_discovery_region = el.find("ipamResourceDiscoveryRegion")
     if child_ipam_resource_discovery_region is not None:
         out["ipam_resource_discovery_region"] = str(
             child_ipam_resource_discovery_region.text or ""
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("OperatingRegionSet") is not None:
+    if el.find("operatingRegionSet") is not None:
         import capo_ec2.types.ipam_operating_region_set
 
         out["operating_regions"] = (
             capo_ec2.types.ipam_operating_region_set.deserialize_ec2_query(
-                el, "OperatingRegionSet"
+                el, "operatingRegionSet"
             )
         )
-    child_is_default = el.find("IsDefault")
+    child_is_default = el.find("isDefault")
     if child_is_default is not None:
         out["is_default"] = (child_is_default.text or "").lower() == "true"
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_resource_discovery_state
 
@@ -152,16 +152,16 @@ def deserialize_ec2_query(el: Element) -> IpamResourceDiscovery:
                 child_state
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    if el.find("OrganizationalUnitExclusionSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    if el.find("organizationalUnitExclusionSet") is not None:
         import capo_ec2.types.ipam_organizational_unit_exclusion_set
 
         out["organizational_unit_exclusions"] = (
             capo_ec2.types.ipam_organizational_unit_exclusion_set.deserialize_ec2_query(
-                el, "OrganizationalUnitExclusionSet"
+                el, "organizationalUnitExclusionSet"
             )
         )
     return out

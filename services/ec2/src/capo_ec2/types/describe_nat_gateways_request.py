@@ -50,7 +50,7 @@ def serialize_ec2_query(
         import capo_ec2.types.nat_gateway_id_string_list
 
         capo_ec2.types.nat_gateway_id_string_list.serialize_ec2_query(
-            value["nat_gateway_ids"], pairs, f"{key_prefix}NatGatewayIds"
+            value["nat_gateway_ids"], pairs, f"{key_prefix}NatGatewayId"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -68,12 +68,12 @@ def deserialize_ec2_query(el: Element) -> DescribeNatGatewaysRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("NatGatewayIds") is not None:
+    if el.find("NatGatewayId") is not None:
         import capo_ec2.types.nat_gateway_id_string_list
 
         out["nat_gateway_ids"] = (
             capo_ec2.types.nat_gateway_id_string_list.deserialize_ec2_query(
-                el, "NatGatewayIds"
+                el, "NatGatewayId"
             )
         )
     child_next_token = el.find("NextToken")

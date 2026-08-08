@@ -40,13 +40,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DiskInfo:
     out: DiskInfo = {}  # type: ignore[typeddict-item]
-    child_size_in_gb = el.find("SizeInGB")
+    child_size_in_gb = el.find("sizeInGB")
     if child_size_in_gb is not None:
         out["size_in_gb"] = int(child_size_in_gb.text or "")
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.disk_type
 

@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcBlockPublicAccessOptionsResult:
     out: DescribeVpcBlockPublicAccessOptionsResult = {}  # type: ignore[typeddict-item]
-    child_vpc_block_public_access_options = el.find("VpcBlockPublicAccessOptions")
+    child_vpc_block_public_access_options = el.find("vpcBlockPublicAccessOptions")
     if child_vpc_block_public_access_options is not None:
         import capo_ec2.types.vpc_block_public_access_options
 

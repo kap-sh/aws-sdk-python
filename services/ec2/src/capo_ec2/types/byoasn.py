@@ -44,16 +44,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Byoasn:
     out: Byoasn = {}  # type: ignore[typeddict-item]
-    child_asn = el.find("Asn")
+    child_asn = el.find("asn")
     if child_asn is not None:
         out["asn"] = str(child_asn.text or "")
-    child_ipam_id = el.find("IpamId")
+    child_ipam_id = el.find("ipamId")
     if child_ipam_id is not None:
         out["ipam_id"] = str(child_ipam_id.text or "")
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.asn_state
 

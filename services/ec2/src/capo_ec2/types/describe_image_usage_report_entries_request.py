@@ -47,13 +47,13 @@ def serialize_ec2_query(
         import capo_ec2.types.describe_image_usage_reports_image_id_string_list
 
         capo_ec2.types.describe_image_usage_reports_image_id_string_list.serialize_ec2_query(
-            value["image_ids"], pairs, f"{key_prefix}ImageIds"
+            value["image_ids"], pairs, f"{key_prefix}ImageId"
         )
     if "report_ids" in value:
         import capo_ec2.types.image_usage_report_id_string_list
 
         capo_ec2.types.image_usage_report_id_string_list.serialize_ec2_query(
-            value["report_ids"], pairs, f"{key_prefix}ReportIds"
+            value["report_ids"], pairs, f"{key_prefix}ReportId"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -61,7 +61,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -71,29 +71,29 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeImageUsageReportEntriesRequest:
     out: DescribeImageUsageReportEntriesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ImageIds") is not None:
+    if el.find("ImageId") is not None:
         import capo_ec2.types.describe_image_usage_reports_image_id_string_list
 
         out["image_ids"] = (
             capo_ec2.types.describe_image_usage_reports_image_id_string_list.deserialize_ec2_query(
-                el, "ImageIds"
+                el, "ImageId"
             )
         )
-    if el.find("ReportIds") is not None:
+    if el.find("ReportId") is not None:
         import capo_ec2.types.image_usage_report_id_string_list
 
         out["report_ids"] = (
             capo_ec2.types.image_usage_report_id_string_list.deserialize_ec2_query(
-                el, "ReportIds"
+                el, "ReportId"
             )
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"

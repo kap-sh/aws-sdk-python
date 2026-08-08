@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribePlacementGroupsResult:
     out: DescribePlacementGroupsResult = {}  # type: ignore[typeddict-item]
-    if el.find("PlacementGroupSet") is not None:
+    if el.find("placementGroupSet") is not None:
         import capo_ec2.types.placement_group_list
 
         out["placement_groups"] = (
             capo_ec2.types.placement_group_list.deserialize_ec2_query(
-                el, "PlacementGroupSet"
+                el, "placementGroupSet"
             )
         )
     return out

@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateHibernationOptions:
     out: LaunchTemplateHibernationOptions = {}  # type: ignore[typeddict-item]
-    child_configured = el.find("Configured")
+    child_configured = el.find("configured")
     if child_configured is not None:
         out["configured"] = (child_configured.text or "").lower() == "true"
     return out

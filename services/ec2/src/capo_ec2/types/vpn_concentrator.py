@@ -60,25 +60,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnConcentrator:
     out: VpnConcentrator = {}  # type: ignore[typeddict-item]
-    child_vpn_concentrator_id = el.find("VpnConcentratorId")
+    child_vpn_concentrator_id = el.find("vpnConcentratorId")
     if child_vpn_concentrator_id is not None:
         out["vpn_concentrator_id"] = str(child_vpn_concentrator_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

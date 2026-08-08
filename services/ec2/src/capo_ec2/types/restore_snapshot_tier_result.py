@@ -52,10 +52,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RestoreSnapshotTierResult:
     out: RestoreSnapshotTierResult = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_restore_start_time = el.find("RestoreStartTime")
+    child_restore_start_time = el.find("restoreStartTime")
     if child_restore_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -64,10 +64,10 @@ def deserialize_ec2_query(el: Element) -> RestoreSnapshotTierResult:
                 child_restore_start_time
             )
         )
-    child_restore_duration = el.find("RestoreDuration")
+    child_restore_duration = el.find("restoreDuration")
     if child_restore_duration is not None:
         out["restore_duration"] = int(child_restore_duration.text or "")
-    child_is_permanent_restore = el.find("IsPermanentRestore")
+    child_is_permanent_restore = el.find("isPermanentRestore")
     if child_is_permanent_restore is not None:
         out["is_permanent_restore"] = (
             child_is_permanent_restore.text or ""

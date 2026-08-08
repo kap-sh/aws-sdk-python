@@ -52,15 +52,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredPublicAddressesResult:
     out: GetIpamDiscoveredPublicAddressesResult = {}  # type: ignore[typeddict-item]
-    if el.find("IpamDiscoveredPublicAddressSet") is not None:
+    if el.find("ipamDiscoveredPublicAddressSet") is not None:
         import capo_ec2.types.ipam_discovered_public_address_set
 
         out["ipam_discovered_public_addresses"] = (
             capo_ec2.types.ipam_discovered_public_address_set.deserialize_ec2_query(
-                el, "IpamDiscoveredPublicAddressSet"
+                el, "ipamDiscoveredPublicAddressSet"
             )
         )
-    child_oldest_sample_time = el.find("OldestSampleTime")
+    child_oldest_sample_time = el.find("oldestSampleTime")
     if child_oldest_sample_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -69,7 +69,7 @@ def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredPublicAddressesResult
                 child_oldest_sample_time
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

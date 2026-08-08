@@ -58,7 +58,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastDomainOptions:
     out: TransitGatewayMulticastDomainOptions = {}  # type: ignore[typeddict-item]
-    child_igmpv2_support = el.find("Igmpv2Support")
+    child_igmpv2_support = el.find("igmpv2Support")
     if child_igmpv2_support is not None:
         import capo_ec2.types.igmpv2_support_value
 
@@ -67,7 +67,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastDomainOptions:
                 child_igmpv2_support
             )
         )
-    child_static_sources_support = el.find("StaticSourcesSupport")
+    child_static_sources_support = el.find("staticSourcesSupport")
     if child_static_sources_support is not None:
         import capo_ec2.types.static_sources_support_value
 
@@ -76,7 +76,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastDomainOptions:
                 child_static_sources_support
             )
         )
-    child_auto_accept_shared_associations = el.find("AutoAcceptSharedAssociations")
+    child_auto_accept_shared_associations = el.find("autoAcceptSharedAssociations")
     if child_auto_accept_shared_associations is not None:
         import capo_ec2.types.auto_accept_shared_associations_value
 

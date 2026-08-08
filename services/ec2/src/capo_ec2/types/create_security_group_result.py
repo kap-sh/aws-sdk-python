@@ -41,14 +41,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateSecurityGroupResult:
     out: CreateSecurityGroupResult = {}  # type: ignore[typeddict-item]
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_security_group_arn = el.find("SecurityGroupArn")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_security_group_arn = el.find("securityGroupArn")
     if child_security_group_arn is not None:
         out["security_group_arn"] = str(child_security_group_arn.text or "")
     return out

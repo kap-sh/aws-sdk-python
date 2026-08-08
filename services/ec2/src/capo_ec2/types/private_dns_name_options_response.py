@@ -49,20 +49,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrivateDnsNameOptionsResponse:
     out: PrivateDnsNameOptionsResponse = {}  # type: ignore[typeddict-item]
-    child_hostname_type = el.find("HostnameType")
+    child_hostname_type = el.find("hostnameType")
     if child_hostname_type is not None:
         import capo_ec2.types.hostname_type
 
         out["hostname_type"] = capo_ec2.types.hostname_type.deserialize_ec2_query(
             child_hostname_type
         )
-    child_enable_resource_name_dns_a_record = el.find("EnableResourceNameDnsARecord")
+    child_enable_resource_name_dns_a_record = el.find("enableResourceNameDnsARecord")
     if child_enable_resource_name_dns_a_record is not None:
         out["enable_resource_name_dns_a_record"] = (
             child_enable_resource_name_dns_a_record.text or ""
         ).lower() == "true"
     child_enable_resource_name_dns_aaaa_record = el.find(
-        "EnableResourceNameDnsAAAARecord"
+        "enableResourceNameDnsAAAARecord"
     )
     if child_enable_resource_name_dns_aaaa_record is not None:
         out["enable_resource_name_dns_aaaa_record"] = (

@@ -46,22 +46,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityAllocation:
     out: CapacityAllocation = {}  # type: ignore[typeddict-item]
-    child_allocation_type = el.find("AllocationType")
+    child_allocation_type = el.find("allocationType")
     if child_allocation_type is not None:
         import capo_ec2.types.allocation_type
 
         out["allocation_type"] = capo_ec2.types.allocation_type.deserialize_ec2_query(
             child_allocation_type
         )
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    if el.find("AllocationMetadataList") is not None:
+    if el.find("allocationMetadataList") is not None:
         import capo_ec2.types.capacity_allocation_metadata_list
 
         out["allocation_metadata"] = (
             capo_ec2.types.capacity_allocation_metadata_list.deserialize_ec2_query(
-                el, "AllocationMetadataList"
+                el, "allocationMetadataList"
             )
         )
     return out

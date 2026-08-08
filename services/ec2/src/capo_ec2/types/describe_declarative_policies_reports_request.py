@@ -43,7 +43,7 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["report_ids"], pairs, f"{key_prefix}ReportIds"
+            value["report_ids"], pairs, f"{key_prefix}ReportId"
         )
 
 
@@ -58,10 +58,10 @@ def deserialize_ec2_query(el: Element) -> DescribeDeclarativePoliciesReportsRequ
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("ReportIds") is not None:
+    if el.find("ReportId") is not None:
         import capo_ec2.types.value_string_list
 
         out["report_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ReportIds"
+            el, "ReportId"
         )
     return out

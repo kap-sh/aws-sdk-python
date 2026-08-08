@@ -68,28 +68,28 @@ def deserialize_ec2_query(
     el: Element,
 ) -> TransitGatewayConfigurationDescribeEndpointStructure:
     out: TransitGatewayConfigurationDescribeEndpointStructure = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    if el.find("AvailabilityZoneSet") is not None:
+    if el.find("availabilityZoneSet") is not None:
         import capo_ec2.types.client_vpn_availability_zone_set
 
         out["availability_zones"] = (
             capo_ec2.types.client_vpn_availability_zone_set.deserialize_ec2_query(
-                el, "AvailabilityZoneSet"
+                el, "availabilityZoneSet"
             )
         )
-    if el.find("AvailabilityZoneIdSet") is not None:
+    if el.find("availabilityZoneIdSet") is not None:
         import capo_ec2.types.client_vpn_availability_zone_id_set
 
         out["availability_zone_ids"] = (
             capo_ec2.types.client_vpn_availability_zone_id_set.deserialize_ec2_query(
-                el, "AvailabilityZoneIdSet"
+                el, "availabilityZoneIdSet"
             )
         )
     return out

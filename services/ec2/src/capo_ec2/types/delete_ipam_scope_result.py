@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteIpamScopeResult:
     out: DeleteIpamScopeResult = {}  # type: ignore[typeddict-item]
-    child_ipam_scope = el.find("IpamScope")
+    child_ipam_scope = el.find("ipamScope")
     if child_ipam_scope is not None:
         import capo_ec2.types.ipam_scope
 

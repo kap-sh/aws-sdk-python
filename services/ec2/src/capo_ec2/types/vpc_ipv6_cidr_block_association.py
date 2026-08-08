@@ -71,13 +71,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcIpv6CidrBlockAssociation:
     out: VpcIpv6CidrBlockAssociation = {}  # type: ignore[typeddict-item]
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_ipv6_cidr_block = el.find("Ipv6CidrBlock")
+    child_ipv6_cidr_block = el.find("ipv6CidrBlock")
     if child_ipv6_cidr_block is not None:
         out["ipv6_cidr_block"] = str(child_ipv6_cidr_block.text or "")
-    child_ipv6_cidr_block_state = el.find("Ipv6CidrBlockState")
+    child_ipv6_cidr_block_state = el.find("ipv6CidrBlockState")
     if child_ipv6_cidr_block_state is not None:
         import capo_ec2.types.vpc_cidr_block_state
 
@@ -86,13 +86,13 @@ def deserialize_ec2_query(el: Element) -> VpcIpv6CidrBlockAssociation:
                 child_ipv6_cidr_block_state
             )
         )
-    child_network_border_group = el.find("NetworkBorderGroup")
+    child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    child_ipv6_pool = el.find("Ipv6Pool")
+    child_ipv6_pool = el.find("ipv6Pool")
     if child_ipv6_pool is not None:
         out["ipv6_pool"] = str(child_ipv6_pool.text or "")
-    child_ipv6_address_attribute = el.find("Ipv6AddressAttribute")
+    child_ipv6_address_attribute = el.find("ipv6AddressAttribute")
     if child_ipv6_address_attribute is not None:
         import capo_ec2.types.ipv6_address_attribute
 
@@ -101,7 +101,7 @@ def deserialize_ec2_query(el: Element) -> VpcIpv6CidrBlockAssociation:
                 child_ipv6_address_attribute
             )
         )
-    child_ip_source = el.find("IpSource")
+    child_ip_source = el.find("ipSource")
     if child_ip_source is not None:
         import capo_ec2.types.ip_source
 

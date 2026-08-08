@@ -47,7 +47,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "vpc_encryption_control_ids" in value:
         import capo_ec2.types.vpc_encryption_control_id_list
@@ -55,13 +55,13 @@ def serialize_ec2_query(
         capo_ec2.types.vpc_encryption_control_id_list.serialize_ec2_query(
             value["vpc_encryption_control_ids"],
             pairs,
-            f"{key_prefix}VpcEncryptionControlIds",
+            f"{key_prefix}VpcEncryptionControlId",
         )
     if "vpc_ids" in value:
         import capo_ec2.types.vpc_id_string_list
 
         capo_ec2.types.vpc_id_string_list.serialize_ec2_query(
-            value["vpc_ids"], pairs, f"{key_prefix}VpcIds"
+            value["vpc_ids"], pairs, f"{key_prefix}VpcId"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -74,23 +74,23 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcEncryptionControlsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("VpcEncryptionControlIds") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("VpcEncryptionControlId") is not None:
         import capo_ec2.types.vpc_encryption_control_id_list
 
         out["vpc_encryption_control_ids"] = (
             capo_ec2.types.vpc_encryption_control_id_list.deserialize_ec2_query(
-                el, "VpcEncryptionControlIds"
+                el, "VpcEncryptionControlId"
             )
         )
-    if el.find("VpcIds") is not None:
+    if el.find("VpcId") is not None:
         import capo_ec2.types.vpc_id_string_list
 
         out["vpc_ids"] = capo_ec2.types.vpc_id_string_list.deserialize_ec2_query(
-            el, "VpcIds"
+            el, "VpcId"
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:

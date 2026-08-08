@@ -69,7 +69,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessLogs:
     out: VerifiedAccessLogs = {}  # type: ignore[typeddict-item]
-    child_s3 = el.find("S3")
+    child_s3 = el.find("s3")
     if child_s3 is not None:
         import capo_ec2.types.verified_access_log_s3_destination
 
@@ -78,7 +78,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessLogs:
                 child_s3
             )
         )
-    child_cloud_watch_logs = el.find("CloudWatchLogs")
+    child_cloud_watch_logs = el.find("cloudWatchLogs")
     if child_cloud_watch_logs is not None:
         import capo_ec2.types.verified_access_log_cloud_watch_logs_destination
 
@@ -87,7 +87,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessLogs:
                 child_cloud_watch_logs
             )
         )
-    child_kinesis_data_firehose = el.find("KinesisDataFirehose")
+    child_kinesis_data_firehose = el.find("kinesisDataFirehose")
     if child_kinesis_data_firehose is not None:
         import capo_ec2.types.verified_access_log_kinesis_data_firehose_destination
 
@@ -96,10 +96,10 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessLogs:
                 child_kinesis_data_firehose
             )
         )
-    child_log_version = el.find("LogVersion")
+    child_log_version = el.find("logVersion")
     if child_log_version is not None:
         out["log_version"] = str(child_log_version.text or "")
-    child_include_trust_context = el.find("IncludeTrustContext")
+    child_include_trust_context = el.find("includeTrustContext")
     if child_include_trust_context is not None:
         out["include_trust_context"] = (
             child_include_trust_context.text or ""

@@ -45,16 +45,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AddressAttribute:
     out: AddressAttribute = {}  # type: ignore[typeddict-item]
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
-    child_allocation_id = el.find("AllocationId")
+    child_allocation_id = el.find("allocationId")
     if child_allocation_id is not None:
         out["allocation_id"] = str(child_allocation_id.text or "")
-    child_ptr_record = el.find("PtrRecord")
+    child_ptr_record = el.find("ptrRecord")
     if child_ptr_record is not None:
         out["ptr_record"] = str(child_ptr_record.text or "")
-    child_ptr_record_update = el.find("PtrRecordUpdate")
+    child_ptr_record_update = el.find("ptrRecordUpdate")
     if child_ptr_record_update is not None:
         import capo_ec2.types.ptr_update_status
 

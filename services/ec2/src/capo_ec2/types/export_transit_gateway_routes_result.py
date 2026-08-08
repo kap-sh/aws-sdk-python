@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ExportTransitGatewayRoutesResult:
     out: ExportTransitGatewayRoutesResult = {}  # type: ignore[typeddict-item]
-    child_s3_location = el.find("S3Location")
+    child_s3_location = el.find("s3Location")
     if child_s3_location is not None:
         out["s3_location"] = str(child_s3_location.text or "")
     return out

@@ -34,13 +34,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelImportTaskResult:
     out: CancelImportTaskResult = {}  # type: ignore[typeddict-item]
-    child_import_task_id = el.find("ImportTaskId")
+    child_import_task_id = el.find("importTaskId")
     if child_import_task_id is not None:
         out["import_task_id"] = str(child_import_task_id.text or "")
-    child_previous_state = el.find("PreviousState")
+    child_previous_state = el.find("previousState")
     if child_previous_state is not None:
         out["previous_state"] = str(child_previous_state.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
     return out

@@ -82,38 +82,38 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NatGatewayAddress:
     out: NatGatewayAddress = {}  # type: ignore[typeddict-item]
-    child_allocation_id = el.find("AllocationId")
+    child_allocation_id = el.find("allocationId")
     if child_allocation_id is not None:
         out["allocation_id"] = str(child_allocation_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_private_ip = el.find("PrivateIp")
+    child_private_ip = el.find("privateIp")
     if child_private_ip is not None:
         out["private_ip"] = str(child_private_ip.text or "")
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_is_primary = el.find("IsPrimary")
+    child_is_primary = el.find("isPrimary")
     if child_is_primary is not None:
         out["is_primary"] = (child_is_primary.text or "").lower() == "true"
-    child_failure_message = el.find("FailureMessage")
+    child_failure_message = el.find("failureMessage")
     if child_failure_message is not None:
         out["failure_message"] = str(child_failure_message.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.nat_gateway_address_status
 
         out["status"] = capo_ec2.types.nat_gateway_address_status.deserialize_ec2_query(
             child_status
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
     return out

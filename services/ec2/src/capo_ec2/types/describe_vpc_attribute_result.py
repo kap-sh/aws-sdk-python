@@ -59,7 +59,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcAttributeResult:
     out: DescribeVpcAttributeResult = {}  # type: ignore[typeddict-item]
-    child_enable_dns_hostnames = el.find("EnableDnsHostnames")
+    child_enable_dns_hostnames = el.find("enableDnsHostnames")
     if child_enable_dns_hostnames is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -68,7 +68,7 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcAttributeResult:
                 child_enable_dns_hostnames
             )
         )
-    child_enable_dns_support = el.find("EnableDnsSupport")
+    child_enable_dns_support = el.find("enableDnsSupport")
     if child_enable_dns_support is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -78,7 +78,7 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcAttributeResult:
             )
         )
     child_enable_network_address_usage_metrics = el.find(
-        "EnableNetworkAddressUsageMetrics"
+        "enableNetworkAddressUsageMetrics"
     )
     if child_enable_network_address_usage_metrics is not None:
         import capo_ec2.types.attribute_boolean_value
@@ -88,7 +88,7 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcAttributeResult:
                 child_enable_network_address_usage_metrics
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
     return out

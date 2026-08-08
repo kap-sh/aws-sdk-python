@@ -45,7 +45,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateAndOverridesResponse:
     out: LaunchTemplateAndOverridesResponse = {}  # type: ignore[typeddict-item]
-    child_launch_template_specification = el.find("LaunchTemplateSpecification")
+    child_launch_template_specification = el.find("launchTemplateSpecification")
     if child_launch_template_specification is not None:
         import capo_ec2.types.fleet_launch_template_specification
 
@@ -54,7 +54,7 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateAndOverridesResponse:
                 child_launch_template_specification
             )
         )
-    child_overrides = el.find("Overrides")
+    child_overrides = el.find("overrides")
     if child_overrides is not None:
         import capo_ec2.types.fleet_launch_template_overrides
 

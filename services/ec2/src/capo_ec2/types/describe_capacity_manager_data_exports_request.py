@@ -44,7 +44,7 @@ def serialize_ec2_query(
         capo_ec2.types.capacity_manager_data_export_id_set.serialize_ec2_query(
             value["capacity_manager_data_export_ids"],
             pairs,
-            f"{key_prefix}CapacityManagerDataExportIds",
+            f"{key_prefix}CapacityManagerDataExportId",
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -56,18 +56,18 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
 def deserialize_ec2_query(el: Element) -> DescribeCapacityManagerDataExportsRequest:
     out: DescribeCapacityManagerDataExportsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("CapacityManagerDataExportIds") is not None:
+    if el.find("CapacityManagerDataExportId") is not None:
         import capo_ec2.types.capacity_manager_data_export_id_set
 
         out["capacity_manager_data_export_ids"] = (
             capo_ec2.types.capacity_manager_data_export_id_set.deserialize_ec2_query(
-                el, "CapacityManagerDataExportIds"
+                el, "CapacityManagerDataExportId"
             )
         )
     child_max_results = el.find("MaxResults")
@@ -79,8 +79,8 @@ def deserialize_ec2_query(el: Element) -> DescribeCapacityManagerDataExportsRequ
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

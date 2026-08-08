@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ProvisionIpamByoasnResult:
     out: ProvisionIpamByoasnResult = {}  # type: ignore[typeddict-item]
-    child_byoasn = el.find("Byoasn")
+    child_byoasn = el.find("byoasn")
     if child_byoasn is not None:
         import capo_ec2.types.byoasn
 

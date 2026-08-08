@@ -40,12 +40,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InterruptionInfo:
     out: InterruptionInfo = {}  # type: ignore[typeddict-item]
-    child_source_capacity_reservation_id = el.find("SourceCapacityReservationId")
+    child_source_capacity_reservation_id = el.find("sourceCapacityReservationId")
     if child_source_capacity_reservation_id is not None:
         out["source_capacity_reservation_id"] = str(
             child_source_capacity_reservation_id.text or ""
         )
-    child_interruption_type = el.find("InterruptionType")
+    child_interruption_type = el.find("interruptionType")
     if child_interruption_type is not None:
         import capo_ec2.types.interruption_type
 

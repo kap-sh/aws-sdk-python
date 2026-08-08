@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ElasticGpuSpecificationResponse:
     out: ElasticGpuSpecificationResponse = {}  # type: ignore[typeddict-item]
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
     return out

@@ -80,10 +80,10 @@ def deserialize_ec2_query(el: Element) -> PurchaseReservedInstancesOfferingReque
         out["purchase_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_purchase_time
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_limit_price = el.find("LimitPrice")
+    child_limit_price = el.find("limitPrice")
     if child_limit_price is not None:
         import capo_ec2.types.reserved_instance_limit_price
 

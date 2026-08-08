@@ -42,15 +42,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceTagNotificationAttribute:
     out: InstanceTagNotificationAttribute = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceTagKeySet") is not None:
+    if el.find("instanceTagKeySet") is not None:
         import capo_ec2.types.instance_tag_key_set
 
         out["instance_tag_keys"] = (
             capo_ec2.types.instance_tag_key_set.deserialize_ec2_query(
-                el, "InstanceTagKeySet"
+                el, "instanceTagKeySet"
             )
         )
-    child_include_all_tags_of_instance = el.find("IncludeAllTagsOfInstance")
+    child_include_all_tags_of_instance = el.find("includeAllTagsOfInstance")
     if child_include_all_tags_of_instance is not None:
         out["include_all_tags_of_instance"] = (
             child_include_all_tags_of_instance.text or ""

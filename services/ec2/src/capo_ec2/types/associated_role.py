@@ -53,20 +53,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssociatedRole:
     out: AssociatedRole = {}  # type: ignore[typeddict-item]
-    child_associated_role_arn = el.find("AssociatedRoleArn")
+    child_associated_role_arn = el.find("associatedRoleArn")
     if child_associated_role_arn is not None:
         out["associated_role_arn"] = str(child_associated_role_arn.text or "")
-    child_certificate_s3_bucket_name = el.find("CertificateS3BucketName")
+    child_certificate_s3_bucket_name = el.find("certificateS3BucketName")
     if child_certificate_s3_bucket_name is not None:
         out["certificate_s3_bucket_name"] = str(
             child_certificate_s3_bucket_name.text or ""
         )
-    child_certificate_s3_object_key = el.find("CertificateS3ObjectKey")
+    child_certificate_s3_object_key = el.find("certificateS3ObjectKey")
     if child_certificate_s3_object_key is not None:
         out["certificate_s3_object_key"] = str(
             child_certificate_s3_object_key.text or ""
         )
-    child_encryption_kms_key_id = el.find("EncryptionKmsKeyId")
+    child_encryption_kms_key_id = el.find("encryptionKmsKeyId")
     if child_encryption_kms_key_id is not None:
         out["encryption_kms_key_id"] = str(child_encryption_kms_key_id.text or "")
     return out

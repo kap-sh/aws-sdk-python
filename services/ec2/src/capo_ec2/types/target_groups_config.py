@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TargetGroupsConfig:
     out: TargetGroupsConfig = {}  # type: ignore[typeddict-item]
-    if el.find("TargetGroups") is not None:
+    if el.find("targetGroups") is not None:
         import capo_ec2.types.target_groups
 
         out["target_groups"] = capo_ec2.types.target_groups.deserialize_ec2_query(
-            el, "TargetGroups"
+            el, "targetGroups"
         )
     return out

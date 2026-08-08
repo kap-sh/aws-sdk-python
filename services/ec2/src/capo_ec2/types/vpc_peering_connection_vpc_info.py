@@ -69,27 +69,27 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcPeeringConnectionVpcInfo:
     out: VpcPeeringConnectionVpcInfo = {}  # type: ignore[typeddict-item]
-    child_cidr_block = el.find("CidrBlock")
+    child_cidr_block = el.find("cidrBlock")
     if child_cidr_block is not None:
         out["cidr_block"] = str(child_cidr_block.text or "")
-    if el.find("Ipv6CidrBlockSet") is not None:
+    if el.find("ipv6CidrBlockSet") is not None:
         import capo_ec2.types.ipv6_cidr_block_set
 
         out["ipv6_cidr_block_set"] = (
             capo_ec2.types.ipv6_cidr_block_set.deserialize_ec2_query(
-                el, "Ipv6CidrBlockSet"
+                el, "ipv6CidrBlockSet"
             )
         )
-    if el.find("CidrBlockSet") is not None:
+    if el.find("cidrBlockSet") is not None:
         import capo_ec2.types.cidr_block_set
 
         out["cidr_block_set"] = capo_ec2.types.cidr_block_set.deserialize_ec2_query(
-            el, "CidrBlockSet"
+            el, "cidrBlockSet"
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_peering_options = el.find("PeeringOptions")
+    child_peering_options = el.find("peeringOptions")
     if child_peering_options is not None:
         import capo_ec2.types.vpc_peering_connection_options_description
 
@@ -98,10 +98,10 @@ def deserialize_ec2_query(el: Element) -> VpcPeeringConnectionVpcInfo:
                 child_peering_options
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_region = el.find("Region")
+    child_region = el.find("region")
     if child_region is not None:
         out["region"] = str(child_region.text or "")
     return out

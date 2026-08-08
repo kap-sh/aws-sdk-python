@@ -53,7 +53,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MoveCapacityReservationInstancesResult:
     out: MoveCapacityReservationInstancesResult = {}  # type: ignore[typeddict-item]
-    child_source_capacity_reservation = el.find("SourceCapacityReservation")
+    child_source_capacity_reservation = el.find("sourceCapacityReservation")
     if child_source_capacity_reservation is not None:
         import capo_ec2.types.capacity_reservation
 
@@ -62,7 +62,7 @@ def deserialize_ec2_query(el: Element) -> MoveCapacityReservationInstancesResult
                 child_source_capacity_reservation
             )
         )
-    child_destination_capacity_reservation = el.find("DestinationCapacityReservation")
+    child_destination_capacity_reservation = el.find("destinationCapacityReservation")
     if child_destination_capacity_reservation is not None:
         import capo_ec2.types.capacity_reservation
 
@@ -71,7 +71,7 @@ def deserialize_ec2_query(el: Element) -> MoveCapacityReservationInstancesResult
                 child_destination_capacity_reservation
             )
         )
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
     return out

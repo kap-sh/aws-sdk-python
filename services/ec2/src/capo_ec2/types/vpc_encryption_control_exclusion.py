@@ -37,7 +37,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusion:
     out: VpcEncryptionControlExclusion = {}  # type: ignore[typeddict-item]
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion_state
 
@@ -46,7 +46,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusion:
                 child_state
             )
         )
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
     return out

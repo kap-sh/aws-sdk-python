@@ -69,18 +69,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TargetCapacitySpecification:
     out: TargetCapacitySpecification = {}  # type: ignore[typeddict-item]
-    child_total_target_capacity = el.find("TotalTargetCapacity")
+    child_total_target_capacity = el.find("totalTargetCapacity")
     if child_total_target_capacity is not None:
         out["total_target_capacity"] = int(child_total_target_capacity.text or "")
-    child_on_demand_target_capacity = el.find("OnDemandTargetCapacity")
+    child_on_demand_target_capacity = el.find("onDemandTargetCapacity")
     if child_on_demand_target_capacity is not None:
         out["on_demand_target_capacity"] = int(
             child_on_demand_target_capacity.text or ""
         )
-    child_spot_target_capacity = el.find("SpotTargetCapacity")
+    child_spot_target_capacity = el.find("spotTargetCapacity")
     if child_spot_target_capacity is not None:
         out["spot_target_capacity"] = int(child_spot_target_capacity.text or "")
-    child_default_target_capacity_type = el.find("DefaultTargetCapacityType")
+    child_default_target_capacity_type = el.find("defaultTargetCapacityType")
     if child_default_target_capacity_type is not None:
         import capo_ec2.types.default_target_capacity_type
 
@@ -89,7 +89,7 @@ def deserialize_ec2_query(el: Element) -> TargetCapacitySpecification:
                 child_default_target_capacity_type
             )
         )
-    child_target_capacity_unit_type = el.find("TargetCapacityUnitType")
+    child_target_capacity_unit_type = el.find("targetCapacityUnitType")
     if child_target_capacity_unit_type is not None:
         import capo_ec2.types.target_capacity_unit_type
 

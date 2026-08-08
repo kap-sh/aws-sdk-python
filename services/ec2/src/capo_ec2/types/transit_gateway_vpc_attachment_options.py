@@ -63,7 +63,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachmentOptions:
     out: TransitGatewayVpcAttachmentOptions = {}  # type: ignore[typeddict-item]
-    child_dns_support = el.find("DnsSupport")
+    child_dns_support = el.find("dnsSupport")
     if child_dns_support is not None:
         import capo_ec2.types.dns_support_value
 
@@ -71,7 +71,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachmentOptions:
             child_dns_support
         )
     child_security_group_referencing_support = el.find(
-        "SecurityGroupReferencingSupport"
+        "securityGroupReferencingSupport"
     )
     if child_security_group_referencing_support is not None:
         import capo_ec2.types.security_group_referencing_support_value
@@ -81,14 +81,14 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachmentOptions:
                 child_security_group_referencing_support
             )
         )
-    child_ipv6_support = el.find("Ipv6Support")
+    child_ipv6_support = el.find("ipv6Support")
     if child_ipv6_support is not None:
         import capo_ec2.types.ipv6_support_value
 
         out["ipv6_support"] = capo_ec2.types.ipv6_support_value.deserialize_ec2_query(
             child_ipv6_support
         )
-    child_appliance_mode_support = el.find("ApplianceModeSupport")
+    child_appliance_mode_support = el.find("applianceModeSupport")
     if child_appliance_mode_support is not None:
         import capo_ec2.types.appliance_mode_support_value
 

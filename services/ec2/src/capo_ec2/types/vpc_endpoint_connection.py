@@ -123,23 +123,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEndpointConnection:
     out: VpcEndpointConnection = {}  # type: ignore[typeddict-item]
-    child_service_id = el.find("ServiceId")
+    child_service_id = el.find("serviceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    child_vpc_endpoint_id = el.find("VpcEndpointId")
+    child_vpc_endpoint_id = el.find("vpcEndpointId")
     if child_vpc_endpoint_id is not None:
         out["vpc_endpoint_id"] = str(child_vpc_endpoint_id.text or "")
-    child_vpc_endpoint_owner = el.find("VpcEndpointOwner")
+    child_vpc_endpoint_owner = el.find("vpcEndpointOwner")
     if child_vpc_endpoint_owner is not None:
         out["vpc_endpoint_owner"] = str(child_vpc_endpoint_owner.text or "")
-    child_vpc_endpoint_state = el.find("VpcEndpointState")
+    child_vpc_endpoint_state = el.find("vpcEndpointState")
     if child_vpc_endpoint_state is not None:
         import capo_ec2.types.state
 
         out["vpc_endpoint_state"] = capo_ec2.types.state.deserialize_ec2_query(
             child_vpc_endpoint_state
         )
-    child_creation_timestamp = el.find("CreationTimestamp")
+    child_creation_timestamp = el.find("creationTimestamp")
     if child_creation_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -148,45 +148,45 @@ def deserialize_ec2_query(el: Element) -> VpcEndpointConnection:
                 child_creation_timestamp
             )
         )
-    if el.find("DnsEntrySet") is not None:
+    if el.find("dnsEntrySet") is not None:
         import capo_ec2.types.dns_entry_set
 
         out["dns_entries"] = capo_ec2.types.dns_entry_set.deserialize_ec2_query(
-            el, "DnsEntrySet"
+            el, "dnsEntrySet"
         )
-    if el.find("NetworkLoadBalancerArnSet") is not None:
+    if el.find("networkLoadBalancerArnSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "NetworkLoadBalancerArnSet"
+                el, "networkLoadBalancerArnSet"
             )
         )
-    if el.find("GatewayLoadBalancerArnSet") is not None:
+    if el.find("gatewayLoadBalancerArnSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "GatewayLoadBalancerArnSet"
+                el, "gatewayLoadBalancerArnSet"
             )
         )
-    child_ip_address_type = el.find("IpAddressType")
+    child_ip_address_type = el.find("ipAddressType")
     if child_ip_address_type is not None:
         import capo_ec2.types.ip_address_type
 
         out["ip_address_type"] = capo_ec2.types.ip_address_type.deserialize_ec2_query(
             child_ip_address_type
         )
-    child_vpc_endpoint_connection_id = el.find("VpcEndpointConnectionId")
+    child_vpc_endpoint_connection_id = el.find("vpcEndpointConnectionId")
     if child_vpc_endpoint_connection_id is not None:
         out["vpc_endpoint_connection_id"] = str(
             child_vpc_endpoint_connection_id.text or ""
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpc_endpoint_region = el.find("VpcEndpointRegion")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpc_endpoint_region = el.find("vpcEndpointRegion")
     if child_vpc_endpoint_region is not None:
         out["vpc_endpoint_region"] = str(child_vpc_endpoint_region.text or "")
     return out

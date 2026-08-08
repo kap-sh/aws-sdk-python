@@ -32,10 +32,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PortRange:
     out: PortRange = {}  # type: ignore[typeddict-item]
-    child_from = el.find("From")
+    child_from = el.find("from")
     if child_from is not None:
         out["from"] = int(child_from.text or "")
-    child_to = el.find("To")
+    child_to = el.find("to")
     if child_to is not None:
         out["to"] = int(child_to.text or "")
     return out

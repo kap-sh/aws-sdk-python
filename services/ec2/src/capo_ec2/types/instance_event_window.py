@@ -87,24 +87,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceEventWindow:
     out: InstanceEventWindow = {}  # type: ignore[typeddict-item]
-    child_instance_event_window_id = el.find("InstanceEventWindowId")
+    child_instance_event_window_id = el.find("instanceEventWindowId")
     if child_instance_event_window_id is not None:
         out["instance_event_window_id"] = str(child_instance_event_window_id.text or "")
-    if el.find("TimeRangeSet") is not None:
+    if el.find("timeRangeSet") is not None:
         import capo_ec2.types.instance_event_window_time_range_list
 
         out["time_ranges"] = (
             capo_ec2.types.instance_event_window_time_range_list.deserialize_ec2_query(
-                el, "TimeRangeSet"
+                el, "timeRangeSet"
             )
         )
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_cron_expression = el.find("CronExpression")
+    child_cron_expression = el.find("cronExpression")
     if child_cron_expression is not None:
         out["cron_expression"] = str(child_cron_expression.text or "")
-    child_association_target = el.find("AssociationTarget")
+    child_association_target = el.find("associationTarget")
     if child_association_target is not None:
         import capo_ec2.types.instance_event_window_association_target
 
@@ -113,15 +113,15 @@ def deserialize_ec2_query(el: Element) -> InstanceEventWindow:
                 child_association_target
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.instance_event_window_state
 
         out["state"] = capo_ec2.types.instance_event_window_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

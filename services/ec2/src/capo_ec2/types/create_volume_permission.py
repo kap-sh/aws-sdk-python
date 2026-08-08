@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateVolumePermission:
     out: CreateVolumePermission = {}  # type: ignore[typeddict-item]
-    child_user_id = el.find("UserId")
+    child_user_id = el.find("userId")
     if child_user_id is not None:
         out["user_id"] = str(child_user_id.text or "")
-    child_group = el.find("Group")
+    child_group = el.find("group")
     if child_group is not None:
         import capo_ec2.types.permission_group
 

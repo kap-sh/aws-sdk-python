@@ -50,13 +50,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecondaryNetworkIpv4CidrBlockAssociation:
     out: SecondaryNetworkIpv4CidrBlockAssociation = {}  # type: ignore[typeddict-item]
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_cidr_block = el.find("CidrBlock")
+    child_cidr_block = el.find("cidrBlock")
     if child_cidr_block is not None:
         out["cidr_block"] = str(child_cidr_block.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.secondary_network_cidr_block_association_state
 
@@ -65,7 +65,7 @@ def deserialize_ec2_query(el: Element) -> SecondaryNetworkIpv4CidrBlockAssociati
                 child_state
             )
         )
-    child_state_reason = el.find("StateReason")
+    child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         out["state_reason"] = str(child_state_reason.text or "")
     return out

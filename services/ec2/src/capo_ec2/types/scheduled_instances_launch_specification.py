@@ -76,7 +76,7 @@ def serialize_ec2_query(
         import capo_ec2.types.scheduled_instances_block_device_mapping_set
 
         capo_ec2.types.scheduled_instances_block_device_mapping_set.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
     if "ebs_optimized" in value:
         pairs.append(
@@ -106,7 +106,7 @@ def serialize_ec2_query(
         import capo_ec2.types.scheduled_instances_network_interface_set
 
         capo_ec2.types.scheduled_instances_network_interface_set.serialize_ec2_query(
-            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterfaces"
+            value["network_interfaces"], pairs, f"{key_prefix}NetworkInterface"
         )
     if "placement" in value:
         import capo_ec2.types.scheduled_instances_placement
@@ -120,7 +120,7 @@ def serialize_ec2_query(
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         capo_ec2.types.scheduled_instances_security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "subnet_id" in value:
         pairs.append((f"{key_prefix}SubnetId", str(value["subnet_id"])))
@@ -130,12 +130,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:
     out: ScheduledInstancesLaunchSpecification = {}  # type: ignore[typeddict-item]
-    if el.find("BlockDeviceMappings") is not None:
+    if el.find("BlockDeviceMapping") is not None:
         import capo_ec2.types.scheduled_instances_block_device_mapping_set
 
         out["block_device_mappings"] = (
             capo_ec2.types.scheduled_instances_block_device_mapping_set.deserialize_ec2_query(
-                el, "BlockDeviceMappings"
+                el, "BlockDeviceMapping"
             )
         )
     child_ebs_optimized = el.find("EbsOptimized")
@@ -171,12 +171,12 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:
                 child_monitoring
             )
         )
-    if el.find("NetworkInterfaces") is not None:
+    if el.find("NetworkInterface") is not None:
         import capo_ec2.types.scheduled_instances_network_interface_set
 
         out["network_interfaces"] = (
             capo_ec2.types.scheduled_instances_network_interface_set.deserialize_ec2_query(
-                el, "NetworkInterfaces"
+                el, "NetworkInterface"
             )
         )
     child_placement = el.find("Placement")
@@ -191,12 +191,12 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:
     child_ramdisk_id = el.find("RamdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.scheduled_instances_security_group_id_set.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
     child_subnet_id = el.find("SubnetId")

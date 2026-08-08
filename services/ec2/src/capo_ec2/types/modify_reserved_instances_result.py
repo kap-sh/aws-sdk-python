@@ -32,7 +32,7 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> ModifyReservedInstancesResult:
     out: ModifyReservedInstancesResult = {}  # type: ignore[typeddict-item]
     child_reserved_instances_modification_id = el.find(
-        "ReservedInstancesModificationId"
+        "reservedInstancesModificationId"
     )
     if child_reserved_instances_modification_id is not None:
         out["reserved_instances_modification_id"] = str(

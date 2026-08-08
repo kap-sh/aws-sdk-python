@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisableFastSnapshotRestoreErrorItem:
     out: DisableFastSnapshotRestoreErrorItem = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    if el.find("FastSnapshotRestoreStateErrorSet") is not None:
+    if el.find("fastSnapshotRestoreStateErrorSet") is not None:
         import capo_ec2.types.disable_fast_snapshot_restore_state_error_set
 
         out["fast_snapshot_restore_state_errors"] = (
             capo_ec2.types.disable_fast_snapshot_restore_state_error_set.deserialize_ec2_query(
-                el, "FastSnapshotRestoreStateErrorSet"
+                el, "fastSnapshotRestoreStateErrorSet"
             )
         )
     return out

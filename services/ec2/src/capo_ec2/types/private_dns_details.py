@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrivateDnsDetails:
     out: PrivateDnsDetails = {}  # type: ignore[typeddict-item]
-    child_private_dns_name = el.find("PrivateDnsName")
+    child_private_dns_name = el.find("privateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
     return out

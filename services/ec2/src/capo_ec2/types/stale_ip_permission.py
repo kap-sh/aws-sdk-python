@@ -64,31 +64,31 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> StaleIpPermission:
     out: StaleIpPermission = {}  # type: ignore[typeddict-item]
-    child_from_port = el.find("FromPort")
+    child_from_port = el.find("fromPort")
     if child_from_port is not None:
         out["from_port"] = int(child_from_port.text or "")
-    child_ip_protocol = el.find("IpProtocol")
+    child_ip_protocol = el.find("ipProtocol")
     if child_ip_protocol is not None:
         out["ip_protocol"] = str(child_ip_protocol.text or "")
-    if el.find("IpRanges") is not None:
+    if el.find("ipRanges") is not None:
         import capo_ec2.types.ip_ranges
 
         out["ip_ranges"] = capo_ec2.types.ip_ranges.deserialize_ec2_query(
-            el, "IpRanges"
+            el, "ipRanges"
         )
-    if el.find("PrefixListIds") is not None:
+    if el.find("prefixListIds") is not None:
         import capo_ec2.types.prefix_list_id_set
 
         out["prefix_list_ids"] = (
-            capo_ec2.types.prefix_list_id_set.deserialize_ec2_query(el, "PrefixListIds")
+            capo_ec2.types.prefix_list_id_set.deserialize_ec2_query(el, "prefixListIds")
         )
-    child_to_port = el.find("ToPort")
+    child_to_port = el.find("toPort")
     if child_to_port is not None:
         out["to_port"] = int(child_to_port.text or "")
-    if el.find("Groups") is not None:
+    if el.find("groups") is not None:
         import capo_ec2.types.user_id_group_pair_set
 
         out["user_id_group_pairs"] = (
-            capo_ec2.types.user_id_group_pair_set.deserialize_ec2_query(el, "Groups")
+            capo_ec2.types.user_id_group_pair_set.deserialize_ec2_query(el, "groups")
         )
     return out

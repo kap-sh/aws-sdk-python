@@ -41,15 +41,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> GetInstanceTypesFromInstanceRequirementsResult:
     out: GetInstanceTypesFromInstanceRequirementsResult = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceTypeSet") is not None:
+    if el.find("instanceTypeSet") is not None:
         import capo_ec2.types.instance_type_info_from_instance_requirements_set
 
         out["instance_types"] = (
             capo_ec2.types.instance_type_info_from_instance_requirements_set.deserialize_ec2_query(
-                el, "InstanceTypeSet"
+                el, "instanceTypeSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

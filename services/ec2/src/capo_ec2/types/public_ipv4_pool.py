@@ -72,33 +72,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PublicIpv4Pool:
     out: PublicIpv4Pool = {}  # type: ignore[typeddict-item]
-    child_pool_id = el.find("PoolId")
+    child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("PoolAddressRangeSet") is not None:
+    if el.find("poolAddressRangeSet") is not None:
         import capo_ec2.types.public_ipv4_pool_range_set
 
         out["pool_address_ranges"] = (
             capo_ec2.types.public_ipv4_pool_range_set.deserialize_ec2_query(
-                el, "PoolAddressRangeSet"
+                el, "poolAddressRangeSet"
             )
         )
-    child_total_address_count = el.find("TotalAddressCount")
+    child_total_address_count = el.find("totalAddressCount")
     if child_total_address_count is not None:
         out["total_address_count"] = int(child_total_address_count.text or "")
-    child_total_available_address_count = el.find("TotalAvailableAddressCount")
+    child_total_available_address_count = el.find("totalAvailableAddressCount")
     if child_total_available_address_count is not None:
         out["total_available_address_count"] = int(
             child_total_available_address_count.text or ""
         )
-    child_network_border_group = el.find("NetworkBorderGroup")
+    child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

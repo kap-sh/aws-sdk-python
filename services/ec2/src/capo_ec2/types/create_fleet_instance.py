@@ -70,7 +70,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateFleetInstance:
     out: CreateFleetInstance = {}  # type: ignore[typeddict-item]
-    child_launch_template_and_overrides = el.find("LaunchTemplateAndOverrides")
+    child_launch_template_and_overrides = el.find("launchTemplateAndOverrides")
     if child_launch_template_and_overrides is not None:
         import capo_ec2.types.launch_template_and_overrides_response
 
@@ -79,27 +79,27 @@ def deserialize_ec2_query(el: Element) -> CreateFleetInstance:
                 child_launch_template_and_overrides
             )
         )
-    child_lifecycle = el.find("Lifecycle")
+    child_lifecycle = el.find("lifecycle")
     if child_lifecycle is not None:
         import capo_ec2.types.instance_lifecycle
 
         out["lifecycle"] = capo_ec2.types.instance_lifecycle.deserialize_ec2_query(
             child_lifecycle
         )
-    if el.find("InstanceIds") is not None:
+    if el.find("instanceIds") is not None:
         import capo_ec2.types.instance_ids_set
 
         out["instance_ids"] = capo_ec2.types.instance_ids_set.deserialize_ec2_query(
-            el, "InstanceIds"
+            el, "instanceIds"
         )
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         import capo_ec2.types.platform_values
 

@@ -55,30 +55,30 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeStatusEvent:
     out: VolumeStatusEvent = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_event_id = el.find("EventId")
+    child_event_id = el.find("eventId")
     if child_event_id is not None:
         out["event_id"] = str(child_event_id.text or "")
-    child_event_type = el.find("EventType")
+    child_event_type = el.find("eventType")
     if child_event_type is not None:
         out["event_type"] = str(child_event_type.text or "")
-    child_not_after = el.find("NotAfter")
+    child_not_after = el.find("notAfter")
     if child_not_after is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["not_after"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_not_after
         )
-    child_not_before = el.find("NotBefore")
+    child_not_before = el.find("notBefore")
     if child_not_before is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["not_before"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_not_before
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
     return out

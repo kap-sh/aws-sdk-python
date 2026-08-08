@@ -59,13 +59,13 @@ def serialize_ec2_query(
         import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 
         capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.serialize_ec2_query(
-            value["rules"], pairs, f"{key_prefix}Rules"
+            value["rules"], pairs, f"{key_prefix}Rule"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -89,20 +89,20 @@ def deserialize_ec2_query(el: Element) -> CreateIpamPrefixListResolverRequest:
         out["address_family"] = capo_ec2.types.address_family.deserialize_ec2_query(
             child_address_family
         )
-    if el.find("Rules") is not None:
+    if el.find("Rule") is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 
         out["rules"] = (
             capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.deserialize_ec2_query(
-                el, "Rules"
+                el, "Rule"
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_client_token = el.find("ClientToken")

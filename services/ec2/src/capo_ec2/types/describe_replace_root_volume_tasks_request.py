@@ -44,13 +44,13 @@ def serialize_ec2_query(
         capo_ec2.types.replace_root_volume_task_ids.serialize_ec2_query(
             value["replace_root_volume_task_ids"],
             pairs,
-            f"{key_prefix}ReplaceRootVolumeTaskIds",
+            f"{key_prefix}ReplaceRootVolumeTaskId",
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -62,18 +62,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeReplaceRootVolumeTasksRequest:
     out: DescribeReplaceRootVolumeTasksRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ReplaceRootVolumeTaskIds") is not None:
+    if el.find("ReplaceRootVolumeTaskId") is not None:
         import capo_ec2.types.replace_root_volume_task_ids
 
         out["replace_root_volume_task_ids"] = (
             capo_ec2.types.replace_root_volume_task_ids.deserialize_ec2_query(
-                el, "ReplaceRootVolumeTaskIds"
+                el, "ReplaceRootVolumeTaskId"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

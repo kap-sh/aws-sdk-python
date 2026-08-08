@@ -140,7 +140,7 @@ def serialize_ec2_query(
         capo_ec2.types.phase1_encryption_algorithms_request_list.serialize_ec2_query(
             value["phase1_encryption_algorithms"],
             pairs,
-            f"{key_prefix}Phase1EncryptionAlgorithms",
+            f"{key_prefix}Phase1EncryptionAlgorithm",
         )
     if "phase2_encryption_algorithms" in value:
         import capo_ec2.types.phase2_encryption_algorithms_request_list
@@ -148,7 +148,7 @@ def serialize_ec2_query(
         capo_ec2.types.phase2_encryption_algorithms_request_list.serialize_ec2_query(
             value["phase2_encryption_algorithms"],
             pairs,
-            f"{key_prefix}Phase2EncryptionAlgorithms",
+            f"{key_prefix}Phase2EncryptionAlgorithm",
         )
     if "phase1_integrity_algorithms" in value:
         import capo_ec2.types.phase1_integrity_algorithms_request_list
@@ -156,7 +156,7 @@ def serialize_ec2_query(
         capo_ec2.types.phase1_integrity_algorithms_request_list.serialize_ec2_query(
             value["phase1_integrity_algorithms"],
             pairs,
-            f"{key_prefix}Phase1IntegrityAlgorithms",
+            f"{key_prefix}Phase1IntegrityAlgorithm",
         )
     if "phase2_integrity_algorithms" in value:
         import capo_ec2.types.phase2_integrity_algorithms_request_list
@@ -164,25 +164,25 @@ def serialize_ec2_query(
         capo_ec2.types.phase2_integrity_algorithms_request_list.serialize_ec2_query(
             value["phase2_integrity_algorithms"],
             pairs,
-            f"{key_prefix}Phase2IntegrityAlgorithms",
+            f"{key_prefix}Phase2IntegrityAlgorithm",
         )
     if "phase1_dh_group_numbers" in value:
         import capo_ec2.types.phase1_dh_group_numbers_request_list
 
         capo_ec2.types.phase1_dh_group_numbers_request_list.serialize_ec2_query(
-            value["phase1_dh_group_numbers"], pairs, f"{key_prefix}Phase1DHGroupNumbers"
+            value["phase1_dh_group_numbers"], pairs, f"{key_prefix}Phase1DHGroupNumber"
         )
     if "phase2_dh_group_numbers" in value:
         import capo_ec2.types.phase2_dh_group_numbers_request_list
 
         capo_ec2.types.phase2_dh_group_numbers_request_list.serialize_ec2_query(
-            value["phase2_dh_group_numbers"], pairs, f"{key_prefix}Phase2DHGroupNumbers"
+            value["phase2_dh_group_numbers"], pairs, f"{key_prefix}Phase2DHGroupNumber"
         )
     if "ike_versions" in value:
         import capo_ec2.types.ike_versions_request_list
 
         capo_ec2.types.ike_versions_request_list.serialize_ec2_query(
-            value["ike_versions"], pairs, f"{key_prefix}IKEVersions"
+            value["ike_versions"], pairs, f"{key_prefix}IKEVersion"
         )
     if "startup_action" in value:
         pairs.append((f"{key_prefix}StartupAction", str(value["startup_action"])))
@@ -235,60 +235,60 @@ def deserialize_ec2_query(el: Element) -> ModifyVpnTunnelOptionsSpecification:
     child_dpd_timeout_action = el.find("DPDTimeoutAction")
     if child_dpd_timeout_action is not None:
         out["dpd_timeout_action"] = str(child_dpd_timeout_action.text or "")
-    if el.find("Phase1EncryptionAlgorithms") is not None:
+    if el.find("Phase1EncryptionAlgorithm") is not None:
         import capo_ec2.types.phase1_encryption_algorithms_request_list
 
         out["phase1_encryption_algorithms"] = (
             capo_ec2.types.phase1_encryption_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase1EncryptionAlgorithms"
+                el, "Phase1EncryptionAlgorithm"
             )
         )
-    if el.find("Phase2EncryptionAlgorithms") is not None:
+    if el.find("Phase2EncryptionAlgorithm") is not None:
         import capo_ec2.types.phase2_encryption_algorithms_request_list
 
         out["phase2_encryption_algorithms"] = (
             capo_ec2.types.phase2_encryption_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase2EncryptionAlgorithms"
+                el, "Phase2EncryptionAlgorithm"
             )
         )
-    if el.find("Phase1IntegrityAlgorithms") is not None:
+    if el.find("Phase1IntegrityAlgorithm") is not None:
         import capo_ec2.types.phase1_integrity_algorithms_request_list
 
         out["phase1_integrity_algorithms"] = (
             capo_ec2.types.phase1_integrity_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase1IntegrityAlgorithms"
+                el, "Phase1IntegrityAlgorithm"
             )
         )
-    if el.find("Phase2IntegrityAlgorithms") is not None:
+    if el.find("Phase2IntegrityAlgorithm") is not None:
         import capo_ec2.types.phase2_integrity_algorithms_request_list
 
         out["phase2_integrity_algorithms"] = (
             capo_ec2.types.phase2_integrity_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase2IntegrityAlgorithms"
+                el, "Phase2IntegrityAlgorithm"
             )
         )
-    if el.find("Phase1DHGroupNumbers") is not None:
+    if el.find("Phase1DHGroupNumber") is not None:
         import capo_ec2.types.phase1_dh_group_numbers_request_list
 
         out["phase1_dh_group_numbers"] = (
             capo_ec2.types.phase1_dh_group_numbers_request_list.deserialize_ec2_query(
-                el, "Phase1DHGroupNumbers"
+                el, "Phase1DHGroupNumber"
             )
         )
-    if el.find("Phase2DHGroupNumbers") is not None:
+    if el.find("Phase2DHGroupNumber") is not None:
         import capo_ec2.types.phase2_dh_group_numbers_request_list
 
         out["phase2_dh_group_numbers"] = (
             capo_ec2.types.phase2_dh_group_numbers_request_list.deserialize_ec2_query(
-                el, "Phase2DHGroupNumbers"
+                el, "Phase2DHGroupNumber"
             )
         )
-    if el.find("IKEVersions") is not None:
+    if el.find("IKEVersion") is not None:
         import capo_ec2.types.ike_versions_request_list
 
         out["ike_versions"] = (
             capo_ec2.types.ike_versions_request_list.deserialize_ec2_query(
-                el, "IKEVersions"
+                el, "IKEVersion"
             )
         )
     child_startup_action = el.find("StartupAction")

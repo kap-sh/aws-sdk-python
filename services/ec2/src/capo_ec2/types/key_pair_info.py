@@ -65,32 +65,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> KeyPairInfo:
     out: KeyPairInfo = {}  # type: ignore[typeddict-item]
-    child_key_pair_id = el.find("KeyPairId")
+    child_key_pair_id = el.find("keyPairId")
     if child_key_pair_id is not None:
         out["key_pair_id"] = str(child_key_pair_id.text or "")
-    child_key_type = el.find("KeyType")
+    child_key_type = el.find("keyType")
     if child_key_type is not None:
         import capo_ec2.types.key_type
 
         out["key_type"] = capo_ec2.types.key_type.deserialize_ec2_query(child_key_type)
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_public_key = el.find("PublicKey")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_public_key = el.find("publicKey")
     if child_public_key is not None:
         out["public_key"] = str(child_public_key.text or "")
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["create_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_key_name = el.find("KeyName")
+    child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    child_key_fingerprint = el.find("KeyFingerprint")
+    child_key_fingerprint = el.find("keyFingerprint")
     if child_key_fingerprint is not None:
         out["key_fingerprint"] = str(child_key_fingerprint.text or "")
     return out

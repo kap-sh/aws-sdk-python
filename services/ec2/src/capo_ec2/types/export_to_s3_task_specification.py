@@ -48,7 +48,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ExportToS3TaskSpecification:
     out: ExportToS3TaskSpecification = {}  # type: ignore[typeddict-item]
-    child_disk_image_format = el.find("DiskImageFormat")
+    child_disk_image_format = el.find("diskImageFormat")
     if child_disk_image_format is not None:
         import capo_ec2.types.disk_image_format
 
@@ -57,17 +57,17 @@ def deserialize_ec2_query(el: Element) -> ExportToS3TaskSpecification:
                 child_disk_image_format
             )
         )
-    child_container_format = el.find("ContainerFormat")
+    child_container_format = el.find("containerFormat")
     if child_container_format is not None:
         import capo_ec2.types.container_format
 
         out["container_format"] = capo_ec2.types.container_format.deserialize_ec2_query(
             child_container_format
         )
-    child_s3_bucket = el.find("S3Bucket")
+    child_s3_bucket = el.find("s3Bucket")
     if child_s3_bucket is not None:
         out["s3_bucket"] = str(child_s3_bucket.text or "")
-    child_s3_prefix = el.find("S3Prefix")
+    child_s3_prefix = el.find("s3Prefix")
     if child_s3_prefix is not None:
         out["s3_prefix"] = str(child_s3_prefix.text or "")
     return out

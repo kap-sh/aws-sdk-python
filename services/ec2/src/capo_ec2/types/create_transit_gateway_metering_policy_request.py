@@ -47,7 +47,7 @@ def serialize_ec2_query(
         capo_ec2.types.transit_gateway_attachment_id_string_list.serialize_ec2_query(
             value["middlebox_attachment_ids"],
             pairs,
-            f"{key_prefix}MiddleboxAttachmentIds",
+            f"{key_prefix}MiddleboxAttachmentId",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
@@ -64,12 +64,12 @@ def deserialize_ec2_query(el: Element) -> CreateTransitGatewayMeteringPolicyRequ
     child_transit_gateway_id = el.find("TransitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    if el.find("MiddleboxAttachmentIds") is not None:
+    if el.find("MiddleboxAttachmentId") is not None:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
 
         out["middlebox_attachment_ids"] = (
             capo_ec2.types.transit_gateway_attachment_id_string_list.deserialize_ec2_query(
-                el, "MiddleboxAttachmentIds"
+                el, "MiddleboxAttachmentId"
             )
         )
     if el.find("TagSpecifications") is not None:

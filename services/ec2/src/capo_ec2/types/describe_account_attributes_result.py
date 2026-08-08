@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAccountAttributesResult:
     out: DescribeAccountAttributesResult = {}  # type: ignore[typeddict-item]
-    if el.find("AccountAttributeSet") is not None:
+    if el.find("accountAttributeSet") is not None:
         import capo_ec2.types.account_attribute_list
 
         out["account_attributes"] = (
             capo_ec2.types.account_attribute_list.deserialize_ec2_query(
-                el, "AccountAttributeSet"
+                el, "accountAttributeSet"
             )
         )
     return out

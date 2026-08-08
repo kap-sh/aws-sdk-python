@@ -81,33 +81,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplate:
     out: LaunchTemplate = {}  # type: ignore[typeddict-item]
-    child_launch_template_id = el.find("LaunchTemplateId")
+    child_launch_template_id = el.find("launchTemplateId")
     if child_launch_template_id is not None:
         out["launch_template_id"] = str(child_launch_template_id.text or "")
-    child_launch_template_name = el.find("LaunchTemplateName")
+    child_launch_template_name = el.find("launchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_created_by = el.find("CreatedBy")
+    child_created_by = el.find("createdBy")
     if child_created_by is not None:
         out["created_by"] = str(child_created_by.text or "")
-    child_default_version_number = el.find("DefaultVersionNumber")
+    child_default_version_number = el.find("defaultVersionNumber")
     if child_default_version_number is not None:
         out["default_version_number"] = int(child_default_version_number.text or "")
-    child_latest_version_number = el.find("LatestVersionNumber")
+    child_latest_version_number = el.find("latestVersionNumber")
     if child_latest_version_number is not None:
         out["latest_version_number"] = int(child_latest_version_number.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_operator = el.find("Operator")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

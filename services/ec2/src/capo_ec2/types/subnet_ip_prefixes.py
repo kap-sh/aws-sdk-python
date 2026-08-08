@@ -35,13 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SubnetIpPrefixes:
     out: SubnetIpPrefixes = {}  # type: ignore[typeddict-item]
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    if el.find("IpPrefixSet") is not None:
+    if el.find("ipPrefixSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["ip_prefixes"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "IpPrefixSet"
+            el, "ipPrefixSet"
         )
     return out

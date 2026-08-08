@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisassociateRouteServerResult:
     out: DisassociateRouteServerResult = {}  # type: ignore[typeddict-item]
-    child_route_server_association = el.find("RouteServerAssociation")
+    child_route_server_association = el.find("routeServerAssociation")
     if child_route_server_association is not None:
         import capo_ec2.types.route_server_association
 

@@ -37,13 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceCapacity:
     out: InstanceCapacity = {}  # type: ignore[typeddict-item]
-    child_available_capacity = el.find("AvailableCapacity")
+    child_available_capacity = el.find("availableCapacity")
     if child_available_capacity is not None:
         out["available_capacity"] = int(child_available_capacity.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_total_capacity = el.find("TotalCapacity")
+    child_total_capacity = el.find("totalCapacity")
     if child_total_capacity is not None:
         out["total_capacity"] = int(child_total_capacity.text or "")
     return out

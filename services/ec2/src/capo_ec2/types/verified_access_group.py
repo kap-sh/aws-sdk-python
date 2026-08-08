@@ -89,39 +89,39 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessGroup:
     out: VerifiedAccessGroup = {}  # type: ignore[typeddict-item]
-    child_verified_access_group_id = el.find("VerifiedAccessGroupId")
+    child_verified_access_group_id = el.find("verifiedAccessGroupId")
     if child_verified_access_group_id is not None:
         out["verified_access_group_id"] = str(child_verified_access_group_id.text or "")
-    child_verified_access_instance_id = el.find("VerifiedAccessInstanceId")
+    child_verified_access_instance_id = el.find("verifiedAccessInstanceId")
     if child_verified_access_instance_id is not None:
         out["verified_access_instance_id"] = str(
             child_verified_access_instance_id.text or ""
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_owner = el.find("Owner")
+    child_owner = el.find("owner")
     if child_owner is not None:
         out["owner"] = str(child_owner.text or "")
-    child_verified_access_group_arn = el.find("VerifiedAccessGroupArn")
+    child_verified_access_group_arn = el.find("verifiedAccessGroupArn")
     if child_verified_access_group_arn is not None:
         out["verified_access_group_arn"] = str(
             child_verified_access_group_arn.text or ""
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         out["creation_time"] = str(child_creation_time.text or "")
-    child_last_updated_time = el.find("LastUpdatedTime")
+    child_last_updated_time = el.find("lastUpdatedTime")
     if child_last_updated_time is not None:
         out["last_updated_time"] = str(child_last_updated_time.text or "")
-    child_deletion_time = el.find("DeletionTime")
+    child_deletion_time = el.find("deletionTime")
     if child_deletion_time is not None:
         out["deletion_time"] = str(child_deletion_time.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_sse_specification = el.find("SseSpecification")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_sse_specification = el.find("sseSpecification")
     if child_sse_specification is not None:
         import capo_ec2.types.verified_access_sse_specification_response
 

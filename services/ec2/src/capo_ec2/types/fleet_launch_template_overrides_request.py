@@ -84,7 +84,7 @@ def serialize_ec2_query(
         import capo_ec2.types.fleet_block_device_mapping_request_list
 
         capo_ec2.types.fleet_block_device_mapping_request_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
     if "instance_requirements" in value:
         import capo_ec2.types.instance_requirements_request
@@ -131,12 +131,12 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverridesRequest:
         out["placement"] = capo_ec2.types.placement.deserialize_ec2_query(
             child_placement
         )
-    if el.find("BlockDeviceMappings") is not None:
+    if el.find("BlockDeviceMapping") is not None:
         import capo_ec2.types.fleet_block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.fleet_block_device_mapping_request_list.deserialize_ec2_query(
-                el, "BlockDeviceMappings"
+                el, "BlockDeviceMapping"
             )
         )
     child_instance_requirements = el.find("InstanceRequirements")

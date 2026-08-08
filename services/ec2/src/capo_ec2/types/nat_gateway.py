@@ -154,38 +154,38 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NatGateway:
     out: NatGateway = {}  # type: ignore[typeddict-item]
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_delete_time = el.find("DeleteTime")
+    child_delete_time = el.find("deleteTime")
     if child_delete_time is not None:
         import capo_ec2.types.date_time
 
         out["delete_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_delete_time
         )
-    child_failure_code = el.find("FailureCode")
+    child_failure_code = el.find("failureCode")
     if child_failure_code is not None:
         out["failure_code"] = str(child_failure_code.text or "")
-    child_failure_message = el.find("FailureMessage")
+    child_failure_message = el.find("failureMessage")
     if child_failure_message is not None:
         out["failure_message"] = str(child_failure_message.text or "")
-    if el.find("NatGatewayAddressSet") is not None:
+    if el.find("natGatewayAddressSet") is not None:
         import capo_ec2.types.nat_gateway_address_list
 
         out["nat_gateway_addresses"] = (
             capo_ec2.types.nat_gateway_address_list.deserialize_ec2_query(
-                el, "NatGatewayAddressSet"
+                el, "natGatewayAddressSet"
             )
         )
-    child_nat_gateway_id = el.find("NatGatewayId")
+    child_nat_gateway_id = el.find("natGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    child_provisioned_bandwidth = el.find("ProvisionedBandwidth")
+    child_provisioned_bandwidth = el.find("provisionedBandwidth")
     if child_provisioned_bandwidth is not None:
         import capo_ec2.types.provisioned_bandwidth
 
@@ -194,24 +194,24 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
                 child_provisioned_bandwidth
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.nat_gateway_state
 
         out["state"] = capo_ec2.types.nat_gateway_state.deserialize_ec2_query(
             child_state
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_connectivity_type = el.find("ConnectivityType")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_connectivity_type = el.find("connectivityType")
     if child_connectivity_type is not None:
         import capo_ec2.types.connectivity_type
 
@@ -220,7 +220,7 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
                 child_connectivity_type
             )
         )
-    child_availability_mode = el.find("AvailabilityMode")
+    child_availability_mode = el.find("availabilityMode")
     if child_availability_mode is not None:
         import capo_ec2.types.availability_mode
 
@@ -229,7 +229,7 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
                 child_availability_mode
             )
         )
-    child_auto_scaling_ips = el.find("AutoScalingIps")
+    child_auto_scaling_ips = el.find("autoScalingIps")
     if child_auto_scaling_ips is not None:
         import capo_ec2.types.auto_scaling_ips_state
 
@@ -238,7 +238,7 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
                 child_auto_scaling_ips
             )
         )
-    child_auto_provision_zones = el.find("AutoProvisionZones")
+    child_auto_provision_zones = el.find("autoProvisionZones")
     if child_auto_provision_zones is not None:
         import capo_ec2.types.auto_provision_zones_state
 
@@ -247,15 +247,15 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
                 child_auto_provision_zones
             )
         )
-    if el.find("AttachedApplianceSet") is not None:
+    if el.find("attachedApplianceSet") is not None:
         import capo_ec2.types.nat_gateway_attached_appliance_list
 
         out["attached_appliances"] = (
             capo_ec2.types.nat_gateway_attached_appliance_list.deserialize_ec2_query(
-                el, "AttachedApplianceSet"
+                el, "attachedApplianceSet"
             )
         )
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
     return out

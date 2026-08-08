@@ -36,12 +36,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClassicLinkDnsSupport:
     out: ClassicLinkDnsSupport = {}  # type: ignore[typeddict-item]
-    child_classic_link_dns_supported = el.find("ClassicLinkDnsSupported")
+    child_classic_link_dns_supported = el.find("classicLinkDnsSupported")
     if child_classic_link_dns_supported is not None:
         out["classic_link_dns_supported"] = (
             child_classic_link_dns_supported.text or ""
         ).lower() == "true"
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
     return out

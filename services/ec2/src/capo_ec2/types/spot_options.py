@@ -96,7 +96,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotOptions:
     out: SpotOptions = {}  # type: ignore[typeddict-item]
-    child_allocation_strategy = el.find("AllocationStrategy")
+    child_allocation_strategy = el.find("allocationStrategy")
     if child_allocation_strategy is not None:
         import capo_ec2.types.spot_allocation_strategy
 
@@ -105,7 +105,7 @@ def deserialize_ec2_query(el: Element) -> SpotOptions:
                 child_allocation_strategy
             )
         )
-    child_maintenance_strategies = el.find("MaintenanceStrategies")
+    child_maintenance_strategies = el.find("maintenanceStrategies")
     if child_maintenance_strategies is not None:
         import capo_ec2.types.fleet_spot_maintenance_strategies
 
@@ -114,7 +114,7 @@ def deserialize_ec2_query(el: Element) -> SpotOptions:
                 child_maintenance_strategies
             )
         )
-    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    child_instance_interruption_behavior = el.find("instanceInterruptionBehavior")
     if child_instance_interruption_behavior is not None:
         import capo_ec2.types.spot_instance_interruption_behavior
 
@@ -123,25 +123,25 @@ def deserialize_ec2_query(el: Element) -> SpotOptions:
                 child_instance_interruption_behavior
             )
         )
-    child_instance_pools_to_use_count = el.find("InstancePoolsToUseCount")
+    child_instance_pools_to_use_count = el.find("instancePoolsToUseCount")
     if child_instance_pools_to_use_count is not None:
         out["instance_pools_to_use_count"] = int(
             child_instance_pools_to_use_count.text or ""
         )
-    child_single_instance_type = el.find("SingleInstanceType")
+    child_single_instance_type = el.find("singleInstanceType")
     if child_single_instance_type is not None:
         out["single_instance_type"] = (
             child_single_instance_type.text or ""
         ).lower() == "true"
-    child_single_availability_zone = el.find("SingleAvailabilityZone")
+    child_single_availability_zone = el.find("singleAvailabilityZone")
     if child_single_availability_zone is not None:
         out["single_availability_zone"] = (
             child_single_availability_zone.text or ""
         ).lower() == "true"
-    child_min_target_capacity = el.find("MinTargetCapacity")
+    child_min_target_capacity = el.find("minTargetCapacity")
     if child_min_target_capacity is not None:
         out["min_target_capacity"] = int(child_min_target_capacity.text or "")
-    child_max_total_price = el.find("MaxTotalPrice")
+    child_max_total_price = el.find("maxTotalPrice")
     if child_max_total_price is not None:
         out["max_total_price"] = str(child_max_total_price.text or "")
     return out

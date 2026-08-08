@@ -33,10 +33,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrivateIpAddressSpecification:
     out: PrivateIpAddressSpecification = {}  # type: ignore[typeddict-item]
-    child_primary = el.find("Primary")
+    child_primary = el.find("primary")
     if child_primary is not None:
         out["primary"] = (child_primary.text or "").lower() == "true"
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
     return out

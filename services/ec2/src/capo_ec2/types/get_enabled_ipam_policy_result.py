@@ -45,15 +45,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetEnabledIpamPolicyResult:
     out: GetEnabledIpamPolicyResult = {}  # type: ignore[typeddict-item]
-    child_ipam_policy_enabled = el.find("IpamPolicyEnabled")
+    child_ipam_policy_enabled = el.find("ipamPolicyEnabled")
     if child_ipam_policy_enabled is not None:
         out["ipam_policy_enabled"] = (
             child_ipam_policy_enabled.text or ""
         ).lower() == "true"
-    child_ipam_policy_id = el.find("IpamPolicyId")
+    child_ipam_policy_id = el.find("ipamPolicyId")
     if child_ipam_policy_id is not None:
         out["ipam_policy_id"] = str(child_ipam_policy_id.text or "")
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.ipam_policy_managed_by
 

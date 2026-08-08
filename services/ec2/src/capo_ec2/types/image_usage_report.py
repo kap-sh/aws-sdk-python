@@ -93,33 +93,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageUsageReport:
     out: ImageUsageReport = {}  # type: ignore[typeddict-item]
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_report_id = el.find("ReportId")
+    child_report_id = el.find("reportId")
     if child_report_id is not None:
         out["report_id"] = str(child_report_id.text or "")
-    if el.find("ResourceTypeSet") is not None:
+    if el.find("resourceTypeSet") is not None:
         import capo_ec2.types.image_usage_resource_type_list
 
         out["resource_types"] = (
             capo_ec2.types.image_usage_resource_type_list.deserialize_ec2_query(
-                el, "ResourceTypeSet"
+                el, "resourceTypeSet"
             )
         )
-    if el.find("AccountIdSet") is not None:
+    if el.find("accountIdSet") is not None:
         import capo_ec2.types.user_id_list
 
         out["account_ids"] = capo_ec2.types.user_id_list.deserialize_ec2_query(
-            el, "AccountIdSet"
+            el, "accountIdSet"
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    child_state_reason = el.find("StateReason")
+    child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         out["state_reason"] = str(child_state_reason.text or "")
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -128,7 +128,7 @@ def deserialize_ec2_query(el: Element) -> ImageUsageReport:
                 child_creation_time
             )
         )
-    child_expiration_time = el.find("ExpirationTime")
+    child_expiration_time = el.find("expirationTime")
     if child_expiration_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -137,8 +137,8 @@ def deserialize_ec2_query(el: Element) -> ImageUsageReport:
                 child_expiration_time
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

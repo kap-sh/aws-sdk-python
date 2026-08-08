@@ -90,7 +90,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -148,25 +148,25 @@ def deserialize_ec2_query(el: Element) -> CreateVpcRequest:
                 child_vpc_encryption_control
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_instance_tenancy = el.find("InstanceTenancy")
+    child_instance_tenancy = el.find("instanceTenancy")
     if child_instance_tenancy is not None:
         import capo_ec2.types.tenancy
 
         out["instance_tenancy"] = capo_ec2.types.tenancy.deserialize_ec2_query(
             child_instance_tenancy
         )
-    child_amazon_provided_ipv6_cidr_block = el.find("AmazonProvidedIpv6CidrBlock")
+    child_amazon_provided_ipv6_cidr_block = el.find("amazonProvidedIpv6CidrBlock")
     if child_amazon_provided_ipv6_cidr_block is not None:
         out["amazon_provided_ipv6_cidr_block"] = (
             child_amazon_provided_ipv6_cidr_block.text or ""

@@ -64,10 +64,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityManagerMonitoredTagKey:
     out: CapacityManagerMonitoredTagKey = {}  # type: ignore[typeddict-item]
-    child_tag_key = el.find("TagKey")
+    child_tag_key = el.find("tagKey")
     if child_tag_key is not None:
         out["tag_key"] = str(child_tag_key.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.capacity_manager_monitored_tag_key_status
 
@@ -76,15 +76,15 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerMonitoredTagKey:
                 child_status
             )
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_capacity_manager_provided = el.find("CapacityManagerProvided")
+    child_capacity_manager_provided = el.find("capacityManagerProvided")
     if child_capacity_manager_provided is not None:
         out["capacity_manager_provided"] = (
             child_capacity_manager_provided.text or ""
         ).lower() == "true"
-    child_earliest_datapoint_timestamp = el.find("EarliestDatapointTimestamp")
+    child_earliest_datapoint_timestamp = el.find("earliestDatapointTimestamp")
     if child_earliest_datapoint_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 

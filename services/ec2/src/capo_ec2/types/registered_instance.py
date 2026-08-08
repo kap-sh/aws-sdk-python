@@ -79,10 +79,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RegisteredInstance:
     out: RegisteredInstance = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_sql_server_license_usage = el.find("SqlServerLicenseUsage")
+    child_sql_server_license_usage = el.find("sqlServerLicenseUsage")
     if child_sql_server_license_usage is not None:
         import capo_ec2.types.sql_server_license_usage
 
@@ -91,17 +91,17 @@ def deserialize_ec2_query(el: Element) -> RegisteredInstance:
                 child_sql_server_license_usage
             )
         )
-    child_ha_status = el.find("HaStatus")
+    child_ha_status = el.find("haStatus")
     if child_ha_status is not None:
         import capo_ec2.types.ha_status
 
         out["ha_status"] = capo_ec2.types.ha_status.deserialize_ec2_query(
             child_ha_status
         )
-    child_processing_status = el.find("ProcessingStatus")
+    child_processing_status = el.find("processingStatus")
     if child_processing_status is not None:
         out["processing_status"] = str(child_processing_status.text or "")
-    child_last_updated_time = el.find("LastUpdatedTime")
+    child_last_updated_time = el.find("lastUpdatedTime")
     if child_last_updated_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -110,11 +110,11 @@ def deserialize_ec2_query(el: Element) -> RegisteredInstance:
                 child_last_updated_time
             )
         )
-    child_sql_server_credentials = el.find("SqlServerCredentials")
+    child_sql_server_credentials = el.find("sqlServerCredentials")
     if child_sql_server_credentials is not None:
         out["sql_server_credentials"] = str(child_sql_server_credentials.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

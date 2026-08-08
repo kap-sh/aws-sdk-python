@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateTagSpecification:
     out: LaunchTemplateTagSpecification = {}  # type: ignore[typeddict-item]
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.resource_type
 
         out["resource_type"] = capo_ec2.types.resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

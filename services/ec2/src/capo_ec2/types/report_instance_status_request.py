@@ -79,41 +79,41 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReportInstanceStatusRequest:
     out: ReportInstanceStatusRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("InstanceId") is not None:
+    if el.find("instanceId") is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instances"] = capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-            el, "InstanceId"
+            el, "instanceId"
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.report_status_type
 
         out["status"] = capo_ec2.types.report_status_type.deserialize_ec2_query(
             child_status
         )
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.date_time
 
         out["start_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_end_time = el.find("EndTime")
+    child_end_time = el.find("endTime")
     if child_end_time is not None:
         import capo_ec2.types.date_time
 
         out["end_time"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end_time)
-    if el.find("ReasonCode") is not None:
+    if el.find("reasonCode") is not None:
         import capo_ec2.types.reason_codes_list
 
         out["reason_codes"] = capo_ec2.types.reason_codes_list.deserialize_ec2_query(
-            el, "ReasonCode"
+            el, "reasonCode"
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
     return out

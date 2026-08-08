@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FastLaunchSnapshotConfigurationResponse:
     out: FastLaunchSnapshotConfigurationResponse = {}  # type: ignore[typeddict-item]
-    child_target_resource_count = el.find("TargetResourceCount")
+    child_target_resource_count = el.find("targetResourceCount")
     if child_target_resource_count is not None:
         out["target_resource_count"] = int(child_target_resource_count.text or "")
     return out

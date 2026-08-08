@@ -40,7 +40,7 @@ def serialize_ec2_query(
         import capo_ec2.types.vpc_endpoint_id_list
 
         capo_ec2.types.vpc_endpoint_id_list.serialize_ec2_query(
-            value["vpc_endpoint_ids"], pairs, f"{key_prefix}VpcEndpointIds"
+            value["vpc_endpoint_ids"], pairs, f"{key_prefix}VpcEndpointId"
         )
 
 
@@ -52,12 +52,12 @@ def deserialize_ec2_query(el: Element) -> RejectVpcEndpointConnectionsRequest:
     child_service_id = el.find("ServiceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    if el.find("VpcEndpointIds") is not None:
+    if el.find("VpcEndpointId") is not None:
         import capo_ec2.types.vpc_endpoint_id_list
 
         out["vpc_endpoint_ids"] = (
             capo_ec2.types.vpc_endpoint_id_list.deserialize_ec2_query(
-                el, "VpcEndpointIds"
+                el, "VpcEndpointId"
             )
         )
     return out

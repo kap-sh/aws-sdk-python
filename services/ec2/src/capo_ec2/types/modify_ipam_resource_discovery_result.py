@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyIpamResourceDiscoveryResult:
     out: ModifyIpamResourceDiscoveryResult = {}  # type: ignore[typeddict-item]
-    child_ipam_resource_discovery = el.find("IpamResourceDiscovery")
+    child_ipam_resource_discovery = el.find("ipamResourceDiscovery")
     if child_ipam_resource_discovery is not None:
         import capo_ec2.types.ipam_resource_discovery
 

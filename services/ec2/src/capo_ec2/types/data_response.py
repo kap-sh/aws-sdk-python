@@ -70,36 +70,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DataResponse:
     out: DataResponse = {}  # type: ignore[typeddict-item]
-    child_id = el.find("Id")
+    child_id = el.find("id")
     if child_id is not None:
         out["id"] = str(child_id.text or "")
-    child_source = el.find("Source")
+    child_source = el.find("source")
     if child_source is not None:
         out["source"] = str(child_source.text or "")
-    child_destination = el.find("Destination")
+    child_destination = el.find("destination")
     if child_destination is not None:
         out["destination"] = str(child_destination.text or "")
-    child_metric = el.find("Metric")
+    child_metric = el.find("metric")
     if child_metric is not None:
         import capo_ec2.types.metric_type
 
         out["metric"] = capo_ec2.types.metric_type.deserialize_ec2_query(child_metric)
-    child_statistic = el.find("Statistic")
+    child_statistic = el.find("statistic")
     if child_statistic is not None:
         import capo_ec2.types.statistic_type
 
         out["statistic"] = capo_ec2.types.statistic_type.deserialize_ec2_query(
             child_statistic
         )
-    child_period = el.find("Period")
+    child_period = el.find("period")
     if child_period is not None:
         import capo_ec2.types.period_type
 
         out["period"] = capo_ec2.types.period_type.deserialize_ec2_query(child_period)
-    if el.find("MetricPointSet") is not None:
+    if el.find("metricPointSet") is not None:
         import capo_ec2.types.metric_points
 
         out["metric_points"] = capo_ec2.types.metric_points.deserialize_ec2_query(
-            el, "MetricPointSet"
+            el, "metricPointSet"
         )
     return out

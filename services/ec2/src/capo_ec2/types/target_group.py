@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TargetGroup:
     out: TargetGroup = {}  # type: ignore[typeddict-item]
-    child_arn = el.find("Arn")
+    child_arn = el.find("arn")
     if child_arn is not None:
         out["arn"] = str(child_arn.text or "")
     return out

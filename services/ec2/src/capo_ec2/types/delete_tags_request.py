@@ -44,17 +44,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteTagsRequest:
     out: DeleteTagsRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ResourceId") is not None:
+    if el.find("resourceId") is not None:
         import capo_ec2.types.resource_id_list
 
         out["resources"] = capo_ec2.types.resource_id_list.deserialize_ec2_query(
-            el, "ResourceId"
+            el, "resourceId"
         )
-    if el.find("Tag") is not None:
+    if el.find("tag") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "Tag")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tag")
     return out

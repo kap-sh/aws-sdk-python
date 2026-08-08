@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RestoreAddressToClassicResult:
     out: RestoreAddressToClassicResult = {}  # type: ignore[typeddict-item]
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.status
 

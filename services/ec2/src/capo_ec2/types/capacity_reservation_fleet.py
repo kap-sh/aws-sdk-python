@@ -140,17 +140,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationFleet:
     out: CapacityReservationFleet = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_fleet_id = el.find("CapacityReservationFleetId")
+    child_capacity_reservation_fleet_id = el.find("capacityReservationFleetId")
     if child_capacity_reservation_fleet_id is not None:
         out["capacity_reservation_fleet_id"] = str(
             child_capacity_reservation_fleet_id.text or ""
         )
-    child_capacity_reservation_fleet_arn = el.find("CapacityReservationFleetArn")
+    child_capacity_reservation_fleet_arn = el.find("capacityReservationFleetArn")
     if child_capacity_reservation_fleet_arn is not None:
         out["capacity_reservation_fleet_arn"] = str(
             child_capacity_reservation_fleet_arn.text or ""
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.capacity_reservation_fleet_state
 
@@ -159,15 +159,15 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationFleet:
                 child_state
             )
         )
-    child_total_target_capacity = el.find("TotalTargetCapacity")
+    child_total_target_capacity = el.find("totalTargetCapacity")
     if child_total_target_capacity is not None:
         out["total_target_capacity"] = int(child_total_target_capacity.text or "")
-    child_total_fulfilled_capacity = el.find("TotalFulfilledCapacity")
+    child_total_fulfilled_capacity = el.find("totalFulfilledCapacity")
     if child_total_fulfilled_capacity is not None:
         out["total_fulfilled_capacity"] = float(
             child_total_fulfilled_capacity.text or ""
         )
-    child_tenancy = el.find("Tenancy")
+    child_tenancy = el.find("tenancy")
     if child_tenancy is not None:
         import capo_ec2.types.fleet_capacity_reservation_tenancy
 
@@ -176,21 +176,21 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationFleet:
                 child_tenancy
             )
         )
-    child_end_date = el.find("EndDate")
+    child_end_date = el.find("endDate")
     if child_end_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["end_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_date
         )
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["create_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_instance_match_criteria = el.find("InstanceMatchCriteria")
+    child_instance_match_criteria = el.find("instanceMatchCriteria")
     if child_instance_match_criteria is not None:
         import capo_ec2.types.fleet_instance_match_criteria
 
@@ -199,19 +199,19 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationFleet:
                 child_instance_match_criteria
             )
         )
-    child_allocation_strategy = el.find("AllocationStrategy")
+    child_allocation_strategy = el.find("allocationStrategy")
     if child_allocation_strategy is not None:
         out["allocation_strategy"] = str(child_allocation_strategy.text or "")
-    if el.find("InstanceTypeSpecificationSet") is not None:
+    if el.find("instanceTypeSpecificationSet") is not None:
         import capo_ec2.types.fleet_capacity_reservation_set
 
         out["instance_type_specifications"] = (
             capo_ec2.types.fleet_capacity_reservation_set.deserialize_ec2_query(
-                el, "InstanceTypeSpecificationSet"
+                el, "instanceTypeSpecificationSet"
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

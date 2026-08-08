@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateCoipCidrResult:
     out: CreateCoipCidrResult = {}  # type: ignore[typeddict-item]
-    child_coip_cidr = el.find("CoipCidr")
+    child_coip_cidr = el.find("coipCidr")
     if child_coip_cidr is not None:
         import capo_ec2.types.coip_cidr
 

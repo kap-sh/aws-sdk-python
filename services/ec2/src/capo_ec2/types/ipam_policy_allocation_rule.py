@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPolicyAllocationRule:
     out: IpamPolicyAllocationRule = {}  # type: ignore[typeddict-item]
-    child_source_ipam_pool_id = el.find("SourceIpamPoolId")
+    child_source_ipam_pool_id = el.find("sourceIpamPoolId")
     if child_source_ipam_pool_id is not None:
         out["source_ipam_pool_id"] = str(child_source_ipam_pool_id.text or "")
     return out

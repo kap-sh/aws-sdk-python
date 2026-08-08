@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> BundleInstanceResult:
     out: BundleInstanceResult = {}  # type: ignore[typeddict-item]
-    child_bundle_task = el.find("BundleInstanceTask")
+    child_bundle_task = el.find("bundleInstanceTask")
     if child_bundle_task is not None:
         import capo_ec2.types.bundle_task
 

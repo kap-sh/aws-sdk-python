@@ -100,52 +100,52 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AnalysisRouteTableRoute:
     out: AnalysisRouteTableRoute = {}  # type: ignore[typeddict-item]
-    child_destination_cidr = el.find("DestinationCidr")
+    child_destination_cidr = el.find("destinationCidr")
     if child_destination_cidr is not None:
         out["destination_cidr"] = str(child_destination_cidr.text or "")
-    child_destination_prefix_list_id = el.find("DestinationPrefixListId")
+    child_destination_prefix_list_id = el.find("destinationPrefixListId")
     if child_destination_prefix_list_id is not None:
         out["destination_prefix_list_id"] = str(
             child_destination_prefix_list_id.text or ""
         )
-    child_egress_only_internet_gateway_id = el.find("EgressOnlyInternetGatewayId")
+    child_egress_only_internet_gateway_id = el.find("egressOnlyInternetGatewayId")
     if child_egress_only_internet_gateway_id is not None:
         out["egress_only_internet_gateway_id"] = str(
             child_egress_only_internet_gateway_id.text or ""
         )
-    child_gateway_id = el.find("GatewayId")
+    child_gateway_id = el.find("gatewayId")
     if child_gateway_id is not None:
         out["gateway_id"] = str(child_gateway_id.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_nat_gateway_id = el.find("NatGatewayId")
+    child_nat_gateway_id = el.find("natGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_origin = el.find("Origin")
+    child_origin = el.find("origin")
     if child_origin is not None:
         out["origin"] = str(child_origin.text or "")
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_vpc_peering_connection_id = el.find("VpcPeeringConnectionId")
+    child_vpc_peering_connection_id = el.find("vpcPeeringConnectionId")
     if child_vpc_peering_connection_id is not None:
         out["vpc_peering_connection_id"] = str(
             child_vpc_peering_connection_id.text or ""
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    child_carrier_gateway_id = el.find("CarrierGatewayId")
+    child_carrier_gateway_id = el.find("carrierGatewayId")
     if child_carrier_gateway_id is not None:
         out["carrier_gateway_id"] = str(child_carrier_gateway_id.text or "")
-    child_core_network_arn = el.find("CoreNetworkArn")
+    child_core_network_arn = el.find("coreNetworkArn")
     if child_core_network_arn is not None:
         out["core_network_arn"] = str(child_core_network_arn.text or "")
-    child_local_gateway_id = el.find("LocalGatewayId")
+    child_local_gateway_id = el.find("localGatewayId")
     if child_local_gateway_id is not None:
         out["local_gateway_id"] = str(child_local_gateway_id.text or "")
     return out

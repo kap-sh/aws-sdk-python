@@ -55,25 +55,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> OidcOptions:
     out: OidcOptions = {}  # type: ignore[typeddict-item]
-    child_issuer = el.find("Issuer")
+    child_issuer = el.find("issuer")
     if child_issuer is not None:
         out["issuer"] = str(child_issuer.text or "")
-    child_authorization_endpoint = el.find("AuthorizationEndpoint")
+    child_authorization_endpoint = el.find("authorizationEndpoint")
     if child_authorization_endpoint is not None:
         out["authorization_endpoint"] = str(child_authorization_endpoint.text or "")
-    child_token_endpoint = el.find("TokenEndpoint")
+    child_token_endpoint = el.find("tokenEndpoint")
     if child_token_endpoint is not None:
         out["token_endpoint"] = str(child_token_endpoint.text or "")
-    child_user_info_endpoint = el.find("UserInfoEndpoint")
+    child_user_info_endpoint = el.find("userInfoEndpoint")
     if child_user_info_endpoint is not None:
         out["user_info_endpoint"] = str(child_user_info_endpoint.text or "")
-    child_client_id = el.find("ClientId")
+    child_client_id = el.find("clientId")
     if child_client_id is not None:
         out["client_id"] = str(child_client_id.text or "")
-    child_client_secret = el.find("ClientSecret")
+    child_client_secret = el.find("clientSecret")
     if child_client_secret is not None:
         out["client_secret"] = str(child_client_secret.text or "")
-    child_scope = el.find("Scope")
+    child_scope = el.find("scope")
     if child_scope is not None:
         out["scope"] = str(child_scope.text or "")
     return out

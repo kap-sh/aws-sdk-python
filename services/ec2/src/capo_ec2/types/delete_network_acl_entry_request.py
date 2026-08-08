@@ -40,16 +40,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteNetworkAclEntryRequest:
     out: DeleteNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_network_acl_id = el.find("NetworkAclId")
+    child_network_acl_id = el.find("networkAclId")
     if child_network_acl_id is not None:
         out["network_acl_id"] = str(child_network_acl_id.text or "")
-    child_rule_number = el.find("RuleNumber")
+    child_rule_number = el.find("ruleNumber")
     if child_rule_number is not None:
         out["rule_number"] = int(child_rule_number.text or "")
-    child_egress = el.find("Egress")
+    child_egress = el.find("egress")
     if child_egress is not None:
         out["egress"] = (child_egress.text or "").lower() == "true"
     return out

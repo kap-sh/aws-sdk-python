@@ -38,13 +38,13 @@ def serialize_ec2_query(
         import capo_ec2.types.reserved_instance_id_set
 
         capo_ec2.types.reserved_instance_id_set.serialize_ec2_query(
-            value["reserved_instance_ids"], pairs, f"{key_prefix}ReservedInstanceIds"
+            value["reserved_instance_ids"], pairs, f"{key_prefix}ReservedInstanceId"
         )
     if "target_configurations" in value:
         import capo_ec2.types.target_configuration_request_set
 
         capo_ec2.types.target_configuration_request_set.serialize_ec2_query(
-            value["target_configurations"], pairs, f"{key_prefix}TargetConfigurations"
+            value["target_configurations"], pairs, f"{key_prefix}TargetConfiguration"
         )
 
 
@@ -53,20 +53,20 @@ def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteReque
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ReservedInstanceIds") is not None:
+    if el.find("ReservedInstanceId") is not None:
         import capo_ec2.types.reserved_instance_id_set
 
         out["reserved_instance_ids"] = (
             capo_ec2.types.reserved_instance_id_set.deserialize_ec2_query(
-                el, "ReservedInstanceIds"
+                el, "ReservedInstanceId"
             )
         )
-    if el.find("TargetConfigurations") is not None:
+    if el.find("TargetConfiguration") is not None:
         import capo_ec2.types.target_configuration_request_set
 
         out["target_configurations"] = (
             capo_ec2.types.target_configuration_request_set.deserialize_ec2_query(
-                el, "TargetConfigurations"
+                el, "TargetConfiguration"
             )
         )
     return out

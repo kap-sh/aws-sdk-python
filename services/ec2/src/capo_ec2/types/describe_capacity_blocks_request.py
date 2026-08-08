@@ -40,7 +40,7 @@ def serialize_ec2_query(
         import capo_ec2.types.capacity_block_ids
 
         capo_ec2.types.capacity_block_ids.serialize_ec2_query(
-            value["capacity_block_ids"], pairs, f"{key_prefix}CapacityBlockIds"
+            value["capacity_block_ids"], pairs, f"{key_prefix}CapacityBlockId"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -50,7 +50,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -58,12 +58,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeCapacityBlocksRequest:
     out: DescribeCapacityBlocksRequest = {}  # type: ignore[typeddict-item]
-    if el.find("CapacityBlockIds") is not None:
+    if el.find("CapacityBlockId") is not None:
         import capo_ec2.types.capacity_block_ids
 
         out["capacity_block_ids"] = (
             capo_ec2.types.capacity_block_ids.deserialize_ec2_query(
-                el, "CapacityBlockIds"
+                el, "CapacityBlockId"
             )
         )
     child_next_token = el.find("NextToken")
@@ -72,10 +72,10 @@ def deserialize_ec2_query(el: Element) -> DescribeCapacityBlocksRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"

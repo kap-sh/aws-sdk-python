@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInterfacePermissionResult:
     out: CreateNetworkInterfacePermissionResult = {}  # type: ignore[typeddict-item]
-    child_interface_permission = el.find("InterfacePermission")
+    child_interface_permission = el.find("interfacePermission")
     if child_interface_permission is not None:
         import capo_ec2.types.network_interface_permission
 

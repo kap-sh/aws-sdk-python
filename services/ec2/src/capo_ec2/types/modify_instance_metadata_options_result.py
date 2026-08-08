@@ -41,10 +41,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceMetadataOptionsResult:
     out: ModifyInstanceMetadataOptionsResult = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_instance_metadata_options = el.find("InstanceMetadataOptions")
+    child_instance_metadata_options = el.find("instanceMetadataOptions")
     if child_instance_metadata_options is not None:
         import capo_ec2.types.instance_metadata_options_response
 

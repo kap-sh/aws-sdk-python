@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeIdFormatResult:
     out: DescribeIdFormatResult = {}  # type: ignore[typeddict-item]
-    if el.find("StatusSet") is not None:
+    if el.find("statusSet") is not None:
         import capo_ec2.types.id_format_list
 
         out["statuses"] = capo_ec2.types.id_format_list.deserialize_ec2_query(
-            el, "StatusSet"
+            el, "statusSet"
         )
     return out

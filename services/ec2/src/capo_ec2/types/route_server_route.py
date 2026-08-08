@@ -89,21 +89,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteServerRoute:
     out: RouteServerRoute = {}  # type: ignore[typeddict-item]
-    child_route_server_endpoint_id = el.find("RouteServerEndpointId")
+    child_route_server_endpoint_id = el.find("routeServerEndpointId")
     if child_route_server_endpoint_id is not None:
         out["route_server_endpoint_id"] = str(child_route_server_endpoint_id.text or "")
-    child_route_server_peer_id = el.find("RouteServerPeerId")
+    child_route_server_peer_id = el.find("routeServerPeerId")
     if child_route_server_peer_id is not None:
         out["route_server_peer_id"] = str(child_route_server_peer_id.text or "")
-    if el.find("RouteInstallationDetailSet") is not None:
+    if el.find("routeInstallationDetailSet") is not None:
         import capo_ec2.types.route_server_route_installation_details
 
         out["route_installation_details"] = (
             capo_ec2.types.route_server_route_installation_details.deserialize_ec2_query(
-                el, "RouteInstallationDetailSet"
+                el, "routeInstallationDetailSet"
             )
         )
-    child_route_status = el.find("RouteStatus")
+    child_route_status = el.find("routeStatus")
     if child_route_status is not None:
         import capo_ec2.types.route_server_route_status
 
@@ -112,17 +112,17 @@ def deserialize_ec2_query(el: Element) -> RouteServerRoute:
                 child_route_status
             )
         )
-    child_prefix = el.find("Prefix")
+    child_prefix = el.find("prefix")
     if child_prefix is not None:
         out["prefix"] = str(child_prefix.text or "")
-    if el.find("AsPathSet") is not None:
+    if el.find("asPathSet") is not None:
         import capo_ec2.types.as_path
 
-        out["as_paths"] = capo_ec2.types.as_path.deserialize_ec2_query(el, "AsPathSet")
-    child_med = el.find("Med")
+        out["as_paths"] = capo_ec2.types.as_path.deserialize_ec2_query(el, "asPathSet")
+    child_med = el.find("med")
     if child_med is not None:
         out["med"] = int(child_med.text or "")
-    child_next_hop_ip = el.find("NextHopIp")
+    child_next_hop_ip = el.find("nextHopIp")
     if child_next_hop_ip is not None:
         out["next_hop_ip"] = str(child_next_hop_ip.text or "")
     return out

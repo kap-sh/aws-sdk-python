@@ -93,7 +93,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "snapshot_copy_completion_duration_minutes" in value:
         pairs.append(
@@ -128,10 +128,10 @@ def deserialize_ec2_query(el: Element) -> CopyImageRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_encrypted = el.find("Encrypted")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
     child_name = el.find("Name")
@@ -149,12 +149,12 @@ def deserialize_ec2_query(el: Element) -> CopyImageRequest:
     child_copy_image_tags = el.find("CopyImageTags")
     if child_copy_image_tags is not None:
         out["copy_image_tags"] = (child_copy_image_tags.text or "").lower() == "true"
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_snapshot_copy_completion_duration_minutes = el.find(
@@ -174,7 +174,7 @@ def deserialize_ec2_query(el: Element) -> CopyImageRequest:
         out["destination_availability_zone_id"] = str(
             child_destination_availability_zone_id.text or ""
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

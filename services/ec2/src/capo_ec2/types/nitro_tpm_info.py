@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NitroTpmInfo:
     out: NitroTpmInfo = {}  # type: ignore[typeddict-item]
-    if el.find("SupportedVersions") is not None:
+    if el.find("supportedVersions") is not None:
         import capo_ec2.types.nitro_tpm_supported_versions_list
 
         out["supported_versions"] = (
             capo_ec2.types.nitro_tpm_supported_versions_list.deserialize_ec2_query(
-                el, "SupportedVersions"
+                el, "supportedVersions"
             )
         )
     return out

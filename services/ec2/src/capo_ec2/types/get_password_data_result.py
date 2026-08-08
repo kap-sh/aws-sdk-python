@@ -40,17 +40,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetPasswordDataResult:
     out: GetPasswordDataResult = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_timestamp = el.find("Timestamp")
+    child_timestamp = el.find("timestamp")
     if child_timestamp is not None:
         import capo_ec2.types.date_time
 
         out["timestamp"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_timestamp
         )
-    child_password_data = el.find("PasswordData")
+    child_password_data = el.find("passwordData")
     if child_password_data is not None:
         out["password_data"] = str(child_password_data.text or "")
     return out

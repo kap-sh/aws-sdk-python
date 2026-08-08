@@ -51,21 +51,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateReservedInstancesListingRequest:
     out: CreateReservedInstancesListingRequest = {}  # type: ignore[typeddict-item]
-    child_reserved_instances_id = el.find("ReservedInstancesId")
+    child_reserved_instances_id = el.find("reservedInstancesId")
     if child_reserved_instances_id is not None:
         out["reserved_instances_id"] = str(child_reserved_instances_id.text or "")
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    if el.find("PriceSchedules") is not None:
+    if el.find("priceSchedules") is not None:
         import capo_ec2.types.price_schedule_specification_list
 
         out["price_schedules"] = (
             capo_ec2.types.price_schedule_specification_list.deserialize_ec2_query(
-                el, "PriceSchedules"
+                el, "priceSchedules"
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

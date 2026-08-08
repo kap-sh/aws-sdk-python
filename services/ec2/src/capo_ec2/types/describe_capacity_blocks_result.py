@@ -35,15 +35,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeCapacityBlocksResult:
     out: DescribeCapacityBlocksResult = {}  # type: ignore[typeddict-item]
-    if el.find("CapacityBlockSet") is not None:
+    if el.find("capacityBlockSet") is not None:
         import capo_ec2.types.capacity_block_set
 
         out["capacity_blocks"] = (
             capo_ec2.types.capacity_block_set.deserialize_ec2_query(
-                el, "CapacityBlockSet"
+                el, "capacityBlockSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

@@ -51,7 +51,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -89,46 +89,46 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AuthorizeSecurityGroupEgressRequest:
     out: AuthorizeSecurityGroupEgressRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_source_security_group_name = el.find("SourceSecurityGroupName")
+    child_source_security_group_name = el.find("sourceSecurityGroupName")
     if child_source_security_group_name is not None:
         out["source_security_group_name"] = str(
             child_source_security_group_name.text or ""
         )
-    child_source_security_group_owner_id = el.find("SourceSecurityGroupOwnerId")
+    child_source_security_group_owner_id = el.find("sourceSecurityGroupOwnerId")
     if child_source_security_group_owner_id is not None:
         out["source_security_group_owner_id"] = str(
             child_source_security_group_owner_id.text or ""
         )
-    child_ip_protocol = el.find("IpProtocol")
+    child_ip_protocol = el.find("ipProtocol")
     if child_ip_protocol is not None:
         out["ip_protocol"] = str(child_ip_protocol.text or "")
-    child_from_port = el.find("FromPort")
+    child_from_port = el.find("fromPort")
     if child_from_port is not None:
         out["from_port"] = int(child_from_port.text or "")
-    child_to_port = el.find("ToPort")
+    child_to_port = el.find("toPort")
     if child_to_port is not None:
         out["to_port"] = int(child_to_port.text or "")
-    child_cidr_ip = el.find("CidrIp")
+    child_cidr_ip = el.find("cidrIp")
     if child_cidr_ip is not None:
         out["cidr_ip"] = str(child_cidr_ip.text or "")
-    if el.find("IpPermissions") is not None:
+    if el.find("ipPermissions") is not None:
         import capo_ec2.types.ip_permission_list
 
         out["ip_permissions"] = capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-            el, "IpPermissions"
+            el, "ipPermissions"
         )
     return out

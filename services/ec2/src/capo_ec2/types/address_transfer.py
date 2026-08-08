@@ -74,17 +74,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AddressTransfer:
     out: AddressTransfer = {}  # type: ignore[typeddict-item]
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
-    child_allocation_id = el.find("AllocationId")
+    child_allocation_id = el.find("allocationId")
     if child_allocation_id is not None:
         out["allocation_id"] = str(child_allocation_id.text or "")
-    child_transfer_account_id = el.find("TransferAccountId")
+    child_transfer_account_id = el.find("transferAccountId")
     if child_transfer_account_id is not None:
         out["transfer_account_id"] = str(child_transfer_account_id.text or "")
     child_transfer_offer_expiration_timestamp = el.find(
-        "TransferOfferExpirationTimestamp"
+        "transferOfferExpirationTimestamp"
     )
     if child_transfer_offer_expiration_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
@@ -94,7 +94,7 @@ def deserialize_ec2_query(el: Element) -> AddressTransfer:
                 child_transfer_offer_expiration_timestamp
             )
         )
-    child_transfer_offer_accepted_timestamp = el.find("TransferOfferAcceptedTimestamp")
+    child_transfer_offer_accepted_timestamp = el.find("transferOfferAcceptedTimestamp")
     if child_transfer_offer_accepted_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -103,7 +103,7 @@ def deserialize_ec2_query(el: Element) -> AddressTransfer:
                 child_transfer_offer_accepted_timestamp
             )
         )
-    child_address_transfer_status = el.find("AddressTransferStatus")
+    child_address_transfer_status = el.find("addressTransferStatus")
     if child_address_transfer_status is not None:
         import capo_ec2.types.address_transfer_status
 

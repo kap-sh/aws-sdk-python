@@ -44,10 +44,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceEventWindowStateChange:
     out: InstanceEventWindowStateChange = {}  # type: ignore[typeddict-item]
-    child_instance_event_window_id = el.find("InstanceEventWindowId")
+    child_instance_event_window_id = el.find("instanceEventWindowId")
     if child_instance_event_window_id is not None:
         out["instance_event_window_id"] = str(child_instance_event_window_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.instance_event_window_state
 

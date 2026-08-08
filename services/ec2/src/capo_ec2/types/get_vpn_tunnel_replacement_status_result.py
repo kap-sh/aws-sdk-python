@@ -72,24 +72,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetVpnTunnelReplacementStatusResult:
     out: GetVpnTunnelReplacementStatusResult = {}  # type: ignore[typeddict-item]
-    child_vpn_connection_id = el.find("VpnConnectionId")
+    child_vpn_connection_id = el.find("vpnConnectionId")
     if child_vpn_connection_id is not None:
         out["vpn_connection_id"] = str(child_vpn_connection_id.text or "")
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_customer_gateway_id = el.find("CustomerGatewayId")
+    child_customer_gateway_id = el.find("customerGatewayId")
     if child_customer_gateway_id is not None:
         out["customer_gateway_id"] = str(child_customer_gateway_id.text or "")
-    child_vpn_gateway_id = el.find("VpnGatewayId")
+    child_vpn_gateway_id = el.find("vpnGatewayId")
     if child_vpn_gateway_id is not None:
         out["vpn_gateway_id"] = str(child_vpn_gateway_id.text or "")
-    child_vpn_tunnel_outside_ip_address = el.find("VpnTunnelOutsideIpAddress")
+    child_vpn_tunnel_outside_ip_address = el.find("vpnTunnelOutsideIpAddress")
     if child_vpn_tunnel_outside_ip_address is not None:
         out["vpn_tunnel_outside_ip_address"] = str(
             child_vpn_tunnel_outside_ip_address.text or ""
         )
-    child_maintenance_details = el.find("MaintenanceDetails")
+    child_maintenance_details = el.find("maintenanceDetails")
     if child_maintenance_details is not None:
         import capo_ec2.types.maintenance_details
 

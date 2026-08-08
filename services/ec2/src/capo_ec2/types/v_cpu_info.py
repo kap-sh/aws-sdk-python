@@ -63,27 +63,27 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VCpuInfo:
     out: VCpuInfo = {}  # type: ignore[typeddict-item]
-    child_default_v_cpus = el.find("DefaultVCpus")
+    child_default_v_cpus = el.find("defaultVCpus")
     if child_default_v_cpus is not None:
         out["default_v_cpus"] = int(child_default_v_cpus.text or "")
-    child_default_cores = el.find("DefaultCores")
+    child_default_cores = el.find("defaultCores")
     if child_default_cores is not None:
         out["default_cores"] = int(child_default_cores.text or "")
-    child_default_threads_per_core = el.find("DefaultThreadsPerCore")
+    child_default_threads_per_core = el.find("defaultThreadsPerCore")
     if child_default_threads_per_core is not None:
         out["default_threads_per_core"] = int(child_default_threads_per_core.text or "")
-    if el.find("ValidCores") is not None:
+    if el.find("validCores") is not None:
         import capo_ec2.types.core_count_list
 
         out["valid_cores"] = capo_ec2.types.core_count_list.deserialize_ec2_query(
-            el, "ValidCores"
+            el, "validCores"
         )
-    if el.find("ValidThreadsPerCore") is not None:
+    if el.find("validThreadsPerCore") is not None:
         import capo_ec2.types.threads_per_core_list
 
         out["valid_threads_per_core"] = (
             capo_ec2.types.threads_per_core_list.deserialize_ec2_query(
-                el, "ValidThreadsPerCore"
+                el, "validThreadsPerCore"
             )
         )
     return out

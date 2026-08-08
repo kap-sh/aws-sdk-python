@@ -100,7 +100,7 @@ def deserialize_ec2_query(
 ) -> LocalGatewayRouteTableVirtualInterfaceGroupAssociation:
     out: LocalGatewayRouteTableVirtualInterfaceGroupAssociation = {}  # type: ignore[typeddict-item]
     child_local_gateway_route_table_virtual_interface_group_association_id = el.find(
-        "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId"
+        "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
     )
     if (
         child_local_gateway_route_table_virtual_interface_group_association_id
@@ -111,33 +111,33 @@ def deserialize_ec2_query(
             or ""
         )
     child_local_gateway_virtual_interface_group_id = el.find(
-        "LocalGatewayVirtualInterfaceGroupId"
+        "localGatewayVirtualInterfaceGroupId"
     )
     if child_local_gateway_virtual_interface_group_id is not None:
         out["local_gateway_virtual_interface_group_id"] = str(
             child_local_gateway_virtual_interface_group_id.text or ""
         )
-    child_local_gateway_id = el.find("LocalGatewayId")
+    child_local_gateway_id = el.find("localGatewayId")
     if child_local_gateway_id is not None:
         out["local_gateway_id"] = str(child_local_gateway_id.text or "")
-    child_local_gateway_route_table_id = el.find("LocalGatewayRouteTableId")
+    child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")
     if child_local_gateway_route_table_id is not None:
         out["local_gateway_route_table_id"] = str(
             child_local_gateway_route_table_id.text or ""
         )
-    child_local_gateway_route_table_arn = el.find("LocalGatewayRouteTableArn")
+    child_local_gateway_route_table_arn = el.find("localGatewayRouteTableArn")
     if child_local_gateway_route_table_arn is not None:
         out["local_gateway_route_table_arn"] = str(
             child_local_gateway_route_table_arn.text or ""
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

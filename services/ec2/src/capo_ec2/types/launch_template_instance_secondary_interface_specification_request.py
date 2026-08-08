@@ -59,7 +59,7 @@ def serialize_ec2_query(
         import capo_ec2.types.secondary_interface_private_ip_address_specification_list_request
 
         capo_ec2.types.secondary_interface_private_ip_address_specification_list_request.serialize_ec2_query(
-            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddresses"
+            value["private_ip_addresses"], pairs, f"{key_prefix}PrivateIpAddress"
         )
     if "private_ip_address_count" in value:
         pairs.append(
@@ -96,12 +96,12 @@ def deserialize_ec2_query(
     child_device_index = el.find("DeviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    if el.find("PrivateIpAddresses") is not None:
+    if el.find("PrivateIpAddress") is not None:
         import capo_ec2.types.secondary_interface_private_ip_address_specification_list_request
 
         out["private_ip_addresses"] = (
             capo_ec2.types.secondary_interface_private_ip_address_specification_list_request.deserialize_ec2_query(
-                el, "PrivateIpAddresses"
+                el, "PrivateIpAddress"
             )
         )
     child_private_ip_address_count = el.find("PrivateIpAddressCount")

@@ -54,20 +54,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointTarget:
     out: VerifiedAccessEndpointTarget = {}  # type: ignore[typeddict-item]
-    child_verified_access_endpoint_id = el.find("VerifiedAccessEndpointId")
+    child_verified_access_endpoint_id = el.find("verifiedAccessEndpointId")
     if child_verified_access_endpoint_id is not None:
         out["verified_access_endpoint_id"] = str(
             child_verified_access_endpoint_id.text or ""
         )
     child_verified_access_endpoint_target_ip_address = el.find(
-        "VerifiedAccessEndpointTargetIpAddress"
+        "verifiedAccessEndpointTargetIpAddress"
     )
     if child_verified_access_endpoint_target_ip_address is not None:
         out["verified_access_endpoint_target_ip_address"] = str(
             child_verified_access_endpoint_target_ip_address.text or ""
         )
     child_verified_access_endpoint_target_dns = el.find(
-        "VerifiedAccessEndpointTargetDns"
+        "verifiedAccessEndpointTargetDns"
     )
     if child_verified_access_endpoint_target_dns is not None:
         out["verified_access_endpoint_target_dns"] = str(

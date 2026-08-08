@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientRouteEnforcementResponseOptions:
     out: ClientRouteEnforcementResponseOptions = {}  # type: ignore[typeddict-item]
-    child_enforced = el.find("Enforced")
+    child_enforced = el.find("enforced")
     if child_enforced is not None:
         out["enforced"] = (child_enforced.text or "").lower() == "true"
     return out

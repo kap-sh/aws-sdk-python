@@ -40,16 +40,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PeeringTgwInfo:
     out: PeeringTgwInfo = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_core_network_id = el.find("CoreNetworkId")
+    child_core_network_id = el.find("coreNetworkId")
     if child_core_network_id is not None:
         out["core_network_id"] = str(child_core_network_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_region = el.find("Region")
+    child_region = el.find("region")
     if child_region is not None:
         out["region"] = str(child_region.text or "")
     return out

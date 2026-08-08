@@ -94,32 +94,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateVersion:
     out: LaunchTemplateVersion = {}  # type: ignore[typeddict-item]
-    child_launch_template_id = el.find("LaunchTemplateId")
+    child_launch_template_id = el.find("launchTemplateId")
     if child_launch_template_id is not None:
         out["launch_template_id"] = str(child_launch_template_id.text or "")
-    child_launch_template_name = el.find("LaunchTemplateName")
+    child_launch_template_name = el.find("launchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    child_version_number = el.find("VersionNumber")
+    child_version_number = el.find("versionNumber")
     if child_version_number is not None:
         out["version_number"] = int(child_version_number.text or "")
-    child_version_description = el.find("VersionDescription")
+    child_version_description = el.find("versionDescription")
     if child_version_description is not None:
         out["version_description"] = str(child_version_description.text or "")
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_created_by = el.find("CreatedBy")
+    child_created_by = el.find("createdBy")
     if child_created_by is not None:
         out["created_by"] = str(child_created_by.text or "")
-    child_default_version = el.find("DefaultVersion")
+    child_default_version = el.find("defaultVersion")
     if child_default_version is not None:
         out["default_version"] = (child_default_version.text or "").lower() == "true"
-    child_launch_template_data = el.find("LaunchTemplateData")
+    child_launch_template_data = el.find("launchTemplateData")
     if child_launch_template_data is not None:
         import capo_ec2.types.response_launch_template_data
 
@@ -128,7 +128,7 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateVersion:
                 child_launch_template_data
             )
         )
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

@@ -46,21 +46,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateFlowLogsResult:
     out: CreateFlowLogsResult = {}  # type: ignore[typeddict-item]
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("FlowLogIdSet") is not None:
+    if el.find("flowLogIdSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["flow_log_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "FlowLogIdSet"
+            el, "flowLogIdSet"
         )
-    if el.find("Unsuccessful") is not None:
+    if el.find("unsuccessful") is not None:
         import capo_ec2.types.unsuccessful_item_set
 
         out["unsuccessful"] = (
             capo_ec2.types.unsuccessful_item_set.deserialize_ec2_query(
-                el, "Unsuccessful"
+                el, "unsuccessful"
             )
         )
     return out

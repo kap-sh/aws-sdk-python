@@ -109,45 +109,45 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstanceAvailability:
     out: ScheduledInstanceAvailability = {}  # type: ignore[typeddict-item]
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_available_instance_count = el.find("AvailableInstanceCount")
+    child_available_instance_count = el.find("availableInstanceCount")
     if child_available_instance_count is not None:
         out["available_instance_count"] = int(child_available_instance_count.text or "")
-    child_first_slot_start_time = el.find("FirstSlotStartTime")
+    child_first_slot_start_time = el.find("firstSlotStartTime")
     if child_first_slot_start_time is not None:
         import capo_ec2.types.date_time
 
         out["first_slot_start_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_first_slot_start_time
         )
-    child_hourly_price = el.find("HourlyPrice")
+    child_hourly_price = el.find("hourlyPrice")
     if child_hourly_price is not None:
         out["hourly_price"] = str(child_hourly_price.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_max_term_duration_in_days = el.find("MaxTermDurationInDays")
+    child_max_term_duration_in_days = el.find("maxTermDurationInDays")
     if child_max_term_duration_in_days is not None:
         out["max_term_duration_in_days"] = int(
             child_max_term_duration_in_days.text or ""
         )
-    child_min_term_duration_in_days = el.find("MinTermDurationInDays")
+    child_min_term_duration_in_days = el.find("minTermDurationInDays")
     if child_min_term_duration_in_days is not None:
         out["min_term_duration_in_days"] = int(
             child_min_term_duration_in_days.text or ""
         )
-    child_network_platform = el.find("NetworkPlatform")
+    child_network_platform = el.find("networkPlatform")
     if child_network_platform is not None:
         out["network_platform"] = str(child_network_platform.text or "")
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         out["platform"] = str(child_platform.text or "")
-    child_purchase_token = el.find("PurchaseToken")
+    child_purchase_token = el.find("purchaseToken")
     if child_purchase_token is not None:
         out["purchase_token"] = str(child_purchase_token.text or "")
-    child_recurrence = el.find("Recurrence")
+    child_recurrence = el.find("recurrence")
     if child_recurrence is not None:
         import capo_ec2.types.scheduled_instance_recurrence
 
@@ -156,10 +156,10 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstanceAvailability:
                 child_recurrence
             )
         )
-    child_slot_duration_in_hours = el.find("SlotDurationInHours")
+    child_slot_duration_in_hours = el.find("slotDurationInHours")
     if child_slot_duration_in_hours is not None:
         out["slot_duration_in_hours"] = int(child_slot_duration_in_hours.text or "")
-    child_total_scheduled_instance_hours = el.find("TotalScheduledInstanceHours")
+    child_total_scheduled_instance_hours = el.find("totalScheduledInstanceHours")
     if child_total_scheduled_instance_hours is not None:
         out["total_scheduled_instance_hours"] = int(
             child_total_scheduled_instance_hours.text or ""

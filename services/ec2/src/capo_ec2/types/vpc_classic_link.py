@@ -45,16 +45,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcClassicLink:
     out: VpcClassicLink = {}  # type: ignore[typeddict-item]
-    child_classic_link_enabled = el.find("ClassicLinkEnabled")
+    child_classic_link_enabled = el.find("classicLinkEnabled")
     if child_classic_link_enabled is not None:
         out["classic_link_enabled"] = (
             child_classic_link_enabled.text or ""
         ).lower() == "true"
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpc_id = el.find("VpcId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
     return out

@@ -71,33 +71,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnGateway:
     out: VpnGateway = {}  # type: ignore[typeddict-item]
-    child_amazon_side_asn = el.find("AmazonSideAsn")
+    child_amazon_side_asn = el.find("amazonSideAsn")
     if child_amazon_side_asn is not None:
         out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpn_gateway_id = el.find("VpnGatewayId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpn_gateway_id = el.find("vpnGatewayId")
     if child_vpn_gateway_id is not None:
         out["vpn_gateway_id"] = str(child_vpn_gateway_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpn_state
 
         out["state"] = capo_ec2.types.vpn_state.deserialize_ec2_query(child_state)
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.gateway_type
 
         out["type"] = capo_ec2.types.gateway_type.deserialize_ec2_query(child_type)
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    if el.find("Attachments") is not None:
+    if el.find("attachments") is not None:
         import capo_ec2.types.vpc_attachment_list
 
         out["vpc_attachments"] = (
-            capo_ec2.types.vpc_attachment_list.deserialize_ec2_query(el, "Attachments")
+            capo_ec2.types.vpc_attachment_list.deserialize_ec2_query(el, "attachments")
         )
     return out

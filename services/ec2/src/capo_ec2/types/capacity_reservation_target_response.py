@@ -40,11 +40,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationTargetResponse:
     out: CapacityReservationTargetResponse = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
     child_capacity_reservation_resource_group_arn = el.find(
-        "CapacityReservationResourceGroupArn"
+        "capacityReservationResourceGroupArn"
     )
     if child_capacity_reservation_resource_group_arn is not None:
         out["capacity_reservation_resource_group_arn"] = str(

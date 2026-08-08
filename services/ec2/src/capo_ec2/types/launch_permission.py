@@ -48,16 +48,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchPermission:
     out: LaunchPermission = {}  # type: ignore[typeddict-item]
-    child_organization_arn = el.find("OrganizationArn")
+    child_organization_arn = el.find("organizationArn")
     if child_organization_arn is not None:
         out["organization_arn"] = str(child_organization_arn.text or "")
-    child_organizational_unit_arn = el.find("OrganizationalUnitArn")
+    child_organizational_unit_arn = el.find("organizationalUnitArn")
     if child_organizational_unit_arn is not None:
         out["organizational_unit_arn"] = str(child_organizational_unit_arn.text or "")
-    child_user_id = el.find("UserId")
+    child_user_id = el.find("userId")
     if child_user_id is not None:
         out["user_id"] = str(child_user_id.text or "")
-    child_group = el.find("Group")
+    child_group = el.find("group")
     if child_group is not None:
         import capo_ec2.types.permission_group
 

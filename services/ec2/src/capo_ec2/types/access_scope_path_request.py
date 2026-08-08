@@ -45,7 +45,7 @@ def serialize_ec2_query(
         import capo_ec2.types.through_resources_statement_request_list
 
         capo_ec2.types.through_resources_statement_request_list.serialize_ec2_query(
-            value["through_resources"], pairs, f"{key_prefix}ThroughResources"
+            value["through_resources"], pairs, f"{key_prefix}ThroughResource"
         )
 
 
@@ -67,12 +67,12 @@ def deserialize_ec2_query(el: Element) -> AccessScopePathRequest:
                 child_destination
             )
         )
-    if el.find("ThroughResources") is not None:
+    if el.find("ThroughResource") is not None:
         import capo_ec2.types.through_resources_statement_request_list
 
         out["through_resources"] = (
             capo_ec2.types.through_resources_statement_request_list.deserialize_ec2_query(
-                el, "ThroughResources"
+                el, "ThroughResource"
             )
         )
     return out

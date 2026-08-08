@@ -41,16 +41,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEncryptionNonCompliantResource:
     out: VpcEncryptionNonCompliantResource = {}  # type: ignore[typeddict-item]
-    child_id = el.find("Id")
+    child_id = el.find("id")
     if child_id is not None:
         out["id"] = str(child_id.text or "")
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_is_excludable = el.find("IsExcludable")
+    child_is_excludable = el.find("isExcludable")
     if child_is_excludable is not None:
         out["is_excludable"] = (child_is_excludable.text or "").lower() == "true"
     return out

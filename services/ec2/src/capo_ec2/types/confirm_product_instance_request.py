@@ -42,7 +42,7 @@ def deserialize_ec2_query(el: Element) -> ConfirmProductInstanceRequest:
     child_product_code = el.find("ProductCode")
     if child_product_code is not None:
         out["product_code"] = str(child_product_code.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

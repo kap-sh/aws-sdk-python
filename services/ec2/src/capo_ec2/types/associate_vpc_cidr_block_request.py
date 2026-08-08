@@ -109,10 +109,10 @@ def deserialize_ec2_query(el: Element) -> AssociateVpcCidrBlockRequest:
     child_ipv6_netmask_length = el.find("Ipv6NetmaskLength")
     if child_ipv6_netmask_length is not None:
         out["ipv6_netmask_length"] = int(child_ipv6_netmask_length.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_amazon_provided_ipv6_cidr_block = el.find("AmazonProvidedIpv6CidrBlock")
+    child_amazon_provided_ipv6_cidr_block = el.find("amazonProvidedIpv6CidrBlock")
     if child_amazon_provided_ipv6_cidr_block is not None:
         out["amazon_provided_ipv6_cidr_block"] = (
             child_amazon_provided_ipv6_cidr_block.text or ""

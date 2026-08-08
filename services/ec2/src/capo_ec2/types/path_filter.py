@@ -51,10 +51,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PathFilter:
     out: PathFilter = {}  # type: ignore[typeddict-item]
-    child_source_address = el.find("SourceAddress")
+    child_source_address = el.find("sourceAddress")
     if child_source_address is not None:
         out["source_address"] = str(child_source_address.text or "")
-    child_source_port_range = el.find("SourcePortRange")
+    child_source_port_range = el.find("sourcePortRange")
     if child_source_port_range is not None:
         import capo_ec2.types.filter_port_range
 
@@ -63,10 +63,10 @@ def deserialize_ec2_query(el: Element) -> PathFilter:
                 child_source_port_range
             )
         )
-    child_destination_address = el.find("DestinationAddress")
+    child_destination_address = el.find("destinationAddress")
     if child_destination_address is not None:
         out["destination_address"] = str(child_destination_address.text or "")
-    child_destination_port_range = el.find("DestinationPortRange")
+    child_destination_port_range = el.find("destinationPortRange")
     if child_destination_port_range is not None:
         import capo_ec2.types.filter_port_range
 

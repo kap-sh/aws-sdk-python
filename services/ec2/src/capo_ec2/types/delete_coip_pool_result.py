@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteCoipPoolResult:
     out: DeleteCoipPoolResult = {}  # type: ignore[typeddict-item]
-    child_coip_pool = el.find("CoipPool")
+    child_coip_pool = el.find("coipPool")
     if child_coip_pool is not None:
         import capo_ec2.types.coip_pool
 

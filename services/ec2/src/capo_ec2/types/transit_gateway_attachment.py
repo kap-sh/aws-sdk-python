@@ -105,21 +105,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayAttachment:
     out: TransitGatewayAttachment = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_transit_gateway_owner_id = el.find("TransitGatewayOwnerId")
+    child_transit_gateway_owner_id = el.find("transitGatewayOwnerId")
     if child_transit_gateway_owner_id is not None:
         out["transit_gateway_owner_id"] = str(child_transit_gateway_owner_id.text or "")
-    child_resource_owner_id = el.find("ResourceOwnerId")
+    child_resource_owner_id = el.find("resourceOwnerId")
     if child_resource_owner_id is not None:
         out["resource_owner_id"] = str(child_resource_owner_id.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.transit_gateway_attachment_resource_type
 
@@ -128,10 +128,10 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayAttachment:
                 child_resource_type
             )
         )
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_attachment_state
 
@@ -140,7 +140,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayAttachment:
                 child_state
             )
         )
-    child_association = el.find("Association")
+    child_association = el.find("association")
     if child_association is not None:
         import capo_ec2.types.transit_gateway_attachment_association
 
@@ -149,15 +149,15 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayAttachment:
                 child_association
             )
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.date_time
 
         out["creation_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_creation_time
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

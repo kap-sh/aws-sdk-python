@@ -221,10 +221,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEndpoint:
     out: VpcEndpoint = {}  # type: ignore[typeddict-item]
-    child_vpc_endpoint_id = el.find("VpcEndpointId")
+    child_vpc_endpoint_id = el.find("vpcEndpointId")
     if child_vpc_endpoint_id is not None:
         out["vpc_endpoint_id"] = str(child_vpc_endpoint_id.text or "")
-    child_vpc_endpoint_type = el.find("VpcEndpointType")
+    child_vpc_endpoint_type = el.find("vpcEndpointType")
     if child_vpc_endpoint_type is not None:
         import capo_ec2.types.vpc_endpoint_type
 
@@ -233,77 +233,77 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
                 child_vpc_endpoint_type
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_service_name = el.find("ServiceName")
+    child_service_name = el.find("serviceName")
     if child_service_name is not None:
         out["service_name"] = str(child_service_name.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.state
 
         out["state"] = capo_ec2.types.state.deserialize_ec2_query(child_state)
-    child_policy_document = el.find("PolicyDocument")
+    child_policy_document = el.find("policyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
-    if el.find("RouteTableIdSet") is not None:
+    if el.find("routeTableIdSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["route_table_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "RouteTableIdSet"
+            el, "routeTableIdSet"
         )
-    if el.find("SubnetIdSet") is not None:
+    if el.find("subnetIdSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["subnet_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SubnetIdSet"
+            el, "subnetIdSet"
         )
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_set
 
         out["groups"] = capo_ec2.types.group_identifier_set.deserialize_ec2_query(
-            el, "GroupSet"
+            el, "groupSet"
         )
-    child_ip_address_type = el.find("IpAddressType")
+    child_ip_address_type = el.find("ipAddressType")
     if child_ip_address_type is not None:
         import capo_ec2.types.ip_address_type
 
         out["ip_address_type"] = capo_ec2.types.ip_address_type.deserialize_ec2_query(
             child_ip_address_type
         )
-    child_dns_options = el.find("DnsOptions")
+    child_dns_options = el.find("dnsOptions")
     if child_dns_options is not None:
         import capo_ec2.types.dns_options
 
         out["dns_options"] = capo_ec2.types.dns_options.deserialize_ec2_query(
             child_dns_options
         )
-    child_private_dns_enabled = el.find("PrivateDnsEnabled")
+    child_private_dns_enabled = el.find("privateDnsEnabled")
     if child_private_dns_enabled is not None:
         out["private_dns_enabled"] = (
             child_private_dns_enabled.text or ""
         ).lower() == "true"
-    child_requester_managed = el.find("RequesterManaged")
+    child_requester_managed = el.find("requesterManaged")
     if child_requester_managed is not None:
         out["requester_managed"] = (
             child_requester_managed.text or ""
         ).lower() == "true"
-    if el.find("NetworkInterfaceIdSet") is not None:
+    if el.find("networkInterfaceIdSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["network_interface_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "NetworkInterfaceIdSet"
+                el, "networkInterfaceIdSet"
             )
         )
-    if el.find("DnsEntrySet") is not None:
+    if el.find("dnsEntrySet") is not None:
         import capo_ec2.types.dns_entry_set
 
         out["dns_entries"] = capo_ec2.types.dns_entry_set.deserialize_ec2_query(
-            el, "DnsEntrySet"
+            el, "dnsEntrySet"
         )
-    child_creation_timestamp = el.find("CreationTimestamp")
+    child_creation_timestamp = el.find("creationTimestamp")
     if child_creation_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -312,48 +312,48 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
                 child_creation_timestamp
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_owner_id = el.find("OwnerId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_last_error = el.find("LastError")
+    child_last_error = el.find("lastError")
     if child_last_error is not None:
         import capo_ec2.types.last_error
 
         out["last_error"] = capo_ec2.types.last_error.deserialize_ec2_query(
             child_last_error
         )
-    if el.find("Ipv4PrefixSet") is not None:
+    if el.find("ipv4PrefixSet") is not None:
         import capo_ec2.types.subnet_ip_prefixes_list
 
         out["ipv4_prefixes"] = (
             capo_ec2.types.subnet_ip_prefixes_list.deserialize_ec2_query(
-                el, "Ipv4PrefixSet"
+                el, "ipv4PrefixSet"
             )
         )
-    if el.find("Ipv6PrefixSet") is not None:
+    if el.find("ipv6PrefixSet") is not None:
         import capo_ec2.types.subnet_ip_prefixes_list
 
         out["ipv6_prefixes"] = (
             capo_ec2.types.subnet_ip_prefixes_list.deserialize_ec2_query(
-                el, "Ipv6PrefixSet"
+                el, "ipv6PrefixSet"
             )
         )
-    child_failure_reason = el.find("FailureReason")
+    child_failure_reason = el.find("failureReason")
     if child_failure_reason is not None:
         out["failure_reason"] = str(child_failure_reason.text or "")
-    child_service_network_arn = el.find("ServiceNetworkArn")
+    child_service_network_arn = el.find("serviceNetworkArn")
     if child_service_network_arn is not None:
         out["service_network_arn"] = str(child_service_network_arn.text or "")
-    child_resource_configuration_arn = el.find("ResourceConfigurationArn")
+    child_resource_configuration_arn = el.find("resourceConfigurationArn")
     if child_resource_configuration_arn is not None:
         out["resource_configuration_arn"] = str(
             child_resource_configuration_arn.text or ""
         )
-    child_service_region = el.find("ServiceRegion")
+    child_service_region = el.find("serviceRegion")
     if child_service_region is not None:
         out["service_region"] = str(child_service_region.text or "")
     return out

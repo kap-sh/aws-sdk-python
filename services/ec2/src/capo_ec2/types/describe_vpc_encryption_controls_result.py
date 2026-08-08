@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcEncryptionControlsResult:
     out: DescribeVpcEncryptionControlsResult = {}  # type: ignore[typeddict-item]
-    if el.find("VpcEncryptionControlSet") is not None:
+    if el.find("vpcEncryptionControlSet") is not None:
         import capo_ec2.types.vpc_encryption_control_list
 
         out["vpc_encryption_controls"] = (
             capo_ec2.types.vpc_encryption_control_list.deserialize_ec2_query(
-                el, "VpcEncryptionControlSet"
+                el, "vpcEncryptionControlSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

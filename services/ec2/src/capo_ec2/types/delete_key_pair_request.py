@@ -44,7 +44,7 @@ def deserialize_ec2_query(el: Element) -> DeleteKeyPairRequest:
     child_key_pair_id = el.find("KeyPairId")
     if child_key_pair_id is not None:
         out["key_pair_id"] = str(child_key_pair_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

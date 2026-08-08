@@ -41,7 +41,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateVpcEndpointConnectionNotificationResult:
     out: CreateVpcEndpointConnectionNotificationResult = {}  # type: ignore[typeddict-item]
-    child_connection_notification = el.find("ConnectionNotification")
+    child_connection_notification = el.find("connectionNotification")
     if child_connection_notification is not None:
         import capo_ec2.types.connection_notification
 
@@ -50,7 +50,7 @@ def deserialize_ec2_query(el: Element) -> CreateVpcEndpointConnectionNotificatio
                 child_connection_notification
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

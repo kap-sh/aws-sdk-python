@@ -55,16 +55,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecurityGroupVpcAssociation:
     out: SecurityGroupVpcAssociation = {}  # type: ignore[typeddict-item]
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_vpc_owner_id = el.find("VpcOwnerId")
+    child_vpc_owner_id = el.find("vpcOwnerId")
     if child_vpc_owner_id is not None:
         out["vpc_owner_id"] = str(child_vpc_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.security_group_vpc_association_state
 
@@ -73,10 +73,10 @@ def deserialize_ec2_query(el: Element) -> SecurityGroupVpcAssociation:
                 child_state
             )
         )
-    child_state_reason = el.find("StateReason")
+    child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         out["state_reason"] = str(child_state_reason.text or "")
-    child_group_owner_id = el.find("GroupOwnerId")
+    child_group_owner_id = el.find("groupOwnerId")
     if child_group_owner_id is not None:
         out["group_owner_id"] = str(child_group_owner_id.text or "")
     return out

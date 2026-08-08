@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SupportedRegionDetail:
     out: SupportedRegionDetail = {}  # type: ignore[typeddict-item]
-    child_region = el.find("Region")
+    child_region = el.find("region")
     if child_region is not None:
         out["region"] = str(child_region.text or "")
-    child_service_state = el.find("ServiceState")
+    child_service_state = el.find("serviceState")
     if child_service_state is not None:
         out["service_state"] = str(child_service_state.text or "")
     return out

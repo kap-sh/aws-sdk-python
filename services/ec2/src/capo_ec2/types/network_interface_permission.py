@@ -67,21 +67,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInterfacePermission:
     out: NetworkInterfacePermission = {}  # type: ignore[typeddict-item]
-    child_network_interface_permission_id = el.find("NetworkInterfacePermissionId")
+    child_network_interface_permission_id = el.find("networkInterfacePermissionId")
     if child_network_interface_permission_id is not None:
         out["network_interface_permission_id"] = str(
             child_network_interface_permission_id.text or ""
         )
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_aws_account_id = el.find("AwsAccountId")
+    child_aws_account_id = el.find("awsAccountId")
     if child_aws_account_id is not None:
         out["aws_account_id"] = str(child_aws_account_id.text or "")
-    child_aws_service = el.find("AwsService")
+    child_aws_service = el.find("awsService")
     if child_aws_service is not None:
         out["aws_service"] = str(child_aws_service.text or "")
-    child_permission = el.find("Permission")
+    child_permission = el.find("permission")
     if child_permission is not None:
         import capo_ec2.types.interface_permission_type
 
@@ -90,7 +90,7 @@ def deserialize_ec2_query(el: Element) -> NetworkInterfacePermission:
                 child_permission
             )
         )
-    child_permission_state = el.find("PermissionState")
+    child_permission_state = el.find("permissionState")
     if child_permission_state is not None:
         import capo_ec2.types.network_interface_permission_state
 

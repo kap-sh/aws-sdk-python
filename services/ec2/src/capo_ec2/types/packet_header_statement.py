@@ -85,56 +85,56 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PacketHeaderStatement:
     out: PacketHeaderStatement = {}  # type: ignore[typeddict-item]
-    if el.find("SourceAddressSet") is not None:
+    if el.find("sourceAddressSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["source_addresses"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SourceAddressSet"
+                el, "sourceAddressSet"
             )
         )
-    if el.find("DestinationAddressSet") is not None:
+    if el.find("destinationAddressSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_addresses"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationAddressSet"
+                el, "destinationAddressSet"
             )
         )
-    if el.find("SourcePortSet") is not None:
+    if el.find("sourcePortSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["source_ports"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SourcePortSet"
+            el, "sourcePortSet"
         )
-    if el.find("DestinationPortSet") is not None:
+    if el.find("destinationPortSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_ports"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationPortSet"
+                el, "destinationPortSet"
             )
         )
-    if el.find("SourcePrefixListSet") is not None:
+    if el.find("sourcePrefixListSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["source_prefix_lists"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SourcePrefixListSet"
+                el, "sourcePrefixListSet"
             )
         )
-    if el.find("DestinationPrefixListSet") is not None:
+    if el.find("destinationPrefixListSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_prefix_lists"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationPrefixListSet"
+                el, "destinationPrefixListSet"
             )
         )
-    if el.find("ProtocolSet") is not None:
+    if el.find("protocolSet") is not None:
         import capo_ec2.types.protocol_list
 
         out["protocols"] = capo_ec2.types.protocol_list.deserialize_ec2_query(
-            el, "ProtocolSet"
+            el, "protocolSet"
         )
     return out

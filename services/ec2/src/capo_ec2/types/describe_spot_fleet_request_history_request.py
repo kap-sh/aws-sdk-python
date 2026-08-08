@@ -67,30 +67,30 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSpotFleetRequestHistoryRequest:
     out: DescribeSpotFleetRequestHistoryRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_spot_fleet_request_id = el.find("SpotFleetRequestId")
+    child_spot_fleet_request_id = el.find("spotFleetRequestId")
     if child_spot_fleet_request_id is not None:
         out["spot_fleet_request_id"] = str(child_spot_fleet_request_id.text or "")
-    child_event_type = el.find("EventType")
+    child_event_type = el.find("eventType")
     if child_event_type is not None:
         import capo_ec2.types.event_type
 
         out["event_type"] = capo_ec2.types.event_type.deserialize_ec2_query(
             child_event_type
         )
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.date_time
 
         out["start_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    child_max_results = el.find("MaxResults")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     return out

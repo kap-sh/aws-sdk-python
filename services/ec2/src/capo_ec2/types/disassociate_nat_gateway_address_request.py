@@ -39,7 +39,7 @@ def serialize_ec2_query(
         import capo_ec2.types.eip_association_id_list
 
         capo_ec2.types.eip_association_id_list.serialize_ec2_query(
-            value["association_ids"], pairs, f"{key_prefix}AssociationIds"
+            value["association_ids"], pairs, f"{key_prefix}AssociationId"
         )
     if "max_drain_duration_seconds" in value:
         pairs.append(
@@ -57,12 +57,12 @@ def deserialize_ec2_query(el: Element) -> DisassociateNatGatewayAddressRequest:
     child_nat_gateway_id = el.find("NatGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("AssociationIds") is not None:
+    if el.find("AssociationId") is not None:
         import capo_ec2.types.eip_association_id_list
 
         out["association_ids"] = (
             capo_ec2.types.eip_association_id_list.deserialize_ec2_query(
-                el, "AssociationIds"
+                el, "AssociationId"
             )
         )
     child_max_drain_duration_seconds = el.find("MaxDrainDurationSeconds")

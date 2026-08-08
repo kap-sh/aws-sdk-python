@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GroupIdentifier:
     out: GroupIdentifier = {}  # type: ignore[typeddict-item]
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
     return out

@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssociateIamInstanceProfileResult:
     out: AssociateIamInstanceProfileResult = {}  # type: ignore[typeddict-item]
-    child_iam_instance_profile_association = el.find("IamInstanceProfileAssociation")
+    child_iam_instance_profile_association = el.find("iamInstanceProfileAssociation")
     if child_iam_instance_profile_association is not None:
         import capo_ec2.types.iam_instance_profile_association
 

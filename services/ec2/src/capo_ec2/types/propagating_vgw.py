@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PropagatingVgw:
     out: PropagatingVgw = {}  # type: ignore[typeddict-item]
-    child_gateway_id = el.find("GatewayId")
+    child_gateway_id = el.find("gatewayId")
     if child_gateway_id is not None:
         out["gateway_id"] = str(child_gateway_id.text or "")
     return out

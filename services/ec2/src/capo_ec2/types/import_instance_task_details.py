@@ -50,25 +50,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportInstanceTaskDetails:
     out: ImportInstanceTaskDetails = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         import capo_ec2.types.platform_values
 
         out["platform"] = capo_ec2.types.platform_values.deserialize_ec2_query(
             child_platform
         )
-    if el.find("Volumes") is not None:
+    if el.find("volumes") is not None:
         import capo_ec2.types.import_instance_volume_detail_set
 
         out["volumes"] = (
             capo_ec2.types.import_instance_volume_detail_set.deserialize_ec2_query(
-                el, "Volumes"
+                el, "volumes"
             )
         )
     return out

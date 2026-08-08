@@ -42,15 +42,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IdFormat:
     out: IdFormat = {}  # type: ignore[typeddict-item]
-    child_deadline = el.find("Deadline")
+    child_deadline = el.find("deadline")
     if child_deadline is not None:
         import capo_ec2.types.date_time
 
         out["deadline"] = capo_ec2.types.date_time.deserialize_ec2_query(child_deadline)
-    child_resource = el.find("Resource")
+    child_resource = el.find("resource")
     if child_resource is not None:
         out["resource"] = str(child_resource.text or "")
-    child_use_long_ids = el.find("UseLongIds")
+    child_use_long_ids = el.find("useLongIds")
     if child_use_long_ids is not None:
         out["use_long_ids"] = (child_use_long_ids.text or "").lower() == "true"
     return out

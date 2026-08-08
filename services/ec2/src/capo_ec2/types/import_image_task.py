@@ -117,66 +117,66 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportImageTask:
     out: ImportImageTask = {}  # type: ignore[typeddict-item]
-    child_architecture = el.find("Architecture")
+    child_architecture = el.find("architecture")
     if child_architecture is not None:
         out["architecture"] = str(child_architecture.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_encrypted = el.find("Encrypted")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
-    child_hypervisor = el.find("Hypervisor")
+    child_hypervisor = el.find("hypervisor")
     if child_hypervisor is not None:
         out["hypervisor"] = str(child_hypervisor.text or "")
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_import_task_id = el.find("ImportTaskId")
+    child_import_task_id = el.find("importTaskId")
     if child_import_task_id is not None:
         out["import_task_id"] = str(child_import_task_id.text or "")
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
-    child_license_type = el.find("LicenseType")
+    child_license_type = el.find("licenseType")
     if child_license_type is not None:
         out["license_type"] = str(child_license_type.text or "")
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         out["platform"] = str(child_platform.text or "")
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = str(child_progress.text or "")
-    if el.find("SnapshotDetailSet") is not None:
+    if el.find("snapshotDetailSet") is not None:
         import capo_ec2.types.snapshot_detail_list
 
         out["snapshot_details"] = (
             capo_ec2.types.snapshot_detail_list.deserialize_ec2_query(
-                el, "SnapshotDetailSet"
+                el, "snapshotDetailSet"
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    if el.find("LicenseSpecifications") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    if el.find("licenseSpecifications") is not None:
         import capo_ec2.types.import_image_license_specification_list_response
 
         out["license_specifications"] = (
             capo_ec2.types.import_image_license_specification_list_response.deserialize_ec2_query(
-                el, "LicenseSpecifications"
+                el, "licenseSpecifications"
             )
         )
-    child_usage_operation = el.find("UsageOperation")
+    child_usage_operation = el.find("usageOperation")
     if child_usage_operation is not None:
         out["usage_operation"] = str(child_usage_operation.text or "")
-    child_boot_mode = el.find("BootMode")
+    child_boot_mode = el.find("bootMode")
     if child_boot_mode is not None:
         import capo_ec2.types.boot_mode_values
 

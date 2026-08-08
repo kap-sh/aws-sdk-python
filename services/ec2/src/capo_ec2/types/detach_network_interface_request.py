@@ -37,13 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DetachNetworkInterfaceRequest:
     out: DetachNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_attachment_id = el.find("AttachmentId")
+    child_attachment_id = el.find("attachmentId")
     if child_attachment_id is not None:
         out["attachment_id"] = str(child_attachment_id.text or "")
-    child_force = el.find("Force")
+    child_force = el.find("force")
     if child_force is not None:
         out["force"] = (child_force.text or "").lower() == "true"
     return out

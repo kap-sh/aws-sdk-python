@@ -54,20 +54,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ElasticGpuAssociation:
     out: ElasticGpuAssociation = {}  # type: ignore[typeddict-item]
-    child_elastic_gpu_id = el.find("ElasticGpuId")
+    child_elastic_gpu_id = el.find("elasticGpuId")
     if child_elastic_gpu_id is not None:
         out["elastic_gpu_id"] = str(child_elastic_gpu_id.text or "")
-    child_elastic_gpu_association_id = el.find("ElasticGpuAssociationId")
+    child_elastic_gpu_association_id = el.find("elasticGpuAssociationId")
     if child_elastic_gpu_association_id is not None:
         out["elastic_gpu_association_id"] = str(
             child_elastic_gpu_association_id.text or ""
         )
-    child_elastic_gpu_association_state = el.find("ElasticGpuAssociationState")
+    child_elastic_gpu_association_state = el.find("elasticGpuAssociationState")
     if child_elastic_gpu_association_state is not None:
         out["elastic_gpu_association_state"] = str(
             child_elastic_gpu_association_state.text or ""
         )
-    child_elastic_gpu_association_time = el.find("ElasticGpuAssociationTime")
+    child_elastic_gpu_association_time = el.find("elasticGpuAssociationTime")
     if child_elastic_gpu_association_time is not None:
         out["elastic_gpu_association_time"] = str(
             child_elastic_gpu_association_time.text or ""

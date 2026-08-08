@@ -117,37 +117,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityManagerDataExportResponse:
     out: CapacityManagerDataExportResponse = {}  # type: ignore[typeddict-item]
-    child_capacity_manager_data_export_id = el.find("CapacityManagerDataExportId")
+    child_capacity_manager_data_export_id = el.find("capacityManagerDataExportId")
     if child_capacity_manager_data_export_id is not None:
         out["capacity_manager_data_export_id"] = str(
             child_capacity_manager_data_export_id.text or ""
         )
-    child_s3_bucket_name = el.find("S3BucketName")
+    child_s3_bucket_name = el.find("s3BucketName")
     if child_s3_bucket_name is not None:
         out["s3_bucket_name"] = str(child_s3_bucket_name.text or "")
-    child_s3_bucket_prefix = el.find("S3BucketPrefix")
+    child_s3_bucket_prefix = el.find("s3BucketPrefix")
     if child_s3_bucket_prefix is not None:
         out["s3_bucket_prefix"] = str(child_s3_bucket_prefix.text or "")
-    child_schedule = el.find("Schedule")
+    child_schedule = el.find("schedule")
     if child_schedule is not None:
         import capo_ec2.types.schedule
 
         out["schedule"] = capo_ec2.types.schedule.deserialize_ec2_query(child_schedule)
-    child_output_format = el.find("OutputFormat")
+    child_output_format = el.find("outputFormat")
     if child_output_format is not None:
         import capo_ec2.types.output_format
 
         out["output_format"] = capo_ec2.types.output_format.deserialize_ec2_query(
             child_output_format
         )
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["create_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_latest_delivery_status = el.find("LatestDeliveryStatus")
+    child_latest_delivery_status = el.find("latestDeliveryStatus")
     if child_latest_delivery_status is not None:
         import capo_ec2.types.capacity_manager_data_export_status
 
@@ -156,17 +156,17 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDataExportResponse:
                 child_latest_delivery_status
             )
         )
-    child_latest_delivery_status_message = el.find("LatestDeliveryStatusMessage")
+    child_latest_delivery_status_message = el.find("latestDeliveryStatusMessage")
     if child_latest_delivery_status_message is not None:
         out["latest_delivery_status_message"] = str(
             child_latest_delivery_status_message.text or ""
         )
-    child_latest_delivery_s3_location_uri = el.find("LatestDeliveryS3LocationUri")
+    child_latest_delivery_s3_location_uri = el.find("latestDeliveryS3LocationUri")
     if child_latest_delivery_s3_location_uri is not None:
         out["latest_delivery_s3_location_uri"] = str(
             child_latest_delivery_s3_location_uri.text or ""
         )
-    child_latest_delivery_time = el.find("LatestDeliveryTime")
+    child_latest_delivery_time = el.find("latestDeliveryTime")
     if child_latest_delivery_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -175,8 +175,8 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDataExportResponse:
                 child_latest_delivery_time
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

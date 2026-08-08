@@ -78,18 +78,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPrefixListReference:
     out: TransitGatewayPrefixListReference = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_route_table_id = el.find("TransitGatewayRouteTableId")
+    child_transit_gateway_route_table_id = el.find("transitGatewayRouteTableId")
     if child_transit_gateway_route_table_id is not None:
         out["transit_gateway_route_table_id"] = str(
             child_transit_gateway_route_table_id.text or ""
         )
-    child_prefix_list_id = el.find("PrefixListId")
+    child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:
         out["prefix_list_id"] = str(child_prefix_list_id.text or "")
-    child_prefix_list_owner_id = el.find("PrefixListOwnerId")
+    child_prefix_list_owner_id = el.find("prefixListOwnerId")
     if child_prefix_list_owner_id is not None:
         out["prefix_list_owner_id"] = str(child_prefix_list_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_prefix_list_reference_state
 
@@ -98,10 +98,10 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPrefixListReference:
                 child_state
             )
         )
-    child_blackhole = el.find("Blackhole")
+    child_blackhole = el.find("blackhole")
     if child_blackhole is not None:
         out["blackhole"] = (child_blackhole.text or "").lower() == "true"
-    child_transit_gateway_attachment = el.find("TransitGatewayAttachment")
+    child_transit_gateway_attachment = el.find("transitGatewayAttachment")
     if child_transit_gateway_attachment is not None:
         import capo_ec2.types.transit_gateway_prefix_list_attachment
 

@@ -85,15 +85,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTable:
     out: TransitGatewayRouteTable = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_route_table_id = el.find("TransitGatewayRouteTableId")
+    child_transit_gateway_route_table_id = el.find("transitGatewayRouteTableId")
     if child_transit_gateway_route_table_id is not None:
         out["transit_gateway_route_table_id"] = str(
             child_transit_gateway_route_table_id.text or ""
         )
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_route_table_state
 
@@ -102,25 +102,25 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTable:
                 child_state
             )
         )
-    child_default_association_route_table = el.find("DefaultAssociationRouteTable")
+    child_default_association_route_table = el.find("defaultAssociationRouteTable")
     if child_default_association_route_table is not None:
         out["default_association_route_table"] = (
             child_default_association_route_table.text or ""
         ).lower() == "true"
-    child_default_propagation_route_table = el.find("DefaultPropagationRouteTable")
+    child_default_propagation_route_table = el.find("defaultPropagationRouteTable")
     if child_default_propagation_route_table is not None:
         out["default_propagation_route_table"] = (
             child_default_propagation_route_table.text or ""
         ).lower() == "true"
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.date_time
 
         out["creation_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_creation_time
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyTrafficMirrorSessionResult:
     out: ModifyTrafficMirrorSessionResult = {}  # type: ignore[typeddict-item]
-    child_traffic_mirror_session = el.find("TrafficMirrorSession")
+    child_traffic_mirror_session = el.find("trafficMirrorSession")
     if child_traffic_mirror_session is not None:
         import capo_ec2.types.traffic_mirror_session
 

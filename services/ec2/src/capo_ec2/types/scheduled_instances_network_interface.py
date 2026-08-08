@@ -79,7 +79,7 @@ def serialize_ec2_query(
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         capo_ec2.types.scheduled_instances_security_group_id_set.serialize_ec2_query(
-            value["groups"], pairs, f"{key_prefix}Groups"
+            value["groups"], pairs, f"{key_prefix}Group"
         )
     if "ipv6_address_count" in value:
         pairs.append(
@@ -89,7 +89,7 @@ def serialize_ec2_query(
         import capo_ec2.types.scheduled_instances_ipv6_address_list
 
         capo_ec2.types.scheduled_instances_ipv6_address_list.serialize_ec2_query(
-            value["ipv6_addresses"], pairs, f"{key_prefix}Ipv6Addresses"
+            value["ipv6_addresses"], pairs, f"{key_prefix}Ipv6Address"
         )
     if "network_interface_id" in value:
         pairs.append(
@@ -105,7 +105,7 @@ def serialize_ec2_query(
         capo_ec2.types.private_ip_address_config_set.serialize_ec2_query(
             value["private_ip_address_configs"],
             pairs,
-            f"{key_prefix}PrivateIpAddressConfigs",
+            f"{key_prefix}PrivateIpAddressConfig",
         )
     if "secondary_private_ip_address_count" in value:
         pairs.append(
@@ -136,23 +136,23 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesNetworkInterface:
     child_device_index = el.find("DeviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    if el.find("Groups") is not None:
+    if el.find("Group") is not None:
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         out["groups"] = (
             capo_ec2.types.scheduled_instances_security_group_id_set.deserialize_ec2_query(
-                el, "Groups"
+                el, "Group"
             )
         )
     child_ipv6_address_count = el.find("Ipv6AddressCount")
     if child_ipv6_address_count is not None:
         out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
-    if el.find("Ipv6Addresses") is not None:
+    if el.find("Ipv6Address") is not None:
         import capo_ec2.types.scheduled_instances_ipv6_address_list
 
         out["ipv6_addresses"] = (
             capo_ec2.types.scheduled_instances_ipv6_address_list.deserialize_ec2_query(
-                el, "Ipv6Addresses"
+                el, "Ipv6Address"
             )
         )
     child_network_interface_id = el.find("NetworkInterfaceId")
@@ -161,12 +161,12 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesNetworkInterface:
     child_private_ip_address = el.find("PrivateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("PrivateIpAddressConfigs") is not None:
+    if el.find("PrivateIpAddressConfig") is not None:
         import capo_ec2.types.private_ip_address_config_set
 
         out["private_ip_address_configs"] = (
             capo_ec2.types.private_ip_address_config_set.deserialize_ec2_query(
-                el, "PrivateIpAddressConfigs"
+                el, "PrivateIpAddressConfig"
             )
         )
     child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")

@@ -107,40 +107,40 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetCapacityReservationUsageResult:
     out: GetCapacityReservationUsageResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_total_instance_count = el.find("TotalInstanceCount")
+    child_total_instance_count = el.find("totalInstanceCount")
     if child_total_instance_count is not None:
         out["total_instance_count"] = int(child_total_instance_count.text or "")
-    child_available_instance_count = el.find("AvailableInstanceCount")
+    child_available_instance_count = el.find("availableInstanceCount")
     if child_available_instance_count is not None:
         out["available_instance_count"] = int(child_available_instance_count.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.capacity_reservation_state
 
         out["state"] = capo_ec2.types.capacity_reservation_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("InstanceUsageSet") is not None:
+    if el.find("instanceUsageSet") is not None:
         import capo_ec2.types.instance_usage_set
 
         out["instance_usages"] = (
             capo_ec2.types.instance_usage_set.deserialize_ec2_query(
-                el, "InstanceUsageSet"
+                el, "instanceUsageSet"
             )
         )
-    child_interruptible = el.find("Interruptible")
+    child_interruptible = el.find("interruptible")
     if child_interruptible is not None:
         out["interruptible"] = (child_interruptible.text or "").lower() == "true"
-    child_interruptible_capacity_allocation = el.find("InterruptibleCapacityAllocation")
+    child_interruptible_capacity_allocation = el.find("interruptibleCapacityAllocation")
     if child_interruptible_capacity_allocation is not None:
         import capo_ec2.types.interruptible_capacity_allocation
 
@@ -149,7 +149,7 @@ def deserialize_ec2_query(el: Element) -> GetCapacityReservationUsageResult:
                 child_interruptible_capacity_allocation
             )
         )
-    child_interruption_info = el.find("InterruptionInfo")
+    child_interruption_info = el.find("interruptionInfo")
     if child_interruption_info is not None:
         import capo_ec2.types.interruption_info
 

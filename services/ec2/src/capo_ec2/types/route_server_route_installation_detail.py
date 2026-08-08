@@ -49,10 +49,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteServerRouteInstallationDetail:
     out: RouteServerRouteInstallationDetail = {}  # type: ignore[typeddict-item]
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    child_route_installation_status = el.find("RouteInstallationStatus")
+    child_route_installation_status = el.find("routeInstallationStatus")
     if child_route_installation_status is not None:
         import capo_ec2.types.route_server_route_installation_status
 
@@ -61,7 +61,7 @@ def deserialize_ec2_query(el: Element) -> RouteServerRouteInstallationDetail:
                 child_route_installation_status
             )
         )
-    child_route_installation_status_reason = el.find("RouteInstallationStatusReason")
+    child_route_installation_status_reason = el.find("routeInstallationStatusReason")
     if child_route_installation_status_reason is not None:
         out["route_installation_status_reason"] = str(
             child_route_installation_status_reason.text or ""

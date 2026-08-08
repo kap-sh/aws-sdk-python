@@ -50,19 +50,19 @@ def serialize_ec2_query(
         import capo_ec2.types.owner_string_list
 
         capo_ec2.types.owner_string_list.serialize_ec2_query(
-            value["owner_ids"], pairs, f"{key_prefix}OwnerIds"
+            value["owner_ids"], pairs, f"{key_prefix}Owner"
         )
     if "restorable_by_user_ids" in value:
         import capo_ec2.types.restorable_by_string_list
 
         capo_ec2.types.restorable_by_string_list.serialize_ec2_query(
-            value["restorable_by_user_ids"], pairs, f"{key_prefix}RestorableByUserIds"
+            value["restorable_by_user_ids"], pairs, f"{key_prefix}RestorableBy"
         )
     if "snapshot_ids" in value:
         import capo_ec2.types.snapshot_id_string_list
 
         capo_ec2.types.snapshot_id_string_list.serialize_ec2_query(
-            value["snapshot_ids"], pairs, f"{key_prefix}SnapshotIds"
+            value["snapshot_ids"], pairs, f"{key_prefix}SnapshotId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -70,7 +70,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
@@ -82,33 +82,33 @@ def deserialize_ec2_query(el: Element) -> DescribeSnapshotsRequest:
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("OwnerIds") is not None:
+    if el.find("Owner") is not None:
         import capo_ec2.types.owner_string_list
 
         out["owner_ids"] = capo_ec2.types.owner_string_list.deserialize_ec2_query(
-            el, "OwnerIds"
+            el, "Owner"
         )
-    if el.find("RestorableByUserIds") is not None:
+    if el.find("RestorableBy") is not None:
         import capo_ec2.types.restorable_by_string_list
 
         out["restorable_by_user_ids"] = (
             capo_ec2.types.restorable_by_string_list.deserialize_ec2_query(
-                el, "RestorableByUserIds"
+                el, "RestorableBy"
             )
         )
-    if el.find("SnapshotIds") is not None:
+    if el.find("SnapshotId") is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SnapshotIds"
+                el, "SnapshotId"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

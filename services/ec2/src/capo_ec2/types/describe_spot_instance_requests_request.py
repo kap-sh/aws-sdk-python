@@ -48,13 +48,13 @@ def serialize_ec2_query(
         capo_ec2.types.spot_instance_request_id_list.serialize_ec2_query(
             value["spot_instance_request_ids"],
             pairs,
-            f"{key_prefix}SpotInstanceRequestIds",
+            f"{key_prefix}SpotInstanceRequestId",
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
@@ -66,19 +66,19 @@ def deserialize_ec2_query(el: Element) -> DescribeSpotInstanceRequestsRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("SpotInstanceRequestIds") is not None:
+    if el.find("SpotInstanceRequestId") is not None:
         import capo_ec2.types.spot_instance_request_id_list
 
         out["spot_instance_request_ids"] = (
             capo_ec2.types.spot_instance_request_id_list.deserialize_ec2_query(
-                el, "SpotInstanceRequestIds"
+                el, "SpotInstanceRequestId"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

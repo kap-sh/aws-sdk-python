@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ExportTaskS3Location:
     out: ExportTaskS3Location = {}  # type: ignore[typeddict-item]
-    child_s3_bucket = el.find("S3Bucket")
+    child_s3_bucket = el.find("s3Bucket")
     if child_s3_bucket is not None:
         out["s3_bucket"] = str(child_s3_bucket.text or "")
-    child_s3_prefix = el.find("S3Prefix")
+    child_s3_prefix = el.find("s3Prefix")
     if child_s3_prefix is not None:
         out["s3_prefix"] = str(child_s3_prefix.text or "")
     return out

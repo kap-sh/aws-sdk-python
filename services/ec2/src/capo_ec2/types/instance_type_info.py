@@ -363,51 +363,51 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
     out: InstanceTypeInfo = {}  # type: ignore[typeddict-item]
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_current_generation = el.find("CurrentGeneration")
+    child_current_generation = el.find("currentGeneration")
     if child_current_generation is not None:
         out["current_generation"] = (
             child_current_generation.text or ""
         ).lower() == "true"
-    child_free_tier_eligible = el.find("FreeTierEligible")
+    child_free_tier_eligible = el.find("freeTierEligible")
     if child_free_tier_eligible is not None:
         out["free_tier_eligible"] = (
             child_free_tier_eligible.text or ""
         ).lower() == "true"
-    if el.find("SupportedUsageClasses") is not None:
+    if el.find("supportedUsageClasses") is not None:
         import capo_ec2.types.usage_class_type_list
 
         out["supported_usage_classes"] = (
             capo_ec2.types.usage_class_type_list.deserialize_ec2_query(
-                el, "SupportedUsageClasses"
+                el, "supportedUsageClasses"
             )
         )
-    if el.find("SupportedRootDeviceTypes") is not None:
+    if el.find("supportedRootDeviceTypes") is not None:
         import capo_ec2.types.root_device_type_list
 
         out["supported_root_device_types"] = (
             capo_ec2.types.root_device_type_list.deserialize_ec2_query(
-                el, "SupportedRootDeviceTypes"
+                el, "supportedRootDeviceTypes"
             )
         )
-    if el.find("SupportedVirtualizationTypes") is not None:
+    if el.find("supportedVirtualizationTypes") is not None:
         import capo_ec2.types.virtualization_type_list
 
         out["supported_virtualization_types"] = (
             capo_ec2.types.virtualization_type_list.deserialize_ec2_query(
-                el, "SupportedVirtualizationTypes"
+                el, "supportedVirtualizationTypes"
             )
         )
-    child_bare_metal = el.find("BareMetal")
+    child_bare_metal = el.find("bareMetal")
     if child_bare_metal is not None:
         out["bare_metal"] = (child_bare_metal.text or "").lower() == "true"
-    child_hypervisor = el.find("Hypervisor")
+    child_hypervisor = el.find("hypervisor")
     if child_hypervisor is not None:
         import capo_ec2.types.instance_type_hypervisor
 
@@ -416,33 +416,33 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_hypervisor
             )
         )
-    child_processor_info = el.find("ProcessorInfo")
+    child_processor_info = el.find("processorInfo")
     if child_processor_info is not None:
         import capo_ec2.types.processor_info
 
         out["processor_info"] = capo_ec2.types.processor_info.deserialize_ec2_query(
             child_processor_info
         )
-    child_v_cpu_info = el.find("VCpuInfo")
+    child_v_cpu_info = el.find("vCpuInfo")
     if child_v_cpu_info is not None:
         import capo_ec2.types.v_cpu_info
 
         out["v_cpu_info"] = capo_ec2.types.v_cpu_info.deserialize_ec2_query(
             child_v_cpu_info
         )
-    child_memory_info = el.find("MemoryInfo")
+    child_memory_info = el.find("memoryInfo")
     if child_memory_info is not None:
         import capo_ec2.types.memory_info
 
         out["memory_info"] = capo_ec2.types.memory_info.deserialize_ec2_query(
             child_memory_info
         )
-    child_instance_storage_supported = el.find("InstanceStorageSupported")
+    child_instance_storage_supported = el.find("instanceStorageSupported")
     if child_instance_storage_supported is not None:
         out["instance_storage_supported"] = (
             child_instance_storage_supported.text or ""
         ).lower() == "true"
-    child_instance_storage_info = el.find("InstanceStorageInfo")
+    child_instance_storage_info = el.find("instanceStorageInfo")
     if child_instance_storage_info is not None:
         import capo_ec2.types.instance_storage_info
 
@@ -451,31 +451,31 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_instance_storage_info
             )
         )
-    child_ebs_info = el.find("EbsInfo")
+    child_ebs_info = el.find("ebsInfo")
     if child_ebs_info is not None:
         import capo_ec2.types.ebs_info
 
         out["ebs_info"] = capo_ec2.types.ebs_info.deserialize_ec2_query(child_ebs_info)
-    child_network_info = el.find("NetworkInfo")
+    child_network_info = el.find("networkInfo")
     if child_network_info is not None:
         import capo_ec2.types.network_info
 
         out["network_info"] = capo_ec2.types.network_info.deserialize_ec2_query(
             child_network_info
         )
-    child_gpu_info = el.find("GpuInfo")
+    child_gpu_info = el.find("gpuInfo")
     if child_gpu_info is not None:
         import capo_ec2.types.gpu_info
 
         out["gpu_info"] = capo_ec2.types.gpu_info.deserialize_ec2_query(child_gpu_info)
-    child_fpga_info = el.find("FpgaInfo")
+    child_fpga_info = el.find("fpgaInfo")
     if child_fpga_info is not None:
         import capo_ec2.types.fpga_info
 
         out["fpga_info"] = capo_ec2.types.fpga_info.deserialize_ec2_query(
             child_fpga_info
         )
-    child_placement_group_info = el.find("PlacementGroupInfo")
+    child_placement_group_info = el.find("placementGroupInfo")
     if child_placement_group_info is not None:
         import capo_ec2.types.placement_group_info
 
@@ -484,7 +484,7 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_placement_group_info
             )
         )
-    child_inference_accelerator_info = el.find("InferenceAcceleratorInfo")
+    child_inference_accelerator_info = el.find("inferenceAcceleratorInfo")
     if child_inference_accelerator_info is not None:
         import capo_ec2.types.inference_accelerator_info
 
@@ -493,35 +493,35 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_inference_accelerator_info
             )
         )
-    child_hibernation_supported = el.find("HibernationSupported")
+    child_hibernation_supported = el.find("hibernationSupported")
     if child_hibernation_supported is not None:
         out["hibernation_supported"] = (
             child_hibernation_supported.text or ""
         ).lower() == "true"
-    child_burstable_performance_supported = el.find("BurstablePerformanceSupported")
+    child_burstable_performance_supported = el.find("burstablePerformanceSupported")
     if child_burstable_performance_supported is not None:
         out["burstable_performance_supported"] = (
             child_burstable_performance_supported.text or ""
         ).lower() == "true"
-    child_dedicated_hosts_supported = el.find("DedicatedHostsSupported")
+    child_dedicated_hosts_supported = el.find("dedicatedHostsSupported")
     if child_dedicated_hosts_supported is not None:
         out["dedicated_hosts_supported"] = (
             child_dedicated_hosts_supported.text or ""
         ).lower() == "true"
-    child_auto_recovery_supported = el.find("AutoRecoverySupported")
+    child_auto_recovery_supported = el.find("autoRecoverySupported")
     if child_auto_recovery_supported is not None:
         out["auto_recovery_supported"] = (
             child_auto_recovery_supported.text or ""
         ).lower() == "true"
-    if el.find("SupportedBootModes") is not None:
+    if el.find("supportedBootModes") is not None:
         import capo_ec2.types.boot_mode_type_list
 
         out["supported_boot_modes"] = (
             capo_ec2.types.boot_mode_type_list.deserialize_ec2_query(
-                el, "SupportedBootModes"
+                el, "supportedBootModes"
             )
         )
-    child_nitro_enclaves_support = el.find("NitroEnclavesSupport")
+    child_nitro_enclaves_support = el.find("nitroEnclavesSupport")
     if child_nitro_enclaves_support is not None:
         import capo_ec2.types.nitro_enclaves_support
 
@@ -530,7 +530,7 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_nitro_enclaves_support
             )
         )
-    child_nitro_tpm_support = el.find("NitroTpmSupport")
+    child_nitro_tpm_support = el.find("nitroTpmSupport")
     if child_nitro_tpm_support is not None:
         import capo_ec2.types.nitro_tpm_support
 
@@ -539,14 +539,14 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_nitro_tpm_support
             )
         )
-    child_nitro_tpm_info = el.find("NitroTpmInfo")
+    child_nitro_tpm_info = el.find("nitroTpmInfo")
     if child_nitro_tpm_info is not None:
         import capo_ec2.types.nitro_tpm_info
 
         out["nitro_tpm_info"] = capo_ec2.types.nitro_tpm_info.deserialize_ec2_query(
             child_nitro_tpm_info
         )
-    child_media_accelerator_info = el.find("MediaAcceleratorInfo")
+    child_media_accelerator_info = el.find("mediaAcceleratorInfo")
     if child_media_accelerator_info is not None:
         import capo_ec2.types.media_accelerator_info
 
@@ -555,21 +555,21 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_media_accelerator_info
             )
         )
-    child_neuron_info = el.find("NeuronInfo")
+    child_neuron_info = el.find("neuronInfo")
     if child_neuron_info is not None:
         import capo_ec2.types.neuron_info
 
         out["neuron_info"] = capo_ec2.types.neuron_info.deserialize_ec2_query(
             child_neuron_info
         )
-    child_phc_support = el.find("PhcSupport")
+    child_phc_support = el.find("phcSupport")
     if child_phc_support is not None:
         import capo_ec2.types.phc_support
 
         out["phc_support"] = capo_ec2.types.phc_support.deserialize_ec2_query(
             child_phc_support
         )
-    child_reboot_migration_support = el.find("RebootMigrationSupport")
+    child_reboot_migration_support = el.find("rebootMigrationSupport")
     if child_reboot_migration_support is not None:
         import capo_ec2.types.reboot_migration_support
 
@@ -578,7 +578,7 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
                 child_reboot_migration_support
             )
         )
-    child_supported_in_region = el.find("SupportedInRegion")
+    child_supported_in_region = el.find("supportedInRegion")
     if child_supported_in_region is not None:
         out["supported_in_region"] = (
             child_supported_in_region.text or ""

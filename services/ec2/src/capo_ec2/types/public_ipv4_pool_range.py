@@ -44,16 +44,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PublicIpv4PoolRange:
     out: PublicIpv4PoolRange = {}  # type: ignore[typeddict-item]
-    child_first_address = el.find("FirstAddress")
+    child_first_address = el.find("firstAddress")
     if child_first_address is not None:
         out["first_address"] = str(child_first_address.text or "")
-    child_last_address = el.find("LastAddress")
+    child_last_address = el.find("lastAddress")
     if child_last_address is not None:
         out["last_address"] = str(child_last_address.text or "")
-    child_address_count = el.find("AddressCount")
+    child_address_count = el.find("addressCount")
     if child_address_count is not None:
         out["address_count"] = int(child_address_count.text or "")
-    child_available_address_count = el.find("AvailableAddressCount")
+    child_available_address_count = el.find("availableAddressCount")
     if child_available_address_count is not None:
         out["available_address_count"] = int(child_available_address_count.text or "")
     return out

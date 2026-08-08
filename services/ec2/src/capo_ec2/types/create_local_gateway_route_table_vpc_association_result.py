@@ -39,7 +39,7 @@ def deserialize_ec2_query(
 ) -> CreateLocalGatewayRouteTableVpcAssociationResult:
     out: CreateLocalGatewayRouteTableVpcAssociationResult = {}  # type: ignore[typeddict-item]
     child_local_gateway_route_table_vpc_association = el.find(
-        "LocalGatewayRouteTableVpcAssociation"
+        "localGatewayRouteTableVpcAssociation"
     )
     if child_local_gateway_route_table_vpc_association is not None:
         import capo_ec2.types.local_gateway_route_table_vpc_association

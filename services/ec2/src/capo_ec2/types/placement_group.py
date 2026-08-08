@@ -89,47 +89,47 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PlacementGroup:
     out: PlacementGroup = {}  # type: ignore[typeddict-item]
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.placement_group_state
 
         out["state"] = capo_ec2.types.placement_group_state.deserialize_ec2_query(
             child_state
         )
-    child_strategy = el.find("Strategy")
+    child_strategy = el.find("strategy")
     if child_strategy is not None:
         import capo_ec2.types.placement_strategy
 
         out["strategy"] = capo_ec2.types.placement_strategy.deserialize_ec2_query(
             child_strategy
         )
-    child_partition_count = el.find("PartitionCount")
+    child_partition_count = el.find("partitionCount")
     if child_partition_count is not None:
         out["partition_count"] = int(child_partition_count.text or "")
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_group_arn = el.find("GroupArn")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_group_arn = el.find("groupArn")
     if child_group_arn is not None:
         out["group_arn"] = str(child_group_arn.text or "")
-    child_spread_level = el.find("SpreadLevel")
+    child_spread_level = el.find("spreadLevel")
     if child_spread_level is not None:
         import capo_ec2.types.spread_level
 
         out["spread_level"] = capo_ec2.types.spread_level.deserialize_ec2_query(
             child_spread_level
         )
-    child_linked_group_id = el.find("LinkedGroupId")
+    child_linked_group_id = el.find("linkedGroupId")
     if child_linked_group_id is not None:
         out["linked_group_id"] = str(child_linked_group_id.text or "")
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

@@ -47,15 +47,13 @@ def serialize_ec2_query(
         import capo_ec2.types.traffic_mirror_network_service_list
 
         capo_ec2.types.traffic_mirror_network_service_list.serialize_ec2_query(
-            value["add_network_services"], pairs, f"{key_prefix}AddNetworkServices"
+            value["add_network_services"], pairs, f"{key_prefix}AddNetworkService"
         )
     if "remove_network_services" in value:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         capo_ec2.types.traffic_mirror_network_service_list.serialize_ec2_query(
-            value["remove_network_services"],
-            pairs,
-            f"{key_prefix}RemoveNetworkServices",
+            value["remove_network_services"], pairs, f"{key_prefix}RemoveNetworkService"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -68,20 +66,20 @@ def deserialize_ec2_query(
     child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
     if child_traffic_mirror_filter_id is not None:
         out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
-    if el.find("AddNetworkServices") is not None:
+    if el.find("AddNetworkService") is not None:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         out["add_network_services"] = (
             capo_ec2.types.traffic_mirror_network_service_list.deserialize_ec2_query(
-                el, "AddNetworkServices"
+                el, "AddNetworkService"
             )
         )
-    if el.find("RemoveNetworkServices") is not None:
+    if el.find("RemoveNetworkService") is not None:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         out["remove_network_services"] = (
             capo_ec2.types.traffic_mirror_network_service_list.deserialize_ec2_query(
-                el, "RemoveNetworkServices"
+                el, "RemoveNetworkService"
             )
         )
     child_dry_run = el.find("DryRun")

@@ -82,37 +82,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeAttachment:
     out: VolumeAttachment = {}  # type: ignore[typeddict-item]
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_associated_resource = el.find("AssociatedResource")
+    child_associated_resource = el.find("associatedResource")
     if child_associated_resource is not None:
         out["associated_resource"] = str(child_associated_resource.text or "")
-    child_instance_owning_service = el.find("InstanceOwningService")
+    child_instance_owning_service = el.find("instanceOwningService")
     if child_instance_owning_service is not None:
         out["instance_owning_service"] = str(child_instance_owning_service.text or "")
-    child_ebs_card_index = el.find("EbsCardIndex")
+    child_ebs_card_index = el.find("ebsCardIndex")
     if child_ebs_card_index is not None:
         out["ebs_card_index"] = int(child_ebs_card_index.text or "")
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_device = el.find("Device")
+    child_device = el.find("device")
     if child_device is not None:
         out["device"] = str(child_device.text or "")
-    child_state = el.find("Status")
+    child_state = el.find("status")
     if child_state is not None:
         import capo_ec2.types.volume_attachment_state
 
         out["state"] = capo_ec2.types.volume_attachment_state.deserialize_ec2_query(
             child_state
         )
-    child_attach_time = el.find("AttachTime")
+    child_attach_time = el.find("attachTime")
     if child_attach_time is not None:
         import capo_ec2.types.date_time
 

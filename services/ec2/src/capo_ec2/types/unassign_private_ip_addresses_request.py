@@ -34,7 +34,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ip_prefix_list
 
         capo_ec2.types.ip_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefix"
         )
     if "network_interface_id" in value:
         pairs.append(
@@ -50,21 +50,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UnassignPrivateIpAddressesRequest:
     out: UnassignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Ipv4Prefixes") is not None:
+    if el.find("Ipv4Prefix") is not None:
         import capo_ec2.types.ip_prefix_list
 
         out["ipv4_prefixes"] = capo_ec2.types.ip_prefix_list.deserialize_ec2_query(
-            el, "Ipv4Prefixes"
+            el, "Ipv4Prefix"
         )
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    if el.find("PrivateIpAddress") is not None:
+    if el.find("privateIpAddress") is not None:
         import capo_ec2.types.private_ip_address_string_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.private_ip_address_string_list.deserialize_ec2_query(
-                el, "PrivateIpAddress"
+                el, "privateIpAddress"
             )
         )
     return out

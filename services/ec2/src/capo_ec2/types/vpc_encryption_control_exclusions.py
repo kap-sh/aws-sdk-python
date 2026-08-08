@@ -102,7 +102,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
     out: VpcEncryptionControlExclusions = {}  # type: ignore[typeddict-item]
-    child_internet_gateway = el.find("InternetGateway")
+    child_internet_gateway = el.find("internetGateway")
     if child_internet_gateway is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -111,7 +111,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_internet_gateway
             )
         )
-    child_egress_only_internet_gateway = el.find("EgressOnlyInternetGateway")
+    child_egress_only_internet_gateway = el.find("egressOnlyInternetGateway")
     if child_egress_only_internet_gateway is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -120,7 +120,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_egress_only_internet_gateway
             )
         )
-    child_nat_gateway = el.find("NatGateway")
+    child_nat_gateway = el.find("natGateway")
     if child_nat_gateway is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -129,7 +129,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_nat_gateway
             )
         )
-    child_virtual_private_gateway = el.find("VirtualPrivateGateway")
+    child_virtual_private_gateway = el.find("virtualPrivateGateway")
     if child_virtual_private_gateway is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -138,7 +138,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_virtual_private_gateway
             )
         )
-    child_vpc_peering = el.find("VpcPeering")
+    child_vpc_peering = el.find("vpcPeering")
     if child_vpc_peering is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -147,7 +147,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_vpc_peering
             )
         )
-    child_lambda = el.find("Lambda")
+    child_lambda = el.find("lambda")
     if child_lambda is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -156,7 +156,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_lambda
             )
         )
-    child_vpc_lattice = el.find("VpcLattice")
+    child_vpc_lattice = el.find("vpcLattice")
     if child_vpc_lattice is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 
@@ -165,7 +165,7 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControlExclusions:
                 child_vpc_lattice
             )
         )
-    child_elastic_file_system = el.find("ElasticFileSystem")
+    child_elastic_file_system = el.find("elasticFileSystem")
     if child_elastic_file_system is not None:
         import capo_ec2.types.vpc_encryption_control_exclusion
 

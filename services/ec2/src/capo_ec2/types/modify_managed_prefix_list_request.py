@@ -61,13 +61,13 @@ def serialize_ec2_query(
         import capo_ec2.types.add_prefix_list_entries
 
         capo_ec2.types.add_prefix_list_entries.serialize_ec2_query(
-            value["add_entries"], pairs, f"{key_prefix}AddEntries"
+            value["add_entries"], pairs, f"{key_prefix}AddEntry"
         )
     if "remove_entries" in value:
         import capo_ec2.types.remove_prefix_list_entries
 
         capo_ec2.types.remove_prefix_list_entries.serialize_ec2_query(
-            value["remove_entries"], pairs, f"{key_prefix}RemoveEntries"
+            value["remove_entries"], pairs, f"{key_prefix}RemoveEntry"
         )
     if "max_entries" in value:
         pairs.append((f"{key_prefix}MaxEntries", str(value["max_entries"])))
@@ -94,20 +94,18 @@ def deserialize_ec2_query(el: Element) -> ModifyManagedPrefixListRequest:
     child_prefix_list_name = el.find("PrefixListName")
     if child_prefix_list_name is not None:
         out["prefix_list_name"] = str(child_prefix_list_name.text or "")
-    if el.find("AddEntries") is not None:
+    if el.find("AddEntry") is not None:
         import capo_ec2.types.add_prefix_list_entries
 
         out["add_entries"] = (
-            capo_ec2.types.add_prefix_list_entries.deserialize_ec2_query(
-                el, "AddEntries"
-            )
+            capo_ec2.types.add_prefix_list_entries.deserialize_ec2_query(el, "AddEntry")
         )
-    if el.find("RemoveEntries") is not None:
+    if el.find("RemoveEntry") is not None:
         import capo_ec2.types.remove_prefix_list_entries
 
         out["remove_entries"] = (
             capo_ec2.types.remove_prefix_list_entries.deserialize_ec2_query(
-                el, "RemoveEntries"
+                el, "RemoveEntry"
             )
         )
     child_max_entries = el.find("MaxEntries")

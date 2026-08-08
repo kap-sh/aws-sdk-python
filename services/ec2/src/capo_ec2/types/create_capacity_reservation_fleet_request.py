@@ -65,7 +65,7 @@ def serialize_ec2_query(
         capo_ec2.types.reservation_fleet_instance_specification_list.serialize_ec2_query(
             value["instance_type_specifications"],
             pairs,
-            f"{key_prefix}InstanceTypeSpecifications",
+            f"{key_prefix}InstanceTypeSpecification",
         )
     if "tenancy" in value:
         import capo_ec2.types.fleet_capacity_reservation_tenancy
@@ -95,7 +95,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -109,12 +109,12 @@ def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetRequest:
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("InstanceTypeSpecifications") is not None:
+    if el.find("InstanceTypeSpecification") is not None:
         import capo_ec2.types.reservation_fleet_instance_specification_list
 
         out["instance_type_specifications"] = (
             capo_ec2.types.reservation_fleet_instance_specification_list.deserialize_ec2_query(
-                el, "InstanceTypeSpecifications"
+                el, "InstanceTypeSpecification"
             )
         )
     child_tenancy = el.find("Tenancy")
@@ -145,12 +145,12 @@ def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetRequest:
                 child_instance_match_criteria
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_dry_run = el.find("DryRun")

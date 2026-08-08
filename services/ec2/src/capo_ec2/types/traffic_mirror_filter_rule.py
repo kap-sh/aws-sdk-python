@@ -113,15 +113,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterRule:
     out: TrafficMirrorFilterRule = {}  # type: ignore[typeddict-item]
-    child_traffic_mirror_filter_rule_id = el.find("TrafficMirrorFilterRuleId")
+    child_traffic_mirror_filter_rule_id = el.find("trafficMirrorFilterRuleId")
     if child_traffic_mirror_filter_rule_id is not None:
         out["traffic_mirror_filter_rule_id"] = str(
             child_traffic_mirror_filter_rule_id.text or ""
         )
-    child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
+    child_traffic_mirror_filter_id = el.find("trafficMirrorFilterId")
     if child_traffic_mirror_filter_id is not None:
         out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
-    child_traffic_direction = el.find("TrafficDirection")
+    child_traffic_direction = el.find("trafficDirection")
     if child_traffic_direction is not None:
         import capo_ec2.types.traffic_direction
 
@@ -130,10 +130,10 @@ def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterRule:
                 child_traffic_direction
             )
         )
-    child_rule_number = el.find("RuleNumber")
+    child_rule_number = el.find("ruleNumber")
     if child_rule_number is not None:
         out["rule_number"] = int(child_rule_number.text or "")
-    child_rule_action = el.find("RuleAction")
+    child_rule_action = el.find("ruleAction")
     if child_rule_action is not None:
         import capo_ec2.types.traffic_mirror_rule_action
 
@@ -142,10 +142,10 @@ def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterRule:
                 child_rule_action
             )
         )
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         out["protocol"] = int(child_protocol.text or "")
-    child_destination_port_range = el.find("DestinationPortRange")
+    child_destination_port_range = el.find("destinationPortRange")
     if child_destination_port_range is not None:
         import capo_ec2.types.traffic_mirror_port_range
 
@@ -154,7 +154,7 @@ def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterRule:
                 child_destination_port_range
             )
         )
-    child_source_port_range = el.find("SourcePortRange")
+    child_source_port_range = el.find("sourcePortRange")
     if child_source_port_range is not None:
         import capo_ec2.types.traffic_mirror_port_range
 
@@ -163,17 +163,17 @@ def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterRule:
                 child_source_port_range
             )
         )
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
-    child_source_cidr_block = el.find("SourceCidrBlock")
+    child_source_cidr_block = el.find("sourceCidrBlock")
     if child_source_cidr_block is not None:
         out["source_cidr_block"] = str(child_source_cidr_block.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

@@ -125,28 +125,28 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTableAnnouncement:
     out: TransitGatewayRouteTableAnnouncement = {}  # type: ignore[typeddict-item]
     child_transit_gateway_route_table_announcement_id = el.find(
-        "TransitGatewayRouteTableAnnouncementId"
+        "transitGatewayRouteTableAnnouncementId"
     )
     if child_transit_gateway_route_table_announcement_id is not None:
         out["transit_gateway_route_table_announcement_id"] = str(
             child_transit_gateway_route_table_announcement_id.text or ""
         )
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_core_network_id = el.find("CoreNetworkId")
+    child_core_network_id = el.find("coreNetworkId")
     if child_core_network_id is not None:
         out["core_network_id"] = str(child_core_network_id.text or "")
-    child_peer_transit_gateway_id = el.find("PeerTransitGatewayId")
+    child_peer_transit_gateway_id = el.find("peerTransitGatewayId")
     if child_peer_transit_gateway_id is not None:
         out["peer_transit_gateway_id"] = str(child_peer_transit_gateway_id.text or "")
-    child_peer_core_network_id = el.find("PeerCoreNetworkId")
+    child_peer_core_network_id = el.find("peerCoreNetworkId")
     if child_peer_core_network_id is not None:
         out["peer_core_network_id"] = str(child_peer_core_network_id.text or "")
-    child_peering_attachment_id = el.find("PeeringAttachmentId")
+    child_peering_attachment_id = el.find("peeringAttachmentId")
     if child_peering_attachment_id is not None:
         out["peering_attachment_id"] = str(child_peering_attachment_id.text or "")
-    child_announcement_direction = el.find("AnnouncementDirection")
+    child_announcement_direction = el.find("announcementDirection")
     if child_announcement_direction is not None:
         import capo_ec2.types.transit_gateway_route_table_announcement_direction
 
@@ -155,12 +155,12 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTableAnnouncement:
                 child_announcement_direction
             )
         )
-    child_transit_gateway_route_table_id = el.find("TransitGatewayRouteTableId")
+    child_transit_gateway_route_table_id = el.find("transitGatewayRouteTableId")
     if child_transit_gateway_route_table_id is not None:
         out["transit_gateway_route_table_id"] = str(
             child_transit_gateway_route_table_id.text or ""
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_route_table_announcement_state
 
@@ -169,15 +169,15 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTableAnnouncement:
                 child_state
             )
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.date_time
 
         out["creation_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_creation_time
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

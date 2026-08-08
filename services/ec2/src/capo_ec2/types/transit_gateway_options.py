@@ -152,18 +152,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
     out: TransitGatewayOptions = {}  # type: ignore[typeddict-item]
-    child_amazon_side_asn = el.find("AmazonSideAsn")
+    child_amazon_side_asn = el.find("amazonSideAsn")
     if child_amazon_side_asn is not None:
         out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
-    if el.find("TransitGatewayCidrBlocks") is not None:
+    if el.find("transitGatewayCidrBlocks") is not None:
         import capo_ec2.types.value_string_list
 
         out["transit_gateway_cidr_blocks"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "TransitGatewayCidrBlocks"
+                el, "transitGatewayCidrBlocks"
             )
         )
-    child_auto_accept_shared_attachments = el.find("AutoAcceptSharedAttachments")
+    child_auto_accept_shared_attachments = el.find("autoAcceptSharedAttachments")
     if child_auto_accept_shared_attachments is not None:
         import capo_ec2.types.auto_accept_shared_attachments_value
 
@@ -172,7 +172,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
                 child_auto_accept_shared_attachments
             )
         )
-    child_default_route_table_association = el.find("DefaultRouteTableAssociation")
+    child_default_route_table_association = el.find("defaultRouteTableAssociation")
     if child_default_route_table_association is not None:
         import capo_ec2.types.default_route_table_association_value
 
@@ -181,12 +181,12 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
                 child_default_route_table_association
             )
         )
-    child_association_default_route_table_id = el.find("AssociationDefaultRouteTableId")
+    child_association_default_route_table_id = el.find("associationDefaultRouteTableId")
     if child_association_default_route_table_id is not None:
         out["association_default_route_table_id"] = str(
             child_association_default_route_table_id.text or ""
         )
-    child_default_route_table_propagation = el.find("DefaultRouteTablePropagation")
+    child_default_route_table_propagation = el.find("defaultRouteTablePropagation")
     if child_default_route_table_propagation is not None:
         import capo_ec2.types.default_route_table_propagation_value
 
@@ -195,12 +195,12 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
                 child_default_route_table_propagation
             )
         )
-    child_propagation_default_route_table_id = el.find("PropagationDefaultRouteTableId")
+    child_propagation_default_route_table_id = el.find("propagationDefaultRouteTableId")
     if child_propagation_default_route_table_id is not None:
         out["propagation_default_route_table_id"] = str(
             child_propagation_default_route_table_id.text or ""
         )
-    child_vpn_ecmp_support = el.find("VpnEcmpSupport")
+    child_vpn_ecmp_support = el.find("vpnEcmpSupport")
     if child_vpn_ecmp_support is not None:
         import capo_ec2.types.vpn_ecmp_support_value
 
@@ -209,7 +209,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
                 child_vpn_ecmp_support
             )
         )
-    child_dns_support = el.find("DnsSupport")
+    child_dns_support = el.find("dnsSupport")
     if child_dns_support is not None:
         import capo_ec2.types.dns_support_value
 
@@ -217,7 +217,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
             child_dns_support
         )
     child_security_group_referencing_support = el.find(
-        "SecurityGroupReferencingSupport"
+        "securityGroupReferencingSupport"
     )
     if child_security_group_referencing_support is not None:
         import capo_ec2.types.security_group_referencing_support_value
@@ -227,7 +227,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
                 child_security_group_referencing_support
             )
         )
-    child_multicast_support = el.find("MulticastSupport")
+    child_multicast_support = el.find("multicastSupport")
     if child_multicast_support is not None:
         import capo_ec2.types.multicast_support_value
 
@@ -236,7 +236,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
                 child_multicast_support
             )
         )
-    child_encryption_support = el.find("EncryptionSupport")
+    child_encryption_support = el.find("encryptionSupport")
     if child_encryption_support is not None:
         import capo_ec2.types.encryption_support
 

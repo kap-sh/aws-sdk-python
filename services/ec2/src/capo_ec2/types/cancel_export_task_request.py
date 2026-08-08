@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelExportTaskRequest:
     out: CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
-    child_export_task_id = el.find("ExportTaskId")
+    child_export_task_id = el.find("exportTaskId")
     if child_export_task_id is not None:
         out["export_task_id"] = str(child_export_task_id.text or "")
     return out

@@ -51,21 +51,21 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastRegisteredGroupMembers:
     out: TransitGatewayMulticastRegisteredGroupMembers = {}  # type: ignore[typeddict-item]
     child_transit_gateway_multicast_domain_id = el.find(
-        "TransitGatewayMulticastDomainId"
+        "transitGatewayMulticastDomainId"
     )
     if child_transit_gateway_multicast_domain_id is not None:
         out["transit_gateway_multicast_domain_id"] = str(
             child_transit_gateway_multicast_domain_id.text or ""
         )
-    if el.find("RegisteredNetworkInterfaceIds") is not None:
+    if el.find("registeredNetworkInterfaceIds") is not None:
         import capo_ec2.types.value_string_list
 
         out["registered_network_interface_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RegisteredNetworkInterfaceIds"
+                el, "registeredNetworkInterfaceIds"
             )
         )
-    child_group_ip_address = el.find("GroupIpAddress")
+    child_group_ip_address = el.find("groupIpAddress")
     if child_group_ip_address is not None:
         out["group_ip_address"] = str(child_group_ip_address.text or "")
     return out

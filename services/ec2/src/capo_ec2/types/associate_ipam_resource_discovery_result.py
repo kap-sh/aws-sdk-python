@@ -37,7 +37,7 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> AssociateIpamResourceDiscoveryResult:
     out: AssociateIpamResourceDiscoveryResult = {}  # type: ignore[typeddict-item]
     child_ipam_resource_discovery_association = el.find(
-        "IpamResourceDiscoveryAssociation"
+        "ipamResourceDiscoveryAssociation"
     )
     if child_ipam_resource_discovery_association is not None:
         import capo_ec2.types.ipam_resource_discovery_association

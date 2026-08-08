@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IamInstanceProfile:
     out: IamInstanceProfile = {}  # type: ignore[typeddict-item]
-    child_arn = el.find("Arn")
+    child_arn = el.find("arn")
     if child_arn is not None:
         out["arn"] = str(child_arn.text or "")
-    child_id = el.find("Id")
+    child_id = el.find("id")
     if child_id is not None:
         out["id"] = str(child_id.text or "")
     return out

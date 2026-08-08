@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyTrafficMirrorFilterRuleResult:
     out: ModifyTrafficMirrorFilterRuleResult = {}  # type: ignore[typeddict-item]
-    child_traffic_mirror_filter_rule = el.find("TrafficMirrorFilterRule")
+    child_traffic_mirror_filter_rule = el.find("trafficMirrorFilterRule")
     if child_traffic_mirror_filter_rule is not None:
         import capo_ec2.types.traffic_mirror_filter_rule
 

@@ -75,17 +75,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInsightsAccessScope:
     out: NetworkInsightsAccessScope = {}  # type: ignore[typeddict-item]
-    child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
+    child_network_insights_access_scope_id = el.find("networkInsightsAccessScopeId")
     if child_network_insights_access_scope_id is not None:
         out["network_insights_access_scope_id"] = str(
             child_network_insights_access_scope_id.text or ""
         )
-    child_network_insights_access_scope_arn = el.find("NetworkInsightsAccessScopeArn")
+    child_network_insights_access_scope_arn = el.find("networkInsightsAccessScopeArn")
     if child_network_insights_access_scope_arn is not None:
         out["network_insights_access_scope_arn"] = str(
             child_network_insights_access_scope_arn.text or ""
         )
-    child_created_date = el.find("CreatedDate")
+    child_created_date = el.find("createdDate")
     if child_created_date is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -94,7 +94,7 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsAccessScope:
                 child_created_date
             )
         )
-    child_updated_date = el.find("UpdatedDate")
+    child_updated_date = el.find("updatedDate")
     if child_updated_date is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -103,8 +103,8 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsAccessScope:
                 child_updated_date
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

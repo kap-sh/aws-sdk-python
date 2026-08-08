@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetImageAncestryResult:
     out: GetImageAncestryResult = {}  # type: ignore[typeddict-item]
-    if el.find("ImageAncestryEntrySet") is not None:
+    if el.find("imageAncestryEntrySet") is not None:
         import capo_ec2.types.image_ancestry_entry_list
 
         out["image_ancestry_entries"] = (
             capo_ec2.types.image_ancestry_entry_list.deserialize_ec2_query(
-                el, "ImageAncestryEntrySet"
+                el, "imageAncestryEntrySet"
             )
         )
     return out

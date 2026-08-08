@@ -89,13 +89,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessOptions:
     out: VpcBlockPublicAccessOptions = {}  # type: ignore[typeddict-item]
-    child_aws_account_id = el.find("AwsAccountId")
+    child_aws_account_id = el.find("awsAccountId")
     if child_aws_account_id is not None:
         out["aws_account_id"] = str(child_aws_account_id.text or "")
-    child_aws_region = el.find("AwsRegion")
+    child_aws_region = el.find("awsRegion")
     if child_aws_region is not None:
         out["aws_region"] = str(child_aws_region.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpc_block_public_access_state
 
@@ -104,7 +104,7 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessOptions:
                 child_state
             )
         )
-    child_internet_gateway_block_mode = el.find("InternetGatewayBlockMode")
+    child_internet_gateway_block_mode = el.find("internetGatewayBlockMode")
     if child_internet_gateway_block_mode is not None:
         import capo_ec2.types.internet_gateway_block_mode
 
@@ -113,10 +113,10 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessOptions:
                 child_internet_gateway_block_mode
             )
         )
-    child_reason = el.find("Reason")
+    child_reason = el.find("reason")
     if child_reason is not None:
         out["reason"] = str(child_reason.text or "")
-    child_last_update_timestamp = el.find("LastUpdateTimestamp")
+    child_last_update_timestamp = el.find("lastUpdateTimestamp")
     if child_last_update_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -125,14 +125,14 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessOptions:
                 child_last_update_timestamp
             )
         )
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.managed_by
 
         out["managed_by"] = capo_ec2.types.managed_by.deserialize_ec2_query(
             child_managed_by
         )
-    child_exclusions_allowed = el.find("ExclusionsAllowed")
+    child_exclusions_allowed = el.find("exclusionsAllowed")
     if child_exclusions_allowed is not None:
         import capo_ec2.types.vpc_block_public_access_exclusions_allowed
 

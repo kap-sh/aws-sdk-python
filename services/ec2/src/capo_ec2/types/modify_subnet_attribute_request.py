@@ -158,7 +158,7 @@ def deserialize_ec2_query(el: Element) -> ModifySubnetAttributeRequest:
                 child_map_public_ip_on_launch
             )
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
     child_map_customer_owned_ip_on_launch = el.find("MapCustomerOwnedIpOnLaunch")

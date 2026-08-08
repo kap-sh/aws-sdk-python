@@ -41,15 +41,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> VerifiedAccessInstanceOpenVpnClientConfiguration:
     out: VerifiedAccessInstanceOpenVpnClientConfiguration = {}  # type: ignore[typeddict-item]
-    child_config = el.find("Config")
+    child_config = el.find("config")
     if child_config is not None:
         out["config"] = str(child_config.text or "")
-    if el.find("RouteSet") is not None:
+    if el.find("routeSet") is not None:
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list
 
         out["routes"] = (
             capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list.deserialize_ec2_query(
-                el, "RouteSet"
+                el, "routeSet"
             )
         )
     return out

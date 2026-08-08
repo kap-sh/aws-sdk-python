@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CidrBlock:
     out: CidrBlock = {}  # type: ignore[typeddict-item]
-    child_cidr_block = el.find("CidrBlock")
+    child_cidr_block = el.find("cidrBlock")
     if child_cidr_block is not None:
         out["cidr_block"] = str(child_cidr_block.text or "")
     return out

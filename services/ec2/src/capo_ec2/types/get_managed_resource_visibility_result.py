@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetManagedResourceVisibilityResult:
     out: GetManagedResourceVisibilityResult = {}  # type: ignore[typeddict-item]
-    child_visibility = el.find("Visibility")
+    child_visibility = el.find("visibility")
     if child_visibility is not None:
         import capo_ec2.types.managed_resource_visibility_settings
 

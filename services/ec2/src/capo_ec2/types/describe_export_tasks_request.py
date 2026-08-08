@@ -29,7 +29,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "export_task_ids" in value:
         import capo_ec2.types.export_task_id_string_list
@@ -41,16 +41,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeExportTasksRequest:
     out: DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("ExportTaskId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("exportTaskId") is not None:
         import capo_ec2.types.export_task_id_string_list
 
         out["export_task_ids"] = (
             capo_ec2.types.export_task_id_string_list.deserialize_ec2_query(
-                el, "ExportTaskId"
+                el, "exportTaskId"
             )
         )
     return out

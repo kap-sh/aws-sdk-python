@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeLocalGatewayVirtualInterfacesResult:
     out: DescribeLocalGatewayVirtualInterfacesResult = {}  # type: ignore[typeddict-item]
-    if el.find("LocalGatewayVirtualInterfaceSet") is not None:
+    if el.find("localGatewayVirtualInterfaceSet") is not None:
         import capo_ec2.types.local_gateway_virtual_interface_set
 
         out["local_gateway_virtual_interfaces"] = (
             capo_ec2.types.local_gateway_virtual_interface_set.deserialize_ec2_query(
-                el, "LocalGatewayVirtualInterfaceSet"
+                el, "localGatewayVirtualInterfaceSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

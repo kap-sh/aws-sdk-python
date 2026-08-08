@@ -66,10 +66,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateSpotMarketOptions:
     out: LaunchTemplateSpotMarketOptions = {}  # type: ignore[typeddict-item]
-    child_max_price = el.find("MaxPrice")
+    child_max_price = el.find("maxPrice")
     if child_max_price is not None:
         out["max_price"] = str(child_max_price.text or "")
-    child_spot_instance_type = el.find("SpotInstanceType")
+    child_spot_instance_type = el.find("spotInstanceType")
     if child_spot_instance_type is not None:
         import capo_ec2.types.spot_instance_type
 
@@ -78,17 +78,17 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateSpotMarketOptions:
                 child_spot_instance_type
             )
         )
-    child_block_duration_minutes = el.find("BlockDurationMinutes")
+    child_block_duration_minutes = el.find("blockDurationMinutes")
     if child_block_duration_minutes is not None:
         out["block_duration_minutes"] = int(child_block_duration_minutes.text or "")
-    child_valid_until = el.find("ValidUntil")
+    child_valid_until = el.find("validUntil")
     if child_valid_until is not None:
         import capo_ec2.types.date_time
 
         out["valid_until"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_valid_until
         )
-    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    child_instance_interruption_behavior = el.find("instanceInterruptionBehavior")
     if child_instance_interruption_behavior is not None:
         import capo_ec2.types.instance_interruption_behavior
 

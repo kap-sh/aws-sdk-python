@@ -83,7 +83,7 @@ def serialize_ec2_query(
         import capo_ec2.types.billing_product_list
 
         capo_ec2.types.billing_product_list.serialize_ec2_query(
-            value["billing_products"], pairs, f"{key_prefix}BillingProducts"
+            value["billing_products"], pairs, f"{key_prefix}BillingProduct"
         )
     if "boot_mode" in value:
         import capo_ec2.types.boot_mode_values
@@ -109,7 +109,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -133,7 +133,7 @@ def serialize_ec2_query(
         import capo_ec2.types.block_device_mapping_request_list
 
         capo_ec2.types.block_device_mapping_request_list.serialize_ec2_query(
-            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMappings"
+            value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
         )
     if "virtualization_type" in value:
         pairs.append(
@@ -152,12 +152,12 @@ def deserialize_ec2_query(el: Element) -> RegisterImageRequest:
     child_image_location = el.find("ImageLocation")
     if child_image_location is not None:
         out["image_location"] = str(child_image_location.text or "")
-    if el.find("BillingProducts") is not None:
+    if el.find("BillingProduct") is not None:
         import capo_ec2.types.billing_product_list
 
         out["billing_products"] = (
             capo_ec2.types.billing_product_list.deserialize_ec2_query(
-                el, "BillingProducts"
+                el, "BillingProduct"
             )
         )
     child_boot_mode = el.find("BootMode")
@@ -184,54 +184,54 @@ def deserialize_ec2_query(el: Element) -> RegisterImageRequest:
         out["imds_support"] = capo_ec2.types.imds_support_values.deserialize_ec2_query(
             child_imds_support
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_architecture = el.find("Architecture")
+    child_architecture = el.find("architecture")
     if child_architecture is not None:
         import capo_ec2.types.architecture_values
 
         out["architecture"] = capo_ec2.types.architecture_values.deserialize_ec2_query(
             child_architecture
         )
-    child_kernel_id = el.find("KernelId")
+    child_kernel_id = el.find("kernelId")
     if child_kernel_id is not None:
         out["kernel_id"] = str(child_kernel_id.text or "")
-    child_ramdisk_id = el.find("RamdiskId")
+    child_ramdisk_id = el.find("ramdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    child_root_device_name = el.find("RootDeviceName")
+    child_root_device_name = el.find("rootDeviceName")
     if child_root_device_name is not None:
         out["root_device_name"] = str(child_root_device_name.text or "")
-    if el.find("BlockDeviceMappings") is not None:
+    if el.find("BlockDeviceMapping") is not None:
         import capo_ec2.types.block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
-                el, "BlockDeviceMappings"
+                el, "BlockDeviceMapping"
             )
         )
-    child_virtualization_type = el.find("VirtualizationType")
+    child_virtualization_type = el.find("virtualizationType")
     if child_virtualization_type is not None:
         out["virtualization_type"] = str(child_virtualization_type.text or "")
-    child_sriov_net_support = el.find("SriovNetSupport")
+    child_sriov_net_support = el.find("sriovNetSupport")
     if child_sriov_net_support is not None:
         out["sriov_net_support"] = str(child_sriov_net_support.text or "")
-    child_ena_support = el.find("EnaSupport")
+    child_ena_support = el.find("enaSupport")
     if child_ena_support is not None:
         out["ena_support"] = (child_ena_support.text or "").lower() == "true"
     return out

@@ -33,7 +33,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateEnaSrdUdpSpecification:
     out: LaunchTemplateEnaSrdUdpSpecification = {}  # type: ignore[typeddict-item]
-    child_ena_srd_udp_enabled = el.find("EnaSrdUdpEnabled")
+    child_ena_srd_udp_enabled = el.find("enaSrdUdpEnabled")
     if child_ena_srd_udp_enabled is not None:
         out["ena_srd_udp_enabled"] = (
             child_ena_srd_udp_enabled.text or ""

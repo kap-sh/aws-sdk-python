@@ -43,15 +43,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeVpcEndpointConnectionNotificationsResult:
     out: DescribeVpcEndpointConnectionNotificationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("ConnectionNotificationSet") is not None:
+    if el.find("connectionNotificationSet") is not None:
         import capo_ec2.types.connection_notification_set
 
         out["connection_notification_set"] = (
             capo_ec2.types.connection_notification_set.deserialize_ec2_query(
-                el, "ConnectionNotificationSet"
+                el, "connectionNotificationSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

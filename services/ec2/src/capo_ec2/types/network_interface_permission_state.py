@@ -37,7 +37,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInterfacePermissionState:
     out: NetworkInterfacePermissionState = {}  # type: ignore[typeddict-item]
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.network_interface_permission_state_code
 
@@ -46,7 +46,7 @@ def deserialize_ec2_query(el: Element) -> NetworkInterfacePermissionState:
                 child_state
             )
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
     return out

@@ -39,19 +39,19 @@ def serialize_ec2_query(
         import capo_ec2.types.availability_zone_string_list
 
         capo_ec2.types.availability_zone_string_list.serialize_ec2_query(
-            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZones"
+            value["availability_zones"], pairs, f"{key_prefix}AvailabilityZone"
         )
     if "availability_zone_ids" in value:
         import capo_ec2.types.availability_zone_id_string_list
 
         capo_ec2.types.availability_zone_id_string_list.serialize_ec2_query(
-            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneIds"
+            value["availability_zone_ids"], pairs, f"{key_prefix}AvailabilityZoneId"
         )
     if "source_snapshot_ids" in value:
         import capo_ec2.types.snapshot_id_string_list
 
         capo_ec2.types.snapshot_id_string_list.serialize_ec2_query(
-            value["source_snapshot_ids"], pairs, f"{key_prefix}SourceSnapshotIds"
+            value["source_snapshot_ids"], pairs, f"{key_prefix}SourceSnapshotId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -59,28 +59,28 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableFastSnapshotRestoresRequest:
     out: EnableFastSnapshotRestoresRequest = {}  # type: ignore[typeddict-item]
-    if el.find("AvailabilityZones") is not None:
+    if el.find("AvailabilityZone") is not None:
         import capo_ec2.types.availability_zone_string_list
 
         out["availability_zones"] = (
             capo_ec2.types.availability_zone_string_list.deserialize_ec2_query(
-                el, "AvailabilityZones"
+                el, "AvailabilityZone"
             )
         )
-    if el.find("AvailabilityZoneIds") is not None:
+    if el.find("AvailabilityZoneId") is not None:
         import capo_ec2.types.availability_zone_id_string_list
 
         out["availability_zone_ids"] = (
             capo_ec2.types.availability_zone_id_string_list.deserialize_ec2_query(
-                el, "AvailabilityZoneIds"
+                el, "AvailabilityZoneId"
             )
         )
-    if el.find("SourceSnapshotIds") is not None:
+    if el.find("SourceSnapshotId") is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["source_snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SourceSnapshotIds"
+                el, "SourceSnapshotId"
             )
         )
     child_dry_run = el.find("DryRun")

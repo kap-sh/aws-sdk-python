@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeprovisionIpamPoolCidrResult:
     out: DeprovisionIpamPoolCidrResult = {}  # type: ignore[typeddict-item]
-    child_ipam_pool_cidr = el.find("IpamPoolCidr")
+    child_ipam_pool_cidr = el.find("ipamPoolCidr")
     if child_ipam_pool_cidr is not None:
         import capo_ec2.types.ipam_pool_cidr
 

@@ -33,7 +33,7 @@ def serialize_ec2_query(
         import capo_ec2.types.image_usage_resource_type_option_values_list
 
         capo_ec2.types.image_usage_resource_type_option_values_list.serialize_ec2_query(
-            value["option_values"], pairs, f"{key_prefix}OptionValues"
+            value["option_values"], pairs, f"{key_prefix}OptionValue"
         )
 
 
@@ -42,12 +42,12 @@ def deserialize_ec2_query(el: Element) -> ImageUsageResourceTypeOptionRequest:
     child_option_name = el.find("OptionName")
     if child_option_name is not None:
         out["option_name"] = str(child_option_name.text or "")
-    if el.find("OptionValues") is not None:
+    if el.find("OptionValue") is not None:
         import capo_ec2.types.image_usage_resource_type_option_values_list
 
         out["option_values"] = (
             capo_ec2.types.image_usage_resource_type_option_values_list.deserialize_ec2_query(
-                el, "OptionValues"
+                el, "OptionValue"
             )
         )
     return out

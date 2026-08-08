@@ -90,19 +90,19 @@ def serialize_ec2_query(
         import capo_ec2.types.product_code_string_list
 
         capo_ec2.types.product_code_string_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCode"
         )
     if "user_groups" in value:
         import capo_ec2.types.user_group_string_list
 
         capo_ec2.types.user_group_string_list.serialize_ec2_query(
-            value["user_groups"], pairs, f"{key_prefix}UserGroups"
+            value["user_groups"], pairs, f"{key_prefix}UserGroup"
         )
     if "user_ids" in value:
         import capo_ec2.types.user_id_string_list
 
         capo_ec2.types.user_id_string_list.serialize_ec2_query(
-            value["user_ids"], pairs, f"{key_prefix}UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserId"
         )
     if "value" in value:
         pairs.append((f"{key_prefix}Value", str(value["value"])))
@@ -110,7 +110,7 @@ def serialize_ec2_query(
         import capo_ec2.types.organization_arn_string_list
 
         capo_ec2.types.organization_arn_string_list.serialize_ec2_query(
-            value["organization_arns"], pairs, f"{key_prefix}OrganizationArns"
+            value["organization_arns"], pairs, f"{key_prefix}OrganizationArn"
         )
     if "organizational_unit_arns" in value:
         import capo_ec2.types.organizational_unit_arn_string_list
@@ -118,7 +118,7 @@ def serialize_ec2_query(
         capo_ec2.types.organizational_unit_arn_string_list.serialize_ec2_query(
             value["organizational_unit_arns"],
             pairs,
-            f"{key_prefix}OrganizationalUnitArns",
+            f"{key_prefix}OrganizationalUnitArn",
         )
     if "imds_support" in value:
         import capo_ec2.types.attribute_value
@@ -161,45 +161,43 @@ def deserialize_ec2_query(el: Element) -> ModifyImageAttributeRequest:
         out["operation_type"] = capo_ec2.types.operation_type.deserialize_ec2_query(
             child_operation_type
         )
-    if el.find("ProductCodes") is not None:
+    if el.find("ProductCode") is not None:
         import capo_ec2.types.product_code_string_list
 
         out["product_codes"] = (
             capo_ec2.types.product_code_string_list.deserialize_ec2_query(
-                el, "ProductCodes"
+                el, "ProductCode"
             )
         )
-    if el.find("UserGroups") is not None:
+    if el.find("UserGroup") is not None:
         import capo_ec2.types.user_group_string_list
 
         out["user_groups"] = (
-            capo_ec2.types.user_group_string_list.deserialize_ec2_query(
-                el, "UserGroups"
-            )
+            capo_ec2.types.user_group_string_list.deserialize_ec2_query(el, "UserGroup")
         )
-    if el.find("UserIds") is not None:
+    if el.find("UserId") is not None:
         import capo_ec2.types.user_id_string_list
 
         out["user_ids"] = capo_ec2.types.user_id_string_list.deserialize_ec2_query(
-            el, "UserIds"
+            el, "UserId"
         )
     child_value = el.find("Value")
     if child_value is not None:
         out["value"] = str(child_value.text or "")
-    if el.find("OrganizationArns") is not None:
+    if el.find("OrganizationArn") is not None:
         import capo_ec2.types.organization_arn_string_list
 
         out["organization_arns"] = (
             capo_ec2.types.organization_arn_string_list.deserialize_ec2_query(
-                el, "OrganizationArns"
+                el, "OrganizationArn"
             )
         )
-    if el.find("OrganizationalUnitArns") is not None:
+    if el.find("OrganizationalUnitArn") is not None:
         import capo_ec2.types.organizational_unit_arn_string_list
 
         out["organizational_unit_arns"] = (
             capo_ec2.types.organizational_unit_arn_string_list.deserialize_ec2_query(
-                el, "OrganizationalUnitArns"
+                el, "OrganizationalUnitArn"
             )
         )
     child_imds_support = el.find("ImdsSupport")
@@ -209,7 +207,7 @@ def deserialize_ec2_query(el: Element) -> ModifyImageAttributeRequest:
         out["imds_support"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_imds_support
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

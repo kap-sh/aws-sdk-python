@@ -102,10 +102,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
     out: VpcBlockPublicAccessExclusion = {}  # type: ignore[typeddict-item]
-    child_exclusion_id = el.find("ExclusionId")
+    child_exclusion_id = el.find("exclusionId")
     if child_exclusion_id is not None:
         out["exclusion_id"] = str(child_exclusion_id.text or "")
-    child_internet_gateway_exclusion_mode = el.find("InternetGatewayExclusionMode")
+    child_internet_gateway_exclusion_mode = el.find("internetGatewayExclusionMode")
     if child_internet_gateway_exclusion_mode is not None:
         import capo_ec2.types.internet_gateway_exclusion_mode
 
@@ -114,10 +114,10 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
                 child_internet_gateway_exclusion_mode
             )
         )
-    child_resource_arn = el.find("ResourceArn")
+    child_resource_arn = el.find("resourceArn")
     if child_resource_arn is not None:
         out["resource_arn"] = str(child_resource_arn.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpc_block_public_access_exclusion_state
 
@@ -126,10 +126,10 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
                 child_state
             )
         )
-    child_reason = el.find("Reason")
+    child_reason = el.find("reason")
     if child_reason is not None:
         out["reason"] = str(child_reason.text or "")
-    child_creation_timestamp = el.find("CreationTimestamp")
+    child_creation_timestamp = el.find("creationTimestamp")
     if child_creation_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -138,7 +138,7 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
                 child_creation_timestamp
             )
         )
-    child_last_update_timestamp = el.find("LastUpdateTimestamp")
+    child_last_update_timestamp = el.find("lastUpdateTimestamp")
     if child_last_update_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -147,7 +147,7 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
                 child_last_update_timestamp
             )
         )
-    child_deletion_timestamp = el.find("DeletionTimestamp")
+    child_deletion_timestamp = el.find("deletionTimestamp")
     if child_deletion_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -156,8 +156,8 @@ def deserialize_ec2_query(el: Element) -> VpcBlockPublicAccessExclusion:
                 child_deletion_timestamp
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

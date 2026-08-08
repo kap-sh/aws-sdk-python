@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPeeringAttachmentOptions:
     out: TransitGatewayPeeringAttachmentOptions = {}  # type: ignore[typeddict-item]
-    child_dynamic_routing = el.find("DynamicRouting")
+    child_dynamic_routing = el.find("dynamicRouting")
     if child_dynamic_routing is not None:
         import capo_ec2.types.dynamic_routing_value
 

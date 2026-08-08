@@ -93,49 +93,49 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceImageMetadata:
     out: InstanceImageMetadata = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_launch_time = el.find("LaunchTime")
+    child_launch_time = el.find("launchTime")
     if child_launch_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["launch_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_launch_time
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_zone_id = el.find("ZoneId")
+    child_zone_id = el.find("zoneId")
     if child_zone_id is not None:
         out["zone_id"] = str(child_zone_id.text or "")
-    child_state = el.find("InstanceState")
+    child_state = el.find("instanceState")
     if child_state is not None:
         import capo_ec2.types.instance_state
 
         out["state"] = capo_ec2.types.instance_state.deserialize_ec2_query(child_state)
-    child_owner_id = el.find("InstanceOwnerId")
+    child_owner_id = el.find("instanceOwnerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_image_metadata = el.find("ImageMetadata")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_image_metadata = el.find("imageMetadata")
     if child_image_metadata is not None:
         import capo_ec2.types.image_metadata
 
         out["image_metadata"] = capo_ec2.types.image_metadata.deserialize_ec2_query(
             child_image_metadata
         )
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

@@ -40,12 +40,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetSerialConsoleAccessStatusResult:
     out: GetSerialConsoleAccessStatusResult = {}  # type: ignore[typeddict-item]
-    child_serial_console_access_enabled = el.find("SerialConsoleAccessEnabled")
+    child_serial_console_access_enabled = el.find("serialConsoleAccessEnabled")
     if child_serial_console_access_enabled is not None:
         out["serial_console_access_enabled"] = (
             child_serial_console_access_enabled.text or ""
         ).lower() == "true"
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.managed_by
 

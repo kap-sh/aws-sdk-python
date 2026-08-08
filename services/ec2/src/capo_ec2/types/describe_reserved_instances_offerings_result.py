@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesOfferingsResult:
     out: DescribeReservedInstancesOfferingsResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ReservedInstancesOfferingsSet") is not None:
+    if el.find("reservedInstancesOfferingsSet") is not None:
         import capo_ec2.types.reserved_instances_offering_list
 
         out["reserved_instances_offerings"] = (
             capo_ec2.types.reserved_instances_offering_list.deserialize_ec2_query(
-                el, "ReservedInstancesOfferingsSet"
+                el, "reservedInstancesOfferingsSet"
             )
         )
     return out

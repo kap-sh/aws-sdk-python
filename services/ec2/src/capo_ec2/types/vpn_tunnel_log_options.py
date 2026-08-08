@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnTunnelLogOptions:
     out: VpnTunnelLogOptions = {}  # type: ignore[typeddict-item]
-    child_cloud_watch_log_options = el.find("CloudWatchLogOptions")
+    child_cloud_watch_log_options = el.find("cloudWatchLogOptions")
     if child_cloud_watch_log_options is not None:
         import capo_ec2.types.cloud_watch_log_options
 

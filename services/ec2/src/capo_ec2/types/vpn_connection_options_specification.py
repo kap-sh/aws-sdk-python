@@ -177,7 +177,7 @@ def deserialize_ec2_query(el: Element) -> VpnConnectionOptionsSpecification:
                 child_tunnel_bandwidth
             )
         )
-    child_static_routes_only = el.find("StaticRoutesOnly")
+    child_static_routes_only = el.find("staticRoutesOnly")
     if child_static_routes_only is not None:
         out["static_routes_only"] = (
             child_static_routes_only.text or ""

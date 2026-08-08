@@ -44,7 +44,7 @@ def serialize_ec2_query(
         import capo_ec2.types.describe_image_references_image_id_string_list
 
         capo_ec2.types.describe_image_references_image_id_string_list.serialize_ec2_query(
-            value["image_ids"], pairs, f"{key_prefix}ImageIds"
+            value["image_ids"], pairs, f"{key_prefix}ImageId"
         )
     if "include_all_resource_types" in value:
         pairs.append(
@@ -57,7 +57,7 @@ def serialize_ec2_query(
         import capo_ec2.types.resource_type_request_list
 
         capo_ec2.types.resource_type_request_list.serialize_ec2_query(
-            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceType"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -69,12 +69,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeImageReferencesRequest:
     out: DescribeImageReferencesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ImageIds") is not None:
+    if el.find("ImageId") is not None:
         import capo_ec2.types.describe_image_references_image_id_string_list
 
         out["image_ids"] = (
             capo_ec2.types.describe_image_references_image_id_string_list.deserialize_ec2_query(
-                el, "ImageIds"
+                el, "ImageId"
             )
         )
     child_include_all_resource_types = el.find("IncludeAllResourceTypes")
@@ -82,12 +82,12 @@ def deserialize_ec2_query(el: Element) -> DescribeImageReferencesRequest:
         out["include_all_resource_types"] = (
             child_include_all_resource_types.text or ""
         ).lower() == "true"
-    if el.find("ResourceTypes") is not None:
+    if el.find("ResourceType") is not None:
         import capo_ec2.types.resource_type_request_list
 
         out["resource_types"] = (
             capo_ec2.types.resource_type_request_list.deserialize_ec2_query(
-                el, "ResourceTypes"
+                el, "ResourceType"
             )
         )
     child_next_token = el.find("NextToken")

@@ -41,7 +41,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateInstanceConnectEndpointResult:
     out: CreateInstanceConnectEndpointResult = {}  # type: ignore[typeddict-item]
-    child_instance_connect_endpoint = el.find("InstanceConnectEndpoint")
+    child_instance_connect_endpoint = el.find("instanceConnectEndpoint")
     if child_instance_connect_endpoint is not None:
         import capo_ec2.types.ec2_instance_connect_endpoint
 
@@ -50,7 +50,7 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceConnectEndpointResult:
                 child_instance_connect_endpoint
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

@@ -46,7 +46,7 @@ def serialize_ec2_query(
         import capo_ec2.types.add_prefix_list_entries
 
         capo_ec2.types.add_prefix_list_entries.serialize_ec2_query(
-            value["entries"], pairs, f"{key_prefix}Entries"
+            value["entries"], pairs, f"{key_prefix}Entry"
         )
     if "max_entries" in value:
         pairs.append((f"{key_prefix}MaxEntries", str(value["max_entries"])))
@@ -54,7 +54,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "address_family" in value:
         pairs.append((f"{key_prefix}AddressFamily", str(value["address_family"])))
@@ -70,21 +70,21 @@ def deserialize_ec2_query(el: Element) -> CreateManagedPrefixListRequest:
     child_prefix_list_name = el.find("PrefixListName")
     if child_prefix_list_name is not None:
         out["prefix_list_name"] = str(child_prefix_list_name.text or "")
-    if el.find("Entries") is not None:
+    if el.find("Entry") is not None:
         import capo_ec2.types.add_prefix_list_entries
 
         out["entries"] = capo_ec2.types.add_prefix_list_entries.deserialize_ec2_query(
-            el, "Entries"
+            el, "Entry"
         )
     child_max_entries = el.find("MaxEntries")
     if child_max_entries is not None:
         out["max_entries"] = int(child_max_entries.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_address_family = el.find("AddressFamily")

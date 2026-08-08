@@ -74,19 +74,19 @@ def serialize_ec2_query(
         import capo_ec2.types.user_id_string_list
 
         capo_ec2.types.user_id_string_list.serialize_ec2_query(
-            value["user_ids"], pairs, f"{key_prefix}UserIds"
+            value["user_ids"], pairs, f"{key_prefix}UserId"
         )
     if "user_groups" in value:
         import capo_ec2.types.user_group_string_list
 
         capo_ec2.types.user_group_string_list.serialize_ec2_query(
-            value["user_groups"], pairs, f"{key_prefix}UserGroups"
+            value["user_groups"], pairs, f"{key_prefix}UserGroup"
         )
     if "product_codes" in value:
         import capo_ec2.types.product_code_string_list
 
         capo_ec2.types.product_code_string_list.serialize_ec2_query(
-            value["product_codes"], pairs, f"{key_prefix}ProductCodes"
+            value["product_codes"], pairs, f"{key_prefix}ProductCode"
         )
     if "load_permission" in value:
         import capo_ec2.types.load_permission_modifications
@@ -124,26 +124,24 @@ def deserialize_ec2_query(el: Element) -> ModifyFpgaImageAttributeRequest:
         out["operation_type"] = capo_ec2.types.operation_type.deserialize_ec2_query(
             child_operation_type
         )
-    if el.find("UserIds") is not None:
+    if el.find("UserId") is not None:
         import capo_ec2.types.user_id_string_list
 
         out["user_ids"] = capo_ec2.types.user_id_string_list.deserialize_ec2_query(
-            el, "UserIds"
+            el, "UserId"
         )
-    if el.find("UserGroups") is not None:
+    if el.find("UserGroup") is not None:
         import capo_ec2.types.user_group_string_list
 
         out["user_groups"] = (
-            capo_ec2.types.user_group_string_list.deserialize_ec2_query(
-                el, "UserGroups"
-            )
+            capo_ec2.types.user_group_string_list.deserialize_ec2_query(el, "UserGroup")
         )
-    if el.find("ProductCodes") is not None:
+    if el.find("ProductCode") is not None:
         import capo_ec2.types.product_code_string_list
 
         out["product_codes"] = (
             capo_ec2.types.product_code_string_list.deserialize_ec2_query(
-                el, "ProductCodes"
+                el, "ProductCode"
             )
         )
     child_load_permission = el.find("LoadPermission")

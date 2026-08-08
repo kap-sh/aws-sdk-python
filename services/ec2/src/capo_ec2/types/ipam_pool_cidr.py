@@ -56,17 +56,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPoolCidr:
     out: IpamPoolCidr = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_pool_cidr_state
 
         out["state"] = capo_ec2.types.ipam_pool_cidr_state.deserialize_ec2_query(
             child_state
         )
-    child_failure_reason = el.find("FailureReason")
+    child_failure_reason = el.find("failureReason")
     if child_failure_reason is not None:
         import capo_ec2.types.ipam_pool_cidr_failure_reason
 
@@ -75,10 +75,10 @@ def deserialize_ec2_query(el: Element) -> IpamPoolCidr:
                 child_failure_reason
             )
         )
-    child_ipam_pool_cidr_id = el.find("IpamPoolCidrId")
+    child_ipam_pool_cidr_id = el.find("ipamPoolCidrId")
     if child_ipam_pool_cidr_id is not None:
         out["ipam_pool_cidr_id"] = str(child_ipam_pool_cidr_id.text or "")
-    child_netmask_length = el.find("NetmaskLength")
+    child_netmask_length = el.find("netmaskLength")
     if child_netmask_length is not None:
         out["netmask_length"] = int(child_netmask_length.text or "")
     return out

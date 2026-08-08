@@ -77,36 +77,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Placement:
     out: Placement = {}  # type: ignore[typeddict-item]
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_affinity = el.find("Affinity")
+    child_affinity = el.find("affinity")
     if child_affinity is not None:
         out["affinity"] = str(child_affinity.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    child_partition_number = el.find("PartitionNumber")
+    child_partition_number = el.find("partitionNumber")
     if child_partition_number is not None:
         out["partition_number"] = int(child_partition_number.text or "")
-    child_host_id = el.find("HostId")
+    child_host_id = el.find("hostId")
     if child_host_id is not None:
         out["host_id"] = str(child_host_id.text or "")
-    child_tenancy = el.find("Tenancy")
+    child_tenancy = el.find("tenancy")
     if child_tenancy is not None:
         import capo_ec2.types.tenancy
 
         out["tenancy"] = capo_ec2.types.tenancy.deserialize_ec2_query(child_tenancy)
-    child_spread_domain = el.find("SpreadDomain")
+    child_spread_domain = el.find("spreadDomain")
     if child_spread_domain is not None:
         out["spread_domain"] = str(child_spread_domain.text or "")
-    child_host_resource_group_arn = el.find("HostResourceGroupArn")
+    child_host_resource_group_arn = el.find("hostResourceGroupArn")
     if child_host_resource_group_arn is not None:
         out["host_resource_group_arn"] = str(child_host_resource_group_arn.text or "")
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
     return out

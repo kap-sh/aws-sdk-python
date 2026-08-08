@@ -507,38 +507,38 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Instance:
     out: Instance = {}  # type: ignore[typeddict-item]
-    child_architecture = el.find("Architecture")
+    child_architecture = el.find("architecture")
     if child_architecture is not None:
         import capo_ec2.types.architecture_values
 
         out["architecture"] = capo_ec2.types.architecture_values.deserialize_ec2_query(
             child_architecture
         )
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.instance_block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.instance_block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    child_ebs_optimized = el.find("EbsOptimized")
+    child_ebs_optimized = el.find("ebsOptimized")
     if child_ebs_optimized is not None:
         out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
-    child_ena_support = el.find("EnaSupport")
+    child_ena_support = el.find("enaSupport")
     if child_ena_support is not None:
         out["ena_support"] = (child_ena_support.text or "").lower() == "true"
-    child_hypervisor = el.find("Hypervisor")
+    child_hypervisor = el.find("hypervisor")
     if child_hypervisor is not None:
         import capo_ec2.types.hypervisor_type
 
         out["hypervisor"] = capo_ec2.types.hypervisor_type.deserialize_ec2_query(
             child_hypervisor
         )
-    child_iam_instance_profile = el.find("IamInstanceProfile")
+    child_iam_instance_profile = el.find("iamInstanceProfile")
     if child_iam_instance_profile is not None:
         import capo_ec2.types.iam_instance_profile
 
@@ -547,7 +547,7 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_iam_instance_profile
             )
         )
-    child_instance_lifecycle = el.find("InstanceLifecycle")
+    child_instance_lifecycle = el.find("instanceLifecycle")
     if child_instance_lifecycle is not None:
         import capo_ec2.types.instance_lifecycle_type
 
@@ -556,72 +556,72 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_instance_lifecycle
             )
         )
-    if el.find("ElasticGpuAssociationSet") is not None:
+    if el.find("elasticGpuAssociationSet") is not None:
         import capo_ec2.types.elastic_gpu_association_list
 
         out["elastic_gpu_associations"] = (
             capo_ec2.types.elastic_gpu_association_list.deserialize_ec2_query(
-                el, "ElasticGpuAssociationSet"
+                el, "elasticGpuAssociationSet"
             )
         )
-    if el.find("ElasticInferenceAcceleratorAssociationSet") is not None:
+    if el.find("elasticInferenceAcceleratorAssociationSet") is not None:
         import capo_ec2.types.elastic_inference_accelerator_association_list
 
         out["elastic_inference_accelerator_associations"] = (
             capo_ec2.types.elastic_inference_accelerator_association_list.deserialize_ec2_query(
-                el, "ElasticInferenceAcceleratorAssociationSet"
+                el, "elasticInferenceAcceleratorAssociationSet"
             )
         )
-    if el.find("NetworkInterfaceSet") is not None:
+    if el.find("networkInterfaceSet") is not None:
         import capo_ec2.types.instance_network_interface_list
 
         out["network_interfaces"] = (
             capo_ec2.types.instance_network_interface_list.deserialize_ec2_query(
-                el, "NetworkInterfaceSet"
+                el, "networkInterfaceSet"
             )
         )
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_root_device_name = el.find("RootDeviceName")
+    child_root_device_name = el.find("rootDeviceName")
     if child_root_device_name is not None:
         out["root_device_name"] = str(child_root_device_name.text or "")
-    child_root_device_type = el.find("RootDeviceType")
+    child_root_device_type = el.find("rootDeviceType")
     if child_root_device_type is not None:
         import capo_ec2.types.device_type
 
         out["root_device_type"] = capo_ec2.types.device_type.deserialize_ec2_query(
             child_root_device_type
         )
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_list
 
         out["security_groups"] = (
-            capo_ec2.types.group_identifier_list.deserialize_ec2_query(el, "GroupSet")
+            capo_ec2.types.group_identifier_list.deserialize_ec2_query(el, "groupSet")
         )
-    child_source_dest_check = el.find("SourceDestCheck")
+    child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
         out["source_dest_check"] = (
             child_source_dest_check.text or ""
         ).lower() == "true"
-    child_spot_instance_request_id = el.find("SpotInstanceRequestId")
+    child_spot_instance_request_id = el.find("spotInstanceRequestId")
     if child_spot_instance_request_id is not None:
         out["spot_instance_request_id"] = str(child_spot_instance_request_id.text or "")
-    child_sriov_net_support = el.find("SriovNetSupport")
+    child_sriov_net_support = el.find("sriovNetSupport")
     if child_sriov_net_support is not None:
         out["sriov_net_support"] = str(child_sriov_net_support.text or "")
-    child_state_reason = el.find("StateReason")
+    child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         import capo_ec2.types.state_reason
 
         out["state_reason"] = capo_ec2.types.state_reason.deserialize_ec2_query(
             child_state_reason
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_virtualization_type = el.find("VirtualizationType")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_virtualization_type = el.find("virtualizationType")
     if child_virtualization_type is not None:
         import capo_ec2.types.virtualization_type
 
@@ -630,21 +630,21 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_virtualization_type
             )
         )
-    child_cpu_options = el.find("CpuOptions")
+    child_cpu_options = el.find("cpuOptions")
     if child_cpu_options is not None:
         import capo_ec2.types.cpu_options
 
         out["cpu_options"] = capo_ec2.types.cpu_options.deserialize_ec2_query(
             child_cpu_options
         )
-    child_capacity_block_id = el.find("CapacityBlockId")
+    child_capacity_block_id = el.find("capacityBlockId")
     if child_capacity_block_id is not None:
         out["capacity_block_id"] = str(child_capacity_block_id.text or "")
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
     child_capacity_reservation_specification = el.find(
-        "CapacityReservationSpecification"
+        "capacityReservationSpecification"
     )
     if child_capacity_reservation_specification is not None:
         import capo_ec2.types.capacity_reservation_specification_response
@@ -654,7 +654,7 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_capacity_reservation_specification
             )
         )
-    child_hibernation_options = el.find("HibernationOptions")
+    child_hibernation_options = el.find("hibernationOptions")
     if child_hibernation_options is not None:
         import capo_ec2.types.hibernation_options
 
@@ -663,13 +663,13 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_hibernation_options
             )
         )
-    if el.find("LicenseSet") is not None:
+    if el.find("licenseSet") is not None:
         import capo_ec2.types.license_list
 
         out["licenses"] = capo_ec2.types.license_list.deserialize_ec2_query(
-            el, "LicenseSet"
+            el, "licenseSet"
         )
-    child_metadata_options = el.find("MetadataOptions")
+    child_metadata_options = el.find("metadataOptions")
     if child_metadata_options is not None:
         import capo_ec2.types.instance_metadata_options_response
 
@@ -678,27 +678,27 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_metadata_options
             )
         )
-    child_enclave_options = el.find("EnclaveOptions")
+    child_enclave_options = el.find("enclaveOptions")
     if child_enclave_options is not None:
         import capo_ec2.types.enclave_options
 
         out["enclave_options"] = capo_ec2.types.enclave_options.deserialize_ec2_query(
             child_enclave_options
         )
-    child_boot_mode = el.find("BootMode")
+    child_boot_mode = el.find("bootMode")
     if child_boot_mode is not None:
         import capo_ec2.types.boot_mode_values
 
         out["boot_mode"] = capo_ec2.types.boot_mode_values.deserialize_ec2_query(
             child_boot_mode
         )
-    child_platform_details = el.find("PlatformDetails")
+    child_platform_details = el.find("platformDetails")
     if child_platform_details is not None:
         out["platform_details"] = str(child_platform_details.text or "")
-    child_usage_operation = el.find("UsageOperation")
+    child_usage_operation = el.find("usageOperation")
     if child_usage_operation is not None:
         out["usage_operation"] = str(child_usage_operation.text or "")
-    child_usage_operation_update_time = el.find("UsageOperationUpdateTime")
+    child_usage_operation_update_time = el.find("usageOperationUpdateTime")
     if child_usage_operation_update_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -707,7 +707,7 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_usage_operation_update_time
             )
         )
-    child_private_dns_name_options = el.find("PrivateDnsNameOptions")
+    child_private_dns_name_options = el.find("privateDnsNameOptions")
     if child_private_dns_name_options is not None:
         import capo_ec2.types.private_dns_name_options_response
 
@@ -716,13 +716,13 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_private_dns_name_options
             )
         )
-    child_ipv6_address = el.find("Ipv6Address")
+    child_ipv6_address = el.find("ipv6Address")
     if child_ipv6_address is not None:
         out["ipv6_address"] = str(child_ipv6_address.text or "")
-    child_tpm_support = el.find("TpmSupport")
+    child_tpm_support = el.find("tpmSupport")
     if child_tpm_support is not None:
         out["tpm_support"] = str(child_tpm_support.text or "")
-    child_maintenance_options = el.find("MaintenanceOptions")
+    child_maintenance_options = el.find("maintenanceOptions")
     if child_maintenance_options is not None:
         import capo_ec2.types.instance_maintenance_options
 
@@ -731,7 +731,7 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_maintenance_options
             )
         )
-    child_current_instance_boot_mode = el.find("CurrentInstanceBootMode")
+    child_current_instance_boot_mode = el.find("currentInstanceBootMode")
     if child_current_instance_boot_mode is not None:
         import capo_ec2.types.instance_boot_mode_values
 
@@ -740,7 +740,7 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_current_instance_boot_mode
             )
         )
-    child_network_performance_options = el.find("NetworkPerformanceOptions")
+    child_network_performance_options = el.find("networkPerformanceOptions")
     if child_network_performance_options is not None:
         import capo_ec2.types.instance_network_performance_options
 
@@ -749,104 +749,104 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_network_performance_options
             )
         )
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    if el.find("SecondaryInterfaceSet") is not None:
+    if el.find("secondaryInterfaceSet") is not None:
         import capo_ec2.types.instance_secondary_interface_list
 
         out["secondary_interfaces"] = (
             capo_ec2.types.instance_secondary_interface_list.deserialize_ec2_query(
-                el, "SecondaryInterfaceSet"
+                el, "secondaryInterfaceSet"
             )
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_state = el.find("InstanceState")
+    child_state = el.find("instanceState")
     if child_state is not None:
         import capo_ec2.types.instance_state
 
         out["state"] = capo_ec2.types.instance_state.deserialize_ec2_query(child_state)
-    child_private_dns_name = el.find("PrivateDnsName")
+    child_private_dns_name = el.find("privateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    child_public_dns_name = el.find("DnsName")
+    child_public_dns_name = el.find("dnsName")
     if child_public_dns_name is not None:
         out["public_dns_name"] = str(child_public_dns_name.text or "")
-    child_state_transition_reason = el.find("Reason")
+    child_state_transition_reason = el.find("reason")
     if child_state_transition_reason is not None:
         out["state_transition_reason"] = str(child_state_transition_reason.text or "")
-    child_key_name = el.find("KeyName")
+    child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    child_ami_launch_index = el.find("AmiLaunchIndex")
+    child_ami_launch_index = el.find("amiLaunchIndex")
     if child_ami_launch_index is not None:
         out["ami_launch_index"] = int(child_ami_launch_index.text or "")
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_launch_time = el.find("LaunchTime")
+    child_launch_time = el.find("launchTime")
     if child_launch_time is not None:
         import capo_ec2.types.date_time
 
         out["launch_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_launch_time
         )
-    child_placement = el.find("Placement")
+    child_placement = el.find("placement")
     if child_placement is not None:
         import capo_ec2.types.placement
 
         out["placement"] = capo_ec2.types.placement.deserialize_ec2_query(
             child_placement
         )
-    child_kernel_id = el.find("KernelId")
+    child_kernel_id = el.find("kernelId")
     if child_kernel_id is not None:
         out["kernel_id"] = str(child_kernel_id.text or "")
-    child_ramdisk_id = el.find("RamdiskId")
+    child_ramdisk_id = el.find("ramdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         import capo_ec2.types.platform_values
 
         out["platform"] = capo_ec2.types.platform_values.deserialize_ec2_query(
             child_platform
         )
-    child_monitoring = el.find("Monitoring")
+    child_monitoring = el.find("monitoring")
     if child_monitoring is not None:
         import capo_ec2.types.monitoring
 
         out["monitoring"] = capo_ec2.types.monitoring.deserialize_ec2_query(
             child_monitoring
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    child_public_ip_address = el.find("IpAddress")
+    child_public_ip_address = el.find("ipAddress")
     if child_public_ip_address is not None:
         out["public_ip_address"] = str(child_public_ip_address.text or "")
     return out

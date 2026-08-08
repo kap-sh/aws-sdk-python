@@ -50,7 +50,7 @@ def deserialize_ec2_query(el: Element) -> DescribeImageAttributeRequest:
     child_image_id = el.find("ImageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

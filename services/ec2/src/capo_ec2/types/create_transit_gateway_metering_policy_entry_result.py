@@ -37,7 +37,7 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> CreateTransitGatewayMeteringPolicyEntryResult:
     out: CreateTransitGatewayMeteringPolicyEntryResult = {}  # type: ignore[typeddict-item]
     child_transit_gateway_metering_policy_entry = el.find(
-        "TransitGatewayMeteringPolicyEntry"
+        "transitGatewayMeteringPolicyEntry"
     )
     if child_transit_gateway_metering_policy_entry is not None:
         import capo_ec2.types.transit_gateway_metering_policy_entry

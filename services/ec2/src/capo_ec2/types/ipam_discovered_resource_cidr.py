@@ -122,24 +122,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamDiscoveredResourceCidr:
     out: IpamDiscoveredResourceCidr = {}  # type: ignore[typeddict-item]
-    child_ipam_resource_discovery_id = el.find("IpamResourceDiscoveryId")
+    child_ipam_resource_discovery_id = el.find("ipamResourceDiscoveryId")
     if child_ipam_resource_discovery_id is not None:
         out["ipam_resource_discovery_id"] = str(
             child_ipam_resource_discovery_id.text or ""
         )
-    child_resource_region = el.find("ResourceRegion")
+    child_resource_region = el.find("resourceRegion")
     if child_resource_region is not None:
         out["resource_region"] = str(child_resource_region.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_owner_id = el.find("ResourceOwnerId")
+    child_resource_owner_id = el.find("resourceOwnerId")
     if child_resource_owner_id is not None:
         out["resource_owner_id"] = str(child_resource_owner_id.text or "")
-    child_resource_cidr = el.find("ResourceCidr")
+    child_resource_cidr = el.find("resourceCidr")
     if child_resource_cidr is not None:
         out["resource_cidr"] = str(child_resource_cidr.text or "")
-    child_ip_source = el.find("IpSource")
+    child_ip_source = el.find("ipSource")
     if child_ip_source is not None:
         import capo_ec2.types.ipam_resource_cidr_ip_source
 
@@ -148,32 +148,32 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredResourceCidr:
                 child_ip_source
             )
         )
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.ipam_resource_type
 
         out["resource_type"] = capo_ec2.types.ipam_resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("ResourceTagSet") is not None:
+    if el.find("resourceTagSet") is not None:
         import capo_ec2.types.ipam_resource_tag_list
 
         out["resource_tags"] = (
             capo_ec2.types.ipam_resource_tag_list.deserialize_ec2_query(
-                el, "ResourceTagSet"
+                el, "resourceTagSet"
             )
         )
-    child_ip_usage = el.find("IpUsage")
+    child_ip_usage = el.find("ipUsage")
     if child_ip_usage is not None:
         out["ip_usage"] = float(child_ip_usage.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
     child_network_interface_attachment_status = el.find(
-        "NetworkInterfaceAttachmentStatus"
+        "networkInterfaceAttachmentStatus"
     )
     if child_network_interface_attachment_status is not None:
         import capo_ec2.types.ipam_network_interface_attachment_status
@@ -183,14 +183,14 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredResourceCidr:
                 child_network_interface_attachment_status
             )
         )
-    child_sample_time = el.find("SampleTime")
+    child_sample_time = el.find("sampleTime")
     if child_sample_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["sample_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_sample_time
         )
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
     return out

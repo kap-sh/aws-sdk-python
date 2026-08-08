@@ -86,15 +86,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReplaceRootVolumeTask:
     out: ReplaceRootVolumeTask = {}  # type: ignore[typeddict-item]
-    child_replace_root_volume_task_id = el.find("ReplaceRootVolumeTaskId")
+    child_replace_root_volume_task_id = el.find("replaceRootVolumeTaskId")
     if child_replace_root_volume_task_id is not None:
         out["replace_root_volume_task_id"] = str(
             child_replace_root_volume_task_id.text or ""
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_task_state = el.find("TaskState")
+    child_task_state = el.find("taskState")
     if child_task_state is not None:
         import capo_ec2.types.replace_root_volume_task_state
 
@@ -103,23 +103,23 @@ def deserialize_ec2_query(el: Element) -> ReplaceRootVolumeTask:
                 child_task_state
             )
         )
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         out["start_time"] = str(child_start_time.text or "")
-    child_complete_time = el.find("CompleteTime")
+    child_complete_time = el.find("completeTime")
     if child_complete_time is not None:
         out["complete_time"] = str(child_complete_time.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_image_id = el.find("ImageId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_delete_replaced_root_volume = el.find("DeleteReplacedRootVolume")
+    child_delete_replaced_root_volume = el.find("deleteReplacedRootVolume")
     if child_delete_replaced_root_volume is not None:
         out["delete_replaced_root_volume"] = (
             child_delete_replaced_root_volume.text or ""

@@ -49,7 +49,7 @@ def serialize_ec2_query(
         import capo_ec2.types.version_string_list
 
         capo_ec2.types.version_string_list.serialize_ec2_query(
-            value["versions"], pairs, f"{key_prefix}Versions"
+            value["versions"], pairs, f"{key_prefix}LaunchTemplateVersion"
         )
 
 
@@ -64,10 +64,10 @@ def deserialize_ec2_query(el: Element) -> DeleteLaunchTemplateVersionsRequest:
     child_launch_template_name = el.find("LaunchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    if el.find("Versions") is not None:
+    if el.find("LaunchTemplateVersion") is not None:
         import capo_ec2.types.version_string_list
 
         out["versions"] = capo_ec2.types.version_string_list.deserialize_ec2_query(
-            el, "Versions"
+            el, "LaunchTemplateVersion"
         )
     return out

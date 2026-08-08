@@ -42,13 +42,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInterfaceIpv6Address:
     out: NetworkInterfaceIpv6Address = {}  # type: ignore[typeddict-item]
-    child_ipv6_address = el.find("Ipv6Address")
+    child_ipv6_address = el.find("ipv6Address")
     if child_ipv6_address is not None:
         out["ipv6_address"] = str(child_ipv6_address.text or "")
-    child_public_ipv6_dns_name = el.find("PublicIpv6DnsName")
+    child_public_ipv6_dns_name = el.find("publicIpv6DnsName")
     if child_public_ipv6_dns_name is not None:
         out["public_ipv6_dns_name"] = str(child_public_ipv6_dns_name.text or "")
-    child_is_primary_ipv6 = el.find("IsPrimaryIpv6")
+    child_is_primary_ipv6 = el.find("isPrimaryIpv6")
     if child_is_primary_ipv6 is not None:
         out["is_primary_ipv6"] = (child_is_primary_ipv6.text or "").lower() == "true"
     return out

@@ -359,13 +359,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
     out: ResponseLaunchTemplateData = {}  # type: ignore[typeddict-item]
-    child_kernel_id = el.find("KernelId")
+    child_kernel_id = el.find("kernelId")
     if child_kernel_id is not None:
         out["kernel_id"] = str(child_kernel_id.text or "")
-    child_ebs_optimized = el.find("EbsOptimized")
+    child_ebs_optimized = el.find("ebsOptimized")
     if child_ebs_optimized is not None:
         out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
-    child_iam_instance_profile = el.find("IamInstanceProfile")
+    child_iam_instance_profile = el.find("iamInstanceProfile")
     if child_iam_instance_profile is not None:
         import capo_ec2.types.launch_template_iam_instance_profile_specification
 
@@ -374,36 +374,36 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_iam_instance_profile
             )
         )
-    if el.find("BlockDeviceMappingSet") is not None:
+    if el.find("blockDeviceMappingSet") is not None:
         import capo_ec2.types.launch_template_block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.launch_template_block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMappingSet"
+                el, "blockDeviceMappingSet"
             )
         )
-    if el.find("NetworkInterfaceSet") is not None:
+    if el.find("networkInterfaceSet") is not None:
         import capo_ec2.types.launch_template_instance_network_interface_specification_list
 
         out["network_interfaces"] = (
             capo_ec2.types.launch_template_instance_network_interface_specification_list.deserialize_ec2_query(
-                el, "NetworkInterfaceSet"
+                el, "networkInterfaceSet"
             )
         )
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_key_name = el.find("KeyName")
+    child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    child_monitoring = el.find("Monitoring")
+    child_monitoring = el.find("monitoring")
     if child_monitoring is not None:
         import capo_ec2.types.launch_templates_monitoring
 
@@ -412,7 +412,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_monitoring
             )
         )
-    child_placement = el.find("Placement")
+    child_placement = el.find("placement")
     if child_placement is not None:
         import capo_ec2.types.launch_template_placement
 
@@ -421,16 +421,16 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_placement
             )
         )
-    child_ram_disk_id = el.find("RamDiskId")
+    child_ram_disk_id = el.find("ramDiskId")
     if child_ram_disk_id is not None:
         out["ram_disk_id"] = str(child_ram_disk_id.text or "")
-    child_disable_api_termination = el.find("DisableApiTermination")
+    child_disable_api_termination = el.find("disableApiTermination")
     if child_disable_api_termination is not None:
         out["disable_api_termination"] = (
             child_disable_api_termination.text or ""
         ).lower() == "true"
     child_instance_initiated_shutdown_behavior = el.find(
-        "InstanceInitiatedShutdownBehavior"
+        "instanceInitiatedShutdownBehavior"
     )
     if child_instance_initiated_shutdown_behavior is not None:
         import capo_ec2.types.shutdown_behavior
@@ -440,48 +440,48 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_instance_initiated_shutdown_behavior
             )
         )
-    child_user_data = el.find("UserData")
+    child_user_data = el.find("userData")
     if child_user_data is not None:
         out["user_data"] = str(child_user_data.text or "")
-    if el.find("TagSpecificationSet") is not None:
+    if el.find("tagSpecificationSet") is not None:
         import capo_ec2.types.launch_template_tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.launch_template_tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecificationSet"
+                el, "tagSpecificationSet"
             )
         )
-    if el.find("ElasticGpuSpecificationSet") is not None:
+    if el.find("elasticGpuSpecificationSet") is not None:
         import capo_ec2.types.elastic_gpu_specification_response_list
 
         out["elastic_gpu_specifications"] = (
             capo_ec2.types.elastic_gpu_specification_response_list.deserialize_ec2_query(
-                el, "ElasticGpuSpecificationSet"
+                el, "elasticGpuSpecificationSet"
             )
         )
-    if el.find("ElasticInferenceAcceleratorSet") is not None:
+    if el.find("elasticInferenceAcceleratorSet") is not None:
         import capo_ec2.types.launch_template_elastic_inference_accelerator_response_list
 
         out["elastic_inference_accelerators"] = (
             capo_ec2.types.launch_template_elastic_inference_accelerator_response_list.deserialize_ec2_query(
-                el, "ElasticInferenceAcceleratorSet"
+                el, "elasticInferenceAcceleratorSet"
             )
         )
-    if el.find("SecurityGroupIdSet") is not None:
+    if el.find("securityGroupIdSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["security_group_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SecurityGroupIdSet"
+                el, "securityGroupIdSet"
             )
         )
-    if el.find("SecurityGroupSet") is not None:
+    if el.find("securityGroupSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["security_groups"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SecurityGroupSet"
+            el, "securityGroupSet"
         )
-    child_instance_market_options = el.find("InstanceMarketOptions")
+    child_instance_market_options = el.find("instanceMarketOptions")
     if child_instance_market_options is not None:
         import capo_ec2.types.launch_template_instance_market_options
 
@@ -490,7 +490,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_instance_market_options
             )
         )
-    child_credit_specification = el.find("CreditSpecification")
+    child_credit_specification = el.find("creditSpecification")
     if child_credit_specification is not None:
         import capo_ec2.types.credit_specification
 
@@ -499,7 +499,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_credit_specification
             )
         )
-    child_cpu_options = el.find("CpuOptions")
+    child_cpu_options = el.find("cpuOptions")
     if child_cpu_options is not None:
         import capo_ec2.types.launch_template_cpu_options
 
@@ -509,7 +509,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
             )
         )
     child_capacity_reservation_specification = el.find(
-        "CapacityReservationSpecification"
+        "capacityReservationSpecification"
     )
     if child_capacity_reservation_specification is not None:
         import capo_ec2.types.launch_template_capacity_reservation_specification_response
@@ -519,15 +519,15 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_capacity_reservation_specification
             )
         )
-    if el.find("LicenseSet") is not None:
+    if el.find("licenseSet") is not None:
         import capo_ec2.types.launch_template_license_list
 
         out["license_specifications"] = (
             capo_ec2.types.launch_template_license_list.deserialize_ec2_query(
-                el, "LicenseSet"
+                el, "licenseSet"
             )
         )
-    child_hibernation_options = el.find("HibernationOptions")
+    child_hibernation_options = el.find("hibernationOptions")
     if child_hibernation_options is not None:
         import capo_ec2.types.launch_template_hibernation_options
 
@@ -536,7 +536,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_hibernation_options
             )
         )
-    child_metadata_options = el.find("MetadataOptions")
+    child_metadata_options = el.find("metadataOptions")
     if child_metadata_options is not None:
         import capo_ec2.types.launch_template_instance_metadata_options
 
@@ -545,7 +545,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_metadata_options
             )
         )
-    child_enclave_options = el.find("EnclaveOptions")
+    child_enclave_options = el.find("enclaveOptions")
     if child_enclave_options is not None:
         import capo_ec2.types.launch_template_enclave_options
 
@@ -554,7 +554,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_enclave_options
             )
         )
-    child_instance_requirements = el.find("InstanceRequirements")
+    child_instance_requirements = el.find("instanceRequirements")
     if child_instance_requirements is not None:
         import capo_ec2.types.instance_requirements
 
@@ -563,7 +563,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_instance_requirements
             )
         )
-    child_private_dns_name_options = el.find("PrivateDnsNameOptions")
+    child_private_dns_name_options = el.find("privateDnsNameOptions")
     if child_private_dns_name_options is not None:
         import capo_ec2.types.launch_template_private_dns_name_options
 
@@ -572,7 +572,7 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_private_dns_name_options
             )
         )
-    child_maintenance_options = el.find("MaintenanceOptions")
+    child_maintenance_options = el.find("maintenanceOptions")
     if child_maintenance_options is not None:
         import capo_ec2.types.launch_template_instance_maintenance_options
 
@@ -581,17 +581,17 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_maintenance_options
             )
         )
-    child_disable_api_stop = el.find("DisableApiStop")
+    child_disable_api_stop = el.find("disableApiStop")
     if child_disable_api_stop is not None:
         out["disable_api_stop"] = (child_disable_api_stop.text or "").lower() == "true"
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    child_network_performance_options = el.find("NetworkPerformanceOptions")
+    child_network_performance_options = el.find("networkPerformanceOptions")
     if child_network_performance_options is not None:
         import capo_ec2.types.launch_template_network_performance_options
 
@@ -600,12 +600,12 @@ def deserialize_ec2_query(el: Element) -> ResponseLaunchTemplateData:
                 child_network_performance_options
             )
         )
-    if el.find("SecondaryInterfaceSet") is not None:
+    if el.find("secondaryInterfaceSet") is not None:
         import capo_ec2.types.launch_template_instance_secondary_interface_specification_list
 
         out["secondary_interfaces"] = (
             capo_ec2.types.launch_template_instance_secondary_interface_specification_list.deserialize_ec2_query(
-                el, "SecondaryInterfaceSet"
+                el, "secondaryInterfaceSet"
             )
         )
     return out

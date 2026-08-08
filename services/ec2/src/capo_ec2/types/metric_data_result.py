@@ -50,7 +50,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MetricDataResult:
     out: MetricDataResult = {}  # type: ignore[typeddict-item]
-    child_dimension = el.find("Dimension")
+    child_dimension = el.find("dimension")
     if child_dimension is not None:
         import capo_ec2.types.capacity_manager_dimension
 
@@ -59,17 +59,17 @@ def deserialize_ec2_query(el: Element) -> MetricDataResult:
                 child_dimension
             )
         )
-    child_timestamp = el.find("Timestamp")
+    child_timestamp = el.find("timestamp")
     if child_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["timestamp"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_timestamp
         )
-    if el.find("MetricValueSet") is not None:
+    if el.find("metricValueSet") is not None:
         import capo_ec2.types.metric_value_set
 
         out["metric_values"] = capo_ec2.types.metric_value_set.deserialize_ec2_query(
-            el, "MetricValueSet"
+            el, "metricValueSet"
         )
     return out

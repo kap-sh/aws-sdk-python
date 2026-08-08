@@ -44,13 +44,13 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "exclusion_ids" in value:
         import capo_ec2.types.vpc_block_public_access_exclusion_id_list
 
         capo_ec2.types.vpc_block_public_access_exclusion_id_list.serialize_ec2_query(
-            value["exclusion_ids"], pairs, f"{key_prefix}ExclusionIds"
+            value["exclusion_ids"], pairs, f"{key_prefix}ExclusionId"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -63,16 +63,16 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcBlockPublicAccessExclusions
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("ExclusionIds") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("ExclusionId") is not None:
         import capo_ec2.types.vpc_block_public_access_exclusion_id_list
 
         out["exclusion_ids"] = (
             capo_ec2.types.vpc_block_public_access_exclusion_id_list.deserialize_ec2_query(
-                el, "ExclusionIds"
+                el, "ExclusionId"
             )
         )
     child_next_token = el.find("NextToken")

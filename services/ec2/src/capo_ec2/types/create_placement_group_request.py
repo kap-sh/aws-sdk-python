@@ -49,7 +49,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "spread_level" in value:
         import capo_ec2.types.spread_level
@@ -82,12 +82,12 @@ def deserialize_ec2_query(el: Element) -> CreatePlacementGroupRequest:
     child_partition_count = el.find("PartitionCount")
     if child_partition_count is not None:
         out["partition_count"] = int(child_partition_count.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_spread_level = el.find("SpreadLevel")
@@ -107,13 +107,13 @@ def deserialize_ec2_query(el: Element) -> CreatePlacementGroupRequest:
         out["operator"] = capo_ec2.types.operator_request.deserialize_ec2_query(
             child_operator
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    child_strategy = el.find("Strategy")
+    child_strategy = el.find("strategy")
     if child_strategy is not None:
         import capo_ec2.types.placement_strategy
 

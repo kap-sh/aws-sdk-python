@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceMonitoring:
     out: InstanceMonitoring = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_monitoring = el.find("Monitoring")
+    child_monitoring = el.find("monitoring")
     if child_monitoring is not None:
         import capo_ec2.types.monitoring
 

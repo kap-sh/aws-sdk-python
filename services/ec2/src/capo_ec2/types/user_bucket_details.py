@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UserBucketDetails:
     out: UserBucketDetails = {}  # type: ignore[typeddict-item]
-    child_s3_bucket = el.find("S3Bucket")
+    child_s3_bucket = el.find("s3Bucket")
     if child_s3_bucket is not None:
         out["s3_bucket"] = str(child_s3_bucket.text or "")
-    child_s3_key = el.find("S3Key")
+    child_s3_key = el.find("s3Key")
     if child_s3_key is not None:
         out["s3_key"] = str(child_s3_key.text or "")
     return out

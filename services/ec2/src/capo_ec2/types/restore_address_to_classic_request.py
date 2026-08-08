@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RestoreAddressToClassicRequest:
     out: RestoreAddressToClassicRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
     return out

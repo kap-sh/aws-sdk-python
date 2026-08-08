@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReleaseIpamPoolAllocationResult:
     out: ReleaseIpamPoolAllocationResult = {}  # type: ignore[typeddict-item]
-    child_success = el.find("Success")
+    child_success = el.find("success")
     if child_success is not None:
         out["success"] = (child_success.text or "").lower() == "true"
     return out

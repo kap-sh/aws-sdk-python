@@ -104,45 +104,45 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeStatusItem:
     out: VolumeStatusItem = {}  # type: ignore[typeddict-item]
-    if el.find("ActionsSet") is not None:
+    if el.find("actionsSet") is not None:
         import capo_ec2.types.volume_status_actions_list
 
         out["actions"] = (
             capo_ec2.types.volume_status_actions_list.deserialize_ec2_query(
-                el, "ActionsSet"
+                el, "actionsSet"
             )
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    if el.find("EventsSet") is not None:
+    if el.find("eventsSet") is not None:
         import capo_ec2.types.volume_status_events_list
 
         out["events"] = capo_ec2.types.volume_status_events_list.deserialize_ec2_query(
-            el, "EventsSet"
+            el, "eventsSet"
         )
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_volume_status = el.find("VolumeStatus")
+    child_volume_status = el.find("volumeStatus")
     if child_volume_status is not None:
         import capo_ec2.types.volume_status_info
 
         out["volume_status"] = capo_ec2.types.volume_status_info.deserialize_ec2_query(
             child_volume_status
         )
-    if el.find("AttachmentStatuses") is not None:
+    if el.find("attachmentStatuses") is not None:
         import capo_ec2.types.volume_status_attachment_status_list
 
         out["attachment_statuses"] = (
             capo_ec2.types.volume_status_attachment_status_list.deserialize_ec2_query(
-                el, "AttachmentStatuses"
+                el, "attachmentStatuses"
             )
         )
-    child_initialization_status_details = el.find("InitializationStatusDetails")
+    child_initialization_status_details = el.find("initializationStatusDetails")
     if child_initialization_status_details is not None:
         import capo_ec2.types.initialization_status_details
 
@@ -151,10 +151,10 @@ def deserialize_ec2_query(el: Element) -> VolumeStatusItem:
                 child_initialization_status_details
             )
         )
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 

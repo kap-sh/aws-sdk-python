@@ -61,25 +61,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CoipPool:
     out: CoipPool = {}  # type: ignore[typeddict-item]
-    child_pool_id = el.find("PoolId")
+    child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
-    if el.find("PoolCidrSet") is not None:
+    if el.find("poolCidrSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["pool_cidrs"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "PoolCidrSet"
+            el, "poolCidrSet"
         )
-    child_local_gateway_route_table_id = el.find("LocalGatewayRouteTableId")
+    child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")
     if child_local_gateway_route_table_id is not None:
         out["local_gateway_route_table_id"] = str(
             child_local_gateway_route_table_id.text or ""
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_pool_arn = el.find("PoolArn")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_pool_arn = el.find("poolArn")
     if child_pool_arn is not None:
         out["pool_arn"] = str(child_pool_arn.text or "")
     return out

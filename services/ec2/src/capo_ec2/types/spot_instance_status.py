@@ -39,13 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotInstanceStatus:
     out: SpotInstanceStatus = {}  # type: ignore[typeddict-item]
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         out["code"] = str(child_code.text or "")
-    child_message = el.find("Message")
+    child_message = el.find("message")
     if child_message is not None:
         out["message"] = str(child_message.text or "")
-    child_update_time = el.find("UpdateTime")
+    child_update_time = el.find("updateTime")
     if child_update_time is not None:
         import capo_ec2.types.date_time
 

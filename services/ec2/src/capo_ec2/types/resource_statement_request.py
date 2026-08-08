@@ -26,28 +26,28 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["resources"], pairs, f"{key_prefix}Resources"
+            value["resources"], pairs, f"{key_prefix}Resource"
         )
     if "resource_types" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["resource_types"], pairs, f"{key_prefix}ResourceTypes"
+            value["resource_types"], pairs, f"{key_prefix}ResourceType"
         )
 
 
 def deserialize_ec2_query(el: Element) -> ResourceStatementRequest:
     out: ResourceStatementRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Resources") is not None:
+    if el.find("Resource") is not None:
         import capo_ec2.types.value_string_list
 
         out["resources"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "Resources"
+            el, "Resource"
         )
-    if el.find("ResourceTypes") is not None:
+    if el.find("ResourceType") is not None:
         import capo_ec2.types.value_string_list
 
         out["resource_types"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ResourceTypes"
+            el, "ResourceType"
         )
     return out

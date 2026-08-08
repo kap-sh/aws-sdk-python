@@ -71,18 +71,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SubnetCidrReservation:
     out: SubnetCidrReservation = {}  # type: ignore[typeddict-item]
-    child_subnet_cidr_reservation_id = el.find("SubnetCidrReservationId")
+    child_subnet_cidr_reservation_id = el.find("subnetCidrReservationId")
     if child_subnet_cidr_reservation_id is not None:
         out["subnet_cidr_reservation_id"] = str(
             child_subnet_cidr_reservation_id.text or ""
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_reservation_type = el.find("ReservationType")
+    child_reservation_type = el.find("reservationType")
     if child_reservation_type is not None:
         import capo_ec2.types.subnet_cidr_reservation_type
 
@@ -91,14 +91,14 @@ def deserialize_ec2_query(el: Element) -> SubnetCidrReservation:
                 child_reservation_type
             )
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

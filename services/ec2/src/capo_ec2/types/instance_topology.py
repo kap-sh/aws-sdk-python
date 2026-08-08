@@ -55,28 +55,28 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceTopology:
     out: InstanceTopology = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("NetworkNodeSet") is not None:
+    if el.find("networkNodeSet") is not None:
         import capo_ec2.types.network_nodes_list
 
         out["network_nodes"] = capo_ec2.types.network_nodes_list.deserialize_ec2_query(
-            el, "NetworkNodeSet"
+            el, "networkNodeSet"
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_zone_id = el.find("ZoneId")
+    child_zone_id = el.find("zoneId")
     if child_zone_id is not None:
         out["zone_id"] = str(child_zone_id.text or "")
-    child_capacity_block_id = el.find("CapacityBlockId")
+    child_capacity_block_id = el.find("capacityBlockId")
     if child_capacity_block_id is not None:
         out["capacity_block_id"] = str(child_capacity_block_id.text or "")
     return out

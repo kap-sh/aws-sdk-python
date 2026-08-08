@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeServiceLinkVirtualInterfacesResult:
     out: DescribeServiceLinkVirtualInterfacesResult = {}  # type: ignore[typeddict-item]
-    if el.find("ServiceLinkVirtualInterfaceSet") is not None:
+    if el.find("serviceLinkVirtualInterfaceSet") is not None:
         import capo_ec2.types.service_link_virtual_interface_set
 
         out["service_link_virtual_interfaces"] = (
             capo_ec2.types.service_link_virtual_interface_set.deserialize_ec2_query(
-                el, "ServiceLinkVirtualInterfaceSet"
+                el, "serviceLinkVirtualInterfaceSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

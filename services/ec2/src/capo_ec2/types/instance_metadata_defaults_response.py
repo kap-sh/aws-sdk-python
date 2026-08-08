@@ -94,19 +94,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceMetadataDefaultsResponse:
     out: InstanceMetadataDefaultsResponse = {}  # type: ignore[typeddict-item]
-    child_http_tokens = el.find("HttpTokens")
+    child_http_tokens = el.find("httpTokens")
     if child_http_tokens is not None:
         import capo_ec2.types.http_tokens_state
 
         out["http_tokens"] = capo_ec2.types.http_tokens_state.deserialize_ec2_query(
             child_http_tokens
         )
-    child_http_put_response_hop_limit = el.find("HttpPutResponseHopLimit")
+    child_http_put_response_hop_limit = el.find("httpPutResponseHopLimit")
     if child_http_put_response_hop_limit is not None:
         out["http_put_response_hop_limit"] = int(
             child_http_put_response_hop_limit.text or ""
         )
-    child_http_endpoint = el.find("HttpEndpoint")
+    child_http_endpoint = el.find("httpEndpoint")
     if child_http_endpoint is not None:
         import capo_ec2.types.instance_metadata_endpoint_state
 
@@ -115,7 +115,7 @@ def deserialize_ec2_query(el: Element) -> InstanceMetadataDefaultsResponse:
                 child_http_endpoint
             )
         )
-    child_instance_metadata_tags = el.find("InstanceMetadataTags")
+    child_instance_metadata_tags = el.find("instanceMetadataTags")
     if child_instance_metadata_tags is not None:
         import capo_ec2.types.instance_metadata_tags_state
 
@@ -124,19 +124,19 @@ def deserialize_ec2_query(el: Element) -> InstanceMetadataDefaultsResponse:
                 child_instance_metadata_tags
             )
         )
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.managed_by
 
         out["managed_by"] = capo_ec2.types.managed_by.deserialize_ec2_query(
             child_managed_by
         )
-    child_managed_exception_message = el.find("ManagedExceptionMessage")
+    child_managed_exception_message = el.find("managedExceptionMessage")
     if child_managed_exception_message is not None:
         out["managed_exception_message"] = str(
             child_managed_exception_message.text or ""
         )
-    child_http_tokens_enforced = el.find("HttpTokensEnforced")
+    child_http_tokens_enforced = el.find("httpTokensEnforced")
     if child_http_tokens_enforced is not None:
         import capo_ec2.types.http_tokens_enforced_state
 

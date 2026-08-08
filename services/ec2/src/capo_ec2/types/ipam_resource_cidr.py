@@ -123,49 +123,49 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamResourceCidr:
     out: IpamResourceCidr = {}  # type: ignore[typeddict-item]
-    child_ipam_id = el.find("IpamId")
+    child_ipam_id = el.find("ipamId")
     if child_ipam_id is not None:
         out["ipam_id"] = str(child_ipam_id.text or "")
-    child_ipam_scope_id = el.find("IpamScopeId")
+    child_ipam_scope_id = el.find("ipamScopeId")
     if child_ipam_scope_id is not None:
         out["ipam_scope_id"] = str(child_ipam_scope_id.text or "")
-    child_ipam_pool_id = el.find("IpamPoolId")
+    child_ipam_pool_id = el.find("ipamPoolId")
     if child_ipam_pool_id is not None:
         out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
-    child_resource_region = el.find("ResourceRegion")
+    child_resource_region = el.find("resourceRegion")
     if child_resource_region is not None:
         out["resource_region"] = str(child_resource_region.text or "")
-    child_resource_owner_id = el.find("ResourceOwnerId")
+    child_resource_owner_id = el.find("resourceOwnerId")
     if child_resource_owner_id is not None:
         out["resource_owner_id"] = str(child_resource_owner_id.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_name = el.find("ResourceName")
+    child_resource_name = el.find("resourceName")
     if child_resource_name is not None:
         out["resource_name"] = str(child_resource_name.text or "")
-    child_resource_cidr = el.find("ResourceCidr")
+    child_resource_cidr = el.find("resourceCidr")
     if child_resource_cidr is not None:
         out["resource_cidr"] = str(child_resource_cidr.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.ipam_resource_type
 
         out["resource_type"] = capo_ec2.types.ipam_resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("ResourceTagSet") is not None:
+    if el.find("resourceTagSet") is not None:
         import capo_ec2.types.ipam_resource_tag_list
 
         out["resource_tags"] = (
             capo_ec2.types.ipam_resource_tag_list.deserialize_ec2_query(
-                el, "ResourceTagSet"
+                el, "resourceTagSet"
             )
         )
-    child_ip_usage = el.find("IpUsage")
+    child_ip_usage = el.find("ipUsage")
     if child_ip_usage is not None:
         out["ip_usage"] = float(child_ip_usage.text or "")
-    child_compliance_status = el.find("ComplianceStatus")
+    child_compliance_status = el.find("complianceStatus")
     if child_compliance_status is not None:
         import capo_ec2.types.ipam_compliance_status
 
@@ -174,7 +174,7 @@ def deserialize_ec2_query(el: Element) -> IpamResourceCidr:
                 child_compliance_status
             )
         )
-    child_management_state = el.find("ManagementState")
+    child_management_state = el.find("managementState")
     if child_management_state is not None:
         import capo_ec2.types.ipam_management_state
 
@@ -183,7 +183,7 @@ def deserialize_ec2_query(el: Element) -> IpamResourceCidr:
                 child_management_state
             )
         )
-    child_overlap_status = el.find("OverlapStatus")
+    child_overlap_status = el.find("overlapStatus")
     if child_overlap_status is not None:
         import capo_ec2.types.ipam_overlap_status
 
@@ -192,10 +192,10 @@ def deserialize_ec2_query(el: Element) -> IpamResourceCidr:
                 child_overlap_status
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
     return out

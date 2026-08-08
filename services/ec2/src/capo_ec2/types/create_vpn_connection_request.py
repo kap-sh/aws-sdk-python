@@ -73,7 +73,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "pre_shared_key_storage" in value:
         pairs.append(
@@ -106,21 +106,21 @@ def deserialize_ec2_query(el: Element) -> CreateVpnConnectionRequest:
     child_vpn_concentrator_id = el.find("VpnConcentratorId")
     if child_vpn_concentrator_id is not None:
         out["vpn_concentrator_id"] = str(child_vpn_concentrator_id.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_pre_shared_key_storage = el.find("PreSharedKeyStorage")
     if child_pre_shared_key_storage is not None:
         out["pre_shared_key_storage"] = str(child_pre_shared_key_storage.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_options = el.find("Options")
+    child_options = el.find("options")
     if child_options is not None:
         import capo_ec2.types.vpn_connection_options_specification
 

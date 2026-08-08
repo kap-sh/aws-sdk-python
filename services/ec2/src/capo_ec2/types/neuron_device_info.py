@@ -53,20 +53,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NeuronDeviceInfo:
     out: NeuronDeviceInfo = {}  # type: ignore[typeddict-item]
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_core_info = el.find("CoreInfo")
+    child_core_info = el.find("coreInfo")
     if child_core_info is not None:
         import capo_ec2.types.neuron_device_core_info
 
         out["core_info"] = capo_ec2.types.neuron_device_core_info.deserialize_ec2_query(
             child_core_info
         )
-    child_memory_info = el.find("MemoryInfo")
+    child_memory_info = el.find("memoryInfo")
     if child_memory_info is not None:
         import capo_ec2.types.neuron_device_memory_info
 

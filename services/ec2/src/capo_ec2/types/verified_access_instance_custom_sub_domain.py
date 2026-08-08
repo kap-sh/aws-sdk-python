@@ -37,13 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessInstanceCustomSubDomain:
     out: VerifiedAccessInstanceCustomSubDomain = {}  # type: ignore[typeddict-item]
-    child_sub_domain = el.find("SubDomain")
+    child_sub_domain = el.find("subDomain")
     if child_sub_domain is not None:
         out["sub_domain"] = str(child_sub_domain.text or "")
-    if el.find("NameserverSet") is not None:
+    if el.find("nameserverSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["nameservers"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "NameserverSet"
+            el, "nameserverSet"
         )
     return out

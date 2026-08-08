@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ExportClientVpnClientConfigurationResult:
     out: ExportClientVpnClientConfigurationResult = {}  # type: ignore[typeddict-item]
-    child_client_configuration = el.find("ClientConfiguration")
+    child_client_configuration = el.find("clientConfiguration")
     if child_client_configuration is not None:
         out["client_configuration"] = str(child_client_configuration.text or "")
     return out

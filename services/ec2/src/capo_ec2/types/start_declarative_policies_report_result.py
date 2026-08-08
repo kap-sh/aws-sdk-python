@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> StartDeclarativePoliciesReportResult:
     out: StartDeclarativePoliciesReportResult = {}  # type: ignore[typeddict-item]
-    child_report_id = el.find("ReportId")
+    child_report_id = el.find("reportId")
     if child_report_id is not None:
         out["report_id"] = str(child_report_id.text or "")
     return out

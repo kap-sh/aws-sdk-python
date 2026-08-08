@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientLoginBannerResponseOptions:
     out: ClientLoginBannerResponseOptions = {}  # type: ignore[typeddict-item]
-    child_enabled = el.find("Enabled")
+    child_enabled = el.find("enabled")
     if child_enabled is not None:
         out["enabled"] = (child_enabled.text or "").lower() == "true"
-    child_banner_text = el.find("BannerText")
+    child_banner_text = el.find("bannerText")
     if child_banner_text is not None:
         out["banner_text"] = str(child_banner_text.text or "")
     return out

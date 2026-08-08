@@ -51,7 +51,7 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_id_string_list_request
 
         capo_ec2.types.security_group_id_string_list_request.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "preserve_client_ip" in value:
         pairs.append(
@@ -66,7 +66,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "ip_address_type" in value:
         import capo_ec2.types.ip_address_type
@@ -84,12 +84,12 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceConnectEndpointRequest:
     child_subnet_id = el.find("SubnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.security_group_id_string_list_request
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_string_list_request.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
     child_preserve_client_ip = el.find("PreserveClientIp")
@@ -100,12 +100,12 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceConnectEndpointRequest:
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_ip_address_type = el.find("IpAddressType")

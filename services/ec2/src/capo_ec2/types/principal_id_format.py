@@ -35,13 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrincipalIdFormat:
     out: PrincipalIdFormat = {}  # type: ignore[typeddict-item]
-    child_arn = el.find("Arn")
+    child_arn = el.find("arn")
     if child_arn is not None:
         out["arn"] = str(child_arn.text or "")
-    if el.find("StatusSet") is not None:
+    if el.find("statusSet") is not None:
         import capo_ec2.types.id_format_list
 
         out["statuses"] = capo_ec2.types.id_format_list.deserialize_ec2_query(
-            el, "StatusSet"
+            el, "statusSet"
         )
     return out

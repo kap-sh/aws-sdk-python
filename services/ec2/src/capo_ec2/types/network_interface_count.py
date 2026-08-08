@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInterfaceCount:
     out: NetworkInterfaceCount = {}  # type: ignore[typeddict-item]
-    child_min = el.find("Min")
+    child_min = el.find("min")
     if child_min is not None:
         out["min"] = int(child_min.text or "")
-    child_max = el.find("Max")
+    child_max = el.find("max")
     if child_max is not None:
         out["max"] = int(child_max.text or "")
     return out

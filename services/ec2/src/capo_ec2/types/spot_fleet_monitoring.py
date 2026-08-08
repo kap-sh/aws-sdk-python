@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotFleetMonitoring:
     out: SpotFleetMonitoring = {}  # type: ignore[typeddict-item]
-    child_enabled = el.find("Enabled")
+    child_enabled = el.find("enabled")
     if child_enabled is not None:
         out["enabled"] = (child_enabled.text or "").lower() == "true"
     return out

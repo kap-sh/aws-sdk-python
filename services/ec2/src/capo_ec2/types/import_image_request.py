@@ -79,7 +79,7 @@ def serialize_ec2_query(
         import capo_ec2.types.image_disk_container_list
 
         capo_ec2.types.image_disk_container_list.serialize_ec2_query(
-            value["disk_containers"], pairs, f"{key_prefix}DiskContainers"
+            value["disk_containers"], pairs, f"{key_prefix}DiskContainer"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -107,7 +107,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "usage_operation" in value:
         pairs.append((f"{key_prefix}UsageOperation", str(value["usage_operation"])))
@@ -137,12 +137,12 @@ def deserialize_ec2_query(el: Element) -> ImportImageRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("DiskContainers") is not None:
+    if el.find("DiskContainer") is not None:
         import capo_ec2.types.image_disk_container_list
 
         out["disk_containers"] = (
             capo_ec2.types.image_disk_container_list.deserialize_ec2_query(
-                el, "DiskContainers"
+                el, "DiskContainer"
             )
         )
     child_dry_run = el.find("DryRun")
@@ -174,12 +174,12 @@ def deserialize_ec2_query(el: Element) -> ImportImageRequest:
                 el, "LicenseSpecifications"
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_usage_operation = el.find("UsageOperation")

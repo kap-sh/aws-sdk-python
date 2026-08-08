@@ -37,7 +37,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssociateTrunkInterfaceResult:
     out: AssociateTrunkInterfaceResult = {}  # type: ignore[typeddict-item]
-    child_interface_association = el.find("InterfaceAssociation")
+    child_interface_association = el.find("interfaceAssociation")
     if child_interface_association is not None:
         import capo_ec2.types.trunk_interface_association
 
@@ -46,7 +46,7 @@ def deserialize_ec2_query(el: Element) -> AssociateTrunkInterfaceResult:
                 child_interface_association
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     return out

@@ -29,7 +29,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifySecurityGroupRulesResult:
     out: ModifySecurityGroupRulesResult = {}  # type: ignore[typeddict-item]
-    child_return = el.find("Return")
+    child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
     return out

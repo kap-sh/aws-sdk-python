@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateVpnConcentratorResult:
     out: CreateVpnConcentratorResult = {}  # type: ignore[typeddict-item]
-    child_vpn_concentrator = el.find("VpnConcentrator")
+    child_vpn_concentrator = el.find("vpnConcentrator")
     if child_vpn_concentrator is not None:
         import capo_ec2.types.vpn_concentrator
 

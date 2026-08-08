@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceTypeInfoFromInstanceRequirements:
     out: InstanceTypeInfoFromInstanceRequirements = {}  # type: ignore[typeddict-item]
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
     return out

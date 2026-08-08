@@ -39,7 +39,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsErrorItem:
     out: CancelSpotFleetRequestsErrorItem = {}  # type: ignore[typeddict-item]
-    child_error = el.find("Error")
+    child_error = el.find("error")
     if child_error is not None:
         import capo_ec2.types.cancel_spot_fleet_requests_error
 
@@ -48,7 +48,7 @@ def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsErrorItem:
                 child_error
             )
         )
-    child_spot_fleet_request_id = el.find("SpotFleetRequestId")
+    child_spot_fleet_request_id = el.find("spotFleetRequestId")
     if child_spot_fleet_request_id is not None:
         out["spot_fleet_request_id"] = str(child_spot_fleet_request_id.text or "")
     return out

@@ -55,7 +55,7 @@ def serialize_ec2_query(
         import capo_ec2.types.network_interface_id_list
 
         capo_ec2.types.network_interface_id_list.serialize_ec2_query(
-            value["network_interface_ids"], pairs, f"{key_prefix}NetworkInterfaceIds"
+            value["network_interface_ids"], pairs, f"{key_prefix}NetworkInterfaceId"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
@@ -78,19 +78,19 @@ def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfacesRequest:
         out["include_managed_resources"] = (
             child_include_managed_resources.text or ""
         ).lower() == "true"
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("NetworkInterfaceIds") is not None:
+    if el.find("NetworkInterfaceId") is not None:
         import capo_ec2.types.network_interface_id_list
 
         out["network_interface_ids"] = (
             capo_ec2.types.network_interface_id_list.deserialize_ec2_query(
-                el, "NetworkInterfaceIds"
+                el, "NetworkInterfaceId"
             )
         )
-    if el.find("Filter") is not None:
+    if el.find("filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "filter")
     return out

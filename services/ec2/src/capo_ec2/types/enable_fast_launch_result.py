@@ -100,10 +100,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableFastLaunchResult:
     out: EnableFastLaunchResult = {}  # type: ignore[typeddict-item]
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.fast_launch_resource_type
 
@@ -112,7 +112,7 @@ def deserialize_ec2_query(el: Element) -> EnableFastLaunchResult:
                 child_resource_type
             )
         )
-    child_snapshot_configuration = el.find("SnapshotConfiguration")
+    child_snapshot_configuration = el.find("snapshotConfiguration")
     if child_snapshot_configuration is not None:
         import capo_ec2.types.fast_launch_snapshot_configuration_response
 
@@ -121,7 +121,7 @@ def deserialize_ec2_query(el: Element) -> EnableFastLaunchResult:
                 child_snapshot_configuration
             )
         )
-    child_launch_template = el.find("LaunchTemplate")
+    child_launch_template = el.find("launchTemplate")
     if child_launch_template is not None:
         import capo_ec2.types.fast_launch_launch_template_specification_response
 
@@ -130,23 +130,23 @@ def deserialize_ec2_query(el: Element) -> EnableFastLaunchResult:
                 child_launch_template
             )
         )
-    child_max_parallel_launches = el.find("MaxParallelLaunches")
+    child_max_parallel_launches = el.find("maxParallelLaunches")
     if child_max_parallel_launches is not None:
         out["max_parallel_launches"] = int(child_max_parallel_launches.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.fast_launch_state_code
 
         out["state"] = capo_ec2.types.fast_launch_state_code.deserialize_ec2_query(
             child_state
         )
-    child_state_transition_reason = el.find("StateTransitionReason")
+    child_state_transition_reason = el.find("stateTransitionReason")
     if child_state_transition_reason is not None:
         out["state_transition_reason"] = str(child_state_transition_reason.text or "")
-    child_state_transition_time = el.find("StateTransitionTime")
+    child_state_transition_time = el.find("stateTransitionTime")
     if child_state_transition_time is not None:
         import capo_ec2.types.millisecond_date_time
 

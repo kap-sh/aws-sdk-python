@@ -39,10 +39,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UnsuccessfulInstanceCreditSpecificationItem:
     out: UnsuccessfulInstanceCreditSpecificationItem = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_error = el.find("Error")
+    child_error = el.find("error")
     if child_error is not None:
         import capo_ec2.types.unsuccessful_instance_credit_specification_item_error
 

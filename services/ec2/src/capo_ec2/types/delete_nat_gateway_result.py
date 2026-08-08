@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteNatGatewayResult:
     out: DeleteNatGatewayResult = {}  # type: ignore[typeddict-item]
-    child_nat_gateway_id = el.find("NatGatewayId")
+    child_nat_gateway_id = el.find("natGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
     return out

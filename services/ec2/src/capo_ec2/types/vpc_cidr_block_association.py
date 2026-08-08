@@ -41,13 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcCidrBlockAssociation:
     out: VpcCidrBlockAssociation = {}  # type: ignore[typeddict-item]
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_cidr_block = el.find("CidrBlock")
+    child_cidr_block = el.find("cidrBlock")
     if child_cidr_block is not None:
         out["cidr_block"] = str(child_cidr_block.text or "")
-    child_cidr_block_state = el.find("CidrBlockState")
+    child_cidr_block_state = el.find("cidrBlockState")
     if child_cidr_block_state is not None:
         import capo_ec2.types.vpc_cidr_block_state
 

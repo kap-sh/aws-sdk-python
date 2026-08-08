@@ -84,7 +84,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "completion_duration_minutes" in value:
         pairs.append(
@@ -112,16 +112,16 @@ def deserialize_ec2_query(el: Element) -> CopySnapshotRequest:
     child_destination_outpost_arn = el.find("DestinationOutpostArn")
     if child_destination_outpost_arn is not None:
         out["destination_outpost_arn"] = str(child_destination_outpost_arn.text or "")
-    child_destination_region = el.find("DestinationRegion")
+    child_destination_region = el.find("destinationRegion")
     if child_destination_region is not None:
         out["destination_region"] = str(child_destination_region.text or "")
-    child_encrypted = el.find("Encrypted")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
-    child_presigned_url = el.find("PresignedUrl")
+    child_presigned_url = el.find("presignedUrl")
     if child_presigned_url is not None:
         out["presigned_url"] = str(child_presigned_url.text or "")
     child_source_region = el.find("SourceRegion")
@@ -130,12 +130,12 @@ def deserialize_ec2_query(el: Element) -> CopySnapshotRequest:
     child_source_snapshot_id = el.find("SourceSnapshotId")
     if child_source_snapshot_id is not None:
         out["source_snapshot_id"] = str(child_source_snapshot_id.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_completion_duration_minutes = el.find("CompletionDurationMinutes")
@@ -148,7 +148,7 @@ def deserialize_ec2_query(el: Element) -> CopySnapshotRequest:
         out["destination_availability_zone"] = str(
             child_destination_availability_zone.text or ""
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

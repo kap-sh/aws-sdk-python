@@ -34,12 +34,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RequestSpotInstancesResult:
     out: RequestSpotInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("SpotInstanceRequestSet") is not None:
+    if el.find("spotInstanceRequestSet") is not None:
         import capo_ec2.types.spot_instance_request_list
 
         out["spot_instance_requests"] = (
             capo_ec2.types.spot_instance_request_list.deserialize_ec2_query(
-                el, "SpotInstanceRequestSet"
+                el, "spotInstanceRequestSet"
             )
         )
     return out

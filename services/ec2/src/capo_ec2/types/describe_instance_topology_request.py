@@ -51,19 +51,19 @@ def serialize_ec2_query(
         import capo_ec2.types.describe_instance_topology_instance_id_set
 
         capo_ec2.types.describe_instance_topology_instance_id_set.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceId"
         )
     if "group_names" in value:
         import capo_ec2.types.describe_instance_topology_group_name_set
 
         capo_ec2.types.describe_instance_topology_group_name_set.serialize_ec2_query(
-            value["group_names"], pairs, f"{key_prefix}GroupNames"
+            value["group_names"], pairs, f"{key_prefix}GroupName"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
@@ -78,24 +78,24 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceTopologyRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("InstanceIds") is not None:
+    if el.find("InstanceId") is not None:
         import capo_ec2.types.describe_instance_topology_instance_id_set
 
         out["instance_ids"] = (
             capo_ec2.types.describe_instance_topology_instance_id_set.deserialize_ec2_query(
-                el, "InstanceIds"
+                el, "InstanceId"
             )
         )
-    if el.find("GroupNames") is not None:
+    if el.find("GroupName") is not None:
         import capo_ec2.types.describe_instance_topology_group_name_set
 
         out["group_names"] = (
             capo_ec2.types.describe_instance_topology_group_name_set.deserialize_ec2_query(
-                el, "GroupNames"
+                el, "GroupName"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

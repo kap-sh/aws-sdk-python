@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AccountAttribute:
     out: AccountAttribute = {}  # type: ignore[typeddict-item]
-    child_attribute_name = el.find("AttributeName")
+    child_attribute_name = el.find("attributeName")
     if child_attribute_name is not None:
         out["attribute_name"] = str(child_attribute_name.text or "")
-    if el.find("AttributeValueSet") is not None:
+    if el.find("attributeValueSet") is not None:
         import capo_ec2.types.account_attribute_value_list
 
         out["attribute_values"] = (
             capo_ec2.types.account_attribute_value_list.deserialize_ec2_query(
-                el, "AttributeValueSet"
+                el, "attributeValueSet"
             )
         )
     return out

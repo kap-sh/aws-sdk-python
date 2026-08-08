@@ -66,31 +66,31 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationTopology:
     out: CapacityReservationTopology = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
-    child_capacity_block_id = el.find("CapacityBlockId")
+    child_capacity_block_id = el.find("capacityBlockId")
     if child_capacity_block_id is not None:
         out["capacity_block_id"] = str(child_capacity_block_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("NetworkNodeSet") is not None:
+    if el.find("networkNodeSet") is not None:
         import capo_ec2.types.network_node_set
 
         out["network_nodes"] = capo_ec2.types.network_node_set.deserialize_ec2_query(
-            el, "NetworkNodeSet"
+            el, "networkNodeSet"
         )
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
     return out

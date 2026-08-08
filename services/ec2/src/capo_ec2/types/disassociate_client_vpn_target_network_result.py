@@ -37,10 +37,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisassociateClientVpnTargetNetworkResult:
     out: DisassociateClientVpnTargetNetworkResult = {}  # type: ignore[typeddict-item]
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.association_status
 

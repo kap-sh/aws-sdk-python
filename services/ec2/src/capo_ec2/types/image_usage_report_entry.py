@@ -59,22 +59,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageUsageReportEntry:
     out: ImageUsageReportEntry = {}  # type: ignore[typeddict-item]
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         out["resource_type"] = str(child_resource_type.text or "")
-    child_report_id = el.find("ReportId")
+    child_report_id = el.find("reportId")
     if child_report_id is not None:
         out["report_id"] = str(child_report_id.text or "")
-    child_usage_count = el.find("UsageCount")
+    child_usage_count = el.find("usageCount")
     if child_usage_count is not None:
         out["usage_count"] = int(child_usage_count.text or "")
-    child_account_id = el.find("AccountId")
+    child_account_id = el.find("accountId")
     if child_account_id is not None:
         out["account_id"] = str(child_account_id.text or "")
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_report_creation_time = el.find("ReportCreationTime")
+    child_report_creation_time = el.find("reportCreationTime")
     if child_report_creation_time is not None:
         import capo_ec2.types.millisecond_date_time
 

@@ -40,13 +40,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> OperatorResponse:
     out: OperatorResponse = {}  # type: ignore[typeddict-item]
-    child_managed = el.find("Managed")
+    child_managed = el.find("managed")
     if child_managed is not None:
         out["managed"] = (child_managed.text or "").lower() == "true"
-    child_principal = el.find("Principal")
+    child_principal = el.find("principal")
     if child_principal is not None:
         out["principal"] = str(child_principal.text or "")
-    child_hidden_by_default = el.find("HiddenByDefault")
+    child_hidden_by_default = el.find("hiddenByDefault")
     if child_hidden_by_default is not None:
         out["hidden_by_default"] = (
             child_hidden_by_default.text or ""

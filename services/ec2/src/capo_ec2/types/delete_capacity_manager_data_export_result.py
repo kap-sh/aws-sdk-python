@@ -35,7 +35,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteCapacityManagerDataExportResult:
     out: DeleteCapacityManagerDataExportResult = {}  # type: ignore[typeddict-item]
-    child_capacity_manager_data_export_id = el.find("CapacityManagerDataExportId")
+    child_capacity_manager_data_export_id = el.find("capacityManagerDataExportId")
     if child_capacity_manager_data_export_id is not None:
         out["capacity_manager_data_export_id"] = str(
             child_capacity_manager_data_export_id.text or ""

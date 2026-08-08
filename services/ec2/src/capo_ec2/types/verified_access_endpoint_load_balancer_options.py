@@ -68,7 +68,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointLoadBalancerOptions:
     out: VerifiedAccessEndpointLoadBalancerOptions = {}  # type: ignore[typeddict-item]
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.verified_access_endpoint_protocol
 
@@ -77,26 +77,26 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointLoadBalancerOpti
                 child_protocol
             )
         )
-    child_port = el.find("Port")
+    child_port = el.find("port")
     if child_port is not None:
         out["port"] = int(child_port.text or "")
-    child_load_balancer_arn = el.find("LoadBalancerArn")
+    child_load_balancer_arn = el.find("loadBalancerArn")
     if child_load_balancer_arn is not None:
         out["load_balancer_arn"] = str(child_load_balancer_arn.text or "")
-    if el.find("SubnetIdSet") is not None:
+    if el.find("subnetIdSet") is not None:
         import capo_ec2.types.verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetIdSet"
+                el, "subnetIdSet"
             )
         )
-    if el.find("PortRangeSet") is not None:
+    if el.find("portRangeSet") is not None:
         import capo_ec2.types.verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRangeSet"
+                el, "portRangeSet"
             )
         )
     return out

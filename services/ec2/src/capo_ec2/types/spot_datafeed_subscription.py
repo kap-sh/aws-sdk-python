@@ -56,23 +56,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotDatafeedSubscription:
     out: SpotDatafeedSubscription = {}  # type: ignore[typeddict-item]
-    child_bucket = el.find("Bucket")
+    child_bucket = el.find("bucket")
     if child_bucket is not None:
         out["bucket"] = str(child_bucket.text or "")
-    child_fault = el.find("Fault")
+    child_fault = el.find("fault")
     if child_fault is not None:
         import capo_ec2.types.spot_instance_state_fault
 
         out["fault"] = capo_ec2.types.spot_instance_state_fault.deserialize_ec2_query(
             child_fault
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_prefix = el.find("Prefix")
+    child_prefix = el.find("prefix")
     if child_prefix is not None:
         out["prefix"] = str(child_prefix.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.datafeed_subscription_state
 

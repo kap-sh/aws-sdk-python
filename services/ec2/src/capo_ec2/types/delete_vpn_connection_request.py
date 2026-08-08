@@ -34,7 +34,7 @@ def deserialize_ec2_query(el: Element) -> DeleteVpnConnectionRequest:
     child_vpn_connection_id = el.find("VpnConnectionId")
     if child_vpn_connection_id is not None:
         out["vpn_connection_id"] = str(child_vpn_connection_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

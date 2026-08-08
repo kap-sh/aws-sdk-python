@@ -49,19 +49,19 @@ def serialize_ec2_query(
         import capo_ec2.types.launch_template_id_string_list
 
         capo_ec2.types.launch_template_id_string_list.serialize_ec2_query(
-            value["launch_template_ids"], pairs, f"{key_prefix}LaunchTemplateIds"
+            value["launch_template_ids"], pairs, f"{key_prefix}LaunchTemplateId"
         )
     if "launch_template_names" in value:
         import capo_ec2.types.launch_template_name_string_list
 
         capo_ec2.types.launch_template_name_string_list.serialize_ec2_query(
-            value["launch_template_names"], pairs, f"{key_prefix}LaunchTemplateNames"
+            value["launch_template_names"], pairs, f"{key_prefix}LaunchTemplateName"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -81,26 +81,26 @@ def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplatesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("LaunchTemplateIds") is not None:
+    if el.find("LaunchTemplateId") is not None:
         import capo_ec2.types.launch_template_id_string_list
 
         out["launch_template_ids"] = (
             capo_ec2.types.launch_template_id_string_list.deserialize_ec2_query(
-                el, "LaunchTemplateIds"
+                el, "LaunchTemplateId"
             )
         )
-    if el.find("LaunchTemplateNames") is not None:
+    if el.find("LaunchTemplateName") is not None:
         import capo_ec2.types.launch_template_name_string_list
 
         out["launch_template_names"] = (
             capo_ec2.types.launch_template_name_string_list.deserialize_ec2_query(
-                el, "LaunchTemplateNames"
+                el, "LaunchTemplateName"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

@@ -48,7 +48,7 @@ def deserialize_ec2_query(el: Element) -> BundleInstanceRequest:
         import capo_ec2.types.storage
 
         out["storage"] = capo_ec2.types.storage.deserialize_ec2_query(child_storage)
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

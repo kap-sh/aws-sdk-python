@@ -46,17 +46,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnStaticRoute:
     out: VpnStaticRoute = {}  # type: ignore[typeddict-item]
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
-    child_source = el.find("Source")
+    child_source = el.find("source")
     if child_source is not None:
         import capo_ec2.types.vpn_static_route_source
 
         out["source"] = capo_ec2.types.vpn_static_route_source.deserialize_ec2_query(
             child_source
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpn_state
 

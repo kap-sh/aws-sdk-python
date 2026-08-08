@@ -100,44 +100,44 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> LocalGatewayVirtualInterfaceGroup:
     out: LocalGatewayVirtualInterfaceGroup = {}  # type: ignore[typeddict-item]
     child_local_gateway_virtual_interface_group_id = el.find(
-        "LocalGatewayVirtualInterfaceGroupId"
+        "localGatewayVirtualInterfaceGroupId"
     )
     if child_local_gateway_virtual_interface_group_id is not None:
         out["local_gateway_virtual_interface_group_id"] = str(
             child_local_gateway_virtual_interface_group_id.text or ""
         )
-    if el.find("LocalGatewayVirtualInterfaceIdSet") is not None:
+    if el.find("localGatewayVirtualInterfaceIdSet") is not None:
         import capo_ec2.types.local_gateway_virtual_interface_id_set
 
         out["local_gateway_virtual_interface_ids"] = (
             capo_ec2.types.local_gateway_virtual_interface_id_set.deserialize_ec2_query(
-                el, "LocalGatewayVirtualInterfaceIdSet"
+                el, "localGatewayVirtualInterfaceIdSet"
             )
         )
-    child_local_gateway_id = el.find("LocalGatewayId")
+    child_local_gateway_id = el.find("localGatewayId")
     if child_local_gateway_id is not None:
         out["local_gateway_id"] = str(child_local_gateway_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_local_bgp_asn = el.find("LocalBgpAsn")
+    child_local_bgp_asn = el.find("localBgpAsn")
     if child_local_bgp_asn is not None:
         out["local_bgp_asn"] = int(child_local_bgp_asn.text or "")
-    child_local_bgp_asn_extended = el.find("LocalBgpAsnExtended")
+    child_local_bgp_asn_extended = el.find("localBgpAsnExtended")
     if child_local_bgp_asn_extended is not None:
         out["local_bgp_asn_extended"] = int(child_local_bgp_asn_extended.text or "")
     child_local_gateway_virtual_interface_group_arn = el.find(
-        "LocalGatewayVirtualInterfaceGroupArn"
+        "localGatewayVirtualInterfaceGroupArn"
     )
     if child_local_gateway_virtual_interface_group_arn is not None:
         out["local_gateway_virtual_interface_group_arn"] = str(
             child_local_gateway_virtual_interface_group_arn.text or ""
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_configuration_state = el.find("ConfigurationState")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_configuration_state = el.find("configurationState")
     if child_configuration_state is not None:
         import capo_ec2.types.local_gateway_virtual_interface_group_configuration_state
 

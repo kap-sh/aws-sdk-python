@@ -60,21 +60,21 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> VpcPeeringConnectionOptionsDescription:
     out: VpcPeeringConnectionOptionsDescription = {}  # type: ignore[typeddict-item]
     child_allow_dns_resolution_from_remote_vpc = el.find(
-        "AllowDnsResolutionFromRemoteVpc"
+        "allowDnsResolutionFromRemoteVpc"
     )
     if child_allow_dns_resolution_from_remote_vpc is not None:
         out["allow_dns_resolution_from_remote_vpc"] = (
             child_allow_dns_resolution_from_remote_vpc.text or ""
         ).lower() == "true"
     child_allow_egress_from_local_classic_link_to_remote_vpc = el.find(
-        "AllowEgressFromLocalClassicLinkToRemoteVpc"
+        "allowEgressFromLocalClassicLinkToRemoteVpc"
     )
     if child_allow_egress_from_local_classic_link_to_remote_vpc is not None:
         out["allow_egress_from_local_classic_link_to_remote_vpc"] = (
             child_allow_egress_from_local_classic_link_to_remote_vpc.text or ""
         ).lower() == "true"
     child_allow_egress_from_local_vpc_to_remote_classic_link = el.find(
-        "AllowEgressFromLocalVpcToRemoteClassicLink"
+        "allowEgressFromLocalVpcToRemoteClassicLink"
     )
     if child_allow_egress_from_local_vpc_to_remote_classic_link is not None:
         out["allow_egress_from_local_vpc_to_remote_classic_link"] = (

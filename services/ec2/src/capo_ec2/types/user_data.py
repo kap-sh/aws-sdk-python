@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UserData:
     out: UserData = {}  # type: ignore[typeddict-item]
-    child_data = el.find("Data")
+    child_data = el.find("data")
     if child_data is not None:
         out["data"] = str(child_data.text or "")
     return out

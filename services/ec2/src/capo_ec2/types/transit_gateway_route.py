@@ -82,35 +82,35 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayRoute:
     out: TransitGatewayRoute = {}  # type: ignore[typeddict-item]
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
-    child_prefix_list_id = el.find("PrefixListId")
+    child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:
         out["prefix_list_id"] = str(child_prefix_list_id.text or "")
     child_transit_gateway_route_table_announcement_id = el.find(
-        "TransitGatewayRouteTableAnnouncementId"
+        "transitGatewayRouteTableAnnouncementId"
     )
     if child_transit_gateway_route_table_announcement_id is not None:
         out["transit_gateway_route_table_announcement_id"] = str(
             child_transit_gateway_route_table_announcement_id.text or ""
         )
-    if el.find("TransitGatewayAttachments") is not None:
+    if el.find("transitGatewayAttachments") is not None:
         import capo_ec2.types.transit_gateway_route_attachment_list
 
         out["transit_gateway_attachments"] = (
             capo_ec2.types.transit_gateway_route_attachment_list.deserialize_ec2_query(
-                el, "TransitGatewayAttachments"
+                el, "transitGatewayAttachments"
             )
         )
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.transit_gateway_route_type
 
         out["type"] = capo_ec2.types.transit_gateway_route_type.deserialize_ec2_query(
             child_type
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_route_state
 

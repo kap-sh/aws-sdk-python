@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceEventWindowResult:
     out: ModifyInstanceEventWindowResult = {}  # type: ignore[typeddict-item]
-    child_instance_event_window = el.find("InstanceEventWindow")
+    child_instance_event_window = el.find("instanceEventWindow")
     if child_instance_event_window is not None:
         import capo_ec2.types.instance_event_window
 

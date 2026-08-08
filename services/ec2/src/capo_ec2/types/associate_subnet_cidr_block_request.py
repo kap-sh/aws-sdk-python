@@ -49,10 +49,10 @@ def deserialize_ec2_query(el: Element) -> AssociateSubnetCidrBlockRequest:
     child_ipv6_netmask_length = el.find("Ipv6NetmaskLength")
     if child_ipv6_netmask_length is not None:
         out["ipv6_netmask_length"] = int(child_ipv6_netmask_length.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_ipv6_cidr_block = el.find("Ipv6CidrBlock")
+    child_ipv6_cidr_block = el.find("ipv6CidrBlock")
     if child_ipv6_cidr_block is not None:
         out["ipv6_cidr_block"] = str(child_ipv6_cidr_block.text or "")
     return out

@@ -40,7 +40,7 @@ def serialize_ec2_query(
         import capo_ec2.types.data_queries
 
         capo_ec2.types.data_queries.serialize_ec2_query(
-            value["data_queries"], pairs, f"{key_prefix}DataQueries"
+            value["data_queries"], pairs, f"{key_prefix}DataQuery"
         )
     if "start_time" in value:
         import capo_ec2.types.millisecond_date_time
@@ -64,11 +64,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetAwsNetworkPerformanceDataRequest:
     out: GetAwsNetworkPerformanceDataRequest = {}  # type: ignore[typeddict-item]
-    if el.find("DataQueries") is not None:
+    if el.find("DataQuery") is not None:
         import capo_ec2.types.data_queries
 
         out["data_queries"] = capo_ec2.types.data_queries.deserialize_ec2_query(
-            el, "DataQueries"
+            el, "DataQuery"
         )
     child_start_time = el.find("StartTime")
     if child_start_time is not None:

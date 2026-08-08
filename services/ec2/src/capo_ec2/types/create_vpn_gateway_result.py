@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateVpnGatewayResult:
     out: CreateVpnGatewayResult = {}  # type: ignore[typeddict-item]
-    child_vpn_gateway = el.find("VpnGateway")
+    child_vpn_gateway = el.find("vpnGateway")
     if child_vpn_gateway is not None:
         import capo_ec2.types.vpn_gateway
 

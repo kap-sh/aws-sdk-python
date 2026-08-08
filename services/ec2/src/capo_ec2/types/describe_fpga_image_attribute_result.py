@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeFpgaImageAttributeResult:
     out: DescribeFpgaImageAttributeResult = {}  # type: ignore[typeddict-item]
-    child_fpga_image_attribute = el.find("FpgaImageAttribute")
+    child_fpga_image_attribute = el.find("fpgaImageAttribute")
     if child_fpga_image_attribute is not None:
         import capo_ec2.types.fpga_image_attribute
 

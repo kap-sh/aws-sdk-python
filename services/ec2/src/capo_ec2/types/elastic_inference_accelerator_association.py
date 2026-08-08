@@ -68,27 +68,27 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ElasticInferenceAcceleratorAssociation:
     out: ElasticInferenceAcceleratorAssociation = {}  # type: ignore[typeddict-item]
-    child_elastic_inference_accelerator_arn = el.find("ElasticInferenceAcceleratorArn")
+    child_elastic_inference_accelerator_arn = el.find("elasticInferenceAcceleratorArn")
     if child_elastic_inference_accelerator_arn is not None:
         out["elastic_inference_accelerator_arn"] = str(
             child_elastic_inference_accelerator_arn.text or ""
         )
     child_elastic_inference_accelerator_association_id = el.find(
-        "ElasticInferenceAcceleratorAssociationId"
+        "elasticInferenceAcceleratorAssociationId"
     )
     if child_elastic_inference_accelerator_association_id is not None:
         out["elastic_inference_accelerator_association_id"] = str(
             child_elastic_inference_accelerator_association_id.text or ""
         )
     child_elastic_inference_accelerator_association_state = el.find(
-        "ElasticInferenceAcceleratorAssociationState"
+        "elasticInferenceAcceleratorAssociationState"
     )
     if child_elastic_inference_accelerator_association_state is not None:
         out["elastic_inference_accelerator_association_state"] = str(
             child_elastic_inference_accelerator_association_state.text or ""
         )
     child_elastic_inference_accelerator_association_time = el.find(
-        "ElasticInferenceAcceleratorAssociationTime"
+        "elasticInferenceAcceleratorAssociationTime"
     )
     if child_elastic_inference_accelerator_association_time is not None:
         import capo_ec2.types.date_time

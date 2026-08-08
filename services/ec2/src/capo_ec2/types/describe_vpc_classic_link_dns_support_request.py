@@ -52,10 +52,10 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcClassicLinkDnsSupportReques
         out["vpc_ids"] = capo_ec2.types.vpc_classic_link_id_list.deserialize_ec2_query(
             el, "VpcIds"
         )
-    child_max_results = el.find("MaxResults")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

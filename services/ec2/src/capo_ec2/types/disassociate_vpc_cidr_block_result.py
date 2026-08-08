@@ -50,7 +50,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisassociateVpcCidrBlockResult:
     out: DisassociateVpcCidrBlockResult = {}  # type: ignore[typeddict-item]
-    child_ipv6_cidr_block_association = el.find("Ipv6CidrBlockAssociation")
+    child_ipv6_cidr_block_association = el.find("ipv6CidrBlockAssociation")
     if child_ipv6_cidr_block_association is not None:
         import capo_ec2.types.vpc_ipv6_cidr_block_association
 
@@ -59,7 +59,7 @@ def deserialize_ec2_query(el: Element) -> DisassociateVpcCidrBlockResult:
                 child_ipv6_cidr_block_association
             )
         )
-    child_cidr_block_association = el.find("CidrBlockAssociation")
+    child_cidr_block_association = el.find("cidrBlockAssociation")
     if child_cidr_block_association is not None:
         import capo_ec2.types.vpc_cidr_block_association
 
@@ -68,7 +68,7 @@ def deserialize_ec2_query(el: Element) -> DisassociateVpcCidrBlockResult:
                 child_cidr_block_association
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
     return out

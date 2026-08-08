@@ -95,17 +95,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AdditionalDetail:
     out: AdditionalDetail = {}  # type: ignore[typeddict-item]
-    child_additional_detail_type = el.find("AdditionalDetailType")
+    child_additional_detail_type = el.find("additionalDetailType")
     if child_additional_detail_type is not None:
         out["additional_detail_type"] = str(child_additional_detail_type.text or "")
-    child_component = el.find("Component")
+    child_component = el.find("component")
     if child_component is not None:
         import capo_ec2.types.analysis_component
 
         out["component"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_component
         )
-    child_vpc_endpoint_service = el.find("VpcEndpointService")
+    child_vpc_endpoint_service = el.find("vpcEndpointService")
     if child_vpc_endpoint_service is not None:
         import capo_ec2.types.analysis_component
 
@@ -114,37 +114,37 @@ def deserialize_ec2_query(el: Element) -> AdditionalDetail:
                 child_vpc_endpoint_service
             )
         )
-    if el.find("RuleOptionSet") is not None:
+    if el.find("ruleOptionSet") is not None:
         import capo_ec2.types.rule_option_list
 
         out["rule_options"] = capo_ec2.types.rule_option_list.deserialize_ec2_query(
-            el, "RuleOptionSet"
+            el, "ruleOptionSet"
         )
-    if el.find("RuleGroupTypePairSet") is not None:
+    if el.find("ruleGroupTypePairSet") is not None:
         import capo_ec2.types.rule_group_type_pair_list
 
         out["rule_group_type_pairs"] = (
             capo_ec2.types.rule_group_type_pair_list.deserialize_ec2_query(
-                el, "RuleGroupTypePairSet"
+                el, "ruleGroupTypePairSet"
             )
         )
-    if el.find("RuleGroupRuleOptionsPairSet") is not None:
+    if el.find("ruleGroupRuleOptionsPairSet") is not None:
         import capo_ec2.types.rule_group_rule_options_pair_list
 
         out["rule_group_rule_options_pairs"] = (
             capo_ec2.types.rule_group_rule_options_pair_list.deserialize_ec2_query(
-                el, "RuleGroupRuleOptionsPairSet"
+                el, "ruleGroupRuleOptionsPairSet"
             )
         )
-    child_service_name = el.find("ServiceName")
+    child_service_name = el.find("serviceName")
     if child_service_name is not None:
         out["service_name"] = str(child_service_name.text or "")
-    if el.find("LoadBalancerSet") is not None:
+    if el.find("loadBalancerSet") is not None:
         import capo_ec2.types.analysis_component_list
 
         out["load_balancers"] = (
             capo_ec2.types.analysis_component_list.deserialize_ec2_query(
-                el, "LoadBalancerSet"
+                el, "loadBalancerSet"
             )
         )
     return out

@@ -39,10 +39,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReplaceRouteTableAssociationResult:
     out: ReplaceRouteTableAssociationResult = {}  # type: ignore[typeddict-item]
-    child_new_association_id = el.find("NewAssociationId")
+    child_new_association_id = el.find("newAssociationId")
     if child_new_association_id is not None:
         out["new_association_id"] = str(child_new_association_id.text or "")
-    child_association_state = el.find("AssociationState")
+    child_association_state = el.find("associationState")
     if child_association_state is not None:
         import capo_ec2.types.route_table_association_state
 

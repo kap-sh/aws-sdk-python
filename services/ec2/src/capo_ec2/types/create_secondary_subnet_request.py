@@ -65,7 +65,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
 
 
@@ -89,12 +89,12 @@ def deserialize_ec2_query(el: Element) -> CreateSecondarySubnetRequest:
     child_secondary_network_id = el.find("SecondaryNetworkId")
     if child_secondary_network_id is not None:
         out["secondary_network_id"] = str(child_secondary_network_id.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     return out

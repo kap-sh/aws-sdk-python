@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceNetworkPerformanceOptions:
     out: InstanceNetworkPerformanceOptions = {}  # type: ignore[typeddict-item]
-    child_bandwidth_weighting = el.find("BandwidthWeighting")
+    child_bandwidth_weighting = el.find("bandwidthWeighting")
     if child_bandwidth_weighting is not None:
         import capo_ec2.types.instance_bandwidth_weighting
 

@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVerifiedAccessGroupsResult:
     out: DescribeVerifiedAccessGroupsResult = {}  # type: ignore[typeddict-item]
-    if el.find("VerifiedAccessGroupSet") is not None:
+    if el.find("verifiedAccessGroupSet") is not None:
         import capo_ec2.types.verified_access_group_list
 
         out["verified_access_groups"] = (
             capo_ec2.types.verified_access_group_list.deserialize_ec2_query(
-                el, "VerifiedAccessGroupSet"
+                el, "verifiedAccessGroupSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

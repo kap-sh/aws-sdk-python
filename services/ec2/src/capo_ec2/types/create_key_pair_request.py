@@ -46,7 +46,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "key_format" in value:
         import capo_ec2.types.key_format
@@ -68,12 +68,12 @@ def deserialize_ec2_query(el: Element) -> CreateKeyPairRequest:
         import capo_ec2.types.key_type
 
         out["key_type"] = capo_ec2.types.key_type.deserialize_ec2_query(child_key_type)
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_key_format = el.find("KeyFormat")
@@ -83,7 +83,7 @@ def deserialize_ec2_query(el: Element) -> CreateKeyPairRequest:
         out["key_format"] = capo_ec2.types.key_format.deserialize_ec2_query(
             child_key_format
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

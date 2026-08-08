@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeRouteServerPeersResult:
     out: DescribeRouteServerPeersResult = {}  # type: ignore[typeddict-item]
-    if el.find("RouteServerPeerSet") is not None:
+    if el.find("routeServerPeerSet") is not None:
         import capo_ec2.types.route_server_peers_list
 
         out["route_server_peers"] = (
             capo_ec2.types.route_server_peers_list.deserialize_ec2_query(
-                el, "RouteServerPeerSet"
+                el, "routeServerPeerSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

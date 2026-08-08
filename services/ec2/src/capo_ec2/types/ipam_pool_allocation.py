@@ -71,19 +71,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPoolAllocation:
     out: IpamPoolAllocation = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_ipam_pool_allocation_id = el.find("IpamPoolAllocationId")
+    child_ipam_pool_allocation_id = el.find("ipamPoolAllocationId")
     if child_ipam_pool_allocation_id is not None:
         out["ipam_pool_allocation_id"] = str(child_ipam_pool_allocation_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.ipam_pool_allocation_resource_type
 
@@ -92,14 +92,14 @@ def deserialize_ec2_query(el: Element) -> IpamPoolAllocation:
                 child_resource_type
             )
         )
-    child_resource_region = el.find("ResourceRegion")
+    child_resource_region = el.find("resourceRegion")
     if child_resource_region is not None:
         out["resource_region"] = str(child_resource_region.text or "")
-    child_resource_owner = el.find("ResourceOwner")
+    child_resource_owner = el.find("resourceOwner")
     if child_resource_owner is not None:
         out["resource_owner"] = str(child_resource_owner.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

@@ -45,10 +45,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PriceSchedule:
     out: PriceSchedule = {}  # type: ignore[typeddict-item]
-    child_active = el.find("Active")
+    child_active = el.find("active")
     if child_active is not None:
         out["active"] = (child_active.text or "").lower() == "true"
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         import capo_ec2.types.currency_code_values
 
@@ -57,10 +57,10 @@ def deserialize_ec2_query(el: Element) -> PriceSchedule:
                 child_currency_code
             )
         )
-    child_price = el.find("Price")
+    child_price = el.find("price")
     if child_price is not None:
         out["price"] = float(child_price.text or "")
-    child_term = el.find("Term")
+    child_term = el.find("term")
     if child_term is not None:
         out["term"] = int(child_term.text or "")
     return out

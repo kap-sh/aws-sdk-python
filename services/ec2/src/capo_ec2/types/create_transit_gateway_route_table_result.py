@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateTransitGatewayRouteTableResult:
     out: CreateTransitGatewayRouteTableResult = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_route_table = el.find("TransitGatewayRouteTable")
+    child_transit_gateway_route_table = el.find("transitGatewayRouteTable")
     if child_transit_gateway_route_table is not None:
         import capo_ec2.types.transit_gateway_route_table
 

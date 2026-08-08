@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverVersion:
     out: IpamPrefixListResolverVersion = {}  # type: ignore[typeddict-item]
-    child_version = el.find("Version")
+    child_version = el.find("version")
     if child_version is not None:
         out["version"] = int(child_version.text or "")
     return out

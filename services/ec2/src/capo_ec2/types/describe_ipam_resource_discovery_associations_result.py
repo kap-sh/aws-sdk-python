@@ -43,15 +43,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeIpamResourceDiscoveryAssociationsResult:
     out: DescribeIpamResourceDiscoveryAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("IpamResourceDiscoveryAssociationSet") is not None:
+    if el.find("ipamResourceDiscoveryAssociationSet") is not None:
         import capo_ec2.types.ipam_resource_discovery_association_set
 
         out["ipam_resource_discovery_associations"] = (
             capo_ec2.types.ipam_resource_discovery_association_set.deserialize_ec2_query(
-                el, "IpamResourceDiscoveryAssociationSet"
+                el, "ipamResourceDiscoveryAssociationSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

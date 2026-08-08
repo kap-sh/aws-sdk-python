@@ -45,7 +45,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PathStatement:
     out: PathStatement = {}  # type: ignore[typeddict-item]
-    child_packet_header_statement = el.find("PacketHeaderStatement")
+    child_packet_header_statement = el.find("packetHeaderStatement")
     if child_packet_header_statement is not None:
         import capo_ec2.types.packet_header_statement
 
@@ -54,7 +54,7 @@ def deserialize_ec2_query(el: Element) -> PathStatement:
                 child_packet_header_statement
             )
         )
-    child_resource_statement = el.find("ResourceStatement")
+    child_resource_statement = el.find("resourceStatement")
     if child_resource_statement is not None:
         import capo_ec2.types.resource_statement
 

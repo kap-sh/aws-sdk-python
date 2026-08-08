@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteManagedPrefixListResult:
     out: DeleteManagedPrefixListResult = {}  # type: ignore[typeddict-item]
-    child_prefix_list = el.find("PrefixList")
+    child_prefix_list = el.find("prefixList")
     if child_prefix_list is not None:
         import capo_ec2.types.managed_prefix_list
 

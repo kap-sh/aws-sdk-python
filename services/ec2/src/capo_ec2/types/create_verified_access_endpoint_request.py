@@ -121,7 +121,7 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_id_list
 
         capo_ec2.types.security_group_id_list.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "load_balancer_options" in value:
         import capo_ec2.types.create_verified_access_endpoint_load_balancer_options
@@ -145,7 +145,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -203,12 +203,12 @@ def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointRequest:
     child_endpoint_domain_prefix = el.find("EndpointDomainPrefix")
     if child_endpoint_domain_prefix is not None:
         out["endpoint_domain_prefix"] = str(child_endpoint_domain_prefix.text or "")
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.security_group_id_list
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_list.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
     child_load_balancer_options = el.find("LoadBalancerOptions")
@@ -235,12 +235,12 @@ def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointRequest:
     child_policy_document = el.find("PolicyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_client_token = el.find("ClientToken")

@@ -65,13 +65,13 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_string_list
 
         capo_ec2.types.security_group_string_list.serialize_ec2_query(
-            value["group_names"], pairs, f"{key_prefix}GroupNames"
+            value["group_names"], pairs, f"{key_prefix}GroupName"
         )
     if "group_ids" in value:
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["group_ids"], pairs, f"{key_prefix}GroupIds"
+            value["group_ids"], pairs, f"{key_prefix}GroupId"
         )
     if "additional_info" in value:
         pairs.append((f"{key_prefix}AdditionalInfo", str(value["additional_info"])))
@@ -115,61 +115,61 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportInstanceLaunchSpecification:
     out: ImportInstanceLaunchSpecification = {}  # type: ignore[typeddict-item]
-    child_architecture = el.find("Architecture")
+    child_architecture = el.find("architecture")
     if child_architecture is not None:
         import capo_ec2.types.architecture_values
 
         out["architecture"] = capo_ec2.types.architecture_values.deserialize_ec2_query(
             child_architecture
         )
-    if el.find("GroupNames") is not None:
+    if el.find("GroupName") is not None:
         import capo_ec2.types.security_group_string_list
 
         out["group_names"] = (
             capo_ec2.types.security_group_string_list.deserialize_ec2_query(
-                el, "GroupNames"
+                el, "GroupName"
             )
         )
-    if el.find("GroupIds") is not None:
+    if el.find("GroupId") is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["group_ids"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "GroupIds"
+                el, "GroupId"
             )
         )
-    child_additional_info = el.find("AdditionalInfo")
+    child_additional_info = el.find("additionalInfo")
     if child_additional_info is not None:
         out["additional_info"] = str(child_additional_info.text or "")
-    child_user_data = el.find("UserData")
+    child_user_data = el.find("userData")
     if child_user_data is not None:
         import capo_ec2.types.user_data
 
         out["user_data"] = capo_ec2.types.user_data.deserialize_ec2_query(
             child_user_data
         )
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_placement = el.find("Placement")
+    child_placement = el.find("placement")
     if child_placement is not None:
         import capo_ec2.types.placement
 
         out["placement"] = capo_ec2.types.placement.deserialize_ec2_query(
             child_placement
         )
-    child_monitoring = el.find("Monitoring")
+    child_monitoring = el.find("monitoring")
     if child_monitoring is not None:
         out["monitoring"] = (child_monitoring.text or "").lower() == "true"
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
     child_instance_initiated_shutdown_behavior = el.find(
-        "InstanceInitiatedShutdownBehavior"
+        "instanceInitiatedShutdownBehavior"
     )
     if child_instance_initiated_shutdown_behavior is not None:
         import capo_ec2.types.shutdown_behavior
@@ -179,7 +179,7 @@ def deserialize_ec2_query(el: Element) -> ImportInstanceLaunchSpecification:
                 child_instance_initiated_shutdown_behavior
             )
         )
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
     return out

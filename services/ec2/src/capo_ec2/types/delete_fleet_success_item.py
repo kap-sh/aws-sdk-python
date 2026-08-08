@@ -43,7 +43,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteFleetSuccessItem:
     out: DeleteFleetSuccessItem = {}  # type: ignore[typeddict-item]
-    child_current_fleet_state = el.find("CurrentFleetState")
+    child_current_fleet_state = el.find("currentFleetState")
     if child_current_fleet_state is not None:
         import capo_ec2.types.fleet_state_code
 
@@ -52,7 +52,7 @@ def deserialize_ec2_query(el: Element) -> DeleteFleetSuccessItem:
                 child_current_fleet_state
             )
         )
-    child_previous_fleet_state = el.find("PreviousFleetState")
+    child_previous_fleet_state = el.find("previousFleetState")
     if child_previous_fleet_state is not None:
         import capo_ec2.types.fleet_state_code
 
@@ -61,7 +61,7 @@ def deserialize_ec2_query(el: Element) -> DeleteFleetSuccessItem:
                 child_previous_fleet_state
             )
         )
-    child_fleet_id = el.find("FleetId")
+    child_fleet_id = el.find("fleetId")
     if child_fleet_id is not None:
         out["fleet_id"] = str(child_fleet_id.text or "")
     return out

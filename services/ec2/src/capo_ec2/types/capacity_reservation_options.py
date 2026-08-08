@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationOptions:
     out: CapacityReservationOptions = {}  # type: ignore[typeddict-item]
-    child_usage_strategy = el.find("UsageStrategy")
+    child_usage_strategy = el.find("usageStrategy")
     if child_usage_strategy is not None:
         import capo_ec2.types.fleet_capacity_reservation_usage_strategy
 

@@ -44,12 +44,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayAttachmentAssociation:
     out: TransitGatewayAttachmentAssociation = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_route_table_id = el.find("TransitGatewayRouteTableId")
+    child_transit_gateway_route_table_id = el.find("transitGatewayRouteTableId")
     if child_transit_gateway_route_table_id is not None:
         out["transit_gateway_route_table_id"] = str(
             child_transit_gateway_route_table_id.text or ""
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_association_state
 

@@ -76,37 +76,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SnapshotTaskDetail:
     out: SnapshotTaskDetail = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_disk_image_size = el.find("DiskImageSize")
+    child_disk_image_size = el.find("diskImageSize")
     if child_disk_image_size is not None:
         out["disk_image_size"] = float(child_disk_image_size.text or "")
-    child_encrypted = el.find("Encrypted")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
-    child_format = el.find("Format")
+    child_format = el.find("format")
     if child_format is not None:
         out["format"] = str(child_format.text or "")
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = str(child_progress.text or "")
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_url = el.find("Url")
+    child_url = el.find("url")
     if child_url is not None:
         out["url"] = str(child_url.text or "")
-    child_user_bucket = el.find("UserBucket")
+    child_user_bucket = el.find("userBucket")
     if child_user_bucket is not None:
         import capo_ec2.types.user_bucket_details
 

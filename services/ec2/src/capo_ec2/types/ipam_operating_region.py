@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamOperatingRegion:
     out: IpamOperatingRegion = {}  # type: ignore[typeddict-item]
-    child_region_name = el.find("RegionName")
+    child_region_name = el.find("regionName")
     if child_region_name is not None:
         out["region_name"] = str(child_region_name.text or "")
     return out

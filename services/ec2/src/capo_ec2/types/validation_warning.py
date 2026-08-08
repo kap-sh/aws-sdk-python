@@ -30,8 +30,8 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ValidationWarning:
     out: ValidationWarning = {}  # type: ignore[typeddict-item]
-    if el.find("ErrorSet") is not None:
+    if el.find("errorSet") is not None:
         import capo_ec2.types.error_set
 
-        out["errors"] = capo_ec2.types.error_set.deserialize_ec2_query(el, "ErrorSet")
+        out["errors"] = capo_ec2.types.error_set.deserialize_ec2_query(el, "errorSet")
     return out

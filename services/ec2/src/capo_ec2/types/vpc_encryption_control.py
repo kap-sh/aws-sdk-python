@@ -85,22 +85,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcEncryptionControl:
     out: VpcEncryptionControl = {}  # type: ignore[typeddict-item]
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_vpc_encryption_control_id = el.find("VpcEncryptionControlId")
+    child_vpc_encryption_control_id = el.find("vpcEncryptionControlId")
     if child_vpc_encryption_control_id is not None:
         out["vpc_encryption_control_id"] = str(
             child_vpc_encryption_control_id.text or ""
         )
-    child_mode = el.find("Mode")
+    child_mode = el.find("mode")
     if child_mode is not None:
         import capo_ec2.types.vpc_encryption_control_mode
 
         out["mode"] = capo_ec2.types.vpc_encryption_control_mode.deserialize_ec2_query(
             child_mode
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.vpc_encryption_control_state
 
@@ -109,10 +109,10 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControl:
                 child_state
             )
         )
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
-    child_resource_exclusions = el.find("ResourceExclusions")
+    child_resource_exclusions = el.find("resourceExclusions")
     if child_resource_exclusions is not None:
         import capo_ec2.types.vpc_encryption_control_exclusions
 
@@ -121,8 +121,8 @@ def deserialize_ec2_query(el: Element) -> VpcEncryptionControl:
                 child_resource_exclusions
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

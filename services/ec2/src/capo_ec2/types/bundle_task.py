@@ -78,42 +78,42 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> BundleTask:
     out: BundleTask = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_bundle_id = el.find("BundleId")
+    child_bundle_id = el.find("bundleId")
     if child_bundle_id is not None:
         out["bundle_id"] = str(child_bundle_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.bundle_task_state
 
         out["state"] = capo_ec2.types.bundle_task_state.deserialize_ec2_query(
             child_state
         )
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.date_time
 
         out["start_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_update_time = el.find("UpdateTime")
+    child_update_time = el.find("updateTime")
     if child_update_time is not None:
         import capo_ec2.types.date_time
 
         out["update_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_update_time
         )
-    child_storage = el.find("Storage")
+    child_storage = el.find("storage")
     if child_storage is not None:
         import capo_ec2.types.storage
 
         out["storage"] = capo_ec2.types.storage.deserialize_ec2_query(child_storage)
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = str(child_progress.text or "")
-    child_bundle_task_error = el.find("Error")
+    child_bundle_task_error = el.find("error")
     if child_bundle_task_error is not None:
         import capo_ec2.types.bundle_task_error
 

@@ -94,23 +94,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LockSnapshotResult:
     out: LockSnapshotResult = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_lock_state = el.find("LockState")
+    child_lock_state = el.find("lockState")
     if child_lock_state is not None:
         import capo_ec2.types.lock_state
 
         out["lock_state"] = capo_ec2.types.lock_state.deserialize_ec2_query(
             child_lock_state
         )
-    child_lock_duration = el.find("LockDuration")
+    child_lock_duration = el.find("lockDuration")
     if child_lock_duration is not None:
         out["lock_duration"] = int(child_lock_duration.text or "")
-    child_cool_off_period = el.find("CoolOffPeriod")
+    child_cool_off_period = el.find("coolOffPeriod")
     if child_cool_off_period is not None:
         out["cool_off_period"] = int(child_cool_off_period.text or "")
-    child_cool_off_period_expires_on = el.find("CoolOffPeriodExpiresOn")
+    child_cool_off_period_expires_on = el.find("coolOffPeriodExpiresOn")
     if child_cool_off_period_expires_on is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -119,7 +119,7 @@ def deserialize_ec2_query(el: Element) -> LockSnapshotResult:
                 child_cool_off_period_expires_on
             )
         )
-    child_lock_created_on = el.find("LockCreatedOn")
+    child_lock_created_on = el.find("lockCreatedOn")
     if child_lock_created_on is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -128,7 +128,7 @@ def deserialize_ec2_query(el: Element) -> LockSnapshotResult:
                 child_lock_created_on
             )
         )
-    child_lock_expires_on = el.find("LockExpiresOn")
+    child_lock_expires_on = el.find("lockExpiresOn")
     if child_lock_expires_on is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -137,7 +137,7 @@ def deserialize_ec2_query(el: Element) -> LockSnapshotResult:
                 child_lock_expires_on
             )
         )
-    child_lock_duration_start_time = el.find("LockDurationStartTime")
+    child_lock_duration_start_time = el.find("lockDurationStartTime")
     if child_lock_duration_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 

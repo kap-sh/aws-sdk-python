@@ -47,18 +47,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecurityGroupReference:
     out: SecurityGroupReference = {}  # type: ignore[typeddict-item]
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_referencing_vpc_id = el.find("ReferencingVpcId")
+    child_referencing_vpc_id = el.find("referencingVpcId")
     if child_referencing_vpc_id is not None:
         out["referencing_vpc_id"] = str(child_referencing_vpc_id.text or "")
-    child_vpc_peering_connection_id = el.find("VpcPeeringConnectionId")
+    child_vpc_peering_connection_id = el.find("vpcPeeringConnectionId")
     if child_vpc_peering_connection_id is not None:
         out["vpc_peering_connection_id"] = str(
             child_vpc_peering_connection_id.text or ""
         )
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
     return out

@@ -265,64 +265,64 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Image:
     out: Image = {}  # type: ignore[typeddict-item]
-    child_platform_details = el.find("PlatformDetails")
+    child_platform_details = el.find("platformDetails")
     if child_platform_details is not None:
         out["platform_details"] = str(child_platform_details.text or "")
-    child_usage_operation = el.find("UsageOperation")
+    child_usage_operation = el.find("usageOperation")
     if child_usage_operation is not None:
         out["usage_operation"] = str(child_usage_operation.text or "")
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_ena_support = el.find("EnaSupport")
+    child_ena_support = el.find("enaSupport")
     if child_ena_support is not None:
         out["ena_support"] = (child_ena_support.text or "").lower() == "true"
-    child_hypervisor = el.find("Hypervisor")
+    child_hypervisor = el.find("hypervisor")
     if child_hypervisor is not None:
         import capo_ec2.types.hypervisor_type
 
         out["hypervisor"] = capo_ec2.types.hypervisor_type.deserialize_ec2_query(
             child_hypervisor
         )
-    child_image_owner_alias = el.find("ImageOwnerAlias")
+    child_image_owner_alias = el.find("imageOwnerAlias")
     if child_image_owner_alias is not None:
         out["image_owner_alias"] = str(child_image_owner_alias.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_root_device_name = el.find("RootDeviceName")
+    child_root_device_name = el.find("rootDeviceName")
     if child_root_device_name is not None:
         out["root_device_name"] = str(child_root_device_name.text or "")
-    child_root_device_type = el.find("RootDeviceType")
+    child_root_device_type = el.find("rootDeviceType")
     if child_root_device_type is not None:
         import capo_ec2.types.device_type
 
         out["root_device_type"] = capo_ec2.types.device_type.deserialize_ec2_query(
             child_root_device_type
         )
-    child_sriov_net_support = el.find("SriovNetSupport")
+    child_sriov_net_support = el.find("sriovNetSupport")
     if child_sriov_net_support is not None:
         out["sriov_net_support"] = str(child_sriov_net_support.text or "")
-    child_state_reason = el.find("StateReason")
+    child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         import capo_ec2.types.state_reason
 
         out["state_reason"] = capo_ec2.types.state_reason.deserialize_ec2_query(
             child_state_reason
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_virtualization_type = el.find("VirtualizationType")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_virtualization_type = el.find("virtualizationType")
     if child_virtualization_type is not None:
         import capo_ec2.types.virtualization_type
 
@@ -331,102 +331,102 @@ def deserialize_ec2_query(el: Element) -> Image:
                 child_virtualization_type
             )
         )
-    child_boot_mode = el.find("BootMode")
+    child_boot_mode = el.find("bootMode")
     if child_boot_mode is not None:
         import capo_ec2.types.boot_mode_values
 
         out["boot_mode"] = capo_ec2.types.boot_mode_values.deserialize_ec2_query(
             child_boot_mode
         )
-    child_tpm_support = el.find("TpmSupport")
+    child_tpm_support = el.find("tpmSupport")
     if child_tpm_support is not None:
         import capo_ec2.types.tpm_support_values
 
         out["tpm_support"] = capo_ec2.types.tpm_support_values.deserialize_ec2_query(
             child_tpm_support
         )
-    child_deprecation_time = el.find("DeprecationTime")
+    child_deprecation_time = el.find("deprecationTime")
     if child_deprecation_time is not None:
         out["deprecation_time"] = str(child_deprecation_time.text or "")
-    child_imds_support = el.find("ImdsSupport")
+    child_imds_support = el.find("imdsSupport")
     if child_imds_support is not None:
         import capo_ec2.types.imds_support_values
 
         out["imds_support"] = capo_ec2.types.imds_support_values.deserialize_ec2_query(
             child_imds_support
         )
-    child_source_instance_id = el.find("SourceInstanceId")
+    child_source_instance_id = el.find("sourceInstanceId")
     if child_source_instance_id is not None:
         out["source_instance_id"] = str(child_source_instance_id.text or "")
-    child_deregistration_protection = el.find("DeregistrationProtection")
+    child_deregistration_protection = el.find("deregistrationProtection")
     if child_deregistration_protection is not None:
         out["deregistration_protection"] = str(
             child_deregistration_protection.text or ""
         )
-    child_last_launched_time = el.find("LastLaunchedTime")
+    child_last_launched_time = el.find("lastLaunchedTime")
     if child_last_launched_time is not None:
         out["last_launched_time"] = str(child_last_launched_time.text or "")
-    child_image_allowed = el.find("ImageAllowed")
+    child_image_allowed = el.find("imageAllowed")
     if child_image_allowed is not None:
         out["image_allowed"] = (child_image_allowed.text or "").lower() == "true"
-    child_source_image_id = el.find("SourceImageId")
+    child_source_image_id = el.find("sourceImageId")
     if child_source_image_id is not None:
         out["source_image_id"] = str(child_source_image_id.text or "")
-    child_source_image_region = el.find("SourceImageRegion")
+    child_source_image_region = el.find("sourceImageRegion")
     if child_source_image_region is not None:
         out["source_image_region"] = str(child_source_image_region.text or "")
-    child_free_tier_eligible = el.find("FreeTierEligible")
+    child_free_tier_eligible = el.find("freeTierEligible")
     if child_free_tier_eligible is not None:
         out["free_tier_eligible"] = (
             child_free_tier_eligible.text or ""
         ).lower() == "true"
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_image_location = el.find("ImageLocation")
+    child_image_location = el.find("imageLocation")
     if child_image_location is not None:
         out["image_location"] = str(child_image_location.text or "")
-    child_state = el.find("ImageState")
+    child_state = el.find("imageState")
     if child_state is not None:
         import capo_ec2.types.image_state
 
         out["state"] = capo_ec2.types.image_state.deserialize_ec2_query(child_state)
-    child_owner_id = el.find("ImageOwnerId")
+    child_owner_id = el.find("imageOwnerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_creation_date = el.find("CreationDate")
+    child_creation_date = el.find("creationDate")
     if child_creation_date is not None:
         out["creation_date"] = str(child_creation_date.text or "")
-    child_public = el.find("IsPublic")
+    child_public = el.find("isPublic")
     if child_public is not None:
         out["public"] = (child_public.text or "").lower() == "true"
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    child_architecture = el.find("Architecture")
+    child_architecture = el.find("architecture")
     if child_architecture is not None:
         import capo_ec2.types.architecture_values
 
         out["architecture"] = capo_ec2.types.architecture_values.deserialize_ec2_query(
             child_architecture
         )
-    child_image_type = el.find("ImageType")
+    child_image_type = el.find("imageType")
     if child_image_type is not None:
         import capo_ec2.types.image_type_values
 
         out["image_type"] = capo_ec2.types.image_type_values.deserialize_ec2_query(
             child_image_type
         )
-    child_kernel_id = el.find("KernelId")
+    child_kernel_id = el.find("kernelId")
     if child_kernel_id is not None:
         out["kernel_id"] = str(child_kernel_id.text or "")
-    child_ramdisk_id = el.find("RamdiskId")
+    child_ramdisk_id = el.find("ramdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         import capo_ec2.types.platform_values
 

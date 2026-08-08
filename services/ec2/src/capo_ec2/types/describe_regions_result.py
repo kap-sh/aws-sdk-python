@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeRegionsResult:
     out: DescribeRegionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("RegionInfo") is not None:
+    if el.find("regionInfo") is not None:
         import capo_ec2.types.region_list
 
         out["regions"] = capo_ec2.types.region_list.deserialize_ec2_query(
-            el, "RegionInfo"
+            el, "regionInfo"
         )
     return out

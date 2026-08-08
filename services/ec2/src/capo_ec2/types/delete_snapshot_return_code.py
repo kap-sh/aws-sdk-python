@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteSnapshotReturnCode:
     out: DeleteSnapshotReturnCode = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_return_code = el.find("ReturnCode")
+    child_return_code = el.find("returnCode")
     if child_return_code is not None:
         import capo_ec2.types.snapshot_return_codes
 

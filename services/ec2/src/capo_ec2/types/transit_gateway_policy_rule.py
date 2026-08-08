@@ -57,22 +57,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPolicyRule:
     out: TransitGatewayPolicyRule = {}  # type: ignore[typeddict-item]
-    child_source_cidr_block = el.find("SourceCidrBlock")
+    child_source_cidr_block = el.find("sourceCidrBlock")
     if child_source_cidr_block is not None:
         out["source_cidr_block"] = str(child_source_cidr_block.text or "")
-    child_source_port_range = el.find("SourcePortRange")
+    child_source_port_range = el.find("sourcePortRange")
     if child_source_port_range is not None:
         out["source_port_range"] = str(child_source_port_range.text or "")
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
-    child_destination_port_range = el.find("DestinationPortRange")
+    child_destination_port_range = el.find("destinationPortRange")
     if child_destination_port_range is not None:
         out["destination_port_range"] = str(child_destination_port_range.text or "")
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         out["protocol"] = str(child_protocol.text or "")
-    child_meta_data = el.find("MetaData")
+    child_meta_data = el.find("metaData")
     if child_meta_data is not None:
         import capo_ec2.types.transit_gateway_policy_rule_meta_data
 

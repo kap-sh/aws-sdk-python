@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceCreditSpecification:
     out: InstanceCreditSpecification = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_cpu_credits = el.find("CpuCredits")
+    child_cpu_credits = el.find("cpuCredits")
     if child_cpu_credits is not None:
         out["cpu_credits"] = str(child_cpu_credits.text or "")
     return out

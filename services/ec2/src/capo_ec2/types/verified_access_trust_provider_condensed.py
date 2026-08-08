@@ -74,15 +74,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProviderCondensed:
     out: VerifiedAccessTrustProviderCondensed = {}  # type: ignore[typeddict-item]
-    child_verified_access_trust_provider_id = el.find("VerifiedAccessTrustProviderId")
+    child_verified_access_trust_provider_id = el.find("verifiedAccessTrustProviderId")
     if child_verified_access_trust_provider_id is not None:
         out["verified_access_trust_provider_id"] = str(
             child_verified_access_trust_provider_id.text or ""
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_trust_provider_type = el.find("TrustProviderType")
+    child_trust_provider_type = el.find("trustProviderType")
     if child_trust_provider_type is not None:
         import capo_ec2.types.trust_provider_type
 
@@ -91,7 +91,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProviderCondensed:
                 child_trust_provider_type
             )
         )
-    child_user_trust_provider_type = el.find("UserTrustProviderType")
+    child_user_trust_provider_type = el.find("userTrustProviderType")
     if child_user_trust_provider_type is not None:
         import capo_ec2.types.user_trust_provider_type
 
@@ -100,7 +100,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProviderCondensed:
                 child_user_trust_provider_type
             )
         )
-    child_device_trust_provider_type = el.find("DeviceTrustProviderType")
+    child_device_trust_provider_type = el.find("deviceTrustProviderType")
     if child_device_trust_provider_type is not None:
         import capo_ec2.types.device_trust_provider_type
 

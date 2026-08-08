@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Phase2DHGroupNumbersListValue:
     out: Phase2DHGroupNumbersListValue = {}  # type: ignore[typeddict-item]
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = int(child_value.text or "")
     return out

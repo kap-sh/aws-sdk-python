@@ -46,21 +46,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateFleetResult:
     out: CreateFleetResult = {}  # type: ignore[typeddict-item]
-    child_fleet_id = el.find("FleetId")
+    child_fleet_id = el.find("fleetId")
     if child_fleet_id is not None:
         out["fleet_id"] = str(child_fleet_id.text or "")
-    if el.find("ErrorSet") is not None:
+    if el.find("errorSet") is not None:
         import capo_ec2.types.create_fleet_errors_set
 
         out["errors"] = capo_ec2.types.create_fleet_errors_set.deserialize_ec2_query(
-            el, "ErrorSet"
+            el, "errorSet"
         )
-    if el.find("FleetInstanceSet") is not None:
+    if el.find("fleetInstanceSet") is not None:
         import capo_ec2.types.create_fleet_instances_set
 
         out["instances"] = (
             capo_ec2.types.create_fleet_instances_set.deserialize_ec2_query(
-                el, "FleetInstanceSet"
+                el, "fleetInstanceSet"
             )
         )
     return out

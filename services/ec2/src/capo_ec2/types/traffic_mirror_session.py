@@ -87,37 +87,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TrafficMirrorSession:
     out: TrafficMirrorSession = {}  # type: ignore[typeddict-item]
-    child_traffic_mirror_session_id = el.find("TrafficMirrorSessionId")
+    child_traffic_mirror_session_id = el.find("trafficMirrorSessionId")
     if child_traffic_mirror_session_id is not None:
         out["traffic_mirror_session_id"] = str(
             child_traffic_mirror_session_id.text or ""
         )
-    child_traffic_mirror_target_id = el.find("TrafficMirrorTargetId")
+    child_traffic_mirror_target_id = el.find("trafficMirrorTargetId")
     if child_traffic_mirror_target_id is not None:
         out["traffic_mirror_target_id"] = str(child_traffic_mirror_target_id.text or "")
-    child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
+    child_traffic_mirror_filter_id = el.find("trafficMirrorFilterId")
     if child_traffic_mirror_filter_id is not None:
         out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_packet_length = el.find("PacketLength")
+    child_packet_length = el.find("packetLength")
     if child_packet_length is not None:
         out["packet_length"] = int(child_packet_length.text or "")
-    child_session_number = el.find("SessionNumber")
+    child_session_number = el.find("sessionNumber")
     if child_session_number is not None:
         out["session_number"] = int(child_session_number.text or "")
-    child_virtual_network_id = el.find("VirtualNetworkId")
+    child_virtual_network_id = el.find("virtualNetworkId")
     if child_virtual_network_id is not None:
         out["virtual_network_id"] = int(child_virtual_network_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

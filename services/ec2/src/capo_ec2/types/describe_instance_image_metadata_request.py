@@ -42,13 +42,13 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "instance_ids" in value:
         import capo_ec2.types.instance_id_string_list
 
         capo_ec2.types.instance_id_string_list.serialize_ec2_query(
-            value["instance_ids"], pairs, f"{key_prefix}InstanceIds"
+            value["instance_ids"], pairs, f"{key_prefix}InstanceId"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -60,16 +60,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceImageMetadataRequest:
     out: DescribeInstanceImageMetadataRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("InstanceIds") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("InstanceId") is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instance_ids"] = (
             capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-                el, "InstanceIds"
+                el, "InstanceId"
             )
         )
     child_max_results = el.find("MaxResults")

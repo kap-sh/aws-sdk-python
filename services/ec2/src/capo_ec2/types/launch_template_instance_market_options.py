@@ -43,14 +43,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateInstanceMarketOptions:
     out: LaunchTemplateInstanceMarketOptions = {}  # type: ignore[typeddict-item]
-    child_market_type = el.find("MarketType")
+    child_market_type = el.find("marketType")
     if child_market_type is not None:
         import capo_ec2.types.market_type
 
         out["market_type"] = capo_ec2.types.market_type.deserialize_ec2_query(
             child_market_type
         )
-    child_spot_options = el.find("SpotOptions")
+    child_spot_options = el.find("spotOptions")
     if child_spot_options is not None:
         import capo_ec2.types.launch_template_spot_market_options
 

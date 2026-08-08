@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EfaInfo:
     out: EfaInfo = {}  # type: ignore[typeddict-item]
-    child_maximum_efa_interfaces = el.find("MaximumEfaInterfaces")
+    child_maximum_efa_interfaces = el.find("maximumEfaInterfaces")
     if child_maximum_efa_interfaces is not None:
         out["maximum_efa_interfaces"] = int(child_maximum_efa_interfaces.text or "")
     return out

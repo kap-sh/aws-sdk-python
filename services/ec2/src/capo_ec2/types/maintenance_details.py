@@ -53,10 +53,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MaintenanceDetails:
     out: MaintenanceDetails = {}  # type: ignore[typeddict-item]
-    child_pending_maintenance = el.find("PendingMaintenance")
+    child_pending_maintenance = el.find("pendingMaintenance")
     if child_pending_maintenance is not None:
         out["pending_maintenance"] = str(child_pending_maintenance.text or "")
-    child_maintenance_auto_applied_after = el.find("MaintenanceAutoAppliedAfter")
+    child_maintenance_auto_applied_after = el.find("maintenanceAutoAppliedAfter")
     if child_maintenance_auto_applied_after is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -65,7 +65,7 @@ def deserialize_ec2_query(el: Element) -> MaintenanceDetails:
                 child_maintenance_auto_applied_after
             )
         )
-    child_last_maintenance_applied = el.find("LastMaintenanceApplied")
+    child_last_maintenance_applied = el.find("lastMaintenanceApplied")
     if child_last_maintenance_applied is not None:
         import capo_ec2.types.millisecond_date_time
 

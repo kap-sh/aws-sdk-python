@@ -42,12 +42,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetImageBlockPublicAccessStateResult:
     out: GetImageBlockPublicAccessStateResult = {}  # type: ignore[typeddict-item]
-    child_image_block_public_access_state = el.find("ImageBlockPublicAccessState")
+    child_image_block_public_access_state = el.find("imageBlockPublicAccessState")
     if child_image_block_public_access_state is not None:
         out["image_block_public_access_state"] = str(
             child_image_block_public_access_state.text or ""
         )
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.managed_by
 

@@ -50,25 +50,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTableRoute:
     out: TransitGatewayRouteTableRoute = {}  # type: ignore[typeddict-item]
-    child_destination_cidr = el.find("DestinationCidr")
+    child_destination_cidr = el.find("destinationCidr")
     if child_destination_cidr is not None:
         out["destination_cidr"] = str(child_destination_cidr.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    child_route_origin = el.find("RouteOrigin")
+    child_route_origin = el.find("routeOrigin")
     if child_route_origin is not None:
         out["route_origin"] = str(child_route_origin.text or "")
-    child_prefix_list_id = el.find("PrefixListId")
+    child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:
         out["prefix_list_id"] = str(child_prefix_list_id.text or "")
-    child_attachment_id = el.find("AttachmentId")
+    child_attachment_id = el.find("attachmentId")
     if child_attachment_id is not None:
         out["attachment_id"] = str(child_attachment_id.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         out["resource_type"] = str(child_resource_type.text or "")
     return out

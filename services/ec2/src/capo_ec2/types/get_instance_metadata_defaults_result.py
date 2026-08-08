@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetInstanceMetadataDefaultsResult:
     out: GetInstanceMetadataDefaultsResult = {}  # type: ignore[typeddict-item]
-    child_account_level = el.find("AccountLevel")
+    child_account_level = el.find("accountLevel")
     if child_account_level is not None:
         import capo_ec2.types.instance_metadata_defaults_response
 

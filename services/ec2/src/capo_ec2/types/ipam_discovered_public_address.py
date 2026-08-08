@@ -157,24 +157,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamDiscoveredPublicAddress:
     out: IpamDiscoveredPublicAddress = {}  # type: ignore[typeddict-item]
-    child_ipam_resource_discovery_id = el.find("IpamResourceDiscoveryId")
+    child_ipam_resource_discovery_id = el.find("ipamResourceDiscoveryId")
     if child_ipam_resource_discovery_id is not None:
         out["ipam_resource_discovery_id"] = str(
             child_ipam_resource_discovery_id.text or ""
         )
-    child_address_region = el.find("AddressRegion")
+    child_address_region = el.find("addressRegion")
     if child_address_region is not None:
         out["address_region"] = str(child_address_region.text or "")
-    child_address = el.find("Address")
+    child_address = el.find("address")
     if child_address is not None:
         out["address"] = str(child_address.text or "")
-    child_address_owner_id = el.find("AddressOwnerId")
+    child_address_owner_id = el.find("addressOwnerId")
     if child_address_owner_id is not None:
         out["address_owner_id"] = str(child_address_owner_id.text or "")
-    child_address_allocation_id = el.find("AddressAllocationId")
+    child_address_allocation_id = el.find("addressAllocationId")
     if child_address_allocation_id is not None:
         out["address_allocation_id"] = str(child_address_allocation_id.text or "")
-    child_association_status = el.find("AssociationStatus")
+    child_association_status = el.find("associationStatus")
     if child_association_status is not None:
         import capo_ec2.types.ipam_public_address_association_status
 
@@ -183,7 +183,7 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredPublicAddress:
                 child_association_status
             )
         )
-    child_address_type = el.find("AddressType")
+    child_address_type = el.find("addressType")
     if child_address_type is not None:
         import capo_ec2.types.ipam_public_address_type
 
@@ -192,7 +192,7 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredPublicAddress:
                 child_address_type
             )
         )
-    child_service = el.find("Service")
+    child_service = el.find("service")
     if child_service is not None:
         import capo_ec2.types.ipam_public_address_aws_service
 
@@ -201,48 +201,48 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredPublicAddress:
                 child_service
             )
         )
-    child_service_resource = el.find("ServiceResource")
+    child_service_resource = el.find("serviceResource")
     if child_service_resource is not None:
         out["service_resource"] = str(child_service_resource.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_public_ipv4_pool_id = el.find("PublicIpv4PoolId")
+    child_public_ipv4_pool_id = el.find("publicIpv4PoolId")
     if child_public_ipv4_pool_id is not None:
         out["public_ipv4_pool_id"] = str(child_public_ipv4_pool_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_network_interface_description = el.find("NetworkInterfaceDescription")
+    child_network_interface_description = el.find("networkInterfaceDescription")
     if child_network_interface_description is not None:
         out["network_interface_description"] = str(
             child_network_interface_description.text or ""
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_tags = el.find("Tags")
+    child_tags = el.find("tags")
     if child_tags is not None:
         import capo_ec2.types.ipam_public_address_tags
 
         out["tags"] = capo_ec2.types.ipam_public_address_tags.deserialize_ec2_query(
             child_tags
         )
-    child_network_border_group = el.find("NetworkBorderGroup")
+    child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    if el.find("SecurityGroupSet") is not None:
+    if el.find("securityGroupSet") is not None:
         import capo_ec2.types.ipam_public_address_security_group_list
 
         out["security_groups"] = (
             capo_ec2.types.ipam_public_address_security_group_list.deserialize_ec2_query(
-                el, "SecurityGroupSet"
+                el, "securityGroupSet"
             )
         )
-    child_sample_time = el.find("SampleTime")
+    child_sample_time = el.find("sampleTime")
     if child_sample_time is not None:
         import capo_ec2.types.millisecond_date_time
 

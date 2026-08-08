@@ -41,18 +41,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyHostsResult:
     out: ModifyHostsResult = {}  # type: ignore[typeddict-item]
-    if el.find("Successful") is not None:
+    if el.find("successful") is not None:
         import capo_ec2.types.response_host_id_list
 
         out["successful"] = capo_ec2.types.response_host_id_list.deserialize_ec2_query(
-            el, "Successful"
+            el, "successful"
         )
-    if el.find("Unsuccessful") is not None:
+    if el.find("unsuccessful") is not None:
         import capo_ec2.types.unsuccessful_item_list
 
         out["unsuccessful"] = (
             capo_ec2.types.unsuccessful_item_list.deserialize_ec2_query(
-                el, "Unsuccessful"
+                el, "unsuccessful"
             )
         )
     return out

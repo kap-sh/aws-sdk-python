@@ -30,12 +30,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpnConnectionsResult:
     out: DescribeVpnConnectionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("VpnConnectionSet") is not None:
+    if el.find("vpnConnectionSet") is not None:
         import capo_ec2.types.vpn_connection_list
 
         out["vpn_connections"] = (
             capo_ec2.types.vpn_connection_list.deserialize_ec2_query(
-                el, "VpnConnectionSet"
+                el, "vpnConnectionSet"
             )
         )
     return out

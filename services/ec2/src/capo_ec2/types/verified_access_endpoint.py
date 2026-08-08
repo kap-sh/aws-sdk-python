@@ -200,23 +200,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
     out: VerifiedAccessEndpoint = {}  # type: ignore[typeddict-item]
-    child_verified_access_instance_id = el.find("VerifiedAccessInstanceId")
+    child_verified_access_instance_id = el.find("verifiedAccessInstanceId")
     if child_verified_access_instance_id is not None:
         out["verified_access_instance_id"] = str(
             child_verified_access_instance_id.text or ""
         )
-    child_verified_access_group_id = el.find("VerifiedAccessGroupId")
+    child_verified_access_group_id = el.find("verifiedAccessGroupId")
     if child_verified_access_group_id is not None:
         out["verified_access_group_id"] = str(child_verified_access_group_id.text or "")
-    child_verified_access_endpoint_id = el.find("VerifiedAccessEndpointId")
+    child_verified_access_endpoint_id = el.find("verifiedAccessEndpointId")
     if child_verified_access_endpoint_id is not None:
         out["verified_access_endpoint_id"] = str(
             child_verified_access_endpoint_id.text or ""
         )
-    child_application_domain = el.find("ApplicationDomain")
+    child_application_domain = el.find("applicationDomain")
     if child_application_domain is not None:
         out["application_domain"] = str(child_application_domain.text or "")
-    child_endpoint_type = el.find("EndpointType")
+    child_endpoint_type = el.find("endpointType")
     if child_endpoint_type is not None:
         import capo_ec2.types.verified_access_endpoint_type
 
@@ -225,7 +225,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_endpoint_type
             )
         )
-    child_attachment_type = el.find("AttachmentType")
+    child_attachment_type = el.find("attachmentType")
     if child_attachment_type is not None:
         import capo_ec2.types.verified_access_endpoint_attachment_type
 
@@ -234,24 +234,24 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_attachment_type
             )
         )
-    child_domain_certificate_arn = el.find("DomainCertificateArn")
+    child_domain_certificate_arn = el.find("domainCertificateArn")
     if child_domain_certificate_arn is not None:
         out["domain_certificate_arn"] = str(child_domain_certificate_arn.text or "")
-    child_endpoint_domain = el.find("EndpointDomain")
+    child_endpoint_domain = el.find("endpointDomain")
     if child_endpoint_domain is not None:
         out["endpoint_domain"] = str(child_endpoint_domain.text or "")
-    child_device_validation_domain = el.find("DeviceValidationDomain")
+    child_device_validation_domain = el.find("deviceValidationDomain")
     if child_device_validation_domain is not None:
         out["device_validation_domain"] = str(child_device_validation_domain.text or "")
-    if el.find("SecurityGroupIdSet") is not None:
+    if el.find("securityGroupIdSet") is not None:
         import capo_ec2.types.security_group_id_list
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_list.deserialize_ec2_query(
-                el, "SecurityGroupIdSet"
+                el, "securityGroupIdSet"
             )
         )
-    child_load_balancer_options = el.find("LoadBalancerOptions")
+    child_load_balancer_options = el.find("loadBalancerOptions")
     if child_load_balancer_options is not None:
         import capo_ec2.types.verified_access_endpoint_load_balancer_options
 
@@ -260,7 +260,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_load_balancer_options
             )
         )
-    child_network_interface_options = el.find("NetworkInterfaceOptions")
+    child_network_interface_options = el.find("networkInterfaceOptions")
     if child_network_interface_options is not None:
         import capo_ec2.types.verified_access_endpoint_eni_options
 
@@ -269,7 +269,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_network_interface_options
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.verified_access_endpoint_status
 
@@ -278,23 +278,23 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_status
             )
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         out["creation_time"] = str(child_creation_time.text or "")
-    child_last_updated_time = el.find("LastUpdatedTime")
+    child_last_updated_time = el.find("lastUpdatedTime")
     if child_last_updated_time is not None:
         out["last_updated_time"] = str(child_last_updated_time.text or "")
-    child_deletion_time = el.find("DeletionTime")
+    child_deletion_time = el.find("deletionTime")
     if child_deletion_time is not None:
         out["deletion_time"] = str(child_deletion_time.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_sse_specification = el.find("SseSpecification")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_sse_specification = el.find("sseSpecification")
     if child_sse_specification is not None:
         import capo_ec2.types.verified_access_sse_specification_response
 
@@ -303,7 +303,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_sse_specification
             )
         )
-    child_rds_options = el.find("RdsOptions")
+    child_rds_options = el.find("rdsOptions")
     if child_rds_options is not None:
         import capo_ec2.types.verified_access_endpoint_rds_options
 
@@ -312,7 +312,7 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpoint:
                 child_rds_options
             )
         )
-    child_cidr_options = el.find("CidrOptions")
+    child_cidr_options = el.find("cidrOptions")
     if child_cidr_options is not None:
         import capo_ec2.types.verified_access_endpoint_cidr_options
 

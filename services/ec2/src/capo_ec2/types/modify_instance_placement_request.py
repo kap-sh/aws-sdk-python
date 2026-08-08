@@ -83,22 +83,22 @@ def deserialize_ec2_query(el: Element) -> ModifyInstancePlacementRequest:
     child_group_id = el.find("GroupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_tenancy = el.find("Tenancy")
+    child_tenancy = el.find("tenancy")
     if child_tenancy is not None:
         import capo_ec2.types.host_tenancy
 
         out["tenancy"] = capo_ec2.types.host_tenancy.deserialize_ec2_query(
             child_tenancy
         )
-    child_affinity = el.find("Affinity")
+    child_affinity = el.find("affinity")
     if child_affinity is not None:
         import capo_ec2.types.affinity
 
         out["affinity"] = capo_ec2.types.affinity.deserialize_ec2_query(child_affinity)
-    child_host_id = el.find("HostId")
+    child_host_id = el.find("hostId")
     if child_host_id is not None:
         out["host_id"] = str(child_host_id.text or "")
     return out

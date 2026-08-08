@@ -78,41 +78,41 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGateway:
     out: TransitGateway = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_id = el.find("TransitGatewayId")
+    child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    child_transit_gateway_arn = el.find("TransitGatewayArn")
+    child_transit_gateway_arn = el.find("transitGatewayArn")
     if child_transit_gateway_arn is not None:
         out["transit_gateway_arn"] = str(child_transit_gateway_arn.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.transit_gateway_state
 
         out["state"] = capo_ec2.types.transit_gateway_state.deserialize_ec2_query(
             child_state
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.date_time
 
         out["creation_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_creation_time
         )
-    child_options = el.find("Options")
+    child_options = el.find("options")
     if child_options is not None:
         import capo_ec2.types.transit_gateway_options
 
         out["options"] = capo_ec2.types.transit_gateway_options.deserialize_ec2_query(
             child_options
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

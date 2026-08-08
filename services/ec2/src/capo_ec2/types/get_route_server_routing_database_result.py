@@ -47,18 +47,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetRouteServerRoutingDatabaseResult:
     out: GetRouteServerRoutingDatabaseResult = {}  # type: ignore[typeddict-item]
-    child_are_routes_persisted = el.find("AreRoutesPersisted")
+    child_are_routes_persisted = el.find("areRoutesPersisted")
     if child_are_routes_persisted is not None:
         out["are_routes_persisted"] = (
             child_are_routes_persisted.text or ""
         ).lower() == "true"
-    if el.find("RouteSet") is not None:
+    if el.find("routeSet") is not None:
         import capo_ec2.types.route_server_route_list
 
         out["routes"] = capo_ec2.types.route_server_route_list.deserialize_ec2_query(
-            el, "RouteSet"
+            el, "routeSet"
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

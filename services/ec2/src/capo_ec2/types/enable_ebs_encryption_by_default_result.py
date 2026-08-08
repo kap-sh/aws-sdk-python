@@ -31,7 +31,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableEbsEncryptionByDefaultResult:
     out: EnableEbsEncryptionByDefaultResult = {}  # type: ignore[typeddict-item]
-    child_ebs_encryption_by_default = el.find("EbsEncryptionByDefault")
+    child_ebs_encryption_by_default = el.find("ebsEncryptionByDefault")
     if child_ebs_encryption_by_default is not None:
         out["ebs_encryption_by_default"] = (
             child_ebs_encryption_by_default.text or ""

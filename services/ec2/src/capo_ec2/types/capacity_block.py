@@ -99,48 +99,48 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityBlock:
     out: CapacityBlock = {}  # type: ignore[typeddict-item]
-    child_capacity_block_id = el.find("CapacityBlockId")
+    child_capacity_block_id = el.find("capacityBlockId")
     if child_capacity_block_id is not None:
         out["capacity_block_id"] = str(child_capacity_block_id.text or "")
-    child_ultraserver_type = el.find("UltraserverType")
+    child_ultraserver_type = el.find("ultraserverType")
     if child_ultraserver_type is not None:
         out["ultraserver_type"] = str(child_ultraserver_type.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    if el.find("CapacityReservationIdSet") is not None:
+    if el.find("capacityReservationIdSet") is not None:
         import capo_ec2.types.capacity_reservation_id_set
 
         out["capacity_reservation_ids"] = (
             capo_ec2.types.capacity_reservation_id_set.deserialize_ec2_query(
-                el, "CapacityReservationIdSet"
+                el, "capacityReservationIdSet"
             )
         )
-    child_start_date = el.find("StartDate")
+    child_start_date = el.find("startDate")
     if child_start_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_date
         )
-    child_end_date = el.find("EndDate")
+    child_end_date = el.find("endDate")
     if child_end_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["end_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_date
         )
-    child_create_date = el.find("CreateDate")
+    child_create_date = el.find("createDate")
     if child_create_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["create_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_create_date
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.capacity_block_resource_state
 
@@ -149,8 +149,8 @@ def deserialize_ec2_query(el: Element) -> CapacityBlock:
                 child_state
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

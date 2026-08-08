@@ -43,13 +43,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FastLaunchLaunchTemplateSpecificationResponse:
     out: FastLaunchLaunchTemplateSpecificationResponse = {}  # type: ignore[typeddict-item]
-    child_launch_template_id = el.find("LaunchTemplateId")
+    child_launch_template_id = el.find("launchTemplateId")
     if child_launch_template_id is not None:
         out["launch_template_id"] = str(child_launch_template_id.text or "")
-    child_launch_template_name = el.find("LaunchTemplateName")
+    child_launch_template_name = el.find("launchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    child_version = el.find("Version")
+    child_version = el.find("version")
     if child_version is not None:
         out["version"] = str(child_version.text or "")
     return out

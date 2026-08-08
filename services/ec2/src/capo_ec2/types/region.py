@@ -43,19 +43,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Region:
     out: Region = {}  # type: ignore[typeddict-item]
-    child_opt_in_status = el.find("OptInStatus")
+    child_opt_in_status = el.find("optInStatus")
     if child_opt_in_status is not None:
         out["opt_in_status"] = str(child_opt_in_status.text or "")
-    if el.find("GeographySet") is not None:
+    if el.find("geographySet") is not None:
         import capo_ec2.types.region_geography_list
 
         out["geography"] = capo_ec2.types.region_geography_list.deserialize_ec2_query(
-            el, "GeographySet"
+            el, "geographySet"
         )
-    child_region_name = el.find("RegionName")
+    child_region_name = el.find("regionName")
     if child_region_name is not None:
         out["region_name"] = str(child_region_name.text or "")
-    child_endpoint = el.find("RegionEndpoint")
+    child_endpoint = el.find("regionEndpoint")
     if child_endpoint is not None:
         out["endpoint"] = str(child_endpoint.text or "")
     return out

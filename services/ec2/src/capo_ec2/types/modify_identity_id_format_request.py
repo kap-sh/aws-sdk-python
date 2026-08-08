@@ -37,13 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyIdentityIdFormatRequest:
     out: ModifyIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
-    child_resource = el.find("Resource")
+    child_resource = el.find("resource")
     if child_resource is not None:
         out["resource"] = str(child_resource.text or "")
-    child_use_long_ids = el.find("UseLongIds")
+    child_use_long_ids = el.find("useLongIds")
     if child_use_long_ids is not None:
         out["use_long_ids"] = (child_use_long_ids.text or "").lower() == "true"
-    child_principal_arn = el.find("PrincipalArn")
+    child_principal_arn = el.find("principalArn")
     if child_principal_arn is not None:
         out["principal_arn"] = str(child_principal_arn.text or "")
     return out

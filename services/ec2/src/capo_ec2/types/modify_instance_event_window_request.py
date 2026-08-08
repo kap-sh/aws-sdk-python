@@ -53,7 +53,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_event_window_time_range_request_set
 
         capo_ec2.types.instance_event_window_time_range_request_set.serialize_ec2_query(
-            value["time_ranges"], pairs, f"{key_prefix}TimeRanges"
+            value["time_ranges"], pairs, f"{key_prefix}TimeRange"
         )
     if "cron_expression" in value:
         pairs.append((f"{key_prefix}CronExpression", str(value["cron_expression"])))
@@ -70,12 +70,12 @@ def deserialize_ec2_query(el: Element) -> ModifyInstanceEventWindowRequest:
     child_instance_event_window_id = el.find("InstanceEventWindowId")
     if child_instance_event_window_id is not None:
         out["instance_event_window_id"] = str(child_instance_event_window_id.text or "")
-    if el.find("TimeRanges") is not None:
+    if el.find("TimeRange") is not None:
         import capo_ec2.types.instance_event_window_time_range_request_set
 
         out["time_ranges"] = (
             capo_ec2.types.instance_event_window_time_range_request_set.deserialize_ec2_query(
-                el, "TimeRanges"
+                el, "TimeRange"
             )
         )
     child_cron_expression = el.find("CronExpression")

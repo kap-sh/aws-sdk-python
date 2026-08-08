@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RuleGroupTypePair:
     out: RuleGroupTypePair = {}  # type: ignore[typeddict-item]
-    child_rule_group_arn = el.find("RuleGroupArn")
+    child_rule_group_arn = el.find("ruleGroupArn")
     if child_rule_group_arn is not None:
         out["rule_group_arn"] = str(child_rule_group_arn.text or "")
-    child_rule_group_type = el.find("RuleGroupType")
+    child_rule_group_type = el.find("ruleGroupType")
     if child_rule_group_type is not None:
         out["rule_group_type"] = str(child_rule_group_type.text or "")
     return out

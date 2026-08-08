@@ -52,25 +52,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Reservation:
     out: Reservation = {}  # type: ignore[typeddict-item]
-    child_reservation_id = el.find("ReservationId")
+    child_reservation_id = el.find("reservationId")
     if child_reservation_id is not None:
         out["reservation_id"] = str(child_reservation_id.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_requester_id = el.find("RequesterId")
+    child_requester_id = el.find("requesterId")
     if child_requester_id is not None:
         out["requester_id"] = str(child_requester_id.text or "")
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "GroupSet"
+            el, "groupSet"
         )
-    if el.find("InstancesSet") is not None:
+    if el.find("instancesSet") is not None:
         import capo_ec2.types.instance_list
 
         out["instances"] = capo_ec2.types.instance_list.deserialize_ec2_query(
-            el, "InstancesSet"
+            el, "instancesSet"
         )
     return out

@@ -104,7 +104,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfiguration:
     out: MacSystemIntegrityProtectionConfiguration = {}  # type: ignore[typeddict-item]
-    child_apple_internal = el.find("AppleInternal")
+    child_apple_internal = el.find("appleInternal")
     if child_apple_internal is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -113,7 +113,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_apple_internal
             )
         )
-    child_base_system = el.find("BaseSystem")
+    child_base_system = el.find("baseSystem")
     if child_base_system is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -122,7 +122,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_base_system
             )
         )
-    child_debugging_restrictions = el.find("DebuggingRestrictions")
+    child_debugging_restrictions = el.find("debuggingRestrictions")
     if child_debugging_restrictions is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -131,7 +131,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_debugging_restrictions
             )
         )
-    child_d_trace_restrictions = el.find("DTraceRestrictions")
+    child_d_trace_restrictions = el.find("dTraceRestrictions")
     if child_d_trace_restrictions is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -140,7 +140,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_d_trace_restrictions
             )
         )
-    child_filesystem_protections = el.find("FilesystemProtections")
+    child_filesystem_protections = el.find("filesystemProtections")
     if child_filesystem_protections is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -149,7 +149,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_filesystem_protections
             )
         )
-    child_kext_signing = el.find("KextSigning")
+    child_kext_signing = el.find("kextSigning")
     if child_kext_signing is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -158,7 +158,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_kext_signing
             )
         )
-    child_nvram_protections = el.find("NvramProtections")
+    child_nvram_protections = el.find("nvramProtections")
     if child_nvram_protections is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 
@@ -167,7 +167,7 @@ def deserialize_ec2_query(el: Element) -> MacSystemIntegrityProtectionConfigurat
                 child_nvram_protections
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.mac_system_integrity_protection_setting_status
 

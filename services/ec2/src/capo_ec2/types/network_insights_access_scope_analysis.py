@@ -118,63 +118,63 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> NetworkInsightsAccessScopeAnalysis:
     out: NetworkInsightsAccessScopeAnalysis = {}  # type: ignore[typeddict-item]
     child_network_insights_access_scope_analysis_id = el.find(
-        "NetworkInsightsAccessScopeAnalysisId"
+        "networkInsightsAccessScopeAnalysisId"
     )
     if child_network_insights_access_scope_analysis_id is not None:
         out["network_insights_access_scope_analysis_id"] = str(
             child_network_insights_access_scope_analysis_id.text or ""
         )
     child_network_insights_access_scope_analysis_arn = el.find(
-        "NetworkInsightsAccessScopeAnalysisArn"
+        "networkInsightsAccessScopeAnalysisArn"
     )
     if child_network_insights_access_scope_analysis_arn is not None:
         out["network_insights_access_scope_analysis_arn"] = str(
             child_network_insights_access_scope_analysis_arn.text or ""
         )
-    child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
+    child_network_insights_access_scope_id = el.find("networkInsightsAccessScopeId")
     if child_network_insights_access_scope_id is not None:
         out["network_insights_access_scope_id"] = str(
             child_network_insights_access_scope_id.text or ""
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.analysis_status
 
         out["status"] = capo_ec2.types.analysis_status.deserialize_ec2_query(
             child_status
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_warning_message = el.find("WarningMessage")
+    child_warning_message = el.find("warningMessage")
     if child_warning_message is not None:
         out["warning_message"] = str(child_warning_message.text or "")
-    child_start_date = el.find("StartDate")
+    child_start_date = el.find("startDate")
     if child_start_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_date
         )
-    child_end_date = el.find("EndDate")
+    child_end_date = el.find("endDate")
     if child_end_date is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["end_date"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_date
         )
-    child_findings_found = el.find("FindingsFound")
+    child_findings_found = el.find("findingsFound")
     if child_findings_found is not None:
         import capo_ec2.types.findings_found
 
         out["findings_found"] = capo_ec2.types.findings_found.deserialize_ec2_query(
             child_findings_found
         )
-    child_analyzed_eni_count = el.find("AnalyzedEniCount")
+    child_analyzed_eni_count = el.find("analyzedEniCount")
     if child_analyzed_eni_count is not None:
         out["analyzed_eni_count"] = int(child_analyzed_eni_count.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

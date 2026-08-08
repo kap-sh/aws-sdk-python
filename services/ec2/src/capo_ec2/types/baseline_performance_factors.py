@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> BaselinePerformanceFactors:
     out: BaselinePerformanceFactors = {}  # type: ignore[typeddict-item]
-    child_cpu = el.find("Cpu")
+    child_cpu = el.find("cpu")
     if child_cpu is not None:
         import capo_ec2.types.cpu_performance_factor
 

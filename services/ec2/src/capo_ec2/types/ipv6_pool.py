@@ -50,22 +50,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Ipv6Pool:
     out: Ipv6Pool = {}  # type: ignore[typeddict-item]
-    child_pool_id = el.find("PoolId")
+    child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("PoolCidrBlockSet") is not None:
+    if el.find("poolCidrBlockSet") is not None:
         import capo_ec2.types.pool_cidr_blocks_set
 
         out["pool_cidr_blocks"] = (
             capo_ec2.types.pool_cidr_blocks_set.deserialize_ec2_query(
-                el, "PoolCidrBlockSet"
+                el, "poolCidrBlockSet"
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

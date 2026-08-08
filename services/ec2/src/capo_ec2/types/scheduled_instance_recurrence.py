@@ -56,26 +56,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstanceRecurrence:
     out: ScheduledInstanceRecurrence = {}  # type: ignore[typeddict-item]
-    child_frequency = el.find("Frequency")
+    child_frequency = el.find("frequency")
     if child_frequency is not None:
         out["frequency"] = str(child_frequency.text or "")
-    child_interval = el.find("Interval")
+    child_interval = el.find("interval")
     if child_interval is not None:
         out["interval"] = int(child_interval.text or "")
-    if el.find("OccurrenceDaySet") is not None:
+    if el.find("occurrenceDaySet") is not None:
         import capo_ec2.types.occurrence_day_set
 
         out["occurrence_day_set"] = (
             capo_ec2.types.occurrence_day_set.deserialize_ec2_query(
-                el, "OccurrenceDaySet"
+                el, "occurrenceDaySet"
             )
         )
-    child_occurrence_relative_to_end = el.find("OccurrenceRelativeToEnd")
+    child_occurrence_relative_to_end = el.find("occurrenceRelativeToEnd")
     if child_occurrence_relative_to_end is not None:
         out["occurrence_relative_to_end"] = (
             child_occurrence_relative_to_end.text or ""
         ).lower() == "true"
-    child_occurrence_unit = el.find("OccurrenceUnit")
+    child_occurrence_unit = el.find("occurrenceUnit")
     if child_occurrence_unit is not None:
         out["occurrence_unit"] = str(child_occurrence_unit.text or "")
     return out

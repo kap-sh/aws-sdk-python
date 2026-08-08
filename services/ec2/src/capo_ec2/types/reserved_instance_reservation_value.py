@@ -37,7 +37,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstanceReservationValue:
     out: ReservedInstanceReservationValue = {}  # type: ignore[typeddict-item]
-    child_reservation_value = el.find("ReservationValue")
+    child_reservation_value = el.find("reservationValue")
     if child_reservation_value is not None:
         import capo_ec2.types.reservation_value
 
@@ -46,7 +46,7 @@ def deserialize_ec2_query(el: Element) -> ReservedInstanceReservationValue:
                 child_reservation_value
             )
         )
-    child_reserved_instance_id = el.find("ReservedInstanceId")
+    child_reserved_instance_id = el.find("reservedInstanceId")
     if child_reserved_instance_id is not None:
         out["reserved_instance_id"] = str(child_reserved_instance_id.text or "")
     return out

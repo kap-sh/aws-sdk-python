@@ -37,13 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateSpotDatafeedSubscriptionRequest:
     out: CreateSpotDatafeedSubscriptionRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_bucket = el.find("Bucket")
+    child_bucket = el.find("bucket")
     if child_bucket is not None:
         out["bucket"] = str(child_bucket.text or "")
-    child_prefix = el.find("Prefix")
+    child_prefix = el.find("prefix")
     if child_prefix is not None:
         out["prefix"] = str(child_prefix.text or "")
     return out

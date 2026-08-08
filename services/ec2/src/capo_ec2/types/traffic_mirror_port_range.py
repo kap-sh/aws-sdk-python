@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TrafficMirrorPortRange:
     out: TrafficMirrorPortRange = {}  # type: ignore[typeddict-item]
-    child_from_port = el.find("FromPort")
+    child_from_port = el.find("fromPort")
     if child_from_port is not None:
         out["from_port"] = int(child_from_port.text or "")
-    child_to_port = el.find("ToPort")
+    child_to_port = el.find("toPort")
     if child_to_port is not None:
         out["to_port"] = int(child_to_port.text or "")
     return out

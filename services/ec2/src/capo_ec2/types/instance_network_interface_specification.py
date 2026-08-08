@@ -110,7 +110,7 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["groups"], pairs, f"{key_prefix}Groups"
+            value["groups"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "ipv6_address_count" in value:
         pairs.append(
@@ -162,7 +162,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ipv4_prefix_list
 
         capo_ec2.types.ipv4_prefix_list.serialize_ec2_query(
-            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefixes"
+            value["ipv4_prefixes"], pairs, f"{key_prefix}Ipv4Prefix"
         )
     if "ipv4_prefix_count" in value:
         pairs.append((f"{key_prefix}Ipv4PrefixCount", str(value["ipv4_prefix_count"])))
@@ -170,7 +170,7 @@ def serialize_ec2_query(
         import capo_ec2.types.ipv6_prefix_list
 
         capo_ec2.types.ipv6_prefix_list.serialize_ec2_query(
-            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefixes"
+            value["ipv6_prefixes"], pairs, f"{key_prefix}Ipv6Prefix"
         )
     if "ipv6_prefix_count" in value:
         pairs.append((f"{key_prefix}Ipv6PrefixCount", str(value["ipv6_prefix_count"])))
@@ -198,61 +198,61 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceNetworkInterfaceSpecification:
     out: InstanceNetworkInterfaceSpecification = {}  # type: ignore[typeddict-item]
-    child_associate_public_ip_address = el.find("AssociatePublicIpAddress")
+    child_associate_public_ip_address = el.find("associatePublicIpAddress")
     if child_associate_public_ip_address is not None:
         out["associate_public_ip_address"] = (
             child_associate_public_ip_address.text or ""
         ).lower() == "true"
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_device_index = el.find("DeviceIndex")
+    child_device_index = el.find("deviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    if el.find("Groups") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["groups"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "Groups"
+                el, "SecurityGroupId"
             )
         )
-    child_ipv6_address_count = el.find("Ipv6AddressCount")
+    child_ipv6_address_count = el.find("ipv6AddressCount")
     if child_ipv6_address_count is not None:
         out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
-    if el.find("Ipv6Addresses") is not None:
+    if el.find("ipv6AddressesSet") is not None:
         import capo_ec2.types.instance_ipv6_address_list
 
         out["ipv6_addresses"] = (
             capo_ec2.types.instance_ipv6_address_list.deserialize_ec2_query(
-                el, "Ipv6Addresses"
+                el, "ipv6AddressesSet"
             )
         )
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("PrivateIpAddresses") is not None:
+    if el.find("privateIpAddressesSet") is not None:
         import capo_ec2.types.private_ip_address_specification_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.private_ip_address_specification_list.deserialize_ec2_query(
-                el, "PrivateIpAddresses"
+                el, "privateIpAddressesSet"
             )
         )
-    child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")
+    child_secondary_private_ip_address_count = el.find("secondaryPrivateIpAddressCount")
     if child_secondary_private_ip_address_count is not None:
         out["secondary_private_ip_address_count"] = int(
             child_secondary_private_ip_address_count.text or ""
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
     child_associate_carrier_ip_address = el.find("AssociateCarrierIpAddress")
@@ -266,20 +266,20 @@ def deserialize_ec2_query(el: Element) -> InstanceNetworkInterfaceSpecification:
     child_network_card_index = el.find("NetworkCardIndex")
     if child_network_card_index is not None:
         out["network_card_index"] = int(child_network_card_index.text or "")
-    if el.find("Ipv4Prefixes") is not None:
+    if el.find("Ipv4Prefix") is not None:
         import capo_ec2.types.ipv4_prefix_list
 
         out["ipv4_prefixes"] = capo_ec2.types.ipv4_prefix_list.deserialize_ec2_query(
-            el, "Ipv4Prefixes"
+            el, "Ipv4Prefix"
         )
     child_ipv4_prefix_count = el.find("Ipv4PrefixCount")
     if child_ipv4_prefix_count is not None:
         out["ipv4_prefix_count"] = int(child_ipv4_prefix_count.text or "")
-    if el.find("Ipv6Prefixes") is not None:
+    if el.find("Ipv6Prefix") is not None:
         import capo_ec2.types.ipv6_prefix_list
 
         out["ipv6_prefixes"] = capo_ec2.types.ipv6_prefix_list.deserialize_ec2_query(
-            el, "Ipv6Prefixes"
+            el, "Ipv6Prefix"
         )
     child_ipv6_prefix_count = el.find("Ipv6PrefixCount")
     if child_ipv6_prefix_count is not None:

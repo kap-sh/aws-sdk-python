@@ -59,28 +59,28 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstancesConfiguration:
     out: ReservedInstancesConfiguration = {}  # type: ignore[typeddict-item]
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         out["platform"] = str(child_platform.text or "")
-    child_scope = el.find("Scope")
+    child_scope = el.find("scope")
     if child_scope is not None:
         import capo_ec2.types.scope
 
         out["scope"] = capo_ec2.types.scope.deserialize_ec2_query(child_scope)
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
     return out

@@ -45,15 +45,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RegionalSummary:
     out: RegionalSummary = {}  # type: ignore[typeddict-item]
-    child_region_name = el.find("RegionName")
+    child_region_name = el.find("regionName")
     if child_region_name is not None:
         out["region_name"] = str(child_region_name.text or "")
-    child_number_of_matched_accounts = el.find("NumberOfMatchedAccounts")
+    child_number_of_matched_accounts = el.find("numberOfMatchedAccounts")
     if child_number_of_matched_accounts is not None:
         out["number_of_matched_accounts"] = int(
             child_number_of_matched_accounts.text or ""
         )
-    child_number_of_unmatched_accounts = el.find("NumberOfUnmatchedAccounts")
+    child_number_of_unmatched_accounts = el.find("numberOfUnmatchedAccounts")
     if child_number_of_unmatched_accounts is not None:
         out["number_of_unmatched_accounts"] = int(
             child_number_of_unmatched_accounts.text or ""

@@ -46,7 +46,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVolumeAttributeResult:
     out: DescribeVolumeAttributeResult = {}  # type: ignore[typeddict-item]
-    child_auto_enable_io = el.find("AutoEnableIO")
+    child_auto_enable_io = el.find("autoEnableIO")
     if child_auto_enable_io is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -55,13 +55,13 @@ def deserialize_ec2_query(el: Element) -> DescribeVolumeAttributeResult:
                 child_auto_enable_io
             )
         )
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
     return out

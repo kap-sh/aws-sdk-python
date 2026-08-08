@@ -161,93 +161,93 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Volume:
     out: Volume = {}  # type: ignore[typeddict-item]
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_source_volume_id = el.find("SourceVolumeId")
+    child_source_volume_id = el.find("sourceVolumeId")
     if child_source_volume_id is not None:
         out["source_volume_id"] = str(child_source_volume_id.text or "")
-    child_iops = el.find("Iops")
+    child_iops = el.find("iops")
     if child_iops is not None:
         out["iops"] = int(child_iops.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_volume_type = el.find("VolumeType")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_volume_type = el.find("volumeType")
     if child_volume_type is not None:
         import capo_ec2.types.volume_type
 
         out["volume_type"] = capo_ec2.types.volume_type.deserialize_ec2_query(
             child_volume_type
         )
-    child_fast_restored = el.find("FastRestored")
+    child_fast_restored = el.find("fastRestored")
     if child_fast_restored is not None:
         out["fast_restored"] = (child_fast_restored.text or "").lower() == "true"
-    child_multi_attach_enabled = el.find("MultiAttachEnabled")
+    child_multi_attach_enabled = el.find("multiAttachEnabled")
     if child_multi_attach_enabled is not None:
         out["multi_attach_enabled"] = (
             child_multi_attach_enabled.text or ""
         ).lower() == "true"
-    child_throughput = el.find("Throughput")
+    child_throughput = el.find("throughput")
     if child_throughput is not None:
         out["throughput"] = int(child_throughput.text or "")
-    child_sse_type = el.find("SseType")
+    child_sse_type = el.find("sseType")
     if child_sse_type is not None:
         import capo_ec2.types.sse_type
 
         out["sse_type"] = capo_ec2.types.sse_type.deserialize_ec2_query(child_sse_type)
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    child_volume_initialization_rate = el.find("VolumeInitializationRate")
+    child_volume_initialization_rate = el.find("volumeInitializationRate")
     if child_volume_initialization_rate is not None:
         out["volume_initialization_rate"] = int(
             child_volume_initialization_rate.text or ""
         )
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_size = el.find("Size")
+    child_size = el.find("size")
     if child_size is not None:
         out["size"] = int(child_size.text or "")
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_state = el.find("Status")
+    child_state = el.find("status")
     if child_state is not None:
         import capo_ec2.types.volume_state
 
         out["state"] = capo_ec2.types.volume_state.deserialize_ec2_query(child_state)
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    if el.find("AttachmentSet") is not None:
+    if el.find("attachmentSet") is not None:
         import capo_ec2.types.volume_attachment_list
 
         out["attachments"] = (
             capo_ec2.types.volume_attachment_list.deserialize_ec2_query(
-                el, "AttachmentSet"
+                el, "attachmentSet"
             )
         )
-    child_encrypted = el.find("Encrypted")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
     return out

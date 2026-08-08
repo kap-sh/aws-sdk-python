@@ -43,7 +43,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateLaunchTemplateVersionResult:
     out: CreateLaunchTemplateVersionResult = {}  # type: ignore[typeddict-item]
-    child_launch_template_version = el.find("LaunchTemplateVersion")
+    child_launch_template_version = el.find("launchTemplateVersion")
     if child_launch_template_version is not None:
         import capo_ec2.types.launch_template_version
 
@@ -52,7 +52,7 @@ def deserialize_ec2_query(el: Element) -> CreateLaunchTemplateVersionResult:
                 child_launch_template_version
             )
         )
-    child_warning = el.find("Warning")
+    child_warning = el.find("warning")
     if child_warning is not None:
         import capo_ec2.types.validation_warning
 

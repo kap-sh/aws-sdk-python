@@ -39,7 +39,7 @@ def deserialize_ec2_query(
 ) -> RegisterTransitGatewayMulticastGroupMembersResult:
     out: RegisterTransitGatewayMulticastGroupMembersResult = {}  # type: ignore[typeddict-item]
     child_registered_multicast_group_members = el.find(
-        "RegisteredMulticastGroupMembers"
+        "registeredMulticastGroupMembers"
     )
     if child_registered_multicast_group_members is not None:
         import capo_ec2.types.transit_gateway_multicast_registered_group_members

@@ -108,51 +108,51 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> IpamExternalResourceVerificationToken:
     out: IpamExternalResourceVerificationToken = {}  # type: ignore[typeddict-item]
     child_ipam_external_resource_verification_token_id = el.find(
-        "IpamExternalResourceVerificationTokenId"
+        "ipamExternalResourceVerificationTokenId"
     )
     if child_ipam_external_resource_verification_token_id is not None:
         out["ipam_external_resource_verification_token_id"] = str(
             child_ipam_external_resource_verification_token_id.text or ""
         )
     child_ipam_external_resource_verification_token_arn = el.find(
-        "IpamExternalResourceVerificationTokenArn"
+        "ipamExternalResourceVerificationTokenArn"
     )
     if child_ipam_external_resource_verification_token_arn is not None:
         out["ipam_external_resource_verification_token_arn"] = str(
             child_ipam_external_resource_verification_token_arn.text or ""
         )
-    child_ipam_id = el.find("IpamId")
+    child_ipam_id = el.find("ipamId")
     if child_ipam_id is not None:
         out["ipam_id"] = str(child_ipam_id.text or "")
-    child_ipam_arn = el.find("IpamArn")
+    child_ipam_arn = el.find("ipamArn")
     if child_ipam_arn is not None:
         out["ipam_arn"] = str(child_ipam_arn.text or "")
-    child_ipam_region = el.find("IpamRegion")
+    child_ipam_region = el.find("ipamRegion")
     if child_ipam_region is not None:
         out["ipam_region"] = str(child_ipam_region.text or "")
-    child_token_value = el.find("TokenValue")
+    child_token_value = el.find("tokenValue")
     if child_token_value is not None:
         out["token_value"] = str(child_token_value.text or "")
-    child_token_name = el.find("TokenName")
+    child_token_name = el.find("tokenName")
     if child_token_name is not None:
         out["token_name"] = str(child_token_name.text or "")
-    child_not_after = el.find("NotAfter")
+    child_not_after = el.find("notAfter")
     if child_not_after is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["not_after"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_not_after
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.token_state
 
         out["status"] = capo_ec2.types.token_state.deserialize_ec2_query(child_status)
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_state = el.find("State")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_external_resource_verification_token_state
 

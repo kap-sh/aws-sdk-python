@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AcceptAddressTransferResult:
     out: AcceptAddressTransferResult = {}  # type: ignore[typeddict-item]
-    child_address_transfer = el.find("AddressTransfer")
+    child_address_transfer = el.find("addressTransfer")
     if child_address_transfer is not None:
         import capo_ec2.types.address_transfer
 

@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Ipv6Range:
     out: Ipv6Range = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_cidr_ipv6 = el.find("CidrIpv6")
+    child_cidr_ipv6 = el.find("cidrIpv6")
     if child_cidr_ipv6 is not None:
         out["cidr_ipv6"] = str(child_cidr_ipv6.text or "")
     return out

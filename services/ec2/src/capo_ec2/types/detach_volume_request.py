@@ -61,7 +61,7 @@ def deserialize_ec2_query(el: Element) -> DetachVolumeRequest:
     child_volume_id = el.find("VolumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

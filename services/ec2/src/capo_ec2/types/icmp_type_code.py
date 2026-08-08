@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IcmpTypeCode:
     out: IcmpTypeCode = {}  # type: ignore[typeddict-item]
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         out["code"] = int(child_code.text or "")
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = int(child_type.text or "")
     return out

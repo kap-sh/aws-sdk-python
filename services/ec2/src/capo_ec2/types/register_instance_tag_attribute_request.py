@@ -38,7 +38,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_tag_key_set
 
         capo_ec2.types.instance_tag_key_set.serialize_ec2_query(
-            value["instance_tag_keys"], pairs, f"{key_prefix}InstanceTagKeys"
+            value["instance_tag_keys"], pairs, f"{key_prefix}InstanceTagKey"
         )
 
 
@@ -49,12 +49,12 @@ def deserialize_ec2_query(el: Element) -> RegisterInstanceTagAttributeRequest:
         out["include_all_tags_of_instance"] = (
             child_include_all_tags_of_instance.text or ""
         ).lower() == "true"
-    if el.find("InstanceTagKeys") is not None:
+    if el.find("InstanceTagKey") is not None:
         import capo_ec2.types.instance_tag_key_set
 
         out["instance_tag_keys"] = (
             capo_ec2.types.instance_tag_key_set.deserialize_ec2_query(
-                el, "InstanceTagKeys"
+                el, "InstanceTagKey"
             )
         )
     return out

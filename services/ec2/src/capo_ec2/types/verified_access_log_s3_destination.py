@@ -50,10 +50,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessLogS3Destination:
     out: VerifiedAccessLogS3Destination = {}  # type: ignore[typeddict-item]
-    child_enabled = el.find("Enabled")
+    child_enabled = el.find("enabled")
     if child_enabled is not None:
         out["enabled"] = (child_enabled.text or "").lower() == "true"
-    child_delivery_status = el.find("DeliveryStatus")
+    child_delivery_status = el.find("deliveryStatus")
     if child_delivery_status is not None:
         import capo_ec2.types.verified_access_log_delivery_status
 
@@ -62,13 +62,13 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessLogS3Destination:
                 child_delivery_status
             )
         )
-    child_bucket_name = el.find("BucketName")
+    child_bucket_name = el.find("bucketName")
     if child_bucket_name is not None:
         out["bucket_name"] = str(child_bucket_name.text or "")
-    child_prefix = el.find("Prefix")
+    child_prefix = el.find("prefix")
     if child_prefix is not None:
         out["prefix"] = str(child_prefix.text or "")
-    child_bucket_owner = el.find("BucketOwner")
+    child_bucket_owner = el.find("bucketOwner")
     if child_bucket_owner is not None:
         out["bucket_owner"] = str(child_bucket_owner.text or "")
     return out

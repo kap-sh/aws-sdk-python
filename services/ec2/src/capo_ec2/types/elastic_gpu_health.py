@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ElasticGpuHealth:
     out: ElasticGpuHealth = {}  # type: ignore[typeddict-item]
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.elastic_gpu_status
 

@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeregisterImageResult:
     out: DeregisterImageResult = {}  # type: ignore[typeddict-item]
-    child_return = el.find("Return")
+    child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
-    if el.find("DeleteSnapshotResultSet") is not None:
+    if el.find("deleteSnapshotResultSet") is not None:
         import capo_ec2.types.delete_snapshot_result_set
 
         out["delete_snapshot_results"] = (
             capo_ec2.types.delete_snapshot_result_set.deserialize_ec2_query(
-                el, "DeleteSnapshotResultSet"
+                el, "deleteSnapshotResultSet"
             )
         )
     return out

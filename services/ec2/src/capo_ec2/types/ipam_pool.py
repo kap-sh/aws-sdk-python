@@ -201,101 +201,101 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPool:
     out: IpamPool = {}  # type: ignore[typeddict-item]
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_ipam_pool_id = el.find("IpamPoolId")
+    child_ipam_pool_id = el.find("ipamPoolId")
     if child_ipam_pool_id is not None:
         out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
-    child_source_ipam_pool_id = el.find("SourceIpamPoolId")
+    child_source_ipam_pool_id = el.find("sourceIpamPoolId")
     if child_source_ipam_pool_id is not None:
         out["source_ipam_pool_id"] = str(child_source_ipam_pool_id.text or "")
-    child_ipam_pool_arn = el.find("IpamPoolArn")
+    child_ipam_pool_arn = el.find("ipamPoolArn")
     if child_ipam_pool_arn is not None:
         out["ipam_pool_arn"] = str(child_ipam_pool_arn.text or "")
-    child_ipam_scope_arn = el.find("IpamScopeArn")
+    child_ipam_scope_arn = el.find("ipamScopeArn")
     if child_ipam_scope_arn is not None:
         out["ipam_scope_arn"] = str(child_ipam_scope_arn.text or "")
-    child_ipam_scope_type = el.find("IpamScopeType")
+    child_ipam_scope_type = el.find("ipamScopeType")
     if child_ipam_scope_type is not None:
         import capo_ec2.types.ipam_scope_type
 
         out["ipam_scope_type"] = capo_ec2.types.ipam_scope_type.deserialize_ec2_query(
             child_ipam_scope_type
         )
-    child_ipam_arn = el.find("IpamArn")
+    child_ipam_arn = el.find("ipamArn")
     if child_ipam_arn is not None:
         out["ipam_arn"] = str(child_ipam_arn.text or "")
-    child_ipam_region = el.find("IpamRegion")
+    child_ipam_region = el.find("ipamRegion")
     if child_ipam_region is not None:
         out["ipam_region"] = str(child_ipam_region.text or "")
-    child_locale = el.find("Locale")
+    child_locale = el.find("locale")
     if child_locale is not None:
         out["locale"] = str(child_locale.text or "")
-    child_pool_depth = el.find("PoolDepth")
+    child_pool_depth = el.find("poolDepth")
     if child_pool_depth is not None:
         out["pool_depth"] = int(child_pool_depth.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_pool_state
 
         out["state"] = capo_ec2.types.ipam_pool_state.deserialize_ec2_query(child_state)
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_auto_import = el.find("AutoImport")
+    child_auto_import = el.find("autoImport")
     if child_auto_import is not None:
         out["auto_import"] = (child_auto_import.text or "").lower() == "true"
-    child_publicly_advertisable = el.find("PubliclyAdvertisable")
+    child_publicly_advertisable = el.find("publiclyAdvertisable")
     if child_publicly_advertisable is not None:
         out["publicly_advertisable"] = (
             child_publicly_advertisable.text or ""
         ).lower() == "true"
-    child_address_family = el.find("AddressFamily")
+    child_address_family = el.find("addressFamily")
     if child_address_family is not None:
         import capo_ec2.types.address_family
 
         out["address_family"] = capo_ec2.types.address_family.deserialize_ec2_query(
             child_address_family
         )
-    child_allocation_min_netmask_length = el.find("AllocationMinNetmaskLength")
+    child_allocation_min_netmask_length = el.find("allocationMinNetmaskLength")
     if child_allocation_min_netmask_length is not None:
         out["allocation_min_netmask_length"] = int(
             child_allocation_min_netmask_length.text or ""
         )
-    child_allocation_max_netmask_length = el.find("AllocationMaxNetmaskLength")
+    child_allocation_max_netmask_length = el.find("allocationMaxNetmaskLength")
     if child_allocation_max_netmask_length is not None:
         out["allocation_max_netmask_length"] = int(
             child_allocation_max_netmask_length.text or ""
         )
-    child_allocation_default_netmask_length = el.find("AllocationDefaultNetmaskLength")
+    child_allocation_default_netmask_length = el.find("allocationDefaultNetmaskLength")
     if child_allocation_default_netmask_length is not None:
         out["allocation_default_netmask_length"] = int(
             child_allocation_default_netmask_length.text or ""
         )
-    if el.find("AllocationResourceTagSet") is not None:
+    if el.find("allocationResourceTagSet") is not None:
         import capo_ec2.types.ipam_resource_tag_list
 
         out["allocation_resource_tags"] = (
             capo_ec2.types.ipam_resource_tag_list.deserialize_ec2_query(
-                el, "AllocationResourceTagSet"
+                el, "allocationResourceTagSet"
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_aws_service = el.find("AwsService")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_aws_service = el.find("awsService")
     if child_aws_service is not None:
         import capo_ec2.types.ipam_pool_aws_service
 
         out["aws_service"] = capo_ec2.types.ipam_pool_aws_service.deserialize_ec2_query(
             child_aws_service
         )
-    child_public_ip_source = el.find("PublicIpSource")
+    child_public_ip_source = el.find("publicIpSource")
     if child_public_ip_source is not None:
         import capo_ec2.types.ipam_pool_public_ip_source
 
@@ -304,7 +304,7 @@ def deserialize_ec2_query(el: Element) -> IpamPool:
                 child_public_ip_source
             )
         )
-    child_source_resource = el.find("SourceResource")
+    child_source_resource = el.find("sourceResource")
     if child_source_resource is not None:
         import capo_ec2.types.ipam_pool_source_resource
 

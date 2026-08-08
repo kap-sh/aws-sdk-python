@@ -128,77 +128,77 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FpgaImage:
     out: FpgaImage = {}  # type: ignore[typeddict-item]
-    child_fpga_image_id = el.find("FpgaImageId")
+    child_fpga_image_id = el.find("fpgaImageId")
     if child_fpga_image_id is not None:
         out["fpga_image_id"] = str(child_fpga_image_id.text or "")
-    child_fpga_image_global_id = el.find("FpgaImageGlobalId")
+    child_fpga_image_global_id = el.find("fpgaImageGlobalId")
     if child_fpga_image_global_id is not None:
         out["fpga_image_global_id"] = str(child_fpga_image_global_id.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_shell_version = el.find("ShellVersion")
+    child_shell_version = el.find("shellVersion")
     if child_shell_version is not None:
         out["shell_version"] = str(child_shell_version.text or "")
-    child_pci_id = el.find("PciId")
+    child_pci_id = el.find("pciId")
     if child_pci_id is not None:
         import capo_ec2.types.pci_id
 
         out["pci_id"] = capo_ec2.types.pci_id.deserialize_ec2_query(child_pci_id)
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.fpga_image_state
 
         out["state"] = capo_ec2.types.fpga_image_state.deserialize_ec2_query(
             child_state
         )
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_update_time = el.find("UpdateTime")
+    child_update_time = el.find("updateTime")
     if child_update_time is not None:
         import capo_ec2.types.date_time
 
         out["update_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_update_time
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_owner_alias = el.find("OwnerAlias")
+    child_owner_alias = el.find("ownerAlias")
     if child_owner_alias is not None:
         out["owner_alias"] = str(child_owner_alias.text or "")
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    if el.find("Tags") is not None:
+    if el.find("tags") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "Tags")
-    child_public = el.find("Public")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tags")
+    child_public = el.find("public")
     if child_public is not None:
         out["public"] = (child_public.text or "").lower() == "true"
-    child_data_retention_support = el.find("DataRetentionSupport")
+    child_data_retention_support = el.find("dataRetentionSupport")
     if child_data_retention_support is not None:
         out["data_retention_support"] = (
             child_data_retention_support.text or ""
         ).lower() == "true"
-    if el.find("InstanceTypes") is not None:
+    if el.find("instanceTypes") is not None:
         import capo_ec2.types.instance_types_list
 
         out["instance_types"] = (
             capo_ec2.types.instance_types_list.deserialize_ec2_query(
-                el, "InstanceTypes"
+                el, "instanceTypes"
             )
         )
     return out

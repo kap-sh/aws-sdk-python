@@ -37,7 +37,7 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> ModifyDefaultCreditSpecificationResult:
     out: ModifyDefaultCreditSpecificationResult = {}  # type: ignore[typeddict-item]
     child_instance_family_credit_specification = el.find(
-        "InstanceFamilyCreditSpecification"
+        "instanceFamilyCreditSpecification"
     )
     if child_instance_family_credit_specification is not None:
         import capo_ec2.types.instance_family_credit_specification

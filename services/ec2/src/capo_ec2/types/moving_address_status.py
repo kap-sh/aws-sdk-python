@@ -35,14 +35,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MovingAddressStatus:
     out: MovingAddressStatus = {}  # type: ignore[typeddict-item]
-    child_move_status = el.find("MoveStatus")
+    child_move_status = el.find("moveStatus")
     if child_move_status is not None:
         import capo_ec2.types.move_status
 
         out["move_status"] = capo_ec2.types.move_status.deserialize_ec2_query(
             child_move_status
         )
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
     return out

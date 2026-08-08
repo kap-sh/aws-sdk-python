@@ -86,20 +86,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationBillingRequest:
     out: CapacityReservationBillingRequest = {}  # type: ignore[typeddict-item]
-    child_capacity_reservation_id = el.find("CapacityReservationId")
+    child_capacity_reservation_id = el.find("capacityReservationId")
     if child_capacity_reservation_id is not None:
         out["capacity_reservation_id"] = str(child_capacity_reservation_id.text or "")
-    child_requested_by = el.find("RequestedBy")
+    child_requested_by = el.find("requestedBy")
     if child_requested_by is not None:
         out["requested_by"] = str(child_requested_by.text or "")
     child_unused_reservation_billing_owner_id = el.find(
-        "UnusedReservationBillingOwnerId"
+        "unusedReservationBillingOwnerId"
     )
     if child_unused_reservation_billing_owner_id is not None:
         out["unused_reservation_billing_owner_id"] = str(
             child_unused_reservation_billing_owner_id.text or ""
         )
-    child_last_update_time = el.find("LastUpdateTime")
+    child_last_update_time = el.find("lastUpdateTime")
     if child_last_update_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -108,7 +108,7 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationBillingRequest:
                 child_last_update_time
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.capacity_reservation_billing_request_status
 
@@ -117,10 +117,10 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationBillingRequest:
                 child_status
             )
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_capacity_reservation_info = el.find("CapacityReservationInfo")
+    child_capacity_reservation_info = el.find("capacityReservationInfo")
     if child_capacity_reservation_info is not None:
         import capo_ec2.types.capacity_reservation_info
 

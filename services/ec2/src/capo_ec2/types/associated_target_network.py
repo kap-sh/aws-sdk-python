@@ -37,10 +37,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssociatedTargetNetwork:
     out: AssociatedTargetNetwork = {}  # type: ignore[typeddict-item]
-    child_network_id = el.find("NetworkId")
+    child_network_id = el.find("networkId")
     if child_network_id is not None:
         out["network_id"] = str(child_network_id.text or "")
-    child_network_type = el.find("NetworkType")
+    child_network_type = el.find("networkType")
     if child_network_type is not None:
         import capo_ec2.types.associated_network_type
 

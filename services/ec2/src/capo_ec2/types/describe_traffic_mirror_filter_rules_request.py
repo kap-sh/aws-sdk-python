@@ -49,7 +49,7 @@ def serialize_ec2_query(
         capo_ec2.types.traffic_mirror_filter_rule_id_list.serialize_ec2_query(
             value["traffic_mirror_filter_rule_ids"],
             pairs,
-            f"{key_prefix}TrafficMirrorFilterRuleIds",
+            f"{key_prefix}TrafficMirrorFilterRuleId",
         )
     if "traffic_mirror_filter_id" in value:
         pairs.append(
@@ -64,7 +64,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -74,12 +74,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeTrafficMirrorFilterRulesRequest:
     out: DescribeTrafficMirrorFilterRulesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TrafficMirrorFilterRuleIds") is not None:
+    if el.find("TrafficMirrorFilterRuleId") is not None:
         import capo_ec2.types.traffic_mirror_filter_rule_id_list
 
         out["traffic_mirror_filter_rule_ids"] = (
             capo_ec2.types.traffic_mirror_filter_rule_id_list.deserialize_ec2_query(
-                el, "TrafficMirrorFilterRuleIds"
+                el, "TrafficMirrorFilterRuleId"
             )
         )
     child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
@@ -88,10 +88,10 @@ def deserialize_ec2_query(el: Element) -> DescribeTrafficMirrorFilterRulesReques
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

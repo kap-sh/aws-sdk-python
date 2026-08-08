@@ -119,53 +119,53 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LocalGatewayRoute:
     out: LocalGatewayRoute = {}  # type: ignore[typeddict-item]
-    child_destination_cidr_block = el.find("DestinationCidrBlock")
+    child_destination_cidr_block = el.find("destinationCidrBlock")
     if child_destination_cidr_block is not None:
         out["destination_cidr_block"] = str(child_destination_cidr_block.text or "")
     child_local_gateway_virtual_interface_group_id = el.find(
-        "LocalGatewayVirtualInterfaceGroupId"
+        "localGatewayVirtualInterfaceGroupId"
     )
     if child_local_gateway_virtual_interface_group_id is not None:
         out["local_gateway_virtual_interface_group_id"] = str(
             child_local_gateway_virtual_interface_group_id.text or ""
         )
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.local_gateway_route_type
 
         out["type"] = capo_ec2.types.local_gateway_route_type.deserialize_ec2_query(
             child_type
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.local_gateway_route_state
 
         out["state"] = capo_ec2.types.local_gateway_route_state.deserialize_ec2_query(
             child_state
         )
-    child_local_gateway_route_table_id = el.find("LocalGatewayRouteTableId")
+    child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")
     if child_local_gateway_route_table_id is not None:
         out["local_gateway_route_table_id"] = str(
             child_local_gateway_route_table_id.text or ""
         )
-    child_local_gateway_route_table_arn = el.find("LocalGatewayRouteTableArn")
+    child_local_gateway_route_table_arn = el.find("localGatewayRouteTableArn")
     if child_local_gateway_route_table_arn is not None:
         out["local_gateway_route_table_arn"] = str(
             child_local_gateway_route_table_arn.text or ""
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_coip_pool_id = el.find("CoipPoolId")
+    child_coip_pool_id = el.find("coipPoolId")
     if child_coip_pool_id is not None:
         out["coip_pool_id"] = str(child_coip_pool_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_destination_prefix_list_id = el.find("DestinationPrefixListId")
+    child_destination_prefix_list_id = el.find("destinationPrefixListId")
     if child_destination_prefix_list_id is not None:
         out["destination_prefix_list_id"] = str(
             child_destination_prefix_list_id.text or ""

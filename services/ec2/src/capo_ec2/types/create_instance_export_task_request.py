@@ -42,7 +42,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "description" in value:
         pairs.append((f"{key_prefix}Description", str(value["description"])))
@@ -64,21 +64,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateInstanceExportTaskRequest:
     out: CreateInstanceExportTaskRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_target_environment = el.find("TargetEnvironment")
+    child_target_environment = el.find("targetEnvironment")
     if child_target_environment is not None:
         import capo_ec2.types.export_environment
 
@@ -87,7 +87,7 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceExportTaskRequest:
                 child_target_environment
             )
         )
-    child_export_to_s3_task = el.find("ExportToS3")
+    child_export_to_s3_task = el.find("exportToS3")
     if child_export_to_s3_task is not None:
         import capo_ec2.types.export_to_s3_task_specification
 

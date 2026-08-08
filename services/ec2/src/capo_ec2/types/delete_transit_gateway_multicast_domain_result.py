@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteTransitGatewayMulticastDomainResult:
     out: DeleteTransitGatewayMulticastDomainResult = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_multicast_domain = el.find("TransitGatewayMulticastDomain")
+    child_transit_gateway_multicast_domain = el.find("transitGatewayMulticastDomain")
     if child_transit_gateway_multicast_domain is not None:
         import capo_ec2.types.transit_gateway_multicast_domain
 

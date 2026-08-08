@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableImageBlockPublicAccessResult:
     out: EnableImageBlockPublicAccessResult = {}  # type: ignore[typeddict-item]
-    child_image_block_public_access_state = el.find("ImageBlockPublicAccessState")
+    child_image_block_public_access_state = el.find("imageBlockPublicAccessState")
     if child_image_block_public_access_state is not None:
         import capo_ec2.types.image_block_public_access_enabled_state
 

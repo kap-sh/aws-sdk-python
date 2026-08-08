@@ -34,7 +34,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateSubnetCidrReservationResult:
     out: CreateSubnetCidrReservationResult = {}  # type: ignore[typeddict-item]
-    child_subnet_cidr_reservation = el.find("SubnetCidrReservation")
+    child_subnet_cidr_reservation = el.find("subnetCidrReservation")
     if child_subnet_cidr_reservation is not None:
         import capo_ec2.types.subnet_cidr_reservation
 

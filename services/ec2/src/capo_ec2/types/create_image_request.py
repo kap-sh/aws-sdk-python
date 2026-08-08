@@ -52,7 +52,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "snapshot_location" in value:
         import capo_ec2.types.snapshot_location_enum
@@ -82,12 +82,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateImageRequest:
     out: CreateImageRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_snapshot_location = el.find("SnapshotLocation")
@@ -99,27 +99,27 @@ def deserialize_ec2_query(el: Element) -> CreateImageRequest:
                 child_snapshot_location
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_no_reboot = el.find("NoReboot")
+    child_no_reboot = el.find("noReboot")
     if child_no_reboot is not None:
         out["no_reboot"] = (child_no_reboot.text or "").lower() == "true"
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
     return out

@@ -38,10 +38,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetVerifiedAccessEndpointPolicyResult:
     out: GetVerifiedAccessEndpointPolicyResult = {}  # type: ignore[typeddict-item]
-    child_policy_enabled = el.find("PolicyEnabled")
+    child_policy_enabled = el.find("policyEnabled")
     if child_policy_enabled is not None:
         out["policy_enabled"] = (child_policy_enabled.text or "").lower() == "true"
-    child_policy_document = el.find("PolicyDocument")
+    child_policy_document = el.find("policyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
     return out

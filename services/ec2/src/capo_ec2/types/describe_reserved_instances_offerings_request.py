@@ -110,7 +110,7 @@ def serialize_ec2_query(
         capo_ec2.types.reserved_instances_offering_id_string_list.serialize_ec2_query(
             value["reserved_instances_offering_ids"],
             pairs,
-            f"{key_prefix}ReservedInstancesOfferingIds",
+            f"{key_prefix}ReservedInstancesOfferingId",
         )
     if "availability_zone_id" in value:
         pairs.append(
@@ -122,7 +122,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "instance_tenancy" in value:
         import capo_ec2.types.tenancy
@@ -186,32 +186,32 @@ def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesOfferingsRequ
                 child_product_description
             )
         )
-    if el.find("ReservedInstancesOfferingIds") is not None:
+    if el.find("ReservedInstancesOfferingId") is not None:
         import capo_ec2.types.reserved_instances_offering_id_string_list
 
         out["reserved_instances_offering_ids"] = (
             capo_ec2.types.reserved_instances_offering_id_string_list.deserialize_ec2_query(
-                el, "ReservedInstancesOfferingIds"
+                el, "ReservedInstancesOfferingId"
             )
         )
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    child_instance_tenancy = el.find("InstanceTenancy")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    child_instance_tenancy = el.find("instanceTenancy")
     if child_instance_tenancy is not None:
         import capo_ec2.types.tenancy
 
         out["instance_tenancy"] = capo_ec2.types.tenancy.deserialize_ec2_query(
             child_instance_tenancy
         )
-    child_offering_type = el.find("OfferingType")
+    child_offering_type = el.find("offeringType")
     if child_offering_type is not None:
         import capo_ec2.types.offering_type_values
 
@@ -220,10 +220,10 @@ def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesOfferingsRequ
                 child_offering_type
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    child_max_results = el.find("MaxResults")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     return out

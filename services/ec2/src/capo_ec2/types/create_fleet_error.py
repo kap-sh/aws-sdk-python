@@ -52,7 +52,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateFleetError:
     out: CreateFleetError = {}  # type: ignore[typeddict-item]
-    child_launch_template_and_overrides = el.find("LaunchTemplateAndOverrides")
+    child_launch_template_and_overrides = el.find("launchTemplateAndOverrides")
     if child_launch_template_and_overrides is not None:
         import capo_ec2.types.launch_template_and_overrides_response
 
@@ -61,17 +61,17 @@ def deserialize_ec2_query(el: Element) -> CreateFleetError:
                 child_launch_template_and_overrides
             )
         )
-    child_lifecycle = el.find("Lifecycle")
+    child_lifecycle = el.find("lifecycle")
     if child_lifecycle is not None:
         import capo_ec2.types.instance_lifecycle
 
         out["lifecycle"] = capo_ec2.types.instance_lifecycle.deserialize_ec2_query(
             child_lifecycle
         )
-    child_error_code = el.find("ErrorCode")
+    child_error_code = el.find("errorCode")
     if child_error_code is not None:
         out["error_code"] = str(child_error_code.text or "")
-    child_error_message = el.find("ErrorMessage")
+    child_error_message = el.find("errorMessage")
     if child_error_message is not None:
         out["error_message"] = str(child_error_message.text or "")
     return out

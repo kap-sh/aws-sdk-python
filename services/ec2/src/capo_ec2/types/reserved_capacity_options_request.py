@@ -26,18 +26,18 @@ def serialize_ec2_query(
         import capo_ec2.types.reservation_type_list_request
 
         capo_ec2.types.reservation_type_list_request.serialize_ec2_query(
-            value["reservation_types"], pairs, f"{key_prefix}ReservationTypes"
+            value["reservation_types"], pairs, f"{key_prefix}ReservationType"
         )
 
 
 def deserialize_ec2_query(el: Element) -> ReservedCapacityOptionsRequest:
     out: ReservedCapacityOptionsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ReservationTypes") is not None:
+    if el.find("ReservationType") is not None:
         import capo_ec2.types.reservation_type_list_request
 
         out["reservation_types"] = (
             capo_ec2.types.reservation_type_list_request.deserialize_ec2_query(
-                el, "ReservationTypes"
+                el, "ReservationType"
             )
         )
     return out

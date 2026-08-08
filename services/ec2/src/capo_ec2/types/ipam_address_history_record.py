@@ -104,13 +104,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamAddressHistoryRecord:
     out: IpamAddressHistoryRecord = {}  # type: ignore[typeddict-item]
-    child_resource_owner_id = el.find("ResourceOwnerId")
+    child_resource_owner_id = el.find("resourceOwnerId")
     if child_resource_owner_id is not None:
         out["resource_owner_id"] = str(child_resource_owner_id.text or "")
-    child_resource_region = el.find("ResourceRegion")
+    child_resource_region = el.find("resourceRegion")
     if child_resource_region is not None:
         out["resource_region"] = str(child_resource_region.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.ipam_address_history_resource_type
 
@@ -119,16 +119,16 @@ def deserialize_ec2_query(el: Element) -> IpamAddressHistoryRecord:
                 child_resource_type
             )
         )
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_resource_cidr = el.find("ResourceCidr")
+    child_resource_cidr = el.find("resourceCidr")
     if child_resource_cidr is not None:
         out["resource_cidr"] = str(child_resource_cidr.text or "")
-    child_resource_name = el.find("ResourceName")
+    child_resource_name = el.find("resourceName")
     if child_resource_name is not None:
         out["resource_name"] = str(child_resource_name.text or "")
-    child_resource_compliance_status = el.find("ResourceComplianceStatus")
+    child_resource_compliance_status = el.find("resourceComplianceStatus")
     if child_resource_compliance_status is not None:
         import capo_ec2.types.ipam_compliance_status
 
@@ -137,7 +137,7 @@ def deserialize_ec2_query(el: Element) -> IpamAddressHistoryRecord:
                 child_resource_compliance_status
             )
         )
-    child_resource_overlap_status = el.find("ResourceOverlapStatus")
+    child_resource_overlap_status = el.find("resourceOverlapStatus")
     if child_resource_overlap_status is not None:
         import capo_ec2.types.ipam_overlap_status
 
@@ -146,10 +146,10 @@ def deserialize_ec2_query(el: Element) -> IpamAddressHistoryRecord:
                 child_resource_overlap_status
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_sampled_start_time = el.find("SampledStartTime")
+    child_sampled_start_time = el.find("sampledStartTime")
     if child_sampled_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -158,7 +158,7 @@ def deserialize_ec2_query(el: Element) -> IpamAddressHistoryRecord:
                 child_sampled_start_time
             )
         )
-    child_sampled_end_time = el.find("SampledEndTime")
+    child_sampled_end_time = el.find("sampledEndTime")
     if child_sampled_end_time is not None:
         import capo_ec2.types.millisecond_date_time
 

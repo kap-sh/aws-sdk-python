@@ -158,13 +158,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecondaryInterface:
     out: SecondaryInterface = {}  # type: ignore[typeddict-item]
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_attachment = el.find("Attachment")
+    child_attachment = el.find("attachment")
     if child_attachment is not None:
         import capo_ec2.types.secondary_interface_attachment
 
@@ -173,27 +173,27 @@ def deserialize_ec2_query(el: Element) -> SecondaryInterface:
                 child_attachment
             )
         )
-    child_mac_address = el.find("MacAddress")
+    child_mac_address = el.find("macAddress")
     if child_mac_address is not None:
         out["mac_address"] = str(child_mac_address.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("PrivateIpv4AddressSet") is not None:
+    if el.find("privateIpv4AddressSet") is not None:
         import capo_ec2.types.secondary_interface_ipv4_address_list
 
         out["private_ipv4_addresses"] = (
             capo_ec2.types.secondary_interface_ipv4_address_list.deserialize_ec2_query(
-                el, "PrivateIpv4AddressSet"
+                el, "privateIpv4AddressSet"
             )
         )
-    child_secondary_interface_id = el.find("SecondaryInterfaceId")
+    child_secondary_interface_id = el.find("secondaryInterfaceId")
     if child_secondary_interface_id is not None:
         out["secondary_interface_id"] = str(child_secondary_interface_id.text or "")
-    child_secondary_interface_arn = el.find("SecondaryInterfaceArn")
+    child_secondary_interface_arn = el.find("secondaryInterfaceArn")
     if child_secondary_interface_arn is not None:
         out["secondary_interface_arn"] = str(child_secondary_interface_arn.text or "")
-    child_secondary_interface_type = el.find("SecondaryInterfaceType")
+    child_secondary_interface_type = el.find("secondaryInterfaceType")
     if child_secondary_interface_type is not None:
         import capo_ec2.types.secondary_interface_type
 
@@ -202,13 +202,13 @@ def deserialize_ec2_query(el: Element) -> SecondaryInterface:
                 child_secondary_interface_type
             )
         )
-    child_secondary_subnet_id = el.find("SecondarySubnetId")
+    child_secondary_subnet_id = el.find("secondarySubnetId")
     if child_secondary_subnet_id is not None:
         out["secondary_subnet_id"] = str(child_secondary_subnet_id.text or "")
-    child_secondary_network_id = el.find("SecondaryNetworkId")
+    child_secondary_network_id = el.find("secondaryNetworkId")
     if child_secondary_network_id is not None:
         out["secondary_network_id"] = str(child_secondary_network_id.text or "")
-    child_secondary_network_type = el.find("SecondaryNetworkType")
+    child_secondary_network_type = el.find("secondaryNetworkType")
     if child_secondary_network_type is not None:
         import capo_ec2.types.secondary_network_type
 
@@ -217,20 +217,20 @@ def deserialize_ec2_query(el: Element) -> SecondaryInterface:
                 child_secondary_network_type
             )
         )
-    child_source_dest_check = el.find("SourceDestCheck")
+    child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
         out["source_dest_check"] = (
             child_source_dest_check.text or ""
         ).lower() == "true"
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.secondary_interface_status
 
         out["status"] = capo_ec2.types.secondary_interface_status.deserialize_ec2_query(
             child_status
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

@@ -65,10 +65,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> StoreImageTaskResult:
     out: StoreImageTaskResult = {}  # type: ignore[typeddict-item]
-    child_ami_id = el.find("AmiId")
+    child_ami_id = el.find("amiId")
     if child_ami_id is not None:
         out["ami_id"] = str(child_ami_id.text or "")
-    child_task_start_time = el.find("TaskStartTime")
+    child_task_start_time = el.find("taskStartTime")
     if child_task_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -77,19 +77,19 @@ def deserialize_ec2_query(el: Element) -> StoreImageTaskResult:
                 child_task_start_time
             )
         )
-    child_bucket = el.find("Bucket")
+    child_bucket = el.find("bucket")
     if child_bucket is not None:
         out["bucket"] = str(child_bucket.text or "")
-    child_s3object_key = el.find("S3objectKey")
+    child_s3object_key = el.find("s3objectKey")
     if child_s3object_key is not None:
         out["s3object_key"] = str(child_s3object_key.text or "")
-    child_progress_percentage = el.find("ProgressPercentage")
+    child_progress_percentage = el.find("progressPercentage")
     if child_progress_percentage is not None:
         out["progress_percentage"] = int(child_progress_percentage.text or "")
-    child_store_task_state = el.find("StoreTaskState")
+    child_store_task_state = el.find("storeTaskState")
     if child_store_task_state is not None:
         out["store_task_state"] = str(child_store_task_state.text or "")
-    child_store_task_failure_reason = el.find("StoreTaskFailureReason")
+    child_store_task_failure_reason = el.find("storeTaskFailureReason")
     if child_store_task_failure_reason is not None:
         out["store_task_failure_reason"] = str(
             child_store_task_failure_reason.text or ""

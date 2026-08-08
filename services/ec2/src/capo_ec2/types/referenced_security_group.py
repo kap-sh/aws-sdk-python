@@ -47,19 +47,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReferencedSecurityGroup:
     out: ReferencedSecurityGroup = {}  # type: ignore[typeddict-item]
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_peering_status = el.find("PeeringStatus")
+    child_peering_status = el.find("peeringStatus")
     if child_peering_status is not None:
         out["peering_status"] = str(child_peering_status.text or "")
-    child_user_id = el.find("UserId")
+    child_user_id = el.find("userId")
     if child_user_id is not None:
         out["user_id"] = str(child_user_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_vpc_peering_connection_id = el.find("VpcPeeringConnectionId")
+    child_vpc_peering_connection_id = el.find("vpcPeeringConnectionId")
     if child_vpc_peering_connection_id is not None:
         out["vpc_peering_connection_id"] = str(
             child_vpc_peering_connection_id.text or ""

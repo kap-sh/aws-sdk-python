@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyPublicIpDnsNameOptionsResult:
     out: ModifyPublicIpDnsNameOptionsResult = {}  # type: ignore[typeddict-item]
-    child_successful = el.find("Successful")
+    child_successful = el.find("successful")
     if child_successful is not None:
         out["successful"] = (child_successful.text or "").lower() == "true"
     return out

@@ -38,16 +38,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeStatusAction:
     out: VolumeStatusAction = {}  # type: ignore[typeddict-item]
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         out["code"] = str(child_code.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_event_id = el.find("EventId")
+    child_event_id = el.find("eventId")
     if child_event_id is not None:
         out["event_id"] = str(child_event_id.text or "")
-    child_event_type = el.find("EventType")
+    child_event_type = el.find("eventType")
     if child_event_type is not None:
         out["event_type"] = str(child_event_type.text or "")
     return out

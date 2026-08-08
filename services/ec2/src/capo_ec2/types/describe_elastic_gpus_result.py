@@ -40,16 +40,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeElasticGpusResult:
     out: DescribeElasticGpusResult = {}  # type: ignore[typeddict-item]
-    if el.find("ElasticGpuSet") is not None:
+    if el.find("elasticGpuSet") is not None:
         import capo_ec2.types.elastic_gpu_set
 
         out["elastic_gpu_set"] = capo_ec2.types.elastic_gpu_set.deserialize_ec2_query(
-            el, "ElasticGpuSet"
+            el, "elasticGpuSet"
         )
-    child_max_results = el.find("MaxResults")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

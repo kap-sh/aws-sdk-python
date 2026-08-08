@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPolicyOrganizationTarget:
     out: IpamPolicyOrganizationTarget = {}  # type: ignore[typeddict-item]
-    child_organization_target_id = el.find("OrganizationTargetId")
+    child_organization_target_id = el.find("organizationTargetId")
     if child_organization_target_id is not None:
         out["organization_target_id"] = str(child_organization_target_id.text or "")
     return out

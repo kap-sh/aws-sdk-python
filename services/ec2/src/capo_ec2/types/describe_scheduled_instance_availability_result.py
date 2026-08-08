@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeScheduledInstanceAvailabilityResult:
     out: DescribeScheduledInstanceAvailabilityResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ScheduledInstanceAvailabilitySet") is not None:
+    if el.find("scheduledInstanceAvailabilitySet") is not None:
         import capo_ec2.types.scheduled_instance_availability_set
 
         out["scheduled_instance_availability_set"] = (
             capo_ec2.types.scheduled_instance_availability_set.deserialize_ec2_query(
-                el, "ScheduledInstanceAvailabilitySet"
+                el, "scheduledInstanceAvailabilitySet"
             )
         )
     return out

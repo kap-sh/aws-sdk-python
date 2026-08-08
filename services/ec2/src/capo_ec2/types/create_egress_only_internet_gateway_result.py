@@ -41,10 +41,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateEgressOnlyInternetGatewayResult:
     out: CreateEgressOnlyInternetGatewayResult = {}  # type: ignore[typeddict-item]
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    child_egress_only_internet_gateway = el.find("EgressOnlyInternetGateway")
+    child_egress_only_internet_gateway = el.find("egressOnlyInternetGateway")
     if child_egress_only_internet_gateway is not None:
         import capo_ec2.types.egress_only_internet_gateway
 

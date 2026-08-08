@@ -112,16 +112,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecondarySubnet:
     out: SecondarySubnet = {}  # type: ignore[typeddict-item]
-    child_secondary_subnet_id = el.find("SecondarySubnetId")
+    child_secondary_subnet_id = el.find("secondarySubnetId")
     if child_secondary_subnet_id is not None:
         out["secondary_subnet_id"] = str(child_secondary_subnet_id.text or "")
-    child_secondary_subnet_arn = el.find("SecondarySubnetArn")
+    child_secondary_subnet_arn = el.find("secondarySubnetArn")
     if child_secondary_subnet_arn is not None:
         out["secondary_subnet_arn"] = str(child_secondary_subnet_arn.text or "")
-    child_secondary_network_id = el.find("SecondaryNetworkId")
+    child_secondary_network_id = el.find("secondaryNetworkId")
     if child_secondary_network_id is not None:
         out["secondary_network_id"] = str(child_secondary_network_id.text or "")
-    child_secondary_network_type = el.find("SecondaryNetworkType")
+    child_secondary_network_type = el.find("secondaryNetworkType")
     if child_secondary_network_type is not None:
         import capo_ec2.types.secondary_network_type
 
@@ -130,35 +130,35 @@ def deserialize_ec2_query(el: Element) -> SecondarySubnet:
                 child_secondary_network_type
             )
         )
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    if el.find("Ipv4CidrBlockAssociationSet") is not None:
+    if el.find("ipv4CidrBlockAssociationSet") is not None:
         import capo_ec2.types.secondary_subnet_ipv4_cidr_block_association_list
 
         out["ipv4_cidr_block_associations"] = (
             capo_ec2.types.secondary_subnet_ipv4_cidr_block_association_list.deserialize_ec2_query(
-                el, "Ipv4CidrBlockAssociationSet"
+                el, "ipv4CidrBlockAssociationSet"
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.secondary_subnet_state
 
         out["state"] = capo_ec2.types.secondary_subnet_state.deserialize_ec2_query(
             child_state
         )
-    child_state_reason = el.find("StateReason")
+    child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         out["state_reason"] = str(child_state_reason.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

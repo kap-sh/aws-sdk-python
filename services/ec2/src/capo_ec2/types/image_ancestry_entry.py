@@ -52,7 +52,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageAncestryEntry:
     out: ImageAncestryEntry = {}  # type: ignore[typeddict-item]
-    child_creation_date = el.find("CreationDate")
+    child_creation_date = el.find("creationDate")
     if child_creation_date is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -61,16 +61,16 @@ def deserialize_ec2_query(el: Element) -> ImageAncestryEntry:
                 child_creation_date
             )
         )
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_image_owner_alias = el.find("ImageOwnerAlias")
+    child_image_owner_alias = el.find("imageOwnerAlias")
     if child_image_owner_alias is not None:
         out["image_owner_alias"] = str(child_image_owner_alias.text or "")
-    child_source_image_id = el.find("SourceImageId")
+    child_source_image_id = el.find("sourceImageId")
     if child_source_image_id is not None:
         out["source_image_id"] = str(child_source_image_id.text or "")
-    child_source_image_region = el.find("SourceImageRegion")
+    child_source_image_region = el.find("sourceImageRegion")
     if child_source_image_region is not None:
         out["source_image_region"] = str(child_source_image_region.text or "")
     return out

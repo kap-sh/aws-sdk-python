@@ -46,18 +46,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetAllowedImagesSettingsResult:
     out: GetAllowedImagesSettingsResult = {}  # type: ignore[typeddict-item]
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    if el.find("ImageCriterionSet") is not None:
+    if el.find("imageCriterionSet") is not None:
         import capo_ec2.types.image_criterion_list
 
         out["image_criteria"] = (
             capo_ec2.types.image_criterion_list.deserialize_ec2_query(
-                el, "ImageCriterionSet"
+                el, "imageCriterionSet"
             )
         )
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.managed_by
 

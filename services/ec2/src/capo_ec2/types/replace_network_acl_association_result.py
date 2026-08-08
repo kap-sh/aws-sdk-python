@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReplaceNetworkAclAssociationResult:
     out: ReplaceNetworkAclAssociationResult = {}  # type: ignore[typeddict-item]
-    child_new_association_id = el.find("NewAssociationId")
+    child_new_association_id = el.find("newAssociationId")
     if child_new_association_id is not None:
         out["new_association_id"] = str(child_new_association_id.text or "")
     return out

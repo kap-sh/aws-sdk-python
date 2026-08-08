@@ -52,13 +52,13 @@ def deserialize_ec2_query(el: Element) -> AssociateRouteTableRequest:
     child_public_ipv4_pool = el.find("PublicIpv4Pool")
     if child_public_ipv4_pool is not None:
         out["public_ipv4_pool"] = str(child_public_ipv4_pool.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_route_table_id = el.find("RouteTableId")
+    child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
     return out

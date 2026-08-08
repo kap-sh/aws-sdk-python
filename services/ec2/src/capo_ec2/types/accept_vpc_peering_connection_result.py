@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AcceptVpcPeeringConnectionResult:
     out: AcceptVpcPeeringConnectionResult = {}  # type: ignore[typeddict-item]
-    child_vpc_peering_connection = el.find("VpcPeeringConnection")
+    child_vpc_peering_connection = el.find("vpcPeeringConnection")
     if child_vpc_peering_connection is not None:
         import capo_ec2.types.vpc_peering_connection
 

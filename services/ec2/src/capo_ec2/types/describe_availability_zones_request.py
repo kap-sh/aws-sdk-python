@@ -35,13 +35,13 @@ def serialize_ec2_query(
         import capo_ec2.types.zone_name_string_list
 
         capo_ec2.types.zone_name_string_list.serialize_ec2_query(
-            value["zone_names"], pairs, f"{key_prefix}ZoneNames"
+            value["zone_names"], pairs, f"{key_prefix}ZoneName"
         )
     if "zone_ids" in value:
         import capo_ec2.types.zone_id_string_list
 
         capo_ec2.types.zone_id_string_list.serialize_ec2_query(
-            value["zone_ids"], pairs, f"{key_prefix}ZoneIds"
+            value["zone_ids"], pairs, f"{key_prefix}ZoneId"
         )
     if "all_availability_zones" in value:
         pairs.append(
@@ -56,34 +56,34 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
 def deserialize_ec2_query(el: Element) -> DescribeAvailabilityZonesRequest:
     out: DescribeAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ZoneNames") is not None:
+    if el.find("ZoneName") is not None:
         import capo_ec2.types.zone_name_string_list
 
         out["zone_names"] = capo_ec2.types.zone_name_string_list.deserialize_ec2_query(
-            el, "ZoneNames"
+            el, "ZoneName"
         )
-    if el.find("ZoneIds") is not None:
+    if el.find("ZoneId") is not None:
         import capo_ec2.types.zone_id_string_list
 
         out["zone_ids"] = capo_ec2.types.zone_id_string_list.deserialize_ec2_query(
-            el, "ZoneIds"
+            el, "ZoneId"
         )
     child_all_availability_zones = el.find("AllAvailabilityZones")
     if child_all_availability_zones is not None:
         out["all_availability_zones"] = (
             child_all_availability_zones.text or ""
         ).lower() == "true"
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NeuronDeviceMemoryInfo:
     out: NeuronDeviceMemoryInfo = {}  # type: ignore[typeddict-item]
-    child_size_in_mi_b = el.find("SizeInMiB")
+    child_size_in_mi_b = el.find("sizeInMiB")
     if child_size_in_mi_b is not None:
         out["size_in_mi_b"] = int(child_size_in_mi_b.text or "")
     return out

@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateTransitGatewayConnectPeerResult:
     out: CreateTransitGatewayConnectPeerResult = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_connect_peer = el.find("TransitGatewayConnectPeer")
+    child_transit_gateway_connect_peer = el.find("transitGatewayConnectPeer")
     if child_transit_gateway_connect_peer is not None:
         import capo_ec2.types.transit_gateway_connect_peer
 

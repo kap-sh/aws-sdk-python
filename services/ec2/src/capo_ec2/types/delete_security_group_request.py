@@ -42,7 +42,7 @@ def deserialize_ec2_query(el: Element) -> DeleteSecurityGroupRequest:
     child_group_name = el.find("GroupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

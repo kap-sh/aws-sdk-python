@@ -32,7 +32,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> EnableReachabilityAnalyzerOrganizationSharingResult:
     out: EnableReachabilityAnalyzerOrganizationSharingResult = {}  # type: ignore[typeddict-item]
-    child_return_value = el.find("ReturnValue")
+    child_return_value = el.find("returnValue")
     if child_return_value is not None:
         out["return_value"] = (child_return_value.text or "").lower() == "true"
     return out

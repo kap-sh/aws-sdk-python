@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportVolumeResult:
     out: ImportVolumeResult = {}  # type: ignore[typeddict-item]
-    child_conversion_task = el.find("ConversionTask")
+    child_conversion_task = el.find("conversionTask")
     if child_conversion_task is not None:
         import capo_ec2.types.conversion_task
 

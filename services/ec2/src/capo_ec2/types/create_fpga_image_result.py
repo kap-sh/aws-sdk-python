@@ -32,10 +32,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateFpgaImageResult:
     out: CreateFpgaImageResult = {}  # type: ignore[typeddict-item]
-    child_fpga_image_id = el.find("FpgaImageId")
+    child_fpga_image_id = el.find("fpgaImageId")
     if child_fpga_image_id is not None:
         out["fpga_image_id"] = str(child_fpga_image_id.text or "")
-    child_fpga_image_global_id = el.find("FpgaImageGlobalId")
+    child_fpga_image_global_id = el.find("fpgaImageGlobalId")
     if child_fpga_image_global_id is not None:
         out["fpga_image_global_id"] = str(child_fpga_image_global_id.text or "")
     return out

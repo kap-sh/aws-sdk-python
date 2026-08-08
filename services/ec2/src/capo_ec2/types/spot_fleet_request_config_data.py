@@ -253,13 +253,13 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
 
 
 def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
     out: SpotFleetRequestConfigData = {}  # type: ignore[typeddict-item]
-    child_allocation_strategy = el.find("AllocationStrategy")
+    child_allocation_strategy = el.find("allocationStrategy")
     if child_allocation_strategy is not None:
         import capo_ec2.types.allocation_strategy
 
@@ -268,7 +268,7 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_allocation_strategy
             )
         )
-    child_on_demand_allocation_strategy = el.find("OnDemandAllocationStrategy")
+    child_on_demand_allocation_strategy = el.find("onDemandAllocationStrategy")
     if child_on_demand_allocation_strategy is not None:
         import capo_ec2.types.on_demand_allocation_strategy
 
@@ -277,7 +277,7 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_on_demand_allocation_strategy
             )
         )
-    child_spot_maintenance_strategies = el.find("SpotMaintenanceStrategies")
+    child_spot_maintenance_strategies = el.find("spotMaintenanceStrategies")
     if child_spot_maintenance_strategies is not None:
         import capo_ec2.types.spot_maintenance_strategies
 
@@ -286,11 +286,11 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_spot_maintenance_strategies
             )
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
     child_excess_capacity_termination_policy = el.find(
-        "ExcessCapacityTerminationPolicy"
+        "excessCapacityTerminationPolicy"
     )
     if child_excess_capacity_termination_policy is not None:
         import capo_ec2.types.excess_capacity_termination_policy
@@ -300,84 +300,84 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_excess_capacity_termination_policy
             )
         )
-    child_fulfilled_capacity = el.find("FulfilledCapacity")
+    child_fulfilled_capacity = el.find("fulfilledCapacity")
     if child_fulfilled_capacity is not None:
         out["fulfilled_capacity"] = float(child_fulfilled_capacity.text or "")
-    child_on_demand_fulfilled_capacity = el.find("OnDemandFulfilledCapacity")
+    child_on_demand_fulfilled_capacity = el.find("onDemandFulfilledCapacity")
     if child_on_demand_fulfilled_capacity is not None:
         out["on_demand_fulfilled_capacity"] = float(
             child_on_demand_fulfilled_capacity.text or ""
         )
-    child_iam_fleet_role = el.find("IamFleetRole")
+    child_iam_fleet_role = el.find("iamFleetRole")
     if child_iam_fleet_role is not None:
         out["iam_fleet_role"] = str(child_iam_fleet_role.text or "")
-    if el.find("LaunchSpecifications") is not None:
+    if el.find("launchSpecifications") is not None:
         import capo_ec2.types.launch_specs_list
 
         out["launch_specifications"] = (
             capo_ec2.types.launch_specs_list.deserialize_ec2_query(
-                el, "LaunchSpecifications"
+                el, "launchSpecifications"
             )
         )
-    if el.find("LaunchTemplateConfigs") is not None:
+    if el.find("launchTemplateConfigs") is not None:
         import capo_ec2.types.launch_template_config_list
 
         out["launch_template_configs"] = (
             capo_ec2.types.launch_template_config_list.deserialize_ec2_query(
-                el, "LaunchTemplateConfigs"
+                el, "launchTemplateConfigs"
             )
         )
-    child_spot_price = el.find("SpotPrice")
+    child_spot_price = el.find("spotPrice")
     if child_spot_price is not None:
         out["spot_price"] = str(child_spot_price.text or "")
-    child_target_capacity = el.find("TargetCapacity")
+    child_target_capacity = el.find("targetCapacity")
     if child_target_capacity is not None:
         out["target_capacity"] = int(child_target_capacity.text or "")
-    child_on_demand_target_capacity = el.find("OnDemandTargetCapacity")
+    child_on_demand_target_capacity = el.find("onDemandTargetCapacity")
     if child_on_demand_target_capacity is not None:
         out["on_demand_target_capacity"] = int(
             child_on_demand_target_capacity.text or ""
         )
-    child_on_demand_max_total_price = el.find("OnDemandMaxTotalPrice")
+    child_on_demand_max_total_price = el.find("onDemandMaxTotalPrice")
     if child_on_demand_max_total_price is not None:
         out["on_demand_max_total_price"] = str(
             child_on_demand_max_total_price.text or ""
         )
-    child_spot_max_total_price = el.find("SpotMaxTotalPrice")
+    child_spot_max_total_price = el.find("spotMaxTotalPrice")
     if child_spot_max_total_price is not None:
         out["spot_max_total_price"] = str(child_spot_max_total_price.text or "")
     child_terminate_instances_with_expiration = el.find(
-        "TerminateInstancesWithExpiration"
+        "terminateInstancesWithExpiration"
     )
     if child_terminate_instances_with_expiration is not None:
         out["terminate_instances_with_expiration"] = (
             child_terminate_instances_with_expiration.text or ""
         ).lower() == "true"
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.fleet_type
 
         out["type"] = capo_ec2.types.fleet_type.deserialize_ec2_query(child_type)
-    child_valid_from = el.find("ValidFrom")
+    child_valid_from = el.find("validFrom")
     if child_valid_from is not None:
         import capo_ec2.types.date_time
 
         out["valid_from"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_valid_from
         )
-    child_valid_until = el.find("ValidUntil")
+    child_valid_until = el.find("validUntil")
     if child_valid_until is not None:
         import capo_ec2.types.date_time
 
         out["valid_until"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_valid_until
         )
-    child_replace_unhealthy_instances = el.find("ReplaceUnhealthyInstances")
+    child_replace_unhealthy_instances = el.find("replaceUnhealthyInstances")
     if child_replace_unhealthy_instances is not None:
         out["replace_unhealthy_instances"] = (
             child_replace_unhealthy_instances.text or ""
         ).lower() == "true"
-    child_instance_interruption_behavior = el.find("InstanceInterruptionBehavior")
+    child_instance_interruption_behavior = el.find("instanceInterruptionBehavior")
     if child_instance_interruption_behavior is not None:
         import capo_ec2.types.instance_interruption_behavior
 
@@ -386,7 +386,7 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_instance_interruption_behavior
             )
         )
-    child_load_balancers_config = el.find("LoadBalancersConfig")
+    child_load_balancers_config = el.find("loadBalancersConfig")
     if child_load_balancers_config is not None:
         import capo_ec2.types.load_balancers_config
 
@@ -395,15 +395,15 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_load_balancers_config
             )
         )
-    child_instance_pools_to_use_count = el.find("InstancePoolsToUseCount")
+    child_instance_pools_to_use_count = el.find("instancePoolsToUseCount")
     if child_instance_pools_to_use_count is not None:
         out["instance_pools_to_use_count"] = int(
             child_instance_pools_to_use_count.text or ""
         )
-    child_context = el.find("Context")
+    child_context = el.find("context")
     if child_context is not None:
         out["context"] = str(child_context.text or "")
-    child_target_capacity_unit_type = el.find("TargetCapacityUnitType")
+    child_target_capacity_unit_type = el.find("targetCapacityUnitType")
     if child_target_capacity_unit_type is not None:
         import capo_ec2.types.target_capacity_unit_type
 
@@ -412,12 +412,12 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_target_capacity_unit_type
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     return out

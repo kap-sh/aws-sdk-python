@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AvailableCapacity:
     out: AvailableCapacity = {}  # type: ignore[typeddict-item]
-    if el.find("AvailableInstanceCapacity") is not None:
+    if el.find("availableInstanceCapacity") is not None:
         import capo_ec2.types.available_instance_capacity_list
 
         out["available_instance_capacity"] = (
             capo_ec2.types.available_instance_capacity_list.deserialize_ec2_query(
-                el, "AvailableInstanceCapacity"
+                el, "availableInstanceCapacity"
             )
         )
-    child_available_v_cpus = el.find("AvailableVCpus")
+    child_available_v_cpus = el.find("availableVCpus")
     if child_available_v_cpus is not None:
         out["available_v_cpus"] = int(child_available_v_cpus.text or "")
     return out

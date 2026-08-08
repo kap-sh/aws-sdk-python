@@ -39,7 +39,7 @@ def deserialize_ec2_query(
 ) -> RegisterTransitGatewayMulticastGroupSourcesResult:
     out: RegisterTransitGatewayMulticastGroupSourcesResult = {}  # type: ignore[typeddict-item]
     child_registered_multicast_group_sources = el.find(
-        "RegisteredMulticastGroupSources"
+        "registeredMulticastGroupSources"
     )
     if child_registered_multicast_group_sources is not None:
         import capo_ec2.types.transit_gateway_multicast_registered_group_sources

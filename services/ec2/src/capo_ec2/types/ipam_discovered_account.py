@@ -72,13 +72,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamDiscoveredAccount:
     out: IpamDiscoveredAccount = {}  # type: ignore[typeddict-item]
-    child_account_id = el.find("AccountId")
+    child_account_id = el.find("accountId")
     if child_account_id is not None:
         out["account_id"] = str(child_account_id.text or "")
-    child_discovery_region = el.find("DiscoveryRegion")
+    child_discovery_region = el.find("discoveryRegion")
     if child_discovery_region is not None:
         out["discovery_region"] = str(child_discovery_region.text or "")
-    child_failure_reason = el.find("FailureReason")
+    child_failure_reason = el.find("failureReason")
     if child_failure_reason is not None:
         import capo_ec2.types.ipam_discovery_failure_reason
 
@@ -87,7 +87,7 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredAccount:
                 child_failure_reason
             )
         )
-    child_last_attempted_discovery_time = el.find("LastAttemptedDiscoveryTime")
+    child_last_attempted_discovery_time = el.find("lastAttemptedDiscoveryTime")
     if child_last_attempted_discovery_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -96,7 +96,7 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredAccount:
                 child_last_attempted_discovery_time
             )
         )
-    child_last_successful_discovery_time = el.find("LastSuccessfulDiscoveryTime")
+    child_last_successful_discovery_time = el.find("lastSuccessfulDiscoveryTime")
     if child_last_successful_discovery_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -105,7 +105,7 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredAccount:
                 child_last_successful_discovery_time
             )
         )
-    child_organizational_unit_id = el.find("OrganizationalUnitId")
+    child_organizational_unit_id = el.find("organizationalUnitId")
     if child_organizational_unit_id is not None:
         out["organizational_unit_id"] = str(child_organizational_unit_id.text or "")
     return out

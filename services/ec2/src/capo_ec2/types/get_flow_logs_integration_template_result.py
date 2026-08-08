@@ -28,7 +28,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetFlowLogsIntegrationTemplateResult:
     out: GetFlowLogsIntegrationTemplateResult = {}  # type: ignore[typeddict-item]
-    child_result = el.find("Result")
+    child_result = el.find("result")
     if child_result is not None:
         out["result"] = str(child_result.text or "")
     return out

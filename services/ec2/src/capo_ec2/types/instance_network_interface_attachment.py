@@ -80,35 +80,35 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceNetworkInterfaceAttachment:
     out: InstanceNetworkInterfaceAttachment = {}  # type: ignore[typeddict-item]
-    child_attach_time = el.find("AttachTime")
+    child_attach_time = el.find("attachTime")
     if child_attach_time is not None:
         import capo_ec2.types.date_time
 
         out["attach_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_attach_time
         )
-    child_attachment_id = el.find("AttachmentId")
+    child_attachment_id = el.find("attachmentId")
     if child_attachment_id is not None:
         out["attachment_id"] = str(child_attachment_id.text or "")
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_device_index = el.find("DeviceIndex")
+    child_device_index = el.find("deviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.attachment_status
 
         out["status"] = capo_ec2.types.attachment_status.deserialize_ec2_query(
             child_status
         )
-    child_network_card_index = el.find("NetworkCardIndex")
+    child_network_card_index = el.find("networkCardIndex")
     if child_network_card_index is not None:
         out["network_card_index"] = int(child_network_card_index.text or "")
-    child_ena_srd_specification = el.find("EnaSrdSpecification")
+    child_ena_srd_specification = el.find("enaSrdSpecification")
     if child_ena_srd_specification is not None:
         import capo_ec2.types.instance_attachment_ena_srd_specification
 
@@ -117,7 +117,7 @@ def deserialize_ec2_query(el: Element) -> InstanceNetworkInterfaceAttachment:
                 child_ena_srd_specification
             )
         )
-    child_ena_queue_count = el.find("EnaQueueCount")
+    child_ena_queue_count = el.find("enaQueueCount")
     if child_ena_queue_count is not None:
         out["ena_queue_count"] = int(child_ena_queue_count.text or "")
     return out

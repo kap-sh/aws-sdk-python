@@ -34,7 +34,7 @@ def deserialize_ec2_query(el: Element) -> GetPasswordDataRequest:
     child_instance_id = el.find("InstanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

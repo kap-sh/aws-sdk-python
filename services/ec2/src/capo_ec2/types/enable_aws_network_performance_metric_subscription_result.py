@@ -30,7 +30,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> EnableAwsNetworkPerformanceMetricSubscriptionResult:
     out: EnableAwsNetworkPerformanceMetricSubscriptionResult = {}  # type: ignore[typeddict-item]
-    child_output = el.find("Output")
+    child_output = el.find("output")
     if child_output is not None:
         out["output"] = (child_output.text or "").lower() == "true"
     return out

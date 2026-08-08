@@ -120,15 +120,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInsightsPath:
     out: NetworkInsightsPath = {}  # type: ignore[typeddict-item]
-    child_network_insights_path_id = el.find("NetworkInsightsPathId")
+    child_network_insights_path_id = el.find("networkInsightsPathId")
     if child_network_insights_path_id is not None:
         out["network_insights_path_id"] = str(child_network_insights_path_id.text or "")
-    child_network_insights_path_arn = el.find("NetworkInsightsPathArn")
+    child_network_insights_path_arn = el.find("networkInsightsPathArn")
     if child_network_insights_path_arn is not None:
         out["network_insights_path_arn"] = str(
             child_network_insights_path_arn.text or ""
         )
-    child_created_date = el.find("CreatedDate")
+    child_created_date = el.find("createdDate")
     if child_created_date is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -137,44 +137,44 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsPath:
                 child_created_date
             )
         )
-    child_source = el.find("Source")
+    child_source = el.find("source")
     if child_source is not None:
         out["source"] = str(child_source.text or "")
-    child_destination = el.find("Destination")
+    child_destination = el.find("destination")
     if child_destination is not None:
         out["destination"] = str(child_destination.text or "")
-    child_source_arn = el.find("SourceArn")
+    child_source_arn = el.find("sourceArn")
     if child_source_arn is not None:
         out["source_arn"] = str(child_source_arn.text or "")
-    child_destination_arn = el.find("DestinationArn")
+    child_destination_arn = el.find("destinationArn")
     if child_destination_arn is not None:
         out["destination_arn"] = str(child_destination_arn.text or "")
-    child_source_ip = el.find("SourceIp")
+    child_source_ip = el.find("sourceIp")
     if child_source_ip is not None:
         out["source_ip"] = str(child_source_ip.text or "")
-    child_destination_ip = el.find("DestinationIp")
+    child_destination_ip = el.find("destinationIp")
     if child_destination_ip is not None:
         out["destination_ip"] = str(child_destination_ip.text or "")
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.protocol
 
         out["protocol"] = capo_ec2.types.protocol.deserialize_ec2_query(child_protocol)
-    child_destination_port = el.find("DestinationPort")
+    child_destination_port = el.find("destinationPort")
     if child_destination_port is not None:
         out["destination_port"] = int(child_destination_port.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_filter_at_source = el.find("FilterAtSource")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_filter_at_source = el.find("filterAtSource")
     if child_filter_at_source is not None:
         import capo_ec2.types.path_filter
 
         out["filter_at_source"] = capo_ec2.types.path_filter.deserialize_ec2_query(
             child_filter_at_source
         )
-    child_filter_at_destination = el.find("FilterAtDestination")
+    child_filter_at_destination = el.find("filterAtDestination")
     if child_filter_at_destination is not None:
         import capo_ec2.types.path_filter
 

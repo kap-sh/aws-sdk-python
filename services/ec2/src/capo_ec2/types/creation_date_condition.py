@@ -33,7 +33,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreationDateCondition:
     out: CreationDateCondition = {}  # type: ignore[typeddict-item]
-    child_maximum_days_since_created = el.find("MaximumDaysSinceCreated")
+    child_maximum_days_since_created = el.find("maximumDaysSinceCreated")
     if child_maximum_days_since_created is not None:
         out["maximum_days_since_created"] = int(
             child_maximum_days_since_created.text or ""

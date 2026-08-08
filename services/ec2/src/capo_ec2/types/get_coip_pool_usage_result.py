@@ -50,23 +50,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetCoipPoolUsageResult:
     out: GetCoipPoolUsageResult = {}  # type: ignore[typeddict-item]
-    child_coip_pool_id = el.find("CoipPoolId")
+    child_coip_pool_id = el.find("coipPoolId")
     if child_coip_pool_id is not None:
         out["coip_pool_id"] = str(child_coip_pool_id.text or "")
-    if el.find("CoipAddressUsageSet") is not None:
+    if el.find("coipAddressUsageSet") is not None:
         import capo_ec2.types.coip_address_usage_set
 
         out["coip_address_usages"] = (
             capo_ec2.types.coip_address_usage_set.deserialize_ec2_query(
-                el, "CoipAddressUsageSet"
+                el, "coipAddressUsageSet"
             )
         )
-    child_local_gateway_route_table_id = el.find("LocalGatewayRouteTableId")
+    child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")
     if child_local_gateway_route_table_id is not None:
         out["local_gateway_route_table_id"] = str(
             child_local_gateway_route_table_id.text or ""
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

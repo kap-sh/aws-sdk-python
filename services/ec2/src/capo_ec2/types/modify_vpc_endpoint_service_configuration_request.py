@@ -93,7 +93,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["add_network_load_balancer_arns"],
             pairs,
-            f"{key_prefix}AddNetworkLoadBalancerArns",
+            f"{key_prefix}AddNetworkLoadBalancerArn",
         )
     if "remove_network_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -101,7 +101,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["remove_network_load_balancer_arns"],
             pairs,
-            f"{key_prefix}RemoveNetworkLoadBalancerArns",
+            f"{key_prefix}RemoveNetworkLoadBalancerArn",
         )
     if "add_gateway_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -109,7 +109,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["add_gateway_load_balancer_arns"],
             pairs,
-            f"{key_prefix}AddGatewayLoadBalancerArns",
+            f"{key_prefix}AddGatewayLoadBalancerArn",
         )
     if "remove_gateway_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -117,7 +117,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["remove_gateway_load_balancer_arns"],
             pairs,
-            f"{key_prefix}RemoveGatewayLoadBalancerArns",
+            f"{key_prefix}RemoveGatewayLoadBalancerArn",
         )
     if "add_supported_ip_address_types" in value:
         import capo_ec2.types.value_string_list
@@ -125,7 +125,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["add_supported_ip_address_types"],
             pairs,
-            f"{key_prefix}AddSupportedIpAddressTypes",
+            f"{key_prefix}AddSupportedIpAddressType",
         )
     if "remove_supported_ip_address_types" in value:
         import capo_ec2.types.value_string_list
@@ -133,13 +133,13 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["remove_supported_ip_address_types"],
             pairs,
-            f"{key_prefix}RemoveSupportedIpAddressTypes",
+            f"{key_prefix}RemoveSupportedIpAddressType",
         )
     if "add_supported_regions" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["add_supported_regions"], pairs, f"{key_prefix}AddSupportedRegions"
+            value["add_supported_regions"], pairs, f"{key_prefix}AddSupportedRegion"
         )
     if "remove_supported_regions" in value:
         import capo_ec2.types.value_string_list
@@ -147,7 +147,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["remove_supported_regions"],
             pairs,
-            f"{key_prefix}RemoveSupportedRegions",
+            f"{key_prefix}RemoveSupportedRegion",
         )
 
 
@@ -172,68 +172,68 @@ def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointServiceConfigurationR
         out["acceptance_required"] = (
             child_acceptance_required.text or ""
         ).lower() == "true"
-    if el.find("AddNetworkLoadBalancerArns") is not None:
+    if el.find("AddNetworkLoadBalancerArn") is not None:
         import capo_ec2.types.value_string_list
 
         out["add_network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddNetworkLoadBalancerArns"
+                el, "AddNetworkLoadBalancerArn"
             )
         )
-    if el.find("RemoveNetworkLoadBalancerArns") is not None:
+    if el.find("RemoveNetworkLoadBalancerArn") is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveNetworkLoadBalancerArns"
+                el, "RemoveNetworkLoadBalancerArn"
             )
         )
-    if el.find("AddGatewayLoadBalancerArns") is not None:
+    if el.find("AddGatewayLoadBalancerArn") is not None:
         import capo_ec2.types.value_string_list
 
         out["add_gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddGatewayLoadBalancerArns"
+                el, "AddGatewayLoadBalancerArn"
             )
         )
-    if el.find("RemoveGatewayLoadBalancerArns") is not None:
+    if el.find("RemoveGatewayLoadBalancerArn") is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveGatewayLoadBalancerArns"
+                el, "RemoveGatewayLoadBalancerArn"
             )
         )
-    if el.find("AddSupportedIpAddressTypes") is not None:
+    if el.find("AddSupportedIpAddressType") is not None:
         import capo_ec2.types.value_string_list
 
         out["add_supported_ip_address_types"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddSupportedIpAddressTypes"
+                el, "AddSupportedIpAddressType"
             )
         )
-    if el.find("RemoveSupportedIpAddressTypes") is not None:
+    if el.find("RemoveSupportedIpAddressType") is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_supported_ip_address_types"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveSupportedIpAddressTypes"
+                el, "RemoveSupportedIpAddressType"
             )
         )
-    if el.find("AddSupportedRegions") is not None:
+    if el.find("AddSupportedRegion") is not None:
         import capo_ec2.types.value_string_list
 
         out["add_supported_regions"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddSupportedRegions"
+                el, "AddSupportedRegion"
             )
         )
-    if el.find("RemoveSupportedRegions") is not None:
+    if el.find("RemoveSupportedRegion") is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_supported_regions"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveSupportedRegions"
+                el, "RemoveSupportedRegion"
             )
         )
     return out

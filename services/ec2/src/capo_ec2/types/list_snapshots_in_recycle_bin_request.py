@@ -41,7 +41,7 @@ def serialize_ec2_query(
         import capo_ec2.types.snapshot_id_string_list
 
         capo_ec2.types.snapshot_id_string_list.serialize_ec2_query(
-            value["snapshot_ids"], pairs, f"{key_prefix}SnapshotIds"
+            value["snapshot_ids"], pairs, f"{key_prefix}SnapshotId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -55,12 +55,12 @@ def deserialize_ec2_query(el: Element) -> ListSnapshotsInRecycleBinRequest:
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("SnapshotIds") is not None:
+    if el.find("SnapshotId") is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SnapshotIds"
+                el, "SnapshotId"
             )
         )
     child_dry_run = el.find("DryRun")

@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeCustomerGatewaysResult:
     out: DescribeCustomerGatewaysResult = {}  # type: ignore[typeddict-item]
-    if el.find("CustomerGatewaySet") is not None:
+    if el.find("customerGatewaySet") is not None:
         import capo_ec2.types.customer_gateway_list
 
         out["customer_gateways"] = (
             capo_ec2.types.customer_gateway_list.deserialize_ec2_query(
-                el, "CustomerGatewaySet"
+                el, "customerGatewaySet"
             )
         )
     return out

@@ -37,7 +37,7 @@ def serialize_ec2_query(
         import capo_ec2.types.s3_object_tag_list
 
         capo_ec2.types.s3_object_tag_list.serialize_ec2_query(
-            value["s3_object_tags"], pairs, f"{key_prefix}S3ObjectTags"
+            value["s3_object_tags"], pairs, f"{key_prefix}S3ObjectTag"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -51,11 +51,11 @@ def deserialize_ec2_query(el: Element) -> CreateStoreImageTaskRequest:
     child_bucket = el.find("Bucket")
     if child_bucket is not None:
         out["bucket"] = str(child_bucket.text or "")
-    if el.find("S3ObjectTags") is not None:
+    if el.find("S3ObjectTag") is not None:
         import capo_ec2.types.s3_object_tag_list
 
         out["s3_object_tags"] = capo_ec2.types.s3_object_tag_list.deserialize_ec2_query(
-            el, "S3ObjectTags"
+            el, "S3ObjectTag"
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:

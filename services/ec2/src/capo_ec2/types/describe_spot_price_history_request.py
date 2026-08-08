@@ -71,19 +71,19 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_type_list
 
         capo_ec2.types.instance_type_list.serialize_ec2_query(
-            value["instance_types"], pairs, f"{key_prefix}InstanceTypes"
+            value["instance_types"], pairs, f"{key_prefix}InstanceType"
         )
     if "product_descriptions" in value:
         import capo_ec2.types.product_description_list
 
         capo_ec2.types.product_description_list.serialize_ec2_query(
-            value["product_descriptions"], pairs, f"{key_prefix}ProductDescriptions"
+            value["product_descriptions"], pairs, f"{key_prefix}ProductDescription"
         )
     if "filters" in value:
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "availability_zone" in value:
         pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
@@ -98,46 +98,46 @@ def deserialize_ec2_query(el: Element) -> DescribeSpotPriceHistoryRequest:
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.date_time
 
         out["start_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_end_time = el.find("EndTime")
+    child_end_time = el.find("endTime")
     if child_end_time is not None:
         import capo_ec2.types.date_time
 
         out["end_time"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end_time)
-    if el.find("InstanceTypes") is not None:
+    if el.find("InstanceType") is not None:
         import capo_ec2.types.instance_type_list
 
         out["instance_types"] = capo_ec2.types.instance_type_list.deserialize_ec2_query(
-            el, "InstanceTypes"
+            el, "InstanceType"
         )
-    if el.find("ProductDescriptions") is not None:
+    if el.find("ProductDescription") is not None:
         import capo_ec2.types.product_description_list
 
         out["product_descriptions"] = (
             capo_ec2.types.product_description_list.deserialize_ec2_query(
-                el, "ProductDescriptions"
+                el, "ProductDescription"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    child_availability_zone = el.find("AvailabilityZone")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_max_results = el.find("MaxResults")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

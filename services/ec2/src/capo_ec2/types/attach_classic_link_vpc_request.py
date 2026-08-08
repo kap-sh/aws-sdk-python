@@ -39,25 +39,25 @@ def serialize_ec2_query(
         import capo_ec2.types.group_id_string_list
 
         capo_ec2.types.group_id_string_list.serialize_ec2_query(
-            value["groups"], pairs, f"{key_prefix}Groups"
+            value["groups"], pairs, f"{key_prefix}SecurityGroupId"
         )
 
 
 def deserialize_ec2_query(el: Element) -> AttachClassicLinkVpcRequest:
     out: AttachClassicLinkVpcRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("Groups") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.group_id_string_list
 
         out["groups"] = capo_ec2.types.group_id_string_list.deserialize_ec2_query(
-            el, "Groups"
+            el, "SecurityGroupId"
         )
     return out

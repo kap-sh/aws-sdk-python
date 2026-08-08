@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteRouteServerPeerResult:
     out: DeleteRouteServerPeerResult = {}  # type: ignore[typeddict-item]
-    child_route_server_peer = el.find("RouteServerPeer")
+    child_route_server_peer = el.find("routeServerPeer")
     if child_route_server_peer is not None:
         import capo_ec2.types.route_server_peer
 

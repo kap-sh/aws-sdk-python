@@ -77,7 +77,7 @@ def deserialize_ec2_query(el: Element) -> ModifyVpcAttributeRequest:
                 child_enable_dns_support
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
     child_enable_network_address_usage_metrics = el.find(

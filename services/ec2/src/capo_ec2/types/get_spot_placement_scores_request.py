@@ -55,7 +55,7 @@ def serialize_ec2_query(
         import capo_ec2.types.instance_types
 
         capo_ec2.types.instance_types.serialize_ec2_query(
-            value["instance_types"], pairs, f"{key_prefix}InstanceTypes"
+            value["instance_types"], pairs, f"{key_prefix}InstanceType"
         )
     if "target_capacity" in value:
         pairs.append((f"{key_prefix}TargetCapacity", str(value["target_capacity"])))
@@ -78,7 +78,7 @@ def serialize_ec2_query(
         import capo_ec2.types.region_names
 
         capo_ec2.types.region_names.serialize_ec2_query(
-            value["region_names"], pairs, f"{key_prefix}RegionNames"
+            value["region_names"], pairs, f"{key_prefix}RegionName"
         )
     if "instance_requirements_with_metadata" in value:
         import capo_ec2.types.instance_requirements_with_metadata_request
@@ -98,11 +98,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
     out: GetSpotPlacementScoresRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceTypes") is not None:
+    if el.find("InstanceType") is not None:
         import capo_ec2.types.instance_types
 
         out["instance_types"] = capo_ec2.types.instance_types.deserialize_ec2_query(
-            el, "InstanceTypes"
+            el, "InstanceType"
         )
     child_target_capacity = el.find("TargetCapacity")
     if child_target_capacity is not None:
@@ -121,11 +121,11 @@ def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
         out["single_availability_zone"] = (
             child_single_availability_zone.text or ""
         ).lower() == "true"
-    if el.find("RegionNames") is not None:
+    if el.find("RegionName") is not None:
         import capo_ec2.types.region_names
 
         out["region_names"] = capo_ec2.types.region_names.deserialize_ec2_query(
-            el, "RegionNames"
+            el, "RegionName"
         )
     child_instance_requirements_with_metadata = el.find(
         "InstanceRequirementsWithMetadata"

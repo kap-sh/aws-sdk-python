@@ -45,7 +45,7 @@ def serialize_ec2_query(
         import capo_ec2.types.client_vpn_security_group_id_set
 
         capo_ec2.types.client_vpn_security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -61,12 +61,12 @@ def deserialize_ec2_query(
     child_vpc_id = el.find("VpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
     child_dry_run = el.find("DryRun")

@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateDhcpOptionsResult:
     out: CreateDhcpOptionsResult = {}  # type: ignore[typeddict-item]
-    child_dhcp_options = el.find("DhcpOptions")
+    child_dhcp_options = el.find("dhcpOptions")
     if child_dhcp_options is not None:
         import capo_ec2.types.dhcp_options
 

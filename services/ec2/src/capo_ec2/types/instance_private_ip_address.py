@@ -48,7 +48,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstancePrivateIpAddress:
     out: InstancePrivateIpAddress = {}  # type: ignore[typeddict-item]
-    child_association = el.find("Association")
+    child_association = el.find("association")
     if child_association is not None:
         import capo_ec2.types.instance_network_interface_association
 
@@ -57,13 +57,13 @@ def deserialize_ec2_query(el: Element) -> InstancePrivateIpAddress:
                 child_association
             )
         )
-    child_primary = el.find("Primary")
+    child_primary = el.find("primary")
     if child_primary is not None:
         out["primary"] = (child_primary.text or "").lower() == "true"
-    child_private_dns_name = el.find("PrivateDnsName")
+    child_private_dns_name = el.find("privateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
     return out

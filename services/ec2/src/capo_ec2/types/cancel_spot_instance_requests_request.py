@@ -33,21 +33,21 @@ def serialize_ec2_query(
         capo_ec2.types.spot_instance_request_id_list.serialize_ec2_query(
             value["spot_instance_request_ids"],
             pairs,
-            f"{key_prefix}SpotInstanceRequestIds",
+            f"{key_prefix}SpotInstanceRequestId",
         )
 
 
 def deserialize_ec2_query(el: Element) -> CancelSpotInstanceRequestsRequest:
     out: CancelSpotInstanceRequestsRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("SpotInstanceRequestIds") is not None:
+    if el.find("SpotInstanceRequestId") is not None:
         import capo_ec2.types.spot_instance_request_id_list
 
         out["spot_instance_request_ids"] = (
             capo_ec2.types.spot_instance_request_id_list.deserialize_ec2_query(
-                el, "SpotInstanceRequestIds"
+                el, "SpotInstanceRequestId"
             )
         )
     return out

@@ -39,10 +39,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RequestSpotFleetRequest:
     out: RequestSpotFleetRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_spot_fleet_request_config = el.find("SpotFleetRequestConfig")
+    child_spot_fleet_request_config = el.find("spotFleetRequestConfig")
     if child_spot_fleet_request_config is not None:
         import capo_ec2.types.spot_fleet_request_config_data
 

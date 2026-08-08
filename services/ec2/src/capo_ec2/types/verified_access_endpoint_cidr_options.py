@@ -59,18 +59,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointCidrOptions:
     out: VerifiedAccessEndpointCidrOptions = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    if el.find("PortRangeSet") is not None:
+    if el.find("portRangeSet") is not None:
         import capo_ec2.types.verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRangeSet"
+                el, "portRangeSet"
             )
         )
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.verified_access_endpoint_protocol
 
@@ -79,12 +79,12 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointCidrOptions:
                 child_protocol
             )
         )
-    if el.find("SubnetIdSet") is not None:
+    if el.find("subnetIdSet") is not None:
         import capo_ec2.types.verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetIdSet"
+                el, "subnetIdSet"
             )
         )
     return out

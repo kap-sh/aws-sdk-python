@@ -119,60 +119,60 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeRecycleBinInfo:
     out: VolumeRecycleBinInfo = {}  # type: ignore[typeddict-item]
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_volume_type = el.find("VolumeType")
+    child_volume_type = el.find("volumeType")
     if child_volume_type is not None:
         import capo_ec2.types.volume_type
 
         out["volume_type"] = capo_ec2.types.volume_type.deserialize_ec2_query(
             child_volume_type
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.volume_state
 
         out["state"] = capo_ec2.types.volume_state.deserialize_ec2_query(child_state)
-    child_size = el.find("Size")
+    child_size = el.find("size")
     if child_size is not None:
         out["size"] = int(child_size.text or "")
-    child_iops = el.find("Iops")
+    child_iops = el.find("iops")
     if child_iops is not None:
         out["iops"] = int(child_iops.text or "")
-    child_throughput = el.find("Throughput")
+    child_throughput = el.find("throughput")
     if child_throughput is not None:
         out["throughput"] = int(child_throughput.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_source_volume_id = el.find("SourceVolumeId")
+    child_source_volume_id = el.find("sourceVolumeId")
     if child_source_volume_id is not None:
         out["source_volume_id"] = str(child_source_volume_id.text or "")
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    child_create_time = el.find("CreateTime")
+    child_create_time = el.find("createTime")
     if child_create_time is not None:
         import capo_ec2.types.date_time
 
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    child_recycle_bin_enter_time = el.find("RecycleBinEnterTime")
+    child_recycle_bin_enter_time = el.find("recycleBinEnterTime")
     if child_recycle_bin_enter_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -181,7 +181,7 @@ def deserialize_ec2_query(el: Element) -> VolumeRecycleBinInfo:
                 child_recycle_bin_enter_time
             )
         )
-    child_recycle_bin_exit_time = el.find("RecycleBinExitTime")
+    child_recycle_bin_exit_time = el.find("recycleBinExitTime")
     if child_recycle_bin_exit_time is not None:
         import capo_ec2.types.millisecond_date_time
 

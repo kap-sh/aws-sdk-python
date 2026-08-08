@@ -84,46 +84,46 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetDeclarativePoliciesReportSummaryResult:
     out: GetDeclarativePoliciesReportSummaryResult = {}  # type: ignore[typeddict-item]
-    child_report_id = el.find("ReportId")
+    child_report_id = el.find("reportId")
     if child_report_id is not None:
         out["report_id"] = str(child_report_id.text or "")
-    child_s3_bucket = el.find("S3Bucket")
+    child_s3_bucket = el.find("s3Bucket")
     if child_s3_bucket is not None:
         out["s3_bucket"] = str(child_s3_bucket.text or "")
-    child_s3_prefix = el.find("S3Prefix")
+    child_s3_prefix = el.find("s3Prefix")
     if child_s3_prefix is not None:
         out["s3_prefix"] = str(child_s3_prefix.text or "")
-    child_target_id = el.find("TargetId")
+    child_target_id = el.find("targetId")
     if child_target_id is not None:
         out["target_id"] = str(child_target_id.text or "")
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_time
         )
-    child_end_time = el.find("EndTime")
+    child_end_time = el.find("endTime")
     if child_end_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["end_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_time
         )
-    child_number_of_accounts = el.find("NumberOfAccounts")
+    child_number_of_accounts = el.find("numberOfAccounts")
     if child_number_of_accounts is not None:
         out["number_of_accounts"] = int(child_number_of_accounts.text or "")
-    child_number_of_failed_accounts = el.find("NumberOfFailedAccounts")
+    child_number_of_failed_accounts = el.find("numberOfFailedAccounts")
     if child_number_of_failed_accounts is not None:
         out["number_of_failed_accounts"] = int(
             child_number_of_failed_accounts.text or ""
         )
-    if el.find("AttributeSummarySet") is not None:
+    if el.find("attributeSummarySet") is not None:
         import capo_ec2.types.attribute_summary_list
 
         out["attribute_summaries"] = (
             capo_ec2.types.attribute_summary_list.deserialize_ec2_query(
-                el, "AttributeSummarySet"
+                el, "attributeSummarySet"
             )
         )
     return out

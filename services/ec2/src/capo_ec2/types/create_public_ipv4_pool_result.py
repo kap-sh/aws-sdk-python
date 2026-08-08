@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreatePublicIpv4PoolResult:
     out: CreatePublicIpv4PoolResult = {}  # type: ignore[typeddict-item]
-    child_pool_id = el.find("PoolId")
+    child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
     return out

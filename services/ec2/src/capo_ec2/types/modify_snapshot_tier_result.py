@@ -37,10 +37,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifySnapshotTierResult:
     out: ModifySnapshotTierResult = {}  # type: ignore[typeddict-item]
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_tiering_start_time = el.find("TieringStartTime")
+    child_tiering_start_time = el.find("tieringStartTime")
     if child_tiering_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 

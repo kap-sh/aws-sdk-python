@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MonitorInstancesResult:
     out: MonitorInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("InstancesSet") is not None:
+    if el.find("instancesSet") is not None:
         import capo_ec2.types.instance_monitoring_list
 
         out["instance_monitorings"] = (
             capo_ec2.types.instance_monitoring_list.deserialize_ec2_query(
-                el, "InstancesSet"
+                el, "instancesSet"
             )
         )
     return out

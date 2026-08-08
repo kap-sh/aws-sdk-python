@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DhcpConfiguration:
     out: DhcpConfiguration = {}  # type: ignore[typeddict-item]
-    child_key = el.find("Key")
+    child_key = el.find("key")
     if child_key is not None:
         out["key"] = str(child_key.text or "")
-    if el.find("ValueSet") is not None:
+    if el.find("valueSet") is not None:
         import capo_ec2.types.dhcp_configuration_value_list
 
         out["values"] = (
             capo_ec2.types.dhcp_configuration_value_list.deserialize_ec2_query(
-                el, "ValueSet"
+                el, "valueSet"
             )
         )
     return out

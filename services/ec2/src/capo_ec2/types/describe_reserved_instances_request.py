@@ -44,7 +44,7 @@ def serialize_ec2_query(
         import capo_ec2.types.reserved_instances_id_string_list
 
         capo_ec2.types.reserved_instances_id_string_list.serialize_ec2_query(
-            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesIds"
+            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -52,7 +52,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "offering_type" in value:
         import capo_ec2.types.offering_type_values
@@ -73,22 +73,22 @@ def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesRequest:
                 child_offering_class
             )
         )
-    if el.find("ReservedInstancesIds") is not None:
+    if el.find("ReservedInstancesId") is not None:
         import capo_ec2.types.reserved_instances_id_string_list
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.reserved_instances_id_string_list.deserialize_ec2_query(
-                el, "ReservedInstancesIds"
+                el, "ReservedInstancesId"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    child_offering_type = el.find("OfferingType")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    child_offering_type = el.find("offeringType")
     if child_offering_type is not None:
         import capo_ec2.types.offering_type_values
 

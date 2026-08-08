@@ -67,16 +67,16 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ElasticGpus:
     out: ElasticGpus = {}  # type: ignore[typeddict-item]
-    child_elastic_gpu_id = el.find("ElasticGpuId")
+    child_elastic_gpu_id = el.find("elasticGpuId")
     if child_elastic_gpu_id is not None:
         out["elastic_gpu_id"] = str(child_elastic_gpu_id.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_elastic_gpu_type = el.find("ElasticGpuType")
+    child_elastic_gpu_type = el.find("elasticGpuType")
     if child_elastic_gpu_type is not None:
         out["elastic_gpu_type"] = str(child_elastic_gpu_type.text or "")
-    child_elastic_gpu_health = el.find("ElasticGpuHealth")
+    child_elastic_gpu_health = el.find("elasticGpuHealth")
     if child_elastic_gpu_health is not None:
         import capo_ec2.types.elastic_gpu_health
 
@@ -85,7 +85,7 @@ def deserialize_ec2_query(el: Element) -> ElasticGpus:
                 child_elastic_gpu_health
             )
         )
-    child_elastic_gpu_state = el.find("ElasticGpuState")
+    child_elastic_gpu_state = el.find("elasticGpuState")
     if child_elastic_gpu_state is not None:
         import capo_ec2.types.elastic_gpu_state
 
@@ -94,11 +94,11 @@ def deserialize_ec2_query(el: Element) -> ElasticGpus:
                 child_elastic_gpu_state
             )
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

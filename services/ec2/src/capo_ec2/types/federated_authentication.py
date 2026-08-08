@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FederatedAuthentication:
     out: FederatedAuthentication = {}  # type: ignore[typeddict-item]
-    child_saml_provider_arn = el.find("SamlProviderArn")
+    child_saml_provider_arn = el.find("samlProviderArn")
     if child_saml_provider_arn is not None:
         out["saml_provider_arn"] = str(child_saml_provider_arn.text or "")
-    child_self_service_saml_provider_arn = el.find("SelfServiceSamlProviderArn")
+    child_self_service_saml_provider_arn = el.find("selfServiceSamlProviderArn")
     if child_self_service_saml_provider_arn is not None:
         out["self_service_saml_provider_arn"] = str(
             child_self_service_saml_provider_arn.text or ""

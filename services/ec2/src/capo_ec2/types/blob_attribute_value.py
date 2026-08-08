@@ -29,7 +29,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> BlobAttributeValue:
     out: BlobAttributeValue = {}  # type: ignore[typeddict-item]
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         import capo_ec2.types.blob
 

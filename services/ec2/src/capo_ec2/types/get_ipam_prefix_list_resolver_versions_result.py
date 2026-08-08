@@ -41,15 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamPrefixListResolverVersionsResult:
     out: GetIpamPrefixListResolverVersionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("IpamPrefixListResolverVersionSet") is not None:
+    if el.find("ipamPrefixListResolverVersionSet") is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_version_set
 
         out["ipam_prefix_list_resolver_versions"] = (
             capo_ec2.types.ipam_prefix_list_resolver_version_set.deserialize_ec2_query(
-                el, "IpamPrefixListResolverVersionSet"
+                el, "ipamPrefixListResolverVersionSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

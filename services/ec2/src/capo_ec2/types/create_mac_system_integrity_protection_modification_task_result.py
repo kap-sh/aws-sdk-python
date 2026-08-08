@@ -36,7 +36,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> CreateMacSystemIntegrityProtectionModificationTaskResult:
     out: CreateMacSystemIntegrityProtectionModificationTaskResult = {}  # type: ignore[typeddict-item]
-    child_mac_modification_task = el.find("MacModificationTask")
+    child_mac_modification_task = el.find("macModificationTask")
     if child_mac_modification_task is not None:
         import capo_ec2.types.mac_modification_task
 

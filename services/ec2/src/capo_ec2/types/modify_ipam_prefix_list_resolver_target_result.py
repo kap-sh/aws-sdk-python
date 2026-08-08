@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyIpamPrefixListResolverTargetResult:
     out: ModifyIpamPrefixListResolverTargetResult = {}  # type: ignore[typeddict-item]
-    child_ipam_prefix_list_resolver_target = el.find("IpamPrefixListResolverTarget")
+    child_ipam_prefix_list_resolver_target = el.find("ipamPrefixListResolverTarget")
     if child_ipam_prefix_list_resolver_target is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_target
 

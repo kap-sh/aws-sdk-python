@@ -46,12 +46,12 @@ def deserialize_ec2_query(
     el: Element,
 ) -> ExportClientVpnClientCertificateRevocationListResult:
     out: ExportClientVpnClientCertificateRevocationListResult = {}  # type: ignore[typeddict-item]
-    child_certificate_revocation_list = el.find("CertificateRevocationList")
+    child_certificate_revocation_list = el.find("certificateRevocationList")
     if child_certificate_revocation_list is not None:
         out["certificate_revocation_list"] = str(
             child_certificate_revocation_list.text or ""
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_certificate_revocation_list_status
 

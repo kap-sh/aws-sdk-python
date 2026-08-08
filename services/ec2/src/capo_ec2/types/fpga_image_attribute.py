@@ -54,27 +54,27 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FpgaImageAttribute:
     out: FpgaImageAttribute = {}  # type: ignore[typeddict-item]
-    child_fpga_image_id = el.find("FpgaImageId")
+    child_fpga_image_id = el.find("fpgaImageId")
     if child_fpga_image_id is not None:
         out["fpga_image_id"] = str(child_fpga_image_id.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("LoadPermissions") is not None:
+    if el.find("loadPermissions") is not None:
         import capo_ec2.types.load_permission_list
 
         out["load_permissions"] = (
             capo_ec2.types.load_permission_list.deserialize_ec2_query(
-                el, "LoadPermissions"
+                el, "loadPermissions"
             )
         )
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
     return out

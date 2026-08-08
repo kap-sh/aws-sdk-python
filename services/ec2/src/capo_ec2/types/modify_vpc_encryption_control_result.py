@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVpcEncryptionControlResult:
     out: ModifyVpcEncryptionControlResult = {}  # type: ignore[typeddict-item]
-    child_vpc_encryption_control = el.find("VpcEncryptionControl")
+    child_vpc_encryption_control = el.find("vpcEncryptionControl")
     if child_vpc_encryption_control is not None:
         import capo_ec2.types.vpc_encryption_control
 

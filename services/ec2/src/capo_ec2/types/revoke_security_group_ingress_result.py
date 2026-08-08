@@ -53,23 +53,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupIngressResult:
     out: RevokeSecurityGroupIngressResult = {}  # type: ignore[typeddict-item]
-    child_return = el.find("Return")
+    child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
-    if el.find("UnknownIpPermissionSet") is not None:
+    if el.find("unknownIpPermissionSet") is not None:
         import capo_ec2.types.ip_permission_list
 
         out["unknown_ip_permissions"] = (
             capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-                el, "UnknownIpPermissionSet"
+                el, "unknownIpPermissionSet"
             )
         )
-    if el.find("RevokedSecurityGroupRuleSet") is not None:
+    if el.find("revokedSecurityGroupRuleSet") is not None:
         import capo_ec2.types.revoked_security_group_rule_list
 
         out["revoked_security_group_rules"] = (
             capo_ec2.types.revoked_security_group_rule_list.deserialize_ec2_query(
-                el, "RevokedSecurityGroupRuleSet"
+                el, "revokedSecurityGroupRuleSet"
             )
         )
     return out

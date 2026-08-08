@@ -55,7 +55,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "availability_zone" in value:
         pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
@@ -93,12 +93,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateSubnetRequest:
     out: CreateSubnetRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_availability_zone = el.find("AvailabilityZone")
@@ -134,7 +134,7 @@ def deserialize_ec2_query(el: Element) -> CreateSubnetRequest:
     child_ipv6_netmask_length = el.find("Ipv6NetmaskLength")
     if child_ipv6_netmask_length is not None:
         out["ipv6_netmask_length"] = int(child_ipv6_netmask_length.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

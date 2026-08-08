@@ -48,7 +48,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> HistoryRecord:
     out: HistoryRecord = {}  # type: ignore[typeddict-item]
-    child_event_information = el.find("EventInformation")
+    child_event_information = el.find("eventInformation")
     if child_event_information is not None:
         import capo_ec2.types.event_information
 
@@ -57,14 +57,14 @@ def deserialize_ec2_query(el: Element) -> HistoryRecord:
                 child_event_information
             )
         )
-    child_event_type = el.find("EventType")
+    child_event_type = el.find("eventType")
     if child_event_type is not None:
         import capo_ec2.types.event_type
 
         out["event_type"] = capo_ec2.types.event_type.deserialize_ec2_query(
             child_event_type
         )
-    child_timestamp = el.find("Timestamp")
+    child_timestamp = el.find("timestamp")
     if child_timestamp is not None:
         import capo_ec2.types.date_time
 

@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteVerifiedAccessGroupResult:
     out: DeleteVerifiedAccessGroupResult = {}  # type: ignore[typeddict-item]
-    child_verified_access_group = el.find("VerifiedAccessGroup")
+    child_verified_access_group = el.find("verifiedAccessGroup")
     if child_verified_access_group is not None:
         import capo_ec2.types.verified_access_group
 

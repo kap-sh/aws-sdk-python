@@ -130,41 +130,41 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteServerPeer:
     out: RouteServerPeer = {}  # type: ignore[typeddict-item]
-    child_route_server_peer_id = el.find("RouteServerPeerId")
+    child_route_server_peer_id = el.find("routeServerPeerId")
     if child_route_server_peer_id is not None:
         out["route_server_peer_id"] = str(child_route_server_peer_id.text or "")
-    child_route_server_endpoint_id = el.find("RouteServerEndpointId")
+    child_route_server_endpoint_id = el.find("routeServerEndpointId")
     if child_route_server_endpoint_id is not None:
         out["route_server_endpoint_id"] = str(child_route_server_endpoint_id.text or "")
-    child_route_server_id = el.find("RouteServerId")
+    child_route_server_id = el.find("routeServerId")
     if child_route_server_id is not None:
         out["route_server_id"] = str(child_route_server_id.text or "")
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.route_server_peer_state
 
         out["state"] = capo_ec2.types.route_server_peer_state.deserialize_ec2_query(
             child_state
         )
-    child_failure_reason = el.find("FailureReason")
+    child_failure_reason = el.find("failureReason")
     if child_failure_reason is not None:
         out["failure_reason"] = str(child_failure_reason.text or "")
-    child_endpoint_eni_id = el.find("EndpointEniId")
+    child_endpoint_eni_id = el.find("endpointEniId")
     if child_endpoint_eni_id is not None:
         out["endpoint_eni_id"] = str(child_endpoint_eni_id.text or "")
-    child_endpoint_eni_address = el.find("EndpointEniAddress")
+    child_endpoint_eni_address = el.find("endpointEniAddress")
     if child_endpoint_eni_address is not None:
         out["endpoint_eni_address"] = str(child_endpoint_eni_address.text or "")
-    child_peer_address = el.find("PeerAddress")
+    child_peer_address = el.find("peerAddress")
     if child_peer_address is not None:
         out["peer_address"] = str(child_peer_address.text or "")
-    child_bgp_options = el.find("BgpOptions")
+    child_bgp_options = el.find("bgpOptions")
     if child_bgp_options is not None:
         import capo_ec2.types.route_server_bgp_options
 
@@ -173,7 +173,7 @@ def deserialize_ec2_query(el: Element) -> RouteServerPeer:
                 child_bgp_options
             )
         )
-    child_bgp_status = el.find("BgpStatus")
+    child_bgp_status = el.find("bgpStatus")
     if child_bgp_status is not None:
         import capo_ec2.types.route_server_bgp_status
 
@@ -182,7 +182,7 @@ def deserialize_ec2_query(el: Element) -> RouteServerPeer:
                 child_bgp_status
             )
         )
-    child_bfd_status = el.find("BfdStatus")
+    child_bfd_status = el.find("bfdStatus")
     if child_bfd_status is not None:
         import capo_ec2.types.route_server_bfd_status
 
@@ -191,8 +191,8 @@ def deserialize_ec2_query(el: Element) -> RouteServerPeer:
                 child_bfd_status
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

@@ -87,18 +87,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ConnectionNotification:
     out: ConnectionNotification = {}  # type: ignore[typeddict-item]
-    child_connection_notification_id = el.find("ConnectionNotificationId")
+    child_connection_notification_id = el.find("connectionNotificationId")
     if child_connection_notification_id is not None:
         out["connection_notification_id"] = str(
             child_connection_notification_id.text or ""
         )
-    child_service_id = el.find("ServiceId")
+    child_service_id = el.find("serviceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    child_vpc_endpoint_id = el.find("VpcEndpointId")
+    child_vpc_endpoint_id = el.find("vpcEndpointId")
     if child_vpc_endpoint_id is not None:
         out["vpc_endpoint_id"] = str(child_vpc_endpoint_id.text or "")
-    child_connection_notification_type = el.find("ConnectionNotificationType")
+    child_connection_notification_type = el.find("connectionNotificationType")
     if child_connection_notification_type is not None:
         import capo_ec2.types.connection_notification_type
 
@@ -107,20 +107,20 @@ def deserialize_ec2_query(el: Element) -> ConnectionNotification:
                 child_connection_notification_type
             )
         )
-    child_connection_notification_arn = el.find("ConnectionNotificationArn")
+    child_connection_notification_arn = el.find("connectionNotificationArn")
     if child_connection_notification_arn is not None:
         out["connection_notification_arn"] = str(
             child_connection_notification_arn.text or ""
         )
-    if el.find("ConnectionEvents") is not None:
+    if el.find("connectionEvents") is not None:
         import capo_ec2.types.value_string_list
 
         out["connection_events"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "ConnectionEvents"
+                el, "connectionEvents"
             )
         )
-    child_connection_notification_state = el.find("ConnectionNotificationState")
+    child_connection_notification_state = el.find("connectionNotificationState")
     if child_connection_notification_state is not None:
         import capo_ec2.types.connection_notification_state
 
@@ -129,7 +129,7 @@ def deserialize_ec2_query(el: Element) -> ConnectionNotification:
                 child_connection_notification_state
             )
         )
-    child_service_region = el.find("ServiceRegion")
+    child_service_region = el.find("serviceRegion")
     if child_service_region is not None:
         out["service_region"] = str(child_service_region.text or "")
     return out

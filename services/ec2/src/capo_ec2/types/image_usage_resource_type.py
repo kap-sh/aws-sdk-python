@@ -39,15 +39,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageUsageResourceType:
     out: ImageUsageResourceType = {}  # type: ignore[typeddict-item]
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         out["resource_type"] = str(child_resource_type.text or "")
-    if el.find("ResourceTypeOptionSet") is not None:
+    if el.find("resourceTypeOptionSet") is not None:
         import capo_ec2.types.image_usage_resource_type_option_list
 
         out["resource_type_options"] = (
             capo_ec2.types.image_usage_resource_type_option_list.deserialize_ec2_query(
-                el, "ResourceTypeOptionSet"
+                el, "resourceTypeOptionSet"
             )
         )
     return out

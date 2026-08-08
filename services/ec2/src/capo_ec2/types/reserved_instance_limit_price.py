@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstanceLimitPrice:
     out: ReservedInstanceLimitPrice = {}  # type: ignore[typeddict-item]
-    child_amount = el.find("Amount")
+    child_amount = el.find("amount")
     if child_amount is not None:
         out["amount"] = float(child_amount.text or "")
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         import capo_ec2.types.currency_code_values
 

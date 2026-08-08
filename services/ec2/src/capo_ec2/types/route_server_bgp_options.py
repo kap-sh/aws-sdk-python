@@ -39,10 +39,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteServerBgpOptions:
     out: RouteServerBgpOptions = {}  # type: ignore[typeddict-item]
-    child_peer_asn = el.find("PeerAsn")
+    child_peer_asn = el.find("peerAsn")
     if child_peer_asn is not None:
         out["peer_asn"] = int(child_peer_asn.text or "")
-    child_peer_liveness_detection = el.find("PeerLivenessDetection")
+    child_peer_liveness_detection = el.find("peerLivenessDetection")
     if child_peer_liveness_detection is not None:
         import capo_ec2.types.route_server_peer_liveness_mode
 

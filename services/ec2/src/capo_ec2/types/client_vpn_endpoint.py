@@ -261,48 +261,48 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
     out: ClientVpnEndpoint = {}  # type: ignore[typeddict-item]
-    child_client_vpn_endpoint_id = el.find("ClientVpnEndpointId")
+    child_client_vpn_endpoint_id = el.find("clientVpnEndpointId")
     if child_client_vpn_endpoint_id is not None:
         out["client_vpn_endpoint_id"] = str(child_client_vpn_endpoint_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_vpn_endpoint_status
 
         out["status"] = capo_ec2.types.client_vpn_endpoint_status.deserialize_ec2_query(
             child_status
         )
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         out["creation_time"] = str(child_creation_time.text or "")
-    child_deletion_time = el.find("DeletionTime")
+    child_deletion_time = el.find("deletionTime")
     if child_deletion_time is not None:
         out["deletion_time"] = str(child_deletion_time.text or "")
-    child_dns_name = el.find("DnsName")
+    child_dns_name = el.find("dnsName")
     if child_dns_name is not None:
         out["dns_name"] = str(child_dns_name.text or "")
-    child_client_cidr_block = el.find("ClientCidrBlock")
+    child_client_cidr_block = el.find("clientCidrBlock")
     if child_client_cidr_block is not None:
         out["client_cidr_block"] = str(child_client_cidr_block.text or "")
-    if el.find("DnsServer") is not None:
+    if el.find("dnsServer") is not None:
         import capo_ec2.types.value_string_list
 
         out["dns_servers"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "DnsServer"
+            el, "dnsServer"
         )
-    child_split_tunnel = el.find("SplitTunnel")
+    child_split_tunnel = el.find("splitTunnel")
     if child_split_tunnel is not None:
         out["split_tunnel"] = (child_split_tunnel.text or "").lower() == "true"
-    child_vpn_protocol = el.find("VpnProtocol")
+    child_vpn_protocol = el.find("vpnProtocol")
     if child_vpn_protocol is not None:
         import capo_ec2.types.vpn_protocol
 
         out["vpn_protocol"] = capo_ec2.types.vpn_protocol.deserialize_ec2_query(
             child_vpn_protocol
         )
-    child_transport_protocol = el.find("TransportProtocol")
+    child_transport_protocol = el.find("transportProtocol")
     if child_transport_protocol is not None:
         import capo_ec2.types.transport_protocol
 
@@ -311,29 +311,29 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_transport_protocol
             )
         )
-    child_vpn_port = el.find("VpnPort")
+    child_vpn_port = el.find("vpnPort")
     if child_vpn_port is not None:
         out["vpn_port"] = int(child_vpn_port.text or "")
-    if el.find("AssociatedTargetNetwork") is not None:
+    if el.find("associatedTargetNetwork") is not None:
         import capo_ec2.types.associated_target_network_set
 
         out["associated_target_networks"] = (
             capo_ec2.types.associated_target_network_set.deserialize_ec2_query(
-                el, "AssociatedTargetNetwork"
+                el, "associatedTargetNetwork"
             )
         )
-    child_server_certificate_arn = el.find("ServerCertificateArn")
+    child_server_certificate_arn = el.find("serverCertificateArn")
     if child_server_certificate_arn is not None:
         out["server_certificate_arn"] = str(child_server_certificate_arn.text or "")
-    if el.find("AuthenticationOptions") is not None:
+    if el.find("authenticationOptions") is not None:
         import capo_ec2.types.client_vpn_authentication_list
 
         out["authentication_options"] = (
             capo_ec2.types.client_vpn_authentication_list.deserialize_ec2_query(
-                el, "AuthenticationOptions"
+                el, "authenticationOptions"
             )
         )
-    child_connection_log_options = el.find("ConnectionLogOptions")
+    child_connection_log_options = el.find("connectionLogOptions")
     if child_connection_log_options is not None:
         import capo_ec2.types.connection_log_response_options
 
@@ -342,25 +342,25 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_connection_log_options
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    if el.find("SecurityGroupIdSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    if el.find("securityGroupIdSet") is not None:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
-                el, "SecurityGroupIdSet"
+                el, "securityGroupIdSet"
             )
         )
-    child_vpc_id = el.find("VpcId")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_self_service_portal_url = el.find("SelfServicePortalUrl")
+    child_self_service_portal_url = el.find("selfServicePortalUrl")
     if child_self_service_portal_url is not None:
         out["self_service_portal_url"] = str(child_self_service_portal_url.text or "")
-    child_client_connect_options = el.find("ClientConnectOptions")
+    child_client_connect_options = el.find("clientConnectOptions")
     if child_client_connect_options is not None:
         import capo_ec2.types.client_connect_response_options
 
@@ -369,10 +369,10 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_client_connect_options
             )
         )
-    child_session_timeout_hours = el.find("SessionTimeoutHours")
+    child_session_timeout_hours = el.find("sessionTimeoutHours")
     if child_session_timeout_hours is not None:
         out["session_timeout_hours"] = int(child_session_timeout_hours.text or "")
-    child_client_login_banner_options = el.find("ClientLoginBannerOptions")
+    child_client_login_banner_options = el.find("clientLoginBannerOptions")
     if child_client_login_banner_options is not None:
         import capo_ec2.types.client_login_banner_response_options
 
@@ -381,7 +381,7 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_client_login_banner_options
             )
         )
-    child_client_route_enforcement_options = el.find("ClientRouteEnforcementOptions")
+    child_client_route_enforcement_options = el.find("clientRouteEnforcementOptions")
     if child_client_route_enforcement_options is not None:
         import capo_ec2.types.client_route_enforcement_response_options
 
@@ -390,12 +390,12 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_client_route_enforcement_options
             )
         )
-    child_disconnect_on_session_timeout = el.find("DisconnectOnSessionTimeout")
+    child_disconnect_on_session_timeout = el.find("disconnectOnSessionTimeout")
     if child_disconnect_on_session_timeout is not None:
         out["disconnect_on_session_timeout"] = (
             child_disconnect_on_session_timeout.text or ""
         ).lower() == "true"
-    child_endpoint_ip_address_type = el.find("EndpointIpAddressType")
+    child_endpoint_ip_address_type = el.find("endpointIpAddressType")
     if child_endpoint_ip_address_type is not None:
         import capo_ec2.types.endpoint_ip_address_type
 
@@ -404,7 +404,7 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_endpoint_ip_address_type
             )
         )
-    child_traffic_ip_address_type = el.find("TrafficIpAddressType")
+    child_traffic_ip_address_type = el.find("trafficIpAddressType")
     if child_traffic_ip_address_type is not None:
         import capo_ec2.types.traffic_ip_address_type
 
@@ -413,7 +413,7 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_traffic_ip_address_type
             )
         )
-    child_transit_gateway_configuration = el.find("TransitGatewayConfiguration")
+    child_transit_gateway_configuration = el.find("transitGatewayConfiguration")
     if child_transit_gateway_configuration is not None:
         import capo_ec2.types.transit_gateway_configuration_describe_endpoint_structure
 

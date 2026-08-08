@@ -36,7 +36,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> ModifyVerifiedAccessInstanceLoggingConfigurationResult:
     out: ModifyVerifiedAccessInstanceLoggingConfigurationResult = {}  # type: ignore[typeddict-item]
-    child_logging_configuration = el.find("LoggingConfiguration")
+    child_logging_configuration = el.find("loggingConfiguration")
     if child_logging_configuration is not None:
         import capo_ec2.types.verified_access_instance_logging_configuration
 

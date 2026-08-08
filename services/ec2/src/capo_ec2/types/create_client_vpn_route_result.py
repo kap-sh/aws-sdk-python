@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateClientVpnRouteResult:
     out: CreateClientVpnRouteResult = {}  # type: ignore[typeddict-item]
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_vpn_route_status
 

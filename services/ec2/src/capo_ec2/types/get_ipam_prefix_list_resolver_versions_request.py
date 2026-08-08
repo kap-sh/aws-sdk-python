@@ -56,7 +56,7 @@ def serialize_ec2_query(
         capo_ec2.types.ipam_prefix_list_resolver_version_number_set.serialize_ec2_query(
             value["ipam_prefix_list_resolver_versions"],
             pairs,
-            f"{key_prefix}IpamPrefixListResolverVersions",
+            f"{key_prefix}IpamPrefixListResolverVersion",
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -64,7 +64,7 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -80,21 +80,21 @@ def deserialize_ec2_query(el: Element) -> GetIpamPrefixListResolverVersionsReque
         out["ipam_prefix_list_resolver_id"] = str(
             child_ipam_prefix_list_resolver_id.text or ""
         )
-    if el.find("IpamPrefixListResolverVersions") is not None:
+    if el.find("IpamPrefixListResolverVersion") is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_version_number_set
 
         out["ipam_prefix_list_resolver_versions"] = (
             capo_ec2.types.ipam_prefix_list_resolver_version_number_set.deserialize_ec2_query(
-                el, "IpamPrefixListResolverVersions"
+                el, "IpamPrefixListResolverVersion"
             )
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

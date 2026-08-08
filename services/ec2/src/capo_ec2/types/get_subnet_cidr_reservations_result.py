@@ -51,23 +51,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetSubnetCidrReservationsResult:
     out: GetSubnetCidrReservationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("SubnetIpv4CidrReservationSet") is not None:
+    if el.find("subnetIpv4CidrReservationSet") is not None:
         import capo_ec2.types.subnet_cidr_reservation_list
 
         out["subnet_ipv4_cidr_reservations"] = (
             capo_ec2.types.subnet_cidr_reservation_list.deserialize_ec2_query(
-                el, "SubnetIpv4CidrReservationSet"
+                el, "subnetIpv4CidrReservationSet"
             )
         )
-    if el.find("SubnetIpv6CidrReservationSet") is not None:
+    if el.find("subnetIpv6CidrReservationSet") is not None:
         import capo_ec2.types.subnet_cidr_reservation_list
 
         out["subnet_ipv6_cidr_reservations"] = (
             capo_ec2.types.subnet_cidr_reservation_list.deserialize_ec2_query(
-                el, "SubnetIpv6CidrReservationSet"
+                el, "subnetIpv6CidrReservationSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

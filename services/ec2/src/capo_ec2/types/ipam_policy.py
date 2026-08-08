@@ -69,33 +69,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPolicy:
     out: IpamPolicy = {}  # type: ignore[typeddict-item]
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_ipam_policy_id = el.find("IpamPolicyId")
+    child_ipam_policy_id = el.find("ipamPolicyId")
     if child_ipam_policy_id is not None:
         out["ipam_policy_id"] = str(child_ipam_policy_id.text or "")
-    child_ipam_policy_arn = el.find("IpamPolicyArn")
+    child_ipam_policy_arn = el.find("ipamPolicyArn")
     if child_ipam_policy_arn is not None:
         out["ipam_policy_arn"] = str(child_ipam_policy_arn.text or "")
-    child_ipam_policy_region = el.find("IpamPolicyRegion")
+    child_ipam_policy_region = el.find("ipamPolicyRegion")
     if child_ipam_policy_region is not None:
         out["ipam_policy_region"] = str(child_ipam_policy_region.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.ipam_policy_state
 
         out["state"] = capo_ec2.types.ipam_policy_state.deserialize_ec2_query(
             child_state
         )
-    child_state_message = el.find("StateMessage")
+    child_state_message = el.find("stateMessage")
     if child_state_message is not None:
         out["state_message"] = str(child_state_message.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_ipam_id = el.find("IpamId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_ipam_id = el.find("ipamId")
     if child_ipam_id is not None:
         out["ipam_id"] = str(child_ipam_id.text or "")
     return out

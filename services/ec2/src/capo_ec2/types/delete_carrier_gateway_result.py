@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteCarrierGatewayResult:
     out: DeleteCarrierGatewayResult = {}  # type: ignore[typeddict-item]
-    child_carrier_gateway = el.find("CarrierGateway")
+    child_carrier_gateway = el.find("carrierGateway")
     if child_carrier_gateway is not None:
         import capo_ec2.types.carrier_gateway
 

@@ -36,7 +36,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteVerifiedAccessTrustProviderResult:
     out: DeleteVerifiedAccessTrustProviderResult = {}  # type: ignore[typeddict-item]
-    child_verified_access_trust_provider = el.find("VerifiedAccessTrustProvider")
+    child_verified_access_trust_provider = el.find("verifiedAccessTrustProvider")
     if child_verified_access_trust_provider is not None:
         import capo_ec2.types.verified_access_trust_provider
 

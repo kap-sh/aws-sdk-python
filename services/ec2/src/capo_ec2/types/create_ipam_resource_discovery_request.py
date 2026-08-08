@@ -43,13 +43,13 @@ def serialize_ec2_query(
         import capo_ec2.types.add_ipam_operating_region_set
 
         capo_ec2.types.add_ipam_operating_region_set.serialize_ec2_query(
-            value["operating_regions"], pairs, f"{key_prefix}OperatingRegions"
+            value["operating_regions"], pairs, f"{key_prefix}OperatingRegion"
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -63,20 +63,20 @@ def deserialize_ec2_query(el: Element) -> CreateIpamResourceDiscoveryRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("OperatingRegions") is not None:
+    if el.find("OperatingRegion") is not None:
         import capo_ec2.types.add_ipam_operating_region_set
 
         out["operating_regions"] = (
             capo_ec2.types.add_ipam_operating_region_set.deserialize_ec2_query(
-                el, "OperatingRegions"
+                el, "OperatingRegion"
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_client_token = el.find("ClientToken")

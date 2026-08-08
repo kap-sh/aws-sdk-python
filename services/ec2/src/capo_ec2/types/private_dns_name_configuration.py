@@ -43,18 +43,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrivateDnsNameConfiguration:
     out: PrivateDnsNameConfiguration = {}  # type: ignore[typeddict-item]
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.dns_name_state
 
         out["state"] = capo_ec2.types.dns_name_state.deserialize_ec2_query(child_state)
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = str(child_value.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
     return out

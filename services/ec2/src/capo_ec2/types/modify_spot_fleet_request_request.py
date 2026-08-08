@@ -44,9 +44,7 @@ def serialize_ec2_query(
         import capo_ec2.types.launch_template_config_list
 
         capo_ec2.types.launch_template_config_list.serialize_ec2_query(
-            value["launch_template_configs"],
-            pairs,
-            f"{key_prefix}LaunchTemplateConfigs",
+            value["launch_template_configs"], pairs, f"{key_prefix}LaunchTemplateConfig"
         )
     if "on_demand_target_capacity" in value:
         pairs.append(
@@ -75,12 +73,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifySpotFleetRequestRequest:
     out: ModifySpotFleetRequestRequest = {}  # type: ignore[typeddict-item]
-    if el.find("LaunchTemplateConfigs") is not None:
+    if el.find("LaunchTemplateConfig") is not None:
         import capo_ec2.types.launch_template_config_list
 
         out["launch_template_configs"] = (
             capo_ec2.types.launch_template_config_list.deserialize_ec2_query(
-                el, "LaunchTemplateConfigs"
+                el, "LaunchTemplateConfig"
             )
         )
     child_on_demand_target_capacity = el.find("OnDemandTargetCapacity")
@@ -91,14 +89,14 @@ def deserialize_ec2_query(el: Element) -> ModifySpotFleetRequestRequest:
     child_context = el.find("Context")
     if child_context is not None:
         out["context"] = str(child_context.text or "")
-    child_spot_fleet_request_id = el.find("SpotFleetRequestId")
+    child_spot_fleet_request_id = el.find("spotFleetRequestId")
     if child_spot_fleet_request_id is not None:
         out["spot_fleet_request_id"] = str(child_spot_fleet_request_id.text or "")
-    child_target_capacity = el.find("TargetCapacity")
+    child_target_capacity = el.find("targetCapacity")
     if child_target_capacity is not None:
         out["target_capacity"] = int(child_target_capacity.text or "")
     child_excess_capacity_termination_policy = el.find(
-        "ExcessCapacityTerminationPolicy"
+        "excessCapacityTerminationPolicy"
     )
     if child_excess_capacity_termination_policy is not None:
         import capo_ec2.types.excess_capacity_termination_policy

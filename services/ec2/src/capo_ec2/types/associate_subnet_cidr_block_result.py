@@ -39,7 +39,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssociateSubnetCidrBlockResult:
     out: AssociateSubnetCidrBlockResult = {}  # type: ignore[typeddict-item]
-    child_ipv6_cidr_block_association = el.find("Ipv6CidrBlockAssociation")
+    child_ipv6_cidr_block_association = el.find("ipv6CidrBlockAssociation")
     if child_ipv6_cidr_block_association is not None:
         import capo_ec2.types.subnet_ipv6_cidr_block_association
 
@@ -48,7 +48,7 @@ def deserialize_ec2_query(el: Element) -> AssociateSubnetCidrBlockResult:
                 child_ipv6_cidr_block_association
             )
         )
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
     return out

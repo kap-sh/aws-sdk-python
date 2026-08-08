@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointConnectionNotificationResult:
     out: ModifyVpcEndpointConnectionNotificationResult = {}  # type: ignore[typeddict-item]
-    child_return_value = el.find("Return")
+    child_return_value = el.find("return")
     if child_return_value is not None:
         out["return_value"] = (child_return_value.text or "").lower() == "true"
     return out

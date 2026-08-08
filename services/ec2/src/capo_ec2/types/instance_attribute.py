@@ -178,15 +178,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceAttribute:
     out: InstanceAttribute = {}  # type: ignore[typeddict-item]
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.instance_block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.instance_block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
-    child_disable_api_termination = el.find("DisableApiTermination")
+    child_disable_api_termination = el.find("disableApiTermination")
     if child_disable_api_termination is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -195,7 +195,7 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_disable_api_termination
             )
         )
-    child_ena_support = el.find("EnaSupport")
+    child_ena_support = el.find("enaSupport")
     if child_ena_support is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -204,14 +204,14 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_ena_support
             )
         )
-    child_enclave_options = el.find("EnclaveOptions")
+    child_enclave_options = el.find("enclaveOptions")
     if child_enclave_options is not None:
         import capo_ec2.types.enclave_options
 
         out["enclave_options"] = capo_ec2.types.enclave_options.deserialize_ec2_query(
             child_enclave_options
         )
-    child_ebs_optimized = el.find("EbsOptimized")
+    child_ebs_optimized = el.find("ebsOptimized")
     if child_ebs_optimized is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -220,11 +220,11 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_ebs_optimized
             )
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
     child_instance_initiated_shutdown_behavior = el.find(
-        "InstanceInitiatedShutdownBehavior"
+        "instanceInitiatedShutdownBehavior"
     )
     if child_instance_initiated_shutdown_behavior is not None:
         import capo_ec2.types.attribute_value
@@ -234,41 +234,41 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_instance_initiated_shutdown_behavior
             )
         )
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.attribute_value
 
         out["instance_type"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_instance_type
         )
-    child_kernel_id = el.find("Kernel")
+    child_kernel_id = el.find("kernel")
     if child_kernel_id is not None:
         import capo_ec2.types.attribute_value
 
         out["kernel_id"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_kernel_id
         )
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    child_ramdisk_id = el.find("Ramdisk")
+    child_ramdisk_id = el.find("ramdisk")
     if child_ramdisk_id is not None:
         import capo_ec2.types.attribute_value
 
         out["ramdisk_id"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_ramdisk_id
         )
-    child_root_device_name = el.find("RootDeviceName")
+    child_root_device_name = el.find("rootDeviceName")
     if child_root_device_name is not None:
         import capo_ec2.types.attribute_value
 
         out["root_device_name"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_root_device_name
         )
-    child_source_dest_check = el.find("SourceDestCheck")
+    child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -277,21 +277,21 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_source_dest_check
             )
         )
-    child_sriov_net_support = el.find("SriovNetSupport")
+    child_sriov_net_support = el.find("sriovNetSupport")
     if child_sriov_net_support is not None:
         import capo_ec2.types.attribute_value
 
         out["sriov_net_support"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_sriov_net_support
         )
-    child_user_data = el.find("UserData")
+    child_user_data = el.find("userData")
     if child_user_data is not None:
         import capo_ec2.types.attribute_value
 
         out["user_data"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_user_data
         )
-    child_disable_api_stop = el.find("DisableApiStop")
+    child_disable_api_stop = el.find("disableApiStop")
     if child_disable_api_stop is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -300,10 +300,10 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_disable_api_stop
             )
         )
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "GroupSet"
+            el, "groupSet"
         )
     return out

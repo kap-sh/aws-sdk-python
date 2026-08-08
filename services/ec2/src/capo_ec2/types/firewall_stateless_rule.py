@@ -79,43 +79,43 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FirewallStatelessRule:
     out: FirewallStatelessRule = {}  # type: ignore[typeddict-item]
-    child_rule_group_arn = el.find("RuleGroupArn")
+    child_rule_group_arn = el.find("ruleGroupArn")
     if child_rule_group_arn is not None:
         out["rule_group_arn"] = str(child_rule_group_arn.text or "")
-    if el.find("SourceSet") is not None:
+    if el.find("sourceSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["sources"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SourceSet"
+            el, "sourceSet"
         )
-    if el.find("DestinationSet") is not None:
+    if el.find("destinationSet") is not None:
         import capo_ec2.types.value_string_list
 
         out["destinations"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "DestinationSet"
+            el, "destinationSet"
         )
-    if el.find("SourcePortSet") is not None:
+    if el.find("sourcePortSet") is not None:
         import capo_ec2.types.port_range_list
 
         out["source_ports"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "SourcePortSet"
+            el, "sourcePortSet"
         )
-    if el.find("DestinationPortSet") is not None:
+    if el.find("destinationPortSet") is not None:
         import capo_ec2.types.port_range_list
 
         out["destination_ports"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "DestinationPortSet"
+            el, "destinationPortSet"
         )
-    if el.find("ProtocolSet") is not None:
+    if el.find("protocolSet") is not None:
         import capo_ec2.types.protocol_int_list
 
         out["protocols"] = capo_ec2.types.protocol_int_list.deserialize_ec2_query(
-            el, "ProtocolSet"
+            el, "protocolSet"
         )
-    child_rule_action = el.find("RuleAction")
+    child_rule_action = el.find("ruleAction")
     if child_rule_action is not None:
         out["rule_action"] = str(child_rule_action.text or "")
-    child_priority = el.find("Priority")
+    child_priority = el.find("priority")
     if child_priority is not None:
         out["priority"] = int(child_priority.text or "")
     return out

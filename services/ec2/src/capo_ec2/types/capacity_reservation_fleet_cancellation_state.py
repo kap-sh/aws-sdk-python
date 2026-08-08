@@ -56,7 +56,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CapacityReservationFleetCancellationState:
     out: CapacityReservationFleetCancellationState = {}  # type: ignore[typeddict-item]
-    child_current_fleet_state = el.find("CurrentFleetState")
+    child_current_fleet_state = el.find("currentFleetState")
     if child_current_fleet_state is not None:
         import capo_ec2.types.capacity_reservation_fleet_state
 
@@ -65,7 +65,7 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationFleetCancellationSt
                 child_current_fleet_state
             )
         )
-    child_previous_fleet_state = el.find("PreviousFleetState")
+    child_previous_fleet_state = el.find("previousFleetState")
     if child_previous_fleet_state is not None:
         import capo_ec2.types.capacity_reservation_fleet_state
 
@@ -74,7 +74,7 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationFleetCancellationSt
                 child_previous_fleet_state
             )
         )
-    child_capacity_reservation_fleet_id = el.find("CapacityReservationFleetId")
+    child_capacity_reservation_fleet_id = el.find("capacityReservationFleetId")
     if child_capacity_reservation_fleet_id is not None:
         out["capacity_reservation_fleet_id"] = str(
             child_capacity_reservation_fleet_id.text or ""

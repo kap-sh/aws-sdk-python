@@ -45,7 +45,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LoadBalancersConfig:
     out: LoadBalancersConfig = {}  # type: ignore[typeddict-item]
-    child_classic_load_balancers_config = el.find("ClassicLoadBalancersConfig")
+    child_classic_load_balancers_config = el.find("classicLoadBalancersConfig")
     if child_classic_load_balancers_config is not None:
         import capo_ec2.types.classic_load_balancers_config
 
@@ -54,7 +54,7 @@ def deserialize_ec2_query(el: Element) -> LoadBalancersConfig:
                 child_classic_load_balancers_config
             )
         )
-    child_target_groups_config = el.find("TargetGroupsConfig")
+    child_target_groups_config = el.find("targetGroupsConfig")
     if child_target_groups_config is not None:
         import capo_ec2.types.target_groups_config
 

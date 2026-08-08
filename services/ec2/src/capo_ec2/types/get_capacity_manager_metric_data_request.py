@@ -51,7 +51,7 @@ def serialize_ec2_query(
         import capo_ec2.types.metric_set
 
         capo_ec2.types.metric_set.serialize_ec2_query(
-            value["metric_names"], pairs, f"{key_prefix}MetricNames"
+            value["metric_names"], pairs, f"{key_prefix}MetricName"
         )
     if "start_time" in value:
         import capo_ec2.types.millisecond_date_time
@@ -89,11 +89,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDataRequest:
     out: GetCapacityManagerMetricDataRequest = {}  # type: ignore[typeddict-item]
-    if el.find("MetricNames") is not None:
+    if el.find("MetricName") is not None:
         import capo_ec2.types.metric_set
 
         out["metric_names"] = capo_ec2.types.metric_set.deserialize_ec2_query(
-            el, "MetricNames"
+            el, "MetricName"
         )
     child_start_time = el.find("StartTime")
     if child_start_time is not None:

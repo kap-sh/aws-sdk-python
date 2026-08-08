@@ -140,7 +140,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> FlowLog:
     out: FlowLog = {}  # type: ignore[typeddict-item]
-    child_creation_time = el.find("CreationTime")
+    child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -149,44 +149,44 @@ def deserialize_ec2_query(el: Element) -> FlowLog:
                 child_creation_time
             )
         )
-    child_deliver_logs_error_message = el.find("DeliverLogsErrorMessage")
+    child_deliver_logs_error_message = el.find("deliverLogsErrorMessage")
     if child_deliver_logs_error_message is not None:
         out["deliver_logs_error_message"] = str(
             child_deliver_logs_error_message.text or ""
         )
-    child_deliver_logs_permission_arn = el.find("DeliverLogsPermissionArn")
+    child_deliver_logs_permission_arn = el.find("deliverLogsPermissionArn")
     if child_deliver_logs_permission_arn is not None:
         out["deliver_logs_permission_arn"] = str(
             child_deliver_logs_permission_arn.text or ""
         )
-    child_deliver_cross_account_role = el.find("DeliverCrossAccountRole")
+    child_deliver_cross_account_role = el.find("deliverCrossAccountRole")
     if child_deliver_cross_account_role is not None:
         out["deliver_cross_account_role"] = str(
             child_deliver_cross_account_role.text or ""
         )
-    child_deliver_logs_status = el.find("DeliverLogsStatus")
+    child_deliver_logs_status = el.find("deliverLogsStatus")
     if child_deliver_logs_status is not None:
         out["deliver_logs_status"] = str(child_deliver_logs_status.text or "")
-    child_flow_log_id = el.find("FlowLogId")
+    child_flow_log_id = el.find("flowLogId")
     if child_flow_log_id is not None:
         out["flow_log_id"] = str(child_flow_log_id.text or "")
-    child_flow_log_status = el.find("FlowLogStatus")
+    child_flow_log_status = el.find("flowLogStatus")
     if child_flow_log_status is not None:
         out["flow_log_status"] = str(child_flow_log_status.text or "")
-    child_log_group_name = el.find("LogGroupName")
+    child_log_group_name = el.find("logGroupName")
     if child_log_group_name is not None:
         out["log_group_name"] = str(child_log_group_name.text or "")
-    child_resource_id = el.find("ResourceId")
+    child_resource_id = el.find("resourceId")
     if child_resource_id is not None:
         out["resource_id"] = str(child_resource_id.text or "")
-    child_traffic_type = el.find("TrafficType")
+    child_traffic_type = el.find("trafficType")
     if child_traffic_type is not None:
         import capo_ec2.types.traffic_type
 
         out["traffic_type"] = capo_ec2.types.traffic_type.deserialize_ec2_query(
             child_traffic_type
         )
-    child_log_destination_type = el.find("LogDestinationType")
+    child_log_destination_type = el.find("logDestinationType")
     if child_log_destination_type is not None:
         import capo_ec2.types.log_destination_type
 
@@ -195,20 +195,20 @@ def deserialize_ec2_query(el: Element) -> FlowLog:
                 child_log_destination_type
             )
         )
-    child_log_destination = el.find("LogDestination")
+    child_log_destination = el.find("logDestination")
     if child_log_destination is not None:
         out["log_destination"] = str(child_log_destination.text or "")
-    child_log_format = el.find("LogFormat")
+    child_log_format = el.find("logFormat")
     if child_log_format is not None:
         out["log_format"] = str(child_log_format.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_max_aggregation_interval = el.find("MaxAggregationInterval")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_max_aggregation_interval = el.find("maxAggregationInterval")
     if child_max_aggregation_interval is not None:
         out["max_aggregation_interval"] = int(child_max_aggregation_interval.text or "")
-    child_destination_options = el.find("DestinationOptions")
+    child_destination_options = el.find("destinationOptions")
     if child_destination_options is not None:
         import capo_ec2.types.destination_options_response
 

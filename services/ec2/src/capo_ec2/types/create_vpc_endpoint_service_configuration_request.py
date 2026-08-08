@@ -66,7 +66,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["network_load_balancer_arns"],
             pairs,
-            f"{key_prefix}NetworkLoadBalancerArns",
+            f"{key_prefix}NetworkLoadBalancerArn",
         )
     if "gateway_load_balancer_arns" in value:
         import capo_ec2.types.value_string_list
@@ -74,7 +74,7 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["gateway_load_balancer_arns"],
             pairs,
-            f"{key_prefix}GatewayLoadBalancerArns",
+            f"{key_prefix}GatewayLoadBalancerArn",
         )
     if "supported_ip_address_types" in value:
         import capo_ec2.types.value_string_list
@@ -82,13 +82,13 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["supported_ip_address_types"],
             pairs,
-            f"{key_prefix}SupportedIpAddressTypes",
+            f"{key_prefix}SupportedIpAddressType",
         )
     if "supported_regions" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["supported_regions"], pairs, f"{key_prefix}SupportedRegions"
+            value["supported_regions"], pairs, f"{key_prefix}SupportedRegion"
         )
     if "client_token" in value:
         pairs.append((f"{key_prefix}ClientToken", str(value["client_token"])))
@@ -96,7 +96,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
 
 
@@ -113,47 +113,47 @@ def deserialize_ec2_query(el: Element) -> CreateVpcEndpointServiceConfigurationR
     child_private_dns_name = el.find("PrivateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    if el.find("NetworkLoadBalancerArns") is not None:
+    if el.find("NetworkLoadBalancerArn") is not None:
         import capo_ec2.types.value_string_list
 
         out["network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "NetworkLoadBalancerArns"
+                el, "NetworkLoadBalancerArn"
             )
         )
-    if el.find("GatewayLoadBalancerArns") is not None:
+    if el.find("GatewayLoadBalancerArn") is not None:
         import capo_ec2.types.value_string_list
 
         out["gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "GatewayLoadBalancerArns"
+                el, "GatewayLoadBalancerArn"
             )
         )
-    if el.find("SupportedIpAddressTypes") is not None:
+    if el.find("SupportedIpAddressType") is not None:
         import capo_ec2.types.value_string_list
 
         out["supported_ip_address_types"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SupportedIpAddressTypes"
+                el, "SupportedIpAddressType"
             )
         )
-    if el.find("SupportedRegions") is not None:
+    if el.find("SupportedRegion") is not None:
         import capo_ec2.types.value_string_list
 
         out["supported_regions"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SupportedRegions"
+                el, "SupportedRegion"
             )
         )
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     return out

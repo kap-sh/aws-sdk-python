@@ -53,13 +53,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPolicyDocument:
     out: IpamPolicyDocument = {}  # type: ignore[typeddict-item]
-    child_ipam_policy_id = el.find("IpamPolicyId")
+    child_ipam_policy_id = el.find("ipamPolicyId")
     if child_ipam_policy_id is not None:
         out["ipam_policy_id"] = str(child_ipam_policy_id.text or "")
-    child_locale = el.find("Locale")
+    child_locale = el.find("locale")
     if child_locale is not None:
         out["locale"] = str(child_locale.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.ipam_policy_resource_type
 
@@ -68,12 +68,12 @@ def deserialize_ec2_query(el: Element) -> IpamPolicyDocument:
                 child_resource_type
             )
         )
-    if el.find("AllocationRuleSet") is not None:
+    if el.find("allocationRuleSet") is not None:
         import capo_ec2.types.ipam_policy_allocation_rule_list
 
         out["allocation_rules"] = (
             capo_ec2.types.ipam_policy_allocation_rule_list.deserialize_ec2_query(
-                el, "AllocationRuleSet"
+                el, "allocationRuleSet"
             )
         )
     return out

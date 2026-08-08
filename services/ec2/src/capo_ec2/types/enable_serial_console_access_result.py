@@ -31,7 +31,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EnableSerialConsoleAccessResult:
     out: EnableSerialConsoleAccessResult = {}  # type: ignore[typeddict-item]
-    child_serial_console_access_enabled = el.find("SerialConsoleAccessEnabled")
+    child_serial_console_access_enabled = el.find("serialConsoleAccessEnabled")
     if child_serial_console_access_enabled is not None:
         out["serial_console_access_enabled"] = (
             child_serial_console_access_enabled.text or ""

@@ -91,14 +91,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MacModificationTask:
     out: MacModificationTask = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_mac_modification_task_id = el.find("MacModificationTaskId")
+    child_mac_modification_task_id = el.find("macModificationTaskId")
     if child_mac_modification_task_id is not None:
         out["mac_modification_task_id"] = str(child_mac_modification_task_id.text or "")
     child_mac_system_integrity_protection_config = el.find(
-        "MacSystemIntegrityProtectionConfig"
+        "macSystemIntegrityProtectionConfig"
     )
     if child_mac_system_integrity_protection_config is not None:
         import capo_ec2.types.mac_system_integrity_protection_configuration
@@ -108,18 +108,18 @@ def deserialize_ec2_query(el: Element) -> MacModificationTask:
                 child_mac_system_integrity_protection_config
             )
         )
-    child_start_time = el.find("StartTime")
+    child_start_time = el.find("startTime")
     if child_start_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["start_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_time
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_task_state = el.find("TaskState")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_task_state = el.find("taskState")
     if child_task_state is not None:
         import capo_ec2.types.mac_modification_task_state
 
@@ -128,7 +128,7 @@ def deserialize_ec2_query(el: Element) -> MacModificationTask:
                 child_task_state
             )
         )
-    child_task_type = el.find("TaskType")
+    child_task_type = el.find("taskType")
     if child_task_type is not None:
         import capo_ec2.types.mac_modification_task_type
 

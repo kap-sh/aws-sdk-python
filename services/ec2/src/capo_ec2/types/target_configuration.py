@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TargetConfiguration:
     out: TargetConfiguration = {}  # type: ignore[typeddict-item]
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    child_offering_id = el.find("OfferingId")
+    child_offering_id = el.find("offeringId")
     if child_offering_id is not None:
         out["offering_id"] = str(child_offering_id.text or "")
     return out

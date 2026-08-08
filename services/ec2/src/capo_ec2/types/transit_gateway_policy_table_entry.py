@@ -48,10 +48,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPolicyTableEntry:
     out: TransitGatewayPolicyTableEntry = {}  # type: ignore[typeddict-item]
-    child_policy_rule_number = el.find("PolicyRuleNumber")
+    child_policy_rule_number = el.find("policyRuleNumber")
     if child_policy_rule_number is not None:
         out["policy_rule_number"] = str(child_policy_rule_number.text or "")
-    child_policy_rule = el.find("PolicyRule")
+    child_policy_rule = el.find("policyRule")
     if child_policy_rule is not None:
         import capo_ec2.types.transit_gateway_policy_rule
 
@@ -60,7 +60,7 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPolicyTableEntry:
                 child_policy_rule
             )
         )
-    child_target_route_table_id = el.find("TargetRouteTableId")
+    child_target_route_table_id = el.find("targetRouteTableId")
     if child_target_route_table_id is not None:
         out["target_route_table_id"] = str(child_target_route_table_id.text or "")
     return out

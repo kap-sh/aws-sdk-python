@@ -142,56 +142,56 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageAttribute:
     out: ImageAttribute = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         import capo_ec2.types.attribute_value
 
         out["description"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_description
         )
-    child_kernel_id = el.find("Kernel")
+    child_kernel_id = el.find("kernel")
     if child_kernel_id is not None:
         import capo_ec2.types.attribute_value
 
         out["kernel_id"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_kernel_id
         )
-    child_ramdisk_id = el.find("Ramdisk")
+    child_ramdisk_id = el.find("ramdisk")
     if child_ramdisk_id is not None:
         import capo_ec2.types.attribute_value
 
         out["ramdisk_id"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_ramdisk_id
         )
-    child_sriov_net_support = el.find("SriovNetSupport")
+    child_sriov_net_support = el.find("sriovNetSupport")
     if child_sriov_net_support is not None:
         import capo_ec2.types.attribute_value
 
         out["sriov_net_support"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_sriov_net_support
         )
-    child_boot_mode = el.find("BootMode")
+    child_boot_mode = el.find("bootMode")
     if child_boot_mode is not None:
         import capo_ec2.types.attribute_value
 
         out["boot_mode"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_boot_mode
         )
-    child_tpm_support = el.find("TpmSupport")
+    child_tpm_support = el.find("tpmSupport")
     if child_tpm_support is not None:
         import capo_ec2.types.attribute_value
 
         out["tpm_support"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_tpm_support
         )
-    child_uefi_data = el.find("UefiData")
+    child_uefi_data = el.find("uefiData")
     if child_uefi_data is not None:
         import capo_ec2.types.attribute_value
 
         out["uefi_data"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_uefi_data
         )
-    child_last_launched_time = el.find("LastLaunchedTime")
+    child_last_launched_time = el.find("lastLaunchedTime")
     if child_last_launched_time is not None:
         import capo_ec2.types.attribute_value
 
@@ -200,14 +200,14 @@ def deserialize_ec2_query(el: Element) -> ImageAttribute:
                 child_last_launched_time
             )
         )
-    child_imds_support = el.find("ImdsSupport")
+    child_imds_support = el.find("imdsSupport")
     if child_imds_support is not None:
         import capo_ec2.types.attribute_value
 
         out["imds_support"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_imds_support
         )
-    child_deregistration_protection = el.find("DeregistrationProtection")
+    child_deregistration_protection = el.find("deregistrationProtection")
     if child_deregistration_protection is not None:
         import capo_ec2.types.attribute_value
 
@@ -216,29 +216,29 @@ def deserialize_ec2_query(el: Element) -> ImageAttribute:
                 child_deregistration_protection
             )
         )
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    if el.find("LaunchPermission") is not None:
+    if el.find("launchPermission") is not None:
         import capo_ec2.types.launch_permission_list
 
         out["launch_permissions"] = (
             capo_ec2.types.launch_permission_list.deserialize_ec2_query(
-                el, "LaunchPermission"
+                el, "launchPermission"
             )
         )
-    if el.find("ProductCodes") is not None:
+    if el.find("productCodes") is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "ProductCodes"
+            el, "productCodes"
         )
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
     return out

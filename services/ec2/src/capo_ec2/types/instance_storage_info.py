@@ -57,14 +57,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceStorageInfo:
     out: InstanceStorageInfo = {}  # type: ignore[typeddict-item]
-    child_total_size_in_gb = el.find("TotalSizeInGB")
+    child_total_size_in_gb = el.find("totalSizeInGB")
     if child_total_size_in_gb is not None:
         out["total_size_in_gb"] = int(child_total_size_in_gb.text or "")
-    if el.find("Disks") is not None:
+    if el.find("disks") is not None:
         import capo_ec2.types.disk_info_list
 
-        out["disks"] = capo_ec2.types.disk_info_list.deserialize_ec2_query(el, "Disks")
-    child_nvme_support = el.find("NvmeSupport")
+        out["disks"] = capo_ec2.types.disk_info_list.deserialize_ec2_query(el, "disks")
+    child_nvme_support = el.find("nvmeSupport")
     if child_nvme_support is not None:
         import capo_ec2.types.ephemeral_nvme_support
 
@@ -73,7 +73,7 @@ def deserialize_ec2_query(el: Element) -> InstanceStorageInfo:
                 child_nvme_support
             )
         )
-    child_encryption_support = el.find("EncryptionSupport")
+    child_encryption_support = el.find("encryptionSupport")
     if child_encryption_support is not None:
         import capo_ec2.types.instance_storage_encryption_support
 

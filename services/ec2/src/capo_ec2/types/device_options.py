@@ -32,10 +32,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeviceOptions:
     out: DeviceOptions = {}  # type: ignore[typeddict-item]
-    child_tenant_id = el.find("TenantId")
+    child_tenant_id = el.find("tenantId")
     if child_tenant_id is not None:
         out["tenant_id"] = str(child_tenant_id.text or "")
-    child_public_signing_key_url = el.find("PublicSigningKeyUrl")
+    child_public_signing_key_url = el.find("publicSigningKeyUrl")
     if child_public_signing_key_url is not None:
         out["public_signing_key_url"] = str(child_public_signing_key_url.text or "")
     return out

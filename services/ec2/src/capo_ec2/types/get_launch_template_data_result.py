@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetLaunchTemplateDataResult:
     out: GetLaunchTemplateDataResult = {}  # type: ignore[typeddict-item]
-    child_launch_template_data = el.find("LaunchTemplateData")
+    child_launch_template_data = el.find("launchTemplateData")
     if child_launch_template_data is not None:
         import capo_ec2.types.response_launch_template_data
 

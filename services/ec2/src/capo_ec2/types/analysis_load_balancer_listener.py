@@ -32,10 +32,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AnalysisLoadBalancerListener:
     out: AnalysisLoadBalancerListener = {}  # type: ignore[typeddict-item]
-    child_load_balancer_port = el.find("LoadBalancerPort")
+    child_load_balancer_port = el.find("loadBalancerPort")
     if child_load_balancer_port is not None:
         out["load_balancer_port"] = int(child_load_balancer_port.text or "")
-    child_instance_port = el.find("InstancePort")
+    child_instance_port = el.find("instancePort")
     if child_instance_port is not None:
         out["instance_port"] = int(child_instance_port.text or "")
     return out

@@ -228,77 +228,77 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NetworkInfo:
     out: NetworkInfo = {}  # type: ignore[typeddict-item]
-    child_network_performance = el.find("NetworkPerformance")
+    child_network_performance = el.find("networkPerformance")
     if child_network_performance is not None:
         out["network_performance"] = str(child_network_performance.text or "")
-    child_maximum_network_interfaces = el.find("MaximumNetworkInterfaces")
+    child_maximum_network_interfaces = el.find("maximumNetworkInterfaces")
     if child_maximum_network_interfaces is not None:
         out["maximum_network_interfaces"] = int(
             child_maximum_network_interfaces.text or ""
         )
-    child_maximum_network_cards = el.find("MaximumNetworkCards")
+    child_maximum_network_cards = el.find("maximumNetworkCards")
     if child_maximum_network_cards is not None:
         out["maximum_network_cards"] = int(child_maximum_network_cards.text or "")
-    child_default_network_card_index = el.find("DefaultNetworkCardIndex")
+    child_default_network_card_index = el.find("defaultNetworkCardIndex")
     if child_default_network_card_index is not None:
         out["default_network_card_index"] = int(
             child_default_network_card_index.text or ""
         )
-    if el.find("NetworkCards") is not None:
+    if el.find("networkCards") is not None:
         import capo_ec2.types.network_card_info_list
 
         out["network_cards"] = (
             capo_ec2.types.network_card_info_list.deserialize_ec2_query(
-                el, "NetworkCards"
+                el, "networkCards"
             )
         )
-    child_ipv4_addresses_per_interface = el.find("Ipv4AddressesPerInterface")
+    child_ipv4_addresses_per_interface = el.find("ipv4AddressesPerInterface")
     if child_ipv4_addresses_per_interface is not None:
         out["ipv4_addresses_per_interface"] = int(
             child_ipv4_addresses_per_interface.text or ""
         )
-    child_ipv6_addresses_per_interface = el.find("Ipv6AddressesPerInterface")
+    child_ipv6_addresses_per_interface = el.find("ipv6AddressesPerInterface")
     if child_ipv6_addresses_per_interface is not None:
         out["ipv6_addresses_per_interface"] = int(
             child_ipv6_addresses_per_interface.text or ""
         )
-    child_ipv6_supported = el.find("Ipv6Supported")
+    child_ipv6_supported = el.find("ipv6Supported")
     if child_ipv6_supported is not None:
         out["ipv6_supported"] = (child_ipv6_supported.text or "").lower() == "true"
-    child_ena_support = el.find("EnaSupport")
+    child_ena_support = el.find("enaSupport")
     if child_ena_support is not None:
         import capo_ec2.types.ena_support
 
         out["ena_support"] = capo_ec2.types.ena_support.deserialize_ec2_query(
             child_ena_support
         )
-    child_efa_supported = el.find("EfaSupported")
+    child_efa_supported = el.find("efaSupported")
     if child_efa_supported is not None:
         out["efa_supported"] = (child_efa_supported.text or "").lower() == "true"
-    child_efa_info = el.find("EfaInfo")
+    child_efa_info = el.find("efaInfo")
     if child_efa_info is not None:
         import capo_ec2.types.efa_info
 
         out["efa_info"] = capo_ec2.types.efa_info.deserialize_ec2_query(child_efa_info)
-    child_encryption_in_transit_supported = el.find("EncryptionInTransitSupported")
+    child_encryption_in_transit_supported = el.find("encryptionInTransitSupported")
     if child_encryption_in_transit_supported is not None:
         out["encryption_in_transit_supported"] = (
             child_encryption_in_transit_supported.text or ""
         ).lower() == "true"
-    child_ena_srd_supported = el.find("EnaSrdSupported")
+    child_ena_srd_supported = el.find("enaSrdSupported")
     if child_ena_srd_supported is not None:
         out["ena_srd_supported"] = (
             child_ena_srd_supported.text or ""
         ).lower() == "true"
-    if el.find("BandwidthWeightings") is not None:
+    if el.find("bandwidthWeightings") is not None:
         import capo_ec2.types.bandwidth_weighting_type_list
 
         out["bandwidth_weightings"] = (
             capo_ec2.types.bandwidth_weighting_type_list.deserialize_ec2_query(
-                el, "BandwidthWeightings"
+                el, "bandwidthWeightings"
             )
         )
-    child_flexible_ena_queues_support = el.find("FlexibleEnaQueuesSupport")
+    child_flexible_ena_queues_support = el.find("flexibleEnaQueuesSupport")
     if child_flexible_ena_queues_support is not None:
         import capo_ec2.types.flexible_ena_queues_support
 
@@ -307,7 +307,7 @@ def deserialize_ec2_query(el: Element) -> NetworkInfo:
                 child_flexible_ena_queues_support
             )
         )
-    child_connection_tracking_configuration = el.find("ConnectionTrackingConfiguration")
+    child_connection_tracking_configuration = el.find("connectionTrackingConfiguration")
     if child_connection_tracking_configuration is not None:
         import capo_ec2.types.default_connection_tracking_configuration
 
@@ -316,20 +316,20 @@ def deserialize_ec2_query(el: Element) -> NetworkInfo:
                 child_connection_tracking_configuration
             )
         )
-    child_secondary_network_supported = el.find("SecondaryNetworkSupported")
+    child_secondary_network_supported = el.find("secondaryNetworkSupported")
     if child_secondary_network_supported is not None:
         out["secondary_network_supported"] = (
             child_secondary_network_supported.text or ""
         ).lower() == "true"
     child_maximum_secondary_network_interfaces = el.find(
-        "MaximumSecondaryNetworkInterfaces"
+        "maximumSecondaryNetworkInterfaces"
     )
     if child_maximum_secondary_network_interfaces is not None:
         out["maximum_secondary_network_interfaces"] = int(
             child_maximum_secondary_network_interfaces.text or ""
         )
     child_ipv4_addresses_per_secondary_interface = el.find(
-        "Ipv4AddressesPerSecondaryInterface"
+        "ipv4AddressesPerSecondaryInterface"
     )
     if child_ipv4_addresses_per_secondary_interface is not None:
         out["ipv4_addresses_per_secondary_interface"] = int(

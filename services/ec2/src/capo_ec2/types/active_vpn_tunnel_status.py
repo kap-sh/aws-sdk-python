@@ -91,36 +91,36 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ActiveVpnTunnelStatus:
     out: ActiveVpnTunnelStatus = {}  # type: ignore[typeddict-item]
-    child_phase1_encryption_algorithm = el.find("Phase1EncryptionAlgorithm")
+    child_phase1_encryption_algorithm = el.find("phase1EncryptionAlgorithm")
     if child_phase1_encryption_algorithm is not None:
         out["phase1_encryption_algorithm"] = str(
             child_phase1_encryption_algorithm.text or ""
         )
-    child_phase2_encryption_algorithm = el.find("Phase2EncryptionAlgorithm")
+    child_phase2_encryption_algorithm = el.find("phase2EncryptionAlgorithm")
     if child_phase2_encryption_algorithm is not None:
         out["phase2_encryption_algorithm"] = str(
             child_phase2_encryption_algorithm.text or ""
         )
-    child_phase1_integrity_algorithm = el.find("Phase1IntegrityAlgorithm")
+    child_phase1_integrity_algorithm = el.find("phase1IntegrityAlgorithm")
     if child_phase1_integrity_algorithm is not None:
         out["phase1_integrity_algorithm"] = str(
             child_phase1_integrity_algorithm.text or ""
         )
-    child_phase2_integrity_algorithm = el.find("Phase2IntegrityAlgorithm")
+    child_phase2_integrity_algorithm = el.find("phase2IntegrityAlgorithm")
     if child_phase2_integrity_algorithm is not None:
         out["phase2_integrity_algorithm"] = str(
             child_phase2_integrity_algorithm.text or ""
         )
-    child_phase1_dh_group = el.find("Phase1DHGroup")
+    child_phase1_dh_group = el.find("phase1DHGroup")
     if child_phase1_dh_group is not None:
         out["phase1_dh_group"] = int(child_phase1_dh_group.text or "")
-    child_phase2_dh_group = el.find("Phase2DHGroup")
+    child_phase2_dh_group = el.find("phase2DHGroup")
     if child_phase2_dh_group is not None:
         out["phase2_dh_group"] = int(child_phase2_dh_group.text or "")
-    child_ike_version = el.find("IkeVersion")
+    child_ike_version = el.find("ikeVersion")
     if child_ike_version is not None:
         out["ike_version"] = str(child_ike_version.text or "")
-    child_provisioning_status = el.find("ProvisioningStatus")
+    child_provisioning_status = el.find("provisioningStatus")
     if child_provisioning_status is not None:
         import capo_ec2.types.vpn_tunnel_provisioning_status
 
@@ -129,7 +129,7 @@ def deserialize_ec2_query(el: Element) -> ActiveVpnTunnelStatus:
                 child_provisioning_status
             )
         )
-    child_provisioning_status_reason = el.find("ProvisioningStatusReason")
+    child_provisioning_status_reason = el.find("provisioningStatusReason")
     if child_provisioning_status_reason is not None:
         out["provisioning_status_reason"] = str(
             child_provisioning_status_reason.text or ""

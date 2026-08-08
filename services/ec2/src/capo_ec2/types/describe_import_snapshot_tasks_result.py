@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeImportSnapshotTasksResult:
     out: DescribeImportSnapshotTasksResult = {}  # type: ignore[typeddict-item]
-    if el.find("ImportSnapshotTaskSet") is not None:
+    if el.find("importSnapshotTaskSet") is not None:
         import capo_ec2.types.import_snapshot_task_list
 
         out["import_snapshot_tasks"] = (
             capo_ec2.types.import_snapshot_task_list.deserialize_ec2_query(
-                el, "ImportSnapshotTaskSet"
+                el, "importSnapshotTaskSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

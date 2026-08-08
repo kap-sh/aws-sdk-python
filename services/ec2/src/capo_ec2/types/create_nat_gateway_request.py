@@ -85,13 +85,13 @@ def serialize_ec2_query(
         capo_ec2.types.availability_zone_addresses.serialize_ec2_query(
             value["availability_zone_addresses"],
             pairs,
-            f"{key_prefix}AvailabilityZoneAddresses",
+            f"{key_prefix}AvailabilityZoneAddress",
         )
     if "tag_specifications" in value:
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "connectivity_type" in value:
         import capo_ec2.types.connectivity_type
@@ -109,7 +109,7 @@ def serialize_ec2_query(
         capo_ec2.types.allocation_id_list.serialize_ec2_query(
             value["secondary_allocation_ids"],
             pairs,
-            f"{key_prefix}SecondaryAllocationIds",
+            f"{key_prefix}SecondaryAllocationId",
         )
     if "secondary_private_ip_addresses" in value:
         import capo_ec2.types.ip_list
@@ -117,7 +117,7 @@ def serialize_ec2_query(
         capo_ec2.types.ip_list.serialize_ec2_query(
             value["secondary_private_ip_addresses"],
             pairs,
-            f"{key_prefix}SecondaryPrivateIpAddresses",
+            f"{key_prefix}SecondaryPrivateIpAddress",
         )
     if "secondary_private_ip_address_count" in value:
         pairs.append(
@@ -154,20 +154,20 @@ def deserialize_ec2_query(el: Element) -> CreateNatGatewayRequest:
     child_vpc_id = el.find("VpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("AvailabilityZoneAddresses") is not None:
+    if el.find("AvailabilityZoneAddress") is not None:
         import capo_ec2.types.availability_zone_addresses
 
         out["availability_zone_addresses"] = (
             capo_ec2.types.availability_zone_addresses.deserialize_ec2_query(
-                el, "AvailabilityZoneAddresses"
+                el, "AvailabilityZoneAddress"
             )
         )
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_connectivity_type = el.find("ConnectivityType")
@@ -182,20 +182,20 @@ def deserialize_ec2_query(el: Element) -> CreateNatGatewayRequest:
     child_private_ip_address = el.find("PrivateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("SecondaryAllocationIds") is not None:
+    if el.find("SecondaryAllocationId") is not None:
         import capo_ec2.types.allocation_id_list
 
         out["secondary_allocation_ids"] = (
             capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-                el, "SecondaryAllocationIds"
+                el, "SecondaryAllocationId"
             )
         )
-    if el.find("SecondaryPrivateIpAddresses") is not None:
+    if el.find("SecondaryPrivateIpAddress") is not None:
         import capo_ec2.types.ip_list
 
         out["secondary_private_ip_addresses"] = (
             capo_ec2.types.ip_list.deserialize_ec2_query(
-                el, "SecondaryPrivateIpAddresses"
+                el, "SecondaryPrivateIpAddress"
             )
         )
     child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")

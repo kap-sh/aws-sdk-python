@@ -113,7 +113,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AvailabilityZone:
     out: AvailabilityZone = {}  # type: ignore[typeddict-item]
-    child_opt_in_status = el.find("OptInStatus")
+    child_opt_in_status = el.find("optInStatus")
     if child_opt_in_status is not None:
         import capo_ec2.types.availability_zone_opt_in_status
 
@@ -122,58 +122,58 @@ def deserialize_ec2_query(el: Element) -> AvailabilityZone:
                 child_opt_in_status
             )
         )
-    if el.find("MessageSet") is not None:
+    if el.find("messageSet") is not None:
         import capo_ec2.types.availability_zone_message_list
 
         out["messages"] = (
             capo_ec2.types.availability_zone_message_list.deserialize_ec2_query(
-                el, "MessageSet"
+                el, "messageSet"
             )
         )
-    child_region_name = el.find("RegionName")
+    child_region_name = el.find("regionName")
     if child_region_name is not None:
         out["region_name"] = str(child_region_name.text or "")
-    child_zone_name = el.find("ZoneName")
+    child_zone_name = el.find("zoneName")
     if child_zone_name is not None:
         out["zone_name"] = str(child_zone_name.text or "")
-    child_zone_id = el.find("ZoneId")
+    child_zone_id = el.find("zoneId")
     if child_zone_id is not None:
         out["zone_id"] = str(child_zone_id.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    child_network_border_group = el.find("NetworkBorderGroup")
+    child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    child_zone_type = el.find("ZoneType")
+    child_zone_type = el.find("zoneType")
     if child_zone_type is not None:
         out["zone_type"] = str(child_zone_type.text or "")
-    child_parent_zone_name = el.find("ParentZoneName")
+    child_parent_zone_name = el.find("parentZoneName")
     if child_parent_zone_name is not None:
         out["parent_zone_name"] = str(child_parent_zone_name.text or "")
-    child_parent_zone_id = el.find("ParentZoneId")
+    child_parent_zone_id = el.find("parentZoneId")
     if child_parent_zone_id is not None:
         out["parent_zone_id"] = str(child_parent_zone_id.text or "")
-    child_group_long_name = el.find("GroupLongName")
+    child_group_long_name = el.find("groupLongName")
     if child_group_long_name is not None:
         out["group_long_name"] = str(child_group_long_name.text or "")
-    if el.find("GeographySet") is not None:
+    if el.find("geographySet") is not None:
         import capo_ec2.types.availability_zone_geography_list
 
         out["geography"] = (
             capo_ec2.types.availability_zone_geography_list.deserialize_ec2_query(
-                el, "GeographySet"
+                el, "geographySet"
             )
         )
-    if el.find("SubGeographySet") is not None:
+    if el.find("subGeographySet") is not None:
         import capo_ec2.types.availability_zone_sub_geography_list
 
         out["sub_geography"] = (
             capo_ec2.types.availability_zone_sub_geography_list.deserialize_ec2_query(
-                el, "SubGeographySet"
+                el, "subGeographySet"
             )
         )
-    child_state = el.find("ZoneState")
+    child_state = el.find("zoneState")
     if child_state is not None:
         import capo_ec2.types.availability_zone_state
 

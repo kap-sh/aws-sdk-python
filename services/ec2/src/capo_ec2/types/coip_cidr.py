@@ -40,13 +40,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CoipCidr:
     out: CoipCidr = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_coip_pool_id = el.find("CoipPoolId")
+    child_coip_pool_id = el.find("coipPoolId")
     if child_coip_pool_id is not None:
         out["coip_pool_id"] = str(child_coip_pool_id.text or "")
-    child_local_gateway_route_table_id = el.find("LocalGatewayRouteTableId")
+    child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")
     if child_local_gateway_route_table_id is not None:
         out["local_gateway_route_table_id"] = str(
             child_local_gateway_route_table_id.text or ""

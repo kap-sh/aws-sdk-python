@@ -38,13 +38,13 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
     if "subnet_ids" in value:
         import capo_ec2.types.subnet_id_string_list
 
         capo_ec2.types.subnet_id_string_list.serialize_ec2_query(
-            value["subnet_ids"], pairs, f"{key_prefix}SubnetIds"
+            value["subnet_ids"], pairs, f"{key_prefix}SubnetId"
         )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
@@ -56,15 +56,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSubnetsRequest:
     out: DescribeSubnetsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
-    if el.find("SubnetIds") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+    if el.find("SubnetId") is not None:
         import capo_ec2.types.subnet_id_string_list
 
         out["subnet_ids"] = capo_ec2.types.subnet_id_string_list.deserialize_ec2_query(
-            el, "SubnetIds"
+            el, "SubnetId"
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
@@ -72,7 +72,7 @@ def deserialize_ec2_query(el: Element) -> DescribeSubnetsRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

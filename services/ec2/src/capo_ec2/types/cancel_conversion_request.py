@@ -40,13 +40,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelConversionRequest:
     out: CancelConversionRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_conversion_task_id = el.find("ConversionTaskId")
+    child_conversion_task_id = el.find("conversionTaskId")
     if child_conversion_task_id is not None:
         out["conversion_task_id"] = str(child_conversion_task_id.text or "")
-    child_reason_message = el.find("ReasonMessage")
+    child_reason_message = el.find("reasonMessage")
     if child_reason_message is not None:
         out["reason_message"] = str(child_reason_message.text or "")
     return out

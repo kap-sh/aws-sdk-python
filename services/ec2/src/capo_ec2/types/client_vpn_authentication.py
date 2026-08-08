@@ -67,7 +67,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientVpnAuthentication:
     out: ClientVpnAuthentication = {}  # type: ignore[typeddict-item]
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.client_vpn_authentication_type
 
@@ -76,7 +76,7 @@ def deserialize_ec2_query(el: Element) -> ClientVpnAuthentication:
                 child_type
             )
         )
-    child_active_directory = el.find("ActiveDirectory")
+    child_active_directory = el.find("activeDirectory")
     if child_active_directory is not None:
         import capo_ec2.types.directory_service_authentication
 
@@ -85,7 +85,7 @@ def deserialize_ec2_query(el: Element) -> ClientVpnAuthentication:
                 child_active_directory
             )
         )
-    child_mutual_authentication = el.find("MutualAuthentication")
+    child_mutual_authentication = el.find("mutualAuthentication")
     if child_mutual_authentication is not None:
         import capo_ec2.types.certificate_authentication
 
@@ -94,7 +94,7 @@ def deserialize_ec2_query(el: Element) -> ClientVpnAuthentication:
                 child_mutual_authentication
             )
         )
-    child_federated_authentication = el.find("FederatedAuthentication")
+    child_federated_authentication = el.find("federatedAuthentication")
     if child_federated_authentication is not None:
         import capo_ec2.types.federated_authentication
 

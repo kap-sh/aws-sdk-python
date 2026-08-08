@@ -37,7 +37,7 @@ def serialize_ec2_query(
         import capo_ec2.types.placement_group_id_string_list
 
         capo_ec2.types.placement_group_id_string_list.serialize_ec2_query(
-            value["group_ids"], pairs, f"{key_prefix}GroupIds"
+            value["group_ids"], pairs, f"{key_prefix}GroupId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -51,33 +51,33 @@ def serialize_ec2_query(
         import capo_ec2.types.filter_list
 
         capo_ec2.types.filter_list.serialize_ec2_query(
-            value["filters"], pairs, f"{key_prefix}Filters"
+            value["filters"], pairs, f"{key_prefix}Filter"
         )
 
 
 def deserialize_ec2_query(el: Element) -> DescribePlacementGroupsRequest:
     out: DescribePlacementGroupsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("GroupIds") is not None:
+    if el.find("GroupId") is not None:
         import capo_ec2.types.placement_group_id_string_list
 
         out["group_ids"] = (
             capo_ec2.types.placement_group_id_string_list.deserialize_ec2_query(
-                el, "GroupIds"
+                el, "GroupId"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("GroupName") is not None:
+    if el.find("groupName") is not None:
         import capo_ec2.types.placement_group_string_list
 
         out["group_names"] = (
             capo_ec2.types.placement_group_string_list.deserialize_ec2_query(
-                el, "GroupName"
+                el, "groupName"
             )
         )
-    if el.find("Filters") is not None:
+    if el.find("Filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filters")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
     return out

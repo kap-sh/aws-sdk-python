@@ -43,7 +43,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetSnapshotBlockPublicAccessStateResult:
     out: GetSnapshotBlockPublicAccessStateResult = {}  # type: ignore[typeddict-item]
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.snapshot_block_public_access_state
 
@@ -52,7 +52,7 @@ def deserialize_ec2_query(el: Element) -> GetSnapshotBlockPublicAccessStateResul
                 child_state
             )
         )
-    child_managed_by = el.find("ManagedBy")
+    child_managed_by = el.find("managedBy")
     if child_managed_by is not None:
         import capo_ec2.types.managed_by
 

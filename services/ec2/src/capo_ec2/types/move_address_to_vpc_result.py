@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MoveAddressToVpcResult:
     out: MoveAddressToVpcResult = {}  # type: ignore[typeddict-item]
-    child_allocation_id = el.find("AllocationId")
+    child_allocation_id = el.find("allocationId")
     if child_allocation_id is not None:
         out["allocation_id"] = str(child_allocation_id.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.status
 

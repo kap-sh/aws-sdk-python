@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ServiceTypeDetail:
     out: ServiceTypeDetail = {}  # type: ignore[typeddict-item]
-    child_service_type = el.find("ServiceType")
+    child_service_type = el.find("serviceType")
     if child_service_type is not None:
         import capo_ec2.types.service_type
 

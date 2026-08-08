@@ -34,13 +34,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PtrUpdateStatus:
     out: PtrUpdateStatus = {}  # type: ignore[typeddict-item]
-    child_value = el.find("Value")
+    child_value = el.find("value")
     if child_value is not None:
         out["value"] = str(child_value.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
-    child_reason = el.find("Reason")
+    child_reason = el.find("reason")
     if child_reason is not None:
         out["reason"] = str(child_reason.text or "")
     return out

@@ -81,37 +81,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RevokedSecurityGroupRule:
     out: RevokedSecurityGroupRule = {}  # type: ignore[typeddict-item]
-    child_security_group_rule_id = el.find("SecurityGroupRuleId")
+    child_security_group_rule_id = el.find("securityGroupRuleId")
     if child_security_group_rule_id is not None:
         out["security_group_rule_id"] = str(child_security_group_rule_id.text or "")
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    child_is_egress = el.find("IsEgress")
+    child_is_egress = el.find("isEgress")
     if child_is_egress is not None:
         out["is_egress"] = (child_is_egress.text or "").lower() == "true"
-    child_ip_protocol = el.find("IpProtocol")
+    child_ip_protocol = el.find("ipProtocol")
     if child_ip_protocol is not None:
         out["ip_protocol"] = str(child_ip_protocol.text or "")
-    child_from_port = el.find("FromPort")
+    child_from_port = el.find("fromPort")
     if child_from_port is not None:
         out["from_port"] = int(child_from_port.text or "")
-    child_to_port = el.find("ToPort")
+    child_to_port = el.find("toPort")
     if child_to_port is not None:
         out["to_port"] = int(child_to_port.text or "")
-    child_cidr_ipv4 = el.find("CidrIpv4")
+    child_cidr_ipv4 = el.find("cidrIpv4")
     if child_cidr_ipv4 is not None:
         out["cidr_ipv4"] = str(child_cidr_ipv4.text or "")
-    child_cidr_ipv6 = el.find("CidrIpv6")
+    child_cidr_ipv6 = el.find("cidrIpv6")
     if child_cidr_ipv6 is not None:
         out["cidr_ipv6"] = str(child_cidr_ipv6.text or "")
-    child_prefix_list_id = el.find("PrefixListId")
+    child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:
         out["prefix_list_id"] = str(child_prefix_list_id.text or "")
-    child_referenced_group_id = el.find("ReferencedGroupId")
+    child_referenced_group_id = el.find("referencedGroupId")
     if child_referenced_group_id is not None:
         out["referenced_group_id"] = str(child_referenced_group_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
     return out

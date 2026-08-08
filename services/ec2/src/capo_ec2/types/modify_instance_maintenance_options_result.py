@@ -50,10 +50,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceMaintenanceOptionsResult:
     out: ModifyInstanceMaintenanceOptionsResult = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_auto_recovery = el.find("AutoRecovery")
+    child_auto_recovery = el.find("autoRecovery")
     if child_auto_recovery is not None:
         import capo_ec2.types.instance_auto_recovery_state
 
@@ -62,7 +62,7 @@ def deserialize_ec2_query(el: Element) -> ModifyInstanceMaintenanceOptionsResult
                 child_auto_recovery
             )
         )
-    child_reboot_migration = el.find("RebootMigration")
+    child_reboot_migration = el.find("rebootMigration")
     if child_reboot_migration is not None:
         import capo_ec2.types.instance_reboot_migration_state
 

@@ -48,20 +48,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LocalGateway:
     out: LocalGateway = {}  # type: ignore[typeddict-item]
-    child_local_gateway_id = el.find("LocalGatewayId")
+    child_local_gateway_id = el.find("localGatewayId")
     if child_local_gateway_id is not None:
         out["local_gateway_id"] = str(child_local_gateway_id.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

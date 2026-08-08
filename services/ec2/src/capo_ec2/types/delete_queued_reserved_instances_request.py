@@ -33,7 +33,7 @@ def serialize_ec2_query(
         import capo_ec2.types.delete_queued_reserved_instances_id_list
 
         capo_ec2.types.delete_queued_reserved_instances_id_list.serialize_ec2_query(
-            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesIds"
+            value["reserved_instances_ids"], pairs, f"{key_prefix}ReservedInstancesId"
         )
 
 
@@ -42,12 +42,12 @@ def deserialize_ec2_query(el: Element) -> DeleteQueuedReservedInstancesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ReservedInstancesIds") is not None:
+    if el.find("ReservedInstancesId") is not None:
         import capo_ec2.types.delete_queued_reserved_instances_id_list
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.delete_queued_reserved_instances_id_list.deserialize_ec2_query(
-                el, "ReservedInstancesIds"
+                el, "ReservedInstancesId"
             )
         )
     return out

@@ -40,15 +40,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAggregateIdFormatResult:
     out: DescribeAggregateIdFormatResult = {}  # type: ignore[typeddict-item]
-    child_use_long_ids_aggregated = el.find("UseLongIdsAggregated")
+    child_use_long_ids_aggregated = el.find("useLongIdsAggregated")
     if child_use_long_ids_aggregated is not None:
         out["use_long_ids_aggregated"] = (
             child_use_long_ids_aggregated.text or ""
         ).lower() == "true"
-    if el.find("StatusSet") is not None:
+    if el.find("statusSet") is not None:
         import capo_ec2.types.id_format_list
 
         out["statuses"] = capo_ec2.types.id_format_list.deserialize_ec2_query(
-            el, "StatusSet"
+            el, "statusSet"
         )
     return out

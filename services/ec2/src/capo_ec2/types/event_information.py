@@ -34,13 +34,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EventInformation:
     out: EventInformation = {}  # type: ignore[typeddict-item]
-    child_event_description = el.find("EventDescription")
+    child_event_description = el.find("eventDescription")
     if child_event_description is not None:
         out["event_description"] = str(child_event_description.text or "")
-    child_event_sub_type = el.find("EventSubType")
+    child_event_sub_type = el.find("eventSubType")
     if child_event_sub_type is not None:
         out["event_sub_type"] = str(child_event_sub_type.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
     return out

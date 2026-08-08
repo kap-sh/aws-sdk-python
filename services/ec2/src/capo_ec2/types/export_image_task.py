@@ -68,19 +68,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ExportImageTask:
     out: ExportImageTask = {}  # type: ignore[typeddict-item]
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_export_image_task_id = el.find("ExportImageTaskId")
+    child_export_image_task_id = el.find("exportImageTaskId")
     if child_export_image_task_id is not None:
         out["export_image_task_id"] = str(child_export_image_task_id.text or "")
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_progress = el.find("Progress")
+    child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = str(child_progress.text or "")
-    child_s3_export_location = el.find("S3ExportLocation")
+    child_s3_export_location = el.find("s3ExportLocation")
     if child_s3_export_location is not None:
         import capo_ec2.types.export_task_s3_location
 
@@ -89,14 +89,14 @@ def deserialize_ec2_query(el: Element) -> ExportImageTask:
                 child_s3_export_location
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
     return out

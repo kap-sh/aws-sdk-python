@@ -114,7 +114,7 @@ def serialize_ec2_query(
         import capo_ec2.types.client_vpn_authentication_request_list
 
         capo_ec2.types.client_vpn_authentication_request_list.serialize_ec2_query(
-            value["authentication_options"], pairs, f"{key_prefix}AuthenticationOptions"
+            value["authentication_options"], pairs, f"{key_prefix}Authentication"
         )
     if "connection_log_options" in value:
         import capo_ec2.types.connection_log_options
@@ -150,13 +150,13 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "security_group_ids" in value:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         capo_ec2.types.client_vpn_security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "vpc_id" in value:
         pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
@@ -231,12 +231,12 @@ def deserialize_ec2_query(el: Element) -> CreateClientVpnEndpointRequest:
     child_server_certificate_arn = el.find("ServerCertificateArn")
     if child_server_certificate_arn is not None:
         out["server_certificate_arn"] = str(child_server_certificate_arn.text or "")
-    if el.find("AuthenticationOptions") is not None:
+    if el.find("Authentication") is not None:
         import capo_ec2.types.client_vpn_authentication_request_list
 
         out["authentication_options"] = (
             capo_ec2.types.client_vpn_authentication_request_list.deserialize_ec2_query(
-                el, "AuthenticationOptions"
+                el, "Authentication"
             )
         )
     child_connection_log_options = el.find("ConnectionLogOptions")
@@ -278,20 +278,20 @@ def deserialize_ec2_query(el: Element) -> CreateClientVpnEndpointRequest:
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
     child_vpc_id = el.find("VpcId")

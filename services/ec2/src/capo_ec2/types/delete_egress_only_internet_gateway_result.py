@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteEgressOnlyInternetGatewayResult:
     out: DeleteEgressOnlyInternetGatewayResult = {}  # type: ignore[typeddict-item]
-    child_return_code = el.find("ReturnCode")
+    child_return_code = el.find("returnCode")
     if child_return_code is not None:
         out["return_code"] = (child_return_code.text or "").lower() == "true"
     return out

@@ -41,7 +41,7 @@ def deserialize_ec2_query(el: Element) -> GetConsoleOutputRequest:
     child_latest = el.find("Latest")
     if child_latest is not None:
         out["latest"] = (child_latest.text or "").lower() == "true"
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

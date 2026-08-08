@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VolumeDetail:
     out: VolumeDetail = {}  # type: ignore[typeddict-item]
-    child_size = el.find("Size")
+    child_size = el.find("size")
     if child_size is not None:
         out["size"] = int(child_size.text or "")
     return out

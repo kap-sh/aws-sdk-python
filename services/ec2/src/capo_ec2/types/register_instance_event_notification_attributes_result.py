@@ -36,7 +36,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> RegisterInstanceEventNotificationAttributesResult:
     out: RegisterInstanceEventNotificationAttributesResult = {}  # type: ignore[typeddict-item]
-    child_instance_tag_attribute = el.find("InstanceTagAttribute")
+    child_instance_tag_attribute = el.find("instanceTagAttribute")
     if child_instance_tag_attribute is not None:
         import capo_ec2.types.instance_tag_notification_attribute
 

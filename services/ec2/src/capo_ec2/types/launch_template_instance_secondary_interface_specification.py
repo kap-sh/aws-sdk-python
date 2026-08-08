@@ -86,29 +86,29 @@ def deserialize_ec2_query(
     el: Element,
 ) -> LaunchTemplateInstanceSecondaryInterfaceSpecification:
     out: LaunchTemplateInstanceSecondaryInterfaceSpecification = {}  # type: ignore[typeddict-item]
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_device_index = el.find("DeviceIndex")
+    child_device_index = el.find("deviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    if el.find("PrivateIpAddressesSet") is not None:
+    if el.find("privateIpAddressesSet") is not None:
         import capo_ec2.types.secondary_interface_private_ip_address_specification_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.secondary_interface_private_ip_address_specification_list.deserialize_ec2_query(
-                el, "PrivateIpAddressesSet"
+                el, "privateIpAddressesSet"
             )
         )
-    child_private_ip_address_count = el.find("PrivateIpAddressCount")
+    child_private_ip_address_count = el.find("privateIpAddressCount")
     if child_private_ip_address_count is not None:
         out["private_ip_address_count"] = int(child_private_ip_address_count.text or "")
-    child_secondary_subnet_id = el.find("SecondarySubnetId")
+    child_secondary_subnet_id = el.find("secondarySubnetId")
     if child_secondary_subnet_id is not None:
         out["secondary_subnet_id"] = str(child_secondary_subnet_id.text or "")
-    child_interface_type = el.find("InterfaceType")
+    child_interface_type = el.find("interfaceType")
     if child_interface_type is not None:
         import capo_ec2.types.secondary_interface_type
 
@@ -117,7 +117,7 @@ def deserialize_ec2_query(
                 child_interface_type
             )
         )
-    child_network_card_index = el.find("NetworkCardIndex")
+    child_network_card_index = el.find("networkCardIndex")
     if child_network_card_index is not None:
         out["network_card_index"] = int(child_network_card_index.text or "")
     return out

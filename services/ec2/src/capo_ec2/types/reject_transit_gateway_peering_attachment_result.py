@@ -37,7 +37,7 @@ def serialize_ec2_query(
 def deserialize_ec2_query(el: Element) -> RejectTransitGatewayPeeringAttachmentResult:
     out: RejectTransitGatewayPeeringAttachmentResult = {}  # type: ignore[typeddict-item]
     child_transit_gateway_peering_attachment = el.find(
-        "TransitGatewayPeeringAttachment"
+        "transitGatewayPeeringAttachment"
     )
     if child_transit_gateway_peering_attachment is not None:
         import capo_ec2.types.transit_gateway_peering_attachment

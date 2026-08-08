@@ -43,17 +43,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceStateChange:
     out: InstanceStateChange = {}  # type: ignore[typeddict-item]
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_current_state = el.find("CurrentState")
+    child_current_state = el.find("currentState")
     if child_current_state is not None:
         import capo_ec2.types.instance_state
 
         out["current_state"] = capo_ec2.types.instance_state.deserialize_ec2_query(
             child_current_state
         )
-    child_previous_state = el.find("PreviousState")
+    child_previous_state = el.find("previousState")
     if child_previous_state is not None:
         import capo_ec2.types.instance_state
 

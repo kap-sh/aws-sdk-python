@@ -163,21 +163,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SpotFleetLaunchSpecification:
     out: SpotFleetLaunchSpecification = {}  # type: ignore[typeddict-item]
-    child_addressing_type = el.find("AddressingType")
+    child_addressing_type = el.find("addressingType")
     if child_addressing_type is not None:
         out["addressing_type"] = str(child_addressing_type.text or "")
-    if el.find("BlockDeviceMapping") is not None:
+    if el.find("blockDeviceMapping") is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                el, "blockDeviceMapping"
             )
         )
-    child_ebs_optimized = el.find("EbsOptimized")
+    child_ebs_optimized = el.find("ebsOptimized")
     if child_ebs_optimized is not None:
         out["ebs_optimized"] = (child_ebs_optimized.text or "").lower() == "true"
-    child_iam_instance_profile = el.find("IamInstanceProfile")
+    child_iam_instance_profile = el.find("iamInstanceProfile")
     if child_iam_instance_profile is not None:
         import capo_ec2.types.iam_instance_profile_specification
 
@@ -186,68 +186,68 @@ def deserialize_ec2_query(el: Element) -> SpotFleetLaunchSpecification:
                 child_iam_instance_profile
             )
         )
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_kernel_id = el.find("KernelId")
+    child_kernel_id = el.find("kernelId")
     if child_kernel_id is not None:
         out["kernel_id"] = str(child_kernel_id.text or "")
-    child_key_name = el.find("KeyName")
+    child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    child_monitoring = el.find("Monitoring")
+    child_monitoring = el.find("monitoring")
     if child_monitoring is not None:
         import capo_ec2.types.spot_fleet_monitoring
 
         out["monitoring"] = capo_ec2.types.spot_fleet_monitoring.deserialize_ec2_query(
             child_monitoring
         )
-    if el.find("NetworkInterfaceSet") is not None:
+    if el.find("networkInterfaceSet") is not None:
         import capo_ec2.types.instance_network_interface_specification_list
 
         out["network_interfaces"] = (
             capo_ec2.types.instance_network_interface_specification_list.deserialize_ec2_query(
-                el, "NetworkInterfaceSet"
+                el, "networkInterfaceSet"
             )
         )
-    child_placement = el.find("Placement")
+    child_placement = el.find("placement")
     if child_placement is not None:
         import capo_ec2.types.spot_placement
 
         out["placement"] = capo_ec2.types.spot_placement.deserialize_ec2_query(
             child_placement
         )
-    child_ramdisk_id = el.find("RamdiskId")
+    child_ramdisk_id = el.find("ramdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    child_spot_price = el.find("SpotPrice")
+    child_spot_price = el.find("spotPrice")
     if child_spot_price is not None:
         out["spot_price"] = str(child_spot_price.text or "")
-    child_subnet_id = el.find("SubnetId")
+    child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_user_data = el.find("UserData")
+    child_user_data = el.find("userData")
     if child_user_data is not None:
         out["user_data"] = str(child_user_data.text or "")
-    child_weighted_capacity = el.find("WeightedCapacity")
+    child_weighted_capacity = el.find("weightedCapacity")
     if child_weighted_capacity is not None:
         out["weighted_capacity"] = float(child_weighted_capacity.text or "")
-    if el.find("TagSpecificationSet") is not None:
+    if el.find("tagSpecificationSet") is not None:
         import capo_ec2.types.spot_fleet_tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.spot_fleet_tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecificationSet"
+                el, "tagSpecificationSet"
             )
         )
-    child_instance_requirements = el.find("InstanceRequirements")
+    child_instance_requirements = el.find("instanceRequirements")
     if child_instance_requirements is not None:
         import capo_ec2.types.instance_requirements
 
@@ -256,10 +256,10 @@ def deserialize_ec2_query(el: Element) -> SpotFleetLaunchSpecification:
                 child_instance_requirements
             )
         )
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_list
 
         out["security_groups"] = (
-            capo_ec2.types.group_identifier_list.deserialize_ec2_query(el, "GroupSet")
+            capo_ec2.types.group_identifier_list.deserialize_ec2_query(el, "groupSet")
         )
     return out

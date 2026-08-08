@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PricingDetail:
     out: PricingDetail = {}  # type: ignore[typeddict-item]
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_price = el.find("Price")
+    child_price = el.find("price")
     if child_price is not None:
         out["price"] = float(child_price.text or "")
     return out

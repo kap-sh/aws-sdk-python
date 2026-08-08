@@ -60,13 +60,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportInstanceRequest:
     out: ImportInstanceRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_launch_specification = el.find("LaunchSpecification")
+    child_launch_specification = el.find("launchSpecification")
     if child_launch_specification is not None:
         import capo_ec2.types.import_instance_launch_specification
 
@@ -75,13 +75,13 @@ def deserialize_ec2_query(el: Element) -> ImportInstanceRequest:
                 child_launch_specification
             )
         )
-    if el.find("DiskImage") is not None:
+    if el.find("diskImage") is not None:
         import capo_ec2.types.disk_image_list
 
         out["disk_images"] = capo_ec2.types.disk_image_list.deserialize_ec2_query(
-            el, "DiskImage"
+            el, "diskImage"
         )
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         import capo_ec2.types.platform_values
 

@@ -58,20 +58,20 @@ def deserialize_ec2_query(el: Element) -> S3Storage:
     child_aws_access_key_id = el.find("AWSAccessKeyId")
     if child_aws_access_key_id is not None:
         out["aws_access_key_id"] = str(child_aws_access_key_id.text or "")
-    child_bucket = el.find("Bucket")
+    child_bucket = el.find("bucket")
     if child_bucket is not None:
         out["bucket"] = str(child_bucket.text or "")
-    child_prefix = el.find("Prefix")
+    child_prefix = el.find("prefix")
     if child_prefix is not None:
         out["prefix"] = str(child_prefix.text or "")
-    child_upload_policy = el.find("UploadPolicy")
+    child_upload_policy = el.find("uploadPolicy")
     if child_upload_policy is not None:
         import capo_ec2.types.blob
 
         out["upload_policy"] = capo_ec2.types.blob.deserialize_ec2_query(
             child_upload_policy
         )
-    child_upload_policy_signature = el.find("UploadPolicySignature")
+    child_upload_policy_signature = el.find("uploadPolicySignature")
     if child_upload_policy_signature is not None:
         out["upload_policy_signature"] = str(child_upload_policy_signature.text or "")
     return out

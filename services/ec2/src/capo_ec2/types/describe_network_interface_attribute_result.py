@@ -80,7 +80,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfaceAttributeResult:
     out: DescribeNetworkInterfaceAttributeResult = {}  # type: ignore[typeddict-item]
-    child_attachment = el.find("Attachment")
+    child_attachment = el.find("attachment")
     if child_attachment is not None:
         import capo_ec2.types.network_interface_attachment
 
@@ -89,23 +89,23 @@ def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfaceAttributeResul
                 child_attachment
             )
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         import capo_ec2.types.attribute_value
 
         out["description"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_description
         )
-    if el.find("GroupSet") is not None:
+    if el.find("groupSet") is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "GroupSet"
+            el, "groupSet"
         )
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_source_dest_check = el.find("SourceDestCheck")
+    child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -114,7 +114,7 @@ def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfaceAttributeResul
                 child_source_dest_check
             )
         )
-    child_associate_public_ip_address = el.find("AssociatePublicIpAddress")
+    child_associate_public_ip_address = el.find("associatePublicIpAddress")
     if child_associate_public_ip_address is not None:
         out["associate_public_ip_address"] = (
             child_associate_public_ip_address.text or ""

@@ -33,10 +33,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AttachNetworkInterfaceResult:
     out: AttachNetworkInterfaceResult = {}  # type: ignore[typeddict-item]
-    child_attachment_id = el.find("AttachmentId")
+    child_attachment_id = el.find("attachmentId")
     if child_attachment_id is not None:
         out["attachment_id"] = str(child_attachment_id.text or "")
-    child_network_card_index = el.find("NetworkCardIndex")
+    child_network_card_index = el.find("networkCardIndex")
     if child_network_card_index is not None:
         out["network_card_index"] = int(child_network_card_index.text or "")
     return out

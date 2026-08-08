@@ -32,7 +32,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ThroughResourcesStatement:
     out: ThroughResourcesStatement = {}  # type: ignore[typeddict-item]
-    child_resource_statement = el.find("ResourceStatement")
+    child_resource_statement = el.find("resourceStatement")
     if child_resource_statement is not None:
         import capo_ec2.types.resource_statement
 

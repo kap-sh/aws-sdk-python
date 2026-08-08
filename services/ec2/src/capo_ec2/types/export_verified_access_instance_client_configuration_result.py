@@ -80,26 +80,26 @@ def deserialize_ec2_query(
     el: Element,
 ) -> ExportVerifiedAccessInstanceClientConfigurationResult:
     out: ExportVerifiedAccessInstanceClientConfigurationResult = {}  # type: ignore[typeddict-item]
-    child_version = el.find("Version")
+    child_version = el.find("version")
     if child_version is not None:
         out["version"] = str(child_version.text or "")
-    child_verified_access_instance_id = el.find("VerifiedAccessInstanceId")
+    child_verified_access_instance_id = el.find("verifiedAccessInstanceId")
     if child_verified_access_instance_id is not None:
         out["verified_access_instance_id"] = str(
             child_verified_access_instance_id.text or ""
         )
-    child_region = el.find("Region")
+    child_region = el.find("region")
     if child_region is not None:
         out["region"] = str(child_region.text or "")
-    if el.find("DeviceTrustProviderSet") is not None:
+    if el.find("deviceTrustProviderSet") is not None:
         import capo_ec2.types.device_trust_provider_type_list
 
         out["device_trust_providers"] = (
             capo_ec2.types.device_trust_provider_type_list.deserialize_ec2_query(
-                el, "DeviceTrustProviderSet"
+                el, "deviceTrustProviderSet"
             )
         )
-    child_user_trust_provider = el.find("UserTrustProvider")
+    child_user_trust_provider = el.find("userTrustProvider")
     if child_user_trust_provider is not None:
         import capo_ec2.types.verified_access_instance_user_trust_provider_client_configuration
 
@@ -108,12 +108,12 @@ def deserialize_ec2_query(
                 child_user_trust_provider
             )
         )
-    if el.find("OpenVpnConfigurationSet") is not None:
+    if el.find("openVpnConfigurationSet") is not None:
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_list
 
         out["open_vpn_configurations"] = (
             capo_ec2.types.verified_access_instance_open_vpn_client_configuration_list.deserialize_ec2_query(
-                el, "OpenVpnConfigurationSet"
+                el, "openVpnConfigurationSet"
             )
         )
     return out

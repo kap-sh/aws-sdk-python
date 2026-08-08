@@ -31,10 +31,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DiskImageVolumeDescription:
     out: DiskImageVolumeDescription = {}  # type: ignore[typeddict-item]
-    child_id = el.find("Id")
+    child_id = el.find("id")
     if child_id is not None:
         out["id"] = str(child_id.text or "")
-    child_size = el.find("Size")
+    child_size = el.find("size")
     if child_size is not None:
         out["size"] = int(child_size.text or "")
     return out

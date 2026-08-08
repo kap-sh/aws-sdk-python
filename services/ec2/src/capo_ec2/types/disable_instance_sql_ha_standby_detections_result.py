@@ -34,12 +34,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisableInstanceSqlHaStandbyDetectionsResult:
     out: DisableInstanceSqlHaStandbyDetectionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceSet") is not None:
+    if el.find("instanceSet") is not None:
         import capo_ec2.types.registered_instance_list
 
         out["instances"] = (
             capo_ec2.types.registered_instance_list.deserialize_ec2_query(
-                el, "InstanceSet"
+                el, "instanceSet"
             )
         )
     return out

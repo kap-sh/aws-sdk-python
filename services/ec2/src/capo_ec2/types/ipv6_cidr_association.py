@@ -32,10 +32,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Ipv6CidrAssociation:
     out: Ipv6CidrAssociation = {}  # type: ignore[typeddict-item]
-    child_ipv6_cidr = el.find("Ipv6Cidr")
+    child_ipv6_cidr = el.find("ipv6Cidr")
     if child_ipv6_cidr is not None:
         out["ipv6_cidr"] = str(child_ipv6_cidr.text or "")
-    child_associated_resource = el.find("AssociatedResource")
+    child_associated_resource = el.find("associatedResource")
     if child_associated_resource is not None:
         out["associated_resource"] = str(child_associated_resource.text or "")
     return out

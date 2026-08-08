@@ -36,12 +36,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetTransitGatewayPolicyTableEntriesResult:
     out: GetTransitGatewayPolicyTableEntriesResult = {}  # type: ignore[typeddict-item]
-    if el.find("TransitGatewayPolicyTableEntries") is not None:
+    if el.find("transitGatewayPolicyTableEntries") is not None:
         import capo_ec2.types.transit_gateway_policy_table_entry_list
 
         out["transit_gateway_policy_table_entries"] = (
             capo_ec2.types.transit_gateway_policy_table_entry_list.deserialize_ec2_query(
-                el, "TransitGatewayPolicyTableEntries"
+                el, "transitGatewayPolicyTableEntries"
             )
         )
     return out

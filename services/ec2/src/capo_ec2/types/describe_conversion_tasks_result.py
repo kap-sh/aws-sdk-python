@@ -32,12 +32,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeConversionTasksResult:
     out: DescribeConversionTasksResult = {}  # type: ignore[typeddict-item]
-    if el.find("ConversionTasks") is not None:
+    if el.find("conversionTasks") is not None:
         import capo_ec2.types.describe_conversion_task_list
 
         out["conversion_tasks"] = (
             capo_ec2.types.describe_conversion_task_list.deserialize_ec2_query(
-                el, "ConversionTasks"
+                el, "conversionTasks"
             )
         )
     return out

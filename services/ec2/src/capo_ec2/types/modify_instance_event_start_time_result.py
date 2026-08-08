@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceEventStartTimeResult:
     out: ModifyInstanceEventStartTimeResult = {}  # type: ignore[typeddict-item]
-    child_event = el.find("Event")
+    child_event = el.find("event")
     if child_event is not None:
         import capo_ec2.types.instance_status_event
 

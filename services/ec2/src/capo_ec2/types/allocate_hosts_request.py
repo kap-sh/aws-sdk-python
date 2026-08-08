@@ -62,7 +62,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "host_recovery" in value:
         import capo_ec2.types.host_recovery
@@ -82,7 +82,7 @@ def serialize_ec2_query(
         import capo_ec2.types.asset_id_list
 
         capo_ec2.types.asset_id_list.serialize_ec2_query(
-            value["asset_ids"], pairs, f"{key_prefix}AssetIds"
+            value["asset_ids"], pairs, f"{key_prefix}AssetId"
         )
     if "availability_zone_id" in value:
         pairs.append(
@@ -109,12 +109,12 @@ def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:
     child_instance_family = el.find("InstanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_host_recovery = el.find("HostRecovery")
@@ -134,32 +134,32 @@ def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:
         out["host_maintenance"] = capo_ec2.types.host_maintenance.deserialize_ec2_query(
             child_host_maintenance
         )
-    if el.find("AssetIds") is not None:
+    if el.find("AssetId") is not None:
         import capo_ec2.types.asset_id_list
 
         out["asset_ids"] = capo_ec2.types.asset_id_list.deserialize_ec2_query(
-            el, "AssetIds"
+            el, "AssetId"
         )
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_auto_placement = el.find("AutoPlacement")
+    child_auto_placement = el.find("autoPlacement")
     if child_auto_placement is not None:
         import capo_ec2.types.auto_placement
 
         out["auto_placement"] = capo_ec2.types.auto_placement.deserialize_ec2_query(
             child_auto_placement
         )
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         out["instance_type"] = str(child_instance_type.text or "")
-    child_quantity = el.find("Quantity")
+    child_quantity = el.find("quantity")
     if child_quantity is not None:
         out["quantity"] = int(child_quantity.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
     return out

@@ -48,7 +48,7 @@ def serialize_ec2_query(
         import capo_ec2.types.integrate_services
 
         capo_ec2.types.integrate_services.serialize_ec2_query(
-            value["integrate_services"], pairs, f"{key_prefix}IntegrateServices"
+            value["integrate_services"], pairs, f"{key_prefix}IntegrateService"
         )
 
 
@@ -65,7 +65,7 @@ def deserialize_ec2_query(el: Element) -> GetFlowLogsIntegrationTemplateRequest:
         out["config_delivery_s3_destination_arn"] = str(
             child_config_delivery_s3_destination_arn.text or ""
         )
-    child_integrate_services = el.find("IntegrateServices")
+    child_integrate_services = el.find("IntegrateService")
     if child_integrate_services is not None:
         import capo_ec2.types.integrate_services
 

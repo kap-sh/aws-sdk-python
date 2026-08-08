@@ -35,10 +35,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNatGatewayResult:
     out: CreateNatGatewayResult = {}  # type: ignore[typeddict-item]
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    child_nat_gateway = el.find("NatGateway")
+    child_nat_gateway = el.find("natGateway")
     if child_nat_gateway is not None:
         import capo_ec2.types.nat_gateway
 

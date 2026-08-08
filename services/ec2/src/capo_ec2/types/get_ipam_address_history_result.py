@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamAddressHistoryResult:
     out: GetIpamAddressHistoryResult = {}  # type: ignore[typeddict-item]
-    if el.find("HistoryRecordSet") is not None:
+    if el.find("historyRecordSet") is not None:
         import capo_ec2.types.ipam_address_history_record_set
 
         out["history_records"] = (
             capo_ec2.types.ipam_address_history_record_set.deserialize_ec2_query(
-                el, "HistoryRecordSet"
+                el, "historyRecordSet"
             )
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
     return out

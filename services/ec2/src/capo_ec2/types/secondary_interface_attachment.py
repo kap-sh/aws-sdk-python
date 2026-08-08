@@ -73,34 +73,34 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecondaryInterfaceAttachment:
     out: SecondaryInterfaceAttachment = {}  # type: ignore[typeddict-item]
-    child_attachment_id = el.find("AttachmentId")
+    child_attachment_id = el.find("attachmentId")
     if child_attachment_id is not None:
         out["attachment_id"] = str(child_attachment_id.text or "")
-    child_attach_time = el.find("AttachTime")
+    child_attach_time = el.find("attachTime")
     if child_attach_time is not None:
         import capo_ec2.types.millisecond_date_time
 
         out["attach_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_attach_time
         )
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_device_index = el.find("DeviceIndex")
+    child_device_index = el.find("deviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_instance_owner_id = el.find("InstanceOwnerId")
+    child_instance_owner_id = el.find("instanceOwnerId")
     if child_instance_owner_id is not None:
         out["instance_owner_id"] = str(child_instance_owner_id.text or "")
-    child_network_card_index = el.find("NetworkCardIndex")
+    child_network_card_index = el.find("networkCardIndex")
     if child_network_card_index is not None:
         out["network_card_index"] = int(child_network_card_index.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.attachment_status
 

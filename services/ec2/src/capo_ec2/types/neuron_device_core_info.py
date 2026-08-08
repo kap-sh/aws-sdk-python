@@ -33,10 +33,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NeuronDeviceCoreInfo:
     out: NeuronDeviceCoreInfo = {}  # type: ignore[typeddict-item]
-    child_count = el.find("Count")
+    child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    child_version = el.find("Version")
+    child_version = el.find("version")
     if child_version is not None:
         out["version"] = int(child_version.text or "")
     return out

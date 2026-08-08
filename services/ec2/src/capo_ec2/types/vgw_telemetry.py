@@ -61,30 +61,30 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VgwTelemetry:
     out: VgwTelemetry = {}  # type: ignore[typeddict-item]
-    child_accepted_route_count = el.find("AcceptedRouteCount")
+    child_accepted_route_count = el.find("acceptedRouteCount")
     if child_accepted_route_count is not None:
         out["accepted_route_count"] = int(child_accepted_route_count.text or "")
-    child_last_status_change = el.find("LastStatusChange")
+    child_last_status_change = el.find("lastStatusChange")
     if child_last_status_change is not None:
         import capo_ec2.types.date_time
 
         out["last_status_change"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_last_status_change
         )
-    child_outside_ip_address = el.find("OutsideIpAddress")
+    child_outside_ip_address = el.find("outsideIpAddress")
     if child_outside_ip_address is not None:
         out["outside_ip_address"] = str(child_outside_ip_address.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.telemetry_status
 
         out["status"] = capo_ec2.types.telemetry_status.deserialize_ec2_query(
             child_status
         )
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_certificate_arn = el.find("CertificateArn")
+    child_certificate_arn = el.find("certificateArn")
     if child_certificate_arn is not None:
         out["certificate_arn"] = str(child_certificate_arn.text or "")
     return out

@@ -33,7 +33,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportImageLicenseConfigurationResponse:
     out: ImportImageLicenseConfigurationResponse = {}  # type: ignore[typeddict-item]
-    child_license_configuration_arn = el.find("LicenseConfigurationArn")
+    child_license_configuration_arn = el.find("licenseConfigurationArn")
     if child_license_configuration_arn is not None:
         out["license_configuration_arn"] = str(
             child_license_configuration_arn.text or ""

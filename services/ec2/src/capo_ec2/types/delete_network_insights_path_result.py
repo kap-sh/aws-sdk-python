@@ -33,7 +33,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteNetworkInsightsPathResult:
     out: DeleteNetworkInsightsPathResult = {}  # type: ignore[typeddict-item]
-    child_network_insights_path_id = el.find("NetworkInsightsPathId")
+    child_network_insights_path_id = el.find("networkInsightsPathId")
     if child_network_insights_path_id is not None:
         out["network_insights_path_id"] = str(child_network_insights_path_id.text or "")
     return out

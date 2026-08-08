@@ -209,99 +209,99 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TunnelOption:
     out: TunnelOption = {}  # type: ignore[typeddict-item]
-    child_outside_ip_address = el.find("OutsideIpAddress")
+    child_outside_ip_address = el.find("outsideIpAddress")
     if child_outside_ip_address is not None:
         out["outside_ip_address"] = str(child_outside_ip_address.text or "")
-    child_tunnel_inside_cidr = el.find("TunnelInsideCidr")
+    child_tunnel_inside_cidr = el.find("tunnelInsideCidr")
     if child_tunnel_inside_cidr is not None:
         out["tunnel_inside_cidr"] = str(child_tunnel_inside_cidr.text or "")
-    child_tunnel_inside_ipv6_cidr = el.find("TunnelInsideIpv6Cidr")
+    child_tunnel_inside_ipv6_cidr = el.find("tunnelInsideIpv6Cidr")
     if child_tunnel_inside_ipv6_cidr is not None:
         out["tunnel_inside_ipv6_cidr"] = str(child_tunnel_inside_ipv6_cidr.text or "")
-    child_pre_shared_key = el.find("PreSharedKey")
+    child_pre_shared_key = el.find("preSharedKey")
     if child_pre_shared_key is not None:
         out["pre_shared_key"] = str(child_pre_shared_key.text or "")
-    child_phase1_lifetime_seconds = el.find("Phase1LifetimeSeconds")
+    child_phase1_lifetime_seconds = el.find("phase1LifetimeSeconds")
     if child_phase1_lifetime_seconds is not None:
         out["phase1_lifetime_seconds"] = int(child_phase1_lifetime_seconds.text or "")
-    child_phase2_lifetime_seconds = el.find("Phase2LifetimeSeconds")
+    child_phase2_lifetime_seconds = el.find("phase2LifetimeSeconds")
     if child_phase2_lifetime_seconds is not None:
         out["phase2_lifetime_seconds"] = int(child_phase2_lifetime_seconds.text or "")
-    child_rekey_margin_time_seconds = el.find("RekeyMarginTimeSeconds")
+    child_rekey_margin_time_seconds = el.find("rekeyMarginTimeSeconds")
     if child_rekey_margin_time_seconds is not None:
         out["rekey_margin_time_seconds"] = int(
             child_rekey_margin_time_seconds.text or ""
         )
-    child_rekey_fuzz_percentage = el.find("RekeyFuzzPercentage")
+    child_rekey_fuzz_percentage = el.find("rekeyFuzzPercentage")
     if child_rekey_fuzz_percentage is not None:
         out["rekey_fuzz_percentage"] = int(child_rekey_fuzz_percentage.text or "")
-    child_replay_window_size = el.find("ReplayWindowSize")
+    child_replay_window_size = el.find("replayWindowSize")
     if child_replay_window_size is not None:
         out["replay_window_size"] = int(child_replay_window_size.text or "")
-    child_dpd_timeout_seconds = el.find("DpdTimeoutSeconds")
+    child_dpd_timeout_seconds = el.find("dpdTimeoutSeconds")
     if child_dpd_timeout_seconds is not None:
         out["dpd_timeout_seconds"] = int(child_dpd_timeout_seconds.text or "")
-    child_dpd_timeout_action = el.find("DpdTimeoutAction")
+    child_dpd_timeout_action = el.find("dpdTimeoutAction")
     if child_dpd_timeout_action is not None:
         out["dpd_timeout_action"] = str(child_dpd_timeout_action.text or "")
-    if el.find("Phase1EncryptionAlgorithmSet") is not None:
+    if el.find("phase1EncryptionAlgorithmSet") is not None:
         import capo_ec2.types.phase1_encryption_algorithms_list
 
         out["phase1_encryption_algorithms"] = (
             capo_ec2.types.phase1_encryption_algorithms_list.deserialize_ec2_query(
-                el, "Phase1EncryptionAlgorithmSet"
+                el, "phase1EncryptionAlgorithmSet"
             )
         )
-    if el.find("Phase2EncryptionAlgorithmSet") is not None:
+    if el.find("phase2EncryptionAlgorithmSet") is not None:
         import capo_ec2.types.phase2_encryption_algorithms_list
 
         out["phase2_encryption_algorithms"] = (
             capo_ec2.types.phase2_encryption_algorithms_list.deserialize_ec2_query(
-                el, "Phase2EncryptionAlgorithmSet"
+                el, "phase2EncryptionAlgorithmSet"
             )
         )
-    if el.find("Phase1IntegrityAlgorithmSet") is not None:
+    if el.find("phase1IntegrityAlgorithmSet") is not None:
         import capo_ec2.types.phase1_integrity_algorithms_list
 
         out["phase1_integrity_algorithms"] = (
             capo_ec2.types.phase1_integrity_algorithms_list.deserialize_ec2_query(
-                el, "Phase1IntegrityAlgorithmSet"
+                el, "phase1IntegrityAlgorithmSet"
             )
         )
-    if el.find("Phase2IntegrityAlgorithmSet") is not None:
+    if el.find("phase2IntegrityAlgorithmSet") is not None:
         import capo_ec2.types.phase2_integrity_algorithms_list
 
         out["phase2_integrity_algorithms"] = (
             capo_ec2.types.phase2_integrity_algorithms_list.deserialize_ec2_query(
-                el, "Phase2IntegrityAlgorithmSet"
+                el, "phase2IntegrityAlgorithmSet"
             )
         )
-    if el.find("Phase1DHGroupNumberSet") is not None:
+    if el.find("phase1DHGroupNumberSet") is not None:
         import capo_ec2.types.phase1_dh_group_numbers_list
 
         out["phase1_dh_group_numbers"] = (
             capo_ec2.types.phase1_dh_group_numbers_list.deserialize_ec2_query(
-                el, "Phase1DHGroupNumberSet"
+                el, "phase1DHGroupNumberSet"
             )
         )
-    if el.find("Phase2DHGroupNumberSet") is not None:
+    if el.find("phase2DHGroupNumberSet") is not None:
         import capo_ec2.types.phase2_dh_group_numbers_list
 
         out["phase2_dh_group_numbers"] = (
             capo_ec2.types.phase2_dh_group_numbers_list.deserialize_ec2_query(
-                el, "Phase2DHGroupNumberSet"
+                el, "phase2DHGroupNumberSet"
             )
         )
-    if el.find("IkeVersionSet") is not None:
+    if el.find("ikeVersionSet") is not None:
         import capo_ec2.types.ike_versions_list
 
         out["ike_versions"] = capo_ec2.types.ike_versions_list.deserialize_ec2_query(
-            el, "IkeVersionSet"
+            el, "ikeVersionSet"
         )
-    child_startup_action = el.find("StartupAction")
+    child_startup_action = el.find("startupAction")
     if child_startup_action is not None:
         out["startup_action"] = str(child_startup_action.text or "")
-    child_log_options = el.find("LogOptions")
+    child_log_options = el.find("logOptions")
     if child_log_options is not None:
         import capo_ec2.types.vpn_tunnel_log_options
 
@@ -310,7 +310,7 @@ def deserialize_ec2_query(el: Element) -> TunnelOption:
                 child_log_options
             )
         )
-    child_enable_tunnel_lifecycle_control = el.find("EnableTunnelLifecycleControl")
+    child_enable_tunnel_lifecycle_control = el.find("enableTunnelLifecycleControl")
     if child_enable_tunnel_lifecycle_control is not None:
         out["enable_tunnel_lifecycle_control"] = (
             child_enable_tunnel_lifecycle_control.text or ""

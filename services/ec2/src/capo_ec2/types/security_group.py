@@ -76,40 +76,40 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> SecurityGroup:
     out: SecurityGroup = {}  # type: ignore[typeddict-item]
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    if el.find("IpPermissionsEgress") is not None:
+    if el.find("ipPermissionsEgress") is not None:
         import capo_ec2.types.ip_permission_list
 
         out["ip_permissions_egress"] = (
             capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-                el, "IpPermissionsEgress"
+                el, "ipPermissionsEgress"
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpc_id = el.find("VpcId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    child_security_group_arn = el.find("SecurityGroupArn")
+    child_security_group_arn = el.find("securityGroupArn")
     if child_security_group_arn is not None:
         out["security_group_arn"] = str(child_security_group_arn.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_group_name = el.find("GroupName")
+    child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    child_description = el.find("GroupDescription")
+    child_description = el.find("groupDescription")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("IpPermissions") is not None:
+    if el.find("ipPermissions") is not None:
         import capo_ec2.types.ip_permission_list
 
         out["ip_permissions"] = capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-            el, "IpPermissions"
+            el, "ipPermissions"
         )
     return out

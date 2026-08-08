@@ -69,32 +69,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClientVpnRoute:
     out: ClientVpnRoute = {}  # type: ignore[typeddict-item]
-    child_client_vpn_endpoint_id = el.find("ClientVpnEndpointId")
+    child_client_vpn_endpoint_id = el.find("clientVpnEndpointId")
     if child_client_vpn_endpoint_id is not None:
         out["client_vpn_endpoint_id"] = str(child_client_vpn_endpoint_id.text or "")
-    child_destination_cidr = el.find("DestinationCidr")
+    child_destination_cidr = el.find("destinationCidr")
     if child_destination_cidr is not None:
         out["destination_cidr"] = str(child_destination_cidr.text or "")
-    child_target_subnet = el.find("TargetSubnet")
+    child_target_subnet = el.find("targetSubnet")
     if child_target_subnet is not None:
         out["target_subnet"] = str(child_target_subnet.text or "")
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    child_origin = el.find("Origin")
+    child_origin = el.find("origin")
     if child_origin is not None:
         out["origin"] = str(child_origin.text or "")
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.client_vpn_route_status
 
         out["status"] = capo_ec2.types.client_vpn_route_status.deserialize_ec2_query(
             child_status
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_transit_gateway_attachment_id = el.find("TransitGatewayAttachmentId")
+    child_transit_gateway_attachment_id = el.find("transitGatewayAttachmentId")
     if child_transit_gateway_attachment_id is not None:
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""

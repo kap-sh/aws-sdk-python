@@ -33,10 +33,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteSecurityGroupResult:
     out: DeleteSecurityGroupResult = {}  # type: ignore[typeddict-item]
-    child_return = el.find("Return")
+    child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
-    child_group_id = el.find("GroupId")
+    child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
     return out

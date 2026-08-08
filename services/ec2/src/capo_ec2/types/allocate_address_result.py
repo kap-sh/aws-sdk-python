@@ -66,30 +66,30 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AllocateAddressResult:
     out: AllocateAddressResult = {}  # type: ignore[typeddict-item]
-    child_allocation_id = el.find("AllocationId")
+    child_allocation_id = el.find("allocationId")
     if child_allocation_id is not None:
         out["allocation_id"] = str(child_allocation_id.text or "")
-    child_public_ipv4_pool = el.find("PublicIpv4Pool")
+    child_public_ipv4_pool = el.find("publicIpv4Pool")
     if child_public_ipv4_pool is not None:
         out["public_ipv4_pool"] = str(child_public_ipv4_pool.text or "")
-    child_network_border_group = el.find("NetworkBorderGroup")
+    child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    child_domain = el.find("Domain")
+    child_domain = el.find("domain")
     if child_domain is not None:
         import capo_ec2.types.domain_type
 
         out["domain"] = capo_ec2.types.domain_type.deserialize_ec2_query(child_domain)
-    child_customer_owned_ip = el.find("CustomerOwnedIp")
+    child_customer_owned_ip = el.find("customerOwnedIp")
     if child_customer_owned_ip is not None:
         out["customer_owned_ip"] = str(child_customer_owned_ip.text or "")
-    child_customer_owned_ipv4_pool = el.find("CustomerOwnedIpv4Pool")
+    child_customer_owned_ipv4_pool = el.find("customerOwnedIpv4Pool")
     if child_customer_owned_ipv4_pool is not None:
         out["customer_owned_ipv4_pool"] = str(child_customer_owned_ipv4_pool.text or "")
-    child_carrier_ip = el.find("CarrierIp")
+    child_carrier_ip = el.find("carrierIp")
     if child_carrier_ip is not None:
         out["carrier_ip"] = str(child_carrier_ip.text or "")
-    child_public_ip = el.find("PublicIp")
+    child_public_ip = el.find("publicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
     return out

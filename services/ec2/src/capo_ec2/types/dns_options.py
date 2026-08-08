@@ -64,7 +64,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DnsOptions:
     out: DnsOptions = {}  # type: ignore[typeddict-item]
-    child_dns_record_ip_type = el.find("DnsRecordIpType")
+    child_dns_record_ip_type = el.find("dnsRecordIpType")
     if child_dns_record_ip_type is not None:
         import capo_ec2.types.dns_record_ip_type
 
@@ -74,21 +74,21 @@ def deserialize_ec2_query(el: Element) -> DnsOptions:
             )
         )
     child_private_dns_only_for_inbound_resolver_endpoint = el.find(
-        "PrivateDnsOnlyForInboundResolverEndpoint"
+        "privateDnsOnlyForInboundResolverEndpoint"
     )
     if child_private_dns_only_for_inbound_resolver_endpoint is not None:
         out["private_dns_only_for_inbound_resolver_endpoint"] = (
             child_private_dns_only_for_inbound_resolver_endpoint.text or ""
         ).lower() == "true"
-    child_private_dns_preference = el.find("PrivateDnsPreference")
+    child_private_dns_preference = el.find("privateDnsPreference")
     if child_private_dns_preference is not None:
         out["private_dns_preference"] = str(child_private_dns_preference.text or "")
-    if el.find("PrivateDnsSpecifiedDomainSet") is not None:
+    if el.find("privateDnsSpecifiedDomainSet") is not None:
         import capo_ec2.types.private_dns_specified_domain_set
 
         out["private_dns_specified_domains"] = (
             capo_ec2.types.private_dns_specified_domain_set.deserialize_ec2_query(
-                el, "PrivateDnsSpecifiedDomainSet"
+                el, "privateDnsSpecifiedDomainSet"
             )
         )
     return out

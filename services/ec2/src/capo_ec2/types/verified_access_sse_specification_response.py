@@ -38,12 +38,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessSseSpecificationResponse:
     out: VerifiedAccessSseSpecificationResponse = {}  # type: ignore[typeddict-item]
-    child_customer_managed_key_enabled = el.find("CustomerManagedKeyEnabled")
+    child_customer_managed_key_enabled = el.find("customerManagedKeyEnabled")
     if child_customer_managed_key_enabled is not None:
         out["customer_managed_key_enabled"] = (
             child_customer_managed_key_enabled.text or ""
         ).lower() == "true"
-    child_kms_key_arn = el.find("KmsKeyArn")
+    child_kms_key_arn = el.find("kmsKeyArn")
     if child_kms_key_arn is not None:
         out["kms_key_arn"] = str(child_kms_key_arn.text or "")
     return out

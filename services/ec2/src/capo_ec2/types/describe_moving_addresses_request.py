@@ -56,23 +56,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeMovingAddressesRequest:
     out: DescribeMovingAddressesRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("PublicIp") is not None:
+    if el.find("publicIp") is not None:
         import capo_ec2.types.value_string_list
 
         out["public_ips"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "PublicIp"
+            el, "publicIp"
         )
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Filter") is not None:
+    if el.find("filter") is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    child_max_results = el.find("MaxResults")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "filter")
+    child_max_results = el.find("maxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     return out

@@ -116,7 +116,7 @@ def serialize_ec2_query(
         import capo_ec2.types.client_vpn_security_group_id_set
 
         capo_ec2.types.client_vpn_security_group_id_set.serialize_ec2_query(
-            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupIds"
+            value["security_group_ids"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "vpc_id" in value:
         pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
@@ -207,12 +207,12 @@ def deserialize_ec2_query(el: Element) -> ModifyClientVpnEndpointRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("SecurityGroupIds") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
-                el, "SecurityGroupIds"
+                el, "SecurityGroupId"
             )
         )
     child_vpc_id = el.find("VpcId")

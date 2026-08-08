@@ -93,7 +93,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetCapacityManagerAttributesResult:
     out: GetCapacityManagerAttributesResult = {}  # type: ignore[typeddict-item]
-    child_capacity_manager_status = el.find("CapacityManagerStatus")
+    child_capacity_manager_status = el.find("capacityManagerStatus")
     if child_capacity_manager_status is not None:
         import capo_ec2.types.capacity_manager_status
 
@@ -102,25 +102,25 @@ def deserialize_ec2_query(el: Element) -> GetCapacityManagerAttributesResult:
                 child_capacity_manager_status
             )
         )
-    child_organizations_access = el.find("OrganizationsAccess")
+    child_organizations_access = el.find("organizationsAccess")
     if child_organizations_access is not None:
         out["organizations_access"] = (
             child_organizations_access.text or ""
         ).lower() == "true"
-    child_data_export_count = el.find("DataExportCount")
+    child_data_export_count = el.find("dataExportCount")
     if child_data_export_count is not None:
         out["data_export_count"] = int(child_data_export_count.text or "")
-    child_ingestion_status = el.find("IngestionStatus")
+    child_ingestion_status = el.find("ingestionStatus")
     if child_ingestion_status is not None:
         import capo_ec2.types.ingestion_status
 
         out["ingestion_status"] = capo_ec2.types.ingestion_status.deserialize_ec2_query(
             child_ingestion_status
         )
-    child_ingestion_status_message = el.find("IngestionStatusMessage")
+    child_ingestion_status_message = el.find("ingestionStatusMessage")
     if child_ingestion_status_message is not None:
         out["ingestion_status_message"] = str(child_ingestion_status_message.text or "")
-    child_earliest_datapoint_timestamp = el.find("EarliestDatapointTimestamp")
+    child_earliest_datapoint_timestamp = el.find("earliestDatapointTimestamp")
     if child_earliest_datapoint_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 
@@ -129,7 +129,7 @@ def deserialize_ec2_query(el: Element) -> GetCapacityManagerAttributesResult:
                 child_earliest_datapoint_timestamp
             )
         )
-    child_latest_datapoint_timestamp = el.find("LatestDatapointTimestamp")
+    child_latest_datapoint_timestamp = el.find("latestDatapointTimestamp")
     if child_latest_datapoint_timestamp is not None:
         import capo_ec2.types.millisecond_date_time
 

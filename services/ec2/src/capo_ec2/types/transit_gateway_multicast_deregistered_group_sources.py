@@ -53,21 +53,21 @@ def deserialize_ec2_query(
 ) -> TransitGatewayMulticastDeregisteredGroupSources:
     out: TransitGatewayMulticastDeregisteredGroupSources = {}  # type: ignore[typeddict-item]
     child_transit_gateway_multicast_domain_id = el.find(
-        "TransitGatewayMulticastDomainId"
+        "transitGatewayMulticastDomainId"
     )
     if child_transit_gateway_multicast_domain_id is not None:
         out["transit_gateway_multicast_domain_id"] = str(
             child_transit_gateway_multicast_domain_id.text or ""
         )
-    if el.find("DeregisteredNetworkInterfaceIds") is not None:
+    if el.find("deregisteredNetworkInterfaceIds") is not None:
         import capo_ec2.types.value_string_list
 
         out["deregistered_network_interface_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DeregisteredNetworkInterfaceIds"
+                el, "deregisteredNetworkInterfaceIds"
             )
         )
-    child_group_ip_address = el.find("GroupIpAddress")
+    child_group_ip_address = el.find("groupIpAddress")
     if child_group_ip_address is not None:
         out["group_ip_address"] = str(child_group_ip_address.text or "")
     return out

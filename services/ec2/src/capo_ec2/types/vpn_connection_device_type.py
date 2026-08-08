@@ -43,18 +43,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpnConnectionDeviceType:
     out: VpnConnectionDeviceType = {}  # type: ignore[typeddict-item]
-    child_vpn_connection_device_type_id = el.find("VpnConnectionDeviceTypeId")
+    child_vpn_connection_device_type_id = el.find("vpnConnectionDeviceTypeId")
     if child_vpn_connection_device_type_id is not None:
         out["vpn_connection_device_type_id"] = str(
             child_vpn_connection_device_type_id.text or ""
         )
-    child_vendor = el.find("Vendor")
+    child_vendor = el.find("vendor")
     if child_vendor is not None:
         out["vendor"] = str(child_vendor.text or "")
-    child_platform = el.find("Platform")
+    child_platform = el.find("platform")
     if child_platform is not None:
         out["platform"] = str(child_platform.text or "")
-    child_software = el.find("Software")
+    child_software = el.find("software")
     if child_software is not None:
         out["software"] = str(child_software.text or "")
     return out

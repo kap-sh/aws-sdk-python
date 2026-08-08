@@ -81,7 +81,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VpcPeeringConnection:
     out: VpcPeeringConnection = {}  # type: ignore[typeddict-item]
-    child_accepter_vpc_info = el.find("AccepterVpcInfo")
+    child_accepter_vpc_info = el.find("accepterVpcInfo")
     if child_accepter_vpc_info is not None:
         import capo_ec2.types.vpc_peering_connection_vpc_info
 
@@ -90,14 +90,14 @@ def deserialize_ec2_query(el: Element) -> VpcPeeringConnection:
                 child_accepter_vpc_info
             )
         )
-    child_expiration_time = el.find("ExpirationTime")
+    child_expiration_time = el.find("expirationTime")
     if child_expiration_time is not None:
         import capo_ec2.types.date_time
 
         out["expiration_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_expiration_time
         )
-    child_requester_vpc_info = el.find("RequesterVpcInfo")
+    child_requester_vpc_info = el.find("requesterVpcInfo")
     if child_requester_vpc_info is not None:
         import capo_ec2.types.vpc_peering_connection_vpc_info
 
@@ -106,7 +106,7 @@ def deserialize_ec2_query(el: Element) -> VpcPeeringConnection:
                 child_requester_vpc_info
             )
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.vpc_peering_connection_state_reason
 
@@ -115,11 +115,11 @@ def deserialize_ec2_query(el: Element) -> VpcPeeringConnection:
                 child_status
             )
         )
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_vpc_peering_connection_id = el.find("VpcPeeringConnectionId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_vpc_peering_connection_id = el.find("vpcPeeringConnectionId")
     if child_vpc_peering_connection_id is not None:
         out["vpc_peering_connection_id"] = str(
             child_vpc_peering_connection_id.text or ""

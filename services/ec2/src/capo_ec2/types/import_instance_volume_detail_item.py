@@ -69,32 +69,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImportInstanceVolumeDetailItem:
     out: ImportInstanceVolumeDetailItem = {}  # type: ignore[typeddict-item]
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_bytes_converted = el.find("BytesConverted")
+    child_bytes_converted = el.find("bytesConverted")
     if child_bytes_converted is not None:
         out["bytes_converted"] = int(child_bytes_converted.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_image = el.find("Image")
+    child_image = el.find("image")
     if child_image is not None:
         import capo_ec2.types.disk_image_description
 
         out["image"] = capo_ec2.types.disk_image_description.deserialize_ec2_query(
             child_image
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_volume = el.find("Volume")
+    child_volume = el.find("volume")
     if child_volume is not None:
         import capo_ec2.types.disk_image_volume_description
 

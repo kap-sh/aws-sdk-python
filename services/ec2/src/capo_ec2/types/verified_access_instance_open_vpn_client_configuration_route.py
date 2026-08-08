@@ -30,7 +30,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> VerifiedAccessInstanceOpenVpnClientConfigurationRoute:
     out: VerifiedAccessInstanceOpenVpnClientConfigurationRoute = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
     return out

@@ -37,14 +37,14 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamDiscoveryFailureReason:
     out: IpamDiscoveryFailureReason = {}  # type: ignore[typeddict-item]
-    child_code = el.find("Code")
+    child_code = el.find("code")
     if child_code is not None:
         import capo_ec2.types.ipam_discovery_failure_code
 
         out["code"] = capo_ec2.types.ipam_discovery_failure_code.deserialize_ec2_query(
             child_code
         )
-    child_message = el.find("Message")
+    child_message = el.find("message")
     if child_message is not None:
         out["message"] = str(child_message.text or "")
     return out

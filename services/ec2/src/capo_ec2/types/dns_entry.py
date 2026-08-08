@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DnsEntry:
     out: DnsEntry = {}  # type: ignore[typeddict-item]
-    child_dns_name = el.find("DnsName")
+    child_dns_name = el.find("dnsName")
     if child_dns_name is not None:
         out["dns_name"] = str(child_dns_name.text or "")
-    child_hosted_zone_id = el.find("HostedZoneId")
+    child_hosted_zone_id = el.find("hostedZoneId")
     if child_hosted_zone_id is not None:
         out["hosted_zone_id"] = str(child_hosted_zone_id.text or "")
     return out

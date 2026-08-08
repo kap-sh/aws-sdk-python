@@ -31,7 +31,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamOrganizationalUnitExclusion:
     out: IpamOrganizationalUnitExclusion = {}  # type: ignore[typeddict-item]
-    child_organizations_entity_path = el.find("OrganizationsEntityPath")
+    child_organizations_entity_path = el.find("organizationsEntityPath")
     if child_organizations_entity_path is not None:
         out["organizations_entity_path"] = str(
             child_organizations_entity_path.text or ""

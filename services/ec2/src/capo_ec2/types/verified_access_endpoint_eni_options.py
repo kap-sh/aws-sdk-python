@@ -59,10 +59,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointEniOptions:
     out: VerifiedAccessEndpointEniOptions = {}  # type: ignore[typeddict-item]
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.verified_access_endpoint_protocol
 
@@ -71,15 +71,15 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointEniOptions:
                 child_protocol
             )
         )
-    child_port = el.find("Port")
+    child_port = el.find("port")
     if child_port is not None:
         out["port"] = int(child_port.text or "")
-    if el.find("PortRangeSet") is not None:
+    if el.find("portRangeSet") is not None:
         import capo_ec2.types.verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRangeSet"
+                el, "portRangeSet"
             )
         )
     return out

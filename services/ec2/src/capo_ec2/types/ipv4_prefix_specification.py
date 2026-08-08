@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> Ipv4PrefixSpecification:
     out: Ipv4PrefixSpecification = {}  # type: ignore[typeddict-item]
-    child_ipv4_prefix = el.find("Ipv4Prefix")
+    child_ipv4_prefix = el.find("ipv4Prefix")
     if child_ipv4_prefix is not None:
         out["ipv4_prefix"] = str(child_ipv4_prefix.text or "")
     return out

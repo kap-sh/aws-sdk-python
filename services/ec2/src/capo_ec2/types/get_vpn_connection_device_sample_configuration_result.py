@@ -38,7 +38,7 @@ def deserialize_ec2_query(
 ) -> GetVpnConnectionDeviceSampleConfigurationResult:
     out: GetVpnConnectionDeviceSampleConfigurationResult = {}  # type: ignore[typeddict-item]
     child_vpn_connection_device_sample_configuration = el.find(
-        "VpnConnectionDeviceSampleConfiguration"
+        "vpnConnectionDeviceSampleConfiguration"
     )
     if child_vpn_connection_device_sample_configuration is not None:
         out["vpn_connection_device_sample_configuration"] = str(

@@ -61,13 +61,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IamInstanceProfileAssociation:
     out: IamInstanceProfileAssociation = {}  # type: ignore[typeddict-item]
-    child_association_id = el.find("AssociationId")
+    child_association_id = el.find("associationId")
     if child_association_id is not None:
         out["association_id"] = str(child_association_id.text or "")
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_iam_instance_profile = el.find("IamInstanceProfile")
+    child_iam_instance_profile = el.find("iamInstanceProfile")
     if child_iam_instance_profile is not None:
         import capo_ec2.types.iam_instance_profile
 
@@ -76,7 +76,7 @@ def deserialize_ec2_query(el: Element) -> IamInstanceProfileAssociation:
                 child_iam_instance_profile
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.iam_instance_profile_association_state
 
@@ -85,7 +85,7 @@ def deserialize_ec2_query(el: Element) -> IamInstanceProfileAssociation:
                 child_state
             )
         )
-    child_timestamp = el.find("Timestamp")
+    child_timestamp = el.find("timestamp")
     if child_timestamp is not None:
         import capo_ec2.types.date_time
 

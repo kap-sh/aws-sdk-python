@@ -54,7 +54,7 @@ def serialize_ec2_query(
         capo_ec2.types.security_group_rule_description_list.serialize_ec2_query(
             value["security_group_rule_descriptions"],
             pairs,
-            f"{key_prefix}SecurityGroupRuleDescriptions",
+            f"{key_prefix}SecurityGroupRuleDescription",
         )
 
 
@@ -77,12 +77,12 @@ def deserialize_ec2_query(
         out["ip_permissions"] = capo_ec2.types.ip_permission_list.deserialize_ec2_query(
             el, "IpPermissions"
         )
-    if el.find("SecurityGroupRuleDescriptions") is not None:
+    if el.find("SecurityGroupRuleDescription") is not None:
         import capo_ec2.types.security_group_rule_description_list
 
         out["security_group_rule_descriptions"] = (
             capo_ec2.types.security_group_rule_description_list.deserialize_ec2_query(
-                el, "SecurityGroupRuleDescriptions"
+                el, "SecurityGroupRuleDescription"
             )
         )
     return out

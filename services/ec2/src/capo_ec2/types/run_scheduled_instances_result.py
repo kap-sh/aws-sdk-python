@@ -30,10 +30,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RunScheduledInstancesResult:
     out: RunScheduledInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceIdSet") is not None:
+    if el.find("instanceIdSet") is not None:
         import capo_ec2.types.instance_id_set
 
         out["instance_id_set"] = capo_ec2.types.instance_id_set.deserialize_ec2_query(
-            el, "InstanceIdSet"
+            el, "instanceIdSet"
         )
     return out

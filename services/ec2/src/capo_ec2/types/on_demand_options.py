@@ -76,7 +76,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> OnDemandOptions:
     out: OnDemandOptions = {}  # type: ignore[typeddict-item]
-    child_allocation_strategy = el.find("AllocationStrategy")
+    child_allocation_strategy = el.find("allocationStrategy")
     if child_allocation_strategy is not None:
         import capo_ec2.types.fleet_on_demand_allocation_strategy
 
@@ -85,7 +85,7 @@ def deserialize_ec2_query(el: Element) -> OnDemandOptions:
                 child_allocation_strategy
             )
         )
-    child_capacity_reservation_options = el.find("CapacityReservationOptions")
+    child_capacity_reservation_options = el.find("capacityReservationOptions")
     if child_capacity_reservation_options is not None:
         import capo_ec2.types.capacity_reservation_options
 
@@ -94,20 +94,20 @@ def deserialize_ec2_query(el: Element) -> OnDemandOptions:
                 child_capacity_reservation_options
             )
         )
-    child_single_instance_type = el.find("SingleInstanceType")
+    child_single_instance_type = el.find("singleInstanceType")
     if child_single_instance_type is not None:
         out["single_instance_type"] = (
             child_single_instance_type.text or ""
         ).lower() == "true"
-    child_single_availability_zone = el.find("SingleAvailabilityZone")
+    child_single_availability_zone = el.find("singleAvailabilityZone")
     if child_single_availability_zone is not None:
         out["single_availability_zone"] = (
             child_single_availability_zone.text or ""
         ).lower() == "true"
-    child_min_target_capacity = el.find("MinTargetCapacity")
+    child_min_target_capacity = el.find("minTargetCapacity")
     if child_min_target_capacity is not None:
         out["min_target_capacity"] = int(child_min_target_capacity.text or "")
-    child_max_total_price = el.find("MaxTotalPrice")
+    child_max_total_price = el.find("maxTotalPrice")
     if child_max_total_price is not None:
         out["max_total_price"] = str(child_max_total_price.text or "")
     return out

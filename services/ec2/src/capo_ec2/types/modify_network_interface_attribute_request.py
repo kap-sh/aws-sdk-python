@@ -94,7 +94,7 @@ def serialize_ec2_query(
         import capo_ec2.types.subnet_id_list
 
         capo_ec2.types.subnet_id_list.serialize_ec2_query(
-            value["associated_subnet_ids"], pairs, f"{key_prefix}AssociatedSubnetIds"
+            value["associated_subnet_ids"], pairs, f"{key_prefix}AssociatedSubnetId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -118,7 +118,7 @@ def serialize_ec2_query(
         import capo_ec2.types.security_group_id_string_list
 
         capo_ec2.types.security_group_id_string_list.serialize_ec2_query(
-            value["groups"], pairs, f"{key_prefix}Groups"
+            value["groups"], pairs, f"{key_prefix}SecurityGroupId"
         )
     if "attachment" in value:
         import capo_ec2.types.network_interface_attachment_changes
@@ -158,28 +158,28 @@ def deserialize_ec2_query(el: Element) -> ModifyNetworkInterfaceAttributeRequest
         out["associate_public_ip_address"] = (
             child_associate_public_ip_address.text or ""
         ).lower() == "true"
-    if el.find("AssociatedSubnetIds") is not None:
+    if el.find("AssociatedSubnetId") is not None:
         import capo_ec2.types.subnet_id_list
 
         out["associated_subnet_ids"] = (
             capo_ec2.types.subnet_id_list.deserialize_ec2_query(
-                el, "AssociatedSubnetIds"
+                el, "AssociatedSubnetId"
             )
         )
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         import capo_ec2.types.attribute_value
 
         out["description"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_description
         )
-    child_source_dest_check = el.find("SourceDestCheck")
+    child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
         import capo_ec2.types.attribute_boolean_value
 
@@ -188,15 +188,15 @@ def deserialize_ec2_query(el: Element) -> ModifyNetworkInterfaceAttributeRequest
                 child_source_dest_check
             )
         )
-    if el.find("Groups") is not None:
+    if el.find("SecurityGroupId") is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["groups"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "Groups"
+                el, "SecurityGroupId"
             )
         )
-    child_attachment = el.find("Attachment")
+    child_attachment = el.find("attachment")
     if child_attachment is not None:
         import capo_ec2.types.network_interface_attachment_changes
 

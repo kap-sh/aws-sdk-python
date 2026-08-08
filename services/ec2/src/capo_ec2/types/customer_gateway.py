@@ -65,32 +65,32 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CustomerGateway:
     out: CustomerGateway = {}  # type: ignore[typeddict-item]
-    child_certificate_arn = el.find("CertificateArn")
+    child_certificate_arn = el.find("certificateArn")
     if child_certificate_arn is not None:
         out["certificate_arn"] = str(child_certificate_arn.text or "")
-    child_device_name = el.find("DeviceName")
+    child_device_name = el.find("deviceName")
     if child_device_name is not None:
         out["device_name"] = str(child_device_name.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_bgp_asn_extended = el.find("BgpAsnExtended")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_bgp_asn_extended = el.find("bgpAsnExtended")
     if child_bgp_asn_extended is not None:
         out["bgp_asn_extended"] = str(child_bgp_asn_extended.text or "")
-    child_customer_gateway_id = el.find("CustomerGatewayId")
+    child_customer_gateway_id = el.find("customerGatewayId")
     if child_customer_gateway_id is not None:
         out["customer_gateway_id"] = str(child_customer_gateway_id.text or "")
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    child_ip_address = el.find("IpAddress")
+    child_ip_address = el.find("ipAddress")
     if child_ip_address is not None:
         out["ip_address"] = str(child_ip_address.text or "")
-    child_bgp_asn = el.find("BgpAsn")
+    child_bgp_asn = el.find("bgpAsn")
     if child_bgp_asn is not None:
         out["bgp_asn"] = str(child_bgp_asn.text or "")
     return out

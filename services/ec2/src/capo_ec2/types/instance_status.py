@@ -104,39 +104,39 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceStatus:
     out: InstanceStatus = {}  # type: ignore[typeddict-item]
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    if el.find("EventsSet") is not None:
+    if el.find("eventsSet") is not None:
         import capo_ec2.types.instance_status_event_list
 
         out["events"] = capo_ec2.types.instance_status_event_list.deserialize_ec2_query(
-            el, "EventsSet"
+            el, "eventsSet"
         )
-    child_instance_id = el.find("InstanceId")
+    child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    child_instance_state = el.find("InstanceState")
+    child_instance_state = el.find("instanceState")
     if child_instance_state is not None:
         import capo_ec2.types.instance_state
 
         out["instance_state"] = capo_ec2.types.instance_state.deserialize_ec2_query(
             child_instance_state
         )
-    child_instance_status = el.find("InstanceStatus")
+    child_instance_status = el.find("instanceStatus")
     if child_instance_status is not None:
         import capo_ec2.types.instance_status_summary
 
@@ -145,7 +145,7 @@ def deserialize_ec2_query(el: Element) -> InstanceStatus:
                 child_instance_status
             )
         )
-    child_system_status = el.find("SystemStatus")
+    child_system_status = el.find("systemStatus")
     if child_system_status is not None:
         import capo_ec2.types.instance_status_summary
 
@@ -154,7 +154,7 @@ def deserialize_ec2_query(el: Element) -> InstanceStatus:
                 child_system_status
             )
         )
-    child_attached_ebs_status = el.find("AttachedEbsStatus")
+    child_attached_ebs_status = el.find("attachedEbsStatus")
     if child_attached_ebs_status is not None:
         import capo_ec2.types.ebs_status_summary
 

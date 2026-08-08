@@ -47,10 +47,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TerminateConnectionStatus:
     out: TerminateConnectionStatus = {}  # type: ignore[typeddict-item]
-    child_connection_id = el.find("ConnectionId")
+    child_connection_id = el.find("connectionId")
     if child_connection_id is not None:
         out["connection_id"] = str(child_connection_id.text or "")
-    child_previous_status = el.find("PreviousStatus")
+    child_previous_status = el.find("previousStatus")
     if child_previous_status is not None:
         import capo_ec2.types.client_vpn_connection_status
 
@@ -59,7 +59,7 @@ def deserialize_ec2_query(el: Element) -> TerminateConnectionStatus:
                 child_previous_status
             )
         )
-    child_current_status = el.find("CurrentStatus")
+    child_current_status = el.find("currentStatus")
     if child_current_status is not None:
         import capo_ec2.types.client_vpn_connection_status
 

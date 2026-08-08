@@ -37,15 +37,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeConversionTasksRequest:
     out: DescribeConversionTasksRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ConversionTaskId") is not None:
+    if el.find("conversionTaskId") is not None:
         import capo_ec2.types.conversion_id_string_list
 
         out["conversion_task_ids"] = (
             capo_ec2.types.conversion_id_string_list.deserialize_ec2_query(
-                el, "ConversionTaskId"
+                el, "conversionTaskId"
             )
         )
     return out

@@ -36,12 +36,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UpdateCapacityManagerMonitoredTagKeysResult:
     out: UpdateCapacityManagerMonitoredTagKeysResult = {}  # type: ignore[typeddict-item]
-    if el.find("CapacityManagerTagKeySet") is not None:
+    if el.find("capacityManagerTagKeySet") is not None:
         import capo_ec2.types.capacity_manager_monitored_tag_key_list
 
         out["capacity_manager_tag_keys"] = (
             capo_ec2.types.capacity_manager_monitored_tag_key_list.deserialize_ec2_query(
-                el, "CapacityManagerTagKeySet"
+                el, "capacityManagerTagKeySet"
             )
         )
     return out

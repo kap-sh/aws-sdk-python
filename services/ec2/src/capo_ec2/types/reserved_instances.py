@@ -168,7 +168,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstances:
     out: ReservedInstances = {}  # type: ignore[typeddict-item]
-    child_currency_code = el.find("CurrencyCode")
+    child_currency_code = el.find("currencyCode")
     if child_currency_code is not None:
         import capo_ec2.types.currency_code_values
 
@@ -177,14 +177,14 @@ def deserialize_ec2_query(el: Element) -> ReservedInstances:
                 child_currency_code
             )
         )
-    child_instance_tenancy = el.find("InstanceTenancy")
+    child_instance_tenancy = el.find("instanceTenancy")
     if child_instance_tenancy is not None:
         import capo_ec2.types.tenancy
 
         out["instance_tenancy"] = capo_ec2.types.tenancy.deserialize_ec2_query(
             child_instance_tenancy
         )
-    child_offering_class = el.find("OfferingClass")
+    child_offering_class = el.find("offeringClass")
     if child_offering_class is not None:
         import capo_ec2.types.offering_class_type
 
@@ -193,7 +193,7 @@ def deserialize_ec2_query(el: Element) -> ReservedInstances:
                 child_offering_class
             )
         )
-    child_offering_type = el.find("OfferingType")
+    child_offering_type = el.find("offeringType")
     if child_offering_type is not None:
         import capo_ec2.types.offering_type_values
 
@@ -202,62 +202,62 @@ def deserialize_ec2_query(el: Element) -> ReservedInstances:
                 child_offering_type
             )
         )
-    if el.find("RecurringCharges") is not None:
+    if el.find("recurringCharges") is not None:
         import capo_ec2.types.recurring_charges_list
 
         out["recurring_charges"] = (
             capo_ec2.types.recurring_charges_list.deserialize_ec2_query(
-                el, "RecurringCharges"
+                el, "recurringCharges"
             )
         )
-    child_scope = el.find("Scope")
+    child_scope = el.find("scope")
     if child_scope is not None:
         import capo_ec2.types.scope
 
         out["scope"] = capo_ec2.types.scope.deserialize_ec2_query(child_scope)
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_availability_zone_id = el.find("AvailabilityZoneId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    child_reserved_instances_id = el.find("ReservedInstancesId")
+    child_reserved_instances_id = el.find("reservedInstancesId")
     if child_reserved_instances_id is not None:
         out["reserved_instances_id"] = str(child_reserved_instances_id.text or "")
-    child_instance_type = el.find("InstanceType")
+    child_instance_type = el.find("instanceType")
     if child_instance_type is not None:
         import capo_ec2.types.instance_type
 
         out["instance_type"] = capo_ec2.types.instance_type.deserialize_ec2_query(
             child_instance_type
         )
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_start = el.find("Start")
+    child_start = el.find("start")
     if child_start is not None:
         import capo_ec2.types.date_time
 
         out["start"] = capo_ec2.types.date_time.deserialize_ec2_query(child_start)
-    child_end = el.find("End")
+    child_end = el.find("end")
     if child_end is not None:
         import capo_ec2.types.date_time
 
         out["end"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end)
-    child_duration = el.find("Duration")
+    child_duration = el.find("duration")
     if child_duration is not None:
         out["duration"] = int(child_duration.text or "")
-    child_usage_price = el.find("UsagePrice")
+    child_usage_price = el.find("usagePrice")
     if child_usage_price is not None:
         out["usage_price"] = float(child_usage_price.text or "")
-    child_fixed_price = el.find("FixedPrice")
+    child_fixed_price = el.find("fixedPrice")
     if child_fixed_price is not None:
         out["fixed_price"] = float(child_fixed_price.text or "")
-    child_instance_count = el.find("InstanceCount")
+    child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    child_product_description = el.find("ProductDescription")
+    child_product_description = el.find("productDescription")
     if child_product_description is not None:
         import capo_ec2.types.ri_product_description
 
@@ -266,7 +266,7 @@ def deserialize_ec2_query(el: Element) -> ReservedInstances:
                 child_product_description
             )
         )
-    child_state = el.find("State")
+    child_state = el.find("state")
     if child_state is not None:
         import capo_ec2.types.reserved_instance_state
 

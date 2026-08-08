@@ -62,7 +62,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRule:
     out: IpamPrefixListResolverRule = {}  # type: ignore[typeddict-item]
-    child_rule_type = el.find("RuleType")
+    child_rule_type = el.find("ruleType")
     if child_rule_type is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_type
 
@@ -71,25 +71,25 @@ def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRule:
                 child_rule_type
             )
         )
-    child_static_cidr = el.find("StaticCidr")
+    child_static_cidr = el.find("staticCidr")
     if child_static_cidr is not None:
         out["static_cidr"] = str(child_static_cidr.text or "")
-    child_ipam_scope_id = el.find("IpamScopeId")
+    child_ipam_scope_id = el.find("ipamScopeId")
     if child_ipam_scope_id is not None:
         out["ipam_scope_id"] = str(child_ipam_scope_id.text or "")
-    child_resource_type = el.find("ResourceType")
+    child_resource_type = el.find("resourceType")
     if child_resource_type is not None:
         import capo_ec2.types.ipam_resource_type
 
         out["resource_type"] = capo_ec2.types.ipam_resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("ConditionSet") is not None:
+    if el.find("conditionSet") is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_condition_set
 
         out["conditions"] = (
             capo_ec2.types.ipam_prefix_list_resolver_rule_condition_set.deserialize_ec2_query(
-                el, "ConditionSet"
+                el, "conditionSet"
             )
         )
     return out

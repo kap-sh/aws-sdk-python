@@ -44,7 +44,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamScopeExternalAuthorityConfiguration:
     out: IpamScopeExternalAuthorityConfiguration = {}  # type: ignore[typeddict-item]
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.ipam_scope_external_authority_type
 
@@ -53,7 +53,7 @@ def deserialize_ec2_query(el: Element) -> IpamScopeExternalAuthorityConfiguratio
                 child_type
             )
         )
-    child_external_resource_identifier = el.find("ExternalResourceIdentifier")
+    child_external_resource_identifier = el.find("externalResourceIdentifier")
     if child_external_resource_identifier is not None:
         out["external_resource_identifier"] = str(
             child_external_resource_identifier.text or ""

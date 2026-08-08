@@ -71,20 +71,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> NatGatewayAttachedAppliance:
     out: NatGatewayAttachedAppliance = {}  # type: ignore[typeddict-item]
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.nat_gateway_appliance_type
 
         out["type"] = capo_ec2.types.nat_gateway_appliance_type.deserialize_ec2_query(
             child_type
         )
-    child_appliance_arn = el.find("ApplianceArn")
+    child_appliance_arn = el.find("applianceArn")
     if child_appliance_arn is not None:
         out["appliance_arn"] = str(child_appliance_arn.text or "")
-    child_vpc_endpoint_id = el.find("VpcEndpointId")
+    child_vpc_endpoint_id = el.find("vpcEndpointId")
     if child_vpc_endpoint_id is not None:
         out["vpc_endpoint_id"] = str(child_vpc_endpoint_id.text or "")
-    child_attachment_state = el.find("AttachmentState")
+    child_attachment_state = el.find("attachmentState")
     if child_attachment_state is not None:
         import capo_ec2.types.nat_gateway_appliance_state
 
@@ -93,7 +93,7 @@ def deserialize_ec2_query(el: Element) -> NatGatewayAttachedAppliance:
                 child_attachment_state
             )
         )
-    child_modification_state = el.find("ModificationState")
+    child_modification_state = el.find("modificationState")
     if child_modification_state is not None:
         import capo_ec2.types.nat_gateway_appliance_modify_state
 
@@ -102,10 +102,10 @@ def deserialize_ec2_query(el: Element) -> NatGatewayAttachedAppliance:
                 child_modification_state
             )
         )
-    child_failure_code = el.find("FailureCode")
+    child_failure_code = el.find("failureCode")
     if child_failure_code is not None:
         out["failure_code"] = str(child_failure_code.text or "")
-    child_failure_message = el.find("FailureMessage")
+    child_failure_message = el.find("failureMessage")
     if child_failure_message is not None:
         out["failure_message"] = str(child_failure_message.text or "")
     return out

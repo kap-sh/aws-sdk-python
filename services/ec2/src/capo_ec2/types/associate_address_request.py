@@ -77,16 +77,16 @@ def deserialize_ec2_query(el: Element) -> AssociateAddressRequest:
     child_public_ip = el.find("PublicIp")
     if child_public_ip is not None:
         out["public_ip"] = str(child_public_ip.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_private_ip_address = el.find("PrivateIpAddress")
+    child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    child_allow_reassociation = el.find("AllowReassociation")
+    child_allow_reassociation = el.find("allowReassociation")
     if child_allow_reassociation is not None:
         out["allow_reassociation"] = (
             child_allow_reassociation.text or ""

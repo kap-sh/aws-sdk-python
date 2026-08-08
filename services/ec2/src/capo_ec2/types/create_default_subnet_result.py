@@ -30,7 +30,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateDefaultSubnetResult:
     out: CreateDefaultSubnetResult = {}  # type: ignore[typeddict-item]
-    child_subnet = el.find("Subnet")
+    child_subnet = el.find("subnet")
     if child_subnet is not None:
         import capo_ec2.types.subnet
 

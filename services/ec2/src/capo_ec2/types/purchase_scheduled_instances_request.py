@@ -36,7 +36,7 @@ def serialize_ec2_query(
         import capo_ec2.types.purchase_request_set
 
         capo_ec2.types.purchase_request_set.serialize_ec2_query(
-            value["purchase_requests"], pairs, f"{key_prefix}PurchaseRequests"
+            value["purchase_requests"], pairs, f"{key_prefix}PurchaseRequest"
         )
 
 
@@ -48,12 +48,12 @@ def deserialize_ec2_query(el: Element) -> PurchaseScheduledInstancesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("PurchaseRequests") is not None:
+    if el.find("PurchaseRequest") is not None:
         import capo_ec2.types.purchase_request_set
 
         out["purchase_requests"] = (
             capo_ec2.types.purchase_request_set.deserialize_ec2_query(
-                el, "PurchaseRequests"
+                el, "PurchaseRequest"
             )
         )
     return out

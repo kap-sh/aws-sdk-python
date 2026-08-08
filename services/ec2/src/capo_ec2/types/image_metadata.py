@@ -69,33 +69,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageMetadata:
     out: ImageMetadata = {}  # type: ignore[typeddict-item]
-    child_image_id = el.find("ImageId")
+    child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    child_name = el.find("Name")
+    child_name = el.find("name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    child_owner_id = el.find("ImageOwnerId")
+    child_owner_id = el.find("imageOwnerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    child_state = el.find("ImageState")
+    child_state = el.find("imageState")
     if child_state is not None:
         import capo_ec2.types.image_state
 
         out["state"] = capo_ec2.types.image_state.deserialize_ec2_query(child_state)
-    child_image_owner_alias = el.find("ImageOwnerAlias")
+    child_image_owner_alias = el.find("imageOwnerAlias")
     if child_image_owner_alias is not None:
         out["image_owner_alias"] = str(child_image_owner_alias.text or "")
-    child_creation_date = el.find("CreationDate")
+    child_creation_date = el.find("creationDate")
     if child_creation_date is not None:
         out["creation_date"] = str(child_creation_date.text or "")
-    child_deprecation_time = el.find("DeprecationTime")
+    child_deprecation_time = el.find("deprecationTime")
     if child_deprecation_time is not None:
         out["deprecation_time"] = str(child_deprecation_time.text or "")
-    child_image_allowed = el.find("ImageAllowed")
+    child_image_allowed = el.find("imageAllowed")
     if child_image_allowed is not None:
         out["image_allowed"] = (child_image_allowed.text or "").lower() == "true"
-    child_is_public = el.find("IsPublic")
+    child_is_public = el.find("isPublic")
     if child_is_public is not None:
         out["is_public"] = (child_is_public.text or "").lower() == "true"
     return out

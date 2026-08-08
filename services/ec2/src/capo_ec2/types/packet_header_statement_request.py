@@ -41,31 +41,31 @@ def serialize_ec2_query(
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["source_addresses"], pairs, f"{key_prefix}SourceAddresses"
+            value["source_addresses"], pairs, f"{key_prefix}SourceAddress"
         )
     if "destination_addresses" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["destination_addresses"], pairs, f"{key_prefix}DestinationAddresses"
+            value["destination_addresses"], pairs, f"{key_prefix}DestinationAddress"
         )
     if "source_ports" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["source_ports"], pairs, f"{key_prefix}SourcePorts"
+            value["source_ports"], pairs, f"{key_prefix}SourcePort"
         )
     if "destination_ports" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["destination_ports"], pairs, f"{key_prefix}DestinationPorts"
+            value["destination_ports"], pairs, f"{key_prefix}DestinationPort"
         )
     if "source_prefix_lists" in value:
         import capo_ec2.types.value_string_list
 
         capo_ec2.types.value_string_list.serialize_ec2_query(
-            value["source_prefix_lists"], pairs, f"{key_prefix}SourcePrefixLists"
+            value["source_prefix_lists"], pairs, f"{key_prefix}SourcePrefixList"
         )
     if "destination_prefix_lists" in value:
         import capo_ec2.types.value_string_list
@@ -73,68 +73,66 @@ def serialize_ec2_query(
         capo_ec2.types.value_string_list.serialize_ec2_query(
             value["destination_prefix_lists"],
             pairs,
-            f"{key_prefix}DestinationPrefixLists",
+            f"{key_prefix}DestinationPrefixList",
         )
     if "protocols" in value:
         import capo_ec2.types.protocol_list
 
         capo_ec2.types.protocol_list.serialize_ec2_query(
-            value["protocols"], pairs, f"{key_prefix}Protocols"
+            value["protocols"], pairs, f"{key_prefix}Protocol"
         )
 
 
 def deserialize_ec2_query(el: Element) -> PacketHeaderStatementRequest:
     out: PacketHeaderStatementRequest = {}  # type: ignore[typeddict-item]
-    if el.find("SourceAddresses") is not None:
+    if el.find("SourceAddress") is not None:
         import capo_ec2.types.value_string_list
 
         out["source_addresses"] = (
-            capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SourceAddresses"
-            )
+            capo_ec2.types.value_string_list.deserialize_ec2_query(el, "SourceAddress")
         )
-    if el.find("DestinationAddresses") is not None:
+    if el.find("DestinationAddress") is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_addresses"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationAddresses"
+                el, "DestinationAddress"
             )
         )
-    if el.find("SourcePorts") is not None:
+    if el.find("SourcePort") is not None:
         import capo_ec2.types.value_string_list
 
         out["source_ports"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SourcePorts"
+            el, "SourcePort"
         )
-    if el.find("DestinationPorts") is not None:
+    if el.find("DestinationPort") is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_ports"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationPorts"
+                el, "DestinationPort"
             )
         )
-    if el.find("SourcePrefixLists") is not None:
+    if el.find("SourcePrefixList") is not None:
         import capo_ec2.types.value_string_list
 
         out["source_prefix_lists"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SourcePrefixLists"
+                el, "SourcePrefixList"
             )
         )
-    if el.find("DestinationPrefixLists") is not None:
+    if el.find("DestinationPrefixList") is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_prefix_lists"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationPrefixLists"
+                el, "DestinationPrefixList"
             )
         )
-    if el.find("Protocols") is not None:
+    if el.find("Protocol") is not None:
         import capo_ec2.types.protocol_list
 
         out["protocols"] = capo_ec2.types.protocol_list.deserialize_ec2_query(
-            el, "Protocols"
+            el, "Protocol"
         )
     return out

@@ -35,13 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RuleGroupRuleOptionsPair:
     out: RuleGroupRuleOptionsPair = {}  # type: ignore[typeddict-item]
-    child_rule_group_arn = el.find("RuleGroupArn")
+    child_rule_group_arn = el.find("ruleGroupArn")
     if child_rule_group_arn is not None:
         out["rule_group_arn"] = str(child_rule_group_arn.text or "")
-    if el.find("RuleOptionSet") is not None:
+    if el.find("ruleOptionSet") is not None:
         import capo_ec2.types.rule_option_list
 
         out["rule_options"] = capo_ec2.types.rule_option_list.deserialize_ec2_query(
-            el, "RuleOptionSet"
+            el, "ruleOptionSet"
         )
     return out

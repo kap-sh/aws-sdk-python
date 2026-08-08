@@ -35,15 +35,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupsResult:
     out: DescribeSecurityGroupsResult = {}  # type: ignore[typeddict-item]
-    child_next_token = el.find("NextToken")
+    child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("SecurityGroupInfo") is not None:
+    if el.find("securityGroupInfo") is not None:
         import capo_ec2.types.security_group_list
 
         out["security_groups"] = (
             capo_ec2.types.security_group_list.deserialize_ec2_query(
-                el, "SecurityGroupInfo"
+                el, "securityGroupInfo"
             )
         )
     return out

@@ -35,13 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RuleOption:
     out: RuleOption = {}  # type: ignore[typeddict-item]
-    child_keyword = el.find("Keyword")
+    child_keyword = el.find("keyword")
     if child_keyword is not None:
         out["keyword"] = str(child_keyword.text or "")
-    if el.find("SettingSet") is not None:
+    if el.find("settingSet") is not None:
         import capo_ec2.types.string_list
 
         out["settings"] = capo_ec2.types.string_list.deserialize_ec2_query(
-            el, "SettingSet"
+            el, "settingSet"
         )
     return out

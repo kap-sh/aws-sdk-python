@@ -83,35 +83,35 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TrafficMirrorTarget:
     out: TrafficMirrorTarget = {}  # type: ignore[typeddict-item]
-    child_traffic_mirror_target_id = el.find("TrafficMirrorTargetId")
+    child_traffic_mirror_target_id = el.find("trafficMirrorTargetId")
     if child_traffic_mirror_target_id is not None:
         out["traffic_mirror_target_id"] = str(child_traffic_mirror_target_id.text or "")
-    child_network_interface_id = el.find("NetworkInterfaceId")
+    child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    child_network_load_balancer_arn = el.find("NetworkLoadBalancerArn")
+    child_network_load_balancer_arn = el.find("networkLoadBalancerArn")
     if child_network_load_balancer_arn is not None:
         out["network_load_balancer_arn"] = str(
             child_network_load_balancer_arn.text or ""
         )
-    child_type = el.find("Type")
+    child_type = el.find("type")
     if child_type is not None:
         import capo_ec2.types.traffic_mirror_target_type
 
         out["type"] = capo_ec2.types.traffic_mirror_target_type.deserialize_ec2_query(
             child_type
         )
-    child_description = el.find("Description")
+    child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    child_owner_id = el.find("OwnerId")
+    child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_gateway_load_balancer_endpoint_id = el.find("GatewayLoadBalancerEndpointId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_gateway_load_balancer_endpoint_id = el.find("gatewayLoadBalancerEndpointId")
     if child_gateway_load_balancer_endpoint_id is not None:
         out["gateway_load_balancer_endpoint_id"] = str(
             child_gateway_load_balancer_endpoint_id.text or ""

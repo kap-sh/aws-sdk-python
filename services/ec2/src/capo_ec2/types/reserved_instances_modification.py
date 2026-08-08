@@ -90,53 +90,53 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservedInstancesModification:
     out: ReservedInstancesModification = {}  # type: ignore[typeddict-item]
-    child_client_token = el.find("ClientToken")
+    child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    child_create_date = el.find("CreateDate")
+    child_create_date = el.find("createDate")
     if child_create_date is not None:
         import capo_ec2.types.date_time
 
         out["create_date"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_date
         )
-    child_effective_date = el.find("EffectiveDate")
+    child_effective_date = el.find("effectiveDate")
     if child_effective_date is not None:
         import capo_ec2.types.date_time
 
         out["effective_date"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_effective_date
         )
-    if el.find("ModificationResultSet") is not None:
+    if el.find("modificationResultSet") is not None:
         import capo_ec2.types.reserved_instances_modification_result_list
 
         out["modification_results"] = (
             capo_ec2.types.reserved_instances_modification_result_list.deserialize_ec2_query(
-                el, "ModificationResultSet"
+                el, "modificationResultSet"
             )
         )
-    if el.find("ReservedInstancesSet") is not None:
+    if el.find("reservedInstancesSet") is not None:
         import capo_ec2.types.reserved_intances_ids
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.reserved_intances_ids.deserialize_ec2_query(
-                el, "ReservedInstancesSet"
+                el, "reservedInstancesSet"
             )
         )
     child_reserved_instances_modification_id = el.find(
-        "ReservedInstancesModificationId"
+        "reservedInstancesModificationId"
     )
     if child_reserved_instances_modification_id is not None:
         out["reserved_instances_modification_id"] = str(
             child_reserved_instances_modification_id.text or ""
         )
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         out["status"] = str(child_status.text or "")
-    child_status_message = el.find("StatusMessage")
+    child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    child_update_date = el.find("UpdateDate")
+    child_update_date = el.find("updateDate")
     if child_update_date is not None:
         import capo_ec2.types.date_time
 

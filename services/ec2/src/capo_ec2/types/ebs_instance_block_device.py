@@ -78,42 +78,42 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsInstanceBlockDevice:
     out: EbsInstanceBlockDevice = {}  # type: ignore[typeddict-item]
-    child_attach_time = el.find("AttachTime")
+    child_attach_time = el.find("attachTime")
     if child_attach_time is not None:
         import capo_ec2.types.date_time
 
         out["attach_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_attach_time
         )
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_status = el.find("Status")
+    child_status = el.find("status")
     if child_status is not None:
         import capo_ec2.types.attachment_status
 
         out["status"] = capo_ec2.types.attachment_status.deserialize_ec2_query(
             child_status
         )
-    child_volume_id = el.find("VolumeId")
+    child_volume_id = el.find("volumeId")
     if child_volume_id is not None:
         out["volume_id"] = str(child_volume_id.text or "")
-    child_associated_resource = el.find("AssociatedResource")
+    child_associated_resource = el.find("associatedResource")
     if child_associated_resource is not None:
         out["associated_resource"] = str(child_associated_resource.text or "")
-    child_volume_owner_id = el.find("VolumeOwnerId")
+    child_volume_owner_id = el.find("volumeOwnerId")
     if child_volume_owner_id is not None:
         out["volume_owner_id"] = str(child_volume_owner_id.text or "")
-    child_operator = el.find("Operator")
+    child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response
 
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    child_ebs_card_index = el.find("EbsCardIndex")
+    child_ebs_card_index = el.find("ebsCardIndex")
     if child_ebs_card_index is not None:
         out["ebs_card_index"] = int(child_ebs_card_index.text or "")
     return out

@@ -41,13 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ReservationValue:
     out: ReservationValue = {}  # type: ignore[typeddict-item]
-    child_hourly_price = el.find("HourlyPrice")
+    child_hourly_price = el.find("hourlyPrice")
     if child_hourly_price is not None:
         out["hourly_price"] = str(child_hourly_price.text or "")
-    child_remaining_total_value = el.find("RemainingTotalValue")
+    child_remaining_total_value = el.find("remainingTotalValue")
     if child_remaining_total_value is not None:
         out["remaining_total_value"] = str(child_remaining_total_value.text or "")
-    child_remaining_upfront_value = el.find("RemainingUpfrontValue")
+    child_remaining_upfront_value = el.find("remainingUpfrontValue")
     if child_remaining_upfront_value is not None:
         out["remaining_upfront_value"] = str(child_remaining_upfront_value.text or "")
     return out

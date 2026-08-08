@@ -53,26 +53,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AnalysisAclRule:
     out: AnalysisAclRule = {}  # type: ignore[typeddict-item]
-    child_cidr = el.find("Cidr")
+    child_cidr = el.find("cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    child_egress = el.find("Egress")
+    child_egress = el.find("egress")
     if child_egress is not None:
         out["egress"] = (child_egress.text or "").lower() == "true"
-    child_port_range = el.find("PortRange")
+    child_port_range = el.find("portRange")
     if child_port_range is not None:
         import capo_ec2.types.port_range
 
         out["port_range"] = capo_ec2.types.port_range.deserialize_ec2_query(
             child_port_range
         )
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         out["protocol"] = str(child_protocol.text or "")
-    child_rule_action = el.find("RuleAction")
+    child_rule_action = el.find("ruleAction")
     if child_rule_action is not None:
         out["rule_action"] = str(child_rule_action.text or "")
-    child_rule_number = el.find("RuleNumber")
+    child_rule_number = el.find("ruleNumber")
     if child_rule_number is not None:
         out["rule_number"] = int(child_rule_number.text or "")
     return out

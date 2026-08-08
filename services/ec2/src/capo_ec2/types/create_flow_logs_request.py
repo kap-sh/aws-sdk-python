@@ -86,7 +86,7 @@ def serialize_ec2_query(
         import capo_ec2.types.flow_log_resource_ids
 
         capo_ec2.types.flow_log_resource_ids.serialize_ec2_query(
-            value["resource_ids"], pairs, f"{key_prefix}ResourceIds"
+            value["resource_ids"], pairs, f"{key_prefix}ResourceId"
         )
     if "resource_type" in value:
         import capo_ec2.types.flow_logs_resource_type
@@ -114,7 +114,7 @@ def serialize_ec2_query(
         import capo_ec2.types.tag_specification_list
 
         capo_ec2.types.tag_specification_list.serialize_ec2_query(
-            value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
+            value["tag_specifications"], pairs, f"{key_prefix}TagSpecification"
         )
     if "max_aggregation_interval" in value:
         pairs.append(
@@ -152,13 +152,11 @@ def deserialize_ec2_query(el: Element) -> CreateFlowLogsRequest:
     child_log_group_name = el.find("LogGroupName")
     if child_log_group_name is not None:
         out["log_group_name"] = str(child_log_group_name.text or "")
-    if el.find("ResourceIds") is not None:
+    if el.find("ResourceId") is not None:
         import capo_ec2.types.flow_log_resource_ids
 
         out["resource_ids"] = (
-            capo_ec2.types.flow_log_resource_ids.deserialize_ec2_query(
-                el, "ResourceIds"
-            )
+            capo_ec2.types.flow_log_resource_ids.deserialize_ec2_query(el, "ResourceId")
         )
     child_resource_type = el.find("ResourceType")
     if child_resource_type is not None:
@@ -191,12 +189,12 @@ def deserialize_ec2_query(el: Element) -> CreateFlowLogsRequest:
     child_log_format = el.find("LogFormat")
     if child_log_format is not None:
         out["log_format"] = str(child_log_format.text or "")
-    if el.find("TagSpecifications") is not None:
+    if el.find("TagSpecification") is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                el, "TagSpecification"
             )
         )
     child_max_aggregation_interval = el.find("MaxAggregationInterval")

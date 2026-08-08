@@ -46,18 +46,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsRequest:
     out: CancelSpotFleetRequestsRequest = {}  # type: ignore[typeddict-item]
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("SpotFleetRequestId") is not None:
+    if el.find("spotFleetRequestId") is not None:
         import capo_ec2.types.spot_fleet_request_id_list
 
         out["spot_fleet_request_ids"] = (
             capo_ec2.types.spot_fleet_request_id_list.deserialize_ec2_query(
-                el, "SpotFleetRequestId"
+                el, "spotFleetRequestId"
             )
         )
-    child_terminate_instances = el.find("TerminateInstances")
+    child_terminate_instances = el.find("terminateInstances")
     if child_terminate_instances is not None:
         out["terminate_instances"] = (
             child_terminate_instances.text or ""

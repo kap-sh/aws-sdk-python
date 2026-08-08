@@ -33,7 +33,7 @@ def serialize_ec2_query(
         import capo_ec2.types.volume_id_string_list
 
         capo_ec2.types.volume_id_string_list.serialize_ec2_query(
-            value["volume_ids"], pairs, f"{key_prefix}VolumeIds"
+            value["volume_ids"], pairs, f"{key_prefix}VolumeId"
         )
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
@@ -45,11 +45,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ListVolumesInRecycleBinRequest:
     out: ListVolumesInRecycleBinRequest = {}  # type: ignore[typeddict-item]
-    if el.find("VolumeIds") is not None:
+    if el.find("VolumeId") is not None:
         import capo_ec2.types.volume_id_string_list
 
         out["volume_ids"] = capo_ec2.types.volume_id_string_list.deserialize_ec2_query(
-            el, "VolumeIds"
+            el, "VolumeId"
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:

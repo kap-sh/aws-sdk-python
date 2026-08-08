@@ -96,40 +96,40 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsBlockDevice:
     out: EbsBlockDevice = {}  # type: ignore[typeddict-item]
-    child_delete_on_termination = el.find("DeleteOnTermination")
+    child_delete_on_termination = el.find("deleteOnTermination")
     if child_delete_on_termination is not None:
         out["delete_on_termination"] = (
             child_delete_on_termination.text or ""
         ).lower() == "true"
-    child_iops = el.find("Iops")
+    child_iops = el.find("iops")
     if child_iops is not None:
         out["iops"] = int(child_iops.text or "")
-    child_snapshot_id = el.find("SnapshotId")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    child_volume_size = el.find("VolumeSize")
+    child_volume_size = el.find("volumeSize")
     if child_volume_size is not None:
         out["volume_size"] = int(child_volume_size.text or "")
-    child_volume_type = el.find("VolumeType")
+    child_volume_type = el.find("volumeType")
     if child_volume_type is not None:
         import capo_ec2.types.volume_type
 
         out["volume_type"] = capo_ec2.types.volume_type.deserialize_ec2_query(
             child_volume_type
         )
-    child_kms_key_id = el.find("KmsKeyId")
+    child_kms_key_id = el.find("kmsKeyId")
     if child_kms_key_id is not None:
         out["kms_key_id"] = str(child_kms_key_id.text or "")
-    child_throughput = el.find("Throughput")
+    child_throughput = el.find("throughput")
     if child_throughput is not None:
         out["throughput"] = int(child_throughput.text or "")
-    child_outpost_arn = el.find("OutpostArn")
+    child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
-    child_availability_zone = el.find("AvailabilityZone")
+    child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    child_encrypted = el.find("Encrypted")
+    child_encrypted = el.find("encrypted")
     if child_encrypted is not None:
         out["encrypted"] = (child_encrypted.text or "").lower() == "true"
     child_volume_initialization_rate = el.find("VolumeInitializationRate")

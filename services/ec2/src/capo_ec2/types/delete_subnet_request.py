@@ -34,7 +34,7 @@ def deserialize_ec2_query(el: Element) -> DeleteSubnetRequest:
     child_subnet_id = el.find("SubnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    child_dry_run = el.find("DryRun")
+    child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
     return out

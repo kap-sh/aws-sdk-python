@@ -26,7 +26,7 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CopyFpgaImageResult:
     out: CopyFpgaImageResult = {}  # type: ignore[typeddict-item]
-    child_fpga_image_id = el.find("FpgaImageId")
+    child_fpga_image_id = el.find("fpgaImageId")
     if child_fpga_image_id is not None:
         out["fpga_image_id"] = str(child_fpga_image_id.text or "")
     return out

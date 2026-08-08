@@ -37,10 +37,10 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RecurringCharge:
     out: RecurringCharge = {}  # type: ignore[typeddict-item]
-    child_amount = el.find("Amount")
+    child_amount = el.find("amount")
     if child_amount is not None:
         out["amount"] = float(child_amount.text or "")
-    child_frequency = el.find("Frequency")
+    child_frequency = el.find("frequency")
     if child_frequency is not None:
         import capo_ec2.types.recurring_charge_frequency
 

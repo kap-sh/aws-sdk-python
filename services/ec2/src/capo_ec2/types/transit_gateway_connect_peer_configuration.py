@@ -68,33 +68,33 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayConnectPeerConfiguration:
     out: TransitGatewayConnectPeerConfiguration = {}  # type: ignore[typeddict-item]
-    child_transit_gateway_address = el.find("TransitGatewayAddress")
+    child_transit_gateway_address = el.find("transitGatewayAddress")
     if child_transit_gateway_address is not None:
         out["transit_gateway_address"] = str(child_transit_gateway_address.text or "")
-    child_peer_address = el.find("PeerAddress")
+    child_peer_address = el.find("peerAddress")
     if child_peer_address is not None:
         out["peer_address"] = str(child_peer_address.text or "")
-    if el.find("InsideCidrBlocks") is not None:
+    if el.find("insideCidrBlocks") is not None:
         import capo_ec2.types.inside_cidr_blocks_string_list
 
         out["inside_cidr_blocks"] = (
             capo_ec2.types.inside_cidr_blocks_string_list.deserialize_ec2_query(
-                el, "InsideCidrBlocks"
+                el, "insideCidrBlocks"
             )
         )
-    child_protocol = el.find("Protocol")
+    child_protocol = el.find("protocol")
     if child_protocol is not None:
         import capo_ec2.types.protocol_value
 
         out["protocol"] = capo_ec2.types.protocol_value.deserialize_ec2_query(
             child_protocol
         )
-    if el.find("BgpConfigurations") is not None:
+    if el.find("bgpConfigurations") is not None:
         import capo_ec2.types.transit_gateway_attachment_bgp_configuration_list
 
         out["bgp_configurations"] = (
             capo_ec2.types.transit_gateway_attachment_bgp_configuration_list.deserialize_ec2_query(
-                el, "BgpConfigurations"
+                el, "bgpConfigurations"
             )
         )
     return out

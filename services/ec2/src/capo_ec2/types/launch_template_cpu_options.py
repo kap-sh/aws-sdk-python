@@ -52,13 +52,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> LaunchTemplateCpuOptions:
     out: LaunchTemplateCpuOptions = {}  # type: ignore[typeddict-item]
-    child_core_count = el.find("CoreCount")
+    child_core_count = el.find("coreCount")
     if child_core_count is not None:
         out["core_count"] = int(child_core_count.text or "")
-    child_threads_per_core = el.find("ThreadsPerCore")
+    child_threads_per_core = el.find("threadsPerCore")
     if child_threads_per_core is not None:
         out["threads_per_core"] = int(child_threads_per_core.text or "")
-    child_amd_sev_snp = el.find("AmdSevSnp")
+    child_amd_sev_snp = el.find("amdSevSnp")
     if child_amd_sev_snp is not None:
         import capo_ec2.types.amd_sev_snp_specification
 
@@ -67,7 +67,7 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateCpuOptions:
                 child_amd_sev_snp
             )
         )
-    child_nested_virtualization = el.find("NestedVirtualization")
+    child_nested_virtualization = el.find("nestedVirtualization")
     if child_nested_virtualization is not None:
         import capo_ec2.types.nested_virtualization_specification
 

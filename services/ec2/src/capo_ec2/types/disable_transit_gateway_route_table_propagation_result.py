@@ -36,7 +36,7 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DisableTransitGatewayRouteTablePropagationResult:
     out: DisableTransitGatewayRouteTablePropagationResult = {}  # type: ignore[typeddict-item]
-    child_propagation = el.find("Propagation")
+    child_propagation = el.find("propagation")
     if child_propagation is not None:
         import capo_ec2.types.transit_gateway_propagation
 

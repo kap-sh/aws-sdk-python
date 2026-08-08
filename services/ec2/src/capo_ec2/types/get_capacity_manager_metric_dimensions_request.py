@@ -72,7 +72,7 @@ def serialize_ec2_query(
         import capo_ec2.types.metric_set
 
         capo_ec2.types.metric_set.serialize_ec2_query(
-            value["metric_names"], pairs, f"{key_prefix}MetricNames"
+            value["metric_names"], pairs, f"{key_prefix}MetricName"
         )
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
@@ -112,11 +112,11 @@ def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDimensionsRequ
         out["end_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_end_time
         )
-    if el.find("MetricNames") is not None:
+    if el.find("MetricName") is not None:
         import capo_ec2.types.metric_set
 
         out["metric_names"] = capo_ec2.types.metric_set.deserialize_ec2_query(
-            el, "MetricNames"
+            el, "MetricName"
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:

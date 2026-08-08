@@ -35,11 +35,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CopySnapshotResult:
     out: CopySnapshotResult = {}  # type: ignore[typeddict-item]
-    if el.find("TagSet") is not None:
+    if el.find("tagSet") is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "TagSet")
-    child_snapshot_id = el.find("SnapshotId")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+    child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
     return out
